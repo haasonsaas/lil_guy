@@ -9,7 +9,14 @@ export function markdownPlugin(): Plugin {
     transform(code, id) {
       if (id.endsWith('.md')) {
         const fileContent = fs.readFileSync(id, 'utf-8');
-        return `export default ${JSON.stringify(fileContent)};`;
+        // We need to escape any content that might cause JavaScript syntax errors
+        // when interpreted as a JS string
+        const escapedContent = fileContent
+          .replace(/\\([^"])/g, '\\\\$1') // Escape backslashes (except those already escaping quotes)
+          .replace(/\n/g, '\\n') // Convert newlines to literal '\n'
+          .replace(/"/g, '\\"'); // Escape double quotes
+          
+        return `export default "${escapedContent}";`;
       }
       return null;
     }
