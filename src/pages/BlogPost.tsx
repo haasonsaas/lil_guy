@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+
+import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
@@ -23,6 +24,7 @@ export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const post = getPostBySlug(slug || '');
+  const [imageError, setImageError] = useState(false);
   
   useEffect(() => {
     // Scroll to top when post loads
@@ -45,12 +47,14 @@ export default function BlogPost() {
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
       
       // Use the post's image URL for OG tags if available, otherwise generate one
-      const ogImageUrl = getImageData(post.frontmatter).url;
+      const ogImageUrl = imageError 
+        ? generateDynamicImageUrl(post.frontmatter.title, 1200, 630)
+        : getImageData(post.frontmatter).url;
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
     }
-  }, [post, slug, navigate]);
+  }, [post, slug, navigate, imageError]);
   
   if (!post) {
     return null;
@@ -69,7 +73,7 @@ export default function BlogPost() {
   
   // Get image data with proper fallbacks
   const imageData = getImageData(frontmatter);
-  const imageUrl = imageData.url;
+  const imageUrl = imageError ? generateDynamicImageUrl(frontmatter.title, 1200, 630) : imageData.url;
   const imageAlt = imageData.alt;
   
   return (
@@ -125,9 +129,9 @@ export default function BlogPost() {
               src={optimizeImage(imageUrl)} 
               alt={imageAlt}
               className="w-full h-full object-cover"
-              onError={(e) => {
+              onError={() => {
                 console.error('Image failed to load:', imageUrl);
-                e.currentTarget.src = generateDynamicImageUrl(frontmatter.title, 1200, 630);
+                setImageError(true);
               }}
             />
           </div>

@@ -1,10 +1,11 @@
+
 /**
  * Utility functions for handling blog post images
  */
 
 /**
  * Generate a dynamic image URL based on a blog post title
- * This uses a simple text-based image generation service
+ * This uses a simple placeholder image service with text overlay
  */
 export const generateDynamicImageUrl = (title: string, width: number = 1200, height: number = 630): string => {
   // Clean and encode the title for use in URL
@@ -13,12 +14,11 @@ export const generateDynamicImageUrl = (title: string, width: number = 1200, hei
   // Create a dynamic background color based on the hash of the title
   const hash = title.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
   const hue = hash % 360;
-  const lightness = 30 + (hash % 20); // Keep it relatively dark (30-50% lightness)
   
-  // Build the image URL using a text-to-image service
-  // Force a unique timestamp to prevent caching
+  // Build a more reliable placeholder image URL
+  // Using placid.app format which is more reliable than Cloudinary for text overlays
   const timestamp = new Date().getTime();
-  return `https://res.cloudinary.com/demo/image/upload/w_${width},h_${height},c_fill,q_auto,f_auto/l_text:Roboto_48_bold:${cleanTitle},co_white,c_fit,w_${width - 100}/fl_layer_apply,g_center/b_rgb:hsl(${hue},60,${lightness})/v1/placeholder?_t=${timestamp}`;
+  return `https://placehold.co/${width}x${height}/${hue}35/ffffff?text=${cleanTitle}&font=playfair-display&_t=${timestamp}`;
 }
 
 /**

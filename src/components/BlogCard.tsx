@@ -1,9 +1,12 @@
+
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Tag } from 'lucide-react';
 import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useState } from 'react';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -24,10 +27,11 @@ const optimizeImage = (url: string, width: number = 800) => {
 
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const { slug, frontmatter } = post;
+  const [imageError, setImageError] = useState(false);
   
   // Get image data directly from frontmatter with fallback to dynamic generation
   const imageData = getImageData(frontmatter);
-  const imageUrl = imageData.url;
+  const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url;
   const imageAlt = imageData.alt;
   
   console.log('BlogCard rendering with image:', imageUrl);
@@ -41,9 +45,9 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
               src={optimizeImage(imageUrl, 1200)} 
               alt={imageAlt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              onError={(e) => {
-                console.error('Image failed to load:', imageUrl);
-                e.currentTarget.src = generateThumbnailUrl(frontmatter.title);
+              onError={() => {
+                console.error('Featured image failed to load:', imageUrl);
+                setImageError(true);
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
@@ -79,9 +83,9 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
               src={optimizeImage(imageUrl, 800)} 
               alt={imageAlt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              onError={(e) => {
+              onError={() => {
                 console.error('Image failed to load:', imageUrl);
-                e.currentTarget.src = generateThumbnailUrl(frontmatter.title);
+                setImageError(true);
               }}
             />
           </div>
