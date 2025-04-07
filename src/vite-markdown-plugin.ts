@@ -2,6 +2,7 @@
 import type { Plugin } from 'vite';
 import fs from 'fs';
 import path from 'path';
+import { BlogPostFrontmatter } from './types/blog';
 
 export function markdownPlugin(): Plugin {
   return {
@@ -14,7 +15,7 @@ export function markdownPlugin(): Plugin {
           // Parse frontmatter
           const frontmatterMatch = fileContent.match(/^---\r?\n([\s\S]+?)\r?\n---/);
           let content = fileContent;
-          let frontmatter = {};
+          let frontmatter: Record<string, any> = {};
           
           if (frontmatterMatch) {
             // Extract frontmatter
@@ -25,7 +26,7 @@ export function markdownPlugin(): Plugin {
             
             // Parse frontmatter fields
             const frontmatterLines = frontmatterRaw.split(/\r?\n/);
-            let currentKey = null;
+            let currentKey: string | null = null;
             let multilineValue = '';
             let isMultiline = false;
             
@@ -86,9 +87,9 @@ export function markdownPlugin(): Plugin {
             }
             
             // Handle special nested fields like image
-            if (frontmatter.image && typeof frontmatter.image === 'string') {
+            if (typeof frontmatter.image === 'string') {
               const imageLines = frontmatter.image.split('\n');
-              const imageObj = {};
+              const imageObj: Record<string, string> = {};
               
               imageLines.forEach(line => {
                 const imgMatch = line.match(/(\w+):\s*(.*)/);
@@ -103,11 +104,11 @@ export function markdownPlugin(): Plugin {
             }
             
             // Handle tags if it's a string instead of an array
-            if (frontmatter.tags && typeof frontmatter.tags === 'string') {
+            if (typeof frontmatter.tags === 'string') {
               frontmatter.tags = frontmatter.tags.split('\n')
-                .map(tag => tag.trim())
-                .filter(tag => tag.startsWith('-'))
-                .map(tag => tag.substring(1).trim().replace(/^['"]|['"]$/g, ''))
+                .map((tag: string) => tag.trim())
+                .filter((tag: string) => tag.startsWith('-'))
+                .map((tag: string) => tag.substring(1).trim().replace(/^['"]|['"]$/g, ''))
                 .filter(Boolean);
             }
           }

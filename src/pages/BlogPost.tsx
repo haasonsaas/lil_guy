@@ -30,7 +30,13 @@ export default function BlogPost() {
   const { frontmatter, content } = post;
   
   // Debug what we're getting
-  console.log("Post data:", { slug, frontmatter, contentPreview: content?.substring(0, 100) });
+  console.log("Post data:", { 
+    slug, 
+    frontmatter, 
+    tags: frontmatter.tags,
+    image: frontmatter.image,
+    contentPreview: content?.substring(0, 100) 
+  });
   
   return (
     <Layout>

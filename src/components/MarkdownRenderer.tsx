@@ -54,7 +54,11 @@ export default function MarkdownRenderer({
       
       // Make sure the content is a string
       const contentString = typeof content === 'string' ? content : String(content);
-      const rawMarkup = marked.parse(contentString);
+      
+      // Only render the content, not the frontmatter
+      const contentWithoutFrontmatter = contentString.replace(/^---[\s\S]*?---/, '').trim();
+      
+      const rawMarkup = marked.parse(contentWithoutFrontmatter);
       const cleanHtml = DOMPurify.sanitize(rawMarkup, {
         ADD_ATTR: ['target', 'rel'],
         ADD_TAGS: ['iframe']
