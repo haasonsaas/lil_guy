@@ -1,4 +1,3 @@
-
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
 
 // Sample blog post with frontmatter and content
@@ -466,6 +465,7 @@ const readFilePosts = (): BlogPost[] => {
           const frontmatterMatch = content.match(/^---\r?\n([\s\S]+?)\r?\n---/);
           let markdownContent = content;
           let frontmatterData: Partial<BlogPostFrontmatter> = {};
+          let fileSlug = ''; // Define fileSlug at this scope level so it's available throughout the function
           
           if (frontmatterMatch) {
             // Remove frontmatter from the content
@@ -496,7 +496,6 @@ const readFilePosts = (): BlogPost[] => {
             
             // Post slug
             const slugMatch = frontmatterText.match(/postSlug:\s*(.*?)(\r?\n|$)/);
-            let fileSlug = '';
             if (slugMatch) {
               fileSlug = slugMatch[1].trim();
             } else {
@@ -554,6 +553,9 @@ const readFilePosts = (): BlogPost[] => {
             } else if (descriptionMatch) {
               frontmatterData.description = descriptionMatch[1].trim();
             }
+          } else {
+            // If no frontmatter is found, use the filename as the slug
+            fileSlug = filePath.split('/').pop()?.replace('.md', '') || '';
           }
           
           console.log(`Processing post with slug: ${fileSlug}`);
