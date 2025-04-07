@@ -496,9 +496,12 @@ const readFilePosts = (): BlogPost[] => {
             
             // Post slug
             const slugMatch = frontmatterText.match(/postSlug:\s*(.*?)(\r?\n|$)/);
-            let slug = '';
+            let fileSlug = '';
             if (slugMatch) {
-              slug = slugMatch[1].trim();
+              fileSlug = slugMatch[1].trim();
+            } else {
+              // Extract the slug from filename if not specified in frontmatter
+              fileSlug = filePath.split('/').pop()?.replace('.md', '') || '';
             }
             
             // Featured flag
@@ -552,9 +555,6 @@ const readFilePosts = (): BlogPost[] => {
               frontmatterData.description = descriptionMatch[1].trim();
             }
           }
-          
-          // Extract the slug from filename if not specified in frontmatter
-          const fileSlug = slug || filePath.split('/').pop()?.replace('.md', '') || '';
           
           console.log(`Processing post with slug: ${fileSlug}`);
           console.log(`Extracted frontmatter:`, frontmatterData);
