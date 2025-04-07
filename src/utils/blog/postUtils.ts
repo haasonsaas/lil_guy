@@ -16,7 +16,7 @@ export const getAllPosts = (): BlogPost[] => {
     
     // Make sure each post has valid image information
     filePosts.forEach(post => {
-      // Generate a dynamic image if none exists
+      // Only generate a dynamic image if none exists in frontmatter
       if (!post.frontmatter.image || !post.frontmatter.image.url) {
         post.frontmatter.image = {
           url: generateDynamicImageUrl(post.frontmatter.title || post.slug),

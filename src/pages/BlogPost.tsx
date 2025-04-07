@@ -7,7 +7,7 @@ import TagCloud from '@/components/TagCloud';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar } from 'lucide-react';
 import { getPostBySlug, formatDate } from '@/utils/blogUtils';
-import { generateDynamicImageUrl, generateOgImageUrl } from '@/utils/blog/imageUtils';
+import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 
 const optimizeImage = (url: string) => {
   if (!url) {
@@ -53,8 +53,8 @@ export default function BlogPost() {
       if (ogTitle) ogTitle.setAttribute('content', post.frontmatter.title);
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
       
-      // Generate a dynamic OG image based on the post title
-      const ogImageUrl = generateOgImageUrl(post.frontmatter.title);
+      // Use the post's image URL for OG tags if available, otherwise generate one
+      const ogImageUrl = post.frontmatter.image?.url || generateOgImageUrl(post.frontmatter.title);
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
@@ -76,9 +76,10 @@ export default function BlogPost() {
     contentPreview: content?.substring(0, 100) 
   });
   
-  // Ensure image data exists or generate a dynamic one
-  const imageUrl = frontmatter?.image?.url || generateDynamicImageUrl(frontmatter.title, 1200, 630);
-  const imageAlt = frontmatter?.image?.alt || frontmatter?.title || 'Blog post image';
+  // Get image data with proper fallbacks
+  const imageData = getImageData(frontmatter);
+  const imageUrl = imageData.url;
+  const imageAlt = imageData.alt;
   
   return (
     <Layout>

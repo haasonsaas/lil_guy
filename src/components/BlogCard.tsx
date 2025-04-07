@@ -1,10 +1,9 @@
-
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Tag } from 'lucide-react';
-import { generateThumbnailUrl } from '@/utils/blog/imageUtils';
+import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -37,9 +36,10 @@ const optimizeImage = (url: string, width: number = 800) => {
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const { slug, frontmatter } = post;
   
-  // Ensure image data exists or generate a dynamic one
-  const imageUrl = frontmatter.image?.url || generateThumbnailUrl(frontmatter.title);
-  const imageAlt = frontmatter.image?.alt || frontmatter.title || 'Blog post image';
+  // Get image data directly from frontmatter with fallback to dynamic generation
+  const imageData = getImageData(frontmatter);
+  const imageUrl = imageData.url;
+  const imageAlt = imageData.alt;
   
   console.log('BlogCard rendering with image:', imageUrl);
   
