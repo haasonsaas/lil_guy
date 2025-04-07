@@ -24,6 +24,15 @@ export default function Navbar() {
             <Link to="/blog" className="text-foreground/80 hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
               Blog
             </Link>
+            <Link to="/faq" className="text-foreground/80 hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+              FAQ
+            </Link>
+            <Link to="/uses" className="text-foreground/80 hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+              Uses
+            </Link>
+            <Link to="/reading" className="text-foreground/80 hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
+              Reading
+            </Link>
             <Link to="/tags" className="text-foreground/80 hover:text-foreground px-3 py-2 rounded-md text-sm font-medium">
               Tags
             </Link>
@@ -63,6 +72,27 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
+            </Link>
+            <Link 
+              to="/faq" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-accent"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQ
+            </Link>
+            <Link 
+              to="/uses" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-accent"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Uses
+            </Link>
+            <Link 
+              to="/reading" 
+              className="block px-3 py-2 rounded-md text-base font-medium text-foreground hover:bg-accent"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Reading
             </Link>
             <Link 
               to="/tags" 

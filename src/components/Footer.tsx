@@ -28,6 +28,21 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link to="/faq" className="text-muted-foreground hover:text-foreground transition-colors">
+                  FAQ
+                </Link>
+              </li>
+              <li>
+                <Link to="/uses" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Uses
+                </Link>
+              </li>
+              <li>
+                <Link to="/reading" className="text-muted-foreground hover:text-foreground transition-colors">
+                  Reading
+                </Link>
+              </li>
+              <li>
                 <Link to="/tags" className="text-muted-foreground hover:text-foreground transition-colors">
                   Tags
                 </Link>
