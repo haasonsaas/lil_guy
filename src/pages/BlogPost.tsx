@@ -1,5 +1,5 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
@@ -7,11 +7,24 @@ import TagCloud from '@/components/TagCloud';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar } from 'lucide-react';
 import { getPostBySlug, formatDate } from '@/utils/blogUtils';
+import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
+
+const optimizeImage = (url: string) => {
+  if (!url) {
+    return generateDynamicImageUrl('Fallback Image', 1200, 630);
+  }
+
+  // Add a timestamp to force refresh
+  const timestamp = new Date().getTime();
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}_t=${timestamp}`;
+};
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const post = getPostBySlug(slug || '');
+  const [imageError, setImageError] = useState(false);
   
   useEffect(() => {
     // Scroll to top when post loads
@@ -21,7 +34,27 @@ export default function BlogPost() {
     if (!post && slug) {
       navigate('/blog');
     }
-  }, [post, slug, navigate]);
+    
+    // Update OpenGraph tags for social sharing
+    if (post) {
+      // Update OpenGraph tags dynamically
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      
+      if (ogTitle) ogTitle.setAttribute('content', post.frontmatter.title);
+      if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
+      
+      // Use the post's image URL for OG tags if available, otherwise generate one
+      const ogImageUrl = imageError 
+        ? generateDynamicImageUrl(post.frontmatter.title, 1200, 630)
+        : getImageData(post.frontmatter).url;
+      
+      if (ogImage) ogImage.setAttribute('content', ogImageUrl);
+      if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
+    }
+  }, [post, slug, navigate, imageError]);
   
   if (!post) {
     return null;
@@ -37,6 +70,11 @@ export default function BlogPost() {
     image: frontmatter.image,
     contentPreview: content?.substring(0, 100) 
   });
+  
+  // Get image data with proper fallbacks
+  const imageData = getImageData(frontmatter);
+  const imageUrl = imageError ? generateDynamicImageUrl(frontmatter.title, 1200, 630) : imageData.url;
+  const imageAlt = imageData.alt;
   
   return (
     <Layout>
@@ -86,15 +124,17 @@ export default function BlogPost() {
             )}
           </div>
           
-          {frontmatter?.image && frontmatter.image.url && (
-            <div className="relative mb-10 h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-fade-up shadow-md">
-              <img 
-                src={frontmatter.image.url} 
-                alt={frontmatter.image.alt || 'Post image'}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
+          <div className="relative mb-10 h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-fade-up shadow-md">
+            <img 
+              src={optimizeImage(imageUrl)} 
+              alt={imageAlt}
+              className="w-full h-full object-cover"
+              onError={() => {
+                console.error('Image failed to load:', imageUrl);
+                setImageError(true);
+              }}
+            />
+          </div>
           
           <div className="animate-fade-up">
             <MarkdownRenderer 

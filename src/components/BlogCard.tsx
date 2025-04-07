@@ -1,8 +1,12 @@
+
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Tag } from 'lucide-react';
+import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
+import { Skeleton } from '@/components/ui/skeleton';
+import { useState } from 'react';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -10,31 +14,40 @@ interface BlogCardProps {
 }
 
 const optimizeImage = (url: string, width: number = 800) => {
-  // Check if it's already a Cloudflare-optimized image
-  if (url.includes('/cdn-cgi/image')) {
-    return url;
+  if (!url) {
+    console.warn('Image URL is empty or undefined');
+    return generateThumbnailUrl('Fallback Image');
   }
 
-  // For Unsplash and Pexels images, use their optimization parameters
-  if (url.includes('unsplash.com')) {
-    return `${url}${url.includes('?') ? '&' : '?'}w=${width}&q=80&auto=format`;
-  }
-  if (url.includes('pexels.com')) {
-    return url; // Pexels already provides optimized images
-  }
+  // Add a timestamp to force refresh
+  const timestamp = new Date().getTime();
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}_t=${timestamp}`;
+};
 
-  // For other images, use Cloudflare's Image Resizing
-  try {
-    const imageUrl = new URL(url);
-    return `/cdn-cgi/image/width=${width},quality=80,format=auto/${imageUrl.href}`;
-  } catch (e) {
-    console.warn('Invalid image URL:', url);
-    return url;
-  }
+// Function to truncate text with ellipsis
+const truncateText = (text: string, maxLength: number): string => {
+  if (!text) return '';
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 };
 
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const { slug, frontmatter } = post;
+  const [imageError, setImageError] = useState(false);
+  
+  // Get image data directly from frontmatter with fallback to dynamic generation
+  const imageData = getImageData(frontmatter);
+  const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url;
+  const imageAlt = imageData.alt;
+  
+  // Truncate title and description for card display
+  const truncatedTitle = featured ? 
+    truncateText(frontmatter.title, 80) : 
+    truncateText(frontmatter.title, 60);
+  
+  const truncatedDescription = featured ? 
+    truncateText(frontmatter.description, 140) : 
+    truncateText(frontmatter.description, 100);
   
   if (featured) {
     return (
@@ -42,9 +55,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <Link to={`/blog/${slug}`} className="block">
           <div className="relative h-[400px] overflow-hidden rounded-xl">
             <img 
-              src={optimizeImage(frontmatter.image.url, 1200)} 
-              alt={frontmatter.image.alt}
+              src={optimizeImage(imageUrl, 1200)} 
+              alt={imageAlt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              onError={() => {
+                console.error('Featured image failed to load:', imageUrl);
+                setImageError(true);
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
             <div className="absolute bottom-0 p-6 text-left">
@@ -56,8 +73,8 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
                   </Badge>
                 ))}
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{frontmatter.title}</h2>
-              <p className="text-white/80 mb-4 line-clamp-2">{frontmatter.description}</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{truncatedTitle}</h2>
+              <p className="text-white/80 mb-4">{truncatedDescription}</p>
               <div className="flex items-center text-white/60 text-sm">
                 <span>{frontmatter.author}</span>
                 <span className="mx-2">•</span>
@@ -76,9 +93,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="overflow-hidden rounded-lg bg-card border border-border transition-all hover:border-primary/30 hover:shadow-md">
           <div className="relative h-48 w-full overflow-hidden">
             <img 
-              src={optimizeImage(frontmatter.image.url, 800)} 
-              alt={frontmatter.image.alt}
+              src={optimizeImage(imageUrl, 800)} 
+              alt={imageAlt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              onError={() => {
+                console.error('Image failed to load:', imageUrl);
+                setImageError(true);
+              }}
             />
           </div>
           <div className="p-4 text-left">
@@ -90,8 +111,8 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
                 </Badge>
               ))}
             </div>
-            <h3 className="text-lg font-bold mb-2 line-clamp-2">{frontmatter.title}</h3>
-            <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{frontmatter.description}</p>
+            <h3 className="text-lg font-bold mb-2 h-14 overflow-hidden">{truncatedTitle}</h3>
+            <p className="text-muted-foreground text-sm mb-4 h-10 overflow-hidden">{truncatedDescription}</p>
             <div className="flex items-center text-xs text-muted-foreground">
               <span>{frontmatter.author}</span>
               <span className="mx-2">•</span>
