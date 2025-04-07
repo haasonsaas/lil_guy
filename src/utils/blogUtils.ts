@@ -1,7 +1,7 @@
-
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
+import matter from 'gray-matter';
 
-// Example blog post with frontmatter and content
+// Sample blog post with frontmatter and content
 const sampleBlogPost: BlogPost = {
   slug: 'ai-experience-gap',
   frontmatter: {
@@ -82,6 +82,7 @@ The most successful AI products won't necessarily be those with the most advance
 `
 };
 
+// Additional blog posts
 const additionalBlogPosts: BlogPost[] = [
   {
     slug: 'future-of-development-tools',
@@ -444,8 +445,42 @@ The most successful technology professionals don't just react to change; they an
   }
 ];
 
-// Combine all blog posts
-const allBlogPosts: BlogPost[] = [sampleBlogPost, ...additionalBlogPosts];
+// Function to read file-based blog posts
+const readFilePosts = (): BlogPost[] => {
+  const posts: BlogPost[] = [];
+  
+  // In a browser environment, we can't directly read files from the filesystem
+  // Instead, we use Vite's import.meta.glob to statically import all .md files
+  const postFiles = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' });
+  
+  Object.entries(postFiles).forEach(([path, content]) => {
+    if (typeof content === 'string') {
+      // Parse frontmatter and content using gray-matter
+      const { data, content: markdownContent } = matter(content);
+      
+      // Extract the filename without extension to use as slug
+      const slug = path.split('/').pop()?.replace('.md', '') || '';
+      
+      // Create a BlogPost object
+      const post: BlogPost = {
+        slug,
+        frontmatter: data as BlogPostFrontmatter,
+        content: markdownContent
+      };
+      
+      posts.push(post);
+    }
+  });
+  
+  return posts;
+};
+
+// Combine all blog posts (hardcoded examples and file-based posts)
+const allBlogPosts: BlogPost[] = [
+  sampleBlogPost, 
+  ...additionalBlogPosts,
+  ...readFilePosts()
+];
 
 // Get all blog posts
 export const getAllPosts = (): BlogPost[] => {
