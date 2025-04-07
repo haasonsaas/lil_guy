@@ -1,10 +1,8 @@
-
 import { useState } from 'react';
-import { getAllPosts } from '@/utils/blogUtils';
+import { getAllPosts, formatDate } from '@/utils/blogUtils';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Link } from 'react-router-dom';
-import { formatDate } from '@/utils/blogUtils';
 import { FileText, Tag } from 'lucide-react';
 
 export default function PostsList() {
