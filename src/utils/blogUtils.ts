@@ -451,7 +451,6 @@ const readFilePosts = (): BlogPost[] => {
   
   try {
     // Use import.meta.glob to get all markdown files
-    // Properly type the result of import.meta.glob
     const markdownFiles: Record<string, { default: string }> = import.meta.glob('/src/posts/*.md', { eager: true }) as Record<string, { default: string }>;
     
     // Log the found markdown files for debugging
@@ -463,64 +462,108 @@ const readFilePosts = (): BlogPost[] => {
         const content = moduleContent.default;
         
         if (typeof content === 'string') {
-          // Extract the frontmatter manually since we can't use gray-matter directly in browser
+          // Extract the frontmatter using regex
           const frontmatterMatch = content.match(/^---\r?\n([\s\S]+?)\r?\n---/);
           let markdownContent = content;
-          let frontmatterData: Record<string, any> = {};
+          let frontmatterData: Partial<BlogPostFrontmatter> = {};
           
           if (frontmatterMatch) {
             // Remove frontmatter from the content
             markdownContent = content.replace(frontmatterMatch[0], '').trim();
+            const frontmatterText = frontmatterMatch[1];
             
-            // Parse the frontmatter manually
-            const frontmatterLines = frontmatterMatch[1].split('\n');
-            frontmatterLines.forEach(line => {
-              const match = line.match(/^(\w+):\s*(.+)$/);
-              if (match) {
-                const [, key, value] = match;
-                if (key === 'tags') {
-                  // Parse the tags array
-                  const tagsMatch = frontmatterMatch[1].match(/tags:\s*\n((?:\s*-\s*.+\n)+)/);
-                  if (tagsMatch) {
-                    const tagsLines = tagsMatch[1].trim().split('\n');
-                    frontmatterData.tags = tagsLines.map(tag => tag.replace(/^\s*-\s*/, '').trim());
-                  } else {
-                    frontmatterData.tags = [];
-                  }
-                } else if (key === 'image') {
-                  // Parse the image object
-                  const imageMatch = frontmatterMatch[1].match(/image:\s*\n\s*url:\s*(.+)\n\s*alt:\s*(.+)/);
-                  if (imageMatch) {
-                    frontmatterData.image = {
-                      url: imageMatch[1].trim(),
-                      alt: imageMatch[2].trim()
-                    };
-                  } else {
-                    frontmatterData.image = { url: '', alt: '' };
-                  }
-                } else if (value === 'true') {
-                  frontmatterData[key] = true;
-                } else if (value === 'false') {
-                  frontmatterData[key] = false;
-                } else if (!isNaN(Number(value))) {
-                  frontmatterData[key] = Number(value);
-                } else {
-                  frontmatterData[key] = value.trim();
-                }
-              }
-            });
+            // Parse frontmatter fields
+            // Author
+            const authorMatch = frontmatterText.match(/author:\s*(.*?)(\r?\n|$)/);
+            if (authorMatch) {
+              frontmatterData.author = authorMatch[1].trim();
+            }
+            
+            // Publication date
+            const pubDateMatch = frontmatterText.match(/pubDate:\s*(.*?)(\r?\n|$)/);
+            if (pubDateMatch) {
+              frontmatterData.pubDate = pubDateMatch[1].trim();
+            }
+            
+            // Title (might be quoted and multiline)
+            const titleMatch = frontmatterText.match(/title:\s*(?:'|")?(.*?)(?:'|")?(\r?\n|$)/);
+            const titleMultilineMatch = frontmatterText.match(/title:\s*(?:'|")?([\s\S]*?)(?:'|")?(\r?\n\w+:|$)/);
+            if (titleMultilineMatch && titleMultilineMatch[1].includes('\n')) {
+              frontmatterData.title = titleMultilineMatch[1].replace(/\r?\n\s*/g, ' ').trim();
+            } else if (titleMatch) {
+              frontmatterData.title = titleMatch[1].trim();
+            }
+            
+            // Post slug
+            const slugMatch = frontmatterText.match(/postSlug:\s*(.*?)(\r?\n|$)/);
+            let slug = '';
+            if (slugMatch) {
+              slug = slugMatch[1].trim();
+            }
+            
+            // Featured flag
+            const featuredMatch = frontmatterText.match(/featured:\s*(true|false)(\r?\n|$)/);
+            if (featuredMatch) {
+              frontmatterData.featured = featuredMatch[1] === 'true';
+            }
+            
+            // Draft flag
+            const draftMatch = frontmatterText.match(/draft:\s*(true|false)(\r?\n|$)/);
+            if (draftMatch) {
+              frontmatterData.draft = draftMatch[1] === 'true';
+            }
+            
+            // Tags (multiline array)
+            const tagsMatch = frontmatterText.match(/tags:\s*\r?\n((?:\s*-\s*.*\r?\n)+)/);
+            if (tagsMatch) {
+              const tagsBlock = tagsMatch[1];
+              frontmatterData.tags = tagsBlock
+                .split('\n')
+                .filter(line => line.trim().startsWith('-'))
+                .map(line => line.replace(/\s*-\s*/, '').replace(/^['"]|['"]$/g, '').trim())
+                .filter(Boolean);
+            } else {
+              frontmatterData.tags = [];
+            }
+            
+            // Image (with url and alt)
+            const imageUrlMatch = frontmatterText.match(/image:\s*\r?\n\s*url:\s*(?:'|")?(.*?)(?:'|")?(\r?\n|$)/);
+            const imageAltMatch = frontmatterText.match(/\s*alt:\s*(?:'|")?(.*?)(?:'|")?(\r?\n|$)/);
+            
+            if (imageUrlMatch) {
+              frontmatterData.image = {
+                url: imageUrlMatch[1].trim(),
+                alt: imageAltMatch ? imageAltMatch[1].trim() : 'Blog post image'
+              };
+            } else {
+              frontmatterData.image = {
+                url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643',
+                alt: 'Default blog post image'
+              };
+            }
+            
+            // Description (might be quoted and multiline)
+            const descriptionMatch = frontmatterText.match(/description:\s*(?:'|")?(.*?)(?:'|")?(\r?\n|$)/);
+            const descriptionMultilineMatch = frontmatterText.match(/description:\s*(?:'|")?([\s\S]*?)(?:'|")?(\r?\n\w+:|$)/);
+            
+            if (descriptionMultilineMatch && descriptionMultilineMatch[1].includes('\n')) {
+              frontmatterData.description = descriptionMultilineMatch[1].replace(/\r?\n\s*/g, ' ').trim();
+            } else if (descriptionMatch) {
+              frontmatterData.description = descriptionMatch[1].trim();
+            }
           }
           
-          // Extract the slug from filename
-          const slug = filePath.split('/').pop()?.replace('.md', '') || '';
+          // Extract the slug from filename if not specified in frontmatter
+          const fileSlug = slug || filePath.split('/').pop()?.replace('.md', '') || '';
           
-          console.log(`Processing post with slug: ${slug}`);
+          console.log(`Processing post with slug: ${fileSlug}`);
+          console.log(`Extracted frontmatter:`, frontmatterData);
           
           // Set default values for any missing frontmatter fields
           const defaultFrontmatter: Partial<BlogPostFrontmatter> = {
             author: "Unknown",
             pubDate: new Date().toISOString().split('T')[0],
-            title: slug.replace(/-/g, ' '),
+            title: fileSlug.replace(/-/g, ' '),
             description: "No description provided",
             featured: false,
             draft: false,
@@ -539,7 +582,7 @@ const readFilePosts = (): BlogPost[] => {
           
           // Create the BlogPost object
           const post: BlogPost = {
-            slug,
+            slug: fileSlug,
             frontmatter: postFrontmatter,
             content: markdownContent
           };

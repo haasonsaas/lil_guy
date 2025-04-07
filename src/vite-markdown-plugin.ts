@@ -11,11 +11,8 @@ export function markdownPlugin(): Plugin {
         try {
           const fileContent = fs.readFileSync(id, 'utf-8');
           
-          // Check if the content contains frontmatter (between --- markers)
-          let processedContent = fileContent;
-          
           // Return the content as a properly escaped string with export
-          return `export default ${JSON.stringify(processedContent)};`;
+          return `export default ${JSON.stringify(fileContent)};`;
         } catch (error) {
           console.error(`Error processing markdown file ${id}:`, error);
           return `export default "Error loading markdown file";`;
