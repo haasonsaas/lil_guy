@@ -449,28 +449,36 @@ The most successful technology professionals don't just react to change; they an
 const readFilePosts = (): BlogPost[] => {
   const posts: BlogPost[] = [];
   
-  // In a browser environment, we can't directly read files from the filesystem
-  // Instead, we use Vite's import.meta.glob to statically import all .md files
-  const postFiles = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' });
-  
-  Object.entries(postFiles).forEach(([path, content]) => {
-    if (typeof content === 'string') {
-      // Parse frontmatter and content using gray-matter
-      const { data, content: markdownContent } = matter(content);
-      
-      // Extract the filename without extension to use as slug
-      const slug = path.split('/').pop()?.replace('.md', '') || '';
-      
-      // Create a BlogPost object
-      const post: BlogPost = {
-        slug,
-        frontmatter: data as BlogPostFrontmatter,
-        content: markdownContent
-      };
-      
-      posts.push(post);
-    }
-  });
+  try {
+    // In a browser environment, we need to use Vite's import.meta.glob to import markdown files
+    // This is handled at build time, avoiding the need for Buffer
+    const markdownModules = import.meta.glob('/src/posts/*.md', { eager: true, as: 'string' });
+
+    Object.entries(markdownModules).forEach(([path, content]) => {
+      if (typeof content === 'string') {
+        try {
+          // Parse frontmatter and content using gray-matter
+          const parsed = matter(content);
+          
+          // Extract the filename without extension to use as slug
+          const slug = path.split('/').pop()?.replace('.md', '') || '';
+          
+          // Create a BlogPost object
+          const post: BlogPost = {
+            slug,
+            frontmatter: parsed.data as BlogPostFrontmatter,
+            content: parsed.content
+          };
+          
+          posts.push(post);
+        } catch (err) {
+          console.error(`Error processing markdown file ${path}:`, err);
+        }
+      }
+    });
+  } catch (err) {
+    console.error("Error loading markdown files:", err);
+  }
   
   return posts;
 };
