@@ -11,12 +11,12 @@ export function markdownPlugin(): Plugin {
         try {
           const fileContent = fs.readFileSync(id, 'utf-8');
           
-          // Convert the markdown content to a proper JS string literal
-          // This ensures all special characters are properly escaped
-          const jsonString = JSON.stringify(fileContent);
+          // Check if the content contains frontmatter (between --- markers)
+          let processedContent = fileContent;
+          const frontmatterMatch = fileContent.match(/^---\r?\n([\s\S]+?)\r?\n---/);
           
-          // Return the content as a default export string
-          return `export default ${jsonString};`;
+          // Return the content as a properly escaped string with export
+          return `export default ${JSON.stringify(processedContent)};`;
         } catch (error) {
           console.error(`Error processing markdown file ${id}:`, error);
           return `export default "Error loading markdown file";`;

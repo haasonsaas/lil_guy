@@ -23,6 +23,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ['gray-matter']
+    exclude: ['gray-matter']
   }
 }));

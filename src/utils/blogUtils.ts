@@ -451,26 +451,95 @@ const readFilePosts = (): BlogPost[] => {
   
   try {
     // Use import.meta.glob to get all markdown files
-    const markdownFiles = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' });
+    const markdownFiles = import.meta.glob('/src/posts/*.md', { eager: true });
     
     // Log the found markdown files for debugging
     console.log('Found markdown files:', Object.keys(markdownFiles));
 
-    Object.entries(markdownFiles).forEach(([filePath, content]) => {
+    Object.entries(markdownFiles).forEach(([filePath, moduleContent]) => {
       try {
+        // The content is the default export from the markdown file
+        const content = moduleContent.default as string;
+        
         if (typeof content === 'string') {
-          // Parse frontmatter and content
-          const { data, content: markdownContent } = matter(content);
+          // Extract the frontmatter manually since we can't use gray-matter directly in browser
+          const frontmatterMatch = content.match(/^---\r?\n([\s\S]+?)\r?\n---/);
+          let markdownContent = content;
+          let frontmatterData: Record<string, any> = {};
+          
+          if (frontmatterMatch) {
+            // Remove frontmatter from the content
+            markdownContent = content.replace(frontmatterMatch[0], '').trim();
+            
+            // Parse the frontmatter manually
+            const frontmatterLines = frontmatterMatch[1].split('\n');
+            frontmatterLines.forEach(line => {
+              const match = line.match(/^(\w+):\s*(.+)$/);
+              if (match) {
+                const [, key, value] = match;
+                if (key === 'tags') {
+                  // Parse the tags array
+                  const tagsMatch = frontmatterMatch[1].match(/tags:\s*\n((?:\s*-\s*.+\n)+)/);
+                  if (tagsMatch) {
+                    const tagsLines = tagsMatch[1].trim().split('\n');
+                    frontmatterData.tags = tagsLines.map(tag => tag.replace(/^\s*-\s*/, '').trim());
+                  } else {
+                    frontmatterData.tags = [];
+                  }
+                } else if (key === 'image') {
+                  // Parse the image object
+                  const imageMatch = frontmatterMatch[1].match(/image:\s*\n\s*url:\s*(.+)\n\s*alt:\s*(.+)/);
+                  if (imageMatch) {
+                    frontmatterData.image = {
+                      url: imageMatch[1].trim(),
+                      alt: imageMatch[2].trim()
+                    };
+                  } else {
+                    frontmatterData.image = { url: '', alt: '' };
+                  }
+                } else if (value === 'true') {
+                  frontmatterData[key] = true;
+                } else if (value === 'false') {
+                  frontmatterData[key] = false;
+                } else if (!isNaN(Number(value))) {
+                  frontmatterData[key] = Number(value);
+                } else {
+                  frontmatterData[key] = value.trim();
+                }
+              }
+            });
+          }
           
           // Extract the slug from filename
           const slug = filePath.split('/').pop()?.replace('.md', '') || '';
           
           console.log(`Processing post with slug: ${slug}`);
           
+          // Set default values for any missing frontmatter fields
+          const defaultFrontmatter: Partial<BlogPostFrontmatter> = {
+            author: "Unknown",
+            pubDate: new Date().toISOString().split('T')[0],
+            title: slug.replace(/-/g, ' '),
+            description: "No description provided",
+            featured: false,
+            draft: false,
+            tags: [],
+            image: {
+              url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643',
+              alt: 'Default blog post image'
+            }
+          };
+          
+          // Merge the parsed frontmatter with default values
+          const postFrontmatter = {
+            ...defaultFrontmatter,
+            ...frontmatterData
+          } as BlogPostFrontmatter;
+          
           // Create the BlogPost object
           const post: BlogPost = {
             slug,
-            frontmatter: data as BlogPostFrontmatter,
+            frontmatter: postFrontmatter,
             content: markdownContent
           };
           
