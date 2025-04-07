@@ -7,14 +7,15 @@ import TagCloud from '@/components/TagCloud';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar } from 'lucide-react';
 import { getPostBySlug, formatDate } from '@/utils/blogUtils';
+import { generateDynamicImageUrl, generateOgImageUrl } from '@/utils/blog/imageUtils';
 
 const optimizeImage = (url: string) => {
   if (!url) {
-    return 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'; // Fallback image
+    return generateDynamicImageUrl('Fallback Image', 1200, 630);
   }
 
   // Already optimized or special cases
-  if (url.includes('/cdn-cgi/image') || url.includes('pexels.com')) {
+  if (url.includes('/cdn-cgi/image') || url.includes('cloudinary.com') || url.includes('pexels.com')) {
     return url;
   }
 
@@ -40,6 +41,24 @@ export default function BlogPost() {
     if (!post && slug) {
       navigate('/blog');
     }
+    
+    // Update OpenGraph tags for social sharing
+    if (post) {
+      // Update OpenGraph tags dynamically
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      
+      if (ogTitle) ogTitle.setAttribute('content', post.frontmatter.title);
+      if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
+      
+      // Generate a dynamic OG image based on the post title
+      const ogImageUrl = generateOgImageUrl(post.frontmatter.title);
+      
+      if (ogImage) ogImage.setAttribute('content', ogImageUrl);
+      if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
+    }
   }, [post, slug, navigate]);
   
   if (!post) {
@@ -57,8 +76,8 @@ export default function BlogPost() {
     contentPreview: content?.substring(0, 100) 
   });
   
-  // Ensure image data exists
-  const imageUrl = frontmatter?.image?.url || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+  // Ensure image data exists or generate a dynamic one
+  const imageUrl = frontmatter?.image?.url || generateDynamicImageUrl(frontmatter.title, 1200, 630);
   const imageAlt = frontmatter?.image?.alt || frontmatter?.title || 'Blog post image';
   
   return (
@@ -116,7 +135,7 @@ export default function BlogPost() {
               className="w-full h-full object-cover"
               onError={(e) => {
                 console.error('Image failed to load:', imageUrl);
-                e.currentTarget.src = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+                e.currentTarget.src = generateDynamicImageUrl(frontmatter.title, 1200, 630);
               }}
             />
           </div>

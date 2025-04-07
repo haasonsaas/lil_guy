@@ -1,6 +1,7 @@
 
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
+import { generateDynamicImageUrl } from './imageUtils';
 
 // Cache for loaded posts
 let allPosts: BlogPost[] | null = null;
@@ -15,16 +16,17 @@ export const getAllPosts = (): BlogPost[] => {
     
     // Make sure each post has valid image information
     filePosts.forEach(post => {
-      if (!post.frontmatter.image) {
+      // Generate a dynamic image if none exists
+      if (!post.frontmatter.image || !post.frontmatter.image.url) {
         post.frontmatter.image = {
-          url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643',
-          alt: 'Default blog post image'
+          url: generateDynamicImageUrl(post.frontmatter.title || post.slug),
+          alt: post.frontmatter.title || 'Blog post image'
         };
       }
       
       // Ensure image has both url and alt properties
       if (!post.frontmatter.image.url) {
-        post.frontmatter.image.url = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+        post.frontmatter.image.url = generateDynamicImageUrl(post.frontmatter.title || post.slug);
       }
       
       if (!post.frontmatter.image.alt) {

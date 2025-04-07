@@ -4,6 +4,7 @@ import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Tag } from 'lucide-react';
+import { generateThumbnailUrl } from '@/utils/blog/imageUtils';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -13,11 +14,11 @@ interface BlogCardProps {
 const optimizeImage = (url: string, width: number = 800) => {
   if (!url) {
     console.warn('Image URL is empty or undefined');
-    return 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'; // Fallback image
+    return generateThumbnailUrl('Fallback Image');
   }
 
   // Check if it's already a Cloudflare-optimized image
-  if (url.includes('/cdn-cgi/image')) {
+  if (url.includes('/cdn-cgi/image') || url.includes('cloudinary.com')) {
     return url;
   }
 
@@ -36,8 +37,8 @@ const optimizeImage = (url: string, width: number = 800) => {
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const { slug, frontmatter } = post;
   
-  // Ensure image data exists or provide fallbacks
-  const imageUrl = frontmatter.image?.url || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+  // Ensure image data exists or generate a dynamic one
+  const imageUrl = frontmatter.image?.url || generateThumbnailUrl(frontmatter.title);
   const imageAlt = frontmatter.image?.alt || frontmatter.title || 'Blog post image';
   
   console.log('BlogCard rendering with image:', imageUrl);
@@ -53,7 +54,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 console.error('Image failed to load:', imageUrl);
-                e.currentTarget.src = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+                e.currentTarget.src = generateThumbnailUrl(frontmatter.title);
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
@@ -91,7 +92,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               onError={(e) => {
                 console.error('Image failed to load:', imageUrl);
-                e.currentTarget.src = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+                e.currentTarget.src = generateThumbnailUrl(frontmatter.title);
               }}
             />
           </div>
