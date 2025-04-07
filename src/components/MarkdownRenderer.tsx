@@ -31,7 +31,9 @@ export default function MarkdownRenderer({
         }
       },
       breaks: true,
-      gfm: true
+      gfm: true,
+      mangle: false,
+      headerIds: true
     });
     
     // Apply syntax highlighting to any code blocks
@@ -46,12 +48,21 @@ export default function MarkdownRenderer({
   // Safely parse markdown to HTML
   const createMarkup = () => {
     try {
-      const rawMarkup = marked.parse(content);
-      const cleanHtml = DOMPurify.sanitize(rawMarkup);
+      if (!content) {
+        return { __html: '<p>No content available</p>' };
+      }
+      
+      // Make sure the content is a string
+      const contentString = typeof content === 'string' ? content : String(content);
+      const rawMarkup = marked.parse(contentString);
+      const cleanHtml = DOMPurify.sanitize(rawMarkup, {
+        ADD_ATTR: ['target', 'rel'],
+        ADD_TAGS: ['iframe']
+      });
       return { __html: cleanHtml };
     } catch (error) {
       console.error('Error parsing markdown:', error);
-      return { __html: `<p>Error rendering content</p>` };
+      return { __html: `<p>Error rendering content: ${error instanceof Error ? error.message : 'Unknown error'}</p>` };
     }
   };
   
