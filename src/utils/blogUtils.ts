@@ -1,5 +1,5 @@
+
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
-import matter from 'gray-matter';
 
 // Sample blog post with frontmatter and content
 const sampleBlogPost: BlogPost = {
@@ -451,7 +451,8 @@ const readFilePosts = (): BlogPost[] => {
   
   try {
     // Use import.meta.glob to get all markdown files
-    const markdownFiles = import.meta.glob('/src/posts/*.md', { eager: true });
+    // Properly type the result of import.meta.glob
+    const markdownFiles: Record<string, { default: string }> = import.meta.glob('/src/posts/*.md', { eager: true }) as Record<string, { default: string }>;
     
     // Log the found markdown files for debugging
     console.log('Found markdown files:', Object.keys(markdownFiles));
@@ -459,7 +460,7 @@ const readFilePosts = (): BlogPost[] => {
     Object.entries(markdownFiles).forEach(([filePath, moduleContent]) => {
       try {
         // The content is the default export from the markdown file
-        const content = moduleContent.default as string;
+        const content = moduleContent.default;
         
         if (typeof content === 'string') {
           // Extract the frontmatter manually since we can't use gray-matter directly in browser

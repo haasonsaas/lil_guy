@@ -13,7 +13,6 @@ export function markdownPlugin(): Plugin {
           
           // Check if the content contains frontmatter (between --- markers)
           let processedContent = fileContent;
-          const frontmatterMatch = fileContent.match(/^---\r?\n([\s\S]+?)\r?\n---/);
           
           // Return the content as a properly escaped string with export
           return `export default ${JSON.stringify(processedContent)};`;
