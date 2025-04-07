@@ -1,3 +1,4 @@
+
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
 import matter from 'gray-matter';
 
@@ -451,29 +452,28 @@ const readFilePosts = (): BlogPost[] => {
   
   try {
     // In a browser environment, we need to use Vite's import.meta.glob to import markdown files
-    // This is handled at build time, avoiding the need for Buffer
-    const markdownModules = import.meta.glob('/src/posts/*.md', { eager: true, as: 'string' });
+    const markdownFiles = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' });
 
-    Object.entries(markdownModules).forEach(([path, content]) => {
-      if (typeof content === 'string') {
-        try {
+    Object.entries(markdownFiles).forEach(([filePath, content]) => {
+      try {
+        if (typeof content === 'string') {
           // Parse frontmatter and content using gray-matter
-          const parsed = matter(content);
+          const { data, content: markdownContent } = matter(content);
           
           // Extract the filename without extension to use as slug
-          const slug = path.split('/').pop()?.replace('.md', '') || '';
+          const slug = filePath.split('/').pop()?.replace('.md', '') || '';
           
           // Create a BlogPost object
           const post: BlogPost = {
             slug,
-            frontmatter: parsed.data as BlogPostFrontmatter,
-            content: parsed.content
+            frontmatter: data as BlogPostFrontmatter,
+            content: markdownContent
           };
           
           posts.push(post);
-        } catch (err) {
-          console.error(`Error processing markdown file ${path}:`, err);
         }
+      } catch (err) {
+        console.error(`Error processing markdown file ${filePath}:`, err);
       }
     });
   } catch (err) {

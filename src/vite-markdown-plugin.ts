@@ -8,15 +8,19 @@ export function markdownPlugin(): Plugin {
     name: 'vite-plugin-markdown',
     transform(code, id) {
       if (id.endsWith('.md')) {
-        const fileContent = fs.readFileSync(id, 'utf-8');
-        // We need to escape any content that might cause JavaScript syntax errors
-        // when interpreted as a JS string
-        const escapedContent = fileContent
-          .replace(/\\([^"])/g, '\\\\$1') // Escape backslashes (except those already escaping quotes)
-          .replace(/\n/g, '\\n') // Convert newlines to literal '\n'
-          .replace(/"/g, '\\"'); // Escape double quotes
+        try {
+          const fileContent = fs.readFileSync(id, 'utf-8');
           
-        return `export default "${escapedContent}";`;
+          // Convert the markdown content to a proper JS string literal
+          // This ensures all special characters are properly escaped
+          const jsonString = JSON.stringify(fileContent);
+          
+          // Return the content as a default export string
+          return `export default ${jsonString};`;
+        } catch (error) {
+          console.error(`Error processing markdown file ${id}:`, error);
+          return `export default "Error loading markdown file";`;
+        }
       }
       return null;
     }
