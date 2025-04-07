@@ -1,4 +1,3 @@
-
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
 import matter from 'gray-matter';
 
@@ -451,31 +450,40 @@ const readFilePosts = (): BlogPost[] => {
   const posts: BlogPost[] = [];
   
   try {
-    // In a browser environment, we need to use Vite's import.meta.glob to import markdown files
+    // Use import.meta.glob to get all markdown files
     const markdownFiles = import.meta.glob('/src/posts/*.md', { eager: true, as: 'raw' });
+    
+    // Log the found markdown files for debugging
+    console.log('Found markdown files:', Object.keys(markdownFiles));
 
     Object.entries(markdownFiles).forEach(([filePath, content]) => {
       try {
         if (typeof content === 'string') {
-          // Parse frontmatter and content using gray-matter
+          // Parse frontmatter and content
           const { data, content: markdownContent } = matter(content);
           
-          // Extract the filename without extension to use as slug
+          // Extract the slug from filename
           const slug = filePath.split('/').pop()?.replace('.md', '') || '';
           
-          // Create a BlogPost object
+          console.log(`Processing post with slug: ${slug}`);
+          
+          // Create the BlogPost object
           const post: BlogPost = {
             slug,
             frontmatter: data as BlogPostFrontmatter,
             content: markdownContent
           };
           
+          // Add to posts array
           posts.push(post);
+          console.log(`Successfully added post: ${post.frontmatter.title}`);
         }
       } catch (err) {
         console.error(`Error processing markdown file ${filePath}:`, err);
       }
     });
+    
+    console.log(`Total file-based posts loaded: ${posts.length}`);
   } catch (err) {
     console.error("Error loading markdown files:", err);
   }
@@ -483,11 +491,15 @@ const readFilePosts = (): BlogPost[] => {
   return posts;
 };
 
+// Get the file-based posts
+const filePosts = readFilePosts();
+console.log("File posts loaded:", filePosts.length);
+
 // Combine all blog posts (hardcoded examples and file-based posts)
 const allBlogPosts: BlogPost[] = [
   sampleBlogPost, 
   ...additionalBlogPosts,
-  ...readFilePosts()
+  ...filePosts
 ];
 
 // Get all blog posts
