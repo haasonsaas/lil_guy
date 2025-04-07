@@ -103,6 +103,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
 			},
 			typography: {
 				DEFAULT: {
@@ -112,20 +113,24 @@ export default {
 						a: {
 							color: 'hsl(var(--primary))',
 							'&:hover': {
-								color: 'hsl(var(--primary))',
+								color: 'hsl(var(--primary))/80',
 							},
 						},
 						h1: {
 							color: 'hsl(var(--foreground))',
+							fontFamily: 'Playfair Display, serif',
 						},
 						h2: {
 							color: 'hsl(var(--foreground))',
+							fontFamily: 'Playfair Display, serif',
 						},
 						h3: {
 							color: 'hsl(var(--foreground))',
+							fontFamily: 'Playfair Display, serif',
 						},
 						h4: {
 							color: 'hsl(var(--foreground))',
+							fontFamily: 'Playfair Display, serif',
 						},
 						code: {
 							color: 'hsl(var(--foreground))',
@@ -148,13 +153,15 @@ export default {
 							lineHeight: 'inherit',
 						},
 						pre: {
-							backgroundColor: 'hsl(var(--card))',
+							backgroundColor: 'hsl(var(--muted))',
 							borderRadius: 'var(--radius)',
 							padding: '1rem',
+							borderWidth: '1px',
+							borderColor: 'hsl(var(--border))',
 						},
 						blockquote: {
 							color: 'hsl(var(--foreground))',
-							borderLeftColor: 'hsl(var(--muted))',
+							borderLeftColor: 'hsl(var(--primary))/30',
 						},
 					}
 				}
