@@ -5,7 +5,7 @@ import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import TagCloud from '@/components/TagCloud';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Tag } from 'lucide-react';
 import { getPostBySlug, formatDate } from '@/utils/blogUtils';
 
 export default function BlogPost() {
@@ -43,7 +43,8 @@ export default function BlogPost() {
             <div className="flex flex-wrap gap-2 mb-4">
               {frontmatter.tags.map(tag => (
                 <Link key={tag} to={`/tags/${tag}`}>
-                  <Button variant="outline" size="sm" className="text-xs bg-primary/10 border-primary/20 hover:bg-primary/20">
+                  <Button variant="outline" size="sm" className="text-xs flex items-center gap-1.5 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90">
+                    <Tag size={12} />
                     {tag.replace(/-/g, ' ')}
                   </Button>
                 </Link>
@@ -78,7 +79,7 @@ export default function BlogPost() {
           </div>
           
           <div className="border-t border-border mt-16 pt-8">
-            <div className="bg-gradient-to-r from-primary/5 to-background p-6 rounded-lg border border-primary/10 shadow-sm">
+            <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
               <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
               <TagCloud tags={frontmatter.tags} />
             </div>

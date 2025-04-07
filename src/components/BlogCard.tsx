@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
+import { Tag } from 'lucide-react';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -26,7 +27,8 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
             <div className="absolute bottom-0 p-6 text-left">
               <div className="flex flex-wrap gap-2 mb-3">
                 {frontmatter.tags.slice(0, 3).map(tag => (
-                  <Badge key={tag} variant="outline" className="bg-primary/20 text-primary-foreground border-primary/40">
+                  <Badge key={tag} variant="default" className="flex items-center gap-1.5 bg-primary border-primary/40 px-3 py-1.5">
+                    <Tag size={12} />
                     {tag.replace(/-/g, ' ')}
                   </Badge>
                 ))}
@@ -59,7 +61,8 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
           <div className="p-4 text-left">
             <div className="flex flex-wrap gap-2 mb-3">
               {frontmatter.tags.slice(0, 2).map(tag => (
-                <Badge key={tag} variant="outline" className="bg-primary/10 border-primary/30">
+                <Badge key={tag} variant="default" className="flex items-center gap-1.5 bg-primary text-primary-foreground">
+                  <Tag size={12} />
                   {tag.replace(/-/g, ' ')}
                 </Badge>
               ))}
