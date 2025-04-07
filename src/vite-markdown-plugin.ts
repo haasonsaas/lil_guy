@@ -1,4 +1,3 @@
-
 import type { Plugin } from 'vite';
 import fs from 'fs';
 import path from 'path';
@@ -15,7 +14,7 @@ export function markdownPlugin(): Plugin {
           // Parse frontmatter
           const frontmatterMatch = fileContent.match(/^---\r?\n([\s\S]+?)\r?\n---/);
           let content = fileContent;
-          let frontmatter: Record<string, any> = {};
+          const frontmatter: Record<string, unknown> = {};
           
           if (frontmatterMatch) {
             // Extract frontmatter
@@ -29,6 +28,9 @@ export function markdownPlugin(): Plugin {
             let currentKey: string | null = null;
             let multilineValue = '';
             let isMultiline = false;
+            let isNestedObject = false;
+            let nestedObjectKey: string | null = null;
+            const nestedObject: Record<string, string> = {};
             
             for (let i = 0; i < frontmatterLines.length; i++) {
               const line = frontmatterLines[i].trim();
@@ -39,11 +41,17 @@ export function markdownPlugin(): Plugin {
               // Check if this is a new key
               const keyMatch = line.match(/^(\w+):\s*(.*)/);
               
-              if (keyMatch && !isMultiline) {
+              if (keyMatch && !isMultiline && !isNestedObject) {
                 // Save previous multiline value if exists
                 if (currentKey && multilineValue) {
                   frontmatter[currentKey] = multilineValue.trim();
                   multilineValue = '';
+                }
+                
+                // Save previous nested object if exists
+                if (currentKey && isNestedObject && Object.keys(nestedObject).length > 0) {
+                  frontmatter[currentKey] = { ...nestedObject };
+                  isNestedObject = false;
                 }
                 
                 currentKey = keyMatch[1];
@@ -65,7 +73,7 @@ export function markdownPlugin(): Plugin {
                   if (!Array.isArray(frontmatter[currentKey])) {
                     frontmatter[currentKey] = [];
                   }
-                  frontmatter[currentKey].push(line.substring(1).trim().replace(/^['"]|['"]$/g, ''));
+                  (frontmatter[currentKey] as string[]).push(line.substring(1).trim().replace(/^['"]|['"]$/g, ''));
                 } else if (line.match(/^\w+:/)) {
                   // This is a new key in a nested object
                   isMultiline = false;
@@ -78,12 +86,37 @@ export function markdownPlugin(): Plugin {
                   // Continue multiline value
                   multilineValue += (multilineValue ? '\n' : '') + line.replace(/^['"]|['"]$/g, '');
                 }
+              } else if (line.startsWith('  ') && currentKey === 'image') {
+                // This is a nested key in the image object
+                isNestedObject = true;
+                const nestedKeyMatch = line.trim().match(/^(\w+):\s*(.*)/);
+                
+                if (nestedKeyMatch) {
+                  nestedObjectKey = nestedKeyMatch[1];
+                  const value = nestedKeyMatch[2].trim();
+                  
+                  if (value) {
+                    nestedObject[nestedObjectKey] = value.replace(/^['"]|['"]$/g, '');
+                  }
+                }
+              } else if (isNestedObject && line.match(/^\w+:/)) {
+                // This is a new top-level key after the nested object
+                isNestedObject = false;
+                if (currentKey && Object.keys(nestedObject).length > 0) {
+                  frontmatter[currentKey] = { ...nestedObject };
+                }
+                i--; // Process this line again as a new key
               }
             }
             
             // Save the last multiline value if exists
             if (currentKey && multilineValue) {
               frontmatter[currentKey] = multilineValue.trim();
+            }
+            
+            // Save the last nested object if exists
+            if (currentKey && isNestedObject && Object.keys(nestedObject).length > 0) {
+              frontmatter[currentKey] = { ...nestedObject };
             }
             
             // Handle special nested fields like image

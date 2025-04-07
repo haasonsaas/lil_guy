@@ -1,19 +1,17 @@
-
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
-import samplePosts from './samplePosts';
 
 // Cache for loaded posts
 let allPosts: BlogPost[] | null = null;
 
 /**
- * Get all blog posts (combines sample posts and file-based posts)
+ * Get all blog posts (only from markdown files)
  */
 export const getAllPosts = (): BlogPost[] => {
   if (!allPosts) {
     const filePosts = readFilePosts();
     console.log("File posts loaded:", filePosts.length);
-    allPosts = [...samplePosts, ...filePosts];
+    allPosts = filePosts;
   }
   return allPosts;
 };

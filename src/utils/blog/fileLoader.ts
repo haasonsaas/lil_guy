@@ -1,4 +1,3 @@
-
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
 
 /**
@@ -9,8 +8,8 @@ export const readFilePosts = (): BlogPost[] => {
   
   try {
     // Use import.meta.glob to get all markdown files
-    const markdownFiles: Record<string, { default: { frontmatter: any, content: string } }> = 
-      import.meta.glob('/src/posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: any, content: string } }>;
+    const markdownFiles: Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }> = 
+      import.meta.glob('/src/posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }>;
     
     // Log the found markdown files for debugging
     console.log('Found markdown files:', Object.keys(markdownFiles));
@@ -24,7 +23,7 @@ export const readFilePosts = (): BlogPost[] => {
         let fileSlug = '';
         
         if (frontmatter && frontmatter.postSlug) {
-          fileSlug = frontmatter.postSlug;
+          fileSlug = frontmatter.postSlug as string;
         } else {
           // Extract the slug from filename if not specified in frontmatter
           fileSlug = filePath.split('/').pop()?.replace('.md', '') || '';
@@ -55,9 +54,26 @@ export const readFilePosts = (): BlogPost[] => {
         }
         
         // Process image to ensure it has the correct format
-        let image = frontmatter.image || {};
-        if (typeof image === 'string') {
-          image = { url: image, alt: 'Blog post image' };
+        let image: { url?: string; alt?: string } = {};
+        
+        // Handle different image formats
+        if (typeof frontmatter.image === 'string') {
+          // If image is just a string, assume it's the URL
+          image = { url: frontmatter.image as string, alt: 'Blog post image' };
+        } else if (frontmatter.image && typeof frontmatter.image === 'object') {
+          // If image is an object, ensure it has url and alt properties
+          const imageObj = frontmatter.image as Record<string, unknown>;
+          image = {
+            url: imageObj.url as string | undefined,
+            alt: imageObj.alt as string | undefined
+          };
+          
+          if (!image.url) {
+            console.warn(`Post ${fileSlug} has an image object but no URL specified`);
+          }
+          if (!image.alt) {
+            console.warn(`Post ${fileSlug} has an image object but no alt text specified`);
+          }
         }
         
         // Merge the parsed frontmatter with default values

@@ -1,4 +1,3 @@
-
 import Layout from '@/components/Layout';
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
 
@@ -10,7 +9,7 @@ export default function AboutPage() {
           <div className="text-center mb-12 animate-fade-in">
             <h1 className="text-4xl font-bold mb-4">About</h1>
             <p className="text-muted-foreground text-lg">
-              The mind behind The Haas Chronicle
+              Product Manager at Vanta, Security & Compliance Expert
             </p>
           </div>
           
@@ -28,59 +27,43 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Technology Enthusiast, Software Developer, and AI Researcher
+                Product Manager at Vanta | Security & Compliance Expert
               </p>
               
               <div className="prose-custom mb-6">
-                <p>
-                  I'm Jonathan Haas, a software developer and technology enthusiast with a passion for understanding how emerging technologies shape our world.
+                <h3 className="text-xl font-semibold mb-3">About</h3>
+                <p className="mb-4">
+                  As a product manager at Vanta, I'm on a mission to revolutionize how businesses handle security compliance. By automating security assessments, we're turning what was once a months-long ordeal into a streamlined process that takes days.
                 </p>
-                <p>
-                  My work focuses on the intersection of artificial intelligence, human-computer interaction, and software engineering. I believe that truly great technology should be both powerful and accessible, technically impressive and delightfully humane.
+
+                <h3 className="text-xl font-semibold mb-3">My Story</h3>
+                <p className="mb-4">
+                  My journey into security and compliance started in the trenches. After serving as a security engineer at Snapchat, DoorDash, and Carta, I noticed a persistent problem: companies were struggling with security assessments, burning countless hours on manual processes. This insight led me to found ThreatKey, a SaaS security company focused on automated misconfiguration detection.
                 </p>
-                <p>
-                  Through The Haas Chronicle, I share my thoughts on the evolving technology landscape, with a particular focus on AI, software development practices, and the future of human-computer interaction.
-                </p>
-              </div>
-              
-              <div className="flex gap-4">
-                <a 
-                  href="https://github.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Github size={18} />
-                  <span>GitHub</span>
-                </a>
-                <a 
-                  href="https://twitter.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Twitter size={18} />
-                  <span>Twitter</span>
-                </a>
-                <a 
-                  href="https://linkedin.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Linkedin size={18} />
-                  <span>LinkedIn</span>
-                </a>
+
+                <h3 className="text-xl font-semibold mb-3">Product Philosophy</h3>
+                <ul className="list-disc pl-6 mb-4">
+                  <li>Start with customer pain points, not solutions</li>
+                  <li>Make data-driven decisions while respecting qualitative insights</li>
+                  <li>Build diverse, empowered teams</li>
+                </ul>
+
+                <h3 className="text-xl font-semibold mb-3">Impact & Results</h3>
+                <ul className="list-disc pl-6 mb-4">
+                  <li>Reduced average security assessment completion time from months to weeks</li>
+                  <li>Helped thousands of companies achieve SOC 2 compliance</li>
+                  <li>Led development of enterprise security integrations with industry leaders</li>
+                </ul>
               </div>
             </div>
           </div>
           
           <div className="border-t border-border pt-12 animate-fade-up">
-            <h2 className="text-2xl font-bold mb-6 text-center">Get in Touch</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">Let's Connect</h2>
             <div className="bg-card border border-border rounded-xl p-8 text-center">
               <Mail className="mx-auto mb-4 h-10 w-10 text-primary" />
               <p className="mb-4">
-                Have a question, comment, or just want to say hello? Feel free to reach out!
+                I'm always eager to exchange ideas with fellow product leaders and security enthusiasts. Whether you're curious about automated compliance, building security products, or transitioning from engineering to product management, I'd love to share experiences.
               </p>
               <a 
                 href="mailto:contact@example.com"

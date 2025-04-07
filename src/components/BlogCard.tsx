@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
@@ -10,6 +9,30 @@ interface BlogCardProps {
   featured?: boolean;
 }
 
+const optimizeImage = (url: string, width: number = 800) => {
+  // Check if it's already a Cloudflare-optimized image
+  if (url.includes('/cdn-cgi/image')) {
+    return url;
+  }
+
+  // For Unsplash and Pexels images, use their optimization parameters
+  if (url.includes('unsplash.com')) {
+    return `${url}${url.includes('?') ? '&' : '?'}w=${width}&q=80&auto=format`;
+  }
+  if (url.includes('pexels.com')) {
+    return url; // Pexels already provides optimized images
+  }
+
+  // For other images, use Cloudflare's Image Resizing
+  try {
+    const imageUrl = new URL(url);
+    return `/cdn-cgi/image/width=${width},quality=80,format=auto/${imageUrl.href}`;
+  } catch (e) {
+    console.warn('Invalid image URL:', url);
+    return url;
+  }
+};
+
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const { slug, frontmatter } = post;
   
@@ -19,7 +42,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <Link to={`/blog/${slug}`} className="block">
           <div className="relative h-[400px] overflow-hidden rounded-xl">
             <img 
-              src={frontmatter.image.url} 
+              src={optimizeImage(frontmatter.image.url, 1200)} 
               alt={frontmatter.image.alt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
@@ -53,7 +76,7 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="overflow-hidden rounded-lg bg-card border border-border transition-all hover:border-primary/30 hover:shadow-md">
           <div className="relative h-48 w-full overflow-hidden">
             <img 
-              src={frontmatter.image.url} 
+              src={optimizeImage(frontmatter.image.url, 800)} 
               alt={frontmatter.image.alt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
             />

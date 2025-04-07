@@ -1,7 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-11-26
-title: 'The Integration Tax: What Nobody Tells You About Building Modern Software'
+title:
+  'The Integration Tax: What Nobody Tells You About Building Modern Software'
 postSlug: the-integration-tax
 featured: false
 draft: false
@@ -14,7 +15,9 @@ tags:
 image:
   url: 'https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Complex network of connections represented by post it notes'
-description: Why integrations are the hidden cost of modern software development, and what we can do about it
+description:
+  Why integrations are the hidden cost of modern software development, and what
+  we can do about it
 ---
 
 Every piece of software you build comes with a hidden cost: the integration tax.
