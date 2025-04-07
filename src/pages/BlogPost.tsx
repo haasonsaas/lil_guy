@@ -1,4 +1,3 @@
-
 import { useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -14,18 +13,10 @@ const optimizeImage = (url: string) => {
     return generateDynamicImageUrl('Fallback Image', 1200, 630);
   }
 
-  // Already optimized or special cases
-  if (url.includes('/cdn-cgi/image') || url.includes('cloudinary.com') || url.includes('pexels.com')) {
-    return url;
-  }
-
-  // For Unsplash images
-  if (url.includes('unsplash.com')) {
-    return `${url}${url.includes('?') ? '&' : '?'}w=1200&q=80&auto=format`;
-  }
-
-  // Return the unmodified URL for other images
-  return url;
+  // Add a timestamp to force refresh
+  const timestamp = new Date().getTime();
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}_t=${timestamp}`;
 };
 
 export default function BlogPost() {
@@ -54,7 +45,7 @@ export default function BlogPost() {
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
       
       // Use the post's image URL for OG tags if available, otherwise generate one
-      const ogImageUrl = post.frontmatter.image?.url || generateOgImageUrl(post.frontmatter.title);
+      const ogImageUrl = getImageData(post.frontmatter).url;
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);

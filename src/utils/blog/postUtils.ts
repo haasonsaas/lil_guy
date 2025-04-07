@@ -1,4 +1,3 @@
-
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
 import { generateDynamicImageUrl } from './imageUtils';
@@ -16,21 +15,19 @@ export const getAllPosts = (): BlogPost[] => {
     
     // Make sure each post has valid image information
     filePosts.forEach(post => {
-      // Only generate a dynamic image if none exists in frontmatter
-      if (!post.frontmatter.image || !post.frontmatter.image.url) {
+      // Force dynamic image generation for all posts except those with explicit frontmatter images
+      const hasExplicitImage = post.frontmatter.image && 
+                               post.frontmatter.image.url && 
+                               !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
+      
+      if (!hasExplicitImage) {
+        console.log(`Generating dynamic image for: ${post.frontmatter.title}`);
         post.frontmatter.image = {
           url: generateDynamicImageUrl(post.frontmatter.title || post.slug),
           alt: post.frontmatter.title || 'Blog post image'
         };
-      }
-      
-      // Ensure image has both url and alt properties
-      if (!post.frontmatter.image.url) {
-        post.frontmatter.image.url = generateDynamicImageUrl(post.frontmatter.title || post.slug);
-      }
-      
-      if (!post.frontmatter.image.alt) {
-        post.frontmatter.image.alt = post.frontmatter.title || 'Blog post image';
+      } else {
+        console.log(`Using frontmatter image for: ${post.frontmatter.title}`);
       }
     });
     

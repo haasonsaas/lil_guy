@@ -16,21 +16,10 @@ const optimizeImage = (url: string, width: number = 800) => {
     return generateThumbnailUrl('Fallback Image');
   }
 
-  // Check if it's already a Cloudflare-optimized image
-  if (url.includes('/cdn-cgi/image') || url.includes('cloudinary.com')) {
-    return url;
-  }
-
-  // For Unsplash and Pexels images, use their optimization parameters
-  if (url.includes('unsplash.com')) {
-    return `${url}${url.includes('?') ? '&' : '?'}w=${width}&q=80&auto=format`;
-  }
-  if (url.includes('pexels.com')) {
-    return url; // Pexels already provides optimized images
-  }
-
-  // For other images, don't use Cloudflare's Image Resizing as it might not be available
-  return url;
+  // Add a timestamp to force refresh
+  const timestamp = new Date().getTime();
+  const separator = url.includes('?') ? '&' : '?';
+  return `${url}${separator}_t=${timestamp}`;
 };
 
 export default function BlogCard({ post, featured = false }: BlogCardProps) {

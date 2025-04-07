@@ -16,7 +16,9 @@ export const generateDynamicImageUrl = (title: string, width: number = 1200, hei
   const lightness = 30 + (hash % 20); // Keep it relatively dark (30-50% lightness)
   
   // Build the image URL using a text-to-image service
-  return `https://res.cloudinary.com/demo/image/upload/w_${width},h_${height},c_fill,q_auto,f_auto/l_text:Roboto_48_bold:${cleanTitle},co_white,c_fit,w_${width - 100}/fl_layer_apply,g_center/b_rgb:hsl(${hue},60,${lightness})/v1/placeholder`;
+  // Force a unique timestamp to prevent caching
+  const timestamp = new Date().getTime();
+  return `https://res.cloudinary.com/demo/image/upload/w_${width},h_${height},c_fill,q_auto,f_auto/l_text:Roboto_48_bold:${cleanTitle},co_white,c_fit,w_${width - 100}/fl_layer_apply,g_center/b_rgb:hsl(${hue},60,${lightness})/v1/placeholder?_t=${timestamp}`;
 }
 
 /**
@@ -39,8 +41,14 @@ export const generateThumbnailUrl = (title: string): string => {
 export const getImageData = (frontmatter: any): { url: string; alt: string } => {
   const title = frontmatter.title || 'Blog Post';
   
-  // First try to use the provided image if it exists and has a URL
-  if (frontmatter.image && frontmatter.image.url) {
+  // Check if the image is the fallback unsplash image
+  const isDefaultUnsplashImage = frontmatter.image && 
+                               frontmatter.image.url && 
+                               frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
+  
+  // If we have a real image (not the fallback unsplash one) use it, otherwise generate
+  if (frontmatter.image && frontmatter.image.url && !isDefaultUnsplashImage) {
+    console.log('Using frontmatter image:', frontmatter.image.url);
     return {
       url: frontmatter.image.url,
       alt: frontmatter.image.alt || title
@@ -48,6 +56,7 @@ export const getImageData = (frontmatter: any): { url: string; alt: string } => 
   }
   
   // Otherwise generate a dynamic image
+  console.log('Generating dynamic image for:', title);
   return {
     url: generateDynamicImageUrl(title),
     alt: title
