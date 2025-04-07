@@ -45,15 +45,20 @@ export default function MarkdownRenderer({
   
   // Safely parse markdown to HTML
   const createMarkup = () => {
-    const rawMarkup = marked.parse(content);
-    const cleanHtml = DOMPurify.sanitize(rawMarkup);
-    return { __html: cleanHtml };
+    try {
+      const rawMarkup = marked.parse(content);
+      const cleanHtml = DOMPurify.sanitize(rawMarkup);
+      return { __html: cleanHtml };
+    } catch (error) {
+      console.error('Error parsing markdown:', error);
+      return { __html: `<p>Error rendering content</p>` };
+    }
   };
   
   return (
     <div 
       ref={contentRef}
-      className={`prose-custom ${className}`}
+      className={`prose prose-slate dark:prose-invert max-w-none ${className}`}
       dangerouslySetInnerHTML={createMarkup()} 
     />
   );

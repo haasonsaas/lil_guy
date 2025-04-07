@@ -75,7 +75,10 @@ export default function BlogPost() {
           </div>
           
           <div className="animate-fade-up">
-            <MarkdownRenderer content={content} />
+            <MarkdownRenderer 
+              content={content} 
+              className="prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-slate-800 prose-pre:rounded-lg prose-pre:shadow-sm"
+            />
           </div>
           
           <div className="border-t border-border mt-16 pt-8">

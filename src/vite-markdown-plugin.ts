@@ -19,6 +19,13 @@ export function markdownPlugin(): Plugin {
         }
       }
       return null;
+    },
+    // Add handling for resolving .md imports
+    resolveId(id) {
+      if (id.endsWith('.md')) {
+        return id;
+      }
+      return null;
     }
   };
 }
