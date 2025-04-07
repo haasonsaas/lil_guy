@@ -25,6 +25,12 @@ const optimizeImage = (url: string, width: number = 800) => {
   return `${url}${separator}_t=${timestamp}`;
 };
 
+// Function to truncate text with ellipsis
+const truncateText = (text: string, maxLength: number): string => {
+  if (!text) return '';
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+};
+
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const { slug, frontmatter } = post;
   const [imageError, setImageError] = useState(false);
@@ -34,7 +40,14 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url;
   const imageAlt = imageData.alt;
   
-  console.log('BlogCard rendering with image:', imageUrl);
+  // Truncate title and description for card display
+  const truncatedTitle = featured ? 
+    truncateText(frontmatter.title, 80) : 
+    truncateText(frontmatter.title, 60);
+  
+  const truncatedDescription = featured ? 
+    truncateText(frontmatter.description, 140) : 
+    truncateText(frontmatter.description, 100);
   
   if (featured) {
     return (
@@ -60,8 +73,8 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
                   </Badge>
                 ))}
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{frontmatter.title}</h2>
-              <p className="text-white/80 mb-4 line-clamp-2">{frontmatter.description}</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{truncatedTitle}</h2>
+              <p className="text-white/80 mb-4">{truncatedDescription}</p>
               <div className="flex items-center text-white/60 text-sm">
                 <span>{frontmatter.author}</span>
                 <span className="mx-2">•</span>
@@ -98,8 +111,8 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
                 </Badge>
               ))}
             </div>
-            <h3 className="text-lg font-bold mb-2 line-clamp-2">{frontmatter.title}</h3>
-            <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{frontmatter.description}</p>
+            <h3 className="text-lg font-bold mb-2 h-14 overflow-hidden">{truncatedTitle}</h3>
+            <p className="text-muted-foreground text-sm mb-4 h-10 overflow-hidden">{truncatedDescription}</p>
             <div className="flex items-center text-xs text-muted-foreground">
               <span>{frontmatter.author}</span>
               <span className="mx-2">•</span>
