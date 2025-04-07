@@ -34,8 +34,8 @@ export default function Index() {
             <div className="flex justify-between items-center mb-8">
               <h2 className="text-2xl font-bold">Recent Articles</h2>
               <Link to="/blog">
-                <Button variant="ghost" className="flex items-center gap-2">
-                  View all <ArrowRight size={16} />
+                <Button variant="ghost" className="flex items-center gap-2 group">
+                  View all <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </div>
@@ -47,8 +47,8 @@ export default function Index() {
             </div>
           </div>
           
-          <div>
-            <h2 className="text-2xl font-bold mb-6">Browse by Topic</h2>
+          <div className="bg-gradient-to-br from-primary/5 to-background p-8 rounded-xl border border-primary/10 shadow-sm">
+            <h2 className="text-2xl font-bold mb-6 text-center">Browse by Topic</h2>
             <TagCloud tags={popularTags} className="justify-center" />
           </div>
         </div>

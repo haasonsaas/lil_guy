@@ -34,8 +34,8 @@ export default function BlogPost() {
       <article className="py-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/blog">
-            <Button variant="ghost" className="mb-6 flex items-center gap-2">
-              <ArrowLeft size={16} /> Back to Blog
+            <Button variant="ghost" className="mb-6 flex items-center gap-2 group">
+              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Blog
             </Button>
           </Link>
           
@@ -50,7 +50,7 @@ export default function BlogPost() {
               ))}
             </div>
             
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance font-serif">
               {frontmatter.title}
             </h1>
             
@@ -65,7 +65,7 @@ export default function BlogPost() {
             </p>
           </div>
           
-          <div className="relative mb-10 h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-fade-up">
+          <div className="relative mb-10 h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-fade-up shadow-md">
             <img 
               src={frontmatter.image.url} 
               alt={frontmatter.image.alt}
@@ -78,12 +78,14 @@ export default function BlogPost() {
           </div>
           
           <div className="border-t border-border mt-16 pt-8">
-            <h3 className="text-lg font-semibold mb-4">Tags</h3>
-            <TagCloud tags={frontmatter.tags} />
+            <div className="bg-gradient-to-r from-primary/5 to-background p-6 rounded-lg border border-primary/10 shadow-sm">
+              <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
+              <TagCloud tags={frontmatter.tags} />
+            </div>
             
-            <div className="mt-8">
+            <div className="mt-8 text-center">
               <Link to="/blog">
-                <Button>
+                <Button className="px-6">
                   Read more articles
                 </Button>
               </Link>
