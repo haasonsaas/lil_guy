@@ -1,24 +1,25 @@
-
 /**
  * Utility functions for handling blog post images
  */
 
+interface BlogFrontmatter {
+  title?: string;
+  image?: {
+    url: string;
+    alt?: string;
+  };
+}
+
 /**
  * Generate a dynamic image URL based on a blog post title
- * This uses a simple placeholder image service with text overlay
+ * This uses our local placeholder image generator
  */
 export const generateDynamicImageUrl = (title: string, width: number = 1200, height: number = 630): string => {
-  // Clean and encode the title for use in URL
-  const cleanTitle = encodeURIComponent(title.trim());
+  // Clean the title for use in filename
+  const cleanTitle = title.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
   
-  // Create a dynamic background color based on the hash of the title
-  const hash = title.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  const hue = hash % 360;
-  
-  // Build a more reliable placeholder image URL
-  // Using placid.app format which is more reliable than Cloudinary for text overlays
-  const timestamp = new Date().getTime();
-  return `https://placehold.co/${width}x${height}/${hue}35/ffffff?text=${cleanTitle}&font=playfair-display&_t=${timestamp}`;
+  // Return path to our local placeholder image
+  return `/placeholders/${width}x${height}-${cleanTitle}.png`;
 }
 
 /**
@@ -38,7 +39,7 @@ export const generateThumbnailUrl = (title: string): string => {
 /**
  * Get image data with fallbacks for blog posts
  */
-export const getImageData = (frontmatter: any): { url: string; alt: string } => {
+export const getImageData = (frontmatter: BlogFrontmatter): { url: string; alt: string } => {
   const title = frontmatter.title || 'Blog Post';
   
   // Check if the image is the fallback unsplash image

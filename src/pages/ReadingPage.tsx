@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -6,6 +5,12 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Book, BookOpen, Star } from 'lucide-react';
+
+// Helper function to get placeholder image path
+const getPlaceholderImage = (text: string) => {
+  const cleanText = text.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  return `/placeholders/200x300-${cleanText}.png`;
+};
 
 export default function ReadingPage() {
   const [bookView, setBookView] = useState('grid');
@@ -17,7 +22,7 @@ export default function ReadingPage() {
       category: "Technology",
       rating: 4,
       progress: 65,
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=AI+Future"
+      cover: getPlaceholderImage("AI Future")
     },
     {
       title: "Working in Public: The Making and Maintenance of Open Source Software",
@@ -25,7 +30,7 @@ export default function ReadingPage() {
       category: "Technology",
       rating: 5,
       progress: 90,
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Working+in+Public"
+      cover: getPlaceholderImage("Working in Public")
     },
     {
       title: "Competing in the Age of AI",
@@ -33,7 +38,7 @@ export default function ReadingPage() {
       category: "Business",
       rating: 4,
       progress: 30,
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=AI+Business"
+      cover: getPlaceholderImage("AI Business")
     }
   ];
   
@@ -44,7 +49,7 @@ export default function ReadingPage() {
       category: "Biography",
       rating: 5,
       dateCompleted: "March 2025",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Innovators"
+      cover: getPlaceholderImage("Innovators")
     },
     {
       title: "Hooked: How to Build Habit-Forming Products",
@@ -52,7 +57,7 @@ export default function ReadingPage() {
       category: "Business",
       rating: 4,
       dateCompleted: "February 2025",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Hooked"
+      cover: getPlaceholderImage("Hooked")
     },
     {
       title: "The Psychology of Money",
@@ -60,7 +65,7 @@ export default function ReadingPage() {
       category: "Finance",
       rating: 5,
       dateCompleted: "January 2025",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Psychology+of+Money"
+      cover: getPlaceholderImage("Psychology of Money")
     },
     {
       title: "Atomic Habits",
@@ -68,7 +73,7 @@ export default function ReadingPage() {
       category: "Self-Improvement",
       rating: 5,
       dateCompleted: "December 2024",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Atomic+Habits"
+      cover: getPlaceholderImage("Atomic Habits")
     },
     {
       title: "The Lean Startup",
@@ -76,7 +81,7 @@ export default function ReadingPage() {
       category: "Business",
       rating: 4,
       dateCompleted: "November 2024",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Lean+Startup"
+      cover: getPlaceholderImage("Lean Startup")
     }
   ];
   
@@ -86,21 +91,21 @@ export default function ReadingPage() {
       author: "Peter Thiel",
       category: "Business",
       why: "Essential insights on creating new value and building the future.",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Zero+to+One"
+      cover: getPlaceholderImage("Zero to One")
     },
     {
       title: "Thinking, Fast and Slow",
       author: "Daniel Kahneman",
       category: "Psychology",
       why: "Transformative understanding of how we think and make decisions.",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Thinking+Fast+Slow"
+      cover: getPlaceholderImage("Thinking Fast Slow")
     },
     {
       title: "The Art of Doing Science and Engineering",
       author: "Richard Hamming",
       category: "Science",
       why: "Powerful approach to creative thinking and problem-solving.",
-      cover: "https://placehold.co/200x300/e9e9e9/333333?text=Science+Engineering"
+      cover: getPlaceholderImage("Science Engineering")
     }
   ];
 
