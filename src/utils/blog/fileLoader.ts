@@ -1,3 +1,4 @@
+
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
 
 /**
@@ -54,26 +55,37 @@ export const readFilePosts = (): BlogPost[] => {
         }
         
         // Process image to ensure it has the correct format
-        let image: { url?: string; alt?: string } = {};
+        let image = { url: '', alt: '' };
         
-        // Handle different image formats
-        if (typeof frontmatter.image === 'string') {
-          // If image is just a string, assume it's the URL
-          image = { url: frontmatter.image as string, alt: 'Blog post image' };
-        } else if (frontmatter.image && typeof frontmatter.image === 'object') {
-          // If image is an object, ensure it has url and alt properties
-          const imageObj = frontmatter.image as Record<string, unknown>;
-          image = {
-            url: imageObj.url as string | undefined,
-            alt: imageObj.alt as string | undefined
-          };
-          
-          if (!image.url) {
-            console.warn(`Post ${fileSlug} has an image object but no URL specified`);
+        // Check if image exists in frontmatter
+        if (frontmatter.image) {
+          // Handle different image formats
+          if (typeof frontmatter.image === 'string') {
+            // If image is just a string, assume it's the URL
+            image = { url: frontmatter.image as string, alt: 'Blog post image' };
+          } else if (typeof frontmatter.image === 'object') {
+            // If image is an object, extract url and alt properties
+            const imageObj = frontmatter.image as Record<string, unknown>;
+            
+            // Extract url property
+            if (imageObj.url && typeof imageObj.url === 'string') {
+              image.url = imageObj.url;
+            }
+            
+            // Extract alt property
+            if (imageObj.alt && typeof imageObj.alt === 'string') {
+              image.alt = imageObj.alt;
+            }
           }
-          if (!image.alt) {
-            console.warn(`Post ${fileSlug} has an image object but no alt text specified`);
-          }
+        }
+        
+        // Ensure image has valid values or use defaults
+        if (!image.url) {
+          image.url = defaultFrontmatter.image!.url;
+        }
+        
+        if (!image.alt) {
+          image.alt = defaultFrontmatter.image!.alt;
         }
         
         // Merge the parsed frontmatter with default values
@@ -82,8 +94,8 @@ export const readFilePosts = (): BlogPost[] => {
           ...frontmatter,
           tags: tags,
           image: {
-            url: image.url || defaultFrontmatter.image?.url,
-            alt: image.alt || defaultFrontmatter.image?.alt || 'Blog post image'
+            url: image.url,
+            alt: image.alt
           }
         } as BlogPostFrontmatter;
         
@@ -97,6 +109,7 @@ export const readFilePosts = (): BlogPost[] => {
         // Add to posts array
         posts.push(post);
         console.log(`Successfully added post: ${post.frontmatter.title}`);
+        console.log(`Post image:`, post.frontmatter.image);
       } catch (err) {
         console.error(`Error processing markdown file ${filePath}:`, err);
       }

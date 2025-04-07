@@ -1,3 +1,4 @@
+
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
@@ -10,6 +11,11 @@ interface BlogCardProps {
 }
 
 const optimizeImage = (url: string, width: number = 800) => {
+  if (!url) {
+    console.warn('Image URL is empty or undefined');
+    return 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'; // Fallback image
+  }
+
   // Check if it's already a Cloudflare-optimized image
   if (url.includes('/cdn-cgi/image')) {
     return url;
@@ -23,18 +29,18 @@ const optimizeImage = (url: string, width: number = 800) => {
     return url; // Pexels already provides optimized images
   }
 
-  // For other images, use Cloudflare's Image Resizing
-  try {
-    const imageUrl = new URL(url);
-    return `/cdn-cgi/image/width=${width},quality=80,format=auto/${imageUrl.href}`;
-  } catch (e) {
-    console.warn('Invalid image URL:', url);
-    return url;
-  }
+  // For other images, don't use Cloudflare's Image Resizing as it might not be available
+  return url;
 };
 
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const { slug, frontmatter } = post;
+  
+  // Ensure image data exists or provide fallbacks
+  const imageUrl = frontmatter.image?.url || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+  const imageAlt = frontmatter.image?.alt || frontmatter.title || 'Blog post image';
+  
+  console.log('BlogCard rendering with image:', imageUrl);
   
   if (featured) {
     return (
@@ -42,9 +48,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <Link to={`/blog/${slug}`} className="block">
           <div className="relative h-[400px] overflow-hidden rounded-xl">
             <img 
-              src={optimizeImage(frontmatter.image.url, 1200)} 
-              alt={frontmatter.image.alt}
+              src={optimizeImage(imageUrl, 1200)} 
+              alt={imageAlt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              onError={(e) => {
+                console.error('Image failed to load:', imageUrl);
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+              }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
             <div className="absolute bottom-0 p-6 text-left">
@@ -76,9 +86,13 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
         <div className="overflow-hidden rounded-lg bg-card border border-border transition-all hover:border-primary/30 hover:shadow-md">
           <div className="relative h-48 w-full overflow-hidden">
             <img 
-              src={optimizeImage(frontmatter.image.url, 800)} 
-              alt={frontmatter.image.alt}
+              src={optimizeImage(imageUrl, 800)} 
+              alt={imageAlt}
               className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              onError={(e) => {
+                console.error('Image failed to load:', imageUrl);
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+              }}
             />
           </div>
           <div className="p-4 text-left">

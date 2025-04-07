@@ -8,6 +8,25 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar } from 'lucide-react';
 import { getPostBySlug, formatDate } from '@/utils/blogUtils';
 
+const optimizeImage = (url: string) => {
+  if (!url) {
+    return 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'; // Fallback image
+  }
+
+  // Already optimized or special cases
+  if (url.includes('/cdn-cgi/image') || url.includes('pexels.com')) {
+    return url;
+  }
+
+  // For Unsplash images
+  if (url.includes('unsplash.com')) {
+    return `${url}${url.includes('?') ? '&' : '?'}w=1200&q=80&auto=format`;
+  }
+
+  // Return the unmodified URL for other images
+  return url;
+};
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -37,6 +56,10 @@ export default function BlogPost() {
     image: frontmatter.image,
     contentPreview: content?.substring(0, 100) 
   });
+  
+  // Ensure image data exists
+  const imageUrl = frontmatter?.image?.url || 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+  const imageAlt = frontmatter?.image?.alt || frontmatter?.title || 'Blog post image';
   
   return (
     <Layout>
@@ -86,15 +109,17 @@ export default function BlogPost() {
             )}
           </div>
           
-          {frontmatter?.image && frontmatter.image.url && (
-            <div className="relative mb-10 h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-fade-up shadow-md">
-              <img 
-                src={frontmatter.image.url} 
-                alt={frontmatter.image.alt || 'Post image'}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
+          <div className="relative mb-10 h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-fade-up shadow-md">
+            <img 
+              src={optimizeImage(imageUrl)} 
+              alt={imageAlt}
+              className="w-full h-full object-cover"
+              onError={(e) => {
+                console.error('Image failed to load:', imageUrl);
+                e.currentTarget.src = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+              }}
+            />
+          </div>
           
           <div className="animate-fade-up">
             <MarkdownRenderer 

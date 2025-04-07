@@ -1,3 +1,4 @@
+
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
 
@@ -11,6 +12,26 @@ export const getAllPosts = (): BlogPost[] => {
   if (!allPosts) {
     const filePosts = readFilePosts();
     console.log("File posts loaded:", filePosts.length);
+    
+    // Make sure each post has valid image information
+    filePosts.forEach(post => {
+      if (!post.frontmatter.image) {
+        post.frontmatter.image = {
+          url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643',
+          alt: 'Default blog post image'
+        };
+      }
+      
+      // Ensure image has both url and alt properties
+      if (!post.frontmatter.image.url) {
+        post.frontmatter.image.url = 'https://images.unsplash.com/photo-1499750310107-5fef28a66643';
+      }
+      
+      if (!post.frontmatter.image.alt) {
+        post.frontmatter.image.alt = post.frontmatter.title || 'Blog post image';
+      }
+    });
+    
     allPosts = filePosts;
   }
   return allPosts;
