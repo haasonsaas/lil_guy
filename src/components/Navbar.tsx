@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -48,11 +47,6 @@ const Navbar = () => {
                   </Button>
                 </Link>
               ))}
-              <Link to="/admin" className="ml-2">
-                <Button variant="outline" size="sm" className="text-sm">
-                  Admin
-                </Button>
-              </Link>
             </div>
           )}
           
@@ -81,14 +75,6 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
-            <Link to="/admin">
-              <Button
-                variant={location.pathname === '/admin' ? "default" : "outline"}
-                className="w-full justify-start rounded-none text-left mt-2"
-              >
-                Admin
-              </Button>
-            </Link>
           </div>
         </div>
       )}
