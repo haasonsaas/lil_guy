@@ -1,9 +1,9 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Menu, X, BookOpen } from 'lucide-react';
+import { ThemeToggle } from './ThemeToggle';
 
 const Navbar = () => {
   const location = useLocation();
@@ -54,12 +54,14 @@ const Navbar = () => {
                   <span className="text-xs">Frameworks</span>
                 </Button>
               </a>
+              <ThemeToggle />
             </div>
           )}
           
           {/* Mobile menu button */}
           {isMobile && (
-            <div className="flex items-center">
+            <div className="flex items-center space-x-2">
+              <ThemeToggle />
               <Button variant="ghost" size="icon" onClick={toggleMenu}>
                 {isMenuOpen ? <X /> : <Menu />}
               </Button>
