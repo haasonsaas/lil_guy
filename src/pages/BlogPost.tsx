@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -124,11 +123,11 @@ export default function BlogPost() {
             )}
           </div>
           
-          <div className="relative mb-10 h-[400px] md:h-[500px] rounded-xl overflow-hidden animate-fade-up shadow-md">
+          <div className="relative mb-10 rounded-xl overflow-hidden animate-fade-up shadow-md">
             <img 
               src={optimizeImage(imageUrl)} 
               alt={imageAlt}
-              className="w-full h-full object-cover"
+              className="w-full h-auto"
               onError={() => {
                 console.error('Image failed to load:', imageUrl);
                 setImageError(true);
