@@ -10,6 +10,8 @@ interface BlogFrontmatter {
   };
 }
 
+const BASE_URL = 'https://haasonsaas.com';
+
 /**
  * Generate a dynamic image URL based on a blog post title
  * This uses our local placeholder image generator
@@ -18,8 +20,8 @@ export const generateDynamicImageUrl = (title: string, width: number = 1200, hei
   // Clean the title for use in filename
   const cleanTitle = title.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
   
-  // Return path to our local placeholder image
-  return `/placeholders/${width}x${height}-${cleanTitle}.png`;
+  // Return absolute path to our local placeholder image
+  return `${BASE_URL}/placeholders/${width}x${height}-${cleanTitle}.png`;
 }
 
 /**
@@ -49,9 +51,14 @@ export const getImageData = (frontmatter: BlogFrontmatter): { url: string; alt: 
   
   // If we have a real image (not the fallback unsplash one) use it, otherwise generate
   if (frontmatter.image && frontmatter.image.url && !isDefaultUnsplashImage) {
-    console.log('Using frontmatter image:', frontmatter.image.url);
+    // Ensure the URL is absolute
+    const imageUrl = frontmatter.image.url.startsWith('http') 
+      ? frontmatter.image.url 
+      : `${BASE_URL}${frontmatter.image.url.startsWith('/') ? '' : '/'}${frontmatter.image.url}`;
+    
+    console.log('Using frontmatter image:', imageUrl);
     return {
-      url: frontmatter.image.url,
+      url: imageUrl,
       alt: frontmatter.image.alt || title
     };
   }
