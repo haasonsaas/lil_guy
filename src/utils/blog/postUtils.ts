@@ -1,6 +1,6 @@
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
-import { generateDynamicImageUrl } from './imageUtils';
+import { generatePlaceholderImage } from '@/utils/placeholderImageGenerator';
 
 // Cache for loaded posts
 let allPosts: BlogPost[] | null = null;
@@ -22,9 +22,13 @@ export const getAllPosts = (): BlogPost[] => {
       
       if (!hasExplicitImage) {
         console.log(`Generating dynamic image for: ${post.frontmatter.title}`);
+        // Use our new placeholder image generator
+        const cleanTitle = post.frontmatter.title || post.slug;
+        const imagePath = `/placeholders/1200x630-${cleanTitle.toLowerCase().replace(/[^a-z0-9]/g, '-')}.png`;
+        
         post.frontmatter.image = {
-          url: generateDynamicImageUrl(post.frontmatter.title || post.slug),
-          alt: post.frontmatter.title || 'Blog post image'
+          url: imagePath,
+          alt: cleanTitle || 'Blog post image'
         };
       } else {
         console.log(`Using frontmatter image for: ${post.frontmatter.title}`);
@@ -54,11 +58,14 @@ export const getFeaturedPosts = (): BlogPost[] => {
  * Get all unique tags from all posts
  */
 export const getAllTags = (): string[] => {
-  const tags = new Set<string>();
-  getAllPosts().forEach(post => {
-    post.frontmatter.tags.forEach(tag => tags.add(tag));
+  const posts = getAllPosts();
+  const tagSet = new Set<string>();
+  
+  posts.forEach(post => {
+    post.frontmatter.tags.forEach(tag => tagSet.add(tag));
   });
-  return Array.from(tags);
+  
+  return Array.from(tagSet);
 };
 
 /**
