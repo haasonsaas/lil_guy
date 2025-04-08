@@ -141,8 +141,10 @@ export function markdownPlugin(): Plugin {
               frontmatter.tags = frontmatter.tags.split('\n')
                 .map((tag: string) => tag.trim())
                 .filter((tag: string) => tag.startsWith('-'))
-                .map((tag: string) => tag.substring(1).trim().replace(/^['"]|['"]$/g, ''))
+                .map((tag: string) => tag.substring(1).trim().replace(/^['"]|['"]$/g, '').toLowerCase())
                 .filter(Boolean);
+            } else if (Array.isArray(frontmatter.tags)) {
+              frontmatter.tags = frontmatter.tags.map((tag: string) => tag.trim().toLowerCase());
             }
           }
           

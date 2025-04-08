@@ -66,7 +66,7 @@ export const getAllTags = (): string[] => {
   const tagSet = new Set<string>();
   
   posts.forEach(post => {
-    post.frontmatter.tags.forEach(tag => tagSet.add(tag));
+    post.frontmatter.tags.forEach(tag => tagSet.add(tag.toLowerCase()));
   });
   
   return Array.from(tagSet);
@@ -76,5 +76,8 @@ export const getAllTags = (): string[] => {
  * Get posts by tag
  */
 export const getPostsByTag = (tag: string): BlogPost[] => {
-  return getAllPosts().filter(post => post.frontmatter.tags.includes(tag));
+  const normalizedTag = tag.toLowerCase();
+  return getAllPosts().filter(post => 
+    post.frontmatter.tags.some(t => t.toLowerCase() === normalizedTag)
+  );
 };
