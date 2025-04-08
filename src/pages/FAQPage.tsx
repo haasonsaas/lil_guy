@@ -1,4 +1,3 @@
-
 import Layout from '@/components/Layout';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
@@ -30,9 +29,9 @@ export default function FAQPage() {
             </AccordionItem>
             
             <AccordionItem value="item-3">
-              <AccordionTrigger className="text-lg font-medium">Do you offer consulting services?</AccordionTrigger>
+              <AccordionTrigger className="text-lg font-medium">Do you do angel investing?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Yes, I do provide consulting services for companies looking to leverage modern technologies in their business. My expertise spans SaaS strategy, AI implementation, and technology roadmapping. Please reach out directly to discuss your specific needs.
+                Yes, I occasionally angel invest in early-stage startups, particularly those focused on SaaS, security, and enterprise software. I look for founders with strong technical backgrounds and clear product visions.
               </AccordionContent>
             </AccordionItem>
             

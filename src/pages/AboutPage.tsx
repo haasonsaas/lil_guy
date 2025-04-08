@@ -31,28 +31,30 @@ export default function AboutPage() {
               </p>
               
               <div className="prose-custom mb-6">
-                <h3 className="text-xl font-semibold mb-3">About</h3>
+                <h3 className="text-xl font-semibold mb-3">About Me</h3>
                 <p className="mb-4">
-                  As a product manager at Vanta, I'm on a mission to revolutionize how businesses handle security compliance. By automating security assessments, we're turning what was once a months-long ordeal into a streamlined process that takes days.
+                  I help businesses tackle security compliance at Vanta. We're transforming what used to be a painful months-long process into something that takes just days through smart automation.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">My Story</h3>
+                <h3 className="text-xl font-semibold mb-3">My Journey</h3>
                 <p className="mb-4">
-                  My journey into security and compliance started in the trenches. After serving as a security engineer at Snapchat, DoorDash, and Carta, I noticed a persistent problem: companies were struggling with security assessments, burning countless hours on manual processes. This insight led me to found ThreatKey, a SaaS security company focused on automated misconfiguration detection.
+                  I've been in the security trenches at companies like Snapchat, DoorDash, and Carta, where I saw firsthand how manual security processes drain teams of time and resources.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-3">Product Philosophy</h3>
+                <p className="mb-2">I build products that solve real problems, not imagined ones. My approach:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Start with customer pain points, not solutions</li>
-                  <li>Make data-driven decisions while respecting qualitative insights</li>
-                  <li>Build diverse, empowered teams</li>
+                  <li>Customer-first thinking: I start by deeply understanding pain points before designing solutions. The best products address what keeps people up at night, not what looks good in a pitch deck.</li>
+                  <li>Right-sized data: Numbers tell important stories, but so do customer conversations. I blend quantitative metrics with qualitative insights to capture the full picture.</li>
+                  <li>Teams as ecosystems: Products thrive when built by diverse teams where different perspectives challenge assumptions. I create environments where people feel empowered to contribute their unique expertise.</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3">Impact & Results</h3>
+                <h3 className="text-xl font-semibold mb-3">Impact</h3>
+                <p className="mb-2">At Vanta, I've helped reshape how businesses approach compliance:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Reduced average security assessment completion time from months to weeks</li>
-                  <li>Helped thousands of companies achieve SOC 2 compliance</li>
-                  <li>Led development of enterprise security integrations with industry leaders</li>
+                  <li>Cut assessment completion times from months to weeks</li>
+                  <li>Guided thousands of companies to successful SOC 2 certification</li>
+                  <li>Built enterprise-grade integrations that connect security across organizational boundaries</li>
                 </ul>
               </div>
             </div>
@@ -66,10 +68,10 @@ export default function AboutPage() {
                 I'm always eager to exchange ideas with fellow product leaders and security enthusiasts. Whether you're curious about automated compliance, building security products, or transitioning from engineering to product management, I'd love to share experiences.
               </p>
               <a 
-                href="mailto:contact@example.com"
+                href="mailto:jonathan@haasonsaas.com"
                 className="text-primary hover:text-primary/80 font-medium"
               >
-                contact@example.com
+                jonathan@haasonsaas.com
               </a>
             </div>
           </div>
