@@ -1,6 +1,5 @@
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
-import { generatePlaceholderImage } from '@/utils/placeholderImageGenerator';
 
 // Cache for loaded posts
 let allPosts: BlogPost[] | null = null;
@@ -35,7 +34,12 @@ export const getAllPosts = (): BlogPost[] => {
       }
     });
     
-    allPosts = filePosts;
+    // Sort posts by date in descending order (most recent first)
+    allPosts = filePosts.sort((a, b) => {
+      const dateA = new Date(a.frontmatter.pubDate);
+      const dateB = new Date(b.frontmatter.pubDate);
+      return dateB.getTime() - dateA.getTime();
+    });
   }
   return allPosts;
 };
