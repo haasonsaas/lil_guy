@@ -55,6 +55,24 @@ export default function UsesPage() {
                       </div>
                       
                       <div>
+                        <h3 className="font-medium text-lg mb-2">Custom Gaming PC</h3>
+                        <p className="text-muted-foreground mb-2">High-performance workstation for gaming and development</p>
+                        <div className="space-y-2">
+                          <p className="text-sm"><span className="font-medium">CPU:</span> AMD Ryzen 7 9800X3D OEM Tray CPU (8 Cores, 16 Threads, 4.7GHz Base, 5.2GHz Turbo)</p>
+                          <p className="text-sm"><span className="font-medium">CPU Cooler:</span> Corsair iCUE LINK TITAN 360 RX LCD Liquid CPU Cooler Black</p>
+                          <p className="text-sm"><span className="font-medium">Motherboard:</span> ASUS ROG STRIX X870E-E GAMING WIFI ATX AM5</p>
+                          <p className="text-sm"><span className="font-medium">Memory:</span> Corsair VENGEANCE RGB DDR5 64GB (2x 32GB) 6000MT/s</p>
+                          <p className="text-sm"><span className="font-medium">GPU:</span> ROG Astral GeForce RTX 5090 32GB GDDR7 OC Edition</p>
+                          <p className="text-sm"><span className="font-medium">Storage:</span> 2x Western Digital Black SN850X 4TB NVMe SSD</p>
+                          <p className="text-sm"><span className="font-medium">Power Supply:</span> Seasonic VERTEX PX-1200 ATX 3.0 1200W 80 PLUS Platinum</p>
+                          <p className="text-sm"><span className="font-medium">Case:</span> NZXT H7 Flow Mid-Tower ATX Case Black</p>
+                          <p className="text-sm"><span className="font-medium">Fans:</span> Corsair iCUE LINK RX140 RGB 140mm PWM (Front/Rear) & RX120 MAX RGB 120mm PWM (Bottom)</p>
+                          <p className="text-sm"><span className="font-medium">OS:</span> Microsoft Windows 11 Pro 64-bit</p>
+                        </div>
+                        <p className="text-sm mt-2">Why I love it: This beast of a machine handles everything from AAA gaming to heavy development workloads with ease. The combination of the Ryzen 7 9800X3D and RTX 5090 provides exceptional performance for both gaming and GPU-accelerated development tasks.</p>
+                      </div>
+                      
+                      <div>
                         <h3 className="font-medium text-lg mb-2">DROP ALT Mechanical Keyboard</h3>
                         <p className="text-muted-foreground mb-2">Gateron Brown switches with PBT keycaps</p>
                         <p className="text-sm mb-2">Key Features: Hot-swappable switches, per-key RGB, USB-C passthrough</p>
