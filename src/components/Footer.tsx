@@ -1,4 +1,5 @@
-import { Github, Twitter, Linkedin } from 'lucide-react';
+
+import { Github, Twitter, Linkedin, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -11,6 +12,17 @@ export default function Footer() {
             <p className="text-muted-foreground">
               Exploring technology, AI, and the future of software development.
             </p>
+            <div className="mt-4">
+              <a 
+                href="https://frameworks.haasonsaas.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-primary flex items-center gap-2 hover:underline underline-offset-4 mt-2 group"
+              >
+                <BookOpen size={16} className="group-hover:scale-110 transition-transform" />
+                <span>Check out my Frameworks app</span>
+              </a>
+            </div>
           </div>
           
           <div>

@@ -1,8 +1,9 @@
+
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, BookOpen } from 'lucide-react';
 
 const Navbar = () => {
   const location = useLocation();
@@ -47,6 +48,12 @@ const Navbar = () => {
                   </Button>
                 </Link>
               ))}
+              <a href="https://frameworks.haasonsaas.com/" target="_blank" rel="noopener noreferrer">
+                <Button variant="ghost" className="text-sm flex items-center gap-1.5">
+                  <BookOpen size={16} />
+                  Frameworks
+                </Button>
+              </a>
             </div>
           )}
           
@@ -75,6 +82,15 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
+            <a href="https://frameworks.haasonsaas.com/" target="_blank" rel="noopener noreferrer">
+              <Button
+                variant="ghost"
+                className="w-full justify-start rounded-none text-left flex items-center gap-1.5"
+              >
+                <BookOpen size={16} />
+                Frameworks
+              </Button>
+            </a>
           </div>
         </div>
       )}
