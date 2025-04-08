@@ -49,9 +49,9 @@ const Navbar = () => {
                 </Link>
               ))}
               <a href="https://frameworks.haasonsaas.com/" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" className="text-sm flex items-center gap-1.5">
-                  <BookOpen size={16} />
-                  Frameworks
+                <Button variant="ghost" className="text-sm text-muted-foreground flex items-center gap-1.5 opacity-70 hover:opacity-100">
+                  <BookOpen size={14} />
+                  <span className="text-xs">Frameworks</span>
                 </Button>
               </a>
             </div>
@@ -85,9 +85,9 @@ const Navbar = () => {
             <a href="https://frameworks.haasonsaas.com/" target="_blank" rel="noopener noreferrer">
               <Button
                 variant="ghost"
-                className="w-full justify-start rounded-none text-left flex items-center gap-1.5"
+                className="w-full justify-start rounded-none text-left text-muted-foreground flex items-center gap-1.5 opacity-70 text-xs"
               >
-                <BookOpen size={16} />
+                <BookOpen size={14} />
                 Frameworks
               </Button>
             </a>

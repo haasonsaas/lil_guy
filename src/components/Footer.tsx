@@ -17,10 +17,10 @@ export default function Footer() {
                 href="https://frameworks.haasonsaas.com/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="text-primary flex items-center gap-2 hover:underline underline-offset-4 mt-2 group"
+                className="text-muted-foreground text-xs flex items-center gap-1.5 hover:text-primary transition-colors mt-3"
               >
-                <BookOpen size={16} className="group-hover:scale-110 transition-transform" />
-                <span>Check out my Frameworks app</span>
+                <BookOpen size={14} />
+                <span>Frameworks app</span>
               </a>
             </div>
           </div>
