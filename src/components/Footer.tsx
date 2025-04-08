@@ -1,4 +1,3 @@
-
 import { Github, Twitter, Linkedin } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -59,7 +58,7 @@ export default function Footer() {
             <h3 className="text-xl font-semibold mb-6">Connect</h3>
             <div className="flex gap-5">
               <a 
-                href="https://github.com" 
+                href="https://github.com/haasonsaas" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-foreground/5 hover:bg-foreground/10 p-3 rounded-full transition-all hover:scale-110 text-foreground/70 hover:text-foreground"
@@ -68,7 +67,7 @@ export default function Footer() {
                 <Github size={20} />
               </a>
               <a 
-                href="https://twitter.com" 
+                href="https://twitter.com/haasonsaas" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-foreground/5 hover:bg-foreground/10 p-3 rounded-full transition-all hover:scale-110 text-foreground/70 hover:text-foreground"
@@ -77,7 +76,7 @@ export default function Footer() {
                 <Twitter size={20} />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://linkedin.com/in/haasonsaas" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-foreground/5 hover:bg-foreground/10 p-3 rounded-full transition-all hover:scale-110 text-foreground/70 hover:text-foreground"
