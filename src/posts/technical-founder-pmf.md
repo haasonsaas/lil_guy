@@ -16,7 +16,7 @@ tags:
   - entrepreneurship
 image:
   url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A person looking confused at a complex maze of sticky notes on a wall, representing the challenges of finding true product-market fit"
+  alt: "A robot pointing at a web of data, representing the challenges of finding true product-market fit"
 ---
 
 # The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit
