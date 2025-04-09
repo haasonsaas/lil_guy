@@ -85,9 +85,11 @@ The project evolved into a framework library with several key principles:
 
 ### Practical Over Theoretical
 
-Many decision frameworks that exist in business literature are unnecessarily complex or abstract. The most valuable frameworks are those that can be applied immediately to real decisions, with clear inputs and outputs.
+Many decision frameworks that exist in business literature are unnecessarily complex or abstract. The most valuable frameworks are those that can be applied immediately to real decisions, with clear inputs and outputs. My library focuses on immediately applicable tools rather than theoretical concepts.
 
-For example, rather than including generic "SWOT Analysis" templates, the library contains specific adaptations like "Product Extension SWOT" or "Market Entry SWOT" with tailored questions and considerations.
+For example, instead of generic approaches, I offer specialized frameworks like the Eisenhower Matrix for urgent/important task prioritization, the Impact-Effort Matrix for initiative selection, and the Cost-Benefit Analysis for financial decision validation. When facing complexity, users can employ the Cynefin Framework to categorize problem types or the Six Thinking Hats for comprehensive perspective-taking.
+
+Each framework in my collection—from the rapid-response OODA Loop to the deliberate Ladder of Inference—is implemented with a unique identifier, descriptive title, category classification, visual thumbnail, and interactive functionality to support real-world application rather than academic discussion.
 
 ### Contextual Guidance
 
