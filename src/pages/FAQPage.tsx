@@ -48,6 +48,42 @@ export default function FAQPage() {
                 Yes, I regularly speak at technology conferences and industry events on topics related to SaaS, AI, and software development. My calendar is typically booked a few months in advance, but I'm always open to considering speaking opportunities.
               </AccordionContent>
             </AccordionItem>
+
+            <AccordionItem value="item-6">
+              <AccordionTrigger className="text-lg font-medium">Are you involved in any industry groups?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Yes, I'm an active participant in several industry groups including OWASP, BSides, and similar security and technology communities. These groups provide valuable opportunities for knowledge sharing, networking, and contributing to the broader tech community.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-7">
+              <AccordionTrigger className="text-lg font-medium">What formats do you publish content in?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                I primarily publish written articles on this blog, but I also create technical tutorials, case studies, and occasionally produce video content. All content is designed to be accessible to both technical and non-technical audiences.
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-8">
+              <AccordionTrigger className="text-lg font-medium">What advice do you have for founders?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                <ul className="list-disc pl-6 space-y-2">
+                  <li>Focus on solving a real problem before building features</li>
+                  <li>Talk to your customers early and often - they'll tell you what to build</li>
+                  <li>Start with security in mind, not as an afterthought</li>
+                  <li>Build a strong technical foundation - technical debt compounds quickly</li>
+                  <li>Hire for cultural fit and learning ability, not just technical skills</li>
+                  <li>Document everything - from architecture decisions to operational procedures</li>
+                  <li>Measure what matters - focus on metrics that drive business outcomes</li>
+                </ul>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="item-9">
+              <AccordionTrigger className="text-lg font-medium">Do you collaborate with other writers or creators?</AccordionTrigger>
+              <AccordionContent className="text-muted-foreground">
+                Yes, I'm open to collaborations with other writers, developers, and content creators in the tech space. If you have an interesting project or idea, feel free to reach out through the contact form.
+              </AccordionContent>
+            </AccordionItem>
           </Accordion>
         </div>
       </section>
