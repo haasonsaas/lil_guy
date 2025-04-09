@@ -79,7 +79,7 @@ Finally, and perhaps most importantly, frameworks need a unified home—a search
 
 ## The Universal Framework Library
 
-This realization is what drove me to build what I initially called "Thinking Frameworks"—a comprehensive, interactive collection of decision-making tools. While initially inspired by needs at Vanta, I quickly realized that this approach could benefit organizations universally.
+This realization is what drove me to build what I initially called ["Thinking Frameworks"—a comprehensive, interactive collection of decision-making tools](https://frameworks.haasonsaas.com). While initially inspired by needs at Vanta, I quickly realized that this approach could benefit organizations universally.
 
 The project evolved into a framework library with several key principles:
 
