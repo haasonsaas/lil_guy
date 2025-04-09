@@ -39,7 +39,7 @@ As technical founders, we fall prey to specific cognitive biases that can lead u
 
 ### 1. Mistaking Technical Excellence for Market Need
 
-I once worked with a team of PhD computer scientists who built an incredible optimization algorithm. It was genuinely brilliant work—10x faster than anything on the market. They'd spent 18 months perfecting it, convinced that superior technology would inevitably lead to market dominance.
+I once worked with a team of PhD computer scientists who built an incredibly sophisticated threat detection platform. It was truly impressive—able to identify and identify concerning behavior 10x faster than anything else in the space. We spent 18 months fine-tuning it, fully convinced that superior detection speed and precision would automatically translate into widespread adoption and market leadership.
 
 The reality? Nobody cared. Not because the technology wasn't impressive, but because the specific problem they solved wasn't painful enough for most potential customers to change their existing workflows.
 
@@ -94,15 +94,14 @@ I've witnessed countless product reviews where teams celebrate metrics that look
 
 Analytics become particularly dangerous when they become a substitute for direct, uncomfortable customer conversations. The data might tell you what's happening, but it rarely tells you why—and the why is where PMF insights live.
 
-## The Adjacent Market Mirage
+## The Compliance Comfort Illusion
+One pattern I’ve seen derail security startups: founders who identify a real regulatory pressure point, but then build a product that addresses it from the sidelines.
 
-Another trap I've observed repeatedly: founders who identify a legitimate market need but build a solution that's tangential to that need.
+Years ago, I spoke to a company targeting healthcare compliance. They recognized the burden of HIPAA audits—so far, so good. But instead of helping orgs pass audits, they built a dashboard that summarized audit readiness. It looked slick, had nice integrations, and even generated some early interest. But when pipeline conversions stalled, they pointed fingers at GTM: wrong pricing, wrong buyer personas, wrong messaging.
 
-I consulted for a startup targeting the education technology market. They correctly identified that schools struggle with student assessment, but built a tool that focused on a peripheral aspect of that challenge. When adoption lagged, they blamed marketing, sales execution, and pricing—everything except the core product hypothesis.
+What they missed was that CISOs weren’t looking for another dashboard—they wanted automated evidence collection, remediation workflows, and auditor-facing exports. The company wasn’t solving the pain; they were describing it with prettier charts.
 
-Their fatal error was assuming that because they were in the right problem space, they had the right solution. In reality, they were adjacent to PMF—close enough to generate some interest, but not close enough to create genuine demand.
-
-This adjacency is particularly dangerous because it provides just enough validation to keep teams invested in a flawed direction, sometimes for years.
+This kind of near-miss is dangerous in security and compliance, where perceived signal (e.g., early traction from partner feedback or analyst nods) can mask a fundamental misalignment with buyer urgency. You’re not far from product-market fit—but far enough that you never quite land it.
 
 ## The Hard Truth About Scale
 
