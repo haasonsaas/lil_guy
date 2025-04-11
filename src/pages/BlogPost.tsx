@@ -4,8 +4,8 @@ import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import TagCloud from '@/components/TagCloud';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Tag, Calendar } from 'lucide-react';
-import { getPostBySlug, formatDate } from '@/utils/blogUtils';
+import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
+import { getPostBySlug, formatDate, calculateReadingTime } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 
 const optimizeImage = (url: string) => {
@@ -114,6 +114,11 @@ export default function BlogPost() {
                   </span>
                 </>
               )}
+              <span className="mx-2">•</span>
+              <span className="flex items-center gap-1">
+                <Clock size={14} />
+                <span>{calculateReadingTime(content)} min read</span>
+              </span>
             </div>
             
             {frontmatter?.description && (
