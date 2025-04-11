@@ -3,9 +3,11 @@ import { useParams, Link, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import TagCloud from '@/components/TagCloud';
+import BlogCard from '@/components/BlogCard';
+import AuthorBio from '@/components/AuthorBio';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
-import { getPostBySlug, formatDate, calculateReadingTime } from '@/utils/blogUtils';
+import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 
 const optimizeImage = (url: string) => {
@@ -24,6 +26,7 @@ export default function BlogPost() {
   const navigate = useNavigate();
   const post = getPostBySlug(slug || '');
   const [imageError, setImageError] = useState(false);
+  const relatedPosts = post ? getRelatedPosts(post) : [];
   
   useEffect(() => {
     // Scroll to top when post loads
@@ -78,91 +81,114 @@ export default function BlogPost() {
   return (
     <Layout>
       <article className="py-8">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/blog">
             <Button variant="ghost" className="mb-6 flex items-center gap-2 group">
               <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" /> Back to Blog
             </Button>
           </Link>
           
-          <div className="mb-8 animate-fade-in">
-            <div className="flex flex-wrap gap-2 mb-4">
-              {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.map(tag => (
-                <Link key={tag} to={`/tags/${tag}`}>
-                  <Button variant="outline" size="sm" className="text-xs flex items-center gap-1.5 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90">
-                    <Tag size={12} />
-                    {tag.replace(/-/g, ' ')}
-                  </Button>
-                </Link>
-              ))}
-            </div>
-            
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance font-serif">
-              {frontmatter?.title || 'Untitled Post'}
-            </h1>
-            
-            <div className="text-muted-foreground mb-6 flex items-center gap-4">
-              <span className="flex items-center gap-1">
-                <span className="font-medium">{frontmatter?.author || 'Anonymous'}</span>
-              </span>
-              {frontmatter?.pubDate && (
-                <>
+          <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+            {/* Main content */}
+            <div className="lg:col-span-8">
+              <div className="mb-8 animate-fade-in">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.map(tag => (
+                    <Link key={tag} to={`/tags/${tag}`}>
+                      <Button variant="outline" size="sm" className="text-xs flex items-center gap-1.5 bg-primary text-primary-foreground border-primary/20 hover:bg-primary/90">
+                        <Tag size={12} />
+                        {tag.replace(/-/g, ' ')}
+                      </Button>
+                    </Link>
+                  ))}
+                </div>
+                
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-balance font-serif">
+                  {frontmatter?.title || 'Untitled Post'}
+                </h1>
+                
+                <div className="text-muted-foreground mb-6 flex items-center gap-4">
+                  <span className="flex items-center gap-1">
+                    <span className="font-medium">{frontmatter?.author || 'Anonymous'}</span>
+                  </span>
+                  {frontmatter?.pubDate && (
+                    <>
+                      <span className="mx-2">•</span>
+                      <span className="flex items-center gap-1">
+                        <Calendar size={14} />
+                        <time dateTime={frontmatter.pubDate}>{formatDate(frontmatter.pubDate)}</time>
+                      </span>
+                    </>
+                  )}
                   <span className="mx-2">•</span>
                   <span className="flex items-center gap-1">
-                    <Calendar size={14} />
-                    <time dateTime={frontmatter.pubDate}>{formatDate(frontmatter.pubDate)}</time>
+                    <Clock size={14} />
+                    <span>{calculateReadingTime(content)} min read</span>
                   </span>
-                </>
-              )}
-              <span className="mx-2">•</span>
-              <span className="flex items-center gap-1">
-                <Clock size={14} />
-                <span>{calculateReadingTime(content)} min read</span>
-              </span>
+                </div>
+                
+                {frontmatter?.description && (
+                  <p className="text-lg text-foreground/90 mb-8">
+                    {frontmatter.description}
+                  </p>
+                )}
+              </div>
+              
+              <div className="relative mb-10 rounded-xl overflow-hidden animate-fade-up shadow-md">
+                <img 
+                  src={optimizeImage(imageUrl)} 
+                  alt={imageAlt}
+                  className="w-full h-auto"
+                  onError={() => {
+                    console.error('Image failed to load:', imageUrl);
+                    setImageError(true);
+                  }}
+                />
+              </div>
+              
+              <div className="animate-fade-up">
+                <MarkdownRenderer 
+                  content={content} 
+                  className="prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-slate-800 prose-pre:rounded-lg prose-pre:shadow-sm prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md prose-img:shadow-sm"
+                />
+              </div>
+              
+              <div className="border-t border-border mt-16 pt-8">
+                <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
+                  <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
+                  {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
+                    <TagCloud tags={frontmatter.tags} />
+                  ) : (
+                    <p className="text-muted-foreground">No tags available</p>
+                  )}
+                </div>
+                
+                {relatedPosts.length > 0 && (
+                  <div className="mt-12">
+                    <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      {relatedPosts.map(relatedPost => (
+                        <BlogCard key={relatedPost.slug} post={relatedPost} />
+                      ))}
+                    </div>
+                  </div>
+                )}
+                
+                <div className="mt-8 text-center">
+                  <Link to="/blog">
+                    <Button className="px-6">
+                      Read more articles
+                    </Button>
+                  </Link>
+                </div>
+              </div>
             </div>
             
-            {frontmatter?.description && (
-              <p className="text-lg text-foreground/90 mb-8">
-                {frontmatter.description}
-              </p>
-            )}
-          </div>
-          
-          <div className="relative mb-10 rounded-xl overflow-hidden animate-fade-up shadow-md">
-            <img 
-              src={optimizeImage(imageUrl)} 
-              alt={imageAlt}
-              className="w-full h-auto"
-              onError={() => {
-                console.error('Image failed to load:', imageUrl);
-                setImageError(true);
-              }}
-            />
-          </div>
-          
-          <div className="animate-fade-up">
-            <MarkdownRenderer 
-              content={content} 
-              className="prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-slate-800 prose-pre:rounded-lg prose-pre:shadow-sm prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md prose-img:shadow-sm"
-            />
-          </div>
-          
-          <div className="border-t border-border mt-16 pt-8">
-            <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
-              <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
-              {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
-                <TagCloud tags={frontmatter.tags} />
-              ) : (
-                <p className="text-muted-foreground">No tags available</p>
-              )}
-            </div>
-            
-            <div className="mt-8 text-center">
-              <Link to="/blog">
-                <Button className="px-6">
-                  Read more articles
-                </Button>
-              </Link>
+            {/* Sidebar */}
+            <div className="lg:col-span-4 mt-12 lg:mt-0">
+              <div className="sticky top-8">
+                <AuthorBio />
+              </div>
             </div>
           </div>
         </div>

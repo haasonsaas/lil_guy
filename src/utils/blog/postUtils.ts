@@ -81,3 +81,33 @@ export const getPostsByTag = (tag: string): BlogPost[] => {
     post.frontmatter.tags.some(t => t.toLowerCase() === normalizedTag)
   );
 };
+
+/**
+ * Get related posts based on shared tags
+ * @param currentPost The current blog post
+ * @param limit Maximum number of related posts to return
+ * @returns Array of related blog posts
+ */
+export const getRelatedPosts = (currentPost: BlogPost, limit: number = 3): BlogPost[] => {
+  const allPosts = getAllPosts();
+  const currentTags = new Set(currentPost.frontmatter.tags.map(tag => tag.toLowerCase()));
+  
+  // Calculate similarity score for each post
+  const postsWithScores = allPosts
+    .filter(post => post.slug !== currentPost.slug) // Exclude current post
+    .map(post => {
+      const postTags = new Set(post.frontmatter.tags.map(tag => tag.toLowerCase()));
+      const sharedTags = [...currentTags].filter(tag => postTags.has(tag));
+      const similarityScore = sharedTags.length / (currentTags.size + postTags.size - sharedTags.length);
+      
+      return {
+        post,
+        score: similarityScore
+      };
+    })
+    .sort((a, b) => b.score - a.score) // Sort by similarity score
+    .slice(0, limit) // Take top N posts
+    .map(item => item.post);
+  
+  return postsWithScores;
+};
