@@ -7,9 +7,8 @@ featured: false
 draft: false
 tags:
   - personal
+  - personal-growth
   - san-francisco
-  - career
-  - life-changes
 image:
   url: 'https://images.pexels.com/photos/208745/pexels-photo-208745.jpeg'
   alt: 'San Francisco skyline at noon with Golden Gate Bridge'

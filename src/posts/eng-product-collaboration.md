@@ -6,11 +6,11 @@ postSlug: engineering-product-alliance
 featured: false
 draft: false
 tags:
-  - engineering-culture
-  - product-management
-  - team-collaboration
-  - software-development
+  - engineering
   - leadership
+  - organizational-culture
+  - product-development
+  - software-engineering
 description:
   Moving beyond traditional engineering and product silos to build lasting,
   effective partnerships that drive innovation

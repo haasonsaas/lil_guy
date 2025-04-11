@@ -7,10 +7,10 @@ featured: false
 draft: false
 tags:
   - artificial-intelligence
-  - vertical-saas
-  - industry-trends
-  - product-strategy
   - enterprise-software
+  - industry-trends
+  - product-development
+  - startups
 description:
   How vertical SaaS companies are rapidly evolving from workflow automation to
   intelligent agents, and what it means for the future of industry-specific

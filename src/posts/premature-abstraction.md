@@ -6,11 +6,9 @@ postSlug: the-abstraction-trap
 featured: false
 draft: false
 tags:
-  - software-design
+  - engineering
+  - software-engineering
   - technical-debt
-  - engineering-principles
-  - code-architecture
-  - refactoring
 description:
   How premature abstraction can lead to increased complexity and maintenance
   burden in software projects

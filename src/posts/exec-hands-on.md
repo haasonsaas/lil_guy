@@ -11,13 +11,11 @@ description:
 featured: false
 draft: false
 tags:
-  - leadership
-  - startups
-  - management
   - engineering
-  - sales
+  - leadership
   - organizational-culture
-  - startup-lessons
+  - sales
+  - startups
 image:
   url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg'
   alt: 'A team of individuals gathered around a table'

@@ -6,11 +6,9 @@ postSlug: chrome-extension-jira-titles
 featured: false
 draft: false
 tags:
+  - artificial-intelligence
+  - product-development
   - productivity
-  - chrome-extension
-  - jira
-  - ai
-  - product-management
   - tooling
 description:
   How I built a Chrome extension using GPT-4 to automatically generate clear,

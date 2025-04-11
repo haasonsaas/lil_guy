@@ -6,11 +6,11 @@ postSlug: product-manager-breakfast
 featured: false
 draft: false
 tags:
-  - product-management
   - humor
-  - work-life-balance
+  - personal-growth
+  - product-development
   - productivity
-  - startup-life
+  - startups
 image:
   url: 'https://images.pexels.com/photos/885021/pexels-photo-885021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A cup of coffee on a wooden table'

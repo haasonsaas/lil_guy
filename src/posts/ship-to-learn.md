@@ -6,11 +6,8 @@ postSlug: iterative-shipping-product-development
 featured: true
 draft: false
 tags:
-  - product-management
   - agile
-  - shipping
-  - customer-development
-  - product-strategy
+  - product-development
 image:
   url: 'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt:

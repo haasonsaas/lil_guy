@@ -7,13 +7,12 @@ description:
 featured: true
 draft: false
 tags:
-  - founder-psychology
-  - organizational-velocity
-  - innovation-patterns
-  - startup-culture
-  - time-perception
-  - execution-excellence
-  - visionary-leadership
+  - entrepreneurship
+  - innovation
+  - leadership
+  - organizational-culture
+  - productivity
+  - startups
 image:
   url: 'https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "A spiral staircase viewed from below, symbolizing the upward trajectory and different perspective that exceptional founders bring to their work"

@@ -7,13 +7,11 @@ description:
 featured: false
 draft: false
 tags:
-  - decision-making
-  - frameworks
-  - productivity
   - leadership
   - organizational-culture
-  - cognitive-tools
-  - scaling-knowledge
+  - productivity
+  - strategy
+  - systems-thinking
 image:
   url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "A person's hand drawing a mind map on a whiteboard, representing structured thinking and decision-making processes"

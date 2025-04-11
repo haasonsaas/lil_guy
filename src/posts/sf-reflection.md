@@ -6,11 +6,10 @@ postSlug: three-months-back-in-sf
 featured: true
 draft: false
 tags:
-  - personal
-  - san-francisco
   - entrepreneurship
-  - health
-  - work-life-balance
+  - personal
+  - personal-growth
+  - san-francisco
 image:
   url: 'https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg'
   alt: 'San Francisco skyline with fog rolling over Golden Gate Bridge'

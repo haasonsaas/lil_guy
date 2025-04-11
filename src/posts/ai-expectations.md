@@ -9,12 +9,11 @@ featured: false
 draft: false
 tags:
   - artificial-intelligence
-  - product-design
-  - user-experience
-  - technology
-  - software-development
   - future-of-work
-  - human-computer-interaction
+  - product-development
+  - software-engineering
+  - technology
+  - user-experience
 image:
   url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt:

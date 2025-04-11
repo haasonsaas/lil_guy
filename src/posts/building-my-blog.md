@@ -4,11 +4,11 @@ pubDate: 2025-04-08
 author: Jonathan Haas
 description: "A deep dive into building a modern blog using React, TypeScript, Vite, and other cutting-edge technologies"
 tags:
+  - Blog
   - React
   - TypeScript
   - Vite
   - Web Development
-  - Blog
 image:
   src: "/images/blog-building.jpg"
   alt: "Code editor showing React and TypeScript code"

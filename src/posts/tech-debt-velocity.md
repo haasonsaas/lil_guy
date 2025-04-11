@@ -6,11 +6,10 @@ postSlug: the-velocity-trap
 featured: true
 draft: false
 tags:
+  - leadership
+  - software-engineering
+  - strategy
   - systems-thinking
-  - maintainability
-  - technical-strategy
-  - engineering-management
-  - developer-experience
 image:
   url: 'https://images.pexels.com/photos/1314410/pexels-photo-1314410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A hand holding up a lightbulb, showing streaks of light'

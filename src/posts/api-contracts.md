@@ -7,11 +7,8 @@ postSlug: the-integration-tax
 featured: false
 draft: false
 tags:
-  - api-design
-  - system-architecture
-  - integration-patterns
-  - technical-debt
   - software-engineering
+  - technical-debt
 image:
   url: 'https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Complex network of connections represented by post it notes'

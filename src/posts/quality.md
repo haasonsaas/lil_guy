@@ -6,11 +6,10 @@ postSlug: the-quality-quotient
 featured: false
 draft: false
 tags:
-  - software-quality
-  - engineering-excellence
-  - technical-debt
   - architecture
-  - engineering-culture
+  - engineering
+  - software-quality
+  - technical-debt
 description:
   Understanding when and where to invest in software quality, and how to build
   systems that last

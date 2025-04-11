@@ -9,13 +9,11 @@ description:
 featured: false
 draft: false
 tags:
-  - cybersecurity
   - artificial-intelligence
-  - autonomous-agents
-  - security-operations
   - compliance
+  - cybersecurity
   - future-of-work
-  - digital-transformation
+  - innovation
 image:
   url: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg'
   alt: 'Abstract visualization of AI systems and humans working in harmony'

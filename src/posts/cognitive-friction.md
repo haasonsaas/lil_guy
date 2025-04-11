@@ -9,7 +9,7 @@ featured: false
 draft: false
 tags:
   - cognition
-  - decision-making
+  - strategy
 image:
   url: 'https://images.pexels.com/photos/116676/pexels-photo-116676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A car tire covered in dirt'

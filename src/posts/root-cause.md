@@ -6,11 +6,9 @@ postSlug: product-management-need-finding
 featured: false
 draft: false
 tags:
-  - product-management
-  - user-research
-  - customer-development
+  - product-development
   - strategy
-  - decision-making
+  - user-experience
 image:
   url: 'https://images.pexels.com/photos/1904204/pexels-photo-1904204.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt:

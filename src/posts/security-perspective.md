@@ -13,12 +13,8 @@ image:
   alt: 'Two cameras against a wall'
 tags:
   - artificial-intelligence
-  - cybersecurity
-  - enterprise-security
-  - risk-management
   - compliance
-  - information-security
-  - ai-governance
+  - cybersecurity
 ---
 
 ## The Security Promise and the Reality

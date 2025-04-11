@@ -6,10 +6,6 @@ postSlug: homelab
 featured: false
 draft: false
 tags:
-  - homelab
-  - networking
-  - ubiquiti
-  - unifi
   - infrastructure
 image:
   url: 'https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'

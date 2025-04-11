@@ -8,11 +8,8 @@ description:
 featured: false
 draft: false
 tags:
-  - work-life-balance
   - personal
-  - career
-  - life-changes
-  - advice
+  - personal-growth
   - systems-thinking
 image:
   url: 'https://images.pexels.com/photos/1051449/pexels-photo-1051449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'

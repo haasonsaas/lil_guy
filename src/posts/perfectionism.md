@@ -6,11 +6,10 @@ postSlug: the-perfection-paralysis
 featured: false
 draft: false
 tags:
-  - startup-strategy
+  - leadership
   - product-development
-  - customer-feedback
-  - technical-strategy
-  - engineering-management
+  - startups
+  - strategy
 description:
   How an obsession with perfect architecture and clean code can prevent startups
   from finding product-market fit
