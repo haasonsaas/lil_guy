@@ -2,7 +2,14 @@
 // It serves as the main entry point to maintain backward compatibility
 
 // Re-export everything from the new modules
-export { getAllPosts, getPostBySlug, getFeaturedPosts, getAllTags, getPostsByTag } from './blog/postUtils';
+export { 
+  getAllPosts, 
+  getPostBySlug, 
+  getFeaturedPosts, 
+  getAllTags, 
+  getPostsByTag,
+  getRelatedPosts 
+} from './blog/postUtils';
 export { formatDate } from './blog/dateUtils';
 
 /**
