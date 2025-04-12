@@ -26,6 +26,8 @@ It's not what they build. It's not whom they hire. It's not even how they think.
 
 It's how they experience and manipulate time itself.
 
+<soundcloud trackId="2076790188" title="The Time Architects" />
+
 ## The Subjective Experience of Founder Time
 
 Most of us experience time as a relatively constant flow—minutes into hours, days into weeks, quarters into fiscal years. We compartmentalize our work accordingly, breaking ambitious visions into manageable chunks that can be executed in sequence. This approach is reasonable, responsible, and for most purposes, effective.
