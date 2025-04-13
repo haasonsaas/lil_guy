@@ -127,6 +127,36 @@
     --ring: 175 100% 30%;
   }
 
+  .hacker {
+    --background: 120 100% 2%;
+    --foreground: 120 100% 50%;
+
+    --card: 120 100% 2%;
+    --card-foreground: 120 100% 50%;
+
+    --popover: 120 100% 2%;
+    --popover-foreground: 120 100% 50%;
+
+    --primary: 120 100% 50%;
+    --primary-foreground: 120 100% 2%;
+
+    --secondary: 120 100% 5%;
+    --secondary-foreground: 120 100% 50%;
+
+    --muted: 120 100% 5%;
+    --muted-foreground: 120 100% 30%;
+
+    --accent: 120 100% 5%;
+    --accent-foreground: 120 100% 50%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 120 100% 2%;
+
+    --border: 120 100% 10%;
+    --input: 120 100% 10%;
+    --ring: 120 100% 50%;
+  }
+
   * {
     @apply border-border;
   }
