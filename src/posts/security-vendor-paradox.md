@@ -40,7 +40,7 @@ One Fortune 500 CISO I spoke with recently tracked their vendor communications f
 
 ## The Vendor's Dilemma: Breaking Through the Noise
 
-From the vendor perspective – and I speak from experience having built and sold a security company – the challenges are equally daunting:
+From the vendor perspective – and I speak from experience as both a builder and seller – the challenges are equally daunting:
 
 1. **Market Saturation**: With thousands of competitors, differentiation becomes extraordinarily difficult.
 2. **Access Challenges**: Decision-makers have erected increasingly sophisticated barriers to vendor communication.
