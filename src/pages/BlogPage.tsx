@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
-import { getAllPosts, clearPostsCache } from '@/utils/blogUtils';
+import { getAllPosts } from '@/utils/blogUtils';
 import { Input } from '@/components/ui/input';
 import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -13,12 +13,6 @@ export default function BlogPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [currentPage, setCurrentPage] = useState(1);
-  
-  // Clear cache and reload posts when component mounts
-  useEffect(() => {
-    clearPostsCache();
-    setPosts(getAllPosts());
-  }, []);
   
   useEffect(() => {
     const filtered = posts.filter(post => {
@@ -41,13 +35,6 @@ export default function BlogPage() {
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
   const currentPosts = filteredPosts.slice(startIndex, endIndex);
-  
-  // Reset to first page if current page is out of bounds
-  useEffect(() => {
-    if (currentPage > totalPages && totalPages > 0) {
-      setCurrentPage(1);
-    }
-  }, [currentPage, totalPages]);
   
   return (
     <Layout>

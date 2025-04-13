@@ -8,8 +8,7 @@ export {
   getFeaturedPosts, 
   getAllTags, 
   getPostsByTag,
-  getRelatedPosts,
-  clearPostsCache
+  getRelatedPosts 
 } from './blog/postUtils';
 export { formatDate } from './blog/dateUtils';
 
