@@ -127,6 +127,36 @@
     --ring: 175 100% 30%;
   }
 
+  .solarized-dark {
+    --background: 193 100% 15%;
+    --foreground: 44 100% 89%;
+
+    --card: 193 100% 15%;
+    --card-foreground: 44 100% 89%;
+
+    --popover: 193 100% 15%;
+    --popover-foreground: 44 100% 89%;
+
+    --primary: 175 100% 35%;
+    --primary-foreground: 193 100% 15%;
+
+    --secondary: 193 100% 20%;
+    --secondary-foreground: 44 100% 89%;
+
+    --muted: 193 100% 20%;
+    --muted-foreground: 44 100% 70%;
+
+    --accent: 193 100% 20%;
+    --accent-foreground: 44 100% 89%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 44 100% 89%;
+
+    --border: 193 100% 25%;
+    --input: 193 100% 25%;
+    --ring: 175 100% 35%;
+  }
+
   .hacker {
     --background: 120 100% 2%;
     --foreground: 120 100% 50%;
