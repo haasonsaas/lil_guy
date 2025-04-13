@@ -25,11 +25,11 @@ As Waseem Alshikh, Co-founder and CTO of Writer, brilliantly put it: "If your en
 
 Let that sink in for a moment.
 
-In boardrooms across the globe, executives are proudly unveiling their "AI transformation initiatives" that, when stripped of the corporate jargon (read: bullshit) and polished slide decks, amount to little more than outsourcing their AI capabilities to a handful of dominant providers. These companies aren't building competitive advantage—they're renting someone else's innovation at premium rates while simultaneously handing over their most valuable data.
+<soundcloud trackId="2077624620" title="Full-Stack AI: Beyond API Calls to Real Enterprise Strategy" />
 
 ## The False Economy of API Dependency
 
-When a CTO proudly announces that their company has "implemented AI" by integrating OpenAI into customer service workflows, what’s often left unsaid is the strategic tradeoff that’s just been made: the company is now tethered to a single vendor’s pricing model, technical roadmap, and operational stability.
+When a CTO proudly announces that their company has "implemented AI" by integrating OpenAI into customer service workflows, what's often left unsaid is the strategic tradeoff that's just been made: the company is now tethered to a single vendor's pricing model, technical roadmap, and operational stability.
 
 This kind of API dependency introduces several significant challenges:
 1. **Runaway Costs at Scale**: What begins as a low-cost experiment can quickly spiral into a major expense. One mid-sized professional services firm I spoke with recently saw their monthly OpenAI bill jump from $7,000 to $130,000 in just four months—without a proportional return in customer satisfaction or revenue uplift. While these models can deliver impressive functionality, cost predictability is often elusive, especially as usage grows and pricing tiers shift.
