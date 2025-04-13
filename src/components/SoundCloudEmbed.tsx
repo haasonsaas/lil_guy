@@ -44,6 +44,9 @@ export default function SoundCloudEmbed({
           {title}
         </a>
       </div>
+      <div className="text-xs text-gray-500 mt-2 italic">
+        Note: These audio tracks are AI-generated using NotebookLLM and may contain inaccuracies or mispronunciations.
+      </div>
     </div>
   );
 } 
