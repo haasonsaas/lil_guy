@@ -44,6 +44,8 @@ export default function BlogPost() {
       const ogDesc = document.querySelector('meta[property="og:description"]');
       const ogImage = document.querySelector('meta[property="og:image"]');
       const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      const ogAuthor = document.querySelector('meta[property="article:author"]');
+      const twitterCreator = document.querySelector('meta[name="twitter:creator"]');
       
       if (ogTitle) ogTitle.setAttribute('content', post.frontmatter.title);
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
@@ -54,6 +56,10 @@ export default function BlogPost() {
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
+      
+      // Set author information
+      if (ogAuthor) ogAuthor.setAttribute('content', 'Jonathan Haas');
+      if (twitterCreator) twitterCreator.setAttribute('content', '@haasonsaas');
     }
   }, [post, slug, navigate]);
   
