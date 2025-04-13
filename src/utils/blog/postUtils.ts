@@ -35,13 +35,20 @@ export const getAllPosts = (): BlogPost[] => {
     });
     
     // Sort posts by date in descending order (most recent first)
-    allPosts = filePosts.sort((a, b) => {
-      const dateA = new Date(a.frontmatter.pubDate);
-      const dateB = new Date(b.frontmatter.pubDate);
-      return dateB.getTime() - dateA.getTime();
-    });
+    allPosts = filePosts
+      .filter(post => !post.frontmatter.draft) // Filter out draft posts
+      .sort((a, b) => {
+        const dateA = new Date(a.frontmatter.pubDate);
+        const dateB = new Date(b.frontmatter.pubDate);
+        return dateB.getTime() - dateA.getTime();
+      });
   }
   return allPosts;
+};
+
+// Add a function to clear the cache when needed
+export const clearPostsCache = (): void => {
+  allPosts = null;
 };
 
 /**
