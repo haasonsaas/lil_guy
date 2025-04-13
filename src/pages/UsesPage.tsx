@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Laptop, Code, Monitor, Headphones, Coffee, Smartphone, Keyboard, Mouse } from 'lucide-react';
+import { Laptop, Code, Monitor, Headphones, Coffee, Smartphone, Keyboard, Mouse, Network } from 'lucide-react';
 
 export default function UsesPage() {
   return (
@@ -16,22 +16,24 @@ export default function UsesPage() {
           </div>
           
           <Tabs defaultValue="hardware" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
               <TabsTrigger value="hardware" className="flex items-center gap-2">
-                <Laptop size={16} />
-                <span>Hardware</span>
+                <Laptop size={16} /> Hardware
               </TabsTrigger>
               <TabsTrigger value="mobile" className="flex items-center gap-2">
-                <Smartphone size={16} />
-                <span>Mobile</span>
+                <Smartphone size={16} /> Mobile
               </TabsTrigger>
               <TabsTrigger value="software" className="flex items-center gap-2">
-                <Code size={16} />
-                <span>Software</span>
+                <Code size={16} /> Software
               </TabsTrigger>
               <TabsTrigger value="productivity" className="flex items-center gap-2">
-                <Coffee size={16} />
-                <span>Productivity</span>
+                <Coffee size={16} /> Productivity
+              </TabsTrigger>
+              <TabsTrigger value="audio" className="flex items-center gap-2">
+                <Headphones size={16} /> Audio
+              </TabsTrigger>
+              <TabsTrigger value="networking" className="flex items-center gap-2">
+                <Network size={16} /> Networking
               </TabsTrigger>
             </TabsList>
             
@@ -260,6 +262,99 @@ export default function UsesPage() {
                             </tr>
                           </tbody>
                         </table>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="audio">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Headphones size={20} /> 
+                    <span>Audio Setup</span>
+                  </CardTitle>
+                  <CardDescription>My audio equipment</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Massdrop x Sennheiser HD 6XX Headphones</h3>
+                      <p className="text-muted-foreground mb-2">Open-back audiophile headphones</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Open-back design, 300-ohm impedance, 10Hz-41kHz frequency response</p>
+                        <p className="text-sm"><span className="font-medium">Comfort:</span> Velour ear pads, adjustable headband, lightweight design</p>
+                        <p className="text-sm"><span className="font-medium">Why I love it:</span> Exceptional sound quality with detailed mids and highs, comfortable for long listening sessions, and excellent value for audiophile-grade headphones</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="networking">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Network size={20} /> 
+                    <span>Network Infrastructure</span>
+                  </CardTitle>
+                  <CardDescription>My Ubiquiti-based home network setup</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Dream Machine Pro Max</h3>
+                      <p className="text-muted-foreground mb-2">Core Network Controller & Gateway</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> 10G throughput, IPS/IDS, multiple site-to-site VPNs</p>
+                        <p className="text-sm"><span className="font-medium">Storage:</span> Redundant storage for security footage</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Enterprise-grade performance with consumer-friendly interface</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Layer 3 Pro Max 24 PoE Switch</h3>
+                      <p className="text-muted-foreground mb-2">Network Backbone</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Inter-VLAN routing, 10G uplinks, PoE power delivery</p>
+                        <p className="text-sm"><span className="font-medium">Capacity:</span> 24 ports with PoE+ support</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Perfect balance of power and flexibility for home lab use</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">U7 Pro Max Access Point</h3>
+                      <p className="text-muted-foreground mb-2">Wireless Coverage</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Wi-Fi 6E, high-density support, seamless roaming</p>
+                        <p className="text-sm"><span className="font-medium">Coverage:</span> Whole-home coverage with optimal performance</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Future-proof wireless performance for all devices</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">UNVR (UniFi Network Video Recorder)</h3>
+                      <p className="text-muted-foreground mb-2">Security Storage</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Storage:</span> 4x 16TB drives in RAID 10</p>
+                        <p className="text-sm"><span className="font-medium">Retention:</span> 30-day footage retention</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Reliable, scalable storage for security cameras</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Network Segmentation</h3>
+                      <p className="text-muted-foreground mb-2">VLAN Structure</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">VLAN 10:</span> Management (network devices, controllers)</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 20:</span> Lab Environment (kubernetes, storage clusters)</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 30:</span> IoT Devices</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 40:</span> Media Streaming</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 50:</span> Guest Network</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 60:</span> Security Systems</p>
                       </div>
                     </div>
                   </div>
