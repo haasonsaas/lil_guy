@@ -48,15 +48,14 @@ export default function BlogPost() {
       if (ogTitle) ogTitle.setAttribute('content', post.frontmatter.title);
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
       
-      // Use the post's image URL for OG tags if available, otherwise generate one
-      const ogImageUrl = imageError 
-        ? generateDynamicImageUrl(post.frontmatter.title, 1200, 630)
-        : getImageData(post.frontmatter).url;
+      // Use the generated blog post image for OpenGraph
+      const imageData = getImageData(post.frontmatter);
+      const ogImageUrl = optimizeImage(imageData.url);
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
     }
-  }, [post, slug, navigate, imageError]);
+  }, [post, slug, navigate]);
   
   if (!post) {
     return null;
