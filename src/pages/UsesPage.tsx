@@ -55,6 +55,13 @@ export default function UsesPage() {
                       </div>
                       
                       <div>
+                        <h3 className="font-medium text-lg mb-2">MacBook Air (2024)</h3>
+                        <p className="text-muted-foreground mb-2">M3, 24GB RAM, 8-core CPU (4 performance and 4 efficiency)</p>
+                        <p className="text-sm mb-2">Why I love it: Incredibly portable while still being powerful enough for development work. Perfect for working on-the-go or from coffee shops. The M3 chip provides excellent performance while maintaining incredible battery life.</p>
+                        <p className="text-sm">Price: $1,299 (base model)</p>
+                      </div>
+                      
+                      <div>
                         <h3 className="font-medium text-lg mb-2">Custom Gaming PC</h3>
                         <p className="text-muted-foreground mb-2">High-performance workstation for gaming and development</p>
                         <div className="space-y-2">
