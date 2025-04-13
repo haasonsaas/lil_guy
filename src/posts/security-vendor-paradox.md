@@ -25,7 +25,7 @@ I recently came across a LinkedIn post from Uri, CISO at SiriusXM, that perfectl
 
 His sentiment resonated deeply with me, having walked both sides of this divide – first as a security engineer, then as a founder of a security startup, and now working at Vanta while still maintaining close ties to the practitioner community.
 
-<soundcloud trackId="2077632404" title="Security Vendor Paradox: Finding Balance in a Noisy Ecosystem" />
+<soundcloud trackId="2077638464" title="Security Vendor Paradox: Finding Balance in a Noisy Ecosystem" />
 
 ## The CISO's Burden: Death by 1,000 Sales Pitches
 
