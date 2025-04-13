@@ -1,15 +1,18 @@
-
 import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
 import { getAllPosts } from '@/utils/blogUtils';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+
+const POSTS_PER_PAGE = 9;
 
 export default function BlogPage() {
   const [posts, setPosts] = useState(getAllPosts());
   const [searchQuery, setSearchQuery] = useState('');
   const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [currentPage, setCurrentPage] = useState(1);
   
   useEffect(() => {
     const filtered = posts.filter(post => {
@@ -24,7 +27,14 @@ export default function BlogPage() {
     });
     
     setFilteredPosts(filtered);
+    setCurrentPage(1); // Reset to first page when search changes
   }, [searchQuery, posts]);
+
+  // Calculate pagination
+  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const endIndex = startIndex + POSTS_PER_PAGE;
+  const currentPosts = filteredPosts.slice(startIndex, endIndex);
   
   return (
     <Layout>
@@ -49,7 +59,7 @@ export default function BlogPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map(post => (
+            {currentPosts.map(post => (
               <BlogCard key={post.slug} post={post} />
             ))}
             
@@ -62,6 +72,33 @@ export default function BlogPage() {
               </div>
             )}
           </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-8">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                disabled={currentPage === 1}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              
+              <span className="text-sm text-muted-foreground">
+                Page {currentPage} of {totalPages}
+              </span>
+              
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                disabled={currentPage === totalPages}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
         </div>
       </section>
     </Layout>
