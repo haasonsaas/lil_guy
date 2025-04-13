@@ -10,11 +10,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   const location = useLocation();
-  const isBlogPage = location.pathname.startsWith('/blog');
+  // Only show reading progress on individual blog posts, not on the main blog page
+  const isBlogPost = location.pathname.startsWith('/blog/') && location.pathname !== '/blog/';
 
   return (
     <div className="flex min-h-screen flex-col bg-background text-foreground">
-      {isBlogPage && <ReadingProgressBar />}
+      {isBlogPost && <ReadingProgressBar />}
       <Navbar />
       <main className="flex-1">
         {children}
