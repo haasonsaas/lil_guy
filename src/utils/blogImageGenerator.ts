@@ -2,11 +2,11 @@ import fs from 'fs';
 import path from 'path';
 import sharp from 'sharp';
 
-interface PlaceholderConfig {
+interface BlogImageConfig {
   width: number;
   height: number;
   text: string;
-  type: 'blog' | 'book';
+  type: 'blog';
   backgroundColor?: string;
   textColor?: string;
   fontSize?: number;
@@ -15,10 +15,8 @@ interface PlaceholderConfig {
 /**
  * Calculate the optimal font size for the given text and dimensions
  */
-function calculateOptimalFontSize(text: string, width: number, height: number, type: 'blog' | 'book'): number {
-  // For blog posts, we want to wrap text at around 2-3 lines
-  // For books, we want to wrap text at around 3-4 lines
-  const targetLines = type === 'blog' ? 2.5 : 3.5;
+function calculateOptimalFontSize(text: string, width: number, height: number): number {
+  const targetLines = 2.5; // We want to wrap text at around 2-3 lines
   const avgCharWidth = 0.6; // Approximate width of a character relative to font size
   const lineHeight = 1.2; // Line height multiplier
   
@@ -43,20 +41,19 @@ function calculateOptimalFontSize(text: string, width: number, height: number, t
 }
 
 /**
- * Generate an SVG placeholder image
+ * Generate an SVG for a blog image
  */
-function generatePlaceholderSVG(config: PlaceholderConfig): string {
+function generateBlogSVG(config: BlogImageConfig): string {
   const {
     width,
     height,
     text,
-    type,
-    backgroundColor = type === 'blog' ? '#f5f5f5' : '#e9e9e9',
+    backgroundColor = '#f5f5f5',
     textColor = '#333333'
   } = config;
   
   // Calculate optimal font size
-  const fontSize = calculateOptimalFontSize(text, width, height, type);
+  const fontSize = calculateOptimalFontSize(text, width, height);
   
   // Calculate text wrapping
   const maxLineWidth = width * 0.8; // 80% of width
@@ -92,40 +89,31 @@ function generatePlaceholderSVG(config: PlaceholderConfig): string {
       <stop offset="0%" style="stop-color:${backgroundColor};stop-opacity:1" />
       <stop offset="100%" style="stop-color:${adjustColor(backgroundColor, -10)};stop-opacity:1" />
     </linearGradient>
-    ${type === 'book' ? `
-      <pattern id="pattern" width="50" height="50" patternUnits="userSpaceOnUse">
-        <path d="M0 0h50v50H0z" fill="none"/>
-        <path d="M25 0v50M0 25h50" stroke="${textColor}" stroke-opacity="0.05" stroke-width="0.5"/>
-      </pattern>
-    ` : ''}
   </defs>
   
   <!-- Background -->
   <rect width="${width}" height="${height}" fill="url(#grad)" />
-  ${type === 'book' ? `<rect width="${width}" height="${height}" fill="url(#pattern)" />` : ''}
   
   <!-- Text -->
   ${lines.map((line, index) => `
     <text
       x="50%"
       y="${startY + index * lineHeight}"
-      font-family="${type === 'book' ? 'Georgia' : 'Arial'}, sans-serif"
+      font-family="Arial, sans-serif"
       font-size="${fontSize}px"
-      font-weight="${type === 'book' ? '700' : '600'}"
+      font-weight="600"
       fill="${textColor}"
       text-anchor="middle"
       dominant-baseline="middle"
     >${line}</text>
   `).join('')}
   
-  ${type === 'blog' ? `
-    <!-- Decorative Line -->
-    <line x1="${width * 0.25}" y1="${height * 0.75}" x2="${width * 0.75}" y2="${height * 0.75}" 
-      stroke="${textColor}" 
-      stroke-opacity="0.2" 
-      stroke-width="2"
-    />
-  ` : ''}
+  <!-- Decorative Line -->
+  <line x1="${width * 0.25}" y1="${height * 0.75}" x2="${width * 0.75}" y2="${height * 0.75}" 
+    stroke="${textColor}" 
+    stroke-opacity="0.2" 
+    stroke-width="2"
+  />
 </svg>`;
   
   return svg;
@@ -144,24 +132,24 @@ function adjustColor(color: string, amount: number): string {
 }
 
 /**
- * Generate placeholder images for the given configurations
+ * Generate blog images for the given configurations
  */
-export async function generatePlaceholderImages(configs: PlaceholderConfig[]): Promise<void> {
-  // Ensure the placeholders directory exists
-  const placeholdersDir = path.join(process.cwd(), 'public', 'placeholders');
-  if (!fs.existsSync(placeholdersDir)) {
-    fs.mkdirSync(placeholdersDir, { recursive: true });
+export async function generateBlogImages(configs: BlogImageConfig[]): Promise<void> {
+  // Ensure the generated images directory exists
+  const generatedDir = path.join(process.cwd(), 'public', 'generated');
+  if (!fs.existsSync(generatedDir)) {
+    fs.mkdirSync(generatedDir, { recursive: true });
   }
   
-  // Generate each placeholder image
+  // Generate each blog image
   for (const config of configs) {
     const cleanText = config.text.toLowerCase().replace(/[^a-z0-9]/g, '-');
     const fileName = `${config.width}x${config.height}-${cleanText}.png`;
-    const filePath = path.join(placeholdersDir, fileName);
+    const filePath = path.join(generatedDir, fileName);
     
     try {
       // Generate SVG
-      const svg = generatePlaceholderSVG(config);
+      const svg = generateBlogSVG(config);
       
       // For debugging
       console.log(`Generating image for: ${config.text}`);

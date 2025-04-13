@@ -1,4 +1,3 @@
-
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
 
 /**
@@ -6,11 +5,12 @@ import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
  */
 export const readFilePosts = (): BlogPost[] => {
   const posts: BlogPost[] = [];
+  const seenSlugs = new Set<string>();
   
   try {
     // Use import.meta.glob to get all markdown files
     const markdownFiles: Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }> = 
-      import.meta.glob('/src/posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }>;
+      import.meta.glob('../../posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }>;
     
     // Log the found markdown files for debugging
     console.log('Found markdown files:', Object.keys(markdownFiles));
@@ -29,6 +29,13 @@ export const readFilePosts = (): BlogPost[] => {
           // Extract the slug from filename if not specified in frontmatter
           fileSlug = filePath.split('/').pop()?.replace('.md', '') || '';
         }
+        
+        // Skip if we've already seen this slug
+        if (seenSlugs.has(fileSlug)) {
+          console.warn(`Skipping duplicate slug: ${fileSlug}`);
+          return;
+        }
+        seenSlugs.add(fileSlug);
         
         console.log(`Processing post with slug: ${fileSlug}`);
         console.log(`Extracted frontmatter:`, frontmatter);

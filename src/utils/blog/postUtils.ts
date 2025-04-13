@@ -9,6 +9,7 @@ let allPosts: BlogPost[] | null = null;
  */
 export const getAllPosts = (): BlogPost[] => {
   if (!allPosts) {
+    console.log('Cache miss - loading posts from files');
     const filePosts = readFilePosts();
     console.log("File posts loaded:", filePosts.length);
     
@@ -35,11 +36,26 @@ export const getAllPosts = (): BlogPost[] => {
     });
     
     // Sort posts by date in descending order (most recent first)
+    console.log('Sorting posts by date');
     allPosts = filePosts.sort((a, b) => {
       const dateA = new Date(a.frontmatter.pubDate);
       const dateB = new Date(b.frontmatter.pubDate);
       return dateB.getTime() - dateA.getTime();
     });
+    
+    // Log unique slugs to check for duplicates
+    const slugs = new Set(allPosts.map(post => post.slug));
+    console.log('Unique slugs:', slugs.size);
+    console.log('Total posts after sorting:', allPosts.length);
+    
+    if (slugs.size !== allPosts.length) {
+      console.warn('WARNING: Duplicate slugs detected!');
+      const duplicateSlugs = allPosts.map(post => post.slug)
+        .filter((slug, index, self) => self.indexOf(slug) !== index);
+      console.warn('Duplicate slugs:', duplicateSlugs);
+    }
+  } else {
+    console.log('Cache hit - using cached posts');
   }
   return allPosts;
 };

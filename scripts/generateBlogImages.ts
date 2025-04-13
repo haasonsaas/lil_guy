@@ -1,4 +1,4 @@
-import { generatePlaceholderImages } from '../src/utils/placeholderImageGenerator';
+import { generateBlogImages } from '../src/utils/blogImageGenerator';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -48,13 +48,13 @@ function readBlogPosts() {
 }
 
 async function main() {
-  console.log('Generating placeholder images...');
+  console.log('Generating blog images...');
   
-  // Get all blog posts to generate their placeholder images
+  // Get all blog posts to generate their images
   const blogPosts = readBlogPosts();
   console.log(`Found ${blogPosts.length} blog posts`);
   
-  // Create placeholder image configs for each blog post
+  // Create image configs for each blog post
   const blogPostImages = blogPosts.map(post => {
     const title = post.frontmatter.title || post.slug;
     return [
@@ -67,10 +67,19 @@ async function main() {
         backgroundColor: '#f5f5f5', 
         textColor: '#333333' 
       },
-      // Thumbnail (800x450)
+      // Featured image (1200x400)
+      { 
+        width: 1200, 
+        height: 400, 
+        text: title, 
+        type: 'blog' as const, 
+        backgroundColor: '#f5f5f5', 
+        textColor: '#333333' 
+      },
+      // Thumbnail (800x384)
       { 
         width: 800, 
-        height: 450, 
+        height: 384, 
         text: title, 
         type: 'blog' as const, 
         backgroundColor: '#f5f5f5', 
@@ -79,12 +88,12 @@ async function main() {
     ];
   }).flat();
   
-  // Generate all placeholder images
-  await generatePlaceholderImages([...bookCovers, ...defaultBlogImages, ...blogPostImages]);
-  console.log('Placeholder images generated successfully!');
+  // Generate all blog images
+  await generateBlogImages(blogPostImages);
+  console.log('Blog images generated successfully!');
 }
 
 main().catch((error) => {
-  console.error('Error generating placeholder images:', error);
+  console.error('Error generating blog images:', error);
   process.exit(1);
 }); 

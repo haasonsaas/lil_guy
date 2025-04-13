@@ -14,7 +14,14 @@ export default function BlogPage() {
   const [filteredPosts, setFilteredPosts] = useState(posts);
   const [currentPage, setCurrentPage] = useState(1);
   
+  // Log initial posts
   useEffect(() => {
+    console.log('Initial posts loaded:', posts.length);
+    console.log('Post slugs:', posts.map(p => p.slug));
+  }, []);
+  
+  useEffect(() => {
+    console.log('Filtering posts with query:', searchQuery);
     const filtered = posts.filter(post => {
       const { title, description, tags } = post.frontmatter;
       const searchLower = searchQuery.toLowerCase();
@@ -26,6 +33,9 @@ export default function BlogPage() {
       );
     });
     
+    console.log('Filtered posts count:', filtered.length);
+    console.log('Filtered post slugs:', filtered.map(p => p.slug));
+    
     setFilteredPosts(filtered);
     setCurrentPage(1); // Reset to first page when search changes
   }, [searchQuery, posts]);
@@ -36,6 +46,15 @@ export default function BlogPage() {
   const endIndex = startIndex + POSTS_PER_PAGE;
   const currentPosts = filteredPosts.slice(startIndex, endIndex);
   
+  // Log pagination changes
+  useEffect(() => {
+    console.log('Pagination update:');
+    console.log('- Current page:', currentPage);
+    console.log('- Total pages:', totalPages);
+    console.log('- Posts on current page:', currentPosts.length);
+    console.log('- Current page post slugs:', currentPosts.map(p => p.slug));
+  }, [currentPage, totalPages, currentPosts]);
+
   return (
     <Layout>
       <section className="py-12">

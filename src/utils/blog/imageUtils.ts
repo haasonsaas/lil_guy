@@ -14,20 +14,21 @@ const BASE_URL = 'https://haasonsaas.com';
 
 /**
  * Generate a dynamic image URL based on a blog post title
- * This uses our local placeholder image generator
+ * This uses our dynamic image generator service
  */
-export const generateDynamicImageUrl = (title: string, width: number = 1200, height: number = 630): string => {
+export const generateDynamicImageUrl = (title: string, width: number = 1200, height: number = 400): string => {
   // Clean the title for use in filename
   const cleanTitle = title.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
   
-  // Return absolute path to our local placeholder image
-  return `${BASE_URL}/placeholders/${width}x${height}-${cleanTitle}.png`;
+  // Return path to dynamically generated image
+  return `/generated/${width}x${height}-${cleanTitle}.png`;
 }
 
 /**
  * Generate OpenGraph image URL for social sharing
  */
 export const generateOgImageUrl = (title: string): string => {
+  // OpenGraph images should maintain 1.91:1 aspect ratio (1200x630)
   return generateDynamicImageUrl(title, 1200, 630);
 }
 
@@ -35,7 +36,9 @@ export const generateOgImageUrl = (title: string): string => {
  * Generate thumbnail image URL for blog cards
  */
 export const generateThumbnailUrl = (title: string): string => {
-  return generateDynamicImageUrl(title, 800, 450);
+  // For regular blog cards, the image container is h-48 (192px) and w-full
+  // Using 800x384 to maintain a 2.083:1 aspect ratio at a good resolution
+  return generateDynamicImageUrl(title, 800, 384);
 }
 
 /**
@@ -49,12 +52,14 @@ export const getImageData = (frontmatter: BlogFrontmatter): { url: string; alt: 
                                frontmatter.image.url && 
                                frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
   
-  // If we have a real image (not the fallback unsplash one) use it, otherwise generate
+  // If we have a custom image (not the default unsplash one) use it, otherwise generate
   if (frontmatter.image && frontmatter.image.url && !isDefaultUnsplashImage) {
-    // Ensure the URL is absolute
+    // Use the URL as-is if it's absolute, otherwise prepend a slash
     const imageUrl = frontmatter.image.url.startsWith('http') 
       ? frontmatter.image.url 
-      : `${BASE_URL}${frontmatter.image.url.startsWith('/') ? '' : '/'}${frontmatter.image.url}`;
+      : frontmatter.image.url.startsWith('/') 
+        ? frontmatter.image.url 
+        : `/${frontmatter.image.url}`;
     
     console.log('Using frontmatter image:', imageUrl);
     return {
