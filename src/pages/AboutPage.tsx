@@ -8,9 +8,6 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <h1 className="text-4xl font-bold mb-4">About</h1>
-            <p className="text-muted-foreground text-lg">
-              Product Manager at Vanta | Compliance Simplifier | Urban Explorer
-            </p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-8 mb-12 animate-fade-up">
@@ -27,7 +24,7 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Product Manager at Vanta | Home Pizza Enthusiast | SF Walker
+                Product Manager at Vanta | Compliance Simplifier | Urban Explorer
               </p>
               
               <div className="prose-custom mb-6">
