@@ -1,5 +1,5 @@
 ---
-author: Alex Chen
+author: Jonathan Haas
 pubDate: 2025-04-13
 title: "The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand"
 description: 
