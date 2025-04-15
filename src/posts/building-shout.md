@@ -26,7 +26,7 @@ When I set out to build Shout, my side project for improving engineering recogni
 
 ## The Technical Implementation of Evaluation Frameworks
 
-At the core of Shout lies a TypeScript-based evaluation system that leverages LLMs to assess recognition quality. Let me share the technical details of how I implemented this system, completely separate from my day job at Vanta.
+At the core of Shout lies a TypeScript-based evaluation system that leverages LLMs to assess recognition quality. Let me share the technical details of how I implemented this system, completely separate from my day job at Vanta (meaning you can do this too!)
 
 ### The Core Architecture
 
