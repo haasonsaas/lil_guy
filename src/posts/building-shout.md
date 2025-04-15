@@ -1,187 +1,278 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-14
-title: "Building Shout: My Journey Creating an Evaluation Framework for Engineering Recognition"
+title: "Engineering Recognition Through Evals: My Technical Journey Building Shout"
 description: 
-  A personal reflection on building Shout, a side project born from wanting to better recognize engineering contributions, and the evaluation system that powers it
+  A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way
 featured: false
 draft: false
 tags:
+  - evaluation-frameworks
+  - typescript
   - side-project
-  - engineering-recognition
-  - team-culture
-  - personal-growth
-  - product-management
-  - developer-experience
+  - openai
+  - technical-implementation
+  - software-architecture
 image:
   url: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "A diverse team collaborating at a table, representing recognition and teamwork in the workplace"
 ---
 
-# Building Shout: My Journey Creating an Evaluation Framework for Engineering Recognition
+# Engineering Recognition Through Evals: My Technical Journey Building Shout
 
-As a product manager, I've always felt that something was missing in how we recognize the incredible work engineers do. Great code often goes unnoticed. Critical infrastructure improvements rarely get the spotlight. Late nights squashing bugs are silently appreciated but seldom celebrated. This disconnect inspired me to create Shout—a completely personal side project designed to help improve recognition of engineering contributions.
+When I set out to build Shout, my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. Inspired by what I'd learned about evaluation frameworks from Vanta's AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
 
-## Why I Built Shout
+## The Technical Implementation of Evaluation Frameworks
 
-I built Shout after noticing a pattern across teams I've worked with: recognition for engineering work was often an afterthought, inconsistent, and sometimes missed the mark. As someone who deeply values the craft of engineering but doesn't always speak the language fluently, I wanted to create a tool that would help bridge this gap.
+At the core of Shout lies a TypeScript-based evaluation system that leverages LLMs to assess recognition quality. Let me share the technical details of how I implemented this system, completely separate from my day job at Vanta.
 
-To be absolutely clear: Shout is entirely separate from my day job at Vanta. This is a personal project I've built on my own time with my own resources. It hasn't touched anything Vanta-related and exists completely outside my professional responsibilities.
+### The Core Architecture
 
-## The Evaluation Framework Behind Shout
-
-The core innovation in Shout is its evaluation system. I realized that for recognition to be meaningful, it needed to meet certain quality standards. Drawing inspiration from what I learned about AI evaluation frameworks from Vanta's AI team (more on that later), I designed a system to assess recognition across three dimensions:
-
-### 1. Specificity Assessment
-
-The first evaluator I built checks whether recognition includes concrete details:
+I started by defining clear interfaces for my evaluation system:
 
 ```typescript
-async evaluateSpecificity(
-  config: ShoutConfig,
-  context: EvalContext,
-  criteria: EvalCriteria = {
-    name: 'specificity',
-    description: 'Check if my recognition includes specific technical details',
-    minScore: 0.8
-  }
-)
-```
+export interface EvalResult {
+  score: number;
+  explanation: string;
+  passed: boolean;
+}
 
-This was born from my own struggle to articulate technical accomplishments accurately. I wanted something that would challenge me to be more precise in my acknowledgments.
+export interface EvalCriteria {
+  name: string;
+  description: string;
+  minScore: number;
+}
 
-### 2. Accuracy Verification
-
-The second evaluator ensures I'm getting the technical details right:
-
-```typescript
-async evaluateAccuracy(
-  config: ShoutConfig,
-  context: EvalContext,
-  criteria: EvalCriteria = {
-    name: 'accuracy',
-    description: 'Verify I\'m correctly describing the engineering work',
-    minScore: 0.9
-  }
-)
-```
-
-Nothing undermines recognition faster than getting the details wrong. This component helps me double-check that I understand what I'm recognizing.
-
-### 3. Impact Connection
-
-The final evaluator helps connect individual contributions to broader outcomes:
-
-```typescript
-async evaluateImpact(
-  config: ShoutConfig,
-  context: EvalContext,
-  criteria: EvalCriteria = {
-    name: 'impact',
-    description: 'Connect the technical work to user or business outcomes',
-    minScore: 0.75
-  }
-)
-```
-
-This was perhaps the most important piece for me—helping engineers see how their technical excellence directly contributes to user happiness or business success.
-
-## My Technical Implementation Journey
-
-Building Shout was a nights-and-weekends labor of love that evolved organically as I developed it:
-
-```typescript
-if (config.provideFeedback) {
-  const context: EvalContext = {
-    engineer: selectedTeamMember,
-    workContext: commitActivity,
-    draftRecognition: myCurrentDraft
-  };
-
-  const results = await Promise.all([
-    evals.evaluateSpecificity(config, context),
-    evals.evaluateAccuracy(config, context),
-    evals.evaluateImpact(config, context)
-  ]);
-  
-  // Give myself suggestions to improve my recognition
+export interface EvalContext {
+  input: string;
+  output: string;
+  metadata?: Record<string, any>;
 }
 ```
 
-I created a simple database to track my improvement over time:
+These interfaces provided the foundation for a flexible evaluation framework. The `EvalContext` holds the input (the engineering work being recognized) and output (the recognition message), while `EvalCriteria` defines the standards for quality recognition.
 
-```sql
-CREATE TABLE IF NOT EXISTS my_recognition_attempts (
-  id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-  eval_type text NOT NULL,
-  engineer_id uuid NOT NULL,
-  recognition_text text NOT NULL,
-  score float NOT NULL,
-  improved_after_feedback boolean NOT NULL,
-  work_context jsonb,
-  timestamp timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
+### Adapting AI Evaluation Patterns to Human Recognition
+
+The most interesting technical challenge was adapting evaluation patterns typically used for AI outputs to assess human-written recognition messages. I implemented three core evaluators:
+
+#### 1. The Specificity Evaluator (Adapted from Hallucination Detection)
+
+Starting with the hallucination detection evaluator from my AI research:
+
+```typescript
+async evaluateHallucination(
+  config: OpenAIConfig,
+  context: EvalContext,
+  criteria: EvalCriteria = {
+    name: 'hallucination',
+    description: 'Check if the output contains made-up information not present in the input',
+    minScore: 0.8
+  }
+): Promise<EvalResult> {
+```
+
+I adapted this to evaluate recognition specificity by modifying the prompt to focus on whether recognition messages contained specific, verifiable details about engineering contributions:
+
+```typescript
+const prompt = `
+You are an expert evaluator of recognition messages. Your task is to evaluate whether 
+the recognition contains specific, verifiable details about the engineering contribution.
+
+Engineering work context:
+${context.input}
+
+Recognition message to evaluate:
+${context.output}
+
+Please evaluate based on the following criteria:
+1. Does the recognition include specific technical details from the work?
+2. Are the accomplishments described with concrete metrics or outcomes?
+3. Does the recognition avoid generic praise in favor of specific accomplishments?
+
+Provide a score from 0 to 1, where:
+- 1 means highly specific recognition with concrete details
+- 0 means generic, non-specific recognition
+
+Also provide a brief explanation of your evaluation.
+`;
+```
+
+#### 2. Implementation Challenges
+
+One of the trickiest implementation challenges was parsing the evaluation responses:
+
+```typescript
+try {
+  const [scoreStr, explanation] = response.split('\n\n');
+  const score = parseFloat(scoreStr);
+  
+  if (isNaN(score) || score < 0 || score > 1) {
+    throw new EvalError('Invalid score format in evaluation response');
+  }
+
+  return {
+    score,
+    explanation: explanation.trim(),
+    passed: score >= criteria.minScore
+  };
+} catch (error) {
+  throw new EvalError('Failed to parse evaluation response');
+}
+```
+
+I learned that even with structured prompts, LLM outputs can be unpredictable. I had to implement robust error handling and response parsing to ensure reliable scoring.
+
+## Technical Lessons From Building With Evals
+
+### 1. Prompt Engineering Is Crucial for Evaluation Quality
+
+My first implementations produced inconsistent results because my prompts weren't specific enough. I learned to be extremely precise about evaluation criteria and scoring rubrics:
+
+```typescript
+const prompt = `
+You are an expert evaluator of recognition messages. Your task is to evaluate whether 
+the output correctly connects technical work to broader impact.
+
+Engineering work:
+${context.input}
+
+Recognition message:
+${context.output}
+
+Please evaluate based on the following criteria:
+1. Does the recognition explicitly connect technical details to user or business outcomes?
+2. Is the impact of the work quantified where possible?
+3. Does the recognition help others understand why this work matters?
+
+Provide a score from 0 to 1, where:
+- 1 means the recognition clearly connects work to meaningful impact
+- 0 means no connection between technical details and broader impact
+
+Also provide a brief explanation of your evaluation.
+`;
+```
+
+The more specific my evaluation criteria, the more consistent the results became.
+
+### 2. Multi-dimensional Evaluation Yields Better Insights
+
+Initially, I tried to evaluate recognition quality with a single metric. That proved inadequate. Breaking evaluation into multiple dimensions (specificity, accuracy, impact) revealed nuances I would have missed:
+
+```typescript
+const results = await Promise.all([
+  evals.evaluateSpecificity(config, context),
+  evals.evaluateAccuracy(config, context),
+  evals.evaluateImpact(config, context)
+]);
+
+// Analyzing specific dimensions of recognition quality
+const weakestDimension = results.reduce(
+  (prev, current) => (current.score < prev.score ? current : prev)
 );
 ```
 
-I also built a small dashboard to visualize my progress:
+This approach helped me understand that I might write recognition that was specific and accurate but failed to connect to broader impact—a critical insight for improvement.
+
+### 3. Thresholds Matter More Than Absolute Scores
+
+One technical lesson that surprised me was how the choice of threshold values significantly affected the utility of the evaluation system:
 
 ```typescript
-function RecognitionImprovement() {
-  const [progress, setProgress] = useState<ImprovementMetrics | null>(null);
-  // Implementation shows my improvement in recognition quality over time
-}
+return {
+  score,
+  explanation: explanation.trim(),
+  passed: score >= criteria.minScore
+};
 ```
 
-## Real-World Usage (Sort Of)
+Setting `minScore` too high resulted in constant negative feedback; too low and the system missed obvious issues. I settled on different thresholds for each evaluation dimension based on extensive testing:
 
-I've been using Shout in my personal Slack channel to practice recognition—which has been useful but admittedly gets a bit weird when you're shouting out yourself. "Congratulations, me, on that elegant database schema... thanks, also me!" It's been a humbling and occasionally hilarious experience that's helped me refine the tool while developing a greater appreciation for the nuances of recognition.
+- Specificity: 0.7 (relatively easier to achieve)
+- Accuracy: 0.85 (critical to get right)
+- Impact Connection: 0.6 (more subjective and challenging)
 
-Despite the occasional awkwardness of self-recognition, it's been valuable to have a space where I can practice and refine how I articulate technical accomplishments.
+### 4. Evaluation Consistency Over Time
 
-## What I've Learned Building Shout
+A fascinating technical challenge emerged when tracking evaluation consistency over time. I implemented a simple database schema to track this:
 
-This side project has taught me more than I anticipated:
+```sql
+CREATE TABLE IF NOT EXISTS recognition_evaluations (
+  id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
+  eval_type text NOT NULL,
+  context_hash text NOT NULL,
+  recognition_text text NOT NULL,
+  score float NOT NULL,
+  passed boolean NOT NULL,
+  explanation text,
+  created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
+);
+```
 
-1. **Engineering Empathy**: Building Shout deepened my appreciation for the nuances of engineering work. I'm now better at spotting contributions that would have previously gone unnoticed.
+This allowed me to analyze how similar recognition messages were evaluated over time, revealing occasional inconsistencies in the underlying LLM evaluations.
 
-2. **The Power of Specific Recognition**: Generic praise like "great job on the API" pales in comparison to "your elegant caching solution reduced database load by 40% while maintaining sub-100ms response times."
+## Personal Insights from Technical Implementation
 
-3. **Technical Growth**: Building this project solo pushed me to improve my own technical skills. Every bug I fixed and feature I implemented gave me more empathy for what engineers experience daily.
+Building Shout's evaluation system gave me several technical insights:
 
-4. **Recognition is a Skill**: Like any skill, giving good recognition improves with practice and feedback. The evaluation system became my coach, helping me level up consistently.
+1. **LLMs as Evaluators**: LLMs can provide remarkably consistent evaluations when properly prompted, but they aren't deterministic. Designing for this variability was a key challenge.
 
-## Where Shout is Heading
+2. **Feedback Loops**: The most valuable part of the system wasn't the scores themselves but the explanations that accompanied them:
 
-As a personal project, Shout continues to evolve based on what I learn:
+```typescript
+return {
+  score,
+  explanation: explanation.trim(),  // This became the most valuable output
+  passed: score >= criteria.minScore
+};
+```
 
-1. **Pattern Recognition**: I'm exploring ways to automatically identify recognition-worthy activities in commit logs and pull requests.
+These explanations helped me understand specific ways to improve recognition quality.
 
-2. **Personalization**: I'm experimenting with features to track which types of recognition resonate most with different engineers.
+3. **Context Matters**: Recognition evaluation is highly context-dependent. The same message might be excellent for one engineering contribution but inadequate for another. Building this contextual awareness into the system was particularly challenging.
 
-3. **Knowledge Sharing**: Building tools to help PMs learn technical concepts related to their team's work, improving their ability to recognize contributions meaningfully.
+4. **Scale and Performance**: While I initially used OpenAI's GPT-4 for evaluations, I found that for certain evaluation types, smaller models were both faster and sufficient:
 
-## Special Thanks
+```typescript
+// Configuration to use different models for different evaluation types
+const evalConfig = {
+  ...baseConfig,
+  model: criteria.name === 'toxicity' ? 'gpt-3.5-turbo' : 'gpt-4'
+};
+```
 
-I was inspired to create Shout after learning about evaluation frameworks from Vanta's AI team. Their explanations of how they evaluate AI outputs gave me the foundational knowledge to build something similar for evaluating human recognition quality. While Shout is completely separate from Vanta, I'm grateful for the knowledge sharing that sparked this side project.
+## Where the Technical Journey Continues
 
-On that note, if you're looking to work on some really incredible stuff, you should definitely check out our AI team at Vanta. They're doing fascinating work with evaluation frameworks and much more.
+As I continue developing Shout as a personal project, I'm exploring several technical enhancements:
 
-## For Fellow PMs: Lessons You Can Apply
+1. **Few-shot Learning**: Incorporating examples of excellent recognition to improve evaluation quality:
 
-Even without using Shout, there are lessons here for any product manager:
+```typescript
+const fewShotExamples = [
+  {
+    context: "Refactored the user authentication system to reduce database queries.",
+    goodRecognition: "Your authentication refactoring cut our DB load by 40% while maintaining sub-100ms response times. This directly improved our reliability during peak traffic hours.",
+    evaluation: "Score: 0.95. Excellent specificity with concrete metrics and clear impact connection."
+  },
+  // More examples...
+];
+```
 
-1. **Be Specific**: Take the time to understand what made a particular piece of engineering work challenging or elegant.
+2. **Custom Embeddings**: Building embeddings for engineering contexts to better match recognition messages with technical work.
 
-2. **Connect the Dots**: Help engineers see how their technical excellence translates to user value.
+3. **Techniques for Reducing Evaluation Latency**: Exploring batched evaluations and caching strategies to make the feedback loop faster.
 
-3. **Recognize Process**: Sometimes the most important contribution is refactoring that makes future work possible, even if it has no immediate user impact.
+## Conclusion: Technical Takeaways for Evaluation Systems
 
-4. **Learn Continuously**: Invest time in understanding the technical domains your team works in.
+Building Shout has been a fascinating technical journey into evaluation frameworks. The most important technical lessons I've learned are:
 
-## Conclusion
+1. **Clear Interface Definitions**: Starting with well-defined interfaces made the system flexible and extensible
+2. **Multi-dimensional Evaluation**: Breaking complex assessments into specific dimensions yields more actionable insights
+3. **Robust Error Handling**: LLM outputs require careful parsing and error handling
+4. **Prompt Engineering**: The quality of evaluation is directly tied to the quality of the prompts
 
-Building Shout wasn't about creating a product to sell—it was about making myself a better product manager and teammate. Through this side project, I've developed a deeper appreciation for engineering work and improved my ability to recognize contributions meaningfully.
+While Shout remains my personal side project entirely separate from my work at Vanta, the technical knowledge I've gained about building evaluation systems has been invaluable. I'm grateful to Vanta's AI team for introducing me to evaluation frameworks, which sparked this technical exploration.
 
-If there's one thing I hope others take from my experience, it's this: recognition isn't just about making engineers feel good (though that's important); it's about building a culture where technical excellence is understood and valued. When engineers know their work is truly seen—not just the output but the craft behind it—that's when magic happens.
+If you're interested in working on advanced evaluation systems professionally, I'd recommend checking out Vanta's AI team—they're doing some truly impressive work in this space.
 
-I'd love to hear from other PMs about their experiences recognizing engineering work or from engineers about recognition that has resonated with them. Shout may be my personal project, but improving how we recognize each other's contributions is a goal we can all share.
+For fellow developers interested in building your own evaluation systems, I hope sharing these technical details provides a useful starting point. While recognition may seem like a soft skill, creating systems to help improve it poses fascinating technical challenges worth exploring.
