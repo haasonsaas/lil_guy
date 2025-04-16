@@ -28,10 +28,8 @@ When I set out to build [Shout](https://shout.haasonsaas.com), my side project f
 
 At the core of Shout lies a TypeScript-based evaluation system that leverages LLMs to assess recognition quality. Let me share the technical details of how I implemented this system, completely separate from my day job at Vanta (meaning you can do this too!)
 
-<figure style="text-align: center;">
-  ![Screenshot of the Shout application interface showing the recognition evaluation system](/images/shout-screenshot.png)
-  <figcaption>An early version of the Shout application</figcaption>
-</figure>
+![Screenshot of the Shout application interface showing the recognition evaluation system](/images/shout-screenshot.png)
+*An early version of the Shout application*
 
 ### The Core Architecture
 
