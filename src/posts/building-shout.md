@@ -26,7 +26,7 @@ When I set out to build [Shout](https://shout.haasonsaas.com), my side project f
 
 ## The Technical Implementation of Evaluation Frameworks
 
-At the core of Shout lies a TypeScript-based evaluation system that leverages LLMs to assess recognition quality. Let me share the technical details of how I implemented this system, completely separate from my day job at Vanta (meaning you can do this too!)
+Powering Shout is a TypeScript evaluation engine that employs LLMs to quantify recognition accuracy. I'll detail how I engineered this system entirely in my free time (completely independent from my Vanta work), which means you can build it too!
 
 ![Screenshot of the Shout application interface showing the recognition evaluation system](/images/shout-screenshot.png)
 *An early version of the Shout application*
