@@ -1,4 +1,4 @@
-import { generatePlaceholderImages } from '../src/utils/placeholderImageGenerator';
+import { generateBlogImages } from '../src/utils/blogImageGenerator';
 import fs from 'fs';
 import path from 'path';
 
@@ -16,13 +16,13 @@ async function main() {
   };
   
   // Generate the OpenGraph image
-  await generatePlaceholderImages([ogImageConfig]);
+  await generateBlogImages([ogImageConfig]);
   
   // Copy the generated image to the public directory with the correct name
   const generatedImagePath = path.join(
     process.cwd(), 
     'public', 
-    'placeholders', 
+    'generated', 
     `${ogImageConfig.width}x${ogImageConfig.height}-${ogImageConfig.text.toLowerCase().replace(/[^a-z0-9]/g, '-')}.png`
   );
   

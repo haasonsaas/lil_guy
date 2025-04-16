@@ -1,5 +1,6 @@
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
+import { generateOgImageUrl } from '../ogImageUtils';
 
 // Cache for loaded posts
 let allPosts: BlogPost[] | null = null;
@@ -22,9 +23,8 @@ export const getAllPosts = (): BlogPost[] => {
       
       if (!hasExplicitImage) {
         console.log(`Generating dynamic image for: ${post.frontmatter.title}`);
-        // Use our new placeholder image generator
         const cleanTitle = post.frontmatter.title || post.slug;
-        const imagePath = `/placeholders/1200x630-${cleanTitle.toLowerCase().replace(/[^a-z0-9]/g, '-')}.png`;
+        const imagePath = getPostImage(cleanTitle);
         
         post.frontmatter.image = {
           url: imagePath,
@@ -126,4 +126,9 @@ export const getRelatedPosts = (currentPost: BlogPost, limit: number = 3): BlogP
     .map(item => item.post);
   
   return postsWithScores;
+};
+
+const getPostImage = (title: string) => {
+  const cleanTitle = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  return generateOgImageUrl(cleanTitle);
 };
