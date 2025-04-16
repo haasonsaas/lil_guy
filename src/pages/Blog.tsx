@@ -8,6 +8,9 @@ export default function Blog() {
   const posts = getAllPosts();
 
   useEffect(() => {
+    // Update page title
+    document.title = 'Blog - Haas on SaaS';
+    
     // Update OpenGraph tags for the blog listing page
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');

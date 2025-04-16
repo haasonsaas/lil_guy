@@ -39,6 +39,9 @@ export default function BlogPost() {
     
     // Update OpenGraph tags for social sharing
     if (post) {
+      // Update page title
+      document.title = `${post.frontmatter.title} - Haas on SaaS`;
+      
       // Update OpenGraph tags dynamically
       const ogTitle = document.querySelector('meta[property="og:title"]');
       const ogDesc = document.querySelector('meta[property="og:description"]');
