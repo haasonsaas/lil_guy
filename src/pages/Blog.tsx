@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
 import { getAllPosts } from '@/utils/blogUtils';
+import { generateOgImageUrl } from '@/utils/ogImageUtils';
 
 export default function Blog() {
   const posts = getAllPosts();
@@ -15,8 +16,12 @@ export default function Blog() {
     
     if (ogTitle) ogTitle.setAttribute('content', 'Blog - Haas on SaaS');
     if (ogDesc) ogDesc.setAttribute('content', 'Explore articles on AI, technology, and software development from Jonathan Haas');
-    if (ogImage) ogImage.setAttribute('content', 'https://haasonsaas.com/opengraph-image-p98pqg.png');
-    if (twitterImage) twitterImage.setAttribute('content', 'https://haasonsaas.com/opengraph-image-p98pqg.png');
+    
+    // Use generated image for blog listing
+    const ogImageUrl = generateOgImageUrl('Blog - Haas on SaaS');
+    
+    if (ogImage) ogImage.setAttribute('content', ogImageUrl);
+    if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
   }, []);
 
   return (

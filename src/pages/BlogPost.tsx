@@ -47,12 +47,11 @@ export default function BlogPost() {
       const ogAuthor = document.querySelector('meta[property="article:author"]');
       const twitterCreator = document.querySelector('meta[name="twitter:creator"]');
       
-      if (ogTitle) ogTitle.setAttribute('content', post.frontmatter.title);
+      if (ogTitle) ogTitle.setAttribute('content', `${post.frontmatter.title} - Haas on SaaS`);
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
       
-      // Use the generated blog post image for OpenGraph
-      const imageData = getImageData(post.frontmatter);
-      const ogImageUrl = optimizeImage(imageData.url);
+      // Use the generated OpenGraph image
+      const ogImageUrl = generateOgImageUrl(post.frontmatter.title);
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
