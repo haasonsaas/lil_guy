@@ -46,12 +46,20 @@ export default function BlogPost() {
       const ogTitle = document.querySelector('meta[property="og:title"]');
       const ogDesc = document.querySelector('meta[property="og:description"]');
       const ogImage = document.querySelector('meta[property="og:image"]');
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      const ogType = document.querySelector('meta[property="og:type"]');
+      const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+      const twitterDesc = document.querySelector('meta[name="twitter:description"]');
       const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      const twitterUrl = document.querySelector('meta[property="twitter:url"]');
       const ogAuthor = document.querySelector('meta[property="article:author"]');
       const twitterCreator = document.querySelector('meta[name="twitter:creator"]');
       
+      // Set OpenGraph metadata
       if (ogTitle) ogTitle.setAttribute('content', `${post.frontmatter.title} - Haas on SaaS`);
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
+      if (ogUrl) ogUrl.setAttribute('content', `https://haasonsaas.com/blog/${post.slug}`);
+      if (ogType) ogType.setAttribute('content', 'article');
       
       // Use the generated OpenGraph image
       const ogImageUrl = generateOgImageUrl(post.frontmatter.title);
@@ -59,6 +67,11 @@ export default function BlogPost() {
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
+      
+      // Set Twitter metadata
+      if (twitterTitle) twitterTitle.setAttribute('content', `${post.frontmatter.title} - Haas on SaaS`);
+      if (twitterDesc) twitterDesc.setAttribute('content', post.frontmatter.description);
+      if (twitterUrl) twitterUrl.setAttribute('content', `https://haasonsaas.com/blog/${post.slug}`);
       
       // Set author information
       if (ogAuthor) ogAuthor.setAttribute('content', 'Jonathan Haas');

@@ -2,29 +2,49 @@ import { useEffect } from 'react';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
 import { getAllPosts } from '@/utils/blogUtils';
-import { generateOgImageUrl } from '@/utils/ogImageUtils';
+import { generateOgImageUrl } from '../utils/ogImageUtils';
 
 export default function Blog() {
   const posts = getAllPosts();
 
   useEffect(() => {
-    // Update page title
+    // Set page title
     document.title = 'Blog - Haas on SaaS';
     
-    // Update OpenGraph tags for the blog listing page
+    // Update OpenGraph tags for social sharing
     const ogTitle = document.querySelector('meta[property="og:title"]');
     const ogDesc = document.querySelector('meta[property="og:description"]');
     const ogImage = document.querySelector('meta[property="og:image"]');
+    const ogUrl = document.querySelector('meta[property="og:url"]');
+    const ogType = document.querySelector('meta[property="og:type"]');
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]');
     const twitterImage = document.querySelector('meta[name="twitter:image"]');
+    const twitterUrl = document.querySelector('meta[property="twitter:url"]');
+    const ogAuthor = document.querySelector('meta[property="article:author"]');
+    const twitterCreator = document.querySelector('meta[name="twitter:creator"]');
     
+    // Set OpenGraph metadata
     if (ogTitle) ogTitle.setAttribute('content', 'Blog - Haas on SaaS');
-    if (ogDesc) ogDesc.setAttribute('content', 'Explore articles on AI, technology, and software development from Jonathan Haas');
+    if (ogDesc) ogDesc.setAttribute('content', 'Explore articles on AI, technology, and software development by Jonathan Haas');
+    if (ogUrl) ogUrl.setAttribute('content', 'https://haasonsaas.com/blog');
+    if (ogType) ogType.setAttribute('content', 'website');
     
-    // Use generated image for blog listing
+    // Use the generated OpenGraph image
     const ogImageUrl = generateOgImageUrl('Blog - Haas on SaaS');
+    console.log('Setting OpenGraph image URL:', ogImageUrl);
     
     if (ogImage) ogImage.setAttribute('content', ogImageUrl);
     if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
+    
+    // Set Twitter metadata
+    if (twitterTitle) twitterTitle.setAttribute('content', 'Blog - Haas on SaaS');
+    if (twitterDesc) twitterDesc.setAttribute('content', 'Explore articles on AI, technology, and software development by Jonathan Haas');
+    if (twitterUrl) twitterUrl.setAttribute('content', 'https://haasonsaas.com/blog');
+    
+    // Set author information
+    if (ogAuthor) ogAuthor.setAttribute('content', 'Jonathan Haas');
+    if (twitterCreator) twitterCreator.setAttribute('content', '@haasonsaas');
   }, []);
 
   return (
