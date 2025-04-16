@@ -14,13 +14,15 @@ tags:
   - technical-implementation
   - software-architecture
 image:
-  url: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A diverse team collaborating at a table, representing recognition and teamwork in the workplace"
+  url: '/images/shout-screenshot.png'
+  alt: "Screenshot of the Shout application interface showing the recognition evaluation system"
 ---
 
 # Engineering Recognition Through Evals: My Technical Journey Building Shout
 
 When I set out to build [Shout](https://shout.haasonsaas.com), my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. Inspired by what I'd learned about evaluation frameworks from Vanta's AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
+
+![Screenshot of the Shout application interface showing the recognition evaluation system](/images/shout-screenshot.png)
 
 <soundcloud trackId="2078893932" title="Building Shout: Engineering Recognition Through Evals" />
 
