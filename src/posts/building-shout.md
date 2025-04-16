@@ -22,13 +22,13 @@ image:
 
 When I set out to build [Shout](https://shout.haasonsaas.com), my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. Inspired by what I'd learned about evaluation frameworks from Vanta's AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
 
-![Screenshot of the Shout application interface showing the recognition evaluation system](/images/shout-screenshot.png)
-
 <soundcloud trackId="2078893932" title="Building Shout: Engineering Recognition Through Evals" />
 
 ## The Technical Implementation of Evaluation Frameworks
 
 At the core of Shout lies a TypeScript-based evaluation system that leverages LLMs to assess recognition quality. Let me share the technical details of how I implemented this system, completely separate from my day job at Vanta (meaning you can do this too!)
+
+![Screenshot of the Shout application interface showing the recognition evaluation system](/images/shout-screenshot.png)
 
 ### The Core Architecture
 
