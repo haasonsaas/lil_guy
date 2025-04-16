@@ -54,28 +54,40 @@ export default function BlogPost() {
       const twitterUrl = document.querySelector('meta[property="twitter:url"]');
       const ogAuthor = document.querySelector('meta[property="article:author"]');
       const twitterCreator = document.querySelector('meta[name="twitter:creator"]');
+      const ogPublishedTime = document.querySelector('meta[property="article:published_time"]');
+      const ogModifiedTime = document.querySelector('meta[property="article:modified_time"]');
+      const ogTags = document.querySelector('meta[property="article:tag"]');
       
       // Set OpenGraph metadata
-      if (ogTitle) ogTitle.setAttribute('content', `${post.frontmatter.title} - Haas on SaaS`);
+      if (ogTitle) ogTitle.setAttribute('content', post.frontmatter.title);
       if (ogDesc) ogDesc.setAttribute('content', post.frontmatter.description);
       if (ogUrl) ogUrl.setAttribute('content', `https://haasonsaas.com/blog/${post.slug}`);
       if (ogType) ogType.setAttribute('content', 'article');
       
-      // Use the generated OpenGraph image
-      const ogImageUrl = generateOgImageUrl(post.frontmatter.title);
+      // Use the post's image or generate a dynamic one
+      const ogImageUrl = post.frontmatter.image?.url || generateOgImageUrl(post.frontmatter.title);
       console.log('Setting OpenGraph image URL:', ogImageUrl);
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
       
       // Set Twitter metadata
-      if (twitterTitle) twitterTitle.setAttribute('content', `${post.frontmatter.title} - Haas on SaaS`);
+      if (twitterTitle) twitterTitle.setAttribute('content', post.frontmatter.title);
       if (twitterDesc) twitterDesc.setAttribute('content', post.frontmatter.description);
       if (twitterUrl) twitterUrl.setAttribute('content', `https://haasonsaas.com/blog/${post.slug}`);
       
       // Set author information
-      if (ogAuthor) ogAuthor.setAttribute('content', 'Jonathan Haas');
+      if (ogAuthor) ogAuthor.setAttribute('content', post.frontmatter.author || 'Jonathan Haas');
       if (twitterCreator) twitterCreator.setAttribute('content', '@haasonsaas');
+      
+      // Set article metadata
+      if (ogPublishedTime) ogPublishedTime.setAttribute('content', post.frontmatter.pubDate);
+      if (ogModifiedTime) ogModifiedTime.setAttribute('content', post.frontmatter.pubDate);
+      
+      // Set tags if they exist
+      if (ogTags && post.frontmatter.tags && post.frontmatter.tags.length > 0) {
+        ogTags.setAttribute('content', post.frontmatter.tags.join(', '));
+      }
     }
   }, [post, slug, navigate]);
   
