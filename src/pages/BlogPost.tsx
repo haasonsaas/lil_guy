@@ -55,6 +55,7 @@ export default function BlogPost() {
       
       // Use the generated OpenGraph image
       const ogImageUrl = generateOgImageUrl(post.frontmatter.title);
+      console.log('Setting OpenGraph image URL:', ogImageUrl);
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
