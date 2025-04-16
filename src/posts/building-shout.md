@@ -22,8 +22,6 @@ image:
 
 When I set out to build [Shout](https://shout.haasonsaas.com), my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. Inspired by what I'd learned about evaluation frameworks from Vanta's AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
 
-Powering Shout is a TypeScript evaluation engine that employs LLMs to quantify recognition accuracy. I'll detail how I engineered this system entirely in my free time (completely independent from my Vanta work), which means you can build it too!
-
 <soundcloud trackId="2078893932" title="Building Shout: Engineering Recognition Through Evals" />
 
 ## The Technical Implementation of Evaluation Frameworks
