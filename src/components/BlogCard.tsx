@@ -1,12 +1,12 @@
-
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
 import { formatDate } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
-import { Tag } from 'lucide-react';
+import { Tag, Clock, User } from 'lucide-react';
 import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 interface BlogCardProps {
   post: BlogPost;
@@ -18,29 +18,31 @@ const optimizeImage = (url: string, width: number = 800) => {
     console.warn('Image URL is empty or undefined');
     return generateThumbnailUrl('Fallback Image');
   }
-
-  // Add a timestamp to force refresh
   const timestamp = new Date().getTime();
   const separator = url.includes('?') ? '&' : '?';
   return `${url}${separator}_t=${timestamp}`;
 };
 
-// Function to truncate text with ellipsis
 const truncateText = (text: string, maxLength: number): string => {
   if (!text) return '';
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 };
 
+const calculateReadTime = (content: string): number => {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
+};
+
 export default function BlogCard({ post, featured = false }: BlogCardProps) {
-  const { slug, frontmatter } = post;
+  const { slug, frontmatter, content } = post;
   const [imageError, setImageError] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   
-  // Get image data directly from frontmatter with fallback to dynamic generation
   const imageData = getImageData(frontmatter);
   const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url;
   const imageAlt = imageData.alt;
   
-  // Truncate title and description for card display
   const truncatedTitle = featured ? 
     truncateText(frontmatter.title, 80) : 
     truncateText(frontmatter.title, 60);
@@ -48,36 +50,55 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const truncatedDescription = featured ? 
     truncateText(frontmatter.description, 140) : 
     truncateText(frontmatter.description, 100);
+
+  const readTime = calculateReadTime(content);
   
   if (featured) {
     return (
-      <div className="group relative mb-10 animate-fade-up">
+      <div 
+        className="group relative mb-10 animate-fade-up"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Link to={`/blog/${slug}`} className="block">
-          <div className="relative h-[400px] overflow-hidden rounded-xl">
+          <div className="relative h-[400px] overflow-hidden rounded-xl shadow-lg">
             <img 
               src={optimizeImage(imageUrl, 1200)} 
               alt={imageAlt}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className={cn(
+                "h-full w-full object-cover transition-all duration-500",
+                isHovered ? "scale-105 brightness-110" : "scale-100 brightness-100"
+              )}
               onError={() => {
                 console.error('Featured image failed to load:', imageUrl);
                 setImageError(true);
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-            <div className="absolute bottom-0 p-6 text-left">
-              <div className="flex flex-wrap gap-2 mb-3">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
+            <div className="absolute bottom-0 p-8 text-left">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {frontmatter.tags.slice(0, 3).map(tag => (
-                  <Badge key={tag} variant="default" className="flex items-center gap-1.5 bg-primary border-primary/40 px-3 py-1.5">
+                  <Badge 
+                    key={tag} 
+                    variant="default" 
+                    className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm border-primary/40 px-3 py-1.5 hover:bg-primary transition-colors"
+                  >
                     <Tag size={12} />
                     {tag.replace(/-/g, ' ')}
                   </Badge>
                 ))}
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{truncatedTitle}</h2>
-              <p className="text-white/80 mb-4">{truncatedDescription}</p>
-              <div className="flex items-center text-white/60 text-sm">
-                <span>{frontmatter.author}</span>
-                <span className="mx-2">•</span>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 leading-tight">{truncatedTitle}</h2>
+              <p className="text-white/90 mb-6 text-lg leading-relaxed">{truncatedDescription}</p>
+              <div className="flex items-center gap-4 text-white/80 text-sm">
+                <div className="flex items-center gap-1.5">
+                  <User size={14} />
+                  <span>{frontmatter.author}</span>
+                </div>
+                <div className="flex items-center gap-1.5">
+                  <Clock size={14} />
+                  <span>{readTime} min read</span>
+                </div>
                 <span>{formatDate(frontmatter.pubDate)}</span>
               </div>
             </div>
@@ -88,34 +109,52 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   }
 
   return (
-    <div className="group animate-fade-up">
+    <div 
+      className="group animate-fade-up"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <Link to={`/blog/${slug}`} className="block">
-        <div className="overflow-hidden rounded-lg bg-card border border-border transition-all hover:border-primary/30 hover:shadow-md">
+        <div className="overflow-hidden rounded-xl bg-card border border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
           <div className="relative h-48 w-full overflow-hidden">
             <img 
               src={optimizeImage(imageUrl, 800)} 
               alt={imageAlt}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className={cn(
+                "h-full w-full object-cover transition-all duration-500",
+                isHovered ? "scale-105 brightness-110" : "scale-100 brightness-100"
+              )}
               onError={() => {
                 console.error('Image failed to load:', imageUrl);
                 setImageError(true);
               }}
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </div>
-          <div className="p-4 text-left">
+          <div className="p-5 text-left">
             <div className="flex flex-wrap gap-2 mb-3">
               {frontmatter.tags.slice(0, 2).map(tag => (
-                <Badge key={tag} variant="default" className="flex items-center gap-1.5 bg-primary text-primary-foreground">
+                <Badge 
+                  key={tag} 
+                  variant="default" 
+                  className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm text-primary-foreground hover:bg-primary transition-colors"
+                >
                   <Tag size={12} />
                   {tag.replace(/-/g, ' ')}
                 </Badge>
               ))}
             </div>
-            <h3 className="text-lg font-bold mb-2 h-14 overflow-hidden">{truncatedTitle}</h3>
-            <p className="text-muted-foreground text-sm mb-4 h-10 overflow-hidden">{truncatedDescription}</p>
-            <div className="flex items-center text-xs text-muted-foreground">
-              <span>{frontmatter.author}</span>
-              <span className="mx-2">•</span>
+            <h3 className="text-xl font-bold mb-2 line-clamp-2 leading-tight">{truncatedTitle}</h3>
+            <p className="text-muted-foreground text-sm mb-4 line-clamp-2 leading-relaxed">{truncatedDescription}</p>
+            <div className="flex items-center gap-4 text-xs text-muted-foreground">
+              <div className="flex items-center gap-1.5">
+                <User size={12} />
+                <span>{frontmatter.author}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Clock size={12} />
+                <span>{readTime} min read</span>
+              </div>
               <span>{formatDate(frontmatter.pubDate)}</span>
             </div>
           </div>
