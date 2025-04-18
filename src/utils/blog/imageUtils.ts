@@ -48,28 +48,26 @@ export const getImageData = (frontmatter: BlogFrontmatter): { url: string; alt: 
   const title = frontmatter.title || 'Blog Post';
   
   // Check if the image is the fallback unsplash image
-  const isDefaultUnsplashImage = frontmatter.image && 
-                               frontmatter.image.url && 
-                               frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
+  const imageUrl = frontmatter.image?.url;
+  const isDefaultUnsplashImage = typeof imageUrl === 'string' && 
+    imageUrl.includes('unsplash.com/photo-1499750310107-5fef28a66643');
   
   // If we have a custom image (not the default unsplash one) use it, otherwise generate
-  if (frontmatter.image && frontmatter.image.url && !isDefaultUnsplashImage) {
+  if (typeof imageUrl === 'string' && !isDefaultUnsplashImage) {
     // Use the URL as-is if it's absolute, otherwise prepend a slash
-    const imageUrl = frontmatter.image.url.startsWith('http') 
-      ? frontmatter.image.url 
-      : frontmatter.image.url.startsWith('/') 
-        ? frontmatter.image.url 
-        : `/${frontmatter.image.url}`;
+    const finalUrl = imageUrl.startsWith('http') 
+      ? imageUrl 
+      : imageUrl.startsWith('/') 
+        ? imageUrl 
+        : `/${imageUrl}`;
     
-    console.log('Using frontmatter image:', imageUrl);
     return {
-      url: imageUrl,
-      alt: frontmatter.image.alt || title
+      url: finalUrl,
+      alt: frontmatter.image?.alt || title
     };
   }
   
   // Otherwise generate a dynamic image
-  console.log('Generating dynamic image for:', title);
   return {
     url: generateDynamicImageUrl(title),
     alt: title
