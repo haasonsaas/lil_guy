@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -28,117 +28,131 @@ interface RecommendedBook extends BaseBook {
   why: string;
 }
 
-const generateImageUrl = (title: string) => {
-  const cleanText = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
-  return generateThumbnailUrl(cleanText);
-};
-
 export default function ReadingPage() {
   const [bookView, setBookView] = useState('grid');
-  
-  const currentBooks: CurrentBook[] = [
-    {
-      title: "The Age of AI: And Our Human Future",
-      author: "Henry Kissinger, Eric Schmidt, Daniel Huttenlocher",
-      category: "Technology",
-      rating: 4,
-      progress: 65,
-      cover: generateImageUrl("AI Future")
-    },
-    {
-      title: "Working in Public: The Making and Maintenance of Open Source Software",
-      author: "Nadia Eghbal",
-      category: "Technology",
-      rating: 5,
-      progress: 90,
-      cover: generateImageUrl("Working in Public")
-    },
-    {
-      title: "Competing in the Age of AI",
-      author: "Marco Iansiti, Karim R. Lakhani",
-      category: "Business",
-      rating: 4,
-      progress: 30,
-      cover: generateImageUrl("AI Business")
-    }
-  ];
-  
-  const completedBooks: CompletedBook[] = [
-    {
-      title: "The Innovators",
-      author: "Walter Isaacson",
-      category: "Biography",
-      rating: 5,
-      dateCompleted: "March 2025",
-      cover: generateImageUrl("Innovators")
-    },
-    {
-      title: "Hooked: How to Build Habit-Forming Products",
-      author: "Nir Eyal",
-      category: "Business",
-      rating: 4,
-      dateCompleted: "February 2025",
-      cover: generateImageUrl("Hooked")
-    },
-    {
-      title: "The Psychology of Money",
-      author: "Morgan Housel",
-      category: "Finance",
-      rating: 5,
-      dateCompleted: "January 2025",
-      cover: generateImageUrl("Psychology of Money")
-    },
-    {
-      title: "Atomic Habits",
-      author: "James Clear",
-      category: "Self-Improvement",
-      rating: 5,
-      dateCompleted: "December 2024",
-      cover: generateImageUrl("Atomic Habits")
-    },
-    {
-      title: "The Lean Startup",
-      author: "Eric Ries",
-      category: "Business",
-      rating: 4,
-      dateCompleted: "November 2024",
-      cover: generateImageUrl("Lean Startup")
-    }
-  ];
-  
-  const recommendedBooks: RecommendedBook[] = [
-    {
-      title: "Zero to One",
-      author: "Peter Thiel",
-      category: "Business",
-      why: "Essential insights on creating new value and building the future.",
-      cover: generateImageUrl("Zero to One")
-    },
-    {
-      title: "Thinking, Fast and Slow",
-      author: "Daniel Kahneman",
-      category: "Psychology",
-      why: "Transformative understanding of how we think and make decisions.",
-      cover: generateImageUrl("Thinking Fast Slow")
-    },
-    {
-      title: "The Art of Doing Science and Engineering",
-      author: "Richard Hamming",
-      category: "Science",
-      why: "Powerful approach to creative thinking and problem-solving.",
-      cover: generateImageUrl("The Art of Doing Science and Engineering")
-    }
-  ];
+  const [currentBooks, setCurrentBooks] = useState<CurrentBook[]>([]);
+  const [completedBooks, setCompletedBooks] = useState<CompletedBook[]>([]);
+  const [recommendedBooks, setRecommendedBooks] = useState<RecommendedBook[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const initializeBooks = async () => {
+      const initialCurrentBooks: CurrentBook[] = [
+        {
+          title: "The Age of AI: And Our Human Future",
+          author: "Henry Kissinger, Eric Schmidt, Daniel Huttenlocher",
+          category: "Technology",
+          rating: 4,
+          progress: 65,
+          cover: await generateThumbnailUrl("AI Future")
+        },
+        {
+          title: "Working in Public: The Making and Maintenance of Open Source Software",
+          author: "Nadia Eghbal",
+          category: "Technology",
+          rating: 5,
+          progress: 90,
+          cover: await generateThumbnailUrl("Working in Public")
+        },
+        {
+          title: "Competing in the Age of AI",
+          author: "Marco Iansiti, Karim R. Lakhani",
+          category: "Business",
+          rating: 4,
+          progress: 30,
+          cover: await generateThumbnailUrl("AI Business")
+        }
+      ];
+
+      const initialCompletedBooks: CompletedBook[] = [
+        {
+          title: "The Innovators",
+          author: "Walter Isaacson",
+          category: "Biography",
+          rating: 5,
+          dateCompleted: "March 2025",
+          cover: await generateThumbnailUrl("Innovators")
+        },
+        {
+          title: "Hooked: How to Build Habit-Forming Products",
+          author: "Nir Eyal",
+          category: "Business",
+          rating: 4,
+          dateCompleted: "February 2025",
+          cover: await generateThumbnailUrl("Hooked")
+        },
+        {
+          title: "The Psychology of Money",
+          author: "Morgan Housel",
+          category: "Finance",
+          rating: 5,
+          dateCompleted: "January 2025",
+          cover: await generateThumbnailUrl("Psychology of Money")
+        },
+        {
+          title: "Atomic Habits",
+          author: "James Clear",
+          category: "Self-Improvement",
+          rating: 5,
+          dateCompleted: "December 2024",
+          cover: await generateThumbnailUrl("Atomic Habits")
+        },
+        {
+          title: "The Lean Startup",
+          author: "Eric Ries",
+          category: "Business",
+          rating: 4,
+          dateCompleted: "November 2024",
+          cover: await generateThumbnailUrl("Lean Startup")
+        }
+      ];
+
+      const initialRecommendedBooks: RecommendedBook[] = [
+        {
+          title: "Zero to One",
+          author: "Peter Thiel",
+          category: "Business",
+          why: "Essential insights on creating new value and building the future.",
+          cover: await generateThumbnailUrl("Zero to One")
+        },
+        {
+          title: "Thinking, Fast and Slow",
+          author: "Daniel Kahneman",
+          category: "Psychology",
+          why: "Transformative understanding of how we think and make decisions.",
+          cover: await generateThumbnailUrl("Thinking Fast Slow")
+        },
+        {
+          title: "The Art of Doing Science and Engineering",
+          author: "Richard Hamming",
+          category: "Science",
+          why: "Powerful approach to creative thinking and problem-solving.",
+          cover: await generateThumbnailUrl("The Art of Doing Science and Engineering")
+        }
+      ];
+
+      setCurrentBooks(initialCurrentBooks);
+      setCompletedBooks(initialCompletedBooks);
+      setRecommendedBooks(initialRecommendedBooks);
+      setIsLoading(false);
+    };
+
+    initializeBooks();
+  }, []);
 
   const renderBookCard = (book: CurrentBook | CompletedBook | RecommendedBook, type: 'current' | 'completed' | 'recommended') => {
     return (
       <Card key={book.title} className="h-full flex flex-col">
         <CardHeader className="p-4">
-          <div className="relative aspect-[2/3] w-40 mx-auto overflow-hidden rounded-lg">
+          <div className="relative aspect-[2/3] w-40 mx-auto overflow-hidden rounded-lg bg-muted">
             <img
               src={book.cover}
               alt={book.title}
               className="object-cover w-full h-full"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = '/placeholder-book.png'; // Fallback image
+              }}
             />
           </div>
           <CardTitle className="mt-4 text-lg">{book.title}</CardTitle>
@@ -187,11 +201,15 @@ export default function ReadingPage() {
   const renderBookList = (book: CurrentBook | CompletedBook | RecommendedBook, type: 'current' | 'completed' | 'recommended') => {
     return (
       <div key={book.title} className="flex items-start gap-3 p-3 border rounded-lg">
-        <div className="relative w-16 h-24 flex-shrink-0">
+        <div className="relative w-16 h-24 flex-shrink-0 bg-muted rounded-lg overflow-hidden">
           <img
             src={book.cover}
             alt={book.title}
-            className="object-cover w-full h-full rounded-lg"
+            className="object-cover w-full h-full"
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = '/placeholder-book.png'; // Fallback image
+            }}
           />
         </div>
         <div className="flex-1 min-w-0">
@@ -233,6 +251,27 @@ export default function ReadingPage() {
       </div>
     );
   };
+
+  if (isLoading) {
+    return (
+      <Layout>
+        <div className="container mx-auto px-4 py-8">
+          <div className="flex items-center justify-between mb-6">
+            <h1 className="text-3xl font-bold">Reading List</h1>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+            {[...Array(8)].map((_, i) => (
+              <div key={i} className="animate-pulse">
+                <div className="aspect-[2/3] w-40 mx-auto bg-muted rounded-lg mb-4" />
+                <div className="h-4 bg-muted rounded w-3/4 mx-auto mb-2" />
+                <div className="h-3 bg-muted rounded w-1/2 mx-auto" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
