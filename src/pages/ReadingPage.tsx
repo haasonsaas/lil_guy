@@ -125,34 +125,34 @@ export default function ReadingPage() {
 
       const initialRecommendedBooks: RecommendedBook[] = [
         {
-          title: "Zero to One",
-          author: "Peter Thiel",
-          category: "Business",
-          why: "Essential insights on creating new value and building the future."
-        },
-        {
-          title: "Thinking, Fast and Slow",
-          author: "Daniel Kahneman",
+          title: "Range",
+          author: "David Epstein",
           category: "Psychology",
-          why: "Transformative understanding of how we think and make decisions."
+          why: "Shows how generalists triumph in a specialized world."
         },
         {
-          title: "The Art of Doing Science and Engineering",
-          author: "Richard Hamming",
+          title: "Algorithms to Live By",
+          author: "Brian Christian & Tom Griffiths",
           category: "Science",
-          why: "Powerful approach to creative thinking and problem-solving."
+          why: "Practical computational thinking you can apply to everyday decisions."
         },
         {
-          title: "The Design of Everyday Things",
-          author: "Don Norman",
+          title: "Working in Public",
+          author: "Nadia Eghbal",
+          category: "Technology",
+          why: "A fresh take on how open source communities actually function."
+        },
+        {
+          title: "Mismatch",
+          author: "Kat Holmes",
           category: "Design",
-          why: "Foundational text on human-centered design principles."
+          why: "Offers a current and inclusive approach to design."
         },
         {
-          title: "Gödel, Escher, Bach",
-          author: "Douglas Hofstadter",
-          category: "Science",
-          why: "Mind-bending exploration of consciousness and recursive patterns."
+          title: "The Scout Mindset",
+          author: "Julia Galef",
+          category: "Psychology",
+          why: "Learn how to change your thinking habits."
         }
       ];
 
