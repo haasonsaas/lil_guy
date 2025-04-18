@@ -13,9 +13,6 @@ tags:
   - technology-criticism
   - luddism
   - digital-literacy
-image:
-  url: '/images/human-vs-ai-creativity.png'
-  alt: "A human artist's work being incorrectly labeled as AI-generated"
 ---
 
 # AI Detection Hysteria: When Human Creativity Gets Mislabeled
