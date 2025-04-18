@@ -21,8 +21,8 @@ function calculateOptimalFontSize(text: string, width: number, height: number): 
   const lineHeight = 1.2; // Line height multiplier
   
   // Calculate available width (accounting for padding)
-  const availableWidth = width * 0.8;
-  const availableHeight = height * 0.6;
+  const availableWidth = width * 0.7; // Reduced from 0.8 to 0.7 for more padding
+  const availableHeight = height * 0.5; // Reduced from 0.6 to 0.5 for more padding
   
   // Calculate base font size based on width
   let fontSize = availableWidth / (text.length * avgCharWidth);
@@ -30,12 +30,12 @@ function calculateOptimalFontSize(text: string, width: number, height: number): 
   // Adjust for target number of lines
   fontSize = Math.min(fontSize * targetLines, availableHeight / (targetLines * lineHeight));
   
-  // Scale down slightly to ensure comfortable fit
-  fontSize *= 0.8;
+  // Scale down more aggressively to ensure comfortable fit
+  fontSize *= 0.7; // Reduced from 0.8 to 0.7
   
   // Set minimum and maximum font sizes based on image dimensions
-  const minFontSize = Math.min(width, height) * 0.04;
-  const maxFontSize = Math.min(width, height) * 0.15;
+  const minFontSize = Math.min(width, height) * 0.03; // Reduced from 0.04
+  const maxFontSize = Math.min(width, height) * 0.12; // Reduced from 0.15
   
   return Math.min(Math.max(fontSize, minFontSize), maxFontSize);
 }
@@ -56,7 +56,7 @@ function generateBlogSVG(config: BlogImageConfig): string {
   const fontSize = calculateOptimalFontSize(text, width, height);
   
   // Calculate text wrapping
-  const maxLineWidth = width * 0.8; // 80% of width
+  const maxLineWidth = width * 0.7; // Reduced from 0.8 to 0.7
   const words = text.split(' ');
   const lines: string[] = [];
   let currentLine = '';
@@ -77,7 +77,7 @@ function generateBlogSVG(config: BlogImageConfig): string {
   }
   
   // Calculate line height and starting Y position
-  const lineHeight = fontSize * 1.2;
+  const lineHeight = fontSize * 1.3; // Increased from 1.2 to 1.3 for better spacing
   const totalTextHeight = lines.length * lineHeight;
   const startY = (height - totalTextHeight) / 2 + fontSize;
   
@@ -109,7 +109,7 @@ function generateBlogSVG(config: BlogImageConfig): string {
   `).join('')}
   
   <!-- Decorative Line -->
-  <line x1="${width * 0.25}" y1="${height * 0.75}" x2="${width * 0.75}" y2="${height * 0.75}" 
+  <line x1="${width * 0.25}" y1="${height * 0.8}" y2="${height * 0.8}" x2="${width * 0.75}" 
     stroke="${textColor}" 
     stroke-opacity="0.2" 
     stroke-width="2"
