@@ -165,7 +165,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
                 <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
                 {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
-                  <TagCloud tags={frontmatter.tags} />
+                  <TagCloud tags={frontmatter.tags.map(tag => ({ tag, count: 1 }))} />
                 ) : (
                   <p className="text-muted-foreground">No tags available</p>
                 )}

@@ -77,7 +77,7 @@ export const getFeaturedPosts = (): BlogPost[] => {
 /**
  * Get all unique tags from all posts, sorted by frequency of occurrence
  */
-export const getAllTags = (): string[] => {
+export const getAllTags = (): { tag: string; count: number }[] => {
   const posts = getAllPosts();
   const tagCounts = new Map<string, number>();
   
@@ -89,10 +89,10 @@ export const getAllTags = (): string[] => {
     });
   });
   
-  // Convert to array, sort by count, and return just the tags
+  // Convert to array, sort by count, and return tag objects
   return Array.from(tagCounts.entries())
     .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
-    .map(([tag]) => tag); // Return just the tag names
+    .map(([tag, count]) => ({ tag, count })); // Return tag objects with counts
 };
 
 /**
