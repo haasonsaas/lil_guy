@@ -176,7 +176,13 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
           ref={canvasRef}
           width={GRID_SIZE * CELL_SIZE}
           height={GRID_SIZE * CELL_SIZE}
-          className="border border-border rounded"
+          className="border border-border rounded focus:outline-none focus:ring-2 focus:ring-ring"
+          tabIndex={0}
+          onFocus={() => {
+            if (gameOver) {
+              resetGame();
+            }
+          }}
         />
         {gameOver && (
           <div className="absolute inset-0 bg-background/80 flex items-center justify-center">
