@@ -281,6 +281,15 @@ export default function UsesPage() {
                 <CardContent>
                   <div className="space-y-6">
                     <div>
+                      <h3 className="font-medium text-lg mb-2">HIFIMAN HE1000 Stealth</h3>
+                      <p className="text-muted-foreground mb-2">Planar magnetic audiophile headphones</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Stealth magnet design, planar magnetic drivers, 8Hz-65kHz frequency response</p>
+                        <p className="text-sm"><span className="font-medium">Comfort:</span> Premium materials, ergonomic design, lightweight construction</p>
+                        <p className="text-sm"><span className="font-medium">Why I love it:</span> Exceptional detail retrieval, wide soundstage, and natural timbre. The Stealth magnet design provides improved efficiency and better bass response.</p>
+                      </div>
+                    </div>
+                    <div>
                       <h3 className="font-medium text-lg mb-2">Massdrop x Sennheiser HD 6XX Headphones</h3>
                       <p className="text-muted-foreground mb-2">Open-back audiophile headphones</p>
                       <div className="space-y-2">
