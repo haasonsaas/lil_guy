@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 interface BlogCardProps {
   post: BlogPost;
   featured?: boolean;
+  hideAuthor?: boolean;
 }
 
 const optimizeImage = (url: string, width: number = 800) => {
@@ -34,7 +35,7 @@ const calculateReadTime = (content: string): number => {
   return Math.ceil(words / wordsPerMinute);
 };
 
-export default function BlogCard({ post, featured = false }: BlogCardProps) {
+export default function BlogCard({ post, featured = false, hideAuthor = false }: BlogCardProps) {
   const { slug, frontmatter, content } = post;
   const [imageError, setImageError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -91,10 +92,12 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 leading-tight">{truncatedTitle}</h2>
               <p className="text-white/90 mb-6 text-lg leading-relaxed">{truncatedDescription}</p>
               <div className="flex items-center gap-4 text-white/80 text-sm">
-                <div className="flex items-center gap-1.5">
-                  <User size={14} />
-                  <span>{frontmatter.author}</span>
-                </div>
+                {!hideAuthor && (
+                  <div className="flex items-center gap-1.5">
+                    <User size={14} />
+                    <span>{frontmatter.author}</span>
+                  </div>
+                )}
                 <div className="flex items-center gap-1.5">
                   <Clock size={14} />
                   <span>{readTime} min read</span>
@@ -147,10 +150,12 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
             <h3 className="text-xl font-bold mb-2 line-clamp-2 leading-tight">{truncatedTitle}</h3>
             <p className="text-muted-foreground text-sm mb-4 line-clamp-2 leading-relaxed">{truncatedDescription}</p>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
-              <div className="flex items-center gap-1.5">
-                <User size={12} />
-                <span>{frontmatter.author}</span>
-              </div>
+              {!hideAuthor && (
+                <div className="flex items-center gap-1.5">
+                  <User size={12} />
+                  <span>{frontmatter.author}</span>
+                </div>
+              )}
               <div className="flex items-center gap-1.5">
                 <Clock size={12} />
                 <span>{readTime} min read</span>
