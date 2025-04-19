@@ -1,7 +1,11 @@
 import { Github, Twitter, Linkedin, BookOpen } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import SnakeGame from './SnakeGame';
 
 export default function Footer() {
+  const [showSnakeGame, setShowSnakeGame] = useState(false);
+
   return (
     <footer className="bg-gradient-to-b from-background to-muted/10 border-t border-border mt-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -99,9 +103,18 @@ export default function Footer() {
         </div>
         
         <div className="border-t border-border pt-6 mt-12 text-center text-sm text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} Jonathan Haas. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Jonathan Haas. All rights reserved.
+            <button 
+              onClick={() => setShowSnakeGame(true)}
+              className="ml-2 text-xs opacity-50 hover:opacity-100 transition-opacity"
+            >
+              🐍
+            </button>
+          </p>
         </div>
       </div>
+      {showSnakeGame && <SnakeGame onClose={() => setShowSnakeGame(false)} />}
     </footer>
   );
 }
