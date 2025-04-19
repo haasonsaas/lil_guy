@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { X } from 'lucide-react';
 
 interface Position {
@@ -24,24 +24,24 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
   const CELL_SIZE = 20;
   const GAME_SPEED = 100;
 
-  const generateFood = () => {
+  const generateFood = useCallback(() => {
     const newFood = {
       x: Math.floor(Math.random() * GRID_SIZE),
       y: Math.floor(Math.random() * GRID_SIZE)
     };
     setFood(newFood);
-  };
+  }, []);
 
-  const checkCollision = (head: Position) => {
+  const checkCollision = useCallback((head: Position) => {
     // Wall collision
     if (head.x < 0 || head.x >= GRID_SIZE || head.y < 0 || head.y >= GRID_SIZE) {
       return true;
     }
     // Self collision
     return snake.some(segment => segment.x === head.x && segment.y === head.y);
-  };
+  }, [snake]);
 
-  const moveSnake = () => {
+  const moveSnake = useCallback(() => {
     if (gameOver || isPaused) return;
 
     const head = { ...snake[0] };
@@ -76,7 +76,7 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
     }
 
     setSnake(newSnake);
-  };
+  }, [snake, direction, gameOver, isPaused, food, checkCollision, generateFood]);
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -117,6 +117,9 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    // Focus the canvas when the game starts
+    canvas.focus();
+
     // Clear canvas
     ctx.fillStyle = 'rgb(15, 23, 42)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -149,7 +152,7 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
         window.clearInterval(gameLoopRef.current);
       }
     };
-  }, [snake, direction, gameOver, isPaused]);
+  }, [moveSnake]);
 
   const resetGame = () => {
     setGameOver(false);
@@ -157,6 +160,11 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
     setSnake([{ x: 5, y: 5 }]);
     setDirection('RIGHT');
     generateFood();
+    // Focus the canvas when the game resets
+    const canvas = canvasRef.current;
+    if (canvas) {
+      canvas.focus();
+    }
   };
 
   return (
@@ -178,6 +186,12 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
           height={GRID_SIZE * CELL_SIZE}
           className="border border-border rounded focus:outline-none focus:ring-2 focus:ring-ring"
           tabIndex={0}
+          onClick={() => {
+            const canvas = canvasRef.current;
+            if (canvas) {
+              canvas.focus();
+            }
+          }}
           onFocus={() => {
             if (gameOver) {
               resetGame();
