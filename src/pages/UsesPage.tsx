@@ -248,36 +248,50 @@ export default function UsesPage() {
                     
                     <div>
                       <h3 className="font-medium text-lg mb-2">💰 Cost Breakdown</h3>
-                      <p className="text-muted-foreground mb-2">Monthly software costs:</p>
+                      <p className="text-muted-foreground mb-2">Monthly subscription costs for productivity tools</p>
+                      <ul className="list-disc pl-6 mb-4 space-y-1">
+                        <li>Superhuman: $30/month</li>
+                        <li>Notion Calendar: $8/month</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Task Management</h3>
+                      <p className="text-muted-foreground mb-2">Tools for organizing and tracking work</p>
                       
-                      <div className="border rounded-md overflow-hidden">
-                        <table className="w-full">
-                          <thead className="bg-muted">
-                            <tr>
-                              <th className="px-4 py-2 text-left">Tool</th>
-                              <th className="px-4 py-2 text-right">Monthly Cost</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr className="border-t">
-                              <td className="px-4 py-2">Superhuman</td>
-                              <td className="px-4 py-2 text-right">$30</td>
-                            </tr>
-                            <tr className="border-t">
-                              <td className="px-4 py-2">VS Code</td>
-                              <td className="px-4 py-2 text-right">Free</td>
-                            </tr>
-                            <tr className="border-t">
-                              <td className="px-4 py-2">Raycast</td>
-                              <td className="px-4 py-2 text-right">Free</td>
-                            </tr>
-                            <tr className="border-t font-medium">
-                              <td className="px-4 py-2">Total</td>
-                              <td className="px-4 py-2 text-right">$30</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
+                      <h4 className="font-medium mt-4 mb-2">Linear</h4>
+                      <p className="text-sm mb-2">Issue tracking and project management tool that's perfect for software development. The keyboard-first interface and GitHub integration make it a joy to use.</p>
+                      <p className="text-sm">Cost: Free for small teams</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Things 3</h4>
+                      <p className="text-sm mb-2">Beautiful and intuitive task manager for personal projects. The natural language input and quick entry make it easy to capture tasks on the go.</p>
+                      <p className="text-sm">Cost: $49.99 (one-time purchase)</p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Frameworks</h3>
+                      <p className="text-muted-foreground mb-2">To help others build better products, I've created a collection of frameworks and templates that I use in my own work. These are battle-tested approaches that have helped me and my teams ship better software faster.</p>
+                      <a 
+                        href="https://frameworks.haasonsaas.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        frameworks.haasonsaas.com →
+                      </a>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Note Taking</h3>
+                      <p className="text-muted-foreground mb-2">Tools for capturing and organizing ideas</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Obsidian</h4>
+                      <p className="text-sm mb-2">Local-first note-taking app with powerful linking capabilities. The graph view helps visualize connections between ideas, and the plugin ecosystem is extensive.</p>
+                      <p className="text-sm">Cost: Free for personal use</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Notion</h4>
+                      <p className="text-sm mb-2">All-in-one workspace for notes, docs, and project management. The database features and templates make it incredibly versatile.</p>
+                      <p className="text-sm">Cost: Free for personal use</p>
                     </div>
                   </div>
                 </CardContent>
