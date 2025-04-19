@@ -17,6 +17,7 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
   const [food, setFood] = useState<Position>({ x: 10, y: 10 });
   const [direction, setDirection] = useState<'UP' | 'DOWN' | 'LEFT' | 'RIGHT'>('RIGHT');
   const [isPaused, setIsPaused] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const gameLoopRef = useRef<number>();
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -154,6 +155,15 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
     };
   }, [moveSnake]);
 
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
   const resetGame = () => {
     setGameOver(false);
     setScore(0);
@@ -180,41 +190,50 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
           <h2 className="text-xl font-semibold mb-2">Snake</h2>
           <p className="text-muted-foreground">Score: {score}</p>
         </div>
-        <canvas
-          ref={canvasRef}
-          width={GRID_SIZE * CELL_SIZE}
-          height={GRID_SIZE * CELL_SIZE}
-          className="border border-border rounded focus:outline-none focus:ring-2 focus:ring-ring"
-          tabIndex={0}
-          onClick={() => {
-            const canvas = canvasRef.current;
-            if (canvas) {
-              canvas.focus();
-            }
-          }}
-          onFocus={() => {
-            if (gameOver) {
-              resetGame();
-            }
-          }}
-        />
-        {gameOver && (
-          <div className="absolute inset-0 bg-background/80 flex items-center justify-center">
-            <div className="text-center">
-              <h3 className="text-xl font-semibold mb-2">Game Over!</h3>
-              <p className="text-muted-foreground mb-4">Score: {score}</p>
-              <button
-                onClick={resetGame}
-                className="bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90"
-              >
-                Play Again
-              </button>
-            </div>
+        {isMobile ? (
+          <div className="p-4 text-center">
+            <p className="text-muted-foreground mb-2">This game is designed for desktop use only.</p>
+            <p className="text-sm text-muted-foreground">Please use arrow keys on a desktop computer to play.</p>
           </div>
+        ) : (
+          <>
+            <canvas
+              ref={canvasRef}
+              width={GRID_SIZE * CELL_SIZE}
+              height={GRID_SIZE * CELL_SIZE}
+              className="border border-border rounded focus:outline-none focus:ring-2 focus:ring-ring"
+              tabIndex={0}
+              onClick={() => {
+                const canvas = canvasRef.current;
+                if (canvas) {
+                  canvas.focus();
+                }
+              }}
+              onFocus={() => {
+                if (gameOver) {
+                  resetGame();
+                }
+              }}
+            />
+            {gameOver && (
+              <div className="absolute inset-0 bg-background/80 flex items-center justify-center">
+                <div className="text-center">
+                  <h3 className="text-xl font-semibold mb-2">Game Over!</h3>
+                  <p className="text-muted-foreground mb-4">Score: {score}</p>
+                  <button
+                    onClick={resetGame}
+                    className="bg-primary text-primary-foreground px-4 py-2 rounded hover:bg-primary/90"
+                  >
+                    Play Again
+                  </button>
+                </div>
+              </div>
+            )}
+            <div className="mt-4 text-center text-sm text-muted-foreground">
+              <p>Use arrow keys to move. Space to pause.</p>
+            </div>
+          </>
         )}
-        <div className="mt-4 text-center text-sm text-muted-foreground">
-          <p>Use arrow keys to move. Space to pause.</p>
-        </div>
       </div>
     </div>
   );
