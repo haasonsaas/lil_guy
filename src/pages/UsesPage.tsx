@@ -333,9 +333,9 @@ export default function UsesPage() {
                       <h3 className="font-medium text-lg mb-2">Dream Machine Pro Max</h3>
                       <p className="text-muted-foreground mb-2">Core Network Controller & Gateway</p>
                       <div className="space-y-2">
-                        <p className="text-sm"><span className="font-medium">Features:</span> 10G throughput, IPS/IDS, multiple site-to-site VPNs</p>
-                        <p className="text-sm"><span className="font-medium">Storage:</span> Redundant storage for security footage</p>
-                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Enterprise-grade performance with consumer-friendly interface</p>
+                        <p className="text-sm"><span className="font-medium">Features:</span> 10G throughput, IPS/IDS, multiple site-to-site VPNs, redundant storage for security footage</p>
+                        <p className="text-sm"><span className="font-medium">Use Cases:</span> Running multiple isolated VLANs, supporting container-based services, managing site-to-site VPNs, handling IPS/IDS for network security monitoring</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Enterprise-grade performance with consumer-friendly interface, perfect for handling 10G throughput and complex network requirements</p>
                       </div>
                     </div>
                     
@@ -345,7 +345,8 @@ export default function UsesPage() {
                       <div className="space-y-2">
                         <p className="text-sm"><span className="font-medium">Features:</span> Inter-VLAN routing, 10G uplinks, PoE power delivery</p>
                         <p className="text-sm"><span className="font-medium">Capacity:</span> 24 ports with PoE+ support</p>
-                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Perfect balance of power and flexibility for home lab use</p>
+                        <p className="text-sm"><span className="font-medium">Use Cases:</span> Handling inter-VLAN routing, powering security cameras, access points, IP phones, and IoT controllers</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Perfect balance of power and flexibility for home lab use, with sufficient PoE budget for all devices</p>
                       </div>
                     </div>
                     
@@ -355,7 +356,8 @@ export default function UsesPage() {
                       <div className="space-y-2">
                         <p className="text-sm"><span className="font-medium">Features:</span> Wi-Fi 6E, high-density support, seamless roaming</p>
                         <p className="text-sm"><span className="font-medium">Coverage:</span> Whole-home coverage with optimal performance</p>
-                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Future-proof wireless performance for all devices</p>
+                        <p className="text-sm"><span className="font-medium">Implementation:</span> Mesh networking with wireless uplink for consistent coverage and seamless roaming</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Future-proof wireless performance for all devices, with excellent high-density support</p>
                       </div>
                     </div>
                     
@@ -365,7 +367,8 @@ export default function UsesPage() {
                       <div className="space-y-2">
                         <p className="text-sm"><span className="font-medium">Storage:</span> 4x 16TB drives in RAID 10</p>
                         <p className="text-sm"><span className="font-medium">Retention:</span> 30-day footage retention</p>
-                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Reliable, scalable storage for security cameras</p>
+                        <p className="text-sm"><span className="font-medium">Optimization:</span> Implemented edge caching and storage tiering for 70% reduction in main storage I/O</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Reliable, scalable storage for security cameras with efficient I/O management</p>
                       </div>
                     </div>
                     
@@ -379,6 +382,29 @@ export default function UsesPage() {
                         <p className="text-sm"><span className="font-medium">VLAN 40:</span> Media Streaming</p>
                         <p className="text-sm"><span className="font-medium">VLAN 50:</span> Guest Network</p>
                         <p className="text-sm"><span className="font-medium">VLAN 60:</span> Security Systems</p>
+                        <p className="text-sm mt-2"><span className="font-medium">Security:</span> Each VLAN has specific firewall rules and traffic policies to maintain security while allowing necessary inter-VLAN routing</p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Synology RS822+ & RX418 Expansion</h3>
+                      <p className="text-muted-foreground mb-2">Storage & Backup Solution</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Main Unit (RS822+):</span> 4-bay rackmount NAS with 2.5GbE connectivity, Intel C3538 quad-core processor, 4GB DDR4 ECC RAM (expandable to 32GB)</p>
+                        <p className="text-sm"><span className="font-medium">Expansion Unit (RX418):</span> 4-bay expansion unit adding 4 additional drive bays</p>
+                        <p className="text-sm"><span className="font-medium">Storage Configuration:</span> 8x 16TB drives in RAID 6 for optimal capacity and redundancy</p>
+                        <p className="text-sm"><span className="font-medium">Use Cases:</span> Centralized storage for media, backups, and development environments. Running Docker containers and virtual machines.</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Enterprise-grade reliability in a compact form factor. The ability to expand storage with the RX418 unit provides future-proof scalability. Synology's DSM operating system offers excellent features for both home and business use.</p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Network Services</h3>
+                      <p className="text-muted-foreground mb-2">Core Services</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Monitoring:</span> Prometheus for metrics collection, Grafana for visualization, custom alerting via webhook integration</p>
+                        <p className="text-sm"><span className="font-medium">Security:</span> IPS/IDS with custom rulesets, network flow analysis, automated threat detection</p>
+                        <p className="text-sm"><span className="font-medium">Lab Environment:</span> Kubernetes cluster for container orchestration, CI/CD pipeline for testing, development environments</p>
                       </div>
                     </div>
                   </div>
