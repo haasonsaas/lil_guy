@@ -161,6 +161,21 @@ export default function UsesPage() {
                     </div>
                     
                     <div>
+                      <h3 className="font-medium text-lg mb-2">Cursor</h3>
+                      <p className="text-muted-foreground mb-2">AI-powered IDE</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Key Features:</h4>
+                      <ul className="list-disc pl-6 mb-4 space-y-1">
+                        <li>AI pair programming assistant</li>
+                        <li>Codebase-aware AI completions</li>
+                        <li>Semantic code search</li>
+                        <li>Built-in terminal and Git integration</li>
+                      </ul>
+                      
+                      <p className="text-sm">Why I love it: Cursor combines the familiarity of VS Code with powerful AI capabilities that make coding more efficient. The AI assistant understands my codebase context and provides relevant suggestions, while the semantic search makes it easy to find code across the project.</p>
+                    </div>
+                    
+                    <div>
                       <h3 className="font-medium text-lg mb-2">Alacritty Terminal</h3>
                       <p className="text-muted-foreground mb-2">Configuration: GPU-accelerated, custom key bindings</p>
                       <p className="text-sm mb-2">Color Scheme: Dracula</p>
