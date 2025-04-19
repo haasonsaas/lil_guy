@@ -82,15 +82,19 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
     const handleKeyPress = (e: KeyboardEvent) => {
       switch (e.key) {
         case 'ArrowUp':
+          e.preventDefault();
           if (direction !== 'DOWN') setDirection('UP');
           break;
         case 'ArrowDown':
+          e.preventDefault();
           if (direction !== 'UP') setDirection('DOWN');
           break;
         case 'ArrowLeft':
+          e.preventDefault();
           if (direction !== 'RIGHT') setDirection('LEFT');
           break;
         case 'ArrowRight':
+          e.preventDefault();
           if (direction !== 'LEFT') setDirection('RIGHT');
           break;
         case ' ':
