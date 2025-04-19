@@ -199,4 +199,4 @@ It's time we fixed this broken system, together.
 
 ---
 
-*Jonathan Haas is a Product Manager at Vanta focusing on cloud and security integrations. Previously, Jonathan spent seven years in security operations and architecture roles at financial services and healthcare organizations. This perspective is based on over 400 CISO interviews conducted for product discovery and customer research over the past two years.*
+*Jonathan Haas is a Product Manager at Vanta focusing on cloud and security integrations. Previously, Jonathan spent seven years in security operations and architecture roles at financial services and consumer tech companies. This perspective is based on over 400 CISO interviews conducted for product discovery and customer research over the past two years.*
