@@ -75,17 +75,24 @@ export const getFeaturedPosts = (): BlogPost[] => {
 };
 
 /**
- * Get all unique tags from all posts
+ * Get all unique tags from all posts, sorted by frequency of occurrence
  */
 export const getAllTags = (): string[] => {
   const posts = getAllPosts();
-  const tagSet = new Set<string>();
+  const tagCounts = new Map<string, number>();
   
+  // Count occurrences of each tag
   posts.forEach(post => {
-    post.frontmatter.tags.forEach(tag => tagSet.add(tag.toLowerCase()));
+    post.frontmatter.tags.forEach(tag => {
+      const normalizedTag = tag.toLowerCase();
+      tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1);
+    });
   });
   
-  return Array.from(tagSet);
+  // Convert to array, sort by count, and return just the tags
+  return Array.from(tagCounts.entries())
+    .sort((a, b) => b[1] - a[1]) // Sort by count in descending order
+    .map(([tag]) => tag); // Return just the tag names
 };
 
 /**
