@@ -24,46 +24,39 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Product Manager at Vanta | Compliance Simplifier | Urban Explorer
+                Compliance Transformation Specialist at Vanta | Making Security Accessible | San Francisco Explorer
               </p>
               
               <div className="prose-custom mb-6">
                 <h3 className="text-xl font-semibold mb-3">The Human Behind the Work</h3>
                 <p className="mb-4">
-                  At Vanta, I'm on a mission to transform security compliance from a dreaded months-long ordeal into a streamlined process that takes just days. But when I'm not simplifying compliance, you'll find me perfecting my homemade pizza dough recipe (current obsession: naturally fermented sourdough) or exploring San Francisco's hidden staircases and neighborhood gems on foot.
+                  I transform security compliance from a months-long headache into a streamlined process that takes days. At Vanta, I build bridges between complex regulatory requirements and practical business needs. When I'm not revolutionizing compliance, I'm perfecting sourdough pizza techniques or discovering San Francisco's hidden treasures on foot—always seeking the perfect balance between structure and creativity.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-3">Professional Journey</h3>
                 <p className="mb-4">
-                  My path through the security and compliance landscape includes stops at Snapchat during their rapid growth phase, building out processes at DoorDash, and reimagining compliance frameworks at Carta. Each role showed me how manual security processes drain teams of time and enthusiasm. This insight drives my work at Vanta, where I focus on creating tools that make compliance accessible and even (dare I say) enjoyable.
+                  My security and compliance expertise was forged at high-growth companies like Snapchat, DoorDash, and Carta. Each environment taught me how excessive manual processes drain innovation and team morale. This firsthand experience drives my mission at Vanta: creating intuitive tools that transform compliance from a burden into a business advantage.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-3">Beyond the Office</h3>
                 <p className="mb-4">
-                  Weekends often find me in my kitchen experimenting with pizza techniques (my friends have become willing taste-testers), walking San Francisco's 49-mile scenic route in segments, or browsing local bookstores for science fiction and urban design titles. I'm also slowly working my way through cooking a dish from every country in the world — currently 37 countries in and counting.
+                  My curiosity extends beyond work—I'm methodically exploring San Francisco's 49-mile scenic route, curating a collection of science fiction and urban planning books, and undertaking a global culinary challenge (37 countries and counting). My legendary pizza nights featuring "Doughvid," my sourdough starter, have created a waiting list of eager taste-testers among friends and neighbors.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-3">Product Philosophy</h3>
-                <p className="mb-2">I approach product development with a few core principles:</p>
+                <p className="mb-2">My approach combines pragmatism with empathy:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Start with genuine problems: The best products solve real friction points, not theoretical issues. I spend time with customers understanding their actual workflows before designing solutions.</li>
-                  <li>Balance data with stories: Metrics tell you what's happening, but conversations tell you why. I believe in blending quantitative insights with qualitative understanding.</li>
-                  <li>Create inclusive teams: Products thrive when built by diverse groups where different perspectives are valued. I work to create environments where everyone feels their expertise contributes to the solution.</li>
+                  <li>Problem-first development: I immerse myself in customers' workflows to understand pain points before proposing solutions</li>
+                  <li>Balanced decision-making: Combining data-driven insights with customer narratives to build complete understanding</li>
+                  <li>Inclusive innovation: Creating environments where diverse perspectives thrive and contribute to better outcomes</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3">Real Impact</h3>
-                <p className="mb-2">At Vanta, I've had the opportunity to make compliance more accessible:</p>
+                <h3 className="text-xl font-semibold mb-3">Impact Highlights</h3>
+                <p className="mb-2">My work at Vanta has democratized compliance:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Developed frameworks that have helped startups achieve compliance certifications in weeks rather than months</li>
-                  <li>Created streamlined processes that enable small teams to manage security requirements without dedicated compliance staff</li>
-                  <li>Built tools that translate complex compliance language into practical, actionable tasks for non-security specialists</li>
-                </ul>
-                
-                <h3 className="text-xl font-semibold mb-3">Little-Known Facts</h3>
-                <ul className="list-disc pl-6 mb-4">
-                  <li>Once walked 26 miles across San Francisco in a single day, visiting every major neighborhood</li>
-                  <li>Maintain a sourdough starter named "Doughvid" that's been alive since the beginning of 2025</li>
-                  <li>Run a small pizza night every third Friday, where I test new recipes on friends and neighbors</li>
+                  <li>Engineered frameworks that compress certification timelines from months to weeks</li>
+                  <li>Developed processes enabling small teams to manage complex requirements without specialized staff</li>
+                  <li>Created tools that translate compliance jargon into clear, actionable steps for non-specialists</li>
                 </ul>
               </div>
             </div>
