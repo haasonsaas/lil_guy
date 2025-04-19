@@ -61,42 +61,32 @@ export default function Index() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Button size="lg" className="gap-2">
-                    <Brain className="w-5 h-5" />
-                    Read Latest
-                  </Button>
+                  <Link to={`/blog/${featuredPost.slug}`}>
+                    <Button size="lg" className="gap-2">
+                      <Brain className="w-5 h-5" />
+                      Read Latest
+                    </Button>
+                  </Link>
                 </motion.div>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Button variant="outline" size="lg" className="gap-2">
-                    <Code2 className="w-5 h-5" />
-                    Browse Topics
-                  </Button>
+                  <Link to="/tags">
+                    <Button variant="outline" size="lg" className="gap-2">
+                      <Code2 className="w-5 h-5" />
+                      Browse Topics
+                    </Button>
+                  </Link>
                 </motion.div>
               </div>
             </motion.div>
-            
-            {/* Featured Post */}
-            {featuredPost && (
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-16"
-              >
-                <div className="bg-gradient-to-br from-primary/5 to-background p-1 rounded-2xl border border-primary/10 shadow-lg">
-                  <BlogCard post={featuredPost} featured={true} />
-                </div>
-              </motion.div>
-            )}
             
             {/* Recent Articles */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
               className="mb-16"
             >
               <div className="flex justify-between items-center mb-8">
