@@ -48,6 +48,16 @@ const Navbar = () => {
                   </Button>
                 </Link>
               ))}
+              <a 
+                href="https://sidechannel.ventures" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Button variant="ghost" className="text-sm">
+                  💰
+                </Button>
+              </a>
               <ThemeToggle />
             </div>
           )}
@@ -78,6 +88,19 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
+            <a 
+              href="https://sidechannel.ventures" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block"
+            >
+              <Button
+                variant="ghost"
+                className="w-full justify-start rounded-none text-left"
+              >
+                💰
+              </Button>
+            </a>
           </div>
         </div>
       )}
