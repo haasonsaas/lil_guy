@@ -2,8 +2,7 @@
 author: Jonathan Haas
 pubDate: 2025-04-22
 title: "The Phantom Projects of Overhiring"
-description: >
-  When companies overhire, it’s not laziness or malice that creeps in—it’s the quiet invention of work. Here’s why idle bandwidth leads to dangerous distractions, and how to spot the signs before your team builds a palace of process.
+description: When companies overhire, it’s not laziness or malice that creeps in—it’s the quiet invention of work. Here’s why idle bandwidth leads to dangerous distractions, and how to spot the signs before your team builds a palace of process.
 featured: false
 draft: false
 tags:
@@ -13,7 +12,7 @@ tags:
   - startup-culture
   - leadership
 image:
-  url: 'https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  url: "https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   alt: "A team of professionals around a whiteboard filled with sticky notes, suggesting busywork without clear outcomes"
 ---
 
@@ -25,7 +24,7 @@ Not because people are malicious or lazy. Quite the opposite: high-performing fo
 
 They invent work.
 
-And it feels *productive*.
+And it feels _productive_.
 
 ## Why This Happens (and Why It’s Not Evil)
 
@@ -48,11 +47,13 @@ The classic. A team starts exploring an idea that sounds exciting internally but
 It might be a new onboarding flow, a dashboard redesign, or an experimental feature that solves a "problem" no one has actually complained about.
 
 These projects often have:
+
 - Beautiful design mockups
 - Clear documentation
 - Zero external traction
 
 You’ll hear phrases like:
+
 - “I just felt like this was missing…”
 - “We might need this eventually.”
 - “This will differentiate us from competitors.”
@@ -64,6 +65,7 @@ The problem? They're solutions in search of a problem—and they quietly consume
 When bandwidth exceeds external pressure, teams start optimizing internally. And then re-optimizing. And then documenting the optimization.
 
 You’ll see:
+
 - Ever-growing Notion wikis
 - Process diagrams for edge cases no one has encountered
 - Weekly meetings to align on the meeting calendar
@@ -74,9 +76,10 @@ Some teams build internal process scaffolding so elaborate they forget the house
 
 ### 3. Internal Tooling Obsession
 
-Now, don’t get me wrong—great internal tooling is *chef’s kiss* valuable when you’re solving real pain. But tooling for tooling’s sake? That’s the trap.
+Now, don’t get me wrong—great internal tooling is _chef’s kiss_ valuable when you’re solving real pain. But tooling for tooling’s sake? That’s the trap.
 
 Symptoms include:
+
 - Building admin panels no one asked for
 - Rewriting internal dashboards every quarter
 - Creating new frameworks instead of shipping features
@@ -112,6 +115,7 @@ If the answer is no, it might be worth pausing. Not killing—just pausing until
 Got talented folks with time on their hands? Don’t waste them on busywork.
 
 Instead:
+
 - Pair them with customer support to surface real issues
 - Embed them in onboarding or product marketing to tighten feedback loops
 - Challenge them to improve existing features, not invent new ones
@@ -121,6 +125,7 @@ Instead:
 Processes aren’t free—they’re overhead. Useful when needed, wasteful when not.
 
 Whenever someone proposes a new one, try asking:
+
 - What pain is this solving?
 - Who’s requesting it?
 - How will we know if it’s working?
@@ -135,6 +140,6 @@ It doesn’t happen overnight. It creeps in. One internal doc here. One phantom 
 
 Tight bandwidth isn’t just a constraint. It’s a focusing mechanism.
 
-If you have the luxury of a big team, the job is to *channel that abundance with ruthless intention*.
+If you have the luxury of a big team, the job is to _channel that abundance with ruthless intention_.
 
 Not to let it drift into a well-intentioned illusion of progress.
