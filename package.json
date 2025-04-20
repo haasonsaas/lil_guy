@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "bun run generate-blog-images && vite build",
     "build:dev": "bun run generate-blog-images && vite build --mode development",
-    "generate-blog-images": "bun run scripts/generateBlogImages.ts && bun run scripts/generate-book-images.ts",
+    "generate-blog-images": "bun run scripts/generateBlogImages.ts",
     "lint": "eslint .",
     "preview": "vite preview"
   },
