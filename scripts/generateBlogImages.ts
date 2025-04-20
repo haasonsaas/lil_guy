@@ -3,21 +3,6 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-// Book cover images
-const bookCovers = [
-  { width: 200, height: 300, text: 'AI Future', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Working in Public', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'AI Business', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Innovators', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Hooked', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Psychology of Money', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Atomic Habits', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Lean Startup', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Zero to One', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Thinking Fast Slow', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-  { width: 200, height: 300, text: 'Science Engineering', type: 'book' as const, backgroundColor: '#e9e9e9', textColor: '#333333' },
-];
-
 // Default blog post images
 const defaultBlogImages = [
   { width: 1200, height: 630, text: 'Blog Post', type: 'blog' as const, backgroundColor: '#f5f5f5', textColor: '#333333' }, // Default OG image
