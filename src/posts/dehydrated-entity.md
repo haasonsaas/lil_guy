@@ -1,9 +1,9 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-20
-title: "The Dehydrated Entity: A Smarter Way to Hire"
+title: "The Dehydrated Entity: Hire Only When You're Truly Underwater"
 description: 
-  A practical take on why startups should delay hiring until teams are truly underwater—driving ruthless prioritization, clarity of mission, and real productivity
+  Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to think about hiring pressure, prioritization, and company clarity
 featured: false
 draft: false
 tags:
@@ -17,124 +17,145 @@ image:
   alt: "A lean, focused team collaborating intensely on a whiteboard, symbolizing the urgency-driven nature of lean startups"
 ---
 
-# The Dehydrated Entity: A Smarter Way to Hire
+# The Dehydrated Entity: Hire Only When You're Truly Underwater
 
-There’s a myth in startups that hiring is always the answer.
+A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of [Windsurf](https://www.windsurf.com), that stopped me cold.
 
-Revenue slowing? Hire more sales. Roadmap lagging? Hire more engineers. Founders feeling stretched? Hire an ops lead.
+He called it the **“dehydrated entity” approach to hiring**—and it's one of the most practical, clarity-inducing frameworks I’ve heard in a long time.
 
-But here’s the uncomfortable truth: **most teams are overhydrated**—flush with resources, full of tasks, and drowning in self-inflicted complexity.
+> *"You should only hire when the current team is genuinely underwater—when critical work is actively being dropped."*  
+> — Varun Mohan
 
-I call the alternative the **dehydrated entity** approach to hiring: **you only hire when your existing team is genuinely underwater, with critical, high-leverage work being consistently dropped**—not just delayed or deprioritized, but truly unsustainable.
+This model flips the conventional wisdom on its head. Instead of hiring “just in time” or “ahead of need,” it forces you to **feel the constraint first**. It prioritizes intentionality over comfort, clarity over cushioning.
 
-Let’s break down why this mindset works, how to apply it, and what pitfalls to watch for.
+Let’s dig into why this works—and what it looks like in practice.
 
-## Why We Default to Overhydration
+## Why Startups Default to Overhydration
 
-Most orgs hire too early for two reasons:
+Startups love to hire. It feels like forward motion. Fundraise? Hire. Land a few customers? Hire. Can’t keep up with support tickets? Hire.
 
-1. **It feels productive.** Opening a headcount creates the illusion of progress.
-2. **It distributes discomfort.** Instead of forcing clarity on what truly matters, we spread the load across more people.
+But this reflex leads to a bloated, overhydrated organism. You get:
+- Tasks instead of outcomes.
+- Busyness instead of urgency.
+- Manufactured work instead of mission-critical execution.
 
-This results in bloated orgs where:
-- Prioritization becomes a committee sport.
-- Accountability blurs.
-- Manufactured work creeps in to fill the new bandwidth.
+And worst of all? You lose the sharpness that comes from being slightly overextended.
 
-You go from a team doing 10 things with urgency… to a team doing 30 things with mediocrity.
+The dehydrated entity model solves for this by imposing a healthy scarcity.
 
-## The Benefits of Hiring Late (Almost Too Late)
+## The Core Idea: Pain Before Headcount
 
-The dehydrated entity model embraces a different constraint: **delay hiring until you’re feeling genuine, systemic pain**—not friction, not busyness, but actual, high-priority work slipping through the cracks.
+Under the dehydrated entity model, **you only add people when it's undeniably clear that the team is breaking under pressure—and that what’s breaking is both important and unavoidable**.
 
-Here’s what happens when you do:
+That means:
+- Not when things are merely hard.
+- Not when priorities are unclear.
+- Not when people feel “stretched.”
 
-### 1. Ruthless Prioritization Becomes Non-Negotiable
+You wait until **critical work is visibly being dropped**—not deferred or delayed, but actively falling on the floor.
 
-Scarcity is a feature, not a bug.
+That’s the moment when a new hire becomes a force multiplier instead of an organizational gamble.
 
-When you only have 4 engineers, you make damn sure the roadmap reflects your best bets. Half-baked ideas don’t make the cut. Experimental projects must be justified. Internal tooling? It better unlock 10x leverage.
+## What Actually Improves When You Delay Hiring
 
-Instead of asking “what should we build next?”, the question becomes: “what *must* we build to survive?”
+### 1. Prioritization Gets Ruthless (in a Good Way)
 
-That pressure clarifies everything.
+Scarcity forces judgment. You can’t do everything, so you have to decide what matters.
 
-### 2. You Prevent the Rise of Manufactured Work
+This pushes teams to say:
+- “What’s the highest leverage thing we *can* do this week?”
+- “What do we need to say no to?”
+- “If we do nothing else, what must ship?”
 
-Teams with excess bandwidth get creative… in all the wrong ways.
+You trade breadth for focus. And at early-stage startups, that’s almost always the right trade.
 
-They invent dashboards that no one uses. They start side quests with no clear customer pull. They document everything to death. They create work for work’s sake.
+### 2. You Avoid Filling the Org With Manufactured Work
 
-Hiring only when the pain is real keeps you focused on *pull-driven* work—the stuff users, customers, and systems are actually demanding.
+One of the worst outcomes of overhiring is how quickly people invent tasks to justify their roles. It’s not malicious—it’s natural.
 
-### 3. Onboarding Becomes Grounded in Urgency
+But with spare bandwidth, teams tend to:
+- Start pet projects with no customer pull
+- Over-document processes
+- Obsess over internal tooling
 
-When you finally do hire, it’s with clear intent: “We need you because X critical function is falling apart.”
+The dehydrated entity model immunizes you against this. Every person must fight for their bandwidth, and every project has to prove it deserves time.
 
-There’s no vague job description or generic ramp plan. The new hire has an obvious mission, and they integrate fast because they’re plugging a leak, not floating in ambiguity.
+### 3. New Hires Integrate Faster and Hit Harder
 
-Contrast that with hires brought in “just in case”—they flounder, ask for clarity, and (understandably) drift toward low-leverage work.
+When you hire reactively—out of necessity—the role writes itself.
 
-## Signs You're Ready to Hire
+The team knows:
+- What’s breaking
+- Why it matters
+- What success looks like
 
-The line between “pushing hard” and “drowning” isn’t always obvious. Here are a few healthy signals that you’re nearing the right moment:
+Onboarding becomes pointed, urgent, and mission-critical. New hires don’t wonder where to plug in—they’re stepping into a fire, not a fog.
 
-- **You’ve delayed critical roadmap items for 2+ cycles purely due to resourcing constraints.**
-- **Existing team members are turning down high-leverage opportunities because they’re at capacity.**
-- **You’re seeing consistent bottlenecks in a specific function (e.g., design, data, infrastructure).**
-- **The current team is starting to drop balls—not because of negligence, but because there are simply too many in the air.**
+## Signs You're Ready to Rehydrate
 
-Hiring before you hit these signals is like taking painkillers before you feel the ache. You’ll numb yourself to what’s actually important.
+Still unsure when to pull the hiring trigger? Look for signals like:
 
-## The Risks (and How to Manage Them)
+- **Repeated deferral of critical roadmap items** due to lack of capacity
+- **Team members consistently saying no** to impactful work because they’re at bandwidth limits
+- **Customers or revenue being lost** due to internal throughput issues
+- **Clear, focused justification** for how a new hire would immediately unstick high-leverage work
 
-This approach isn’t without risks. Here’s how to mitigate them:
+If none of that is happening? Stay dehydrated.
 
-### Risk 1: Team Burnout
+## Common Missteps to Watch Out For
 
-Yes, pushing a dehydrated team too far can backfire. That’s why it’s critical to stay close to morale—not just output. Check in weekly. Ask: “What are we doing that doesn’t feel sustainable?” Then cut or simplify.
+### 🚫 Mistaking discomfort for unsustainability
 
-You’re not aiming for martyrdom—you’re aiming for clarity.
+Pressure isn’t a problem—it’s often a feature. Your job isn’t to make the team comfortable; it’s to make them effective.
 
-### Risk 2: Missed Opportunities
+Check if the pain is tied to critical outcomes. If not, resist the urge to "solve it with a hire."
 
-If you're truly understaffed for too long, you risk missing the moment—especially in fast-moving markets.
+### 🚫 Hiring for optionality
 
-Solution: **instrument the pain**. Track the opportunity cost explicitly: “We passed on $X in sales this quarter due to no support.” That becomes your hiring signal, not gut feel.
+One of the most expensive phrases in a startup: “Let’s hire them—we’ll figure out how to use them.”
 
-### Risk 3: Cultural Fragility
+Don’t.
 
-Teams built in scarcity can develop a “don’t ask for help” culture. Be explicit that saying “I’m underwater” is a strength, not a weakness. It’s how you trigger the hiring conversation.
+Unless you can articulate the broken pipe they’re fixing, delay the hire. Optionality sounds strategic. In practice, it muddies ownership and dilutes urgency.
 
-## How to Implement the Dehydrated Entity Model
+### 🚫 Equating “more hands” with faster progress
 
-A few practical tactics:
+Startups aren’t assembly lines. Most early-stage work requires context, judgment, and iteration.
 
-### 1. Default to Headcount Freezes (with Explicit Exceptions)
+Adding people to a messy, ambiguous domain often slows things down before it speeds them up.
 
-Instead of “we’re hiring unless there’s a reason not to,” flip it:
+## How to Operationalize the Model
 
-> “We’re not hiring unless someone can demonstrate critical unmet work.”
+Here’s how to put the dehydrated entity model into practice:
 
-This default makes your org accountable to outcomes, not roles.
+### 1. Set a Default Hiring Freeze
 
-### 2. Maintain a "Shadow Org Chart"
+Instead of “we hire when we feel like it,” flip the assumption:
 
-Every quarter, document the 2–3 roles you *would* hire next, if capacity became a limiting factor. Keep it updated. That way, when the signal hits, you already know where to go.
+> “We only open a role when something truly important is breaking—and we’ve exhausted every other way to fix it.”
 
-### 3. Run Time Audits Before Opening a Role
+Make exceptions prove themselves.
 
-Don’t just assume you’re underwater. Audit your team’s time. What’s being done that shouldn’t be? What can be automated, paused, or re-scoped?
+### 2. Create a Shadow Hiring Plan
 
-Hiring should be the last lever you pull, not the first.
+Each quarter, sketch the 1–2 hires you’d make *if things broke*. Document the trigger conditions.
 
-## Final Thought: Scarcity Sharpens Vision
+This gives you a plan without a commitment—and lets you move quickly if the situation changes.
 
-In an overfunded, overhyped startup world, it’s tempting to think you’re one hire away from hypergrowth. Sometimes, maybe. But often, clarity—not headcount—is the real unlock.
+### 3. Audit Team Workload Transparently
 
-The best startups I’ve worked with operated like dehydrated organisms. Every person mattered. Every role had weight. And when they did finally hire?
+Once a month, ask:
+- What’s falling through the cracks?
+- What’s painful but worth it?
+- What are we doing that we could stop?
 
-The impact was unmistakable.
+If nothing mission-critical is falling apart, hold the line.
 
-So next time you feel the urge to post a job req, ask instead: **Are we actually underwater—or just a little thirsty?**
+## Final Thought: Startups Should Feel a Little Thirsty
+
+Varun Mohan’s dehydrated entity idea works because it captures the essence of high-performance teams: constraint, clarity, and commitment.
+
+Yes, it’s uncomfortable. Yes, it will stretch you. But that stretch is where you find out what really matters—and who on your team can handle the altitude.
+
+If your company doesn’t feel just a little dehydrated… you might already be bloated.
 
