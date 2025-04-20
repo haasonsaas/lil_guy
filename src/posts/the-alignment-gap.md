@@ -18,8 +18,6 @@ image:
   alt: "A diagram showing the alignment gap between leadership and product teams"
 ---
 
-# The Alignment Gap: Why Products Fail and How to Fix It
-
 Every product leader has experienced that sinking feeling: you're confidently presenting to stakeholders about an "on-track" product launch when someone asks an innocent question that reveals a fundamental issue everyone on the ground floor knew about weeks ago. Why didn't this information reach you sooner? Welcome to what Phil Venables calls the "thermocline of truth" – but in product development, I call it the **alignment gap**.
 
 The alignment gap isn't just frustrating; it's a product killer. When critical information doesn't flow properly between those building the product and those directing strategy, failures aren't just possible – they're inevitable.
