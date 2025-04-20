@@ -17,8 +17,6 @@ image:
   alt: "A focused conversation between two professionals, emphasizing clarity and responsiveness"
 ---
 
-# The Responsiveness Principle: How Small Signals Build Big Trust in Venture
-
 Early-stage investing is often framed as a game of insight—pattern recognition, market timing, founder psychology. And yet, one of the most overlooked edge factors in venture is also the simplest: responsiveness.
 
 This isn't about being the fastest email responder in the room or obsessively refreshing Superhuman. It's about the foundational behaviors that convey trustworthiness before a single term sheet is drafted. In the early days of a relationship—before board seats and ownership percentages—what builds or erodes trust are the smallest signals. Promises made, promises kept. Calendars respected. Threads not left hanging.

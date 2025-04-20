@@ -19,8 +19,6 @@ image:
   alt: "Security professionals in a meeting discussing cybersecurity challenges"
 ---
 
-# The CISO Survival Guide: What I've Learned From Hundreds of Conversations with Security Leaders
-
 In my role leading cloud security integrations at Vanta, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security operations and architecture roles. This unique vantage point—having stood on both sides of the fence—has given me uncommon insight into the growing disconnect between security vendors and the leaders they aim to serve.
 
 Last week, I watched a CISO colleague close his laptop during our meeting, apologizing as he showed me his phone: 6 missed calls and 17 new emails, all from vendors—all received during our 45-minute conversation.

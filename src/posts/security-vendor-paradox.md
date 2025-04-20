@@ -19,8 +19,6 @@ image:
   alt: "A frustrated security professional surrounded by endless notifications and vendor messages"
 ---
 
-# The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand
-
 I recently came across a LinkedIn post from Uri, CISO at SiriusXM, that perfectly captured the frustration many security leaders feel: "It's not a security conference, it's a marketing and vendor conference. I don't need an additional 1000 emails telling me to give people 30 min for the ultimate solution to all my security problems."
 
 His sentiment resonated deeply with me, having walked both sides of this divide – first as a security engineer, then as a founder of a security startup, and now working at Vanta while still maintaining close ties to the practitioner community.

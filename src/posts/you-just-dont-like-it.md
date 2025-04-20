@@ -17,8 +17,6 @@ image:
   alt: "A person staring at a whiteboard filled with ideas, representing mental resistance to an obvious but uncomfortable solution"  
 ---
 
-# The Answer Is Obvious—You Just Don’t Like It
-
 You’ve probably seen this happen.
 
 A smart, capable person presents a gnarly problem. They’ve “tried everything.” They’ve consulted friends. They’ve held brainstorming sessions. They’ve even posted on Reddit. And yet—they remain stuck.

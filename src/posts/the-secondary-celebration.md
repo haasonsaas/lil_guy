@@ -19,8 +19,6 @@ image:
   alt: "Entrepreneurs and investors sitting at a table with mixed expressions"
 ---
 
-# The Secondary Celebration: A Founder's Perspective on VC Liquidity Events
-
 During my morning LinkedIn scroll, I came across yet another post from a venture firm celebrating a massive return multiple from a secondary transaction. The usual format: impressive return metrics, enthusiastic self-congratulation, and an almost afterthought mention of the founders who made it all possible.
 
 As someone who's been both a founder and worked alongside VCs, these posts hit differently depending on which hat I'm wearing that day. And I suspect I'm not alone.

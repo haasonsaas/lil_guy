@@ -17,8 +17,6 @@ image:
   alt: "A person's hand drawing a mind map on a whiteboard, representing structured thinking and decision-making processes"
 ---
 
-# Building Better Decision-Making: Why Frameworks Are Your Organization's Hidden Superpower
-
 In the relentless push to build and scale, organizations often overlook a critical piece of infrastructure: how decisions get made. We obsess over our tech stack, our hiring pipelines, and our go-to-market strategies, but we rarely invest proportionately in the cognitive tools that underpin everything we do.
 
 My journey into this space began at Vanta, where our rapid growth demanded both speed and quality in decision-making. This experience sparked a deeper exploration that eventually led me to build a comprehensive framework library—but the insights I've gained along the way are relevant far beyond any single company.

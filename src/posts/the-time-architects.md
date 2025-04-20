@@ -18,8 +18,6 @@ image:
   alt: "A spiral staircase viewed from below, symbolizing the upward trajectory and different perspective that exceptional founders bring to their work"
 ---
 
-# The Time Architects: How Visionary Founders Reimagine What's Possible
-
 I've spent the last decade observing founders across every imaginable sector—from AI startups racing to define our technological future to direct-to-consumer brands reimagining century-old industries. Throughout this journey, I've become fascinated by a particular phenomenon that separates merely successful entrepreneurs from those who fundamentally reshape industries.
 
 It's not what they build. It's not whom they hire. It's not even how they think.
