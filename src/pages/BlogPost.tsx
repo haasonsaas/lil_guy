@@ -7,7 +7,7 @@ import BlogCard from '@/components/BlogCard';
 import AuthorBio from '@/components/AuthorBio';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
-import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts } from '@/utils/blogUtils';
+import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 
 const optimizeImage = (url: string) => {
@@ -165,7 +165,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
                 <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
                 {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
-                  <TagCloud tags={frontmatter.tags.map(tag => ({ tag, count: 1 }))} />
+                  <TagCloud tags={getAllTags().filter(({ tag }) => frontmatter.tags.includes(tag))} />
                 ) : (
                   <p className="text-muted-foreground">No tags available</p>
                 )}
