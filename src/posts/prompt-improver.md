@@ -68,6 +68,8 @@ This philosophy manifests in several practical ways:
 
 Since most readers of this blog are fellow developers, you're probably wondering about implementation details. Prompt Improver isn't built on magic—it's built on React, TypeScript, and Tailwind CSS. I chose these technologies specifically because they enable the kind of adaptable, responsive experience that prompt improvement requires.
 
+(And yes, I'm aware of the irony that this tech stack sounds suspiciously AI-influenced—thanks, Cursor, for the not-so-subtle nudge toward modern web development!)
+
 The component-based architecture allows for the modular enhancement of different prompt elements, while TypeScript provides the type safety needed for reliable transformations. Tailwind and the shadcn-ui component library give us consistent interaction patterns without sacrificing customization.
 
 But technology choices matter less than the fundamental approach. The system needs to be robust enough to provide reliable improvements while adapting to wildly different user needs and contexts.
