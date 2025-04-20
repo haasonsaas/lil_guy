@@ -82,11 +82,11 @@ export default function UsesPage() {
                       </div>
                       
                       <div>
-                        <h3 className="font-medium text-lg mb-2">DROP ALT Mechanical Keyboard</h3>
-                        <p className="text-muted-foreground mb-2">Gateron Brown switches with PBT keycaps</p>
-                        <p className="text-sm mb-2">Key Features: Hot-swappable switches, per-key RGB, USB-C passthrough</p>
-                        <p className="text-sm mb-2">Why I chose it: The satisfying tactile feedback dramatically improves typing accuracy and comfort during long coding sessions. The compact 65% layout keeps my desk minimal while retaining essential keys.</p>
-                        <p className="text-sm">Price: $180-230 depending on configuration</p>
+                        <h3 className="font-medium text-lg mb-2">Wooting 80HE</h3>
+                        <p className="text-muted-foreground mb-2">Lekker Linear 60 switches with PBT keycaps</p>
+                        <p className="text-sm mb-2">Key Features: Analog input, rapid trigger, per-key RGB, USB-C</p>
+                        <p className="text-sm mb-2">Why I love it: The analog input and rapid trigger features make it perfect for both gaming and typing. The Lekker switches provide a smooth, consistent feel, and the build quality is exceptional. The TKL layout gives me more desk space while keeping the function row.</p>
+                        <p className="text-sm">Price: $199</p>
                       </div>
                       
                       <div>
