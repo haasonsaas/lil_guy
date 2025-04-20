@@ -17,8 +17,6 @@ image:
   alt: "A lean, focused team collaborating intensely on a whiteboard, symbolizing the urgency-driven nature of lean startups"
 ---
 
-# The Dehydrated Entity: Hire Only When You're Truly Underwater
-
 A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of [Windsurf](https://www.windsurf.com), that stopped me cold.
 
 He called it the **“dehydrated entity” approach to hiring**—and it's one of the most practical, clarity-inducing frameworks I’ve heard in a long time.

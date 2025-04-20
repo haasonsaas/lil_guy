@@ -16,8 +16,6 @@ image:
   alt: "A team of professionals around a whiteboard filled with sticky notes, suggesting busywork without clear outcomes"
 ---
 
-# The Phantom Projects of Overhiring
-
 One of the most quietly corrosive things a company can do is overhire.
 
 Not because people are malicious or lazy. Quite the opposite: high-performing folks want to contribute. But give a smart team too much idle time and not enough real problems, and something sneaky starts to happen:
