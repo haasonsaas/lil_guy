@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-20
-title: "Prompt Improver: Revolutionizing AI Prompt Engineering Through Structured Thinking"
+title: "Prompt Improver: Structured Thinking for Better AI Prompts"
 description: 
   An exploration of how the Prompt Improver platform transforms basic AI prompts into powerful, structured instructions that yield more reliable and consistent results
 featured: false
