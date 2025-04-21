@@ -24,39 +24,42 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Compliance Transformation Specialist at Vanta | Making Security Accessible | San Francisco Explorer
+                Product Manager at Vanta | Security Simplifier | San Francisco Wanderer
               </p>
               
               <div className="prose-custom mb-6">
-                <h3 className="text-xl font-semibold mb-3">The Human Behind the Work</h3>
+                <h3 className="text-xl font-semibold mb-3">Making Compliance Make Sense</h3>
                 <p className="mb-4">
-                  I transform security compliance from a months-long headache into a streamlined process that takes days. At Vanta, I build bridges between complex regulatory requirements and practical business needs. When I'm not revolutionizing compliance, I'm perfecting sourdough pizza techniques or discovering San Francisco's hidden treasures on foot—always seeking the perfect balance between structure and creativity.
+                  At Vanta, I turn security compliance from a months-long slog into a matter of days. My role is about translating regulatory complexity into something teams can actually work with—without the jargon, delays, or burnout.
+                </p>
+                <p className="mb-4">
+                  When I'm not deep in frameworks and audits, I'm likely tweaking a new sourdough pizza recipe or wandering San Francisco in search of overlooked gems.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">Professional Journey</h3>
+                <h3 className="text-xl font-semibold mb-3">The Backstory</h3>
                 <p className="mb-4">
-                  My security and compliance expertise was forged at high-growth companies like Snapchat, DoorDash, and Carta. Each environment taught me how excessive manual processes drain innovation and team morale. This firsthand experience drives my mission at Vanta: creating intuitive tools that transform compliance from a burden into a business advantage.
+                  Before Vanta, I worked in security and compliance roles at Snapchat, DoorDash, and Carta. Fast-moving teams taught me the cost of clunky, manual processes—and what's needed to fix them. That's why I focus on building systems that reduce friction, cut down busywork, and help companies stay secure without losing momentum.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">Beyond the Office</h3>
+                <h3 className="text-xl font-semibold mb-3">Life Outside the Laptop</h3>
                 <p className="mb-4">
-                  My curiosity extends beyond work—I'm methodically exploring San Francisco's 49-mile scenic route, curating a collection of science fiction and urban planning books, and undertaking a global culinary challenge (37 countries and counting). My legendary pizza nights featuring "Doughvid," my sourdough starter, have created a waiting list of eager taste-testers among friends and neighbors.
+                  I'm slowly walking the 49-mile scenic route around San Francisco, reading way too much sci-fi and urban planning, and cooking my way through a list of 37+ countries. I also host occasional pizza nights starring "Doughvid," my trusty sourdough starter—currently booked solid with friends and neighbors.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">Product Philosophy</h3>
-                <p className="mb-2">My approach combines pragmatism with empathy:</p>
+                <h3 className="text-xl font-semibold mb-3">How I Work</h3>
+                <p className="mb-2">My product philosophy is grounded and people-first:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Problem-first development: I immerse myself in customers' workflows to understand pain points before proposing solutions</li>
-                  <li>Balanced decision-making: Combining data-driven insights with customer narratives to build complete understanding</li>
-                  <li>Inclusive innovation: Creating environments where diverse perspectives thrive and contribute to better outcomes</li>
+                  <li>Start with the problem. I get close to real workflows to understand what's actually broken.</li>
+                  <li>Balance inputs. I combine metrics with lived customer experience to guide decisions.</li>
+                  <li>Build inclusively. Better tools come from diverse input and open collaboration.</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3">Impact Highlights</h3>
-                <p className="mb-2">My work at Vanta has democratized compliance:</p>
+                <h3 className="text-xl font-semibold mb-3">A Few Wins</h3>
+                <p className="mb-2">At Vanta, I've helped:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Engineered frameworks that compress certification timelines from months to weeks</li>
-                  <li>Developed processes enabling small teams to manage complex requirements without specialized staff</li>
-                  <li>Created tools that translate compliance jargon into clear, actionable steps for non-specialists</li>
+                  <li>Cut certification timelines from months to weeks</li>
+                  <li>Empower small teams to meet complex standards without hiring compliance staff</li>
+                  <li>Translate dense frameworks into plain-language, step-by-step workflows</li>
                 </ul>
               </div>
             </div>
