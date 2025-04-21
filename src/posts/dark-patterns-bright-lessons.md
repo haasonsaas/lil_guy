@@ -1,149 +1,130 @@
 ---
-author: Jonathan Haas
-pubDate: 2025-04-21
-title: "Dark Patterns, Bright Lessons: What PMs Can Learn from the Uber One FTC Case"
-description: Uber’s legal troubles offer a masterclass in what *not* to do when designing subscription flows. But they also surface deeper lessons about product ethics, user trust, and long-term thinking for product managers navigating growth mandates.
-featured: false
-draft: false
+title: "Uber Got Audited in Public: What Every Product Manager Should Learn From the FTC Smackdown"
+description: "The FTC just turned Uber’s subscription flow into a cautionary tale. Behind the lawsuit is a product teardown every PM should study—before they find themselves in the same crosshairs."
 tags:
   - product-management
-  - user-experience
-  - ethics
+  - ux
   - growth
-  - legal
-  - subscription-models
-  - trust
-image:
-  url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "User navigating a complex mobile interface, symbolizing the challenge of dark patterns in product design"
+  - ethics
+  - strategy
+  - subscriptions
+  - dark-patterns
 ---
 
-The FTC just dropped a 44-page complaint against Uber, alleging deceptive practices around its *Uber One* subscription. If you're a product manager, it's tempting to treat this kind of legal drama as someone else’s problem. It’s not.
+The FTC just dropped a 44-page complaint against Uber for deceptive practices around its Uber One subscription. You might think: *legal drama, not my lane.*
 
-Behind the legalese lies a brutally honest product teardown—one that offers invaluable lessons on user experience, growth strategy, and what happens when product design loses sight of trust.
+But here’s the truth: this isn’t just a lawsuit. It’s a product teardown—one that exposes what happens when growth strategy is prioritized over user trust.
 
-Let’s break it down—and more importantly, zoom out to what PMs should take away from it.
+If you’re a PM, treat this like a red-team exercise for your own work. Because the line between “high-converting” and “manipulative” is thinner than you think.
 
-## The Basics: What Uber Allegedly Did
+## The Allegations: Design Weaponized
 
-Uber, according to the FTC, enrolled users into its $9.99/month *Uber One* subscription without proper consent. Many users reportedly:
+According to the FTC, Uber:
 
-- Didn’t know they signed up.
-- Had no idea they were being charged.
-- Struggled to cancel—requiring up to 32 steps across 23 screens.
+- Enrolled users into Uber One without proper consent
+- Buried disclosures behind vague copy and subtle UI nudges
+- Charged users without them realizing it
+- Made cancellation take up to **32 steps across 23 screens**
+- Advertised “cancel anytime” while designing flows to prevent it
 
-Despite advertising “cancel anytime,” the experience was engineered to frustrate.
+Translation: dark patterns, operationalized at scale.
 
-In other words: dark patterns, weaponized at scale.
+This wasn’t a bug. It was the business model.
 
-## Growth At What Cost?
+## The Real Cost of “Optimizing”
 
-Every PM has felt the pressure: increase conversion. Reduce churn. Hit your quarterly KPIs.
+Sure, churn likely dropped. KPIs probably looked great.
 
-But this case is a case study in the **long-term cost of short-term optimization**.
+But here’s what else happened:
 
-Uber reportedly added friction to the cancellation process to reduce churn—something that might look great on a dashboard. But here’s the trade:
+- 🚨 Class-action lawsuits
+- 📉 Erosion of brand trust
+- 👀 Federal regulators crawling through their product flows
+- ⏳ Countless exec hours spent on PR damage control
 
-- 🎯 **Short-term win:** Lower churn metrics.
-- 💣 **Long-term cost:** Brand erosion, regulatory action, lawsuits, and executive time spent dealing with PR disasters.
+**Growth that erodes trust isn’t growth. It’s debt.** And that debt always comes due.
 
-If your growth comes at the expense of user trust, it’s not sustainable. It’s a ticking clock.
+## What You Should Take Away as a PM
 
-## What This Teaches Product Managers
+This case isn’t just about cancel buttons. It’s about how product decisions—made under the guise of optimization—can metastasize into systemic abuse.
 
-Here are the deeper lessons that go beyond “don’t make it hard to cancel”:
+### 1. **Consent Is Not a Checkbox**
 
-### 1. **Consent Is More Than a Checkbox**
+If your product relies on users skimming, misreading, or giving up—you’re not designing an experience, you’re running a con.
 
-Uber often enrolled users with subtle nudges—checkmarks, default options, and “Try for Free” buttons that triggered full enrollment without explicit understanding. As a PM, you must ask:
+> **Ask yourself:** Would a reasonable user *clearly understand* what they’re opting into?
 
-> ❓ Does the user *truly understand* what they’re agreeing to?
+If not, it’s not consent. It’s manipulation.
 
-If your product depends on users skimming, guessing, or getting tricked—you’re doing it wrong.
+### 2. **Friction Is Not Neutral**
 
-### 2. **Friction Isn’t Neutral**
+Not all friction is bad. Some clarifies. Some protects. But friction that exists *only* to trap users or delay action?
 
-Not all friction is bad. Good friction can guide users toward clarity, prevent errors, or improve data quality.
+That’s not design. That’s entrapment.
 
-But when friction is *deliberately engineered* to confuse or delay action (like making cancellation absurdly hard), you’re now in “dark pattern” territory—and that’s not just unethical, it’s legally risky.
+> **Ask:** Does this friction serve *the user’s* interest—or only ours?
 
-Design questions to ask:
-- Are we adding steps to *inform* or to *deter*?
-- Does this friction serve the user’s interest—or only ours?
+### 3. **Legal Isn’t the Bar—It’s the Floor**
 
-### 3. **“Legal” Doesn’t Mean “Right”**
+“It passed legal” isn’t a defense. The FTC’s complaint proves that legal sign-off won’t save you from a headline.
 
-It’s tempting to lean on legal approval as the final filter. “If legal signed off, we’re good.”
+> **Ask:** Would I be proud to walk a user through this flow, step by step?
 
-But this case shows how product decisions can **pass legal review and still get sued**.
-
-Ethical product development needs a higher standard:
-- Would I feel good explaining this design to a user?
-- Would I be okay if this screenshot ended up in a court filing?
+If not, don’t ship it.
 
 ### 4. **Your Metrics Might Be Lying to You**
 
-Here’s the kicker: Uber’s product team may have celebrated reduced churn and increased conversions without realizing the real story.
+Retention isn’t real if it’s coerced. Growth isn’t real if it comes from confusion.
 
-If a customer stays subscribed because they can’t figure out how to leave, that’s not retention—it’s *coercion*.
+> **Ask:** Are people staying because they love us—or because they can’t figure out how to leave?
 
-Good metrics don’t just measure what happened—they help us understand *why* it happened.
+Interrogate your metrics, not just your roadmap.
 
-## Real Talk: Designing Ethical Subscriptions
+## A Litmus Test: Try Canceling Your Own Product
 
-Let’s say you’re a PM on a freemium product with a paid tier. You’re under pressure to hit MRR targets. How do you stay out of the Uber trap?
+Take 15 minutes. Try to cancel your product's subscription as if you were a frustrated user. No shortcuts. No internal tools.
 
-Here’s what ethical, sustainable subscription UX looks like:
+- How many steps does it take?
+- Is the path obvious?
+- Is the language clear or evasive?
+- Are there guilt trips, roadblocks, or dead ends?
+
+If you're embarrassed by what you find—you already have your roadmap.
+
+## What Ethical Subscription UX Looks Like
+
+Here’s a baseline for sustainable, defensible subscription design:
 
 ### ✅ Transparent Enrollment
+- Clear pricing, billing frequency, and renewal details up front
+- CTA buttons that *mean what they say* ("Start $9.99/mo" > "Try Now")
 
-- Make price, billing frequency, and renewal timing *obvious*.
-- Use clear CTAs: “Start $9.99/mo Subscription” > “Try Now”.
-
-### ✅ Legit Free Trials
-
-- Tell users *exactly* when they’ll be charged.
-- Send reminder emails *before* charging them.
+### ✅ Real Free Trials
+- Tell users *exactly* when they’ll be charged
+- Send reminders before billing
 
 ### ✅ Easy, Respectful Cancellation
+- One path. Few steps. No scavenger hunts.
+- Bonus: offer pause options for seasonal churn
 
-- One path. Few steps.
-- No guilt. No scavenger hunts.
-- Bonus points for: “Pause subscription” options for seasonal churn.
+> **If you need 23 screens to prevent churn, your product isn’t sticky—it’s hostile.**
 
-## A New KPI: Customer Dignity
+## The KPI That’s Missing: Customer Dignity
 
-Let’s talk about something rarely in the dashboard: **customer dignity**.
+Start tracking it:
 
 - Can users control their experience?
 - Do they feel respected, even when leaving?
-- Do we make it easy for them to understand what’s happening?
+- Are they making informed decisions—or clicking out of fatigue?
 
-It’s time to build that into how we measure product quality.
-
-We’re not just designing flows. We’re designing *relationships*.
-
-## What You Can Do Today
-
-🧭 Whether you work on payments, onboarding, or growth—take 15 minutes and do this:
-
-1. **Try to cancel your own product.**
-   - How many steps does it take?
-   - How obvious is the path?
-
-2. **Map every “Yes” moment.**
-   - Are users making informed decisions—or just clicking through?
-
-3. **Review your metrics with ethics in mind.**
-   - Is success coming from value—or confusion?
+You’re not just designing flows. You’re designing **relationships**.
 
 ## Final Thought
 
-Uber’s FTC case is a wake-up call—not just for lawyers and execs, but for product teams everywhere.
+The Uber case is a wake-up call.
 
-**We are responsible** for the systems we design. That includes the parts users don’t love. That includes the metrics we celebrate. That includes the choices we nudge them toward.
+The systems we design *are our responsibility*. That includes the nudges, the defaults, the offboarding flow, and the metrics we choose to celebrate.
 
-You don’t need a scandal to course-correct. You just need to care.
+You don’t need an FTC lawsuit to fix it.
 
-And if we can’t say our product respects the people who use it—what are we even building?
-
+You just need to care.
