@@ -21,7 +21,7 @@ Some weekend conversations feel important in the moment. Some personal decisions
 
 This is the quiet tragedy of personal life: we move too fast to capture what mattered.
 
-So I built Day-After Worker - a scrappy weekend project—to catch those moments before they slip away.
+So I built [lifelog-email](https://github.com/haasonsaas/lifelog-email) - a scrappy weekend project—to catch those moments before they slip away.
 
 It leans heavily on the [Limitless API](https://limitless.ai) and their pendant device, which captures audio from daily conversations. Without Limitless doing the heavy lifting, none of this would exist.
 
