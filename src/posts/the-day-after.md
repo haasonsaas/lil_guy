@@ -19,13 +19,27 @@ image:
 
 # The Day After: Building a System to Remember What Matters
 
-Some conversations feel important in the moment. Some decisions feel pivotal. But a week later? The details blur. The why gets fuzzy. The insight fades.
+Some weekend conversations feel important in the moment. Some personal decisions feel pivotal. But a week later? The details blur. The why gets fuzzy. The insight fades.
 
-This is the quiet tragedy of professional life: we move too fast to capture what mattered.
+This is the quiet tragedy of personal life: we move too fast to capture what mattered.
 
 So I built Day-After Worker - a scrappy weekend project—to catch those moments before they slip away.
 
 It leans heavily on the [Limitless API](https://limitless.ai) and their pendant device, which captures audio from daily conversations. Without Limitless doing the heavy lifting, none of this would exist.
+
+I only use the pendant on weekends for personal conversations (never for work!), and I always make sure to get explicit permission from everyone involved before starting any recording. It's important to respect privacy and maintain clear boundaries between personal and professional life.
+
+## A Note on Privacy & Permissions
+
+Privacy and consent are absolutely fundamental to this system. Here's how I handle it:
+
+1. **Weekend Use Only**: The pendant only comes out on weekends for personal conversations. No work discussions, no professional meetings.
+2. **Explicit Permission**: Before any recording starts, I explain the system to everyone present and get their explicit consent.
+3. **Clear Opt-Out**: Anyone can ask to pause or stop recording at any time, no questions asked.
+4. **Data Control**: Participants can request to review or delete their conversation data.
+5. **No Sensitive Topics**: Some conversations should never be recorded, period.
+
+This isn't just about legal compliance—it's about respect, trust, and using technology ethically.
 
 > **Quick disclaimer:** This system is still imperfect. It's rough around the edges. It misses things. Sometimes it misinterprets. But even in its current form, it's been transformative.
 
@@ -39,7 +53,7 @@ Big meetings, casual coffees, one-off decisions—these shape our trajectory mor
 
 - We forget key points.
 - We lose the thread of a relationship.
-- We repeat mistakes because we can’t recall why we chose what we did.
+- We repeat mistakes because we can't recall why we chose what we did.
 
 I didn't want to carry a notebook everywhere. I didn't want clunky apps disrupting conversations.
 
@@ -53,10 +67,10 @@ Day-After Worker is the layer that sits *on top* of Limitless—taking the penda
 
 ### 1. Decisions
 
-Tiny choices that steer projects, relationships, careers.
+Tiny choices that steer personal projects, relationships, and weekend activities.
 
-> "Let's prioritize X."
-> "We agreed to defer Y."
+> "Let's try that new restaurant."
+> "We agreed to start that side project."
 
 Before, these moments would evaporate. Now they leave a trace.
 
@@ -68,30 +82,30 @@ Over time, a web of relationships you can actually remember and nurture—not ju
 
 ### 3. Speech Patterns
 
-My early digests showed I overused fillers like "you know" and "like" in high-stakes meetings. Subtle, but eye-opening.
+My early digests showed I overused fillers like "you know" and "like" in casual weekend conversations. Subtle, but eye-opening.
 
-It’s about becoming a slightly better communicator, day by day.
+It's about becoming a slightly better communicator in personal interactions, day by day.
 
 ### 4. Action Items
 
 Small commitments you make aloud—"I'll send that," "I'll set that up"—get captured.
 
-It’s surprisingly easy to forget what you said you'd do until someone chases you. This catches it early.
+It's surprisingly easy to forget what you said you'd do until someone chases you. This catches it early.
 
 ### 5. Conversation Summaries
 
-A simple snapshot of the day's discussions. Over time, you start seeing patterns you’d otherwise miss.
+A simple snapshot of weekend discussions. Over time, you start seeing patterns you'd otherwise miss.
 
 ---
 
 ## The System Flow
 
-- **Pendant**: Captures real-world conversations
+- **Pendant**: Captures weekend conversations (with permission)
 - **Limitless API**: Transcribes and summarizes
 - **Day-After Worker**: Parses, tags, reflects
-- **Morning Email**: Digest shows up in your inbox
+- **Monday Morning Email**: Digest shows up in your inbox
 
-It’s a bit duct-taped together. But it’s _my_ duct tape—and it works.
+It's a bit duct-taped together. But it's _my_ duct tape—and it works.
 
 ---
 
@@ -105,13 +119,13 @@ I have receipts—not just what we decided, but why.
 
 ### 2. Relationship Building
 
-It's easier to follow up when you actually remember people’s names, projects, and what you discussed.
+It's easier to follow up when you actually remember people's names, projects, and what you discussed.
 
 It turns "networking" into genuine relationship-building.
 
 ### 3. Communication Awareness
 
-Getting feedback on your speech patterns—even automated, even imperfect—is powerful. You spot habits you didn’t realize you had.
+Getting feedback on your speech patterns—even automated, even imperfect—is powerful. You spot habits you didn't realize you had.
 
 ### 4. Better Follow-Through
 
@@ -121,7 +135,7 @@ Seeing your action items in writing the next morning makes you way more likely t
 
 ## Acknowledging The Rough Edges
 
-This isn’t a polished SaaS product. It's not real-time. It's not perfect.
+This isn't a polished SaaS product. It's not real-time. It's not perfect.
 
 - Sometimes the pendant misses things.
 - Sometimes summaries are a little… weird.
@@ -135,7 +149,7 @@ The goal isn't perfection. It's *momentum*. It's *continuity*. It's being 10% mo
 
 ## Future Dreams (Maybe)
 
-If I keep tinkering, here’s what I’d love to explore:
+If I keep tinkering, here's what I'd love to explore:
 
 - **Smarter Prioritization**: Highlight only the most meaningful decisions and connections
 - **Relationship Mapping**: Visualize how my network evolves over time
