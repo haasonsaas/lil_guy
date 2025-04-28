@@ -17,8 +17,6 @@ image:
   alt: "Screenshot of the Day-After Worker email digest interface"
 ---
 
-# The Day After: Building a System to Remember What Matters
-
 Some weekend conversations feel important in the moment. Some personal decisions feel pivotal. But a week later? The details blur. The why gets fuzzy. The insight fades.
 
 This is the quiet tragedy of personal life: we move too fast to capture what mattered.
