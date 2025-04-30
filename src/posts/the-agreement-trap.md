@@ -130,9 +130,3 @@ If the goal is to build assistants, advisors, or even co-thinkers—then the ult
 It’s: **Did the system help me think more clearly, understand more deeply, or act more wisely?**
 
 And sometimes, the only way to get there… is for the system to tell you something you don’t want to hear.
-
----
-
-Want more essays like this? I dive deeper into AI dynamics, feedback systems, and product trust in [Prompt Improver](https://pi.haasonsaas.com) and my side project [Shout](https://shout.haasonsaas.com).
-
-What’s a moment where an AI told you what you *wanted* to hear—but shouldn’t have?
