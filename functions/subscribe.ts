@@ -4,11 +4,16 @@ interface Env {
   // Add your environment variables here
   RESEND_API_KEY: string;
   SUBSCRIBERS: KVNamespace;
+  RATE_LIMIT: KVNamespace;
 }
 
 interface RequestBody {
   email: string;
 }
+
+// Rate limiting configuration
+const RATE_LIMIT_WINDOW = 60 * 60; // 1 hour in seconds
+const MAX_REQUESTS_PER_WINDOW = 5; // Maximum 5 requests per hour
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': 'https://www.haasonsaas.com',
@@ -32,6 +37,56 @@ const responseHeaders = {
   'Content-Type': 'application/json',
 };
 
+async function checkRateLimit(env: Env, ip: string): Promise<{ allowed: boolean; remaining: number }> {
+  const key = `rate_limit:${ip}`;
+  const now = Math.floor(Date.now() / 1000);
+  
+  try {
+    // Get the current rate limit data
+    const data = await env.RATE_LIMIT.get(key);
+    let count = 0;
+    let windowStart = now;
+    
+    if (data) {
+      try {
+        const { count: storedCount, windowStart: storedWindowStart } = JSON.parse(data);
+        // If we're still in the same window, use the stored count
+        if (now - storedWindowStart < RATE_LIMIT_WINDOW) {
+          count = storedCount;
+          windowStart = storedWindowStart;
+        }
+      } catch (e) {
+        console.error('Error parsing rate limit data:', e);
+        // If there's an error parsing, start fresh
+        count = 0;
+        windowStart = now;
+      }
+    }
+    
+    // Increment the count
+    count++;
+    
+    // Store the updated count
+    await env.RATE_LIMIT.put(key, JSON.stringify({
+      count,
+      windowStart,
+    }), {
+      expirationTtl: RATE_LIMIT_WINDOW,
+    });
+    
+    console.log(`Rate limit check for IP ${ip}: count=${count}, windowStart=${windowStart}, allowed=${count <= MAX_REQUESTS_PER_WINDOW}`);
+    
+    return {
+      allowed: count <= MAX_REQUESTS_PER_WINDOW,
+      remaining: Math.max(0, MAX_REQUESTS_PER_WINDOW - count),
+    };
+  } catch (error) {
+    console.error('Error in rate limit check:', error);
+    // If there's an error with rate limiting, allow the request
+    return { allowed: true, remaining: MAX_REQUESTS_PER_WINDOW };
+  }
+}
+
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     // Handle CORS preflight requests
@@ -50,6 +105,26 @@ export default {
     }
 
     try {
+      // Get client IP for rate limiting
+      const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+      console.log(`Request from IP: ${ip}`);
+      
+      // Check rate limit
+      const rateLimit = await checkRateLimit(env, ip);
+      if (!rateLimit.allowed) {
+        console.log(`Rate limit exceeded for IP ${ip}`);
+        return new Response(JSON.stringify({ 
+          error: 'Too many subscription attempts. Please try again later.',
+          retryAfter: RATE_LIMIT_WINDOW,
+        }), {
+          status: 429,
+          headers: {
+            ...responseHeaders,
+            'Retry-After': RATE_LIMIT_WINDOW.toString(),
+          },
+        });
+      }
+
       // Parse the request body
       const data = await request.json() as RequestBody;
       const { email } = data;

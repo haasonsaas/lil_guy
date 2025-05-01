@@ -8,4 +8,9 @@ RESEND_API_KEY = "re_HYUMn1X1_C8wWsshiX8LepG2bQk2ZqobN"
 [[kv_namespaces]]
 binding = "SUBSCRIBERS"
 id = "da9ea499f9534d1ba78cd9a3a381ae2a"
-preview_id = "subscribers_preview" 
+preview_id = "subscribers_preview"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT"
+id = "12a9dd7606564fe9a3261bfab8de9d5a"
+preview_id = "ff97babc76ce45468391496974179dc7" 
