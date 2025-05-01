@@ -2,7 +2,7 @@ import Layout from '@/components/Layout';
 import GroupedTags from '@/components/GroupedTags';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
-import { Hammer, Scale, Settings } from 'lucide-react';
+import { Hammer, Scale, Settings, HelpCircle } from 'lucide-react';
 
 const tagGroups = [
   {
@@ -19,6 +19,11 @@ const tagGroups = [
     name: "Operate",
     icon: <Settings className="w-4 h-4" />,
     tags: ["personal-growth", "strategy", "management", "culture", "career"]
+  },
+  {
+    name: "Misc",
+    icon: <HelpCircle className="w-4 h-4" />,
+    tags: ["data", "security", "startup", "founder", "technical", "framework", "transparency", "trust"]
   }
 ];
 
