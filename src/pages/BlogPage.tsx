@@ -1,59 +1,60 @@
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
-import { getAllPosts } from '@/utils/blogUtils';
+import { getAllPosts, getAllTags } from '@/utils/blogUtils';
 import { Input } from '@/components/ui/input';
 import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { BlogPost } from '@/types/blog';
 
 const POSTS_PER_PAGE = 9;
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState(getAllPosts());
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState(posts);
+  const [searchParams] = useSearchParams();
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  
-  // Log initial posts
-  useEffect(() => {
-    console.log('Initial posts loaded:', posts.length);
-    console.log('Post slugs:', posts.map(p => p.slug));
-  }, []);
-  
-  useEffect(() => {
-    console.log('Filtering posts with query:', searchQuery);
-    const filtered = posts.filter(post => {
-      const { title, description, tags } = post.frontmatter;
-      const searchLower = searchQuery.toLowerCase();
-      
-      return (
-        title.toLowerCase().includes(searchLower) ||
-        description.toLowerCase().includes(searchLower) ||
-        tags.some(tag => tag.toLowerCase().includes(searchLower))
-      );
-    });
-    
-    console.log('Filtered posts count:', filtered.length);
-    console.log('Filtered post slugs:', filtered.map(p => p.slug));
-    
-    setFilteredPosts(filtered);
-    setCurrentPage(1); // Reset to first page when search changes
-  }, [searchQuery, posts]);
+  const [totalPages, setTotalPages] = useState(1);
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE);
-  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
-  const endIndex = startIndex + POSTS_PER_PAGE;
-  const currentPosts = filteredPosts.slice(startIndex, endIndex);
-  
-  // Log pagination changes
   useEffect(() => {
-    console.log('Pagination update:');
-    console.log('- Current page:', currentPage);
-    console.log('- Total pages:', totalPages);
-    console.log('- Posts on current page:', currentPosts.length);
-    console.log('- Current page post slugs:', currentPosts.map(p => p.slug));
-  }, [currentPage, totalPages, currentPosts]);
+    const loadPosts = async () => {
+      const allPosts = await getAllPosts();
+      setPosts(allPosts);
+    };
+    loadPosts();
+  }, []);
+
+  useEffect(() => {
+    const tag = searchParams.get("tag");
+    const search = searchParams.get("search");
+    let filtered = [...posts];
+
+    if (tag) {
+      filtered = filtered.filter((post) =>
+        post.frontmatter.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+      );
+    }
+
+    if (search) {
+      const searchLower = search.toLowerCase();
+      filtered = filtered.filter(
+        (post) =>
+          post.frontmatter.title.toLowerCase().includes(searchLower) ||
+          post.frontmatter.description.toLowerCase().includes(searchLower) ||
+          post.content.toLowerCase().includes(searchLower)
+      );
+    }
+
+    setFilteredPosts(filtered);
+    setTotalPages(Math.ceil(filtered.length / POSTS_PER_PAGE));
+    setCurrentPage(1);
+  }, [posts, searchParams]);
+
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
 
   return (
     <Layout>
@@ -71,14 +72,12 @@ export default function BlogPage() {
                 type="text"
                 placeholder="Search articles..."
                 className="pl-10"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
               />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {currentPosts.map(post => (
+            {paginatedPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
             

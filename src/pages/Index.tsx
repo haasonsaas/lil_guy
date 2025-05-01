@@ -8,11 +8,25 @@ import { getAllPosts, getFeaturedPosts, getAllTags } from "@/utils/blogUtils";
 import { ArrowRight, Sparkles, Brain, Code2, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import { TypeAnimation } from "react-type-animation";
+import { BlogPost } from "@/types/blog";
 
 export default function Index() {
-  const [featuredPost, setFeaturedPost] = useState(getFeaturedPosts()[0]);
-  const [recentPosts, setRecentPosts] = useState(getAllPosts().slice(0, 3));
-  const [popularTags, setPopularTags] = useState(getAllTags().slice(0, 8));
+  const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
+  const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+  const [popularTags, setPopularTags] = useState<{ tag: string; count: number }[]>([]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const [posts, tags] = await Promise.all([
+        getAllPosts(),
+        getAllTags()
+      ]);
+      setFeaturedPost(getFeaturedPosts()[0]);
+      setRecentPosts(posts.slice(0, 3));
+      setPopularTags(tags.slice(0, 8));
+    };
+    loadData();
+  }, []);
 
   return (
     <Layout>
@@ -50,7 +64,7 @@ export default function Index() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto"
             >
-              <Link to={`/blog/${featuredPost.slug}`}>
+              <Link to={`/blog/${featuredPost?.slug}`}>
                 <Button size="lg" className="w-full sm:w-auto gap-2">
                   <Brain className="w-5 h-5" />
                   Read Latest
@@ -121,7 +135,7 @@ export default function Index() {
             </h2>
           </div>
           <div className="relative group">
-            <Link to={`/blog/${featuredPost.slug}`} className="block">
+            <Link to={`/blog/${featuredPost?.slug}`} className="block">
               <div className="relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 group-hover:shadow-md">
                 <div className="p-6">
                   <div className="flex items-center gap-2 mb-4">
@@ -130,7 +144,7 @@ export default function Index() {
                     </span>
                     <span className="text-sm text-muted-foreground">
                       {new Date(
-                        featuredPost.frontmatter.pubDate
+                        featuredPost?.frontmatter.pubDate
                       ).toLocaleDateString("en-US", {
                         year: "numeric",
                         month: "long",
@@ -139,18 +153,18 @@ export default function Index() {
                     </span>
                   </div>
                   <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {featuredPost.frontmatter.title}
+                    {featuredPost?.frontmatter.title}
                   </h3>
                   <p className="text-muted-foreground mb-4">
-                    {featuredPost.frontmatter.description}
+                    {featuredPost?.frontmatter.description}
                   </p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
                     <span>
-                      {Math.ceil(featuredPost.content.split(" ").length / 200)}{" "}
+                      {Math.ceil(featuredPost?.content.split(" ").length / 200)}{" "}
                       min read
                     </span>
                     <span>•</span>
-                    <span>{featuredPost.frontmatter.tags.length} topics</span>
+                    <span>{featuredPost?.frontmatter.tags.length} topics</span>
                   </div>
                 </div>
               </div>

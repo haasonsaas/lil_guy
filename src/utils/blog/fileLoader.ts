@@ -12,9 +12,6 @@ export const readFilePosts = (): BlogPost[] => {
     const markdownFiles: Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }> = 
       import.meta.glob('../../posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }>;
     
-    // Log the found markdown files for debugging
-    console.log('Found markdown files:', Object.keys(markdownFiles));
-
     Object.entries(markdownFiles).forEach(([filePath, moduleContent]) => {
       try {
         // Extract frontmatter and content from the module
@@ -36,9 +33,6 @@ export const readFilePosts = (): BlogPost[] => {
           return;
         }
         seenSlugs.add(fileSlug);
-        
-        console.log(`Processing post with slug: ${fileSlug}`);
-        console.log(`Extracted frontmatter:`, frontmatter);
         
         // Set default values for any missing frontmatter fields
         const defaultFrontmatter: Partial<BlogPostFrontmatter> = {
@@ -115,14 +109,10 @@ export const readFilePosts = (): BlogPost[] => {
         
         // Add to posts array
         posts.push(post);
-        console.log(`Successfully added post: ${post.frontmatter.title}`);
-        console.log(`Post image:`, post.frontmatter.image);
       } catch (err) {
         console.error(`Error processing markdown file ${filePath}:`, err);
       }
     });
-    
-    console.log(`Total file-based posts loaded: ${posts.length}`);
   } catch (err) {
     console.error("Error loading markdown files:", err);
   }
