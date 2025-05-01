@@ -39,6 +39,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
   const { slug, frontmatter, content } = post;
   const [imageError, setImageError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
   const imageData = getImageData(frontmatter);
   const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url;
@@ -63,16 +64,24 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
       >
         <Link to={`/blog/${slug}`} className="block">
           <div className="relative h-[400px] overflow-hidden rounded-xl shadow-lg">
+            {isLoading && (
+              <Skeleton className="absolute inset-0 w-full h-full" />
+            )}
             <img 
               src={optimizeImage(imageUrl, 1200)} 
               alt={imageAlt}
               className={cn(
                 "h-full w-full object-cover transition-all duration-500",
-                isHovered ? "scale-105 brightness-110" : "scale-100 brightness-100"
+                isHovered ? "scale-105 brightness-110" : "scale-100 brightness-100",
+                isLoading ? "opacity-0" : "opacity-100"
               )}
+              onLoad={() => setIsLoading(false)}
               onError={() => {
                 console.error('Featured image failed to load:', imageUrl);
-                setImageError(true);
+                if (!imageError) {
+                  setImageError(true);
+                  setIsLoading(true);
+                }
               }}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
