@@ -9,6 +9,7 @@
     "build:dev": "bun run generate-blog-images && vite build --mode development",
     "generate-blog-images": "bun run scripts/generateBlogImages.ts",
     "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
     "preview": "vite preview"
   },
   "dependencies": {

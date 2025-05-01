@@ -1,5 +1,5 @@
 import { Moon, Sun, BookOpen, Palette, Terminal, Sparkles } from "lucide-react"
-import { useTheme } from "./ThemeProvider"
+import { useTheme } from "@/components/use-theme"
 import { Button } from "./ui/button"
 import {
   DropdownMenu,
