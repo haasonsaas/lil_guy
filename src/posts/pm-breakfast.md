@@ -1,24 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-08
+pubDate: 2024-04-11
 title: "The Product Manager's Guide to the Perfect Breakfast"
-postSlug: product-manager-breakfast
-featured: false
-draft: false
+description: "My first month as a Product Manager has been a whirlwind of meetings, Slack messages, and breakfasts at my desk. Here's a template to help you navigate the most important meal of the day in the fast-paced world of product management."
 tags:
-  - humor
-  - personal-growth
-  - product-development
-  - productivity
-  - startups
+  - product
+  - leadership
+  - culture
 image:
   url: 'https://images.pexels.com/photos/885021/pexels-photo-885021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A cup of coffee on a wooden table'
-description:
-  My first month as a Product Manager has been a whirlwind of meetings, Slack
-  messages, and breakfasts at my desk. Here's a template to help you navigate
-  the most important meal of the day in the fast-paced world of product
-  management.
 ---
 
 In the decidedly fast-paced world of product management, even breakfast needs a

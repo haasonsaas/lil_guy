@@ -1,18 +1,14 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-14
+pubDate: 2024-04-11
 title: "Engineering Recognition Through Evals: My Technical Journey Building Shout"
-description: 
-  A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way
+description: "A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way"
 featured: false
 draft: false
 tags:
-  - evaluation-frameworks
-  - typescript
-  - side-project
-  - openai
-  - technical-implementation
-  - software-architecture
+  - engineering
+  - product
+  - strategy
 image:
   url: '/images/shout-screenshot.png'
   alt: "Screenshot of the Shout application interface showing the recognition evaluation system"

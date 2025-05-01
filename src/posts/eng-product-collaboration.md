@@ -1,16 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-12-26
-title: 'The Engineering-Product Alliance: Breaking Down the Wall'
+pubDate: 2024-04-11
+title: "Engineering and Product Collaboration: Breaking Down Silos"
 postSlug: engineering-product-alliance
 featured: false
 draft: false
 tags:
   - engineering
+  - product
   - leadership
-  - organizational-culture
-  - product-development
-  - software-engineering
+  - culture
 description:
   Moving beyond traditional engineering and product silos to build lasting,
   effective partnerships that drive innovation

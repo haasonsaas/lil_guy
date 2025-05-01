@@ -1,18 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-19
-title: "The Alignment Gap: Why Products Fail and How to Fix It"
-description: 
-  An exploration of how misalignment affects product development, why proactively surfacing issues is critical, and practical strategies for building transparency into your product organization
+pubDate: 2024-04-20
+title: "The Alignment Gap: Bridging Strategy and Execution"
+description: "How to ensure your team's execution aligns with your strategic vision"
 featured: true
 draft: false
 tags:
-  - product-management
-  - organizational-alignment
-  - transparency
-  - product-development
+  - strategy
   - leadership
-  - decision-making
+  - management
+  - culture
 image:
   url: '/images/alignment-gap.png'
   alt: "A diagram showing the alignment gap between leadership and product teams"

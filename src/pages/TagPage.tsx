@@ -1,15 +1,38 @@
-
+import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { getPostsByTag } from '@/utils/blogUtils';
+import { BlogPost } from '@/types/blog';
 
 export default function TagPage() {
   const { tag } = useParams<{ tag: string }>();
-  const posts = getPostsByTag(tag || '');
-  
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
+        if (!tag) return;
+        
+        const tagPosts = await getPostsByTag(tag);
+        setPosts(tagPosts);
+      } catch (err) {
+        setError('Failed to load posts');
+        console.error('Error loading posts:', err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadPosts();
+  }, [tag]);
+
   return (
     <Layout>
       <section className="py-12">
@@ -25,24 +48,34 @@ export default function TagPage() {
               {tag?.replace(/-/g, ' ')}
             </h1>
             <p className="text-muted-foreground">
-              {posts.length} article{posts.length !== 1 ? 's' : ''}
+              {isLoading ? 'Loading...' : `${posts.length} article${posts.length !== 1 ? 's' : ''}`}
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map(post => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-            
-            {posts.length === 0 && (
-              <div className="col-span-full text-center py-12">
-                <h3 className="text-xl font-medium mb-2">No articles found</h3>
-                <p className="text-muted-foreground">
-                  There are no articles with this tag yet
-                </p>
-              </div>
-            )}
-          </div>
+          {isLoading ? (
+            <div className="text-center py-12">
+              <p className="text-muted-foreground">Loading articles...</p>
+            </div>
+          ) : error ? (
+            <div className="text-center py-12">
+              <p className="text-destructive">{error}</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.map(post => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+              
+              {posts.length === 0 && (
+                <div className="col-span-full text-center py-12">
+                  <h3 className="text-xl font-medium mb-2">No articles found</h3>
+                  <p className="text-muted-foreground">
+                    There are no articles with this tag yet
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
         </div>
       </section>
     </Layout>

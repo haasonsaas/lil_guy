@@ -1,19 +1,15 @@
 ---
+title: "Autonomous Security Operations: The Future of Enterprise Security"
 author: Jonathan Haas
-pubDate: 2024-12-11
-title: 'Beyond the SOC: How Autonomous Agents Will Rewrite Security Operations'
-description:
-  An exploration of how autonomous AI agents are transforming security
-  operations from reactive monitoring to proactive intelligence networks, and
-  what this means for the future of cybersecurity
+pubDate: 2024-04-11
+description: "Exploring the role of automation and AI in modern security operations"
+tags:
+  - ai
+  - engineering
+  - product
+  - strategy
 featured: false
 draft: false
-tags:
-  - artificial-intelligence
-  - compliance
-  - cybersecurity
-  - future-of-work
-  - innovation
 image:
   url: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg'
   alt: 'Abstract visualization of AI systems and humans working in harmony'

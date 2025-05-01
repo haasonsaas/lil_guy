@@ -7,11 +7,11 @@ description:
 featured: false
 draft: false
 tags:
-  - ai-detection
-  - false-positives
-  - creative-work
-  - technology-criticism
-  - luddism
+  - ai
+  - engineering
+  - product
+  - strategy
+  - personal-growth
   - digital-literacy
 ---
 

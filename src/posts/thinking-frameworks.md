@@ -1,17 +1,15 @@
 ---
+title: "Thinking Frameworks: Tools for Better Decision Making"
 author: Jonathan Haas
-pubDate: 2025-04-08
-title: "Building Better Decision-Making: Why Frameworks Are Your Organization's Hidden Superpower"
-description: 
-  Exploring how structured thinking frameworks can transform decision-making in fast-moving organizations, and why making them accessible might be your most important infrastructure investment
+pubDate: 2024-04-20
+description: "A collection of mental models and frameworks for improving decision making in product and business"
+tags:
+  - product
+  - strategy
+  - leadership
+  - personal-growth
 featured: false
 draft: false
-tags:
-  - leadership
-  - organizational-culture
-  - productivity
-  - strategy
-  - systems-thinking
 image:
   url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "A person's hand drawing a mind map on a whiteboard, representing structured thinking and decision-making processes"

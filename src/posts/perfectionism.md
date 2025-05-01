@@ -1,18 +1,13 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-12-04
-title: 'The Perfection Paralysis: Why Moving Too Carefully Kills Startups'
-postSlug: the-perfection-paralysis
-featured: false
-draft: false
+pubDate: 2024-04-11
+title: "The Perfection Paralysis: Why Moving Too Carefully Kills Startups"
+description: "How an obsession with perfect architecture and clean code can prevent startups from finding product-market fit"
 tags:
+  - engineering
+  - product
   - leadership
-  - product-development
-  - startups
   - strategy
-description:
-  How an obsession with perfect architecture and clean code can prevent startups
-  from finding product-market fit
 image:
   url: 'https://images.pexels.com/photos/5310776/pexels-photo-5310776.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A woman moving fast against a street background'

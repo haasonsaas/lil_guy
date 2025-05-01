@@ -2,12 +2,30 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import BlogCard from "@/components/BlogCard";
-import TagCloud from "@/components/TagCloud";
+import GroupedTags from "@/components/GroupedTags";
 import { Button } from "@/components/ui/button";
 import { getAllPosts, getFeaturedPosts, getAllTags } from "@/utils/blogUtils";
-import { ArrowRight, Sparkles, Brain, Code2, Rocket } from "lucide-react";
+import { ArrowRight, Sparkles, Brain, Code2, Rocket, Hammer, Scale, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlogPost } from "@/types/blog";
+
+const tagGroups = [
+  {
+    name: "Build",
+    icon: <Hammer className="w-4 h-4" />,
+    tags: ["product", "ux", "ai", "engineering", "design"]
+  },
+  {
+    name: "Scale",
+    icon: <Scale className="w-4 h-4" />,
+    tags: ["leadership", "productivity", "growth", "marketing", "sales"]
+  },
+  {
+    name: "Operate",
+    icon: <Settings className="w-4 h-4" />,
+    tags: ["personal-growth", "strategy", "management", "culture", "career"]
+  }
+];
 
 export default function Index() {
   const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
@@ -251,7 +269,7 @@ export default function Index() {
             <Sparkles className="w-5 h-5 text-primary" />
             Browse by Topic
           </h2>
-          <TagCloud tags={popularTags} className="justify-center" />
+          <GroupedTags groups={tagGroups} className="max-w-2xl mx-auto" />
         </motion.div>
       </div>
     </Layout>

@@ -1,16 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-29
-title: 'The Myth of Balance: A Deep Dive into Modern Existence'
-description:
-  An introspective exploration of how we navigate the complex interplay between
-  work and life in the modern age
+pubDate: 2024-04-11
+title: "Work-Life Meditation: Finding Balance in Tech"
+description: "Practical approaches to maintaining work-life balance in the tech industry"
 featured: false
 draft: false
 tags:
-  - personal
   - personal-growth
-  - systems-thinking
+  - productivity
+  - leadership
+  - culture
 image:
   url: 'https://images.pexels.com/photos/1051449/pexels-photo-1051449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt:

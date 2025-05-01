@@ -1,17 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-26
+pubDate: 2024-04-11
 title: "Inside InboxArmor: Building a Smarter Email Analysis Engine"
-description: 
-  A deep dive into the architecture, design principles, and future evolution of InboxArmor—an intelligent email insight system built for today's overwhelming inboxes
+description: "A deep dive into the architecture, design principles, and future evolution of InboxArmor—an intelligent email insight system built for today's overwhelming inboxes"
 featured: false
 draft: false
 tags:
-  - email-intelligence
-  - system-architecture
-  - productivity
-  - software-design
-  - AI
+  - engineering
+  - product
+  - ai
+  - strategy
 image:
   url: '/images/inboxarmor-architecture.png'
   alt: "Diagram of InboxArmor's Analysis and Evaluation Engines working together"
@@ -21,7 +19,7 @@ If your inbox feels like a battlefield, you're not alone. The modern email flow 
 
 InboxArmor was born out of a simple but powerful idea: **what if your inbox could prioritize itself intelligently?**
 
-In this post, I’ll walk through the technical architecture behind InboxArmor, why it’s designed this way, and where it’s going next.
+In this post, I'll walk through the technical architecture behind InboxArmor, why it's designed this way, and where it's going next.
 
 ## The Big Picture
 
@@ -43,7 +41,7 @@ The Analysis Engine is like a forensic unit for emails. Its job? Break each mess
 ### Key Stages:
 
 #### 1.1 Email Parsing
-- **Python’s email library** does the heavy lifting here.
+- **Python's email library** does the heavy lifting here.
 - Parses raw content into structured components: headers, body, attachments.
 - Supports **HTML**, **plain text**, and **multipart** formats.
 - Extracts critical metadata: sender, subject, timestamps.
@@ -65,7 +63,7 @@ The Analysis Engine is like a forensic unit for emails. Its job? Break each mess
 
 ## 2. Evaluation Engine: Turning Data into Decisions
 
-Once the structured data is ready, it’s time to make sense of it.
+Once the structured data is ready, it's time to make sense of it.
 
 ### Key Components:
 
@@ -165,7 +163,7 @@ InboxArmor was designed with intentionality at every layer:
 
 # Performance and Scalability
 
-Efficiency wasn’t negotiable. Here's how performance is handled:
+Efficiency wasn't negotiable. Here's how performance is handled:
 
 - **Caching**: Frequently accessed metadata is cached.
 - **Text Processing Optimization**: Lightweight NLP models for faster analysis.
