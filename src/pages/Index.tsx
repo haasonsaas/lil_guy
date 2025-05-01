@@ -166,28 +166,44 @@ export default function Index() {
             </div>
             <div className="relative group">
               <Link to={`/blog/${featuredPost.slug}`} className="block">
-                <div className="relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 group-hover:shadow-md">
-                  <div className="p-6">
+                <div className="relative overflow-hidden rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:border-primary/30">
+                  <div className="absolute top-4 right-4">
+                    <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary backdrop-blur-sm">
+                      <Sparkles className="w-3 h-3" />
+                      Featured
+                    </div>
+                  </div>
+                  <div className="p-8">
                     <div className="flex items-center gap-2 mb-4">
-                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
-                        Featured
-                      </span>
                       <span className="text-sm text-muted-foreground">
                         {formatDate(featuredPost.frontmatter.pubDate)}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
                       {featuredPost.frontmatter.title}
                     </h3>
-                    <p className="text-muted-foreground mb-4">
+                    <p className="text-muted-foreground mb-6 text-lg">
                       {featuredPost.frontmatter.description}
                     </p>
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <div className="flex items-center gap-4 text-sm text-muted-foreground">
                       <span>
                         {getReadingTime(featuredPost.content)} min read
                       </span>
                       <span>•</span>
-                      <span>{featuredPost.frontmatter.tags.length} topics</span>
+                      <div className="flex flex-wrap gap-2">
+                        {featuredPost.frontmatter.tags.map((tag, index) => (
+                          <span
+                            key={tag}
+                            className={`px-2 py-1 text-xs font-medium rounded-full ${
+                              index === 0
+                                ? 'bg-primary/10 text-primary'
+                                : 'bg-muted text-muted-foreground'
+                            }`}
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
