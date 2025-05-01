@@ -40,7 +40,7 @@ export default function Index() {
             />
             <p className="text-sm text-muted-foreground">
               PM @ Vanta | ex-Snap, DoorDash, Carta | Former founder
-              Shipping AI-native SaaS that scales.
+              shipping AI-native SaaS that scales.
             </p>
           </div>
           
