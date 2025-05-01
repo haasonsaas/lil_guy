@@ -39,7 +39,8 @@ export default function Index() {
               className="w-8 h-8 rounded-full border-2 border-primary/20"
             />
             <p className="text-sm text-muted-foreground">
-              PM @ Vanta, former Founder. Building AI-native SaaS products that scale.
+              PM @ Vanta | ex-Snap, DoorDash, Carta | Former founder
+              Shipping AI-native SaaS that scales.
             </p>
           </div>
           
