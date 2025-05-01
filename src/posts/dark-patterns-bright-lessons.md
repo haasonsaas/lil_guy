@@ -1,5 +1,6 @@
 ---
 title: "Uber Got Audited in Public: What Every Product Manager Should Learn From the FTC Smackdown"
+author: Jonathan Haas
 description: "The FTC just turned Uber’s subscription flow into a cautionary tale. Behind the lawsuit is a product teardown every PM should study—before they find themselves in the same crosshairs."
 tags:
   - product-management
