@@ -103,7 +103,7 @@ export default function Index() {
             />
             <p className="text-sm text-muted-foreground text-center">
               Product Manager @ Vanta | ex-Snap, DoorDash, Carta<br />
-              Built and launched AI software products for businesses
+              Built and launched AI security products for businesses
             </p>
           </div>
 

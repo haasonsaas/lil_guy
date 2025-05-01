@@ -38,7 +38,7 @@ export default function AboutPage() {
 
                 <h3 className="text-xl font-semibold mb-3">The Backstory</h3>
                 <p className="mb-4">
-                  Before Vanta, I worked in security and compliance roles at Snapchat, DoorDash, and Carta. Fast-moving teams taught me the cost of clunky, manual processes—and what's needed to fix them. That's why I focus on building systems that reduce friction, cut down busywork, and help companies stay secure without losing momentum.
+                  Before Vanta, I worked in security and compliance roles at Snapchat, DoorDash, and Carta. Fast-moving teams taught me the cost of clunky, manual processes—and what's needed to fix them. That's why I focus on building AI-powered security systems that reduce friction, cut down busywork, and help companies stay secure without losing momentum.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-3">Life Outside the Laptop</h3>
