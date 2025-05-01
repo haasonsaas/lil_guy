@@ -1,10 +1,34 @@
 import { useEffect, useRef } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { marked } from 'marked';
 import DOMPurify from 'dompurify';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
+import { markedHighlight } from 'marked-highlight';
+
+// Configure marked globally
+marked.use(markedHighlight({
+  langPrefix: 'hljs language-',
+  highlight(code, lang) {
+    try {
+      if (lang && hljs.getLanguage(lang)) {
+        return hljs.highlight(code, { language: lang }).value;
+      }
+      return hljs.highlightAuto(code).value;
+    } catch (e) {
+      console.error('Highlight error:', e);
+      return code;
+    }
+  }
+}));
+
+marked.setOptions({
+  breaks: true,
+  gfm: true,
+  mangle: false,
+  headerIds: false
+});
 
 // Component registry
 const components = {
@@ -23,25 +47,6 @@ export default function MarkdownRenderer({
   const contentRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    // Configure marked with syntax highlighting
-    marked.setOptions({
-      highlight: function(code, lang) {
-        try {
-          if (lang && hljs.getLanguage(lang)) {
-            return hljs.highlight(code, { language: lang }).value;
-          }
-          return hljs.highlightAuto(code).value;
-        } catch (e) {
-          console.error('Highlight error:', e);
-          return code;
-        }
-      },
-      breaks: true,
-      gfm: true,
-      mangle: false,
-      headerIds: true
-    });
-    
     // Apply syntax highlighting to any code blocks
     if (contentRef.current) {
       const codeBlocks = contentRef.current.querySelectorAll('pre code');
@@ -107,8 +112,8 @@ export default function MarkdownRenderer({
           const Component = components[componentName];
           const container = document.createElement('div');
           element.replaceWith(container);
-          // @ts-expect-error ReactDOM.render is deprecated but still works for our use case
-          ReactDOM.render(<Component {...props} />, container);
+          const root = createRoot(container);
+          root.render(<Component {...props} />);
         }
       });
     }

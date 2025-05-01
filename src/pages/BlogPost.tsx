@@ -9,6 +9,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
+import type { BlogPost } from '@/types/blog';
 
 const optimizeImage = (url: string) => {
   if (!url) {
@@ -24,21 +25,43 @@ const optimizeImage = (url: string) => {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const post = getPostBySlug(slug || '');
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [imageError, setImageError] = useState(false);
-  const relatedPosts = post ? getRelatedPosts(post) : [];
+  const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([]);
   
   useEffect(() => {
+    const loadPost = async () => {
+      if (!slug) return;
+      
+      const loadedPost = await getPostBySlug(slug);
+      if (!loadedPost) {
+        navigate('/blog');
+        return;
+      }
+      
+      setPost(loadedPost);
+      if (loadedPost.frontmatter.tags) {
+        const related = await getRelatedPosts(loadedPost);
+        setRelatedPosts(related);
+      }
+      
+      // Load all tags
+      const tags = await getAllTags();
+      setAllTags(tags);
+    };
+    
+    loadPost();
+  }, [slug, navigate]);
+  
+  useEffect(() => {
+    if (!post) return;
+    
     // Scroll to top when post loads
     window.scrollTo(0, 0);
     
-    // Redirect to blog page if post doesn't exist
-    if (!post && slug) {
-      navigate('/blog');
-    }
-    
     // Update OpenGraph tags for social sharing
-    if (post) {
+    if (post.frontmatter) {
       // Update page title
       document.title = `${post.frontmatter.title} - Haas on SaaS`;
       
@@ -66,7 +89,6 @@ export default function BlogPost() {
       
       // Use the post's image or generate a dynamic one
       const ogImageUrl = post.frontmatter.image?.url || generateOgImageUrl(post.frontmatter.title);
-      console.log('Setting OpenGraph image URL:', ogImageUrl);
       
       if (ogImage) ogImage.setAttribute('content', ogImageUrl);
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
@@ -89,22 +111,13 @@ export default function BlogPost() {
         ogTags.setAttribute('content', post.frontmatter.tags.join(', '));
       }
     }
-  }, [post, slug, navigate]);
+  }, [post]);
   
   if (!post) {
     return null;
   }
   
   const { frontmatter, content } = post;
-  
-  // Debug what we're getting
-  console.log("Post data:", { 
-    slug, 
-    frontmatter, 
-    tags: frontmatter.tags,
-    image: frontmatter.image,
-    contentPreview: content?.substring(0, 100) 
-  });
   
   // Get image data with proper fallbacks
   const imageData = getImageData(frontmatter);
@@ -165,7 +178,7 @@ export default function BlogPost() {
               <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
                 <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
                 {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
-                  <TagCloud tags={getAllTags().filter(({ tag }) => frontmatter.tags.includes(tag))} />
+                  <TagCloud tags={allTags.filter(({ tag }) => frontmatter.tags.includes(tag))} />
                 ) : (
                   <p className="text-muted-foreground">No tags available</p>
                 )}
