@@ -61,6 +61,20 @@ export const getImageData = (frontmatter: BlogFrontmatter): { url: string; alt: 
         ? imageUrl 
         : `/${imageUrl}`;
     
+    // Check if the image exists in the public directory
+    const imagePath = finalUrl.startsWith('/') ? finalUrl.substring(1) : finalUrl;
+    const imageElement = typeof window !== 'undefined' && 
+      document.querySelector(`img[src="${finalUrl}"]`) as HTMLImageElement;
+    const imageExists = imageElement?.complete;
+    
+    if (!imageExists) {
+      console.warn(`Image not found: ${finalUrl}, falling back to generated image`);
+      return {
+        url: generateDynamicImageUrl(title),
+        alt: frontmatter.image?.alt || title
+      };
+    }
+    
     return {
       url: finalUrl,
       alt: frontmatter.image?.alt || title

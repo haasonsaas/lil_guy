@@ -1,13 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "The Data-Driven Delusion: When Numbers Lead Us Astray"
-description: "A critical examination of over-reliance on data in product decision making and the importance of balancing quantitative and qualitative insights"
+title: "The Data-Driven Delusion: When Metrics Mislead"
+description: "Understanding the limitations of data-driven decision making and how to avoid common pitfalls"
 tags:
-  - product
-  - strategy
+  - data
   - leadership
-image:
-  url: '/images/data-driven.png'
-  alt: "A complex dashboard with charts and graphs, symbolizing data-driven decision making"
+  - strategy
 --- 

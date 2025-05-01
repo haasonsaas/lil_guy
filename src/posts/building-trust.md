@@ -8,7 +8,4 @@ tags:
   - leadership
   - strategy
   - culture
-image:
-  url: '/images/trust-transparency.png'
-  alt: "A clear glass building symbolizing transparency in organizational structure"
 --- 
