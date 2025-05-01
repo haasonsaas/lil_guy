@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <p className="text-sm text-muted-foreground">
-            No fluff. Just SaaS, AI, and hard truths.
+            Thinking in public. AI, systems, leverage—and the cost of chasing them.
           </p>
 
           <div className="flex items-center gap-4">

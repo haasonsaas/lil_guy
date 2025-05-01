@@ -90,7 +90,7 @@ export default function Index() {
           </h1>
 
           <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
-            No fluff. Just SaaS, AI, and hard truths.
+            Thinking in public. AI, systems, leverage—and the cost of chasing them.
           </p>
 
           <div className="flex items-center justify-center gap-2 mb-6 md:mb-8 max-w-2xl mx-auto">
