@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import Layout from '@/components/Layout';
-import BlogCard from '@/components/BlogCard';
-import TagCloud from '@/components/TagCloud';
-import { Button } from '@/components/ui/button';
-import { getAllPosts, getFeaturedPosts, getAllTags } from '@/utils/blogUtils';
-import { ArrowRight, Sparkles, Brain, Code2, Rocket } from 'lucide-react';
-import { motion } from 'framer-motion';
-import { TypeAnimation } from 'react-type-animation';
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Layout from "@/components/Layout";
+import BlogCard from "@/components/BlogCard";
+import TagCloud from "@/components/TagCloud";
+import { Button } from "@/components/ui/button";
+import { getAllPosts, getFeaturedPosts, getAllTags } from "@/utils/blogUtils";
+import { ArrowRight, Sparkles, Brain, Code2, Rocket } from "lucide-react";
+import { motion } from "framer-motion";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Index() {
   const [featuredPost, setFeaturedPost] = useState(getFeaturedPosts()[0]);
@@ -18,7 +18,7 @@ export default function Index() {
     <Layout>
       <div className="space-y-16">
         {/* Hero Section */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -27,23 +27,23 @@ export default function Index() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
             Haas on SaaS
           </h1>
-          
+
           <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
             No fluff. Just SaaS, AI, and hard truths.
           </p>
 
-          <div className="flex items-center justify-center gap-2 mb-6 md:mb-8">
-            <img 
-              src="/images/author.jpg" 
-              alt="Jonathan Haas" 
-              className="w-8 h-8 rounded-full border-2 border-primary/20"
+          <div className="flex items-center justify-center gap-2 mb-6 md:mb-8 max-w-2xl mx-auto">
+            <img
+              src="/images/author.jpg"
+              alt="Jonathan Haas"
+              className="w-8 h-8 rounded-full border-2 border-primary/20 flex-shrink-0"
             />
-            <p className="text-sm text-muted-foreground">
-              PM @ Vanta | ex-Snap, DoorDash, Carta | Former founder
-              shipping AI-native SaaS that scales.
+            <p className="text-sm text-muted-foreground text-center">
+              Product Manager @ Vanta | ex-Snap, DoorDash, Carta<br />
+              Built and launched AI software products for businesses
             </p>
           </div>
-          
+
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -63,7 +63,11 @@ export default function Index() {
               className="w-full sm:w-auto"
             >
               <Link to="/tags">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="w-full sm:w-auto gap-2"
+                >
                   <Code2 className="w-5 h-5" />
                   Browse Topics
                 </Button>
@@ -71,18 +75,21 @@ export default function Index() {
             </motion.div>
           </div>
         </motion.div>
-        
+
         {/* Newsletter Signup */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="max-w-2xl mx-auto p-4 md:p-6 rounded-lg border bg-card text-card-foreground shadow-sm"
         >
           <div className="flex flex-col items-center text-center">
-            <h3 className="text-xl md:text-2xl font-bold mb-2">Get the Weekly Playbook</h3>
+            <h3 className="text-xl md:text-2xl font-bold mb-2">
+              Get the Weekly Playbook
+            </h3>
             <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
-              One tactical post per week on scaling SaaS with AI — zero fluff, all signal
+              One tactical post per week on scaling SaaS with AI — zero fluff,
+              all signal
             </p>
             <form className="w-full max-w-md flex flex-col sm:flex-row gap-2">
               <input
@@ -100,9 +107,9 @@ export default function Index() {
             </p>
           </div>
         </motion.div>
-        
+
         {/* Featured Post */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -122,10 +129,12 @@ export default function Index() {
                       Featured
                     </span>
                     <span className="text-sm text-muted-foreground">
-                      {new Date(featuredPost.frontmatter.pubDate).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
+                      {new Date(
+                        featuredPost.frontmatter.pubDate
+                      ).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
                       })}
                     </span>
                   </div>
@@ -136,7 +145,10 @@ export default function Index() {
                     {featuredPost.frontmatter.description}
                   </p>
                   <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span>{Math.ceil(featuredPost.content.split(' ').length / 200)} min read</span>
+                    <span>
+                      {Math.ceil(featuredPost.content.split(" ").length / 200)}{" "}
+                      min read
+                    </span>
                     <span>•</span>
                     <span>{featuredPost.frontmatter.tags.length} topics</span>
                   </div>
@@ -145,9 +157,9 @@ export default function Index() {
             </Link>
           </div>
         </motion.div>
-        
+
         {/* Recent Articles */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
@@ -159,7 +171,11 @@ export default function Index() {
             </h2>
             <Link to="/blog">
               <Button variant="ghost" className="flex items-center gap-2 group">
-                View all <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                View all{" "}
+                <ArrowRight
+                  size={16}
+                  className="group-hover:translate-x-1 transition-transform"
+                />
               </Button>
             </Link>
           </div>
@@ -169,9 +185,9 @@ export default function Index() {
             ))}
           </div>
         </motion.div>
-        
+
         {/* Tag Cloud */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
