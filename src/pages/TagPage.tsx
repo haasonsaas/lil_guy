@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { getPostsByTag } from '@/utils/blogUtils';
 import { BlogPost } from '@/types/blog';
+import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 
 export default function TagPage() {
   const { tag } = useParams<{ tag: string }>();
@@ -76,6 +77,10 @@ export default function TagPage() {
               )}
             </div>
           )}
+          
+          <div className="mt-16">
+            <WeeklyPlaybook />
+          </div>
         </div>
       </section>
     </Layout>

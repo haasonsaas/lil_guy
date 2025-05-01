@@ -10,6 +10,7 @@ import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 import type { BlogPost } from '@/types/blog';
+import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 
 const optimizeImage = (url: string) => {
   if (!url) {
@@ -201,6 +202,10 @@ export default function BlogPost() {
                     Read more articles
                   </Button>
                 </Link>
+              </div>
+
+              <div className="mt-16">
+                <WeeklyPlaybook />
               </div>
             </div>
           </div>

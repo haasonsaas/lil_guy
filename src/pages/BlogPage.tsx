@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { BlogPost } from '@/types/blog';
+import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 
 const POSTS_PER_PAGE = 9;
 
@@ -96,27 +97,29 @@ export default function BlogPage() {
             <div className="flex justify-center items-center gap-2 mt-8">
               <Button
                 variant="outline"
-                size="icon"
-                onClick={() => setCurrentPage(prev => Math.max(1, prev - 1))}
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                 disabled={currentPage === 1}
               >
                 <ChevronLeft className="h-4 w-4" />
               </Button>
-              
               <span className="text-sm text-muted-foreground">
                 Page {currentPage} of {totalPages}
               </span>
-              
               <Button
                 variant="outline"
-                size="icon"
-                onClick={() => setCurrentPage(prev => Math.min(totalPages, prev + 1))}
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
               >
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
           )}
+
+          <div className="mt-16">
+            <WeeklyPlaybook />
+          </div>
         </div>
       </section>
     </Layout>

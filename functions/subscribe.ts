@@ -17,6 +17,21 @@ const corsHeaders = {
   'Access-Control-Allow-Credentials': 'true',
 };
 
+const securityHeaders = {
+  'X-Content-Type-Options': 'nosniff',
+  'X-Frame-Options': 'DENY',
+  'X-XSS-Protection': '1; mode=block',
+  'Referrer-Policy': 'strict-origin-when-cross-origin',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+};
+
+const responseHeaders = {
+  ...corsHeaders,
+  ...securityHeaders,
+  'Content-Type': 'application/json',
+};
+
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     // Handle CORS preflight requests
@@ -30,7 +45,7 @@ export default {
     if (request.method !== 'POST') {
       return new Response('Method not allowed', { 
         status: 405,
-        headers: corsHeaders,
+        headers: responseHeaders,
       });
     }
 
@@ -42,7 +57,7 @@ export default {
       if (!email) {
         return new Response('Email is required', { 
           status: 400,
-          headers: corsHeaders,
+          headers: responseHeaders,
         });
       }
 
@@ -53,10 +68,7 @@ export default {
       if (existingSubscriber) {
         return new Response(JSON.stringify({ error: 'Email already subscribed' }), {
           status: 400,
-          headers: { 
-            'Content-Type': 'application/json',
-            ...corsHeaders,
-          },
+          headers: responseHeaders,
         });
       }
 
@@ -93,19 +105,13 @@ export default {
       console.log('Email sent successfully:', resendData);
 
       return new Response(JSON.stringify({ success: true }), {
-        headers: { 
-          'Content-Type': 'application/json',
-          ...corsHeaders,
-        },
+        headers: responseHeaders,
       });
     } catch (error) {
       console.error('Error:', error);
       return new Response(JSON.stringify({ error: error.message || 'Internal server error' }), {
         status: 500,
-        headers: { 
-          'Content-Type': 'application/json',
-          ...corsHeaders,
-        },
+        headers: responseHeaders,
       });
     }
   },
