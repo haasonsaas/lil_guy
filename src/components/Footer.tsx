@@ -20,7 +20,7 @@ export default function Footer() {
               <Twitter className="w-4 h-4" />
             </a>
             <a 
-              href="https://github.com/jonathanhaas" 
+              href="https://github.com/haasonsaas" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
