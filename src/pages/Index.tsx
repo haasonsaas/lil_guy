@@ -16,121 +16,173 @@ export default function Index() {
 
   return (
     <Layout>
-      <section className="relative overflow-hidden">
-        {/* Animated background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-primary/5 animate-gradient" />
-        
-        <div className="relative pt-16 pb-12 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {/* Hero Section */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-              className="text-center max-w-3xl mx-auto mb-16"
+      <div className="space-y-16">
+        {/* Hero Section */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center max-w-3xl mx-auto"
+        >
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+            Haas on SaaS
+          </h1>
+          
+          <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
+            No fluff. Just SaaS, AI, and hard truths.
+          </p>
+
+          <div className="flex items-center justify-center gap-2 mb-6 md:mb-8">
+            <img 
+              src="/images/author.jpg" 
+              alt="Jonathan Haas" 
+              className="w-8 h-8 rounded-full border-2 border-primary/20"
+            />
+            <p className="text-sm text-muted-foreground">
+              PM @ Vanta, former Founder. Building AI-native SaaS products that scale.
+            </p>
+          </div>
+          
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
             >
-              <div className="flex justify-center mb-6">
-                <div className="relative">
-                  <Sparkles className="w-12 h-12 text-primary animate-pulse" />
-                  <div className="absolute -inset-1 bg-primary/20 rounded-full blur-xl" />
-                </div>
-              </div>
-              
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-                Haas on SaaS
-              </h1>
-              
-              <div className="text-xl md:text-2xl text-muted-foreground mb-8 h-12">
-                <TypeAnimation
-                  sequence={[
-                    'Exploring the future of AI',
-                    2000,
-                    'Building better software',
-                    2000,
-                    'Sharing tech insights',
-                    2000,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                />
-              </div>
-              
-              <div className="flex justify-center gap-4 mb-8">
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link to={`/blog/${featuredPost.slug}`}>
-                    <Button size="lg" className="gap-2">
-                      <Brain className="w-5 h-5" />
-                      Read Latest
-                    </Button>
-                  </Link>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link to="/tags">
-                    <Button variant="outline" size="lg" className="gap-2">
-                      <Code2 className="w-5 h-5" />
-                      Browse Topics
-                    </Button>
-                  </Link>
-                </motion.div>
-              </div>
+              <Link to={`/blog/${featuredPost.slug}`}>
+                <Button size="lg" className="w-full sm:w-auto gap-2">
+                  <Brain className="w-5 h-5" />
+                  Read Latest
+                </Button>
+              </Link>
             </motion.div>
-            
-            {/* Recent Articles */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="mb-16"
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full sm:w-auto"
             >
-              <div className="flex justify-between items-center mb-8">
-                <h2 className="text-2xl font-bold flex items-center gap-2">
-                  <Rocket className="w-5 h-5 text-primary" />
-                  Recent Articles
-                </h2>
-                <Link to="/blog">
-                  <Button variant="ghost" className="flex items-center gap-2 group">
-                    View all <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </Link>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {recentPosts.map((post, index) => (
-                  <motion.div
-                    key={post.slug}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 + index * 0.1 }}
-                  >
-                    <BlogCard post={post} />
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
-            
-            {/* Tag Cloud */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="bg-gradient-to-br from-primary/5 to-background p-8 rounded-xl border border-primary/10 shadow-sm"
-            >
-              <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
-                <Sparkles className="w-5 h-5 text-primary" />
-                Browse by Topic
-              </h2>
-              <TagCloud tags={popularTags} className="justify-center" />
+              <Link to="/tags">
+                <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2">
+                  <Code2 className="w-5 h-5" />
+                  Browse Topics
+                </Button>
+              </Link>
             </motion.div>
           </div>
-        </div>
-      </section>
+        </motion.div>
+        
+        {/* Newsletter Signup */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="max-w-2xl mx-auto p-4 md:p-6 rounded-lg border bg-card text-card-foreground shadow-sm"
+        >
+          <div className="flex flex-col items-center text-center">
+            <h3 className="text-xl md:text-2xl font-bold mb-2">Get the Weekly Playbook</h3>
+            <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
+              One tactical post per week on scaling SaaS with AI — zero fluff, all signal
+            </p>
+            <form className="w-full max-w-md flex flex-col sm:flex-row gap-2">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="flex-1 px-4 py-2 rounded-md border bg-background"
+                required
+              />
+              <Button type="submit" className="whitespace-nowrap">
+                Subscribe
+              </Button>
+            </form>
+            <p className="text-xs md:text-sm text-muted-foreground mt-4">
+              Join SaaS builders and founders building the future
+            </p>
+          </div>
+        </motion.div>
+        
+        {/* Featured Post */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-primary" />
+              Featured Article
+            </h2>
+          </div>
+          <div className="relative group">
+            <Link to={`/blog/${featuredPost.slug}`} className="block">
+              <div className="relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 group-hover:shadow-md">
+                <div className="p-6">
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
+                      Featured
+                    </span>
+                    <span className="text-sm text-muted-foreground">
+                      {new Date(featuredPost.frontmatter.pubDate).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })}
+                    </span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                    {featuredPost.frontmatter.title}
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    {featuredPost.frontmatter.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span>{Math.ceil(featuredPost.content.split(' ').length / 200)} min read</span>
+                    <span>•</span>
+                    <span>{featuredPost.frontmatter.tags.length} topics</span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </motion.div>
+        
+        {/* Recent Articles */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold flex items-center gap-2">
+              <Rocket className="w-5 h-5 text-primary" />
+              Latest Articles
+            </h2>
+            <Link to="/blog">
+              <Button variant="ghost" className="flex items-center gap-2 group">
+                View all <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {recentPosts.map((post) => (
+              <BlogCard key={post.slug} post={post} />
+            ))}
+          </div>
+        </motion.div>
+        
+        {/* Tag Cloud */}
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="bg-gradient-to-br from-primary/5 to-background p-8 rounded-xl border border-primary/10 shadow-sm"
+        >
+          <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
+            <Sparkles className="w-5 h-5 text-primary" />
+            Browse by Topic
+          </h2>
+          <TagCloud tags={popularTags} className="justify-center" />
+        </motion.div>
+      </div>
     </Layout>
   );
 }
