@@ -45,7 +45,10 @@ export default function Index() {
           getFeaturedPosts()
         ]);
         setFeaturedPost(featured[0] || null);
-        setRecentPosts(posts.slice(0, 3));
+        const recentPostsWithoutFeatured = posts
+          .filter(post => post.slug !== featured[0]?.slug)
+          .slice(0, 3);
+        setRecentPosts(recentPostsWithoutFeatured);
         setPopularTags(tags.slice(0, 8));
       } catch (error) {
         console.error("Error loading data:", error);
