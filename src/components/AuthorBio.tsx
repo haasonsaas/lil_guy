@@ -9,7 +9,7 @@ export default function AuthorBio() {
         alt="Jonathan Haas" 
         className="w-6 h-6 rounded-full object-cover"
       />
-      <span>Product Manager at Vanta</span>
+      <span>Product Manager @ Vanta | ex-Snap, DoorDash, Carta</span>
       <a 
         href="https://www.linkedin.com/in/haasonsaas" 
         target="_blank" 
