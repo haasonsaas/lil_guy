@@ -8,6 +8,7 @@ import { getAllPosts, getFeaturedPosts, getAllTags } from "@/utils/blogUtils";
 import { ArrowRight, Sparkles, Brain, Code2, Rocket, Hammer, Scale, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlogPost } from "@/types/blog";
+import { Subscribe } from '../components/Subscribe';
 
 const tagGroups = [
   {
@@ -152,17 +153,7 @@ export default function Index() {
               One tactical post per week on scaling SaaS with AI — zero fluff,
               all signal
             </p>
-            <form className="w-full max-w-md flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-2 rounded-md border bg-background"
-                required
-              />
-              <Button type="submit" className="whitespace-nowrap">
-                Subscribe
-              </Button>
-            </form>
+            <Subscribe />
             <p className="text-xs md:text-sm text-muted-foreground mt-4">
               Join SaaS builders and founders building the future
             </p>

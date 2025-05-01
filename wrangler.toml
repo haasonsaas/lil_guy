@@ -1,0 +1,11 @@
+name = "haas-blog"
+main = "functions/subscribe.ts"
+compatibility_date = "2024-05-01"
+
+[vars]
+RESEND_API_KEY = "re_HYUMn1X1_C8wWsshiX8LepG2bQk2ZqobN"
+
+[[kv_namespaces]]
+binding = "SUBSCRIBERS"
+id = "da9ea499f9534d1ba78cd9a3a381ae2a"
+preview_id = "subscribers_preview" 
