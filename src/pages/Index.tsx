@@ -7,26 +7,55 @@ import { Button } from "@/components/ui/button";
 import { getAllPosts, getFeaturedPosts, getAllTags } from "@/utils/blogUtils";
 import { ArrowRight, Sparkles, Brain, Code2, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
-import { TypeAnimation } from "react-type-animation";
 import { BlogPost } from "@/types/blog";
 
 export default function Index() {
   const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
   const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
   const [popularTags, setPopularTags] = useState<{ tag: string; count: number }[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
-      const [posts, tags] = await Promise.all([
-        getAllPosts(),
-        getAllTags()
-      ]);
-      setFeaturedPost(getFeaturedPosts()[0]);
-      setRecentPosts(posts.slice(0, 3));
-      setPopularTags(tags.slice(0, 8));
+      try {
+        setIsLoading(true);
+        const [posts, tags, featured] = await Promise.all([
+          getAllPosts(),
+          getAllTags(),
+          getFeaturedPosts()
+        ]);
+        setFeaturedPost(featured[0] || null);
+        setRecentPosts(posts.slice(0, 3));
+        setPopularTags(tags.slice(0, 8));
+      } catch (error) {
+        console.error("Error loading data:", error);
+      } finally {
+        setIsLoading(false);
+      }
     };
     loadData();
   }, []);
+
+  // Calculate reading time safely
+  const getReadingTime = (content: string | undefined) => {
+    if (!content) return 0;
+    return Math.ceil(content.split(" ").length / 200);
+  };
+
+  // Format date safely
+  const formatDate = (dateString: string | undefined) => {
+    if (!dateString) return "";
+    try {
+      return new Date(dateString).toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+    } catch (error) {
+      console.error("Error formatting date:", error);
+      return "";
+    }
+  };
 
   return (
     <Layout>
@@ -123,54 +152,49 @@ export default function Index() {
         </motion.div>
 
         {/* Featured Post */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-primary" />
-              Featured Article
-            </h2>
-          </div>
-          <div className="relative group">
-            <Link to={`/blog/${featuredPost?.slug}`} className="block">
-              <div className="relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 group-hover:shadow-md">
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
-                      Featured
-                    </span>
-                    <span className="text-sm text-muted-foreground">
-                      {new Date(
-                        featuredPost?.frontmatter.pubDate
-                      ).toLocaleDateString("en-US", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {featuredPost?.frontmatter.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4">
-                    {featuredPost?.frontmatter.description}
-                  </p>
-                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                    <span>
-                      {Math.ceil(featuredPost?.content.split(" ").length / 200)}{" "}
-                      min read
-                    </span>
-                    <span>•</span>
-                    <span>{featuredPost?.frontmatter.tags.length} topics</span>
+        {!isLoading && featuredPost && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <div className="flex justify-between items-center mb-8">
+              <h2 className="text-2xl font-bold flex items-center gap-2">
+                <Sparkles className="w-5 h-5 text-primary" />
+                Featured Article
+              </h2>
+            </div>
+            <div className="relative group">
+              <Link to={`/blog/${featuredPost.slug}`} className="block">
+                <div className="relative overflow-hidden rounded-lg border bg-card text-card-foreground shadow-sm transition-all duration-300 group-hover:shadow-md">
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <span className="px-2 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
+                        Featured
+                      </span>
+                      <span className="text-sm text-muted-foreground">
+                        {formatDate(featuredPost.frontmatter.pubDate)}
+                      </span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                      {featuredPost.frontmatter.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-4">
+                      {featuredPost.frontmatter.description}
+                    </p>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <span>
+                        {getReadingTime(featuredPost.content)} min read
+                      </span>
+                      <span>•</span>
+                      <span>{featuredPost.frontmatter.tags.length} topics</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-        </motion.div>
+              </Link>
+            </div>
+          </motion.div>
+        )}
 
         {/* Recent Articles */}
         <motion.div
