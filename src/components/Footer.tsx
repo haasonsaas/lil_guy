@@ -1,7 +1,11 @@
-import { Github, Twitter, Linkedin, ExternalLink } from 'lucide-react';
+import { Github, Twitter, Linkedin, ExternalLink, Gamepad2 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import SnakeGame from './SnakeGame';
 
 export default function Footer() {
+  const [showSnakeGame, setShowSnakeGame] = useState(false);
+
   return (
     <footer className="border-t bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -11,6 +15,13 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-4">
+            <button
+              onClick={() => setShowSnakeGame(true)}
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="Play Snake"
+            >
+              <Gamepad2 className="w-4 h-4" />
+            </button>
             <a 
               href="https://twitter.com/haasonsaas" 
               target="_blank" 
@@ -46,6 +57,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
+      {showSnakeGame && <SnakeGame onClose={() => setShowSnakeGame(false)} />}
     </footer>
   );
 }
