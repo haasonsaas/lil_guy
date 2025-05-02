@@ -24,43 +24,46 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Product Manager at Vanta | Security Simplifier | San Francisco Wanderer
+                Operator. Former founder. Code, Cloud, and Security Product lead at Vanta.
               </p>
               
               <div className="prose-custom mb-6">
-                <h3 className="text-xl font-semibold mb-3">Making Compliance Make Sense</h3>
                 <p className="mb-4">
-                  At Vanta, I turn security compliance from a months-long slog into a matter of days. My role is about translating regulatory complexity into something teams can actually work with—without the jargon, delays, or burnout.
-                </p>
-                <p className="mb-4">
-                  When I'm not deep in frameworks and audits, I'm likely tweaking a new sourdough pizza recipe or wandering San Francisco in search of overlooked gems.
+                  I build software that turns painful, high-stakes workflows into something teams actually want to use.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">The Backstory</h3>
+                <h3 className="text-xl font-semibold mb-3">From Firefights to Frameworks</h3>
                 <p className="mb-4">
-                  Before Vanta, I worked in security and compliance roles at Snapchat, DoorDash, and Carta. Fast-moving teams taught me the cost of clunky, manual processes—and what's needed to fix them. That's why I focus on building AI-powered security systems that reduce friction, cut down busywork, and help companies stay secure without losing momentum.
+                  I started my career deep in the mess—leading security at high-growth teams like Snapchat, DoorDash, and Carta, where compliance felt like a tax on velocity. So I built something better.
+                </p>
+                <p className="mb-4">
+                  After founding ThreatKey (and subsequently joining Vanta), I now lead cloud and security products that help thousands of companies go from "we should do this" to fully certified—fast. My focus: eliminate busywork, automate complexity, and scale trust through better systems.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">Life Outside the Laptop</h3>
+                <h3 className="text-xl font-semibold mb-3">What I Build</h3>
                 <p className="mb-4">
-                  I'm slowly walking the 49-mile scenic route around San Francisco, reading way too much sci-fi and urban planning, and cooking my way through a list of 37+ countries. I also host occasional pizza nights starring "Doughvid," my trusty sourdough starter—currently booked solid with friends and neighbors.
+                  AI-powered tools for the real world. Products that understand the workflow, not just the checkbox.
                 </p>
-
-                <h3 className="text-xl font-semibold mb-3">How I Work</h3>
-                <p className="mb-2">My product philosophy is grounded and people-first:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Start with the problem. I get close to real workflows to understand what's actually broken.</li>
-                  <li>Balance inputs. I combine metrics with lived customer experience to guide decisions.</li>
-                  <li>Build inclusively. Better tools come from diverse input and open collaboration.</li>
+                  <li>Compress weeks of compliance work into hours</li>
+                  <li>Translate frameworks into step-by-step guidance</li>
+                  <li>Let startups ship fast without trading off trust</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3">A Few Wins</h3>
-                <p className="mb-2">At Vanta, I've helped:</p>
+                <h3 className="text-xl font-semibold mb-3">Product Philosophy</h3>
+                <p className="mb-4">
+                  Good software should feel like relief. I work close to the pain, build with clear constraints, and bias toward systems that improve under pressure.
+                </p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Cut certification timelines from months to weeks</li>
-                  <li>Empower small teams to meet complex standards without hiring compliance staff</li>
-                  <li>Translate dense frameworks into plain-language, step-by-step workflows</li>
+                  <li>Start at the edge cases — They reveal the real job</li>
+                  <li>Balance precision with pragmatism — Especially in regulated environments</li>
+                  <li>Design for humans — Because complexity doesn't have to feel complicated</li>
                 </ul>
+
+                <h3 className="text-xl font-semibold mb-3">A Bit More Human</h3>
+                <p className="mb-4">
+                  Outside work, I'm slow-walking San Francisco's 49-mile scenic route, cooking my way across 37 countries, and hosting pizza nights featuring Doughvid, my high-hydration sourdough starter. He's cranky but worth it.
+                </p>
               </div>
             </div>
           </div>
