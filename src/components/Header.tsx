@@ -22,6 +22,9 @@ export default function Header() {
             <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               About
             </Link>
+            <Link to="/uses" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+              Uses
+            </Link>
             <ThemeToggle />
           </nav>
         </div>
