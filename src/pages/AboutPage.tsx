@@ -34,7 +34,7 @@ export default function AboutPage() {
 
                 <h3 className="text-xl font-semibold mb-3">From Firefights to Frameworks</h3>
                 <p className="mb-4">
-                  I started my career deep in the mess—leading security at high-growth teams like Snapchat, DoorDash, and Carta, where compliance felt like a tax on velocity. So I built something better.
+                  I started my career deep in the mess—leading a variety of security efforts at high-growth teams like Snapchat, DoorDash, and Carta, where compliance felt like a tax on velocity. So I built something better.
                 </p>
                 <p className="mb-4">
                   After founding ThreatKey (and subsequently joining Vanta), I now lead cloud and security products that help thousands of companies go from "we should do this" to fully certified—fast. My focus: eliminate busywork, automate complexity, and scale trust through better systems.
