@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { getAllPosts, formatDate } from '@/utils/blogUtils';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
@@ -13,7 +13,15 @@ const calculateReadTime = (content: string): number => {
 };
 
 export default function PostsList() {
-  const [posts] = useState(getAllPosts());
+  const [posts, setPosts] = useState([]);
+  
+  useEffect(() => {
+    const loadPosts = async () => {
+      const loadedPosts = await getAllPosts();
+      setPosts(loadedPosts);
+    };
+    loadPosts();
+  }, []);
   
   return (
     <div className="space-y-6">
