@@ -78,9 +78,9 @@ export default function BlogPage() {
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">Blog</h1>
+            <h1 className="text-4xl font-bold mb-4">Insights for Builders, Backers, and Operators</h1>
             <p className="text-muted-foreground mb-8">
-              Explore the latest articles on AI, technology, and software development
+              Hard-earned lessons and forward-looking analysis on AI-native SaaS, product-market fit, and scaling trust in software. Read what top-tier founders and VCs are already talking about.
             </p>
             
             <div className="relative max-w-md mx-auto">
