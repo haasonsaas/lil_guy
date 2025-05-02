@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
 import { getAllPosts, getAllTags } from '@/utils/blogUtils';
@@ -13,10 +13,12 @@ const POSTS_PER_PAGE = 9;
 
 export default function BlogPage() {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
+  const [searchInput, setSearchInput] = useState(searchParams.get("search") || "");
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -57,6 +59,20 @@ export default function BlogPage() {
     currentPage * POSTS_PER_PAGE
   );
 
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchInput(value);
+    
+    // Update URL search params
+    const params = new URLSearchParams(searchParams);
+    if (value) {
+      params.set("search", value);
+    } else {
+      params.delete("search");
+    }
+    navigate(`?${params.toString()}`, { replace: true });
+  };
+
   return (
     <Layout>
       <section className="py-12">
@@ -73,6 +89,8 @@ export default function BlogPage() {
                 type="text"
                 placeholder="Search articles..."
                 className="pl-10"
+                value={searchInput}
+                onChange={handleSearchChange}
               />
             </div>
           </div>
