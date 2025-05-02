@@ -18,8 +18,8 @@ const Navbar = () => {
   
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'About', path: '/about' },
+    { name: 'Insights', path: '/blog' },
+    { name: 'About Jonathan', path: '/about' },
     { name: 'Uses', path: '/uses' },
     { name: 'Reading', path: '/reading' },
     { name: 'FAQ', path: '/faq' },
@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-lg font-bold">Haas on SaaS</span>
+              <span className="text-lg font-bold">Where Technical Vision Meets Market Reality</span>
             </Link>
           </div>
           

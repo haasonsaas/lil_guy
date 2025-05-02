@@ -14,13 +14,13 @@ export default function Header() {
 
           <nav className="flex items-center gap-8">
             <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Blog
+              Insights
             </Link>
             <Link to="/tags" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Topics
             </Link>
             <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              About
+              About Jonathan
             </Link>
             <Link to="/uses" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
               Uses

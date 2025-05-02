@@ -63,7 +63,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
         onMouseLeave={() => setIsHovered(false)}
       >
         <Link to={`/blog/${slug}`} className="block">
-          <div className="relative h-[400px] overflow-hidden rounded-xl shadow-lg">
+          <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-lg">
             {isLoading && (
               <Skeleton className="absolute inset-0 w-full h-full" />
             )}
@@ -98,7 +98,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
                   </Badge>
                 ))}
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 leading-tight">{truncatedTitle}</h2>
+              <h2 className="text-3xl md:text-4xl font-display font-semibold text-white mb-3 leading-tight">{truncatedTitle}</h2>
               <p className="text-white/90 mb-6 text-lg leading-relaxed">{truncatedDescription}</p>
               <div className="flex items-center gap-4 text-white/80 text-sm">
                 {!hideAuthor && (
@@ -127,7 +127,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
       onMouseLeave={() => setIsHovered(false)}
     >
       <Link to={`/blog/${slug}`} className="block">
-        <div className="overflow-hidden rounded-xl bg-card border border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
+        <div className="overflow-hidden rounded-2xl bg-card border border-border/50 transition-all duration-300 hover:border-primary/50 hover:shadow-lg">
           <div className="relative h-48 w-full overflow-hidden">
             <img 
               src={optimizeImage(imageUrl, 800)} 
@@ -143,20 +143,20 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
           </div>
-          <div className="p-5 text-left">
+          <div className="p-6 text-left">
             <div className="flex flex-wrap gap-2 mb-3">
               {frontmatter.tags.slice(0, 2).map(tag => (
                 <Badge 
                   key={tag} 
                   variant="default" 
-                  className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm text-primary-foreground hover:bg-primary transition-colors"
+                  className="flex items-center gap-1.5 bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
                 >
                   <Tag size={12} />
                   {tag.replace(/-/g, ' ')}
                 </Badge>
               ))}
             </div>
-            <h3 className="text-xl font-bold mb-2 line-clamp-2 leading-tight">{truncatedTitle}</h3>
+            <h3 className="text-xl font-display font-semibold mb-2 line-clamp-2 leading-tight">{truncatedTitle}</h3>
             <p className="text-muted-foreground text-sm mb-4 line-clamp-2 leading-relaxed">{truncatedDescription}</p>
             <div className="flex items-center gap-4 text-xs text-muted-foreground">
               {!hideAuthor && (

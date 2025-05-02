@@ -6,8 +6,8 @@ const Navigation = () => {
   
   const primaryItems = [
     { name: 'Home', href: '/' },
-    { name: 'Blog', href: '/blog' },
-    { name: 'About', href: '/about' },
+    { name: 'Insights', href: '/blog' },
+    { name: 'About Jonathan', href: '/about' },
   ];
   
   const secondaryItems = [
@@ -32,7 +32,7 @@ const Navigation = () => {
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span className="font-display text-xl font-semibold">Haas on SaaS</span>
+            <span className="font-display text-xl font-semibold">Where Technical Vision Meets Market Reality</span>
           </a>
         </div>
 

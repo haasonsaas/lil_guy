@@ -82,63 +82,70 @@ export default function Index() {
 
   return (
     <Layout>
-      <div className="space-y-16">
+      <div className="space-y-24">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 font-serif bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
-            Haas on SaaS
-          </h1>
+          <div className="relative">
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10 rounded-3xl -z-10" />
+            <div className="relative py-16 sm:py-24">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-semibold tracking-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
+                Where Technical Vision Meets Market Reality
+              </h1>
 
-          <p className="text-base md:text-lg text-muted-foreground mb-4 max-w-2xl mx-auto">
-            Thinking in public. AI, systems, leverage—and the cost of chasing them.
-          </p>
+              <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+                After a decade building enterprise software, I saw a pattern: great products falter without great go-to-market. Haas on SaaS is my playbook of hard lessons and emerging trends – from AI's impact on vertical SaaS to the difference between polite interest and true adoption.
+              </p>
 
-          <div className="flex items-center justify-center gap-2 mb-6 md:mb-8 max-w-2xl mx-auto">
-            <img
-              src="/images/author.jpg"
-              alt="Jonathan Haas"
-              className="w-8 h-8 rounded-full border-2 border-primary/20 flex-shrink-0"
-            />
-            <p className="text-sm text-muted-foreground text-center">
-              Product Manager @ Vanta | ex-Snap, DoorDash, Carta<br />
-              Built and launched AI security products for businesses
-            </p>
-          </div>
+              <div className="flex items-center justify-center gap-4 mb-8">
+                <img
+                  src="/images/author.jpg"
+                  alt="Jonathan Haas"
+                  className="w-10 h-10 rounded-full border-2 border-primary/20 flex-shrink-0"
+                />
+                <div className="text-left">
+                  <p className="text-sm font-medium">Jonathan Haas</p>
+                  <p className="text-xs text-muted-foreground">
+                    Product Manager @ Vanta | ex-Snap, DoorDash, Carta
+                  </p>
+                </div>
+              </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
-            >
-              <Link to={`/blog/${featuredPost?.slug}`}>
-                <Button size="lg" className="w-full sm:w-auto gap-2">
-                  <Brain className="w-5 h-5" />
-                  Read Latest
-                </Button>
-              </Link>
-            </motion.div>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full sm:w-auto"
-            >
-              <Link to="/tags">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="w-full sm:w-auto gap-2"
+              <div className="flex flex-col sm:flex-row justify-center gap-4">
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto"
                 >
-                  <Code2 className="w-5 h-5" />
-                  Browse Topics
-                </Button>
-              </Link>
-            </motion.div>
+                  <Link to={`/blog/${featuredPost?.slug}`}>
+                    <Button size="lg" className="w-full sm:w-auto gap-2">
+                      <Brain className="w-5 h-5" />
+                      Read Latest
+                    </Button>
+                  </Link>
+                </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full sm:w-auto"
+                >
+                  <Link to="/tags">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="w-full sm:w-auto gap-2"
+                    >
+                      <Code2 className="w-5 h-5" />
+                      Browse Topics
+                    </Button>
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
           </div>
         </motion.div>
 
@@ -151,16 +158,17 @@ export default function Index() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
           >
             <div className="flex justify-between items-center mb-8">
-              <h2 className="text-2xl font-bold flex items-center gap-2">
+              <h2 className="text-2xl font-display font-semibold flex items-center gap-2">
                 <Sparkles className="w-5 h-5 text-primary" />
                 Featured Article
               </h2>
             </div>
             <div className="relative group">
               <Link to={`/blog/${featuredPost.slug}`} className="block">
-                <div className="relative overflow-hidden rounded-xl border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-background shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:border-primary/30">
+                <div className="relative overflow-hidden rounded-2xl border border-primary/10 bg-gradient-to-br from-primary/5 to-background shadow-lg transition-all duration-300 group-hover:shadow-xl group-hover:border-primary/20">
                   <div className="absolute top-4 right-4">
                     <div className="flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary backdrop-blur-sm">
                       <Sparkles className="w-3 h-3" />
@@ -173,10 +181,10 @@ export default function Index() {
                         {formatDate(featuredPost.frontmatter.pubDate)}
                       </span>
                     </div>
-                    <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
+                    <h3 className="text-3xl font-display font-semibold mb-4 group-hover:text-primary transition-colors">
                       {featuredPost.frontmatter.title}
                     </h3>
-                    <p className="text-muted-foreground mb-6 text-lg">
+                    <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
                       {featuredPost.frontmatter.description}
                     </p>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
@@ -211,9 +219,10 @@ export default function Index() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-2xl font-bold flex items-center gap-2">
+            <h2 className="text-2xl font-display font-semibold flex items-center gap-2">
               <Rocket className="w-5 h-5 text-primary" />
               Latest Articles
             </h2>
@@ -239,13 +248,15 @@ export default function Index() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="bg-gradient-to-br from-primary/5 to-background p-8 rounded-xl border border-primary/10 shadow-sm"
+          className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         >
-          <h2 className="text-2xl font-bold mb-6 text-center flex items-center justify-center gap-2">
-            <Sparkles className="w-5 h-5 text-primary" />
-            Browse by Topic
-          </h2>
-          <GroupedTags groups={tagGroups} className="max-w-2xl mx-auto" />
+          <div className="bg-gradient-to-br from-primary/5 to-background p-8 rounded-2xl border border-primary/10 shadow-sm">
+            <h2 className="text-2xl font-display font-semibold mb-6 text-center flex items-center justify-center gap-2">
+              <Sparkles className="w-5 h-5 text-primary" />
+              Browse by Topic
+            </h2>
+            <GroupedTags groups={tagGroups} className="max-w-2xl mx-auto" />
+          </div>
         </motion.div>
       </div>
     </Layout>

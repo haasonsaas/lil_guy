@@ -28,7 +28,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					light: 'hsl(var(--primary-light))',
+					dark: 'hsl(var(--primary-dark))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -40,7 +42,9 @@ export default {
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					foreground: 'hsl(var(--muted-foreground))',
+					light: 'hsl(var(--muted-light))',
+					dark: 'hsl(var(--muted-dark))'
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
@@ -72,20 +76,12 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				},
 				'fade-in': {
 					'0%': { opacity: '0' },
@@ -124,8 +120,8 @@ export default {
 			fontSize: {
 				'xs': ['0.75rem', { lineHeight: '1.5' }],      // 12px
 				'sm': ['0.875rem', { lineHeight: '1.5' }],     // 14px
-				'base': ['1rem', { lineHeight: '1.5' }],       // 16px
-				'lg': ['1.125rem', { lineHeight: '1.5' }],     // 18px
+				'base': ['1rem', { lineHeight: '1.6' }],       // 16px
+				'lg': ['1.125rem', { lineHeight: '1.6' }],     // 18px
 				'xl': ['1.25rem', { lineHeight: '1.5' }],      // 20px
 				'2xl': ['1.5rem', { lineHeight: '1.4' }],      // 24px
 				'3xl': ['1.875rem', { lineHeight: '1.3' }],    // 30px
@@ -137,53 +133,62 @@ export default {
 				'9xl': ['8rem', { lineHeight: '1' }],          // 128px
 			},
 			fontFamily: {
-				sans: ['Inter', 'system-ui', 'sans-serif'],
+				sans: ['Inter var', 'system-ui', 'sans-serif'],
 				serif: ['Playfair Display', 'serif'],
-				display: ['Recursive', 'system-ui', 'sans-serif'],
+				display: ['Clash Display', 'system-ui', 'sans-serif'],
 			},
 			typography: {
 				DEFAULT: {
 					css: {
 						maxWidth: '65ch',
 						color: 'hsl(var(--foreground))',
-						lineHeight: '1.5',
+						lineHeight: '1.6',
 						a: {
 							color: 'hsl(var(--primary))',
 							'&:hover': {
-								color: 'hsl(var(--primary))/80',
+								color: 'hsl(var(--primary-light))',
 							},
 						},
 						h1: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
 							lineHeight: '1.2',
+							fontWeight: '600',
+							letterSpacing: '-0.02em',
 						},
 						h2: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
 							lineHeight: '1.3',
+							fontWeight: '600',
+							letterSpacing: '-0.02em',
 						},
 						h3: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
 							lineHeight: '1.4',
+							fontWeight: '600',
+							letterSpacing: '-0.01em',
 						},
 						h4: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
 							lineHeight: '1.4',
+							fontWeight: '600',
 						},
 						p: {
-							lineHeight: '1.5',
+							lineHeight: '1.6',
+							marginBottom: '1.5em',
 						},
 						code: {
 							color: 'hsl(var(--foreground))',
-							backgroundColor: 'hsl(var(--muted))',
+							backgroundColor: 'hsl(var(--muted-light))',
 							borderRadius: '0.25rem',
 							paddingLeft: '0.25rem',
 							paddingRight: '0.25rem',
 							paddingTop: '0.125rem',
 							paddingBottom: '0.125rem',
+							fontSize: '0.875em',
 						},
 						'pre code': {
 							backgroundColor: 'transparent',
@@ -197,15 +202,23 @@ export default {
 							lineHeight: 'inherit',
 						},
 						pre: {
-							backgroundColor: 'hsl(var(--muted))',
+							backgroundColor: 'hsl(var(--muted-light))',
 							borderRadius: 'var(--radius)',
-							padding: '1rem',
+							padding: '1.25rem',
 							borderWidth: '1px',
 							borderColor: 'hsl(var(--border))',
+							marginTop: '1.5em',
+							marginBottom: '1.5em',
 						},
 						blockquote: {
 							color: 'hsl(var(--foreground))',
 							borderLeftColor: 'hsl(var(--primary))/30',
+							paddingLeft: '1.5rem',
+							marginLeft: '0',
+							marginRight: '0',
+							marginTop: '1.5em',
+							marginBottom: '1.5em',
+							fontStyle: 'italic',
 						},
 					}
 				}
