@@ -18,7 +18,7 @@ export default function SnakeGame({ onClose }: SnakeGameProps) {
   const [direction, setDirection] = useState<'UP' | 'DOWN' | 'LEFT' | 'RIGHT'>('RIGHT');
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
-  const gameLoopRef = useRef<number>();
+  const gameLoopRef = useRef<number | undefined>(undefined);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const GRID_SIZE = 20;
