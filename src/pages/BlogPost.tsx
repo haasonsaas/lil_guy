@@ -11,6 +11,7 @@ import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAl
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
+import { Subscribe } from '@/components/Subscribe';
 
 const optimizeImage = (url: string) => {
   if (!url) {
@@ -174,6 +175,24 @@ export default function BlogPost() {
                 className="prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-slate-800 prose-pre:rounded-lg prose-pre:shadow-sm prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md prose-img:shadow-sm"
               />
             </div>
+
+            <div className="mt-16">
+              <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm">
+                <div className="flex flex-col items-center text-center">
+                  <h3 className="text-xl md:text-2xl font-bold mb-2">
+                    Get the Weekly Playbook
+                  </h3>
+                  <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
+                    One tactical post per week on scaling SaaS with AI — zero fluff,
+                    all signal
+                  </p>
+                  <Subscribe />
+                  <p className="text-xs md:text-sm text-muted-foreground mt-4">
+                    Join SaaS builders and founders building the future
+                  </p>
+                </div>
+              </div>
+            </div>
             
             <div className="border-t border-border mt-16 pt-8">
               <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
@@ -202,10 +221,6 @@ export default function BlogPost() {
                     Read more articles
                   </Button>
                 </Link>
-              </div>
-
-              <div className="mt-16">
-                <WeeklyPlaybook />
               </div>
             </div>
           </div>
