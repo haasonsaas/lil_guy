@@ -73,32 +73,9 @@ Without solving these problems systematically, we're setting ourselves up for se
 
 Before diving into the components, let's visualize the flow. An Agent interacts with the rest of the world *only* through its local Envoy sidecar. The sidecar acts as a policy enforcement point (PEP) and interacts with control plane services (Auth0, OPA, Vault) to make decisions before proxying the request to an upstream Skill or Service.
 
-```mermaid
-graph TD
-    A[Agent Application] --> B(Envoy Sidecar)
-    B --> |Authenticate (JWT)| C(Auth0)
-    B --> |Authorize (OPA Query)| D(OPA Policy Engine)
-    B --> |Fetch Secrets (Vault Agent)| E(Vault)
-    B --> |Proxy Request| F[Skill / Service]
+![High-level architecture: control plane and data plane with Auth0, OPA, Vault, Envoy, and Agent Application](/images/agent-architecture-diagram.png)
 
-    C -- Verify JWT --> B
-    D -- Allow/Deny Decision --> B
-    E -- Inject Secrets --> A
-
-    subgraph Control Plane
-        C
-        D
-        E
-    end
-
-    subgraph Data Plane
-        A
-        B
-        F
-    end
-```
-
-*Figure 1: High-level architecture illustrating the request flow and interactions.*
+*Figure 1: High-level architecture illustrating the request flow and interactions. (See image for details.)*
 
 This sidecar pattern provides a clean separation of concerns: the agent focuses on its core logic, and the sidecar handles the cross-cutting infrastructure concerns of identity, policy, secrets, and observability.
 
