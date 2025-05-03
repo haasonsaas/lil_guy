@@ -169,11 +169,11 @@ export default function BlogPost() {
                     <TooltipTrigger asChild>
                       <div className="flex items-center gap-2">
                         <Clock size={16} />
-                        <span>{calculateReadingTime(content)} min read</span>
+                        <span>{calculateReadingTime(content).minutes} min read</span>
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Based on {content.trim().split(/\s+/).length} words at 200 words per minute</p>
+                      <p>Based on {calculateReadingTime(content).wordCount} words at 200 words per minute</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
