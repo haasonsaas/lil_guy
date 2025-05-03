@@ -1,6 +1,7 @@
 name = "haas-blog"
 main = "functions/subscribe.ts"
 compatibility_date = "2024-05-01"
+pages_build_output_dir = "dist"
 
 [vars]
 RESEND_API_KEY = "re_HYUMn1X1_C8wWsshiX8LepG2bQk2ZqobN"
