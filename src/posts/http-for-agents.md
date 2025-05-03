@@ -2659,4 +2659,3 @@ This "HTTP for Agents" provides:
 Building this layer unlocks the true potential of autonomous agents, allowing teams to deploy them safely, scalably, and with confidence. It's time to give agents the solid, enterprise-grade infrastructure they deserve.
 
 Start experimenting with these components today. Share your experiences and challenges. Let's collaborate to define and build the future of agent infrastructure.
-```
