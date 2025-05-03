@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getAllPosts, formatDate } from '@/utils/blogUtils';
+import { getAllPosts, formatDate, calculateReadingTime } from '@/utils/blogUtils';
 import { Card } from './ui/card';
 import { Badge } from './ui/badge';
 import { Link } from 'react-router-dom';
@@ -11,15 +11,6 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-
-const calculateReadTime = (content: string): { minutes: number; wordCount: number } => {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  return {
-    minutes: Math.ceil(words / wordsPerMinute),
-    wordCount: words
-  };
-};
 
 export default function PostsList() {
   const [posts, setPosts] = useState([]);
@@ -81,10 +72,10 @@ export default function PostsList() {
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger asChild>
-                            <span>{calculateReadTime(post.content).minutes} min read</span>
+                            <span>{calculateReadingTime(post.content).minutes} min read</span>
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Based on {calculateReadTime(post.content).wordCount} words at 200 words per minute</p>
+                            <p>Based on {calculateReadingTime(post.content).wordCount} words at 200 words per minute</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>

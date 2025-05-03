@@ -15,9 +15,9 @@ export { formatDate } from './blog/dateUtils';
 /**
  * Calculate reading time in minutes based on word count
  * @param content The content to calculate reading time for
- * @returns The estimated reading time in minutes
+ * @returns An object containing the estimated reading time in minutes and the word count
  */
-export const calculateReadingTime = (content: string): number => {
+export const calculateReadingTime = (content: string): { minutes: number; wordCount: number } => {
   // Average reading speed in words per minute
   const WORDS_PER_MINUTE = 200;
   
@@ -28,5 +28,8 @@ export const calculateReadingTime = (content: string): number => {
     .trim();
   
   const wordCount = text.split(' ').length;
-  return Math.ceil(wordCount / WORDS_PER_MINUTE);
+  return {
+    minutes: Math.ceil(wordCount / WORDS_PER_MINUTE),
+    wordCount
+  };
 };

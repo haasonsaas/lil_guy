@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
-import { formatDate } from '@/utils/blogUtils';
+import { formatDate, calculateReadingTime } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
 import { Tag, Clock, User, ArrowRight } from 'lucide-react';
 import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
@@ -35,15 +35,6 @@ const truncateText = (text: string, maxLength: number): string => {
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 };
 
-const calculateReadTime = (content: string): { minutes: number; wordCount: number } => {
-  const wordsPerMinute = 200;
-  const words = content.trim().split(/\s+/).length;
-  return {
-    minutes: Math.ceil(words / wordsPerMinute),
-    wordCount: words
-  };
-};
-
 export default function BlogCard({ post, featured = false, hideAuthor = false }: BlogCardProps) {
   const { slug, frontmatter, content } = post;
   const [imageError, setImageError] = useState(false);
@@ -62,7 +53,8 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
     truncateText(frontmatter.description, 140) : 
     truncateText(frontmatter.description, 100);
 
-  const readTime = calculateReadTime(content);
+  const wordCount = content.trim().split(/\s+/).length;
+  const readTime = calculateReadingTime(content);
   
   if (featured) {
     return (
@@ -125,7 +117,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
-                      <p>Based on {readTime.wordCount} words at 200 words per minute</p>
+                      <p>Based on {wordCount} words at 200 words per minute</p>
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
@@ -206,7 +198,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
                     </div>
                   </TooltipTrigger>
                   <TooltipContent>
-                    <p>Based on {readTime.wordCount} words at 200 words per minute</p>
+                    <p>Based on {wordCount} words at 200 words per minute</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>

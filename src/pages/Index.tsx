@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import BlogCard from "@/components/BlogCard";
 import GroupedTags from "@/components/GroupedTags";
 import { Button } from "@/components/ui/button";
-import { getAllPosts, getFeaturedPosts, getAllTags } from "@/utils/blogUtils";
+import { getAllPosts, getFeaturedPosts, getAllTags, formatDate, calculateReadingTime } from "@/utils/blogUtils";
 import { ArrowRight, Sparkles, Brain, Code2, Rocket, Hammer, Scale, Settings } from "lucide-react";
 import { motion } from "framer-motion";
 import { BlogPost } from "@/types/blog";
@@ -64,27 +64,6 @@ export default function Index() {
     };
     loadData();
   }, []);
-
-  // Calculate reading time safely
-  const getReadingTime = (content: string | undefined) => {
-    if (!content) return 0;
-    return Math.ceil(content.split(" ").length / 200);
-  };
-
-  // Format date safely
-  const formatDate = (dateString: string | undefined) => {
-    if (!dateString) return "";
-    try {
-      return new Date(dateString).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      });
-    } catch (error) {
-      console.error("Error formatting date:", error);
-      return "";
-    }
-  };
 
   return (
     <Layout>
@@ -198,11 +177,11 @@ export default function Index() {
                         <Tooltip>
                           <TooltipTrigger asChild>
                             <span>
-                              {getReadingTime(featuredPost.content)} min read
+                              {calculateReadingTime(featuredPost.content).minutes} min read
                             </span>
                           </TooltipTrigger>
                           <TooltipContent>
-                            <p>Based on {featuredPost.content.split(" ").length} words at 200 words per minute</p>
+                            <p>Based on {calculateReadingTime(featuredPost.content).wordCount} words at 200 words per minute</p>
                           </TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
