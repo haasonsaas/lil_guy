@@ -36,11 +36,6 @@ export default function Index() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Set page title
-    document.title = 'Haas on SaaS';
-  }, []);
-
-  useEffect(() => {
     const loadData = async () => {
       try {
         setIsLoading(true);

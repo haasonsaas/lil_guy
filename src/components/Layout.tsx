@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -7,6 +8,26 @@ interface LayoutProps {
 }
 
 export default function Layout({ children }: LayoutProps) {
+  const location = useLocation();
+
+  useEffect(() => {
+    const path = location.pathname;
+    let title = 'Haas on SaaS';
+
+    if (path.startsWith('/blog/')) {
+      // Blog post title is handled by the BlogPost component
+      return;
+    } else if (path === '/blog') {
+      title = 'Blog - Haas on SaaS';
+    } else if (path === '/tags') {
+      title = 'Topics - Haas on SaaS';
+    } else if (path === '/about') {
+      title = 'About - Haas on SaaS';
+    }
+
+    document.title = title;
+  }, [location.pathname]);
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <Header />
