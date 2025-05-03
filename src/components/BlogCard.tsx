@@ -7,6 +7,12 @@ import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -29,10 +35,13 @@ const truncateText = (text: string, maxLength: number): string => {
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 };
 
-const calculateReadTime = (content: string): number => {
+const calculateReadTime = (content: string): { minutes: number; wordCount: number } => {
   const wordsPerMinute = 200;
   const words = content.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
+  return {
+    minutes: Math.ceil(words / wordsPerMinute),
+    wordCount: words
+  };
 };
 
 export default function BlogCard({ post, featured = false, hideAuthor = false }: BlogCardProps) {
@@ -107,10 +116,19 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
                     <span>{frontmatter.author}</span>
                   </div>
                 )}
-                <div className="flex items-center gap-1.5">
-                  <Clock size={14} />
-                  <span>{readTime} min read</span>
-                </div>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="flex items-center gap-1.5">
+                        <Clock size={14} />
+                        <span>{readTime.minutes} min read</span>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Based on {readTime.wordCount} words at 200 words per minute</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <span>{formatDate(frontmatter.pubDate)}</span>
               </div>
             </div>
@@ -179,10 +197,19 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
                 </div>
               )}
               <span>•</span>
-              <div className="flex items-center gap-1.5">
-                <Clock size={12} />
-                <span>{readTime} min read</span>
-              </div>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="flex items-center gap-1.5">
+                      <Clock size={12} />
+                      <span>{readTime.minutes} min read</span>
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Based on {readTime.wordCount} words at 200 words per minute</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
               <span>•</span>
               <span>{formatDate(frontmatter.pubDate)}</span>
             </div>

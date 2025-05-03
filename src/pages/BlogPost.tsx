@@ -12,6 +12,12 @@ import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/uti
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const optimizeImage = (url: string) => {
   if (!url) {
@@ -158,10 +164,19 @@ export default function BlogPost() {
                   <Calendar size={16} />
                   <span>{formatDate(frontmatter.pubDate)}</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <Clock size={16} />
-                  <span>{calculateReadingTime(content)} min read</span>
-                </div>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="flex items-center gap-2">
+                        <Clock size={16} />
+                        <span>{calculateReadingTime(content)} min read</span>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Based on {content.trim().split(/\s+/).length} words at 200 words per minute</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </div>
 
               <div className="mb-6">

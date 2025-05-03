@@ -10,6 +10,12 @@ import { motion } from "framer-motion";
 import { BlogPost } from "@/types/blog";
 import { Subscribe } from '../components/Subscribe';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const tagGroups = [
   {
@@ -188,9 +194,18 @@ export default function Index() {
                       {featuredPost.frontmatter.description}
                     </p>
                     <div className="flex items-center gap-4 text-sm text-muted-foreground">
-                      <span>
-                        {getReadingTime(featuredPost.content)} min read
-                      </span>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span>
+                              {getReadingTime(featuredPost.content)} min read
+                            </span>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Based on {featuredPost.content.split(" ").length} words at 200 words per minute</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                       <span>•</span>
                       <div className="flex flex-wrap gap-2">
                         {featuredPost.frontmatter.tags.map((tag, index) => (

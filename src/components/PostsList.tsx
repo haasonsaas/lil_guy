@@ -5,11 +5,20 @@ import { Badge } from './ui/badge';
 import { Link } from 'react-router-dom';
 import { FileText, Tag, Clock, User } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-const calculateReadTime = (content: string): number => {
+const calculateReadTime = (content: string): { minutes: number; wordCount: number } => {
   const wordsPerMinute = 200;
   const words = content.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
+  return {
+    minutes: Math.ceil(words / wordsPerMinute),
+    wordCount: words
+  };
 };
 
 export default function PostsList() {
@@ -69,7 +78,16 @@ export default function PostsList() {
                     </div>
                     <div className="flex items-center gap-1.5">
                       <Clock size={12} />
-                      <span>{calculateReadTime(post.content)} min read</span>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger asChild>
+                            <span>{calculateReadTime(post.content).minutes} min read</span>
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Based on {calculateReadTime(post.content).wordCount} words at 200 words per minute</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
                     </div>
                     <span>{formatDate(post.frontmatter.pubDate)}</span>
                   </div>
