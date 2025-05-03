@@ -1,6 +1,6 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-05-03 # <-- Fixed date from future to past
+pubDate: 2025-05-03
 title: "Building the HTTP for Agents: A Complete Guide to Agent Infrastructure"
 description: "As AI agents grow from niche experiments to core infrastructure, we need a new control plane—identity, policy, and secrets—standardized and scalable. Here's how to build the HTTP layer for autonomous agents, from Envoy sidecars to Vault-backed secrets and a Python SDK."
 featured: false
