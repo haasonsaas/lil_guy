@@ -21,10 +21,12 @@ export const calculateReadingTime = (content: string): { minutes: number; wordCo
   // Average reading speed in words per minute
   const WORDS_PER_MINUTE = 200;
   
-  // Remove markdown syntax and count words
+  // Remove code blocks and markdown syntax, then count words
   const text = content
-    .replace(/[#*`~>]/g, '') // Remove markdown syntax
-    .replace(/\s+/g, ' ')    // Normalize whitespace
+    .replace(/```[\s\S]*?```/g, '') // Remove code blocks with triple backticks
+    .replace(/^\s{4}.*$/gm, '')     // Remove indented code blocks
+    .replace(/[#*`~>]/g, '')        // Remove markdown syntax
+    .replace(/\s+/g, ' ')           // Normalize whitespace
     .trim();
   
   const wordCount = text.split(' ').length;
