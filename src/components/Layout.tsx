@@ -23,6 +23,12 @@ export default function Layout({ children }: LayoutProps) {
       title = 'Topics - Haas on SaaS';
     } else if (path === '/about') {
       title = 'About - Haas on SaaS';
+    } else if (path === '/uses') {
+      title = 'Uses - Haas on SaaS';
+    } else if (path === '/reading') {
+      title = 'Reading List - Haas on SaaS';
+    } else if (path === '/') {
+      title = 'Where Technical Vision Meets Market Reality | Haas on SaaS';
     }
 
     document.title = title;

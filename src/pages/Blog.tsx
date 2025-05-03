@@ -31,8 +31,8 @@ export default function Blog() {
   useEffect(() => {
     const updateMeta = async () => {
       const title = currentPost 
-        ? `${currentPost.frontmatter.title} - Haas on SaaS`
-        : 'Blog - Haas on SaaS';
+        ? `${currentPost.frontmatter.title} | Haas on SaaS`
+        : 'Blog | Haas on SaaS';
       
       // Set page title
       document.title = title;
