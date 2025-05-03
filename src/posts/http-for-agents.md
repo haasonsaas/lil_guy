@@ -17,8 +17,6 @@ image:
   alt: "Abstract network of connected dots representing digital agents and protocols"
 ---
 
-# Building the HTTP for Agents: A Complete Guide to Agent Infrastructure
-
 Most teams aren't ready for what's coming.
 
 Autonomous agents aren't just prototypes anymore. They're parsing docs, calling APIs, triaging support tickets—and doing it all while running 24/7 in prod. But while the AI layer is getting smarter, the plumbing around it is falling behind.
