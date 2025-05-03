@@ -23,7 +23,7 @@ export default function Header() {
               About Jonathan
             </Link>
             <Link to="/uses" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Uses
+              Things I Use
             </Link>
             <ThemeToggle />
           </nav>

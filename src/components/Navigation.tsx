@@ -11,7 +11,7 @@ const Navigation = () => {
   ];
   
   const secondaryItems = [
-    { name: 'Uses', href: '/uses' },
+    { name: 'Things I Use', href: '/uses' },
     { name: 'Reading', href: '/reading' },
     { name: 'FAQ', href: '/faq' },
   ];
