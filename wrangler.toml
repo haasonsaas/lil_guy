@@ -1,5 +1,4 @@
 name = "haas-blog"
-main = "functions/subscribe.ts"
 compatibility_date = "2024-05-01"
 pages_build_output_dir = "dist"
 
