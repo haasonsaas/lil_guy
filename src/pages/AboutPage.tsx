@@ -24,7 +24,7 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Operator. Former founder. Code, Cloud, and Security Product lead at Vanta.
+                Operator. Former founder. Cloud, Code, and Security Product lead at Vanta.
               </p>
               
               <div className="prose-custom mb-6">
