@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin, ExternalLink, Gamepad2 } from 'lucide-react';
+import { Github, Twitter, Linkedin, ExternalLink, Gamepad2, HelpCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import SnakeGame from './SnakeGame';
@@ -15,6 +15,13 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-4">
+            <Link 
+              to="/faq"
+              className="text-muted-foreground hover:text-foreground transition-colors"
+              title="FAQ"
+            >
+              <HelpCircle className="w-4 h-4" />
+            </Link>
             <button
               onClick={() => setShowSnakeGame(true)}
               className="text-muted-foreground hover:text-foreground transition-colors"
