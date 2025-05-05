@@ -147,6 +147,12 @@ export async function generateBlogImages(configs: BlogImageConfig[]): Promise<vo
     const fileName = `${config.width}x${config.height}-${cleanText}.png`;
     const filePath = path.join(generatedDir, fileName);
     
+    // Skip if image already exists
+    if (fs.existsSync(filePath)) {
+      console.log(`Image already exists, skipping: ${fileName}`);
+      continue;
+    }
+    
     try {
       // Generate SVG
       const svg = generateBlogSVG(config);
