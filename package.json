@@ -52,7 +52,7 @@
     "framer-motion": "^12.7.4",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
-    "input-otp": "^1.2.4",
+    "input-otp": "^1.4.2",
     "lucide-react": "^0.462.0",
     "marked": "^5.1.2",
     "marked-highlight": "^2.2.1",
