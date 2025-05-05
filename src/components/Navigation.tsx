@@ -7,7 +7,7 @@ const Navigation = () => {
   const primaryItems = [
     { name: 'Home', href: '/' },
     { name: 'Insights', href: '/blog' },
-    { name: 'About Jonathan', href: '/about' },
+    { name: 'About Me', href: '/about' },
   ];
   
   const secondaryItems = [
