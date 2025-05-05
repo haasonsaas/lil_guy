@@ -4,6 +4,7 @@ pages_build_output_dir = "dist"
 
 [vars]
 RESEND_API_KEY = "re_HYUMn1X1_C8wWsshiX8LepG2bQk2ZqobN"
+NODE_VERSION = "22.15.0"
 
 [[kv_namespaces]]
 binding = "SUBSCRIBERS"
