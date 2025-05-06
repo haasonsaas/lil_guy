@@ -83,7 +83,7 @@ export default function Index() {
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                After a decade building enterprise software, I saw a pattern: great products falter without great go-to-market. Haas on SaaS is my playbook of hard lessons and emerging trends – from AI's impact on vertical SaaS to the difference between polite interest and true adoption.
+                After a decade of building and working in enterprise software, I saw a pattern: great products falter without great go-to-market. Haas on SaaS is my playbook of hard lessons and emerging trends – from AI's impact on vertical SaaS to the difference between polite interest and true adoption.
               </p>
 
               <div className="flex items-center justify-center gap-4 mb-8">
