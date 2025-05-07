@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4 font-serif">Haas on SaaS</h3>
             <p className="text-muted-foreground">
-              Exploring technology, AI, and the future of software development.
+              Writing brutally honest essays on building and shipping B2B products.
             </p>
           </div>
           

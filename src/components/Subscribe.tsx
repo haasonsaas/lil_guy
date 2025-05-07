@@ -51,7 +51,7 @@ export function Subscribe({ className }: SubscribeProps) {
         required
       />
       <Button type="submit" disabled={isLoading} className="whitespace-nowrap">
-        {isLoading ? 'Subscribing...' : 'Subscribe'}
+        {isLoading ? 'Subscribing...' : 'Get the Playbook →'}
       </Button>
     </form>
   );
