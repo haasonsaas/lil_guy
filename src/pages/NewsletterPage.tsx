@@ -202,7 +202,7 @@ const NewsletterPage = () => {
                     <div>
                       <h3 className="font-semibold">Learn from Real Experience</h3>
                       <p className="text-sm text-muted-foreground">
-                        Benefit from lessons learned building and scaling products at companies like Vanta, Snap, and DoorDash.
+                        Benefit from lessons learned building and scaling products at companies like Vanta, Snap, and Carta.
                       </p>
                     </div>
                   </div>
