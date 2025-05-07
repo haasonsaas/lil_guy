@@ -27,44 +27,19 @@ const NewsletterPage = () => {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
-            Join My Newsletter
+            Join 4,700+ PMs & security engineers who get one tactical "ship-it" playbook in their inbox every Monday.
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get insights on product management, B2B SaaS, and building successful products delivered straight to your inbox.
+            No fluff. Just the frameworks, templates, and war stories that turn B2B roadmaps into products customers pay for.
+          </p>
+          <p className="text-sm text-muted-foreground mt-2">
+            Trusted by 4,700 product and security pros on LinkedIn—now in your inbox.
           </p>
         </div>
 
         {/* Main Content */}
         <div className="grid gap-8 md:grid-cols-2">
-          {/* Left Column - Newsletter Signup */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Subscribe to the Newsletter</CardTitle>
-              <CardDescription>
-                Join product managers and founders getting actionable insights every month.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email address</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    placeholder="you@example.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                </div>
-                <Button type="submit" className="w-full">
-                  Subscribe
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-
-          {/* Right Column - What to Expect */}
+          {/* Left Column - Benefits & Sample */}
           <div className="space-y-6">
             <Card>
               <CardHeader>
@@ -90,9 +65,9 @@ const NewsletterPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold">Monthly Insights</h3>
+                    <h3 className="font-semibold">Bi-weekly Playbooks</h3>
                     <p className="text-muted-foreground">
-                      Deep dives into product strategy, team management, and B2B SaaS growth.
+                      5-min tactical guides you can use today.
                     </p>
                   </div>
                 </div>
@@ -115,9 +90,9 @@ const NewsletterPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold">Case Studies</h3>
+                    <h3 className="font-semibold">Real-World Breakdowns</h3>
                     <p className="text-muted-foreground">
-                      Real-world examples and lessons learned from building successful products.
+                      Teardown of actual product wins & flops.
                     </p>
                   </div>
                 </div>
@@ -140,9 +115,9 @@ const NewsletterPage = () => {
                     </svg>
                   </div>
                   <div>
-                    <h3 className="font-semibold">Exclusive Resources</h3>
+                    <h3 className="font-semibold">Copy-Paste Templates</h3>
                     <p className="text-muted-foreground">
-                      Templates, frameworks, and tools to help you build better products.
+                      PM scorecards, roadmap decks, KPI sheets.
                     </p>
                   </div>
                 </div>
@@ -174,9 +149,9 @@ const NewsletterPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold">Save Time & Stay Current</h3>
+                      <h3 className="font-semibold">Skip the Noise</h3>
                       <p className="text-sm text-muted-foreground">
-                        Get curated insights and actionable strategies delivered to your inbox, saving you hours of research.
+                        I distill 20+ articles & threads into one actionable brief.
                       </p>
                     </div>
                   </div>
@@ -200,9 +175,9 @@ const NewsletterPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold">Learn from Real Experience</h3>
+                      <h3 className="font-semibold">Built at Scale</h3>
                       <p className="text-sm text-muted-foreground">
-                        Benefit from lessons learned building and scaling products at companies like Vanta, Snap, and Carta.
+                        Lessons from Vanta, Snap, Carta that shipped to millions.
                       </p>
                     </div>
                   </div>
@@ -226,9 +201,35 @@ const NewsletterPage = () => {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="font-semibold">Join a Community</h3>
+                      <h3 className="font-semibold">Private Slack</h3>
                       <p className="text-sm text-muted-foreground">
-                        Connect with fellow product leaders who are passionate about building the future of enterprise software.
+                        Early subscribers get first invites to our private community.
+                      </p>
+                    </div>
+                  </div>
+                  <Separator />
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-2 rounded-full">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="text-primary"
+                      >
+                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                        <path d="M12 8v4l3 3" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold">Early Access</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Subscribers see drafts of my deep-dive articles before LinkedIn does.
                       </p>
                     </div>
                   </div>
@@ -236,6 +237,37 @@ const NewsletterPage = () => {
               </CardContent>
             </Card>
           </div>
+
+          {/* Right Column - Newsletter Signup */}
+          <Card className="shadow-lg">
+            <CardHeader>
+              <CardTitle>Grab the Playbook + Free GTM Reality-Check Template</CardTitle>
+              <CardDescription>
+                Join product managers and founders getting actionable insights every other Monday.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email address</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="you@company.com"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <Button type="submit" className="w-full">
+                  Send It →
+                </Button>
+                <p className="text-xs text-center text-muted-foreground">
+                  No spam. Unsubscribe in two clicks.
+                </p>
+              </form>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </Layout>
