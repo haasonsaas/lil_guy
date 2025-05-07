@@ -177,7 +177,7 @@ const NewsletterPage = () => {
                     <div>
                       <h3 className="font-semibold">Built at Scale</h3>
                       <p className="text-sm text-muted-foreground">
-                        Lessons from Vanta, Snap, and Carta that shipped to millions.
+                        Lessons from ThreatKey, DoorDash, Snap, and Carta that shipped to millions.
                       </p>
                     </div>
                   </div>
