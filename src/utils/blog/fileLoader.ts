@@ -1,16 +1,36 @@
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
 
+interface RawFrontmatter {
+  postSlug?: string;
+  author?: string;
+  pubDate?: string;
+  title?: string;
+  description?: string;
+  featured?: boolean;
+  draft?: boolean;
+  tags?: string[] | string;
+  image?: {
+    url?: string;
+    alt?: string;
+  };
+}
+
 /**
  * Load blog posts from markdown files in the /src/posts directory
  */
 export const readFilePosts = (): BlogPost[] => {
   const posts: BlogPost[] = [];
   const seenSlugs = new Set<string>();
+  let totalFiles = 0;
+  let skippedFiles = 0;
   
   try {
     // Use import.meta.glob to get all markdown files
-    const markdownFiles: Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }> = 
-      import.meta.glob('../../posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: Record<string, unknown>, content: string } }>;
+    const markdownFiles: Record<string, { default: { frontmatter: RawFrontmatter, content: string } }> = 
+      import.meta.glob('../../posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: RawFrontmatter, content: string } }>;
+    
+    totalFiles = Object.keys(markdownFiles).length;
+    console.log(`Found ${totalFiles} markdown files`);
     
     Object.entries(markdownFiles).forEach(([filePath, moduleContent]) => {
       try {
@@ -30,13 +50,14 @@ export const readFilePosts = (): BlogPost[] => {
         // Skip if we've already seen this slug
         if (seenSlugs.has(fileSlug)) {
           console.warn(`Skipping duplicate slug: ${fileSlug}`);
+          skippedFiles++;
           return;
         }
         seenSlugs.add(fileSlug);
         
         // Set default values for any missing frontmatter fields
-        const defaultFrontmatter: Partial<BlogPostFrontmatter> = {
-          author: "Unknown",
+        const defaultFrontmatter: BlogPostFrontmatter = {
+          author: "Jonathan Haas",
           pubDate: new Date().toISOString().split('T')[0],
           title: fileSlug.replace(/-/g, ' '),
           description: "No description provided",
@@ -50,9 +71,9 @@ export const readFilePosts = (): BlogPost[] => {
         };
         
         // Process tags to ensure they're in array format
-        let tags = frontmatter.tags || [];
-        if (typeof tags === 'string') {
-          tags = tags.split(',').map(tag => tag.trim());
+        let tags: string[] = Array.isArray(frontmatter.tags) ? frontmatter.tags : [];
+        if (typeof frontmatter.tags === 'string') {
+          tags = frontmatter.tags.split(',').map(tag => tag.trim());
         }
         
         // Process image to ensure it has the correct format
@@ -89,33 +110,39 @@ export const readFilePosts = (): BlogPost[] => {
           image.alt = defaultFrontmatter.image!.alt;
         }
         
-        // Merge the parsed frontmatter with default values
-        const postFrontmatter = {
+        // Merge frontmatter with defaults, ensuring all required properties are present
+        const processedFrontmatter: BlogPostFrontmatter = {
           ...defaultFrontmatter,
-          ...frontmatter,
-          tags: tags,
+          author: frontmatter.author || defaultFrontmatter.author,
+          pubDate: frontmatter.pubDate || defaultFrontmatter.pubDate,
+          title: frontmatter.title || defaultFrontmatter.title,
+          description: frontmatter.description || defaultFrontmatter.description,
+          featured: frontmatter.featured ?? defaultFrontmatter.featured,
+          tags,
+          draft: frontmatter.draft === true,
           image: {
-            url: image.url,
-            alt: image.alt
+            url: frontmatter.image?.url || defaultFrontmatter.image.url,
+            alt: frontmatter.image?.alt || defaultFrontmatter.image.alt
           }
-        } as BlogPostFrontmatter;
-        
-        // Create the BlogPost object
-        const post: BlogPost = {
-          slug: fileSlug,
-          frontmatter: postFrontmatter,
-          content: content || ''
         };
         
-        // Add to posts array
-        posts.push(post);
-      } catch (err) {
-        console.error(`Error processing markdown file ${filePath}:`, err);
+        posts.push({
+          slug: fileSlug,
+          frontmatter: processedFrontmatter,
+          content: content || ''
+        });
+        
+      } catch (error) {
+        console.error(`Error processing file ${filePath}:`, error);
+        skippedFiles++;
       }
     });
-  } catch (err) {
-    console.error("Error loading markdown files:", err);
+    
+    console.log(`Successfully loaded ${posts.length} posts (${skippedFiles} skipped)`);
+    return posts;
+    
+  } catch (error) {
+    console.error('Error loading markdown files:', error);
+    return [];
   }
-  
-  return posts;
 };

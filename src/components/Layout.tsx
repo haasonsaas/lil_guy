@@ -27,6 +27,8 @@ export default function Layout({ children }: LayoutProps) {
       title = 'Uses - Haas on SaaS';
     } else if (path === '/reading') {
       title = 'Reading List - Haas on SaaS';
+    } else if (path === '/newsletter') {
+      title = 'Newsletter - Haas on SaaS';
     } else if (path === '/') {
       title = 'Where Technical Vision Meets Market Reality | Haas on SaaS';
     }

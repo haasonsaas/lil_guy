@@ -1,8 +1,13 @@
 import { useState } from 'react';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
+import { cn } from '@/lib/utils';
 
-export function Subscribe() {
+interface SubscribeProps {
+  className?: string;
+}
+
+export function Subscribe({ className }: SubscribeProps) {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -36,7 +41,7 @@ export function Subscribe() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col sm:flex-row gap-2">
+    <form onSubmit={handleSubmit} className={cn("w-full max-w-md flex flex-col sm:flex-row gap-2", className)}>
       <input
         type="email"
         value={email}

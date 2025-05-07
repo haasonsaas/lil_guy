@@ -1,23 +1,47 @@
 import { Link } from 'react-router-dom';
-import { Linkedin } from 'lucide-react';
+import { Linkedin, Twitter } from 'lucide-react';
+import { Subscribe } from './Subscribe';
 
 export default function AuthorBio() {
   return (
-    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 p-6 rounded-lg border bg-card">
       <img 
         src="/images/author.jpg" 
         alt="Jonathan Haas" 
-        className="w-6 h-6 rounded-full object-cover"
+        className="w-16 h-16 rounded-full object-cover border-2 border-primary/20"
       />
-      <span>Product Manager @ Vanta | ex-Snap, DoorDash, Carta</span>
-      <a 
-        href="https://www.linkedin.com/in/haasonsaas" 
-        target="_blank" 
-        rel="noopener noreferrer"
-        className="text-primary hover:text-primary/80"
-      >
-        <Linkedin size={14} />
-      </a>
+      <div className="flex-1 space-y-4">
+        <div>
+          <h3 className="text-lg font-semibold">Jonathan Haas</h3>
+          <p className="text-sm text-muted-foreground">
+            Product Manager @ Vanta | ex-Snap, DoorDash, Carta
+          </p>
+          <p className="text-sm text-muted-foreground mt-1">
+            Building the future of enterprise software through technical vision and market-driven execution.
+          </p>
+        </div>
+        <div className="flex items-center gap-4">
+          <a 
+            href="https://www.linkedin.com/in/haasonsaas" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Linkedin size={18} />
+          </a>
+          <a 
+            href="https://twitter.com/haasonsaas" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <Twitter size={18} />
+          </a>
+        </div>
+      </div>
+      <div className="w-full sm:w-auto">
+        <Subscribe className="w-full sm:w-auto" />
+      </div>
     </div>
   );
 } 

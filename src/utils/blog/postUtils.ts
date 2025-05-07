@@ -2,51 +2,47 @@ import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
 import { generateOgImageUrl } from '../ogImageUtils';
 
-// Cache for loaded posts
-let allPosts: BlogPost[] | null = null;
-
 /**
  * Get all blog posts (only from markdown files)
  */
 export const getAllPosts = async (): Promise<BlogPost[]> => {
-  if (!allPosts) {
-    const filePosts = readFilePosts();
+  const filePosts = readFilePosts();
+  
+  // Make sure each post has valid image information
+  for (const post of filePosts) {
+    const hasExplicitImage = post.frontmatter.image && 
+                           post.frontmatter.image.url && 
+                           !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
     
-    // Make sure each post has valid image information
-    for (const post of filePosts) {
-      const hasExplicitImage = post.frontmatter.image && 
-                               post.frontmatter.image.url && 
-                               !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
+    if (!hasExplicitImage) {
+      const cleanTitle = post.frontmatter.title || post.slug;
+      const imagePath = await getPostImage(cleanTitle);
       
-      if (!hasExplicitImage) {
-        const cleanTitle = post.frontmatter.title || post.slug;
-        const imagePath = await getPostImage(cleanTitle);
-        
-        post.frontmatter.image = {
-          url: imagePath,
-          alt: cleanTitle || 'Blog post image'
-        };
-      }
-    }
-    
-    // Sort posts by date in descending order (most recent first)
-    allPosts = filePosts.sort((a, b) => {
-      const dateA = new Date(a.frontmatter.pubDate);
-      const dateB = new Date(b.frontmatter.pubDate);
-      return dateB.getTime() - dateA.getTime();
-    });
-    
-    // Log unique slugs to check for duplicates
-    const slugs = new Set(allPosts.map(post => post.slug));
-    
-    if (slugs.size !== allPosts.length) {
-      console.warn('WARNING: Duplicate slugs detected!');
-      const duplicateSlugs = allPosts.map(post => post.slug)
-        .filter((slug, index, self) => self.indexOf(slug) !== index);
-      console.warn('Duplicate slugs:', duplicateSlugs);
+      post.frontmatter.image = {
+        url: imagePath,
+        alt: cleanTitle || 'Blog post image'
+      };
     }
   }
-  return allPosts;
+  
+  // Sort posts by date in descending order (most recent first)
+  const sortedPosts = filePosts.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.pubDate);
+    const dateB = new Date(b.frontmatter.pubDate);
+    return dateB.getTime() - dateA.getTime();
+  });
+  
+  // Log unique slugs to check for duplicates
+  const slugs = new Set(sortedPosts.map(post => post.slug));
+  
+  if (slugs.size !== sortedPosts.length) {
+    console.warn('WARNING: Duplicate slugs detected!');
+    const duplicateSlugs = sortedPosts.map(post => post.slug)
+      .filter((slug, index, self) => self.indexOf(slug) !== index);
+    console.warn('Duplicate slugs:', duplicateSlugs);
+  }
+
+  return sortedPosts;
 };
 
 /**
@@ -62,7 +58,7 @@ export const getPostBySlug = async (slug: string): Promise<BlogPost | undefined>
  */
 export const getFeaturedPosts = async (): Promise<BlogPost[]> => {
   const posts = await getAllPosts();
-  return posts.filter(post => post.frontmatter.featured);
+  return posts.slice(0, 3); // Just return the first 3 posts instead of filtering by featured
 };
 
 /**
