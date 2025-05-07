@@ -65,7 +65,7 @@ export default function Index() {
               </h2>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                Building the future of enterprise software through technical vision and market-driven execution.
+                I turn hairy B2B roadmaps into products users pay for—and write the playbook as I go.
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">

@@ -17,7 +17,7 @@ export default function AuthorBio() {
             Product Manager @ Vanta | ex-Snap, DoorDash, Carta
           </p>
           <p className="text-sm text-muted-foreground mt-1">
-            Building the future of enterprise software through technical vision and market-driven execution.
+            I turn hairy B2B roadmaps into products users pay for—and write the playbook as I go.
           </p>
         </div>
         <div className="flex items-center gap-4">
