@@ -177,33 +177,7 @@ const NewsletterPage = () => {
                     <div>
                       <h3 className="font-semibold">Built at Scale</h3>
                       <p className="text-sm text-muted-foreground">
-                        Lessons from Vanta, Snap, Carta that shipped to millions.
-                      </p>
-                    </div>
-                  </div>
-                  <Separator />
-                  <div className="flex items-start gap-4">
-                    <div className="bg-primary/10 p-2 rounded-full">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-primary"
-                      >
-                        <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
-                        <path d="M12 8v4l3 3" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="font-semibold">Private Slack</h3>
-                      <p className="text-sm text-muted-foreground">
-                        Early subscribers get first invites to our private community.
+                        Lessons from Vanta, Snap, and Carta that shipped to millions.
                       </p>
                     </div>
                   </div>
