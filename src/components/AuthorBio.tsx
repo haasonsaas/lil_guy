@@ -17,7 +17,7 @@ export default function AuthorBio() {
             Product Manager @ Vanta | ex-Snap, DoorDash, Carta
           </p>
           <p className="text-sm text-muted-foreground mt-1">
-            I turn hairy B2B roadmaps into products users pay for—and write the playbook as I go.
+            I turn complex B2B roadmaps into revenue-generating products and distill the process into repeatable frameworks.
           </p>
         </div>
         <div className="flex items-center gap-4">
