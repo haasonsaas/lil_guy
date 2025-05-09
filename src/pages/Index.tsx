@@ -60,9 +60,6 @@ export default function Index() {
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-display font-semibold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
                 Jonathan Haas
               </h1>
-              <h2 className="text-2xl sm:text-3xl font-display font-medium text-muted-foreground mb-6">
-                Product Manager & Technical Strategist
-              </h2>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
                 I turn hairy B2B roadmaps into products users pay for—and write the playbook as I go.
