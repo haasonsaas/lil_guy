@@ -62,7 +62,7 @@ export default function Index() {
               </h1>
 
               <p className="text-lg sm:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-                I turn hairy B2B roadmaps into products users pay for—and write the playbook as I go.
+                I turn complex B2B roadmaps into revenue-generating products and distill the process into repeatable frameworks.
               </p>
 
               <div className="flex flex-col sm:flex-row justify-center gap-4 mb-8">
