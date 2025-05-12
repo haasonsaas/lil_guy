@@ -17,8 +17,6 @@ image:
   alt: "Crumbling wall symbolizing fragile security foundations"
 ---
 
-# When Vibe Coding Goes Wrong: Security Lessons from Granola
-
 Vibe coding is having a moment.  
 And honestly? It's kind of awesome.
 
