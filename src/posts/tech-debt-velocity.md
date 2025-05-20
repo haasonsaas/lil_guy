@@ -1,22 +1,20 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-26
-title: 'The Velocity Trap: Why Moving Fast Makes You Slow'
+pubDate: 2024-04-11
+title: "Tech Debt Velocity: Measuring the True Cost of Shortcuts"
 postSlug: the-velocity-trap
 featured: true
 draft: false
 tags:
-  - systems-thinking
-  - maintainability
-  - technical-strategy
-  - engineering-management
-  - developer-experience
+  - engineering
+  - product
+  - strategy
+  - management
 image:
   url: 'https://images.pexels.com/photos/1314410/pexels-photo-1314410.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A hand holding up a lightbulb, showing streaks of light'
 description:
-  The hidden ways that prioritizing speed over maintainability actually slows
-  teams down
+  A framework for understanding and measuring the real impact of technical debt on engineering velocity and product development
 ---
 
 The most expensive software I've ever written was code I wrote "quickly." Not

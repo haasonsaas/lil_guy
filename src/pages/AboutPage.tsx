@@ -1,5 +1,5 @@
 import Layout from '@/components/Layout';
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 
 export default function AboutPage() {
   return (
@@ -31,31 +31,40 @@ export default function AboutPage() {
               </p>
               
               <div className="prose-custom mb-6">
-                <h3 className="text-xl font-semibold mb-3">About Me</h3>
                 <p className="mb-4">
                   I help businesses tackle security compliance challenges. I'm passionate about transforming what used to be painful months-long processes into streamlined operations through smart automation.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">My Journey</h3>
+                <h3 className="text-xl font-semibold mb-3">From Firefights to Frameworks</h3>
                 <p className="mb-4">
-                  I've been in the security trenches at companies like Snapchat, DoorDash, and Carta, where I saw firsthand how manual security processes drain teams of time and resources.
+                  I started my career deep in the mess—leading a variety of security efforts at high-growth teams like Snapchat, DoorDash, and Carta, where compliance felt like a tax on velocity. So I built something better.
+                </p>
+                <p className="mb-4">
+                  After founding ThreatKey (and subsequently joining Vanta), I now lead cloud and security products that help thousands of companies go from "we should do this" to fully certified—fast. My focus: eliminate busywork, automate complexity, and scale trust through better systems.
                 </p>
 
-                <h3 className="text-xl font-semibold mb-3">Product Philosophy</h3>
-                <p className="mb-2">I build products that solve real problems, not imagined ones. My approach:</p>
+                <h3 className="text-xl font-semibold mb-3">What I Build</h3>
+                <p className="mb-4">
+                  AI-powered tools for the real world. Products that understand the workflow, not just the checkbox.
+                </p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Customer-first thinking: I start by deeply understanding pain points before designing solutions. The best products address what keeps people up at night, not what looks good in a pitch deck.</li>
-                  <li>Right-sized data: Numbers tell important stories, but so do customer conversations. I blend quantitative metrics with qualitative insights to capture the full picture.</li>
-                  <li>Teams as ecosystems: Products thrive when built by diverse teams where different perspectives challenge assumptions. I create environments where people feel empowered to contribute their unique expertise.</li>
+                  <li>Compress weeks of compliance work into hours</li>
+                  <li>Translate frameworks into step-by-step guidance</li>
+                  <li>Let startups ship fast without trading off trust</li>
                 </ul>
 
                 <h3 className="text-xl font-semibold mb-3">Impact</h3>
                 <p className="mb-2">I've helped reshape how businesses approach compliance:</p>
                 <ul className="list-disc pl-6 mb-4">
-                  <li>Cut assessment completion times from months to weeks</li>
-                  <li>Guided thousands of companies to successful SOC 2 certification</li>
-                  <li>Built enterprise-grade integrations that connect security across organizational boundaries</li>
+                  <li>Start at the edge cases — They reveal the real job</li>
+                  <li>Balance precision with pragmatism — Especially in regulated environments</li>
+                  <li>Design for humans — Because complexity doesn't have to feel complicated</li>
                 </ul>
+
+                <h3 className="text-xl font-semibold mb-3">A Bit More Human</h3>
+                <p className="mb-4">
+                  Outside work, I'm slow-walking San Francisco's 49-mile scenic route, cooking my way across 37 countries, and hosting pizza nights featuring Doughvid, my high-hydration sourdough starter. He's cranky but worth it.
+                </p>
               </div>
             </div>
           </div>
@@ -65,7 +74,7 @@ export default function AboutPage() {
             <div className="bg-card border border-border rounded-xl p-8 text-center">
               <Mail className="mx-auto mb-4 h-10 w-10 text-primary" />
               <p className="mb-4">
-                I'm always eager to exchange ideas with fellow product leaders and security enthusiasts. Whether you're curious about automated compliance, building security products, or transitioning from engineering to product management, I'd love to share experiences.
+                I'm always up for conversations about simplifying security, product development challenges, San Francisco's best walking routes, or pizza-making techniques. Whether you're curious about automated compliance, building user-friendly security tools, or where to find the city's best views, I'd enjoy connecting.
               </p>
               <a 
                 href="mailto:jonathan@haasonsaas.com"

@@ -1,5 +1,6 @@
-
 import type { Config } from "tailwindcss";
+import animate from "tailwindcss-animate";
+import typography from "@tailwindcss/typography";
 
 export default {
 	darkMode: ["class"],
@@ -27,7 +28,9 @@ export default {
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
+					foreground: 'hsl(var(--primary-foreground))',
+					light: 'hsl(var(--primary-light))',
+					dark: 'hsl(var(--primary-dark))'
 				},
 				secondary: {
 					DEFAULT: 'hsl(var(--secondary))',
@@ -39,7 +42,9 @@ export default {
 				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
+					foreground: 'hsl(var(--muted-foreground))',
+					light: 'hsl(var(--muted-light))',
+					dark: 'hsl(var(--muted-dark))'
 				},
 				accent: {
 					DEFAULT: 'hsl(var(--accent))',
@@ -62,7 +67,7 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -71,20 +76,12 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
 				},
 				'fade-in': {
 					'0%': { opacity: '0' },
@@ -101,45 +98,97 @@ export default {
 				'fade-in': 'fade-in 0.3s ease-out',
 				'fade-up': 'fade-up 0.5s ease-out'
 			},
+			spacing: {
+				'1': '0.25rem',    // 4px
+				'2': '0.5rem',     // 8px
+				'3': '0.75rem',    // 12px
+				'4': '1rem',       // 16px
+				'5': '1.25rem',    // 20px
+				'6': '1.5rem',     // 24px
+				'8': '2rem',       // 32px
+				'10': '2.5rem',    // 40px
+				'12': '3rem',      // 48px
+				'16': '4rem',      // 64px
+				'20': '5rem',      // 80px
+				'24': '6rem',      // 96px
+				'32': '8rem',      // 128px
+				'40': '10rem',     // 160px
+				'48': '12rem',     // 192px
+				'56': '14rem',     // 224px
+				'64': '16rem',     // 256px
+			},
+			fontSize: {
+				'xs': ['0.75rem', { lineHeight: '1.5' }],      // 12px
+				'sm': ['0.875rem', { lineHeight: '1.5' }],     // 14px
+				'base': ['1rem', { lineHeight: '1.6' }],       // 16px
+				'lg': ['1.125rem', { lineHeight: '1.6' }],     // 18px
+				'xl': ['1.25rem', { lineHeight: '1.5' }],      // 20px
+				'2xl': ['1.5rem', { lineHeight: '1.4' }],      // 24px
+				'3xl': ['1.875rem', { lineHeight: '1.3' }],    // 30px
+				'4xl': ['2.25rem', { lineHeight: '1.2' }],     // 36px
+				'5xl': ['3rem', { lineHeight: '1.1' }],        // 48px
+				'6xl': ['3.75rem', { lineHeight: '1.1' }],     // 60px
+				'7xl': ['4.5rem', { lineHeight: '1.1' }],      // 72px
+				'8xl': ['6rem', { lineHeight: '1' }],          // 96px
+				'9xl': ['8rem', { lineHeight: '1' }],          // 128px
+			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
+				sans: ['Inter var', 'system-ui', 'sans-serif'],
 				serif: ['Playfair Display', 'serif'],
+				display: ['Clash Display', 'system-ui', 'sans-serif'],
 			},
 			typography: {
 				DEFAULT: {
 					css: {
 						maxWidth: '65ch',
 						color: 'hsl(var(--foreground))',
+						lineHeight: '1.6',
 						a: {
 							color: 'hsl(var(--primary))',
 							'&:hover': {
-								color: 'hsl(var(--primary))/80',
+								color: 'hsl(var(--primary-light))',
 							},
 						},
 						h1: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
+							lineHeight: '1.2',
+							fontWeight: '600',
+							letterSpacing: '-0.02em',
 						},
 						h2: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
+							lineHeight: '1.3',
+							fontWeight: '600',
+							letterSpacing: '-0.02em',
 						},
 						h3: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
+							lineHeight: '1.4',
+							fontWeight: '600',
+							letterSpacing: '-0.01em',
 						},
 						h4: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Playfair Display, serif',
+							fontFamily: 'Clash Display, system-ui, sans-serif',
+							lineHeight: '1.4',
+							fontWeight: '600',
+						},
+						p: {
+							lineHeight: '1.6',
+							marginBottom: '1.5em',
 						},
 						code: {
 							color: 'hsl(var(--foreground))',
-							backgroundColor: 'hsl(var(--muted))',
+							backgroundColor: 'hsl(var(--muted-light))',
 							borderRadius: '0.25rem',
 							paddingLeft: '0.25rem',
 							paddingRight: '0.25rem',
 							paddingTop: '0.125rem',
 							paddingBottom: '0.125rem',
+							fontSize: '0.875em',
 						},
 						'pre code': {
 							backgroundColor: 'transparent',
@@ -153,20 +202,28 @@ export default {
 							lineHeight: 'inherit',
 						},
 						pre: {
-							backgroundColor: 'hsl(var(--muted))',
+							backgroundColor: 'hsl(var(--muted-light))',
 							borderRadius: 'var(--radius)',
-							padding: '1rem',
+							padding: '1.25rem',
 							borderWidth: '1px',
 							borderColor: 'hsl(var(--border))',
+							marginTop: '1.5em',
+							marginBottom: '1.5em',
 						},
 						blockquote: {
 							color: 'hsl(var(--foreground))',
 							borderLeftColor: 'hsl(var(--primary))/30',
+							paddingLeft: '1.5rem',
+							marginLeft: '0',
+							marginRight: '0',
+							marginTop: '1.5em',
+							marginBottom: '1.5em',
+							fontStyle: 'italic',
 						},
 					}
 				}
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate"), require('@tailwindcss/typography')],
+	plugins: [animate, typography],
 } satisfies Config;

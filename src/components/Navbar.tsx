@@ -18,8 +18,8 @@ const Navbar = () => {
   
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'About', path: '/about' },
+    { name: 'Insights', path: '/blog' },
+    { name: 'About Me', path: '/about' },
     { name: 'Uses', path: '/uses' },
     { name: 'Reading', path: '/reading' },
     { name: 'FAQ', path: '/faq' },
@@ -31,7 +31,7 @@ const Navbar = () => {
         <div className="flex justify-between h-16">
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0 flex items-center">
-              <span className="text-lg font-bold">Haas on SaaS</span>
+              <span className="text-lg font-bold">Where Technical Vision Meets Market Reality</span>
             </Link>
           </div>
           
@@ -48,10 +48,14 @@ const Navbar = () => {
                   </Button>
                 </Link>
               ))}
-              <a href="https://frameworks.haasonsaas.com/" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" className="text-sm text-muted-foreground flex items-center gap-1.5 opacity-70 hover:opacity-100">
-                  <BookOpen size={14} />
-                  <span className="text-xs">Frameworks</span>
+              <a 
+                href="https://sidechannel.ventures" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="hover:opacity-80 transition-opacity"
+              >
+                <Button variant="ghost" className="text-sm">
+                  💰
                 </Button>
               </a>
               <ThemeToggle />
@@ -84,13 +88,17 @@ const Navbar = () => {
                 </Button>
               </Link>
             ))}
-            <a href="https://frameworks.haasonsaas.com/" target="_blank" rel="noopener noreferrer">
+            <a 
+              href="https://sidechannel.ventures" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block"
+            >
               <Button
                 variant="ghost"
-                className="w-full justify-start rounded-none text-left text-muted-foreground flex items-center gap-1.5 opacity-70 text-xs"
+                className="w-full justify-start rounded-none text-left"
               >
-                <BookOpen size={14} />
-                Frameworks
+                💰
               </Button>
             </a>
           </div>

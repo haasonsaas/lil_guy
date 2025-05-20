@@ -1,83 +1,126 @@
 import { BlogPost } from '@/types/blog';
 import { readFilePosts } from './fileLoader';
-
-// Cache for loaded posts
-let allPosts: BlogPost[] | null = null;
+import { generateOgImageUrl } from '../ogImageUtils';
 
 /**
  * Get all blog posts (only from markdown files)
  */
-export const getAllPosts = (): BlogPost[] => {
-  if (!allPosts) {
-    const filePosts = readFilePosts();
-    console.log("File posts loaded:", filePosts.length);
+export const getAllPosts = async (): Promise<BlogPost[]> => {
+  const filePosts = readFilePosts();
+  
+  // Make sure each post has valid image information
+  for (const post of filePosts) {
+    const hasExplicitImage = post.frontmatter.image && 
+                           post.frontmatter.image.url && 
+                           !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
     
-    // Make sure each post has valid image information
-    filePosts.forEach(post => {
-      // Force dynamic image generation for all posts except those with explicit frontmatter images
-      const hasExplicitImage = post.frontmatter.image && 
-                               post.frontmatter.image.url && 
-                               !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
+    if (!hasExplicitImage) {
+      const cleanTitle = post.frontmatter.title || post.slug;
+      const imagePath = await getPostImage(cleanTitle);
       
-      if (!hasExplicitImage) {
-        console.log(`Generating dynamic image for: ${post.frontmatter.title}`);
-        // Use our new placeholder image generator
-        const cleanTitle = post.frontmatter.title || post.slug;
-        const imagePath = `/placeholders/1200x630-${cleanTitle.toLowerCase().replace(/[^a-z0-9]/g, '-')}.png`;
-        
-        post.frontmatter.image = {
-          url: imagePath,
-          alt: cleanTitle || 'Blog post image'
-        };
-      } else {
-        console.log(`Using frontmatter image for: ${post.frontmatter.title}`);
-      }
-    });
-    
-    // Sort posts by date in descending order (most recent first)
-    allPosts = filePosts.sort((a, b) => {
-      const dateA = new Date(a.frontmatter.pubDate);
-      const dateB = new Date(b.frontmatter.pubDate);
-      return dateB.getTime() - dateA.getTime();
-    });
+      post.frontmatter.image = {
+        url: imagePath,
+        alt: cleanTitle || 'Blog post image'
+      };
+    }
   }
-  return allPosts;
+  
+  // Sort posts by date in descending order (most recent first)
+  const sortedPosts = filePosts.sort((a, b) => {
+    const dateA = new Date(a.frontmatter.pubDate);
+    const dateB = new Date(b.frontmatter.pubDate);
+    return dateB.getTime() - dateA.getTime();
+  });
+  
+  // Log unique slugs to check for duplicates
+  const slugs = new Set(sortedPosts.map(post => post.slug));
+  
+  if (slugs.size !== sortedPosts.length) {
+    console.warn('WARNING: Duplicate slugs detected!');
+    const duplicateSlugs = sortedPosts.map(post => post.slug)
+      .filter((slug, index, self) => self.indexOf(slug) !== index);
+    console.warn('Duplicate slugs:', duplicateSlugs);
+  }
+
+  return sortedPosts;
 };
 
 /**
  * Get a specific post by slug
  */
-export const getPostBySlug = (slug: string): BlogPost | undefined => {
-  return getAllPosts().find(post => post.slug === slug);
+export const getPostBySlug = async (slug: string): Promise<BlogPost | undefined> => {
+  const posts = await getAllPosts();
+  return posts.find(post => post.slug === slug);
 };
 
 /**
  * Get featured posts
  */
-export const getFeaturedPosts = (): BlogPost[] => {
-  return getAllPosts().filter(post => post.frontmatter.featured);
+export const getFeaturedPosts = async (): Promise<BlogPost[]> => {
+  const posts = await getAllPosts();
+  return posts.slice(0, 3); // Just return the first 3 posts instead of filtering by featured
 };
 
 /**
- * Get all unique tags from all posts
+ * Get all unique tags from all posts, sorted by frequency of occurrence
  */
-export const getAllTags = (): string[] => {
-  const posts = getAllPosts();
-  const tagSet = new Set<string>();
+export const getAllTags = async (): Promise<{ tag: string; count: number }[]> => {
+  const posts = await getAllPosts();
+  const tagCounts = new Map<string, number>();
   
   posts.forEach(post => {
-    post.frontmatter.tags.forEach(tag => tagSet.add(tag.toLowerCase()));
+    post.frontmatter.tags.forEach(tag => {
+      const normalizedTag = tag.toLowerCase();
+      tagCounts.set(normalizedTag, (tagCounts.get(normalizedTag) || 0) + 1);
+    });
   });
   
-  return Array.from(tagSet);
+  return Array.from(tagCounts.entries())
+    .sort((a, b) => b[1] - a[1])
+    .map(([tag, count]) => ({ tag, count }));
 };
 
 /**
  * Get posts by tag
  */
-export const getPostsByTag = (tag: string): BlogPost[] => {
+export const getPostsByTag = async (tag: string): Promise<BlogPost[]> => {
+  const posts = await getAllPosts();
   const normalizedTag = tag.toLowerCase();
-  return getAllPosts().filter(post => 
+  return posts.filter(post => 
     post.frontmatter.tags.some(t => t.toLowerCase() === normalizedTag)
   );
+};
+
+/**
+ * Get related posts based on shared tags
+ * @param currentPost The current blog post
+ * @param limit Maximum number of related posts to return
+ * @returns Array of related blog posts
+ */
+export const getRelatedPosts = async (currentPost: BlogPost, limit: number = 3): Promise<BlogPost[]> => {
+  const posts = await getAllPosts();
+  const currentTags = new Set(currentPost.frontmatter.tags.map(tag => tag.toLowerCase()));
+  
+  const postsWithScores = posts
+    .filter(post => post.slug !== currentPost.slug)
+    .map(post => {
+      const postTags = new Set(post.frontmatter.tags.map(tag => tag.toLowerCase()));
+      const sharedTags = [...currentTags].filter(tag => postTags.has(tag));
+      const similarityScore = sharedTags.length / (currentTags.size + postTags.size - sharedTags.length);
+      
+      return {
+        post,
+        score: similarityScore
+      };
+    })
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map(item => item.post);
+  
+  return postsWithScores;
+};
+
+const getPostImage = async (title: string) => {
+  const cleanTitle = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  return generateOgImageUrl(cleanTitle);
 };

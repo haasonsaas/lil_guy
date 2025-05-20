@@ -6,11 +6,10 @@ postSlug: product-manager-signal-noise
 featured: false
 draft: false
 tags:
-  - product-management
   - leadership
+  - product-development
   - strategy
-  - requirements
-  - synthesis
+  - systems-thinking
 image:
   url: 'https://images.pexels.com/photos/29547321/pexels-photo-29547321/free-photo-of-ancient-rock-cut-caves-in-bhubaneswar-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'An archeological digsite, seen from up close'

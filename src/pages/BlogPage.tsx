@@ -1,39 +1,86 @@
-
 import { useState, useEffect } from 'react';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
-import { getAllPosts } from '@/utils/blogUtils';
+import { getAllPosts, getAllTags } from '@/utils/blogUtils';
 import { Input } from '@/components/ui/input';
-import { Search } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { BlogPost } from '@/types/blog';
+import WeeklyPlaybook from '@/components/WeeklyPlaybook';
+
+const POSTS_PER_PAGE = 9;
 
 export default function BlogPage() {
-  const [posts, setPosts] = useState(getAllPosts());
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredPosts, setFilteredPosts] = useState(posts);
-  
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [searchInput, setSearchInput] = useState(searchParams.get("search") || "");
+
   useEffect(() => {
-    const filtered = posts.filter(post => {
-      const { title, description, tags } = post.frontmatter;
-      const searchLower = searchQuery.toLowerCase();
-      
-      return (
-        title.toLowerCase().includes(searchLower) ||
-        description.toLowerCase().includes(searchLower) ||
-        tags.some(tag => tag.toLowerCase().includes(searchLower))
+    const loadPosts = async () => {
+      const allPosts = await getAllPosts();
+      setPosts(allPosts);
+    };
+    loadPosts();
+  }, []);
+
+  useEffect(() => {
+    const tag = searchParams.get("tag");
+    const search = searchParams.get("search");
+    let filtered = [...posts];
+
+    if (tag) {
+      filtered = filtered.filter((post) =>
+        post.frontmatter.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
       );
-    });
-    
+    }
+
+    if (search) {
+      const searchLower = search.toLowerCase();
+      filtered = filtered.filter(
+        (post) =>
+          post.frontmatter.title.toLowerCase().includes(searchLower) ||
+          post.frontmatter.description.toLowerCase().includes(searchLower) ||
+          post.content.toLowerCase().includes(searchLower)
+      );
+    }
+
     setFilteredPosts(filtered);
-  }, [searchQuery, posts]);
-  
+    setTotalPages(Math.ceil(filtered.length / POSTS_PER_PAGE));
+    setCurrentPage(1);
+  }, [posts, searchParams]);
+
+  const paginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * POSTS_PER_PAGE,
+    currentPage * POSTS_PER_PAGE
+  );
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setSearchInput(value);
+    
+    // Update URL search params
+    const params = new URLSearchParams(searchParams);
+    if (value) {
+      params.set("search", value);
+    } else {
+      params.delete("search");
+    }
+    navigate(`?${params.toString()}`, { replace: true });
+  };
+
   return (
     <Layout>
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">Blog</h1>
+            <h1 className="text-4xl font-bold mb-4">Insights for Builders, Backers, and Operators</h1>
             <p className="text-muted-foreground mb-8">
-              Explore the latest articles on AI, technology, and software development
+              Hard-earned lessons and forward-looking analysis on AI-native SaaS, product-market fit, and scaling trust in software. Read what top-tier founders and VCs are already talking about.
             </p>
             
             <div className="relative max-w-md mx-auto">
@@ -42,14 +89,14 @@ export default function BlogPage() {
                 type="text"
                 placeholder="Search articles..."
                 className="pl-10"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
+                value={searchInput}
+                onChange={handleSearchChange}
               />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredPosts.map(post => (
+            {paginatedPosts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
             
@@ -61,6 +108,35 @@ export default function BlogPage() {
                 </p>
               </div>
             )}
+          </div>
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2 mt-8">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                disabled={currentPage === 1}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <span className="text-sm text-muted-foreground">
+                Page {currentPage} of {totalPages}
+              </span>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                disabled={currentPage === totalPages}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+
+          <div className="mt-16">
+            <WeeklyPlaybook />
           </div>
         </div>
       </section>

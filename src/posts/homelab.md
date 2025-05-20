@@ -1,22 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-23
-title: 'Building My UniFi Homelab: A Technical Deep Dive'
-postSlug: homelab
-featured: false
-draft: false
+pubDate: 2024-04-11
+title: "Building My UniFi Homelab: A Technical Deep Dive"
+description: "A technical deep-dive into my homelab network built on UniFi enterprise equipment"
 tags:
-  - homelab
-  - networking
-  - ubiquiti
-  - unifi
-  - infrastructure
+  - engineering
+  - product
+  - strategy
 image:
   url: 'https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A clean, modern server rack with blue LED lighting'
-description:
-  A technical deep-dive into my homelab network built on UniFi enterprise
-  equipment
 ---
 
 After years of experimenting with various networking setups in my homelab, I've

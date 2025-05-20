@@ -8,10 +8,10 @@ featured: true
 draft: false
 tags:
   - enterprise-software
-  - product-design
+  - product-development
+  - strategy
+  - systems-thinking
   - user-experience
-  - scalability
-  - technology-strategy
 image:
   url: 'https://images.pexels.com/photos/233698/pexels-photo-233698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt:

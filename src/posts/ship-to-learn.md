@@ -1,24 +1,18 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-10-08
+pubDate: 2024-04-11
 title: 'Ship to Learn: Why Iteration Beats Perfection'
 postSlug: iterative-shipping-product-development
 featured: true
 draft: false
 tags:
-  - product-management
-  - agile
-  - shipping
-  - customer-development
-  - product-strategy
+  - product
+  - engineering
+  - strategy
 image:
   url: 'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt:
-    'The metallic framework of an unfinished building, with construction workers
-    visible in the background'
-description:
-  Understanding why shipping early and often is the key to building better
-  products and stronger customer relationships
+  alt: 'The metallic framework of an unfinished building, with construction workers visible in the background'
+description: "Understanding why shipping early and often is the key to building better products and stronger customer relationships"
 ---
 
 The most valuable product development insight I've gained over my career isn't

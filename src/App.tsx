@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
@@ -14,6 +14,7 @@ import AboutPage from "./pages/AboutPage";
 import FAQPage from "./pages/FAQPage";
 import UsesPage from "./pages/UsesPage";
 import ReadingPage from "./pages/ReadingPage";
+import NewsletterPage from "./pages/NewsletterPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,7 +25,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <BrowserRouter>
+        <Router>
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
@@ -36,11 +37,12 @@ const App = () => (
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/uses" element={<UsesPage />} />
             <Route path="/reading" element={<ReadingPage />} />
+            <Route path="/newsletter" element={<NewsletterPage />} />
             {/* Redirect /admin to the home page */}
             <Route path="/admin" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
-        </BrowserRouter>
+        </Router>
       </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>

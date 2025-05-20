@@ -1,20 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-29
-title: "The AI Experience Gap: Why Better Models Aren't Enough"
-description:
-  Exploring the disconnect between AI product expectations and reality, and how
-  to bridge it through AI-native design
+pubDate: 2024-04-11
+title: "AI Expectations: Managing the Hype Cycle"
+description: "How to set realistic expectations for AI implementation and avoid common pitfalls in enterprise adoption"
 featured: false
 draft: false
 tags:
-  - artificial-intelligence
-  - product-design
-  - user-experience
-  - technology
-  - software-development
-  - future-of-work
-  - human-computer-interaction
+  - ai
+  - product
+  - strategy
+  - management
 image:
   url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt:

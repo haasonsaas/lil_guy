@@ -1,15 +1,14 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-24
+pubDate: 2024-04-11
 title: "Back to the Bay: Why I'm Returning to San Francisco in 2025"
 postSlug: returning-to-sf
 featured: false
 draft: false
 tags:
-  - personal
-  - san-francisco
-  - career
-  - life-changes
+  - personal-growth
+  - leadership
+  - culture
 image:
   url: 'https://images.pexels.com/photos/208745/pexels-photo-208745.jpeg'
   alt: 'San Francisco skyline at noon with Golden Gate Bridge'

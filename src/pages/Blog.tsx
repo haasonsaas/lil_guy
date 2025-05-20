@@ -1,23 +1,80 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
-import { getAllPosts } from '@/utils/blogUtils';
+import { getAllPosts, getPostBySlug } from '@/utils/blogUtils';
+import { generateOgImageUrl } from '../utils/ogImageUtils';
 
 export default function Blog() {
-  const posts = getAllPosts();
+  const { slug } = useParams<{ slug: string }>();
+  const [posts, setPosts] = useState([]);
+  const [currentPost, setCurrentPost] = useState(null);
 
   useEffect(() => {
-    // Update OpenGraph tags for the blog listing page
-    const ogTitle = document.querySelector('meta[property="og:title"]');
-    const ogDesc = document.querySelector('meta[property="og:description"]');
-    const ogImage = document.querySelector('meta[property="og:image"]');
-    const twitterImage = document.querySelector('meta[name="twitter:image"]');
-    
-    if (ogTitle) ogTitle.setAttribute('content', 'Blog - Haas on SaaS');
-    if (ogDesc) ogDesc.setAttribute('content', 'Explore articles on AI, technology, and software development from Jonathan Haas');
-    if (ogImage) ogImage.setAttribute('content', 'https://haasonsaas.com/opengraph-image-p98pqg.png');
-    if (twitterImage) twitterImage.setAttribute('content', 'https://haasonsaas.com/opengraph-image-p98pqg.png');
+    const loadPosts = async () => {
+      const loadedPosts = await getAllPosts();
+      setPosts(loadedPosts);
+    };
+    loadPosts();
   }, []);
+
+  useEffect(() => {
+    const loadCurrentPost = async () => {
+      if (slug) {
+        const post = await getPostBySlug(slug);
+        setCurrentPost(post);
+      }
+    };
+    loadCurrentPost();
+  }, [slug]);
+
+  useEffect(() => {
+    const updateMeta = async () => {
+      const title = currentPost 
+        ? `${currentPost.frontmatter.title} | Haas on SaaS`
+        : 'Blog | Haas on SaaS';
+      
+      // Set page title
+      document.title = title;
+      
+      // Update OpenGraph tags for social sharing
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      const ogImage = document.querySelector('meta[property="og:image"]');
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      const ogType = document.querySelector('meta[property="og:type"]');
+      const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+      const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+      const twitterImage = document.querySelector('meta[name="twitter:image"]');
+      const twitterUrl = document.querySelector('meta[property="twitter:url"]');
+      const ogAuthor = document.querySelector('meta[property="article:author"]');
+      const twitterCreator = document.querySelector('meta[name="twitter:creator"]');
+      
+      // Set OpenGraph metadata
+      if (ogTitle) ogTitle.setAttribute('content', title);
+      if (ogDesc) ogDesc.setAttribute('content', currentPost?.frontmatter.description || 'Explore articles on AI, technology, and software development by Jonathan Haas');
+      if (ogUrl) ogUrl.setAttribute('content', `https://haasonsaas.com/blog${slug ? `/${slug}` : ''}`);
+      if (ogType) ogType.setAttribute('content', currentPost ? 'article' : 'website');
+      
+      // Use the generated OpenGraph image
+      const ogImageUrl = await generateOgImageUrl(title);
+      console.log('Setting OpenGraph image URL:', ogImageUrl);
+      
+      if (ogImage) ogImage.setAttribute('content', ogImageUrl);
+      if (twitterImage) twitterImage.setAttribute('content', ogImageUrl);
+      
+      // Set Twitter metadata
+      if (twitterTitle) twitterTitle.setAttribute('content', title);
+      if (twitterDesc) twitterDesc.setAttribute('content', currentPost?.frontmatter.description || 'Explore articles on AI, technology, and software development by Jonathan Haas');
+      if (twitterUrl) twitterUrl.setAttribute('content', `https://haasonsaas.com/blog${slug ? `/${slug}` : ''}`);
+      
+      // Set author information
+      if (ogAuthor) ogAuthor.setAttribute('content', currentPost?.frontmatter.author || 'Jonathan Haas');
+      if (twitterCreator) twitterCreator.setAttribute('content', '@haasonsaas');
+    };
+
+    updateMeta();
+  }, [currentPost, slug]);
 
   return (
     <Layout>

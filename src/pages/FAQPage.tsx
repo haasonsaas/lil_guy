@@ -31,7 +31,7 @@ export default function FAQPage() {
             <AccordionItem value="item-3">
               <AccordionTrigger className="text-lg font-medium">Do you do angel investing?</AccordionTrigger>
               <AccordionContent className="text-muted-foreground">
-                Yes, I occasionally angel invest in early-stage startups, particularly those focused on SaaS, security, and enterprise software. I look for founders with strong technical backgrounds and clear product visions.
+                Yes, I primarily invest through <a href="https://sidechannel.ventures" className="text-blue-600 hover:underline" target="_blank" rel="noopener noreferrer">sidechannel.ventures</a>, focusing on early-stage startups in SaaS, security, and enterprise software. I look for founders with strong technical backgrounds and clear product visions.
               </AccordionContent>
             </AccordionItem>
             

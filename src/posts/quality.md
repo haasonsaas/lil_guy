@@ -1,19 +1,17 @@
 ---
+title: "Quality: The Foundation of Sustainable Growth"
 author: Jonathan Haas
-pubDate: 2024-12-05
-title: 'The Quality Quotient: When Craft Truly Counts in Software'
+pubDate: 2024-04-11
+description: "How to build and maintain quality as a core value in your organization"
+tags:
+  - engineering
+  - product
+  - leadership
+  - culture
+  - strategy
 postSlug: the-quality-quotient
 featured: false
 draft: false
-tags:
-  - software-quality
-  - engineering-excellence
-  - technical-debt
-  - architecture
-  - engineering-culture
-description:
-  Understanding when and where to invest in software quality, and how to build
-  systems that last
 image:
   url: 'https://images.pexels.com/photos/3862130/pexels-photo-3862130.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A woman writing equations on a whiteboard'

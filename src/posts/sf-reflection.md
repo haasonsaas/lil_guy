@@ -1,23 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-03-15
-title: 'Three Months Back in SF: Finding Balance After ThreatKey'
-postSlug: three-months-back-in-sf
-featured: true
-draft: false
+pubDate: 2024-04-11
+title: "Three Months Back in SF: Finding Balance After ThreatKey"
+description: "A personal reflection on returning to San Francisco three months ago, balancing a new PM role with personal health transformation, and finding sustainable rhythms after the intense four-year journey of founding ThreatKey"
 tags:
-  - personal
-  - san-francisco
-  - entrepreneurship
-  - health
-  - work-life-balance
+  - personal-growth
+  - leadership
+  - culture
 image:
   url: 'https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg'
   alt: 'San Francisco skyline with fog rolling over Golden Gate Bridge'
-description:
-  A personal reflection on returning to San Francisco three months ago,
-  balancing a new PM role with personal health transformation, and finding
-  sustainable rhythms after the intense four-year journey of founding ThreatKey
 ---
 
 It's been exactly three months since I returned to San Francisco, and I'm finally starting to feel like I'm settling into a

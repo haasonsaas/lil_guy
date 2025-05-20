@@ -1,16 +1,23 @@
-
 import { Link } from 'react-router-dom';
 import { BlogPost } from '@/types/blog';
-import { formatDate } from '@/utils/blogUtils';
+import { formatDate, calculateReadingTime } from '@/utils/blogUtils';
 import { Badge } from '@/components/ui/badge';
-import { Tag } from 'lucide-react';
+import { Tag, Clock, User, ArrowRight } from 'lucide-react';
 import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 interface BlogCardProps {
   post: BlogPost;
   featured?: boolean;
+  hideAuthor?: boolean;
 }
 
 const optimizeImage = (url: string, width: number = 800) => {
@@ -18,29 +25,26 @@ const optimizeImage = (url: string, width: number = 800) => {
     console.warn('Image URL is empty or undefined');
     return generateThumbnailUrl('Fallback Image');
   }
-
-  // Add a timestamp to force refresh
   const timestamp = new Date().getTime();
   const separator = url.includes('?') ? '&' : '?';
   return `${url}${separator}_t=${timestamp}`;
 };
 
-// Function to truncate text with ellipsis
 const truncateText = (text: string, maxLength: number): string => {
   if (!text) return '';
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 };
 
-export default function BlogCard({ post, featured = false }: BlogCardProps) {
-  const { slug, frontmatter } = post;
+export default function BlogCard({ post, featured = false, hideAuthor = false }: BlogCardProps) {
+  const { slug, frontmatter, content } = post;
   const [imageError, setImageError] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   
-  // Get image data directly from frontmatter with fallback to dynamic generation
   const imageData = getImageData(frontmatter);
   const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url;
   const imageAlt = imageData.alt;
   
-  // Truncate title and description for card display
   const truncatedTitle = featured ? 
     truncateText(frontmatter.title, 80) : 
     truncateText(frontmatter.title, 60);
@@ -48,36 +52,75 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   const truncatedDescription = featured ? 
     truncateText(frontmatter.description, 140) : 
     truncateText(frontmatter.description, 100);
+
+  const wordCount = content.trim().split(/\s+/).length;
+  const readTime = calculateReadingTime(content);
   
   if (featured) {
     return (
-      <div className="group relative mb-10 animate-fade-up">
+      <div 
+        className="group relative mb-10 animate-fade-up"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
         <Link to={`/blog/${slug}`} className="block">
-          <div className="relative h-[400px] overflow-hidden rounded-xl">
+          <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-lg">
+            {isLoading && (
+              <Skeleton className="absolute inset-0 w-full h-full" />
+            )}
             <img 
               src={optimizeImage(imageUrl, 1200)} 
               alt={imageAlt}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className={cn(
+                "h-full w-full object-cover transition-all duration-500",
+                isHovered ? "scale-105 brightness-110" : "scale-100 brightness-100",
+                isLoading ? "opacity-0" : "opacity-100"
+              )}
+              onLoad={() => setIsLoading(false)}
               onError={() => {
                 console.error('Featured image failed to load:', imageUrl);
-                setImageError(true);
+                if (!imageError) {
+                  setImageError(true);
+                  setIsLoading(true);
+                }
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-            <div className="absolute bottom-0 p-6 text-left">
-              <div className="flex flex-wrap gap-2 mb-3">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent" />
+            <div className="absolute bottom-0 p-8 text-left">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {frontmatter.tags.slice(0, 3).map(tag => (
-                  <Badge key={tag} variant="default" className="flex items-center gap-1.5 bg-primary border-primary/40 px-3 py-1.5">
+                  <Badge 
+                    key={tag} 
+                    variant="default" 
+                    className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm border-primary/40 px-3 py-1.5 hover:bg-primary transition-colors"
+                  >
                     <Tag size={12} />
                     {tag.replace(/-/g, ' ')}
                   </Badge>
                 ))}
               </div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">{truncatedTitle}</h2>
-              <p className="text-white/80 mb-4">{truncatedDescription}</p>
-              <div className="flex items-center text-white/60 text-sm">
-                <span>{frontmatter.author}</span>
-                <span className="mx-2">•</span>
+              <h2 className="text-3xl md:text-4xl font-display font-semibold text-white mb-3 leading-tight">{truncatedTitle}</h2>
+              <p className="text-white/90 mb-6 text-lg leading-relaxed">{truncatedDescription}</p>
+              <div className="flex items-center gap-4 text-white/80 text-sm">
+                {!hideAuthor && (
+                  <div className="flex items-center gap-1.5">
+                    <User size={14} />
+                    <span>{frontmatter.author}</span>
+                  </div>
+                )}
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger asChild>
+                      <div className="flex items-center gap-1.5">
+                        <Clock size={14} />
+                        <span>{readTime.minutes} min read</span>
+                      </div>
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <p>Based on {wordCount} words at 200 words per minute</p>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
                 <span>{formatDate(frontmatter.pubDate)}</span>
               </div>
             </div>
@@ -88,35 +131,95 @@ export default function BlogCard({ post, featured = false }: BlogCardProps) {
   }
 
   return (
-    <div className="group animate-fade-up">
+    <div 
+      className="group relative mb-6 animate-fade-up"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
       <Link to={`/blog/${slug}`} className="block">
-        <div className="overflow-hidden rounded-lg bg-card border border-border transition-all hover:border-primary/30 hover:shadow-md">
-          <div className="relative h-48 w-full overflow-hidden">
+        <div className={cn(
+          "relative overflow-hidden rounded-xl border border-border bg-card transition-all duration-300",
+          "hover:border-primary/30 hover:shadow-lg",
+          "group"
+        )}>
+          <div className="relative aspect-[16/9] overflow-hidden">
+            {isLoading && (
+              <Skeleton className="absolute inset-0 w-full h-full" />
+            )}
             <img 
               src={optimizeImage(imageUrl, 800)} 
               alt={imageAlt}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className={cn(
+                "h-full w-full object-cover transition-all duration-500",
+                isHovered ? "scale-105 brightness-110" : "scale-100 brightness-100",
+                isLoading ? "opacity-0" : "opacity-100"
+              )}
+              onLoad={() => setIsLoading(false)}
               onError={() => {
                 console.error('Image failed to load:', imageUrl);
-                setImageError(true);
+                if (!imageError) {
+                  setImageError(true);
+                  setIsLoading(true);
+                }
               }}
             />
-          </div>
-          <div className="p-4 text-left">
-            <div className="flex flex-wrap gap-2 mb-3">
-              {frontmatter.tags.slice(0, 2).map(tag => (
-                <Badge key={tag} variant="default" className="flex items-center gap-1.5 bg-primary text-primary-foreground">
-                  <Tag size={12} />
-                  {tag.replace(/-/g, ' ')}
-                </Badge>
-              ))}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-4">
+              <div className="flex flex-wrap gap-2">
+                {frontmatter.tags.slice(0, 2).map(tag => (
+                  <Badge 
+                    key={tag} 
+                    variant="default" 
+                    className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm border-primary/40 px-2 py-1 text-xs hover:bg-primary transition-colors"
+                  >
+                    <Tag size={10} />
+                    {tag.replace(/-/g, ' ')}
+                  </Badge>
+                ))}
+              </div>
             </div>
-            <h3 className="text-lg font-bold mb-2 h-14 overflow-hidden">{truncatedTitle}</h3>
-            <p className="text-muted-foreground text-sm mb-4 h-10 overflow-hidden">{truncatedDescription}</p>
-            <div className="flex items-center text-xs text-muted-foreground">
-              <span>{frontmatter.author}</span>
-              <span className="mx-2">•</span>
+          </div>
+          
+          <div className="p-6">
+            <div className="flex items-center gap-2 text-xs text-muted-foreground mb-3">
+              {!hideAuthor && (
+                <div className="flex items-center gap-1.5">
+                  <User size={12} />
+                  <span>{frontmatter.author}</span>
+                </div>
+              )}
+              <span>•</span>
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <div className="flex items-center gap-1.5">
+                      <Clock size={12} />
+                      <span>{readTime.minutes} min read</span>
+                    </div>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Based on {wordCount} words at 200 words per minute</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+              <span>•</span>
               <span>{formatDate(frontmatter.pubDate)}</span>
+            </div>
+            
+            <h3 className="text-xl font-display font-semibold mb-3 line-clamp-2 leading-tight group-hover:text-primary transition-colors">
+              {truncatedTitle}
+            </h3>
+            
+            <p className={cn(
+              "text-muted-foreground text-sm mb-4 leading-relaxed transition-all duration-300",
+              isHovered ? "line-clamp-none" : "line-clamp-2"
+            )}>
+              {truncatedDescription}
+            </p>
+            
+            <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
+              Read more
+              <ArrowRight size={14} />
             </div>
           </div>
         </div>

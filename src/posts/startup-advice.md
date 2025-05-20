@@ -6,11 +6,11 @@ postSlug: three-types-startup-advice
 featured: true
 draft: false
 tags:
-  - startups
-  - product-management
-  - advice
-  - strategy
   - leadership
+  - personal-growth
+  - product-development
+  - startups
+  - strategy
 image:
   url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Group of people in a meeting room from above'

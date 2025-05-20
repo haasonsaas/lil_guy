@@ -7,13 +7,9 @@ description:
 featured: false
 draft: false
 tags:
-  - product-market-fit
-  - startups
-  - founders
-  - technical-founders
-  - product-development
-  - customer-development
   - entrepreneurship
+  - product-development
+  - startups
 image:
   url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "A robot pointing at a web of data, representing the challenges of finding true product-market fit"
@@ -21,7 +17,7 @@ image:
 
 # The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit
 
-I've spent over a decade building products, advising startups, and watching technical founders (including myself) repeatedly fall into the same traps. If there's one consistent pattern I've observed, it's this: we're terrific at convincing ourselves we've found product-market fit when we haven't even come close.
+I've spent over a decade building products, working at startups, and watching technical founders (including myself) repeatedly fall into the same traps. If there's one consistent pattern I've observed, it's this: we're terrific at convincing ourselves we've found product-market fit when we haven't even come close.
 
 ## What Product-Market Fit Actually Feels Like
 

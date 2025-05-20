@@ -1,20 +1,14 @@
 ---
+title: "Chrome Extension for Jira Titles: A Developer's Journey"
 author: Jonathan Haas
-pubDate: 2024-12-26
-title: 'Building a Chrome Extension for Better JIRA Titles'
-postSlug: chrome-extension-jira-titles
+pubDate: 2024-04-11
+description: "Building a Chrome extension to improve Jira ticket management"
+tags:
+  - engineering
+  - product
+  - productivity
 featured: false
 draft: false
-tags:
-  - productivity
-  - chrome-extension
-  - jira
-  - ai
-  - product-management
-  - tooling
-description:
-  How I built a Chrome extension using GPT-4 to automatically generate clear,
-  consistent JIRA ticket titles and improved our team's workflow
 image:
   url: 'https://images.pexels.com/photos/67112/pexels-photo-67112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Chrome browser extension interface showing JIRA title generation'

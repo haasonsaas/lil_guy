@@ -1,24 +1,18 @@
 ---
+title: "Security Perspective: Building Trust Through Design"
 author: Jonathan Haas
-pubDate: 2024-12-06
-title: 'The AI Security Gap: Enterprise Lessons from the Trenches'
-description:
-  Drawing from years of security engineering experience at high-growth
-  companies, this piece explores the challenges of implementing AI systems while
-  maintaining enterprise security standards
+pubDate: 2024-04-11
+description: "How to integrate security considerations into product design and development"
+tags:
+  - engineering
+  - product
+  - design
+  - strategy
 featured: false
 draft: false
 image:
   url: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Two cameras against a wall'
-tags:
-  - artificial-intelligence
-  - cybersecurity
-  - enterprise-security
-  - risk-management
-  - compliance
-  - information-security
-  - ai-governance
 ---
 
 ## The Security Promise and the Reality

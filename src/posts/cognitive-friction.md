@@ -1,15 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-28
-title: 'Mental Friction: The Hidden Forces That Shape Our Thinking'
-description:
-  Understanding the invisible resistance patterns in human cognition and how to
-  work with them
+pubDate: 2024-04-11
+title: "Cognitive Friction: The Hidden Cost of Bad UX"
+description: "Understanding and reducing cognitive friction in user interfaces"
 featured: false
 draft: false
 tags:
-  - cognition
-  - decision-making
+  - ux
+  - design
+  - product
+  - strategy
 image:
   url: 'https://images.pexels.com/photos/116676/pexels-photo-116676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A car tire covered in dirt'

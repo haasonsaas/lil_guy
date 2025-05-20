@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Laptop, Code, Monitor, Headphones, Coffee, Smartphone, Keyboard, Mouse } from 'lucide-react';
+import { Laptop, Code, Monitor, Headphones, Coffee, Smartphone, Keyboard, Mouse, Network } from 'lucide-react';
 
 export default function UsesPage() {
   return (
@@ -16,22 +16,24 @@ export default function UsesPage() {
           </div>
           
           <Tabs defaultValue="hardware" className="w-full">
-            <TabsList className="grid w-full grid-cols-4 mb-8">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
               <TabsTrigger value="hardware" className="flex items-center gap-2">
-                <Laptop size={16} />
-                <span>Hardware</span>
+                <Laptop size={16} /> Hardware
               </TabsTrigger>
               <TabsTrigger value="mobile" className="flex items-center gap-2">
-                <Smartphone size={16} />
-                <span>Mobile</span>
+                <Smartphone size={16} /> Mobile
               </TabsTrigger>
               <TabsTrigger value="software" className="flex items-center gap-2">
-                <Code size={16} />
-                <span>Software</span>
+                <Code size={16} /> Software
               </TabsTrigger>
               <TabsTrigger value="productivity" className="flex items-center gap-2">
-                <Coffee size={16} />
-                <span>Productivity</span>
+                <Coffee size={16} /> Productivity
+              </TabsTrigger>
+              <TabsTrigger value="audio" className="flex items-center gap-2">
+                <Headphones size={16} /> Audio
+              </TabsTrigger>
+              <TabsTrigger value="networking" className="flex items-center gap-2">
+                <Network size={16} /> Networking
               </TabsTrigger>
             </TabsList>
             
@@ -55,6 +57,13 @@ export default function UsesPage() {
                       </div>
                       
                       <div>
+                        <h3 className="font-medium text-lg mb-2">MacBook Air (2024)</h3>
+                        <p className="text-muted-foreground mb-2">M3, 24GB RAM, 8-core CPU (4 performance and 4 efficiency)</p>
+                        <p className="text-sm mb-2">Why I love it: Incredibly portable while still being powerful enough for development work. Perfect for working on-the-go or from coffee shops. The M3 chip provides excellent performance while maintaining incredible battery life.</p>
+                        <p className="text-sm">Price: $1,299 (base model)</p>
+                      </div>
+                      
+                      <div>
                         <h3 className="font-medium text-lg mb-2">Custom Gaming PC</h3>
                         <p className="text-muted-foreground mb-2">High-performance workstation for gaming and development</p>
                         <div className="space-y-2">
@@ -73,11 +82,11 @@ export default function UsesPage() {
                       </div>
                       
                       <div>
-                        <h3 className="font-medium text-lg mb-2">DROP ALT Mechanical Keyboard</h3>
-                        <p className="text-muted-foreground mb-2">Gateron Brown switches with PBT keycaps</p>
-                        <p className="text-sm mb-2">Key Features: Hot-swappable switches, per-key RGB, USB-C passthrough</p>
-                        <p className="text-sm mb-2">Why I chose it: The satisfying tactile feedback dramatically improves typing accuracy and comfort during long coding sessions. The compact 65% layout keeps my desk minimal while retaining essential keys.</p>
-                        <p className="text-sm">Price: $180-230 depending on configuration</p>
+                        <h3 className="font-medium text-lg mb-2">Wooting 80HE</h3>
+                        <p className="text-muted-foreground mb-2">Lekker Linear 60 switches with PBT keycaps</p>
+                        <p className="text-sm mb-2">Key Features: Analog input, rapid trigger, per-key RGB, USB-C</p>
+                        <p className="text-sm mb-2">Why I love it: The analog input and rapid trigger features make it perfect for both gaming and typing. The Lekker switches provide a smooth, consistent feel, and the build quality is exceptional. The TKL layout gives me more desk space while keeping the function row.</p>
+                        <p className="text-sm">Price: $199</p>
                       </div>
                       
                       <div>
@@ -149,6 +158,21 @@ export default function UsesPage() {
                         <li>Docker (Container management)</li>
                         <li>REST Client (API testing)</li>
                       </ul>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Cursor</h3>
+                      <p className="text-muted-foreground mb-2">AI-powered IDE</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Key Features:</h4>
+                      <ul className="list-disc pl-6 mb-4 space-y-1">
+                        <li>AI pair programming assistant</li>
+                        <li>Codebase-aware AI completions</li>
+                        <li>Semantic code search</li>
+                        <li>Built-in terminal and Git integration</li>
+                      </ul>
+                      
+                      <p className="text-sm">Why I love it: Cursor combines the familiarity of VS Code with powerful AI capabilities that make coding more efficient. The AI assistant understands my codebase context and provides relevant suggestions, while the semantic search makes it easy to find code across the project.</p>
                     </div>
                     
                     <div>
@@ -224,35 +248,177 @@ export default function UsesPage() {
                     
                     <div>
                       <h3 className="font-medium text-lg mb-2">💰 Cost Breakdown</h3>
-                      <p className="text-muted-foreground mb-2">Monthly software costs:</p>
+                      <p className="text-muted-foreground mb-2">Monthly subscription costs for productivity tools</p>
+                      <ul className="list-disc pl-6 mb-4 space-y-1">
+                        <li>Superhuman: $30/month</li>
+                        <li>Notion Calendar: $8/month</li>
+                      </ul>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Task Management</h3>
+                      <p className="text-muted-foreground mb-2">Tools for organizing and tracking work</p>
                       
-                      <div className="border rounded-md overflow-hidden">
-                        <table className="w-full">
-                          <thead className="bg-muted">
-                            <tr>
-                              <th className="px-4 py-2 text-left">Tool</th>
-                              <th className="px-4 py-2 text-right">Monthly Cost</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr className="border-t">
-                              <td className="px-4 py-2">Superhuman</td>
-                              <td className="px-4 py-2 text-right">$30</td>
-                            </tr>
-                            <tr className="border-t">
-                              <td className="px-4 py-2">VS Code</td>
-                              <td className="px-4 py-2 text-right">Free</td>
-                            </tr>
-                            <tr className="border-t">
-                              <td className="px-4 py-2">Raycast</td>
-                              <td className="px-4 py-2 text-right">Free</td>
-                            </tr>
-                            <tr className="border-t font-medium">
-                              <td className="px-4 py-2">Total</td>
-                              <td className="px-4 py-2 text-right">$30</td>
-                            </tr>
-                          </tbody>
-                        </table>
+                      <h4 className="font-medium mt-4 mb-2">Linear</h4>
+                      <p className="text-sm mb-2">Issue tracking and project management tool that's perfect for software development. The keyboard-first interface and GitHub integration make it a joy to use.</p>
+                      <p className="text-sm">Cost: Free for small teams</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Things 3</h4>
+                      <p className="text-sm mb-2">Beautiful and intuitive task manager for personal projects. The natural language input and quick entry make it easy to capture tasks on the go.</p>
+                      <p className="text-sm">Cost: $49.99 (one-time purchase)</p>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Frameworks</h3>
+                      <p className="text-muted-foreground mb-2">To help others build better products, I've created a collection of frameworks and templates that I use in my own work. These are battle-tested approaches that have helped me and my teams ship better software faster.</p>
+                      <a 
+                        href="https://frameworks.haasonsaas.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-primary hover:underline"
+                      >
+                        frameworks.haasonsaas.com →
+                      </a>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Note Taking</h3>
+                      <p className="text-muted-foreground mb-2">Tools for capturing and organizing ideas</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Obsidian</h4>
+                      <p className="text-sm mb-2">Local-first note-taking app with powerful linking capabilities. The graph view helps visualize connections between ideas, and the plugin ecosystem is extensive.</p>
+                      <p className="text-sm">Cost: Free for personal use</p>
+                      
+                      <h4 className="font-medium mt-4 mb-2">Notion</h4>
+                      <p className="text-sm mb-2">All-in-one workspace for notes, docs, and project management. The database features and templates make it incredibly versatile.</p>
+                      <p className="text-sm">Cost: Free for personal use</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="audio">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Headphones size={20} /> 
+                    <span>Audio Setup</span>
+                  </CardTitle>
+                  <CardDescription>My audio equipment</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">HIFIMAN HE1000 Stealth</h3>
+                      <p className="text-muted-foreground mb-2">Planar magnetic audiophile headphones</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Stealth magnet design, planar magnetic drivers, 8Hz-65kHz frequency response</p>
+                        <p className="text-sm"><span className="font-medium">Comfort:</span> Premium materials, ergonomic design, lightweight construction</p>
+                        <p className="text-sm"><span className="font-medium">Why I love it:</span> Exceptional detail retrieval, wide soundstage, and natural timbre. The Stealth magnet design provides improved efficiency and better bass response.</p>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Massdrop x Sennheiser HD 6XX Headphones</h3>
+                      <p className="text-muted-foreground mb-2">Open-back audiophile headphones</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Open-back design, 300-ohm impedance, 10Hz-41kHz frequency response</p>
+                        <p className="text-sm"><span className="font-medium">Comfort:</span> Velour ear pads, adjustable headband, lightweight design</p>
+                        <p className="text-sm"><span className="font-medium">Why I love it:</span> Exceptional sound quality with detailed mids and highs, comfortable for long listening sessions, and excellent value for audiophile-grade headphones</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </TabsContent>
+            
+            <TabsContent value="networking">
+              <Card>
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2">
+                    <Network size={20} /> 
+                    <span>Network Infrastructure</span>
+                  </CardTitle>
+                  <CardDescription>My Ubiquiti-based home network setup</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-6">
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Dream Machine Pro Max</h3>
+                      <p className="text-muted-foreground mb-2">Core Network Controller & Gateway</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> 10G throughput, IPS/IDS, multiple site-to-site VPNs, redundant storage for security footage</p>
+                        <p className="text-sm"><span className="font-medium">Use Cases:</span> Running multiple isolated VLANs, supporting container-based services, managing site-to-site VPNs, handling IPS/IDS for network security monitoring</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Enterprise-grade performance with consumer-friendly interface, perfect for handling 10G throughput and complex network requirements</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Layer 3 Pro Max 24 PoE Switch</h3>
+                      <p className="text-muted-foreground mb-2">Network Backbone</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Inter-VLAN routing, 10G uplinks, PoE power delivery</p>
+                        <p className="text-sm"><span className="font-medium">Capacity:</span> 24 ports with PoE+ support</p>
+                        <p className="text-sm"><span className="font-medium">Use Cases:</span> Handling inter-VLAN routing, powering security cameras, access points, IP phones, and IoT controllers</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Perfect balance of power and flexibility for home lab use, with sufficient PoE budget for all devices</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">U7 Pro Max Access Point</h3>
+                      <p className="text-muted-foreground mb-2">Wireless Coverage</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Features:</span> Wi-Fi 6E, high-density support, seamless roaming</p>
+                        <p className="text-sm"><span className="font-medium">Coverage:</span> Whole-home coverage with optimal performance</p>
+                        <p className="text-sm"><span className="font-medium">Implementation:</span> Mesh networking with wireless uplink for consistent coverage and seamless roaming</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Future-proof wireless performance for all devices, with excellent high-density support</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">UNVR (UniFi Network Video Recorder)</h3>
+                      <p className="text-muted-foreground mb-2">Security Storage</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Storage:</span> 4x 16TB drives in RAID 10</p>
+                        <p className="text-sm"><span className="font-medium">Retention:</span> 30-day footage retention</p>
+                        <p className="text-sm"><span className="font-medium">Optimization:</span> Implemented edge caching and storage tiering for 70% reduction in main storage I/O</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Reliable, scalable storage for security cameras with efficient I/O management</p>
+                      </div>
+                    </div>
+                    
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Network Segmentation</h3>
+                      <p className="text-muted-foreground mb-2">VLAN Structure</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">VLAN 10:</span> Management (network devices, controllers)</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 20:</span> Lab Environment (kubernetes, storage clusters)</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 30:</span> IoT Devices</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 40:</span> Media Streaming</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 50:</span> Guest Network</p>
+                        <p className="text-sm"><span className="font-medium">VLAN 60:</span> Security Systems</p>
+                        <p className="text-sm mt-2"><span className="font-medium">Security:</span> Each VLAN has specific firewall rules and traffic policies to maintain security while allowing necessary inter-VLAN routing</p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Synology RS822+ & RX418 Expansion</h3>
+                      <p className="text-muted-foreground mb-2">Storage & Backup Solution</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Main Unit (RS822+):</span> 4-bay rackmount NAS with 2.5GbE connectivity, Intel C3538 quad-core processor, 4GB DDR4 ECC RAM (expandable to 32GB)</p>
+                        <p className="text-sm"><span className="font-medium">Expansion Unit (RX418):</span> 4-bay expansion unit adding 4 additional drive bays</p>
+                        <p className="text-sm"><span className="font-medium">Storage Configuration:</span> 8x 16TB drives in RAID 6 for optimal capacity and redundancy</p>
+                        <p className="text-sm"><span className="font-medium">Use Cases:</span> Centralized storage for media, backups, and development environments. Running Docker containers and virtual machines.</p>
+                        <p className="text-sm"><span className="font-medium">Why I chose it:</span> Enterprise-grade reliability in a compact form factor. The ability to expand storage with the RX418 unit provides future-proof scalability. Synology's DSM operating system offers excellent features for both home and business use.</p>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Network Services</h3>
+                      <p className="text-muted-foreground mb-2">Core Services</p>
+                      <div className="space-y-2">
+                        <p className="text-sm"><span className="font-medium">Monitoring:</span> Prometheus for metrics collection, Grafana for visualization, custom alerting via webhook integration</p>
+                        <p className="text-sm"><span className="font-medium">Security:</span> IPS/IDS with custom rulesets, network flow analysis, automated threat detection</p>
+                        <p className="text-sm"><span className="font-medium">Lab Environment:</span> Kubernetes cluster for container orchestration, CI/CD pipeline for testing, development environments</p>
                       </div>
                     </div>
                   </div>
