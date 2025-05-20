@@ -17,7 +17,7 @@ image:
 
 In the relentless push to build and scale, organizations often overlook a critical piece of infrastructure: how decisions get made. We obsess over our tech stack, our hiring pipelines, and our go-to-market strategies, but we rarely invest proportionately in the cognitive tools that underpin everything we do.
 
-My journey into this space began at Vanta, where our rapid growth demanded both speed and quality in decision-making. This experience sparked a deeper exploration that eventually led me to build a comprehensive framework library—but the insights I've gained along the way are relevant far beyond any single company.
+My journey into this space began while working on complex product challenges, where rapid growth demanded both speed and quality in decision-making. This experience sparked a deeper exploration that eventually led me to build a comprehensive framework library—but the insights I've gained along the way are relevant far beyond any single company.
 
 ## The Decision Stack: Your Most Undervalued Asset
 
@@ -73,7 +73,7 @@ Finally, and perhaps most importantly, frameworks need a unified home—a search
 
 ## The Universal Framework Library
 
-This realization is what drove me to build what I initially called ["Thinking Frameworks"—a comprehensive, interactive collection of decision-making tools](https://frameworks.haasonsaas.com). While initially inspired by needs at Vanta, I quickly realized that this approach could benefit organizations universally.
+This realization is what drove me to build what I initially called ["Thinking Frameworks"—a comprehensive, interactive collection of decision-making tools](https://frameworks.haasonsaas.com). While initially inspired by needs in enterprise software, I quickly realized that this approach could benefit organizations universally.
 
 The project evolved into a framework library with several key principles:
 
@@ -170,7 +170,7 @@ As with any system, decision frameworks can become stale or outdated. Organizati
 
 Building robust decision infrastructure isn't a one-time project—it's an ongoing journey of discovery, implementation, and refinement. The library I built continues to evolve as we learn which frameworks deliver the most value in different contexts.
 
-What started as a solution to a specific challenge at Vanta has evolved into a deeper exploration of how organizations think and decide. The most valuable insight from this journey is that your competitive advantage isn't just what you build or sell—it's how systematically you can make the thousands of decisions that shape your future.
+What started as a solution to a specific challenge in enterprise software has evolved into a deeper exploration of how organizations think and decide. The most valuable insight from this journey is that your competitive advantage isn't just what you build or sell—it's how systematically you can make the thousands of decisions that shape your future.
 
 In a world where execution is increasingly commoditized, your decision stack may be your most durable competitive advantage.
 

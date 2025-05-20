@@ -14,7 +14,7 @@ export default function AuthorBio() {
         <div>
           <h3 className="text-lg font-semibold">Jonathan Haas</h3>
           <p className="text-sm text-muted-foreground">
-            Product Manager @ Vanta | ex-Snap, DoorDash, Carta
+            Building something new | ex-Snap, DoorDash, Carta
           </p>
           <p className="text-sm text-muted-foreground mt-1">
             I turn complex B2B roadmaps into revenue-generating products and distill the process into repeatable frameworks.

@@ -14,7 +14,7 @@ image:
   alt: "Screenshot of the Shout application interface showing the recognition evaluation system"
 ---
 
-When I set out to build [Shout](https://shout.haasonsaas.com), my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. Inspired by what I'd learned about evaluation frameworks from Vanta's AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
+When I set out to build [Shout](https://shout.haasonsaas.com), my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. After learning about evaluation frameworks from an AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
 
 <soundcloud trackId="2078893932" title="Building Shout: Engineering Recognition Through Evals" />
 
@@ -270,7 +270,7 @@ Building Shout has been a fascinating technical journey into evaluation framewor
 3. **Robust Error Handling**: LLM outputs require careful parsing and error handling
 4. **Prompt Engineering**: The quality of evaluation is directly tied to the quality of the prompts
 
-While Shout remains my personal side project entirely separate from my work at Vanta, the technical knowledge I've gained about building evaluation systems has been invaluable. I'm grateful to Vanta's AI team for introducing me to evaluation frameworks, which sparked this technical exploration.
+While Shout remains my personal side project, the technical knowledge I've gained about building evaluation systems has been invaluable. I'm grateful to the AI team that introduced me to evaluation frameworks, which sparked this technical exploration.
 
 If you're interested in working on advanced evaluation systems professionally, I'd recommend checking out Vanta's AI team—they're doing some truly impressive work in this space.
 

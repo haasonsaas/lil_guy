@@ -98,7 +98,7 @@ export default function Index() {
                   className="w-10 h-10 rounded-full border-2 border-primary/20 flex-shrink-0"
                 />
                 <div className="text-left">
-                  <p className="text-sm font-medium">Product Manager @ Vanta</p>
+                  <p className="text-sm font-medium">Building something new</p>
                   <p className="text-xs text-muted-foreground">
                     ex-Snap, DoorDash, Carta
                   </p>

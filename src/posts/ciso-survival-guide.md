@@ -15,7 +15,7 @@ image:
   alt: "Security professionals in a meeting discussing cybersecurity challenges"
 ---
 
-In my role leading cloud security integrations at Vanta, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security operations and architecture roles. This unique vantage point—having stood on both sides of the fence—has given me uncommon insight into the growing disconnect between security vendors and the leaders they aim to serve.
+In my role leading cloud security integrations, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security operations and architecture roles. This unique vantage point—having stood on both sides of the fence—has given me uncommon insight into the growing disconnect between security vendors and the leaders they aim to serve.
 
 Last week, I watched a CISO colleague close his laptop during our meeting, apologizing as he showed me his phone: 6 missed calls and 17 new emails, all from vendors—all received during our 45-minute conversation.
 
@@ -85,7 +85,7 @@ Working at the intersection of vendor and practitioner worlds has taught me valu
 
 #### 1. Solve Real Problems, Not Theoretical Ones
 
-When we built our cloud security integration framework at Vanta, we spent three months interviewing security teams before writing a single line of code. We discovered their actual pain points were fundamentally different from what our initial assumptions suggested.
+When we built our cloud security integration framework, we spent three months interviewing security teams before writing a single line of code. We discovered their actual pain points were fundamentally different from what our initial assumptions suggested.
 
 Security leaders repeatedly tell me they value vendors who:
 
@@ -193,4 +193,4 @@ It's time we fixed this broken system, together.
 
 ---
 
-*Jonathan Haas is a Product Manager at Vanta focusing on cloud and security integrations. Previously, Jonathan spent seven years in security operations and architecture roles at financial services and consumer tech companies. This perspective is based on over 400 CISO interviews conducted for product discovery and customer research over the past two years.*
+*Jonathan Haas is a product leader focused on cloud and security integrations. Previously, Jonathan spent seven years in security operations and architecture roles at financial services and consumer tech companies. This perspective is based on over 400 CISO interviews conducted for product discovery and customer research over the past two years.*
