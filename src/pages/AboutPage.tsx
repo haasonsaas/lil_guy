@@ -8,6 +8,9 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 animate-fade-in">
             <h1 className="text-4xl font-bold mb-4">About</h1>
+            <p className="text-muted-foreground text-lg">
+              Security & Compliance Expert
+            </p>
           </div>
           
           <div className="flex flex-col md:flex-row gap-8 mb-12 animate-fade-up">
@@ -24,12 +27,12 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Operator. Former founder. PM at Vanta.
+                Security & Compliance Expert
               </p>
               
               <div className="prose-custom mb-6">
                 <p className="mb-4">
-                  I build software that turns painful, high-stakes workflows into something teams actually want to use.
+                  I help businesses tackle security compliance challenges. I'm passionate about transforming what used to be painful months-long processes into streamlined operations through smart automation.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-3">From Firefights to Frameworks</h3>
@@ -50,10 +53,8 @@ export default function AboutPage() {
                   <li>Let startups ship fast without trading off trust</li>
                 </ul>
 
-                <h3 className="text-xl font-semibold mb-3">Product Philosophy</h3>
-                <p className="mb-4">
-                  Good software should feel like relief. I work close to the pain, build with clear constraints, and bias toward systems that improve under pressure.
-                </p>
+                <h3 className="text-xl font-semibold mb-3">Impact</h3>
+                <p className="mb-2">I've helped reshape how businesses approach compliance:</p>
                 <ul className="list-disc pl-6 mb-4">
                   <li>Start at the edge cases — They reveal the real job</li>
                   <li>Balance precision with pragmatism — Especially in regulated environments</li>

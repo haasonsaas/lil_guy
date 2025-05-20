@@ -12,8 +12,7 @@ image:
   alt: 'San Francisco skyline with fog rolling over Golden Gate Bridge'
 ---
 
-It's been exactly three months since I returned to San Francisco, six months
-since I joined Vanta, and I'm finally starting to feel like I'm settling into a
+It's been exactly three months since I returned to San Francisco, and I'm finally starting to feel like I'm settling into a
 new rhythm. The journey from founder working 20-hour days to product manager
 prioritizing both career growth and personal health has been more
 challenging—and more rewarding—than I anticipated.
