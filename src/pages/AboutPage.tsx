@@ -9,7 +9,7 @@ export default function AboutPage() {
           <div className="text-center mb-12 animate-fade-in">
             <h1 className="text-4xl font-bold mb-4">About</h1>
             <p className="text-muted-foreground text-lg">
-              Product Manager at Vanta, Security & Compliance Expert
+              Security & Compliance Expert
             </p>
           </div>
           
@@ -27,13 +27,13 @@ export default function AboutPage() {
             <div className="w-full md:w-2/3">
               <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
               <p className="text-muted-foreground mb-6">
-                Product Manager at Vanta | Security & Compliance Expert
+                Security & Compliance Expert
               </p>
               
               <div className="prose-custom mb-6">
                 <h3 className="text-xl font-semibold mb-3">About Me</h3>
                 <p className="mb-4">
-                  I help businesses tackle security compliance at Vanta. We're transforming what used to be a painful months-long process into something that takes just days through smart automation.
+                  I help businesses tackle security compliance challenges. I'm passionate about transforming what used to be painful months-long processes into streamlined operations through smart automation.
                 </p>
 
                 <h3 className="text-xl font-semibold mb-3">My Journey</h3>
@@ -50,7 +50,7 @@ export default function AboutPage() {
                 </ul>
 
                 <h3 className="text-xl font-semibold mb-3">Impact</h3>
-                <p className="mb-2">At Vanta, I've helped reshape how businesses approach compliance:</p>
+                <p className="mb-2">I've helped reshape how businesses approach compliance:</p>
                 <ul className="list-disc pl-6 mb-4">
                   <li>Cut assessment completion times from months to weeks</li>
                   <li>Guided thousands of companies to successful SOC 2 certification</li>

@@ -20,8 +20,7 @@ description:
   sustainable rhythms after the intense four-year journey of founding ThreatKey
 ---
 
-It's been exactly three months since I returned to San Francisco, six months
-since I joined Vanta, and I'm finally starting to feel like I'm settling into a
+It's been exactly three months since I returned to San Francisco, and I'm finally starting to feel like I'm settling into a
 new rhythm. The journey from founder working 20-hour days to product manager
 prioritizing both career growth and personal health has been more
 challenging—and more rewarding—than I anticipated.
@@ -120,7 +119,7 @@ both what I'd do differently and what I'm grateful for experiencing:
 
 The past three months in San Francisco have felt like a true homecoming. This
 city watched me launch ThreatKey with boundless optimism, navigate the ups and
-downs that followed, and now, it’s seeing me embrace a more balanced approach as
+downs that followed, and now, it's seeing me embrace a more balanced approach as
 I grow.
 
 The hills I once climbed while dictating urgent emails into my phone, I now

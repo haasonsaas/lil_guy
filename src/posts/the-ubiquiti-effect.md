@@ -33,10 +33,10 @@ false choice, born of lazy design thinking and antiquated development practices.
 ## Beyond Surface Simplicity
 
 When we examine successful enterprise products that break this mold, we find
-something deeper than mere interface cleanup. At Vanta, our compliance
-automation platform demonstrates this through progressive complexity management.
-Rather than simply hiding advanced features behind a "clean interface," we
-fundamentally reimagined how users should interact with compliance requirements.
+something deeper than mere interface cleanup. Modern compliance
+automation platforms demonstrate this through progressive complexity management.
+Rather than simply hiding advanced features behind a "clean interface," they
+fundamentally reimagine how users should interact with compliance requirements.
 
 The initial experience presents clear, actionable tasks - but the underlying
 system maintains the full complexity of SOC 2, ISO 27001, and other frameworks.
@@ -84,7 +84,7 @@ philosophical. Modern development tools and architectures make it entirely
 possible to build interfaces that adapt to user needs. The real barrier is a
 product mindset that equates feature visibility with feature value.
 
-Consider how we approached this at Vanta: The underlying data model captures
+Consider how modern compliance platforms approach this: The underlying data model captures
 every nuance of security controls and compliance requirements. The API layer
 supports every possible configuration and query. But the interface layer makes
 intelligent decisions about what to show, when to show it, and how to present it
@@ -113,9 +113,9 @@ because they didn't have to switch to a "more powerful" solution. The platform
 grew with them, revealing new capabilities as they needed them. This translated
 into higher retention rates and more natural expansion revenue.
 
-Similarly, at Vanta, this approach enables us to serve both small startups and
+Similarly, modern compliance platforms can serve both small startups and
 large enterprises with the same core product. The platform's ability to adapt
-its interface and workflows based on company size and compliance needs means we
+its interface and workflows based on company size and compliance needs means they
 can maintain a single codebase while serving vastly different customer segments
 effectively.
 
