@@ -125,7 +125,7 @@ export default function AboutPage() {
                     </div>
                     <div className="flex gap-3 pt-2">
                       <Button variant="outline" size="icon" asChild>
-                        <a href="https://linkedin.com/in/jonathanhaas" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com/in/haasonsaas" target="_blank" rel="noopener noreferrer">
                           <Linkedin size={18} />
                         </a>
                       </Button>
@@ -135,7 +135,7 @@ export default function AboutPage() {
                         </a>
                       </Button>
                       <Button variant="outline" size="icon" asChild>
-                        <a href="https://twitter.com/jonathanhaas" target="_blank" rel="noopener noreferrer">
+                        <a href="https://twitter.com/haasonsaas" target="_blank" rel="noopener noreferrer">
                           <Twitter size={18} />
                         </a>
                       </Button>
