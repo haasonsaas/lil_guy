@@ -91,8 +91,8 @@ const experiences = [
 ];
 
 const skills = [
-  { category: "AI & Agent Infrastructure", items: ["LLM Orchestration", "Model Context Protocol", "Agent Architecture", "Tool Integration", "RAG Systems", "Prompt Engineering"] },
-  { category: "Product & Strategy", items: ["AI Product Management", "Agent UX Design", "API Design", "Developer Experience", "Platform Strategy"] },
+  { category: "Product & Strategy", items: ["Product Management", "Platform Strategy", "API Design", "Developer Experience", "Go-to-Market", "User Research"] },
+  { category: "Infrastructure & Security", items: ["Distributed Systems", "Security Operations", "Compliance Automation", "Platform Engineering", "Event-Driven Architecture", "Observability"] },
   { category: "Engineering", items: ["Python", "TypeScript", "LangChain", "Vector Databases", "Distributed Systems", "Event-Driven Architecture"] },
   { category: "Leadership", items: ["Technical Vision", "Cross-functional Leadership", "Strategic Planning", "Open Source Strategy", "Developer Relations"] }
 ];
@@ -117,7 +117,7 @@ export default function AboutPage() {
                   <div className="space-y-3">
                     <h1 className="text-3xl font-display font-semibold">Jonathan Haas</h1>
                     <p className="text-lg text-muted-foreground">
-                      AI Agent Infrastructure & Product Leader
+                      Product & Infrastructure Leader
                     </p>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <MapPin size={16} />
@@ -148,14 +148,14 @@ export default function AboutPage() {
                 <div className="prose-custom max-w-none">
                   <h2 className="text-2xl font-display font-semibold mb-6">About Me</h2>
                   <p className="text-lg leading-relaxed mb-6">
-                    I'm an AI infrastructure and product leader building the foundations for autonomous AI agents. 
-                    With deep experience in both security automation and enterprise software, I'm focused on 
-                    creating the tools and protocols that will enable the next generation of AI-powered workflows.
+                    I'm a product and infrastructure leader who builds systems that scale. 
+                    With deep experience in security automation and enterprise software, I focus on 
+                    creating tools and platforms that solve real problems for real users.
                   </p>
                   <p className="mb-6">
                     My journey spans from engineering at companies like Snap and DoorDash to founding 
-                    and leading ThreatKey. Now I'm applying those lessons to solve the infrastructure challenges 
-                    that prevent AI agents from reaching their full potential in production environments.
+                    and leading ThreatKey through acquisition. I believe the best technology feels invisible—
+                    it just works, enabling people to focus on what matters most.
                   </p>
                 </div>
 

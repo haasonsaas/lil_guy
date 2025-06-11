@@ -22,10 +22,10 @@ import {
 import type { BlogPost } from '@/types/blog';
 
 const featuredTopics = [
-  { name: "AI Agents", icon: Sparkles, count: 18 },
+  { name: "Product Strategy", icon: Rocket, count: 18 },
   { name: "Infrastructure", icon: Building2, count: 14 },
   { name: "Open Source", icon: Users, count: 12 },
-  { name: "Product Strategy", icon: Rocket, count: 10 }
+  { name: "Leadership", icon: Sparkles, count: 10 }
 ];
 
 
@@ -85,7 +85,7 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <Badge variant="secondary" className="mb-4">
-                    Building AI Agent Infrastructure
+                    Product & Infrastructure Leader
                   </Badge>
                 </motion.div>
                 
@@ -95,8 +95,8 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6"
                 >
-                  Building the Future of{" "}
-                  <span className="text-primary">AI Agent Infrastructure</span>
+                  Building Systems That{" "}
+                  <span className="text-primary">Actually Scale</span>
                 </motion.h1>
                 
                 <motion.p 
@@ -105,9 +105,9 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed"
                 >
-                  I'm architecting the infrastructure that powers autonomous AI agents. 
-                  From Model Context Protocol to production orchestration systems, 
-                  I share insights on building the future of AI-powered workflows.
+                  I'm a product and infrastructure leader who builds systems that scale. 
+                  From early-stage startups to enterprise platforms, 
+                  I share insights on solving real problems with thoughtful technology.
                 </motion.p>
                 
                 <motion.div 
@@ -201,12 +201,12 @@ export default function Index() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Sparkles className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">AI Agent Architecture</h3>
+              <h3 className="text-xl font-semibold mb-3">Product Strategy</h3>
               <p className="text-muted-foreground mb-4">
-                Deep dives into building production-ready AI agents, from MCP protocols to orchestration.
+                Building products that users actually want, from finding product-market fit to scaling.
               </p>
-              <Link to="/tags/ai" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
-                Explore AI Agent Articles <ArrowRight className="h-4 w-4" />
+              <Link to="/tags/product" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
+                Read Product Insights <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>
             
@@ -216,7 +216,7 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Infrastructure Design</h3>
               <p className="text-muted-foreground mb-4">
-                Building scalable systems for AI workloads, tool integration, and agent orchestration.
+                Building scalable systems that handle real-world complexity with elegant simplicity.
               </p>
               <Link to="/tags/infrastructure" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
                 Read Infrastructure Insights <ArrowRight className="h-4 w-4" />
@@ -229,7 +229,7 @@ export default function Index() {
               </div>
               <h3 className="text-xl font-semibold mb-3">Open Source Strategy</h3>
               <p className="text-muted-foreground mb-4">
-                Insights on building developer communities and open protocols for AI infrastructure.
+                Insights on building developer communities and sustainable open source projects.
               </p>
               <Link to="/tags/open-source" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
                 Learn from Experience <ArrowRight className="h-4 w-4" />
@@ -311,8 +311,8 @@ export default function Index() {
                 Stay Ahead of the Curve
               </h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Get weekly insights on AI agents, infrastructure design, and the future of autonomous systems. 
-                Join thousands of developers and tech leaders building the next generation of AI.
+                Get weekly insights on product strategy, infrastructure design, and building systems that scale. 
+                Join thousands of developers and tech leaders building products that matter.
               </p>
               <Link to="/newsletter">
                 <Button size="lg" className="group">
