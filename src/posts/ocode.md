@@ -10,6 +10,9 @@ tags:
   - product
   - strategy
   - transparency
+  - open-source
+  - developer-tools
+  - ai
 image:
   url: "https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   alt: "A developer in a terminal session working late at night with a cat nearby"

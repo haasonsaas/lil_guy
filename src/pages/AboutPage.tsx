@@ -37,7 +37,7 @@ const experiences = [
     role: "Co-founder & CEO",
     company: "ThreatKey",
     period: "Oct 2020 - Oct 2024",
-    description: "Led cybersecurity startup from founding to successful exit",
+    description: "Led cybersecurity startup from founding through acquisition",
     achievements: [
       "Raised $5M in venture funding",
       "Built and scaled to $XXXK ARR",
@@ -153,8 +153,8 @@ export default function AboutPage() {
                     creating the tools and protocols that will enable the next generation of AI-powered workflows.
                   </p>
                   <p className="mb-6">
-                    My journey spans from engineering at companies like Snap and DoorDash to founding ThreatKey 
-                    (successfully exited). Now I'm applying those lessons to solve the infrastructure challenges 
+                    My journey spans from engineering at companies like Snap and DoorDash to founding 
+                    and leading ThreatKey. Now I'm applying those lessons to solve the infrastructure challenges 
                     that prevent AI agents from reaching their full potential in production environments.
                   </p>
                 </div>

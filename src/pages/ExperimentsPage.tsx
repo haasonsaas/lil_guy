@@ -28,9 +28,23 @@ interface Repository {
   url: string;
   featured?: boolean;
   repoName?: string; // GitHub repo name if different from display name
+  githubUser?: string; // GitHub username if different from default
 }
 
 const experimentsData: Repository[] = [
+  {
+    name: "Deep Code Reasoning MCP",
+    repoName: "deep-code-reasoning-mcp",
+    description: "MCP server that intelligently routes complex debugging tasks between Claude Code and Gemini AI for advanced code analysis",
+    stars: 1, // fallback
+    language: "JavaScript",
+    languageColor: "#f1e05a",
+    icon: Code2,
+    topics: ["MCP", "AI Agents", "Code Analysis", "Multi-Model"],
+    url: "https://github.com/haasonsaas/deep-code-reasoning-mcp",
+    githubUser: "haasonsaas",
+    featured: true
+  },
   {
     name: "OCode",
     repoName: "ocode",
@@ -41,7 +55,7 @@ const experimentsData: Repository[] = [
     icon: Terminal,
     topics: ["AI", "Developer Tools", "Local LLM"],
     url: "https://github.com/HaasOnSaaS/ocode",
-    featured: true
+    featured: false
   },
   {
     name: "DiffScope",
@@ -94,7 +108,8 @@ export default function ExperimentsPage() {
       // Fetch all repos in parallel
       const promises = experimentsData.map(async (experiment) => {
         const repoName = experiment.repoName || experiment.name.toLowerCase();
-        const apiUrl = `https://api.github.com/repos/HaasOnSaaS/${repoName}`;
+        const githubUser = experiment.githubUser || 'HaasOnSaaS';
+        const apiUrl = `https://api.github.com/repos/${githubUser}/${repoName}`;
         
         try {
           const response = await fetch(apiUrl);

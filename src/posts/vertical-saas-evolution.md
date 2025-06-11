@@ -5,6 +5,7 @@ title: "The Agentic Shift: How AI is Transforming Vertical SaaS"
 description: "How vertical SaaS companies are rapidly evolving from workflow automation to intelligent agents, and what it means for the future of industry-specific software"
 tags:
   - ai
+  - ai-agents
   - engineering
   - product
   - strategy

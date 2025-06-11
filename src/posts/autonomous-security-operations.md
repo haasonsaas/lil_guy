@@ -5,10 +5,12 @@ pubDate: 2024-04-11
 description: "Exploring the role of automation and AI in modern security operations"
 tags:
   - ai
+  - ai-agents
   - security
   - strategy
   - engineering
   - product
+  - automation
 featured: false
 draft: false
 image:

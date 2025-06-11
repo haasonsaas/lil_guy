@@ -7,6 +7,8 @@ tags:
   - engineering
   - product
   - strategy
+  - infrastructure
+  - developer-tools
 image:
   url: 'https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Complex network of connections represented by post it notes'

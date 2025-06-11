@@ -142,7 +142,7 @@ export default function Index() {
                   </div>
                   <div className="flex items-center gap-2">
                     <TrendingUp className="h-4 w-4" />
-                    <span>ThreatKey (Founded → Exit)</span>
+                    <span>Founded ThreatKey</span>
                   </div>
                 </motion.div>
               </div>
