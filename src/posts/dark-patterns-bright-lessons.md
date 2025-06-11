@@ -4,10 +4,11 @@ pubDate: 2024-04-11
 title: "Dark Patterns, Bright Lessons: Ethics in Product Design"
 description: "Exploring the ethical implications of dark patterns in UX design and how to build products that respect user agency"
 tags:
-  - design
   - product
   - ux
-  - strategy
+  - design
+  - trust
+  - transparency
 image:
   url: '/images/dark-patterns.png'
   alt: "A maze-like interface illustrating dark patterns in user experience design"

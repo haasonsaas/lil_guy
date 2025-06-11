@@ -9,6 +9,7 @@ tags:
   - engineering
   - product
   - strategy
+  - framework
 image:
   url: '/images/shout-screenshot.png'
   alt: "Screenshot of the Shout application interface showing the recognition evaluation system"

@@ -5,6 +5,7 @@ title: "Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness"
 description: "An in-depth exploration of how the Bloom platform transcends traditional wellness tracking to create a holistic system that adapts to users' lives rather than demanding adaptation from them"
 tags:
   - product
+  - ux
   - design
   - personal-growth
   - strategy

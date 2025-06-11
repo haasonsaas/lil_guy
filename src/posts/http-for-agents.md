@@ -6,12 +6,10 @@ description: "As AI agents grow from niche experiments to core infrastructure, w
 featured: false
 draft: false
 tags:
-  - ai-infrastructure
-  - identity
-  - authorization
-  - policy-engine
-  - observability
-  - developer-tools
+  - ai
+  - engineering
+  - technical
+  - framework
 image:
   url: "https://images.pexels.com/photos/11035546/pexels-photo-11035546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   alt: "Abstract network of connected dots representing digital agents and protocols"

@@ -7,11 +7,11 @@ description:
 featured: false  
 draft: false  
 tags:  
-  - leadership  
-  - feedback  
-  - organizational-dynamics  
-  - conflict-avoidance  
-  - team-dynamics  
+  - management
+  - leadership
+  - career
+  - culture
+  - personal-growth  
 image:  
   url: 'https://images.pexels.com/photos/3205566/pexels-photo-3205566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  
   alt: "An employee waiting in an office, symbolizing ambiguity and lack of direct feedback from leadership"  

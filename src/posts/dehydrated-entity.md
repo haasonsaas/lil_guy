@@ -7,11 +7,11 @@ description:
 featured: false
 draft: false
 tags:
-  - hiring
-  - startup-culture
+  - management
   - leadership
-  - productivity
-  - organizational-design
+  - culture
+  - startup
+  - growth
 image:
   url: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "A lean, focused team collaborating intensely on a whiteboard, symbolizing the urgency-driven nature of lean startups"

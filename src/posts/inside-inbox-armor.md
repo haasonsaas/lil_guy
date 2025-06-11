@@ -6,10 +6,11 @@ description: "A deep dive into the architecture, design principles, and future e
 featured: false
 draft: false
 tags:
-  - engineering
+  - security
   - product
-  - ai
+  - engineering
   - strategy
+  - ai
 image:
   url: '/images/inboxarmor-architecture.png'
   alt: "Diagram of InboxArmor's Analysis and Evaluation Engines working together"

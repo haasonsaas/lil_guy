@@ -6,11 +6,11 @@ postSlug: my-manager-readme
 featured: false
 draft: false
 tags:
-  - leadership
-  - productivity
   - management
+  - leadership
   - culture
-  - personal-growth
+  - transparency
+  - trust
 image:
   url: 'https://images.pexels.com/photos/267586/pexels-photo-267586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A book open on a desk'

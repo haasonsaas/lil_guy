@@ -5,8 +5,8 @@ title: "Building My UniFi Homelab: A Technical Deep Dive"
 description: "A technical deep-dive into my homelab network built on UniFi enterprise equipment"
 tags:
   - engineering
-  - product
-  - strategy
+  - technical
+  - personal-growth
 image:
   url: 'https://images.pexels.com/photos/2881229/pexels-photo-2881229.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A clean, modern server rack with blue LED lighting'

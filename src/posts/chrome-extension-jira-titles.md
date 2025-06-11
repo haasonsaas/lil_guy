@@ -6,6 +6,8 @@ description: "Building a Chrome extension to improve Jira ticket management"
 tags:
   - engineering
   - product
+  - ux
+  - ai
   - productivity
 featured: false
 draft: false

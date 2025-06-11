@@ -7,11 +7,10 @@ description:
 featured: false
 draft: false
 tags:
-  - venture-capital
-  - founder-compensation
-  - startup-culture
-  - equity
-  - leadership
+  - startup
+  - founder
+  - culture
+  - transparency
 image:
   url: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "Two professionals reviewing equity compensation documents, symbolizing the disparity between founder and CEO pay"

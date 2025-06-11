@@ -6,11 +6,10 @@ description: "Growth might be your dashboard's favorite metric, but it's not you
 featured: false
 draft: false
 tags:
-  - startup-strategy
-  - product-development
-  - leadership
-  - messaging
-  - early-stage
+  - product
+  - strategy
+  - founder
+  - growth
 image:
   url: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "A foggy glass window with someone drawing a line through it, symbolizing cutting through lack of clarity"

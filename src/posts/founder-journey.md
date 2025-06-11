@@ -7,11 +7,10 @@ description:
   An honest exploration of the psychological whiplash that comes with building a
   company, and why we keep coming back for more
 tags:
-  - business
-  - entrepreneurship
-  - leadership
+  - founder
+  - startup
   - personal-growth
-  - startups
+  - leadership
 featured: false
 draft: false
 image:

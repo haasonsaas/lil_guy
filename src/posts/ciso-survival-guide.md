@@ -6,10 +6,10 @@ description: "A product manager's perspective on the growing disconnect between 
 featured: false
 draft: false
 tags:
-  - engineering
-  - product
+  - security
   - leadership
   - strategy
+  - sales
 image:
   url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "Security professionals in a meeting discussing cybersecurity challenges"

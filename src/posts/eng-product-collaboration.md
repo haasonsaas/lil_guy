@@ -6,10 +6,11 @@ postSlug: engineering-product-alliance
 featured: false
 draft: false
 tags:
-  - engineering
   - product
+  - engineering
   - leadership
   - culture
+  - management
 description:
   Moving beyond traditional engineering and product silos to build lasting,
   effective partnerships that drive innovation

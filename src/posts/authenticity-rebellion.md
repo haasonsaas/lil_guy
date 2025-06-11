@@ -6,11 +6,10 @@ description: "The internet is drowning in AI-generated content, but connection a
 featured: false
 draft: false
 tags:
-- content-strategy
-- artificial-intelligence
-- authenticity
-- writing
-- creator-economy
+- ai
+- product
+- culture
+- personal-growth
 image:
   url: '[https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress\&cs=tinysrgb\&w=1260\&h=750\&dpr=2](https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)'
   alt: "A lone human silhouette standing in front of a wall of digital content, symbolizing the struggle for authenticity"

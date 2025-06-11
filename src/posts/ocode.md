@@ -6,11 +6,10 @@ description: "After getting smacked with a $600+ invoice for a coding assistant 
 featured: false
 draft: false
 tags:
-  - developer-tools
-  - open-source
-  - local-llm
-  - coding-assistants
-  - ollama
+  - engineering
+  - product
+  - strategy
+  - transparency
 image:
   url: "https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
   alt: "A developer in a terminal session working late at night with a cat nearby"
@@ -155,5 +154,3 @@ And if you build something cool on top of it? Let me know. I built OCode to esca
 ---
 
 **Made with a terminal window, two coffees, and two very confused cats.** 🐈
-
-Let me know if you'd like the HTML-safe version, double-escaped JSON, or restructured for publishing in a specific CMS.
