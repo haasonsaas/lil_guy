@@ -22,10 +22,10 @@ import {
 import type { BlogPost } from '@/types/blog';
 
 const featuredTopics = [
-  { name: "Security & Compliance", icon: Shield, count: 15 },
-  { name: "Product Strategy", icon: Rocket, count: 12 },
-  { name: "Leadership", icon: Users, count: 8 },
-  { name: "AI & Automation", icon: Sparkles, count: 10 }
+  { name: "AI Agents", icon: Sparkles, count: 18 },
+  { name: "Infrastructure", icon: Building2, count: 14 },
+  { name: "Open Source", icon: Users, count: 12 },
+  { name: "Product Strategy", icon: Rocket, count: 10 }
 ];
 
 
@@ -85,7 +85,7 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <Badge variant="secondary" className="mb-4">
-                    Currently at compliance automation company
+                    Building AI Agent Infrastructure
                   </Badge>
                 </motion.div>
                 
@@ -96,7 +96,7 @@ export default function Index() {
                   className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6"
                 >
                   Building the Future of{" "}
-                  <span className="text-primary">Security Automation</span>
+                  <span className="text-primary">AI Agent Infrastructure</span>
                 </motion.h1>
                 
                 <motion.p 
@@ -105,9 +105,9 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed"
                 >
-                  I transform complex B2B challenges into elegant solutions. 
-                  From building security at scale to founding successful companies, 
-                  I share hard-won insights on product, leadership, and growth.
+                  I'm architecting the infrastructure that powers autonomous AI agents. 
+                  From Model Context Protocol to production orchestration systems, 
+                  I share insights on building the future of AI-powered workflows.
                 </motion.p>
                 
                 <motion.div 
@@ -162,7 +162,7 @@ export default function Index() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                     <h2 className="text-2xl font-semibold mb-2">Jonathan Haas</h2>
-                    <p className="text-white/90">Security & Product Leader</p>
+                    <p className="text-white/90">AI Infrastructure & Product Leader</p>
                   </div>
                 </div>
               </motion.div>
@@ -199,14 +199,14 @@ export default function Index() {
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="p-8 hover:shadow-lg transition-shadow">
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="h-6 w-6 text-primary" />
+                <Sparkles className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Security Expertise</h3>
+              <h3 className="text-xl font-semibold mb-3">AI Agent Architecture</h3>
               <p className="text-muted-foreground mb-4">
-                Deep insights from building security at scale, from startups to IPO-ready companies.
+                Deep dives into building production-ready AI agents, from MCP protocols to orchestration.
               </p>
-              <Link to="/tags/security" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
-                Explore Security Articles <ArrowRight className="h-4 w-4" />
+              <Link to="/tags/ai" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
+                Explore AI Agent Articles <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>
             
@@ -214,12 +214,12 @@ export default function Index() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Rocket className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Product Leadership</h3>
+              <h3 className="text-xl font-semibold mb-3">Infrastructure Design</h3>
               <p className="text-muted-foreground mb-4">
-                Strategies for building products that solve real problems and drive business growth.
+                Building scalable systems for AI workloads, tool integration, and agent orchestration.
               </p>
-              <Link to="/tags/product" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
-                Read Product Insights <ArrowRight className="h-4 w-4" />
+              <Link to="/tags/infrastructure" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
+                Read Infrastructure Insights <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>
             
@@ -227,11 +227,11 @@ export default function Index() {
               <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                 <Users className="h-6 w-6 text-primary" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Founder Journey</h3>
+              <h3 className="text-xl font-semibold mb-3">Open Source Strategy</h3>
               <p className="text-muted-foreground mb-4">
-                Honest reflections on building, scaling, and successfully exiting a B2B startup.
+                Insights on building developer communities and open protocols for AI infrastructure.
               </p>
-              <Link to="/tags/startup" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
+              <Link to="/tags/open-source" className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all">
                 Learn from Experience <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>
@@ -311,8 +311,8 @@ export default function Index() {
                 Stay Ahead of the Curve
               </h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Get weekly insights on security, product strategy, and leadership. 
-                Join thousands of tech leaders who read my newsletter.
+                Get weekly insights on AI agents, infrastructure design, and the future of autonomous systems. 
+                Join thousands of developers and tech leaders building the next generation of AI.
               </p>
               <Link to="/newsletter">
                 <Button size="lg" className="group">

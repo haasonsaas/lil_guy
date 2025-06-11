@@ -91,10 +91,10 @@ const experiences = [
 ];
 
 const skills = [
-  { category: "Security & Compliance", items: ["SOC 2", "ISO 27001", "GDPR", "HIPAA", "Zero Trust", "Threat Modeling"] },
-  { category: "Product & Strategy", items: ["Product Management", "Go-to-Market", "User Research", "A/B Testing", "Analytics"] },
-  { category: "Engineering", items: ["Python", "TypeScript", "React", "AWS", "Kubernetes", "CI/CD"] },
-  { category: "Leadership", items: ["Team Building", "Strategic Planning", "Fundraising", "Board Management", "Culture Building"] }
+  { category: "AI & Agent Infrastructure", items: ["LLM Orchestration", "Model Context Protocol", "Agent Architecture", "Tool Integration", "RAG Systems", "Prompt Engineering"] },
+  { category: "Product & Strategy", items: ["AI Product Management", "Agent UX Design", "API Design", "Developer Experience", "Platform Strategy"] },
+  { category: "Engineering", items: ["Python", "TypeScript", "LangChain", "Vector Databases", "Distributed Systems", "Event-Driven Architecture"] },
+  { category: "Leadership", items: ["Technical Vision", "Cross-functional Leadership", "Strategic Planning", "Open Source Strategy", "Developer Relations"] }
 ];
 
 export default function AboutPage() {
@@ -117,7 +117,7 @@ export default function AboutPage() {
                   <div className="space-y-3">
                     <h1 className="text-3xl font-display font-semibold">Jonathan Haas</h1>
                     <p className="text-lg text-muted-foreground">
-                      Security & Product Leader
+                      AI Agent Infrastructure & Product Leader
                     </p>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <MapPin size={16} />
@@ -148,15 +148,14 @@ export default function AboutPage() {
                 <div className="prose-custom max-w-none">
                   <h2 className="text-2xl font-display font-semibold mb-6">About Me</h2>
                   <p className="text-lg leading-relaxed mb-6">
-                    I'm a security and product leader who transforms complex compliance challenges into streamlined, 
-                    automated solutions. With experience building security programs at high-growth companies, I understand 
-                    the pain points that keep security teams up at night.
+                    I'm an AI infrastructure and product leader building the foundations for autonomous AI agents. 
+                    With deep experience in both security automation and enterprise software, I'm focused on 
+                    creating the tools and protocols that will enable the next generation of AI-powered workflows.
                   </p>
                   <p className="mb-6">
-                    My journey spans from early engineering roles at companies like Snap and DoorDash to founding 
-                    and successfully exiting ThreatKey. I've seen firsthand how compliance bottlenecks slow down 
-                    innovation, and I'm passionate about building tools that let companies move fast without 
-                    compromising on security.
+                    My journey spans from engineering at companies like Snap and DoorDash to founding ThreatKey 
+                    (successfully exited). Now I'm applying those lessons to solve the infrastructure challenges 
+                    that prevent AI agents from reaching their full potential in production environments.
                   </p>
                 </div>
 
