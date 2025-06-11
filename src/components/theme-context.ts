@@ -1,6 +1,6 @@
 import { createContext } from "react"
 
-export type Theme = "dark" | "light" | "system" | "sepia" | "solarized" | "hacker" | "solarized-dark" | "ghibli"
+export type Theme = "dark" | "light" | "system"
 
 export type ThemeProviderProps = {
   children: React.ReactNode

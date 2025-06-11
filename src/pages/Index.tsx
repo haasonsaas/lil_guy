@@ -85,7 +85,7 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <Badge variant="secondary" className="mb-4">
-                    Product & Infrastructure Leader
+                    Security & Applied AI Engineering Leader
                   </Badge>
                 </motion.div>
                 
@@ -105,7 +105,7 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed"
                 >
-                  I'm a product and infrastructure leader who builds systems that scale. 
+                  I'm a security and applied AI engineering leader who builds systems that scale. 
                   From early-stage startups to enterprise platforms, 
                   I share insights on solving real problems with thoughtful technology.
                 </motion.p>
@@ -162,7 +162,7 @@ export default function Index() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
                     <h2 className="text-2xl font-semibold mb-2">Jonathan Haas</h2>
-                    <p className="text-white/90">AI Infrastructure & Product Leader</p>
+                    <p className="text-white/90">Security & Applied AI Engineering Leader</p>
                   </div>
                 </div>
               </motion.div>

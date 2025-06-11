@@ -91,10 +91,10 @@ const experiences = [
 ];
 
 const skills = [
-  { category: "Product & Strategy", items: ["Product Management", "Platform Strategy", "API Design", "Developer Experience", "Go-to-Market", "User Research"] },
-  { category: "Infrastructure & Security", items: ["Distributed Systems", "Security Operations", "Compliance Automation", "Platform Engineering", "Event-Driven Architecture", "Observability"] },
-  { category: "Engineering", items: ["Python", "TypeScript", "LangChain", "Vector Databases", "Distributed Systems", "Event-Driven Architecture"] },
-  { category: "Leadership", items: ["Technical Vision", "Cross-functional Leadership", "Strategic Planning", "Open Source Strategy", "Developer Relations"] }
+  { category: "Security & AI Engineering", items: ["Security Operations", "AI/ML Systems", "LangChain", "Vector Databases", "Compliance Automation", "Threat Detection"] },
+  { category: "Infrastructure & Architecture", items: ["Distributed Systems", "Platform Engineering", "Event-Driven Architecture", "API Design", "Observability", "Cloud Infrastructure"] },
+  { category: "Engineering", items: ["Python", "TypeScript", "Machine Learning", "Security Automation", "DevSecOps", "Infrastructure as Code"] },
+  { category: "Leadership", items: ["Technical Vision", "Cross-functional Leadership", "Strategic Planning", "Open Source Strategy", "Team Building"] }
 ];
 
 export default function AboutPage() {
@@ -117,7 +117,7 @@ export default function AboutPage() {
                   <div className="space-y-3">
                     <h1 className="text-3xl font-display font-semibold">Jonathan Haas</h1>
                     <p className="text-lg text-muted-foreground">
-                      Product & Infrastructure Leader
+                      Security & Applied AI Engineering Leader
                     </p>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <MapPin size={16} />
@@ -148,7 +148,7 @@ export default function AboutPage() {
                 <div className="prose-custom max-w-none">
                   <h2 className="text-2xl font-display font-semibold mb-6">About Me</h2>
                   <p className="text-lg leading-relaxed mb-6">
-                    I'm a product and infrastructure leader who builds systems that scale. 
+                    I'm a security and applied AI engineering leader who builds systems that scale. 
                     With deep experience in security automation and enterprise software, I focus on 
                     creating tools and platforms that solve real problems for real users.
                   </p>
