@@ -3,18 +3,18 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <footer className="bg-background border-t border-border mt-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <footer className="bg-muted/30 border-t border-border mt-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-lg font-semibold mb-4 font-serif">Haas on SaaS</h3>
-            <p className="text-muted-foreground">
-              Writing brutally honest essays on building and shipping B2B products.
+            <h3 className="text-base font-semibold mb-4 font-display">Jonathan Haas</h3>
+            <p className="text-sm text-muted-foreground">
+              Strategic insights on product development and B2B SaaS growth.
             </p>
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Links</h3>
+            <h3 className="text-base font-semibold mb-4">Navigation</h3>
             <ul className="space-y-2">
               <li>
                 <Link to="/" className="text-muted-foreground hover:text-foreground transition-colors">
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
           
           <div>
-            <h3 className="text-lg font-semibold mb-4">Connect</h3>
+            <h3 className="text-base font-semibold mb-4">Connect</h3>
             <div className="flex space-x-4">
               <a 
                 href="https://github.com/haasonsaas" 

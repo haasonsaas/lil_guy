@@ -2,8 +2,7 @@
 author: Jonathan Haas
 pubDate: 2025-05-26
 title: "OCode: Why I Built My Own Claude Code (and Why You Might Too)"
-description: >
-  After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here’s how OCode was born—powered by Ollama, running locally, and priced at $0 per token.
+description: "After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by Ollama, running locally, and priced at $0 per token."
 featured: false
 draft: false
 tags:

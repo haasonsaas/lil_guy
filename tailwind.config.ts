@@ -134,8 +134,8 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Inter var', 'system-ui', 'sans-serif'],
-				serif: ['Playfair Display', 'serif'],
-				display: ['Clash Display', 'system-ui', 'sans-serif'],
+				serif: ['Georgia', 'serif'],
+				display: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
 			},
 			typography: {
 				DEFAULT: {
@@ -151,30 +151,30 @@ export default {
 						},
 						h1: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Clash Display, system-ui, sans-serif',
+							fontFamily: 'IBM Plex Sans, system-ui, sans-serif',
 							lineHeight: '1.2',
-							fontWeight: '600',
-							letterSpacing: '-0.02em',
-						},
-						h2: {
-							color: 'hsl(var(--foreground))',
-							fontFamily: 'Clash Display, system-ui, sans-serif',
-							lineHeight: '1.3',
-							fontWeight: '600',
-							letterSpacing: '-0.02em',
-						},
-						h3: {
-							color: 'hsl(var(--foreground))',
-							fontFamily: 'Clash Display, system-ui, sans-serif',
-							lineHeight: '1.4',
 							fontWeight: '600',
 							letterSpacing: '-0.01em',
 						},
+						h2: {
+							color: 'hsl(var(--foreground))',
+							fontFamily: 'IBM Plex Sans, system-ui, sans-serif',
+							lineHeight: '1.3',
+							fontWeight: '600',
+							letterSpacing: '-0.01em',
+						},
+						h3: {
+							color: 'hsl(var(--foreground))',
+							fontFamily: 'IBM Plex Sans, system-ui, sans-serif',
+							lineHeight: '1.4',
+							fontWeight: '500',
+							letterSpacing: '0',
+						},
 						h4: {
 							color: 'hsl(var(--foreground))',
-							fontFamily: 'Clash Display, system-ui, sans-serif',
+							fontFamily: 'IBM Plex Sans, system-ui, sans-serif',
 							lineHeight: '1.4',
-							fontWeight: '600',
+							fontWeight: '500',
 						},
 						p: {
 							lineHeight: '1.6',

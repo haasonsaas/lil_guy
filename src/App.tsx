@@ -15,6 +15,7 @@ import FAQPage from "./pages/FAQPage";
 import UsesPage from "./pages/UsesPage";
 import ReadingPage from "./pages/ReadingPage";
 import NewsletterPage from "./pages/NewsletterPage";
+import ExperimentsPage from "./pages/ExperimentsPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +39,7 @@ const App = () => (
             <Route path="/uses" element={<UsesPage />} />
             <Route path="/reading" element={<ReadingPage />} />
             <Route path="/newsletter" element={<NewsletterPage />} />
+            <Route path="/experiments" element={<ExperimentsPage />} />
             {/* Redirect /admin to the home page */}
             <Route path="/admin" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />

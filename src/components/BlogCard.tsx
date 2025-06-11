@@ -64,7 +64,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
         onMouseLeave={() => setIsHovered(false)}
       >
         <Link to={`/blog/${slug}`} className="block">
-          <div className="relative h-[400px] overflow-hidden rounded-2xl shadow-lg">
+          <div className="relative h-[400px] overflow-hidden rounded-lg shadow-md">
             {isLoading && (
               <Skeleton className="absolute inset-0 w-full h-full" />
             )}
@@ -92,15 +92,15 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
                   <Badge 
                     key={tag} 
                     variant="default" 
-                    className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm border-primary/40 px-3 py-1.5 hover:bg-primary transition-colors"
+                    className="flex items-center gap-1.5 bg-secondary text-secondary-foreground border-secondary px-3 py-1 hover:bg-secondary/80 transition-colors"
                   >
                     <Tag size={12} />
                     {tag.replace(/-/g, ' ')}
                   </Badge>
                 ))}
               </div>
-              <h2 className="text-3xl md:text-4xl font-display font-semibold text-white mb-3 leading-tight">{truncatedTitle}</h2>
-              <p className="text-white/90 mb-6 text-lg leading-relaxed">{truncatedDescription}</p>
+              <h2 className="text-2xl md:text-3xl font-display font-semibold text-white mb-3 leading-tight">{truncatedTitle}</h2>
+              <p className="text-white/80 mb-6 text-base leading-relaxed">{truncatedDescription}</p>
               <div className="flex items-center gap-4 text-white/80 text-sm">
                 {!hideAuthor && (
                   <div className="flex items-center gap-1.5">
@@ -138,8 +138,8 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
     >
       <Link to={`/blog/${slug}`} className="block">
         <div className={cn(
-          "relative overflow-hidden rounded-xl border border-border bg-card transition-all duration-300",
-          "hover:border-primary/30 hover:shadow-lg",
+          "relative overflow-hidden rounded-lg border border-border bg-card transition-all duration-300",
+          "hover:border-primary/20 hover:shadow-md",
           "group"
         )}>
           <div className="relative aspect-[16/9] overflow-hidden">
@@ -170,7 +170,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
                   <Badge 
                     key={tag} 
                     variant="default" 
-                    className="flex items-center gap-1.5 bg-primary/90 backdrop-blur-sm border-primary/40 px-2 py-1 text-xs hover:bg-primary transition-colors"
+                    className="flex items-center gap-1 bg-secondary text-secondary-foreground border-secondary px-2 py-0.5 text-xs hover:bg-secondary/80 transition-colors"
                   >
                     <Tag size={10} />
                     {tag.replace(/-/g, ' ')}
@@ -206,7 +206,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
               <span>{formatDate(frontmatter.pubDate)}</span>
             </div>
             
-            <h3 className="text-xl font-display font-semibold mb-3 line-clamp-2 leading-tight group-hover:text-primary transition-colors">
+            <h3 className="text-lg font-display font-medium mb-2 line-clamp-2 leading-tight group-hover:text-primary transition-colors">
               {truncatedTitle}
             </h3>
             
@@ -217,8 +217,8 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
               {truncatedDescription}
             </p>
             
-            <div className="flex items-center gap-2 text-sm font-medium text-primary group-hover:translate-x-1 transition-transform">
-              Read more
+            <div className="flex items-center gap-2 text-sm font-medium text-primary/80 group-hover:text-primary group-hover:translate-x-0.5 transition-all">
+              Read article
               <ArrowRight size={14} />
             </div>
           </div>

@@ -8,29 +8,32 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 border-b bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
-              <span className="text-primary font-bold text-sm">H</span>
+            <div className="w-8 h-8 rounded bg-primary flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-sm">JH</span>
             </div>
-            <span className="font-display text-xl font-semibold">Jonathan Haas</span>
+            <span className="font-display text-lg font-medium text-foreground">Jonathan Haas</span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-6">
-            <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            <Link to="/about" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               About
             </Link>
-            <Link to="/blog" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Blog
+            <Link to="/blog" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Articles
             </Link>
-            <Link to="/uses" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-              Uses
+            <Link to="/uses" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Resources
+            </Link>
+            <Link to="/experiments" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Experiments
             </Link>
             <Link to="/newsletter">
-              <Button variant="outline" size="sm">
-                Newsletter
+              <Button variant="default" size="sm" className="font-medium">
+                Subscribe
               </Button>
             </Link>
             <ThemeToggle />
@@ -78,6 +81,13 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Uses
+              </Link>
+              <Link
+                to="/experiments"
+                className="block rounded-md px-3 py-2 text-base font-medium text-muted-foreground hover:bg-accent hover:text-foreground"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Experiments
               </Link>
               <Link
                 to="/newsletter"

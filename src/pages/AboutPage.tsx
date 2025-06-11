@@ -1,87 +1,333 @@
 import Layout from '@/components/Layout';
-import { Mail } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { Separator } from '@/components/ui/separator';
+import { 
+  Mail, 
+  Linkedin, 
+  Github, 
+  Twitter,
+  Building2,
+  Calendar,
+  MapPin,
+  Briefcase,
+  GraduationCap,
+  Award,
+  Code2,
+  Shield,
+  Rocket,
+  Users,
+  ChevronRight
+} from 'lucide-react';
+import { Link } from 'react-router-dom';
+
+const experiences = [
+  {
+    role: "Security & AI",
+    company: "Compliance automation company",
+    period: "Oct 2024 - Present",
+    description: "Joined via ThreatKey",
+    achievements: [
+      "🤫 Can't say yet",
+      "Stay tuned for updates"
+    ]
+  },
+  {
+    role: "Co-founder & CEO",
+    company: "ThreatKey",
+    period: "Oct 2020 - Oct 2024",
+    description: "Led cybersecurity startup from founding to successful exit",
+    achievements: [
+      "Raised $5M in venture funding",
+      "Built and scaled to $XXXK ARR",
+      "Created AI-powered compliance automation platform"
+    ]
+  },
+  {
+    role: "Lead, Security Operations",
+    company: "Carta",
+    period: "Nov 2020 - Jul 2021",
+    description: "Led security operations for equity management platform",
+    achievements: [
+      "Built security operations from ground up",
+      "Implemented incident response protocols",
+      "Left to go full-time on ThreatKey"
+    ]
+  },
+  {
+    role: "Senior Security Operations Engineer",
+    company: "DoorDash",
+    period: "Feb 2020 - Nov 2020",
+    description: "Built security infrastructure during rapid growth phase",
+    achievements: [
+      "Designed security monitoring systems",
+      "Automated compliance workflows",
+      "Reduced incident response time by 70%"
+    ]
+  },
+  {
+    role: "Advisor (formerly VP Engineering)",
+    company: "Propy",
+    period: "Jan 2019 - Sep 2023",
+    description: "Led engineering then transitioned to advisory role",
+    achievements: [
+      "Built blockchain-based real estate platform",
+      "Scaled engineering team from 5 to 20",
+      "Continued advising through ThreatKey journey"
+    ]
+  },
+  {
+    role: "Security Engineer",
+    company: "Snap Inc.",
+    period: "Aug 2016 - Oct 2017",
+    description: "Early security team member, intern to FT conversion",
+    achievements: [
+      "Built security review process for new features",
+      "Implemented secure development lifecycle",
+      "Trained engineers on security best practices"
+    ]
+  }
+];
+
+const skills = [
+  { category: "Security & Compliance", items: ["SOC 2", "ISO 27001", "GDPR", "HIPAA", "Zero Trust", "Threat Modeling"] },
+  { category: "Product & Strategy", items: ["Product Management", "Go-to-Market", "User Research", "A/B Testing", "Analytics"] },
+  { category: "Engineering", items: ["Python", "TypeScript", "React", "AWS", "Kubernetes", "CI/CD"] },
+  { category: "Leadership", items: ["Team Building", "Strategic Planning", "Fundraising", "Board Management", "Culture Building"] }
+];
 
 export default function AboutPage() {
   return (
     <Layout>
       <section className="py-12">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-fade-in">
-            <h1 className="text-4xl font-bold mb-4">About</h1>
-            <p className="text-muted-foreground text-lg">
-              Security & Compliance Expert
-            </p>
-          </div>
-          
-          <div className="flex flex-col md:flex-row gap-8 mb-12 animate-fade-up">
-            <div className="w-full md:w-1/3">
-              <div className="rounded-xl overflow-hidden bg-card border border-border">
-                <img
-                  src="/images/self.jpeg"
-                  alt="Jonathan Haas"
-                  className="w-full aspect-square object-cover"
-                />
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Hero Section */}
+          <div className="mb-16 animate-fade-in">
+            <div className="flex flex-col lg:flex-row gap-12 items-start">
+              <div className="w-full lg:w-1/3">
+                <div className="sticky top-24">
+                  <div className="rounded-lg overflow-hidden bg-card border border-border mb-6">
+                    <img
+                      src="/images/self.jpeg"
+                      alt="Jonathan Haas"
+                      className="w-full aspect-square object-cover"
+                    />
+                  </div>
+                  <div className="space-y-3">
+                    <h1 className="text-3xl font-display font-semibold">Jonathan Haas</h1>
+                    <p className="text-lg text-muted-foreground">
+                      Security & Product Leader
+                    </p>
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <MapPin size={16} />
+                      <span>San Francisco, CA</span>
+                    </div>
+                    <div className="flex gap-3 pt-2">
+                      <Button variant="outline" size="icon" asChild>
+                        <a href="https://linkedin.com/in/jonathanhaas" target="_blank" rel="noopener noreferrer">
+                          <Linkedin size={18} />
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="icon" asChild>
+                        <a href="https://github.com/haasonsaas" target="_blank" rel="noopener noreferrer">
+                          <Github size={18} />
+                        </a>
+                      </Button>
+                      <Button variant="outline" size="icon" asChild>
+                        <a href="https://twitter.com/jonathanhaas" target="_blank" rel="noopener noreferrer">
+                          <Twitter size={18} />
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            
-            <div className="w-full md:w-2/3">
-              <h2 className="text-2xl font-bold mb-4">Jonathan Haas</h2>
-              <p className="text-muted-foreground mb-6">
-                Security & Compliance Expert
-              </p>
               
-              <div className="prose-custom mb-6">
-                <p className="mb-4">
-                  I help businesses tackle security compliance challenges. I'm passionate about transforming what used to be painful months-long processes into streamlined operations through smart automation.
-                </p>
+              <div className="w-full lg:w-2/3">
+                <div className="prose-custom max-w-none">
+                  <h2 className="text-2xl font-display font-semibold mb-6">About Me</h2>
+                  <p className="text-lg leading-relaxed mb-6">
+                    I'm a security and product leader who transforms complex compliance challenges into streamlined, 
+                    automated solutions. With experience building security programs at high-growth companies, I understand 
+                    the pain points that keep security teams up at night.
+                  </p>
+                  <p className="mb-6">
+                    My journey spans from early engineering roles at companies like Snap and DoorDash to founding 
+                    and successfully exiting ThreatKey. I've seen firsthand how compliance bottlenecks slow down 
+                    innovation, and I'm passionate about building tools that let companies move fast without 
+                    compromising on security.
+                  </p>
+                </div>
 
-                <h3 className="text-xl font-semibold mb-3">From Firefights to Frameworks</h3>
-                <p className="mb-4">
-                  I started my career deep in the mess—leading a variety of security efforts at high-growth teams like Snapchat, DoorDash, and Carta, where compliance felt like a tax on velocity. So I built something better.
-                </p>
-                <p className="mb-4">
-                  After founding ThreatKey, I'm now building something new focused on helping companies scale their operations efficiently. My focus: eliminate busywork, automate complexity, and scale trust through better systems.
-                </p>
+                {/* Experience Section */}
+                <div className="mb-12">
+                  <h2 className="text-2xl font-display font-semibold mb-6 flex items-center gap-2">
+                    <Briefcase size={24} />
+                    Experience
+                  </h2>
+                  <div className="space-y-6">
+                    {experiences.map((exp, index) => (
+                      <Card key={index} className="p-6 hover:shadow-md transition-shadow">
+                        <div className="flex items-start justify-between mb-3">
+                          <div>
+                            <h3 className="text-lg font-semibold">{exp.role}</h3>
+                            <p className="text-primary font-medium">{exp.company}</p>
+                          </div>
+                          <Badge variant="secondary" className="flex items-center gap-1">
+                            <Calendar size={12} />
+                            {exp.period}
+                          </Badge>
+                        </div>
+                        <p className="text-muted-foreground mb-3">{exp.description}</p>
+                        <ul className="space-y-1">
+                          {exp.achievements.map((achievement, i) => (
+                            <li key={i} className="text-sm flex items-start gap-2">
+                              <ChevronRight size={14} className="text-primary mt-0.5 flex-shrink-0" />
+                              <span>{achievement}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
 
-                <h3 className="text-xl font-semibold mb-3">What I Build</h3>
-                <p className="mb-4">
-                  AI-powered tools for the real world. Products that understand the workflow, not just the checkbox.
-                </p>
-                <ul className="list-disc pl-6 mb-4">
-                  <li>Compress weeks of compliance work into hours</li>
-                  <li>Translate frameworks into step-by-step guidance</li>
-                  <li>Let startups ship fast without trading off trust</li>
-                </ul>
+                {/* Notable Positions & Recognition */}
+                <div className="mb-12">
+                  <h2 className="text-2xl font-display font-semibold mb-6 flex items-center gap-2">
+                    <Award size={24} />
+                    Recognition & Memberships
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <Card className="p-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded flex items-center justify-center">
+                          <Award className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold">Forbes Technology Council</h3>
+                          <p className="text-sm text-muted-foreground">Official Member (2022-2024)</p>
+                        </div>
+                      </div>
+                      <p className="text-sm">
+                        Selected as an official member, contributing thought leadership on security and AI topics.
+                      </p>
+                    </Card>
+                    <Card className="p-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 bg-primary/10 rounded flex items-center justify-center">
+                          <Building2 className="h-5 w-5 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold">Multiple Startup Advisor</h3>
+                          <p className="text-sm text-muted-foreground">2017-Present</p>
+                        </div>
+                      </div>
+                      <p className="text-sm">
+                        Advising early-stage startups on security, compliance, and technical architecture.
+                      </p>
+                    </Card>
+                  </div>
+                </div>
 
-                <h3 className="text-xl font-semibold mb-3">Impact</h3>
-                <p className="mb-2">I've helped reshape how businesses approach compliance:</p>
-                <ul className="list-disc pl-6 mb-4">
-                  <li>Start at the edge cases — They reveal the real job</li>
-                  <li>Balance precision with pragmatism — Especially in regulated environments</li>
-                  <li>Design for humans — Because complexity doesn't have to feel complicated</li>
-                </ul>
+                {/* Skills Section */}
+                <div className="mb-12">
+                  <h2 className="text-2xl font-display font-semibold mb-6 flex items-center gap-2">
+                    <Code2 size={24} />
+                    Skills & Expertise
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {skills.map((skillGroup, index) => (
+                      <Card key={index} className="p-6">
+                        <h3 className="font-semibold mb-3 text-primary">{skillGroup.category}</h3>
+                        <div className="flex flex-wrap gap-2">
+                          {skillGroup.items.map((skill, i) => (
+                            <Badge key={i} variant="secondary" className="font-normal">
+                              {skill}
+                            </Badge>
+                          ))}
+                        </div>
+                      </Card>
+                    ))}
+                  </div>
+                </div>
 
-                <h3 className="text-xl font-semibold mb-3">A Bit More Human</h3>
-                <p className="mb-4">
-                  Outside work, I'm slow-walking San Francisco's 49-mile scenic route, cooking my way across 37 countries, and hosting pizza nights featuring Doughvid, my high-hydration sourdough starter. He's cranky but worth it.
-                </p>
+                {/* Philosophy Section */}
+                <div className="mb-12">
+                  <h2 className="text-2xl font-display font-semibold mb-6 flex items-center gap-2">
+                    <Rocket size={24} />
+                    My Approach
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <Card className="p-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <Shield className="h-6 w-6 text-primary" />
+                      </div>
+                      <h3 className="font-semibold mb-2">Start with Edge Cases</h3>
+                      <p className="text-sm text-muted-foreground">
+                        The edge cases reveal the real job. Understanding exceptions leads to better systems.
+                      </p>
+                    </Card>
+                    <Card className="p-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <Users className="h-6 w-6 text-primary" />
+                      </div>
+                      <h3 className="font-semibold mb-2">Design for Humans</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Complexity doesn't have to feel complicated. Great tools feel invisible.
+                      </p>
+                    </Card>
+                    <Card className="p-6">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
+                        <Rocket className="h-6 w-6 text-primary" />
+                      </div>
+                      <h3 className="font-semibold mb-2">Balance Precision</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Perfect is the enemy of done. Ship fast, iterate faster, maintain quality.
+                      </p>
+                    </Card>
+                  </div>
+                </div>
+
+                {/* Personal Section */}
+                <div className="mb-12">
+                  <h2 className="text-2xl font-display font-semibold mb-6">Beyond Work</h2>
+                  <Card className="p-8 bg-muted/30">
+                    <p className="text-lg leading-relaxed">
+                      When I'm not building security tools, you'll find me slow-walking San Francisco's 
+                      49-mile scenic route, cooking dishes from my travels across 37 countries, or hosting 
+                      pizza nights featuring Doughvid—my temperamental but talented sourdough starter. 
+                      I believe the best ideas come from diverse experiences, whether that's exploring a new 
+                      neighborhood, perfecting a recipe, or debugging code at 2 AM.
+                    </p>
+                  </Card>
+                </div>
               </div>
             </div>
           </div>
           
+          {/* CTA Section */}
           <div className="border-t border-border pt-12 animate-fade-up">
-            <h2 className="text-2xl font-bold mb-6 text-center">Let's Connect</h2>
-            <div className="bg-card border border-border rounded-xl p-8 text-center">
-              <Mail className="mx-auto mb-4 h-10 w-10 text-primary" />
-              <p className="mb-4">
-                I'm always up for conversations about simplifying security, product development challenges, San Francisco's best walking routes, or pizza-making techniques. Whether you're curious about automated compliance, building user-friendly security tools, or where to find the city's best views, I'd enjoy connecting.
+            <div className="text-center max-w-3xl mx-auto">
+              <h2 className="text-2xl font-display font-semibold mb-6">Let's Connect</h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Whether you're tackling security challenges, building products that matter, or just want to 
+                swap stories about San Francisco's hidden gems, I'd love to hear from you.
               </p>
-              <a 
-                href="mailto:jonathan@haasonsaas.com"
-                className="text-primary hover:text-primary/80 font-medium"
-              >
-                jonathan@haasonsaas.com
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" asChild>
+                  <a href="mailto:jonathan@haasonsaas.com">
+                    <Mail className="mr-2" size={18} />
+                    Email Me
+                  </a>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link to="/blog">
+                    Read My Articles
+                  </Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>

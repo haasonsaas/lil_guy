@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# Generate blog images for any new or modified markdown files
+echo "🖼️  Checking for missing blog images..."
+bun run generate-blog-images
+
+# Add any newly generated images to the commit
+git add public/generated/*.png 2>/dev/null || true
+
+echo "✅ Blog images check complete"
