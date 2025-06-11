@@ -37,7 +37,7 @@ const experiences = [
     role: "Co-founder & CEO",
     company: "ThreatKey",
     period: "Oct 2020 - Oct 2024",
-    description: "Led cybersecurity startup from founding through acquisition",
+    description: "Led cybersecurity startup from founding through exit",
     achievements: [
       "Raised $5M in venture funding",
       "Built and scaled to $XXXK ARR",
@@ -154,7 +154,7 @@ export default function AboutPage() {
                   </p>
                   <p className="mb-6">
                     My journey spans from engineering at companies like Snap and DoorDash to founding 
-                    and leading ThreatKey through acquisition. I believe the best technology feels invisible—
+                    and leading ThreatKey through exit. I believe the best technology feels invisible—
                     it just works, enabling people to focus on what matters most.
                   </p>
                 </div>
