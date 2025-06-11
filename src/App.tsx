@@ -16,6 +16,7 @@ import UsesPage from "./pages/UsesPage";
 import ReadingPage from "./pages/ReadingPage";
 import NewsletterPage from "./pages/NewsletterPage";
 import ExperimentsPage from "./pages/ExperimentsPage";
+import WebGLPage from "./pages/WebGLPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +41,7 @@ const App = () => (
             <Route path="/reading" element={<ReadingPage />} />
             <Route path="/newsletter" element={<NewsletterPage />} />
             <Route path="/experiments" element={<ExperimentsPage />} />
+            <Route path="/webgl" element={<WebGLPage />} />
             {/* Redirect /admin to the home page */}
             <Route path="/admin" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />

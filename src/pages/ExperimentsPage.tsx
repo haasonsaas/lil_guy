@@ -23,7 +23,7 @@ interface Repository {
   stars: number;
   language: string;
   languageColor: string;
-  icon: any;
+  icon: React.ComponentType<{ className?: string }>;
   topics: string[];
   url: string;
   featured?: boolean;
@@ -309,6 +309,43 @@ export default function ExperimentsPage() {
               );
             })}
           </div>
+
+          {/* WebGL Demo Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-16"
+          >
+            <Card className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <RefreshCw className="h-6 w-6 text-primary" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-semibold">WebGL Playground</h2>
+                  <p className="text-muted-foreground">Interactive fluid simulation</p>
+                </div>
+              </div>
+              <p className="text-muted-foreground mb-6 max-w-2xl">
+                Experience real-time fluid dynamics powered by WebGL shaders. Move your mouse to create 
+                ripples and distortions in flowing patterns with customizable colors and effects.
+              </p>
+              <div className="flex flex-wrap gap-2 mb-6">
+                <Badge variant="secondary">WebGL</Badge>
+                <Badge variant="secondary">GLSL Shaders</Badge>
+                <Badge variant="secondary">Real-time Rendering</Badge>
+                <Badge variant="secondary">Interactive</Badge>
+              </div>
+              <Button asChild className="gap-2">
+                <a href="/webgl">
+                  <RefreshCw className="h-4 w-4" />
+                  Try WebGL Demo
+                  <ExternalLink className="h-3 w-3" />
+                </a>
+              </Button>
+            </Card>
+          </motion.div>
 
           {/* CTA Section */}
           <motion.div
