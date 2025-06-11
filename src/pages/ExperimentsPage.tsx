@@ -13,7 +13,8 @@ import {
   Database,
   Mail,
   ExternalLink,
-  RefreshCw
+  RefreshCw,
+  Code2 as CodeIcon
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -310,42 +311,88 @@ export default function ExperimentsPage() {
             })}
           </div>
 
-          {/* WebGL Demo Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16"
-          >
-            <Card className="p-8 bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
-                  <RefreshCw className="h-6 w-6 text-primary" />
-                </div>
-                <div>
-                  <h2 className="text-2xl font-semibold">WebGL Playground</h2>
-                  <p className="text-muted-foreground">Interactive fluid simulation</p>
-                </div>
-              </div>
-              <p className="text-muted-foreground mb-6 max-w-2xl">
-                Experience real-time fluid dynamics powered by WebGL shaders. Move your mouse to create 
-                ripples and distortions in flowing patterns with customizable colors and effects.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                <Badge variant="secondary">WebGL</Badge>
-                <Badge variant="secondary">GLSL Shaders</Badge>
-                <Badge variant="secondary">Real-time Rendering</Badge>
-                <Badge variant="secondary">Interactive</Badge>
-              </div>
-              <Button asChild className="gap-2">
-                <a href="/webgl">
-                  <RefreshCw className="h-4 w-4" />
-                  Try WebGL Demo
-                  <ExternalLink className="h-3 w-3" />
-                </a>
-              </Button>
-            </Card>
-          </motion.div>
+          {/* Interactive Experiments Section */}
+          <div className="mt-16 space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <h2 className="text-2xl font-semibold mb-6 text-center">Interactive Experiments</h2>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* WebGL Demo */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.45 }}
+              >
+                <Card className="p-8 h-full bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
+                      <RefreshCw className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">WebGL Playground</h3>
+                      <p className="text-muted-foreground">Interactive fluid simulation</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Experience real-time fluid dynamics powered by WebGL shaders. Features three experiments: 
+                    fluid simulation, particle system, and Mandelbrot fractals.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    <Badge variant="secondary">WebGL</Badge>
+                    <Badge variant="secondary">GLSL Shaders</Badge>
+                    <Badge variant="secondary">Real-time</Badge>
+                  </div>
+                  <Button asChild className="gap-2">
+                    <a href="/webgl">
+                      <RefreshCw className="h-4 w-4" />
+                      Try WebGL Demo
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
+
+              {/* Code Rain */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <Card className="p-8 h-full bg-gradient-to-br from-green-500/5 to-emerald-500/5 border-green-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
+                      <CodeIcon className="h-6 w-6 text-green-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold">Code Rain</h3>
+                      <p className="text-muted-foreground">Matrix-style visualization</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-6">
+                    Watch real code from this codebase cascade down your screen Matrix-style. 
+                    Features actual TypeScript, React, and WebGL snippets.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    <Badge variant="secondary">Canvas API</Badge>
+                    <Badge variant="secondary">Animation</Badge>
+                    <Badge variant="secondary">Real Code</Badge>
+                  </div>
+                  <Button asChild className="gap-2">
+                    <a href="/code-rain">
+                      <CodeIcon className="h-4 w-4" />
+                      Enter the Matrix
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
+            </div>
+          </div>
 
           {/* CTA Section */}
           <motion.div

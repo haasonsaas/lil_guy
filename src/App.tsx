@@ -17,6 +17,7 @@ import ReadingPage from "./pages/ReadingPage";
 import NewsletterPage from "./pages/NewsletterPage";
 import ExperimentsPage from "./pages/ExperimentsPage";
 import WebGLPage from "./pages/WebGLPage";
+import CodeRainPage from "./pages/CodeRainPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -42,6 +43,7 @@ const App = () => (
             <Route path="/newsletter" element={<NewsletterPage />} />
             <Route path="/experiments" element={<ExperimentsPage />} />
             <Route path="/webgl" element={<WebGLPage />} />
+            <Route path="/code-rain" element={<CodeRainPage />} />
             {/* Redirect /admin to the home page */}
             <Route path="/admin" element={<Navigate to="/" replace />} />
             <Route path="*" element={<NotFound />} />
