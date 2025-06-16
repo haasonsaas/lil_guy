@@ -30,9 +30,15 @@ interface Repository {
   featured?: boolean;
   repoName?: string; // GitHub repo name if different from display name
   githubUser?: string; // GitHub username if different from default
+  fromAPI?: boolean; // Flag to indicate if repo came from API
+  forks?: number;
+  watchers?: number;
+  createdAt?: string;
+  updatedAt?: string;
 }
 
-const experimentsData: Repository[] = [
+// Featured projects to always show at the top
+const featuredProjects: Repository[] = [
   {
     name: "Deep Code Reasoning MCP",
     repoName: "deep-code-reasoning-mcp",
@@ -93,49 +99,142 @@ const experimentsData: Repository[] = [
   }
 ];
 
+// Language colors mapping
+const languageColors: Record<string, string> = {
+  JavaScript: '#f1e05a',
+  TypeScript: '#3178c6',
+  Python: '#3776AB',
+  Rust: '#dea584',
+  Go: '#00ADD8',
+  Java: '#b07219',
+  HTML: '#e34c26',
+  CSS: '#563d7c',
+  Shell: '#89e051',
+  Vue: '#41b883',
+  React: '#61dafb',
+  Svelte: '#ff3e00',
+  C: '#555555',
+  'C++': '#f34b7d',
+  Ruby: '#701516',
+  PHP: '#4F5D95',
+  Swift: '#ffac45',
+  Kotlin: '#A97BFF',
+  Dart: '#00B4AB',
+  Elixir: '#6e4a7e',
+  Clojure: '#db5855',
+  Haskell: '#5e5086',
+  Lua: '#000080',
+  R: '#198CE7',
+  Scala: '#c22d40',
+  Julia: '#a270ba',
+  default: '#6c757d'
+};
+
+// Icon mapping based on language or topic
+const getIconForRepo = (language: string | null, topics: string[]): React.ComponentType<{ className?: string }> => {
+  // Topic-based icons take precedence
+  if (topics.some(t => t.toLowerCase().includes('ai') || t.toLowerCase().includes('llm'))) return Code2;
+  if (topics.some(t => t.toLowerCase().includes('cli') || t.toLowerCase().includes('terminal'))) return Terminal;
+  if (topics.some(t => t.toLowerCase().includes('database') || t.toLowerCase().includes('db'))) return Database;
+  if (topics.some(t => t.toLowerCase().includes('email') || t.toLowerCase().includes('mail'))) return Mail;
+  
+  // Language-based icons
+  switch (language?.toLowerCase()) {
+    case 'rust':
+    case 'go':
+      return Database;
+    case 'python':
+      return Terminal;
+    default:
+      return CodeIcon;
+  }
+};
+
 export default function ExperimentsPage() {
-  const [experiments, setExperiments] = useState<Repository[]>(experimentsData);
+  const [experiments, setExperiments] = useState<Repository[]>(featuredProjects);
   const [isLoading, setIsLoading] = useState(true);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchGitHubStats();
+    fetchAllRepos();
   }, []);
 
-  const fetchGitHubStats = async () => {
+  const fetchAllRepos = async () => {
     setIsLoading(true);
+    setError(null);
     
     try {
-      // Fetch all repos in parallel
-      const promises = experimentsData.map(async (experiment) => {
-        const repoName = experiment.repoName || experiment.name.toLowerCase();
-        const githubUser = experiment.githubUser || 'HaasOnSaaS';
-        const apiUrl = `https://api.github.com/repos/${githubUser}/${repoName}`;
+      // Fetch all repos from haasonsaas user
+      const response = await fetch('https://api.github.com/users/haasonsaas/repos?per_page=100&sort=stars&direction=desc');
+      
+      if (!response.ok) {
+        throw new Error(`GitHub API error: ${response.status}`);
+      }
+      
+      const repos = await response.json();
+      
+      // Filter repos with at least 1 star and process them
+      const starredRepos = repos
+        .filter((repo: any) => repo.stargazers_count > 0)
+        .map((repo: any): Repository => ({
+          name: repo.name.split('-').map((word: string) => 
+            word.charAt(0).toUpperCase() + word.slice(1)
+          ).join(' '),
+          repoName: repo.name,
+          description: repo.description || 'No description available',
+          stars: repo.stargazers_count,
+          language: repo.language || 'Unknown',
+          languageColor: languageColors[repo.language || ''] || languageColors.default,
+          icon: getIconForRepo(repo.language, repo.topics || []),
+          topics: repo.topics || [],
+          url: repo.html_url,
+          fromAPI: true,
+          forks: repo.forks_count,
+          watchers: repo.watchers_count,
+          createdAt: repo.created_at,
+          updatedAt: repo.updated_at,
+          githubUser: 'haasonsaas'
+        }));
+      
+      // Merge with featured projects, updating stats if they exist
+      const mergedRepos = featuredProjects.map(featured => {
+        const apiRepo = starredRepos.find(r => 
+          r.repoName === featured.repoName || 
+          r.name.toLowerCase() === featured.name.toLowerCase()
+        );
         
-        try {
-          const response = await fetch(apiUrl);
-          if (response.ok) {
-            const data = await response.json();
-            return {
-              ...experiment,
-              stars: data.stargazers_count,
-              description: data.description || experiment.description,
-              language: data.language || experiment.language
-            };
-          }
-        } catch (error) {
-          console.error(`Failed to fetch stats for ${repoName}:`, error);
+        if (apiRepo) {
+          return {
+            ...featured,
+            stars: apiRepo.stars,
+            forks: apiRepo.forks,
+            watchers: apiRepo.watchers,
+            updatedAt: apiRepo.updatedAt,
+            featured: true
+          };
         }
-        
-        // Return original data if fetch fails
-        return experiment;
+        return featured;
       });
-
-      const updatedExperiments = await Promise.all(promises);
-      setExperiments(updatedExperiments);
+      
+      // Add remaining repos that aren't featured
+      const remainingRepos = starredRepos.filter(repo => 
+        !featuredProjects.some(f => 
+          f.repoName === repo.repoName || 
+          f.name.toLowerCase() === repo.name.toLowerCase()
+        )
+      );
+      
+      // Combine all repos, featured first
+      const allRepos = [...mergedRepos, ...remainingRepos];
+      
+      setExperiments(allRepos);
       setLastUpdated(new Date());
     } catch (error) {
-      console.error('Failed to fetch GitHub stats:', error);
+      console.error('Failed to fetch GitHub repos:', error);
+      setError('Failed to load repositories. Using cached data.');
+      // Fallback to featured projects only
+      setExperiments(featuredProjects);
     } finally {
       setIsLoading(false);
     }
@@ -164,6 +263,11 @@ export default function ExperimentsPage() {
               <div className="mt-4 flex items-center justify-center gap-2 text-sm text-muted-foreground">
                 <RefreshCw className="h-3 w-3" />
                 <span>Live stats from GitHub</span>
+              </div>
+            )}
+            {error && (
+              <div className="mt-4 text-sm text-amber-600 dark:text-amber-400">
+                {error}
               </div>
             )}
           </motion.div>
@@ -244,8 +348,21 @@ export default function ExperimentsPage() {
           })}
 
           {/* Other Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {experiments.filter(exp => !exp.featured).map((experiment, index) => {
+          {experiments.filter(exp => !exp.featured).length > 0 && (
+            <>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mb-6"
+              >
+                <h2 className="text-2xl font-semibold text-center">All Projects with Stars</h2>
+                <p className="text-center text-muted-foreground mt-2">
+                  Showing {experiments.filter(exp => !exp.featured).length} repositories
+                </p>
+              </motion.div>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {experiments.filter(exp => !exp.featured).map((experiment, index) => {
               const Icon = experiment.icon;
               return (
                 <motion.div
@@ -309,7 +426,9 @@ export default function ExperimentsPage() {
                 </motion.div>
               );
             })}
-          </div>
+              </div>
+            </>
+          )}
 
           {/* Interactive Experiments Section */}
           <div className="mt-16 space-y-8">
