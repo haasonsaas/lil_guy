@@ -65,13 +65,13 @@ interface SearchResult {
 }
 
 // Parse frontmatter from markdown
-function parseFrontmatter(content: string): { frontmatter: any; body: string } {
+function parseFrontmatter(content: string): { frontmatter: Record<string, unknown>; body: string } {
   const match = content.match(/^---\r?\n([\s\S]+?)\r?\n---\r?\n([\s\S]+)$/);
   if (!match) return { frontmatter: {}, body: content };
   
   const frontmatterText = match[1];
   const body = match[2];
-  const frontmatter: any = {};
+  const frontmatter: Record<string, unknown> = {};
   
   // Simple YAML parser for frontmatter
   const lines = frontmatterText.split('\n');
@@ -110,7 +110,7 @@ function highlightMatch(text: string, query: string, caseSensitive: boolean): st
 }
 
 // Calculate relevance score
-function calculateScore(matches: any[], inTitle: boolean, inTags: boolean): number {
+function calculateScore(matches: SearchResult['matches'], inTitle: boolean, inTags: boolean): number {
   let score = matches.length;
   if (inTitle) score *= 10;
   if (inTags) score *= 5;
@@ -118,7 +118,7 @@ function calculateScore(matches: any[], inTitle: boolean, inTags: boolean): numb
 }
 
 // Search in a single file
-async function searchFile(filepath: string, query: string, options: any): Promise<SearchResult | null> {
+async function searchFile(filepath: string, query: string, options: { content?: boolean; tags?: boolean; title?: boolean; case?: boolean }): Promise<SearchResult | null> {
   try {
     const content = await readFile(filepath, 'utf-8');
     const { frontmatter, body } = parseFrontmatter(content);

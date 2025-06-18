@@ -56,13 +56,13 @@ interface DraftPost {
 }
 
 // Parse frontmatter from markdown
-function parseFrontmatter(content: string): { frontmatter: any; body: string } {
+function parseFrontmatter(content: string): { frontmatter: Record<string, unknown>; body: string } {
   const match = content.match(/^---\r?\n([\s\S]+?)\r?\n---\r?\n([\s\S]+)$/);
   if (!match) return { frontmatter: {}, body: content };
   
   const frontmatterText = match[1];
   const body = match[2];
-  const frontmatter: any = {};
+  const frontmatter: Record<string, unknown> = {};
   
   // Simple YAML parser for frontmatter
   const lines = frontmatterText.split('\n');

@@ -61,11 +61,11 @@ const generateSlug = (title: string): string => {
 };
 
 // Generate frontmatter
-const generateFrontmatter = (title: string, options: any): string => {
+const generateFrontmatter = (title: string, options: { tags?: string; description?: string; draft?: boolean }): string => {
   const today = new Date().toISOString().split('T')[0];
   const tags = options.tags ? options.tags.split(',').map((t: string) => t.trim()) : [];
   
-  const frontmatter: any = {
+  const frontmatter: Record<string, string | boolean> = {
     author: 'Jonathan Haas',
     pubDate: today,
     title: title,

@@ -21,7 +21,7 @@ const TAG_REGEX = /^[a-z0-9]+(-[a-z0-9]+)*$/;
 // URL validation
 const URL_REGEX = /^https?:\/\/.+/;
 
-export function validateFrontmatter(frontmatter: any, filename: string): ValidationResult {
+export function validateFrontmatter(frontmatter: Record<string, unknown>, filename: string): ValidationResult {
   const errors: ValidationError[] = [];
   const warnings: ValidationError[] = [];
 
@@ -141,7 +141,7 @@ export function validateFrontmatter(frontmatter: any, filename: string): Validat
       suggestion: 'Add tags in array format:\ntags:\n  - tag1\n  - tag2'
     });
   } else {
-    frontmatter.tags.forEach((tag: any, index: number) => {
+    frontmatter.tags.forEach((tag: unknown, index: number) => {
       if (typeof tag !== 'string') {
         errors.push({
           field: `tags[${index}]`,
