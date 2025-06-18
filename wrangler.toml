@@ -23,3 +23,12 @@ ENVIRONMENT = "production"
 
 # Function compatibility
 compatibility_flags = ["nodejs_compat"]
+
+# KV namespace bindings for functions
+[[kv_namespaces]]
+binding = "SUBSCRIBERS"
+id = "da9ea499f9534d1ba78cd9a3a381ae2a"
+
+[[kv_namespaces]]
+binding = "RATE_LIMIT" 
+id = "12a9dd7606564fe9a3261bfab8de9d5a"
