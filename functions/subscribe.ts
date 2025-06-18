@@ -147,12 +147,19 @@ export default {
         });
       }
 
-      // Store subscriber in KV
-      await env.SUBSCRIBERS.put(email, JSON.stringify({
+      // Store subscriber in KV with preferences structure
+      const subscriberData = {
         email,
         subscribedAt: new Date().toISOString(),
-      }));
+        preferences: {
+          welcomeSeriesCompleted: false,
+          unsubscribed: false,
+          tags: []
+        },
+        emailsSent: {}
+      };
 
+      await env.SUBSCRIBERS.put(email, JSON.stringify(subscriberData));
       console.log('Subscriber stored in KV:', email);
 
       // Send email using Resend
@@ -178,6 +185,26 @@ export default {
       }
 
       console.log('Email sent successfully:', resendData);
+
+      // Trigger welcome series automation
+      try {
+        const automationResponse = await fetch('https://haas-blog.haasholdings.workers.dev/email-automation/trigger-welcome', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ email }),
+        });
+
+        if (!automationResponse.ok) {
+          console.error('Failed to trigger welcome series:', await automationResponse.text());
+        } else {
+          console.log('Welcome series triggered for:', email);
+        }
+      } catch (error) {
+        console.error('Error triggering welcome series:', error);
+        // Don't fail the subscription if automation fails
+      }
 
       return new Response(JSON.stringify({ success: true }), {
         headers: responseHeaders,

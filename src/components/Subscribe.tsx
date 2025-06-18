@@ -3,6 +3,7 @@ import { Button } from './ui/button';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import { useAnalytics } from '@/hooks/useAnalytics';
+import analytics from '@/utils/analytics';
 
 interface SubscribeProps {
   className?: string;
@@ -39,6 +40,15 @@ export function Subscribe({ className, source = 'unknown' }: SubscribeProps) {
       
       // Track successful newsletter subscription
       trackNewsletterSubscribe(source);
+      
+      // Track in analytics that welcome series will be triggered
+      analytics.track({
+        name: 'welcome_series_triggered',
+        properties: {
+          source,
+          email_hash: btoa(email).substring(0, 8) // Anonymous identifier
+        }
+      });
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to subscribe');
     } finally {
