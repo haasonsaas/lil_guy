@@ -5,6 +5,8 @@ import MarkdownRenderer from '@/components/MarkdownRenderer';
 import TagCloud from '@/components/TagCloud';
 import BlogCard from '@/components/BlogCard';
 import AuthorBio from '@/components/AuthorBio';
+import SocialShare from '@/components/SocialShare';
+import Comments from '@/components/Comments';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags } from '@/utils/blogUtils';
@@ -179,6 +181,17 @@ export default function BlogPost() {
               <div className="mb-6">
                 <AuthorBio />
               </div>
+
+              <div className="mb-8 flex items-center justify-between">
+                <div className="text-sm text-muted-foreground">
+                  Found this helpful? Share it with others:
+                </div>
+                <SocialShare 
+                  title={frontmatter.title}
+                  url={`https://www.haasonsaas.com/blog/${post.slug}`}
+                  description={frontmatter.description}
+                />
+              </div>
             </div>
             
             <div className="animate-fade-up">
@@ -235,6 +248,9 @@ export default function BlogPost() {
                 </Link>
               </div>
             </div>
+
+            {/* Comments Section */}
+            <Comments />
           </div>
         </div>
       </article>
