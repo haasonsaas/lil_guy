@@ -16,8 +16,18 @@ bun run preview          # Preview production build
 
 ### Blog Content Management
 ```bash
-bun run generate-blog-images  # Generate social media images for all posts
-bun run watch:images          # Watch for new posts and auto-generate images
+bun run new-post "Title" [-d] [-D "desc"] [-t tag1] [-t tag2]  # Create new blog post
+bun run search "keyword" [-c] [-t] [--title] [-l N]            # Search blog content
+bun run publish "post title" [-c] [-p]                         # Convert draft to published
+bun run generate-blog-images                                   # Generate social media images for all posts
+bun run watch:images                                           # Watch for new posts and auto-generate images
+```
+
+### Deployment & DevOps
+```bash
+bun run check:deploy         # Validate deployment readiness (CF Pages limits, env vars, etc.)
+bun run preview:cf           # Preview build using Wrangler (matches CF Pages environment)
+bun run setup:secrets        # Manage GitHub secrets for CI/CD (--check, --interactive)
 ```
 
 ## Architecture Overview
@@ -41,25 +51,62 @@ Built on **shadcn/ui** with 40+ components in `src/components/ui/`. Uses:
 - **State**: React Query for server state, Context providers for global state
 
 ### Deployment Architecture
-Deployed on **Cloudflare Pages** with:
+Deployed on **Cloudflare Pages** with full GitHub Actions CI/CD:
+
+**GitHub Actions Workflows:**
+- `deploy-preview.yml` - Preview deployments for every PR with status comments
+- `deploy-production.yml` - Production deployments with cache purging
+- `quality-checks.yml` - TypeScript, ESLint, security scanning, bundle size monitoring
+- `cleanup-previews.yml` - Automatic cleanup when PRs are closed
+
+**Cloudflare Integration:**
 - **Serverless Functions**: `functions/subscribe.ts` for email subscriptions with rate limiting
-- **KV Storage**: Two namespaces for subscribers and rate limiting
+- **KV Storage**: Two namespaces for subscribers and rate limiting  
 - **Security Headers**: Comprehensive headers via `functions/_headers.ts`
+- **Preview Environments**: Unique URLs for every PR branch
+- **Cache Management**: Automatic purging on production deployments
 
-## Adding New Blog Posts
+## Content Creation Workflow
 
+### Creating New Posts (Recommended)
+```bash
+# Create a new blog post with CLI (recommended)
+bun run new-post "Your Amazing Post Title" \
+  -D "A compelling description for SEO" \
+  -t developer-experience -t blogging -t productivity
+
+# This automatically:
+# - Generates URL-friendly slug
+# - Creates properly formatted frontmatter  
+# - Opens file in your editor
+# - Creates as draft by default (add -d false to publish immediately)
+```
+
+### Manual Post Creation
 1. Create new `.md` file in `src/posts/`
 2. Add frontmatter:
    ```yaml
    ---
+   author: "Jonathan Haas"
+   pubDate: "2024-01-01"
    title: "Your Post Title"
-   date: "2024-01-01"
+   description: "Brief description (150-160 chars for SEO)"
+   featured: false
+   draft: true
    tags: ["tag1", "tag2"]
-   description: "Brief description"
    ---
    ```
 3. Write markdown content
 4. Social media images auto-generate on save
+
+### Publishing Workflow
+```bash
+# Search for draft posts
+bun run search "keyword" -t
+
+# Convert draft to published
+bun run publish "post title" -c -p  # -c commits, -p pushes to trigger deployment
+```
 
 ## Important Conventions
 
@@ -86,3 +133,26 @@ Automated blog image generation runs on:
 - Manual execution (`bun run generate-blog-images`)
 - Generates 3 sizes for different social media platforms
 - Uses SVG templates converted to PNG with Sharp
+
+## Developer Experience Features
+
+### VS Code Integration
+- **Workspace Settings**: Optimized for markdown editing with spell check, formatting
+- **Code Snippets**: 15+ blog-specific snippets (`blog-front`, `blog-code`, `blog-section`, etc.)
+- **Extensions**: Recommended extensions auto-suggested for optimal experience
+
+### Content Tools
+- **Search**: Fuzzy search across all posts with relevance scoring and colored output
+- **Validation**: Real-time frontmatter validation with helpful error messages and suggestions
+- **Hot Reload**: Instant preview updates when editing markdown files
+
+### Quality Assurance
+- **Frontmatter Validation**: Catches common errors (missing fields, wrong types, typos)
+- **Bundle Size Monitoring**: Automated checks for Cloudflare Pages limits (25MB)
+- **Security Scanning**: Prevents committing API keys and checks dependencies
+- **RSS Generation**: Automatic feed updates with deployment validation
+
+### Local Development
+- **HMR**: Hot module replacement for markdown files
+- **Preview Matching Production**: `bun run preview:cf` uses Wrangler for exact CF Pages environment
+- **Deployment Health Checks**: Pre-deployment validation of build size, functions, env vars
