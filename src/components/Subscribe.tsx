@@ -20,7 +20,7 @@ export function Subscribe({ className, source = 'unknown' }: SubscribeProps) {
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://haas-blog.haasholdings.workers.dev', {
+      const response = await fetch('/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
