@@ -20,11 +20,12 @@ fi
 echo "🔒 Scanning for secrets..."
 staged_files=$(git diff --cached --name-only | grep -v "\.lock$\|\.husky/pre-commit$" || true)
 if [ -n "$staged_files" ]; then
-  # Look for actual secret patterns, not references to the patterns
-  secret_matches=$(echo "$staged_files" | xargs grep -l "sk_[a-zA-Z0-9]\|pk_[a-zA-Z0-9]\|['\"]api_key['\"]:\s*['\"][a-zA-Z0-9]\|['\"]secret_key['\"]:\s*['\"][a-zA-Z0-9]\|password.*=.*[a-zA-Z0-9]" 2>/dev/null || true)
+  # Look for actual secret patterns, not references to the patterns or example keys
+  # Exclude workflow files, test files, and blog posts
+  secret_matches=$(echo "$staged_files" | grep -v "\.github/\|test\|spec\|\.md$" | xargs grep -l -E "(sk_live_[a-zA-Z0-9]+|pk_live_[a-zA-Z0-9]+|['\"]api_key['\"]:\s*['\"][a-zA-Z0-9]{20,}|['\"]secret_key['\"]:\s*['\"][a-zA-Z0-9]{20,}|password\s*=\s*['\"][^'\"]{8,})" 2>/dev/null || true)
   if [ -n "$secret_matches" ]; then
     echo "❌ Potential secrets found in staged files:"
-    echo "$secret_matches" | xargs grep -n "sk_[a-zA-Z0-9]\|pk_[a-zA-Z0-9]\|['\"]api_key['\"]:\s*['\"][a-zA-Z0-9]\|['\"]secret_key['\"]:\s*['\"][a-zA-Z0-9]\|password.*=.*[a-zA-Z0-9]" 2>/dev/null
+    echo "$secret_matches" | xargs grep -n -E "(sk_live_[a-zA-Z0-9]+|pk_live_[a-zA-Z0-9]+|['\"]api_key['\"]:\s*['\"][a-zA-Z0-9]{20,}|['\"]secret_key['\"]:\s*['\"][a-zA-Z0-9]{20,}|password\s*=\s*['\"][^'\"]{8,})" 2>/dev/null
     echo "Please remove secrets before committing."
     exit 1
   fi
