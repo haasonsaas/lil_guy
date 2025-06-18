@@ -26,7 +26,7 @@ export default function Header() {
               Articles
             </Link>
             <Link to="/uses" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Resources
+              Uses
             </Link>
             <Link to="/experiments" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Experiments
