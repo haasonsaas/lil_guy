@@ -1,4 +1,4 @@
-name: PR Preview Validation
+name: PR Validation
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  validate-preview:
+  validate-pr:
     runs-on: ubuntu-latest
     name: Validate PR Build
     
