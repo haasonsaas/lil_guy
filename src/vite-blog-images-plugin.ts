@@ -51,7 +51,7 @@ export function viteBlogImagesPlugin(): Plugin {
         
         for (const size of sizes) {
           const cleanText = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
-          const fileName = `${size.width}x${size.height}-${cleanText}.png`;
+          const fileName = `${size.width}x${size.height}-${cleanText}.webp`;
           const imagePath = path.join(generatedDir, fileName);
           const imageKey = `${slug}-${size.width}x${size.height}`;
           
@@ -113,7 +113,7 @@ export function viteBlogImagesPlugin(): Plugin {
           if (title) {
             const slug = path.basename(filePath).replace('.md', '');
             const cleanText = title.toLowerCase().replace(/[^a-z0-9]/g, '-');
-            const testFile = path.join(process.cwd(), 'public', 'generated', `1200x630-${cleanText}.png`);
+            const testFile = path.join(process.cwd(), 'public', 'generated', `1200x630-${cleanText}.webp`);
             
             if (!fs.existsSync(testFile)) {
               console.log(`\n✏️  Blog post title changed: ${path.basename(filePath)}`);

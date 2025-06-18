@@ -11,6 +11,7 @@
     "build": "vite build && bun run generate-rss && bun run generate-sitemap",
     "build:dev": "vite build --mode development && bun run generate-rss && bun run generate-sitemap",
     "generate-blog-images": "bun run scripts/generateBlogImages.ts",
+    "migrate-to-webp": "bun run scripts/migrateToWebP.ts",
     "generate-rss": "bun run scripts/generateStaticRSS.ts",
     "generate-sitemap": "bun run scripts/generateSitemap.ts",
     "watch:images": "bun run scripts/watchBlogImages.ts",

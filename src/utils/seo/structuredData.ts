@@ -13,7 +13,7 @@ const config: StructuredDataConfig = {
   siteName: 'Haas on SaaS',
   authorName: 'Jonathan Haas',
   authorUrl: 'https://haasonsaas.com/about',
-  logoUrl: 'https://haasonsaas.com/logo.png'
+  logoUrl: 'https://haasonsaas.com/logo.webp'
 };
 
 export interface BlogPostStructuredData {
@@ -94,9 +94,9 @@ export function generateBlogPostStructuredData(
 
   // Generate image URLs for the post
   const imageUrls = [
-    `${config.baseUrl}/generated/${slug}-1200x630.png`,
-    `${config.baseUrl}/generated/${slug}-1200x400.png`,
-    `${config.baseUrl}/generated/${slug}-800x384.png`
+    `${config.baseUrl}/generated/${slug}-1200x630.webp`,
+    `${config.baseUrl}/generated/${slug}-1200x400.webp`,
+    `${config.baseUrl}/generated/${slug}-800x384.webp`
   ];
 
   // Calculate word count if not provided

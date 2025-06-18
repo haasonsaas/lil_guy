@@ -44,7 +44,7 @@ async function main() {
     const title = post.frontmatter.title || post.slug;
     return generateResponsiveImageConfigs(title, {
       quality: 85,
-      formats: ['png', 'webp'],
+      formats: ['webp'], // WebP only for better performance
       backgroundColor: '#f5f5f5',
       textColor: '#333333'
     });

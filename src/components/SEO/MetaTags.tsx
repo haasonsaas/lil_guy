@@ -29,7 +29,7 @@ const DEFAULT_CONFIG = {
   baseUrl: 'https://haasonsaas.com',
   authorName: 'Jonathan Haas',
   authorTwitter: '@haasonsaas',
-  defaultImage: 'https://haasonsaas.com/og-default.png',
+  defaultImage: 'https://haasonsaas.com/og-default.webp',
   favicon: '/favicon.ico'
 };
 
@@ -132,7 +132,7 @@ export function MetaTags({
       
       {/* Favicon */}
       <link rel="icon" href={DEFAULT_CONFIG.favicon} />
-      <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      <link rel="apple-touch-icon" href="/apple-touch-icon.webp" />
       
       {/* RSS Feed */}
       <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
@@ -150,7 +150,7 @@ export function MetaTags({
  */
 export function BlogPostMeta({ frontmatter, slug, content, readingTime }: BlogPostMetaProps) {
   const url = `${DEFAULT_CONFIG.baseUrl}/blog/${slug}`;
-  const imageUrl = `${DEFAULT_CONFIG.baseUrl}/generated/${slug}-1200x630.png`;
+  const imageUrl = `${DEFAULT_CONFIG.baseUrl}/generated/${slug}-1200x630.webp`;
   
   // Calculate reading time if not provided
   const estimatedReadingTime = readingTime || Math.ceil(content.split(/\s+/).length / 200);

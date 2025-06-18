@@ -60,15 +60,18 @@ export default function LazyImage({
 
   // Generate optimized image sources
   const getOptimizedSources = (originalSrc: string) => {
-    // If it's already external or optimized, return as-is
-    if (originalSrc.includes('cloudflare') || originalSrc.startsWith('http')) {
+    // If it's already external, return as-is
+    if (originalSrc.startsWith('http')) {
       return { webp: originalSrc, fallback: originalSrc };
     }
     
-    // For local images, try to find WebP version
-    if (originalSrc.startsWith('/generated/') && preferWebP) {
-      const webpSrc = originalSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
-      return { webp: webpSrc, fallback: originalSrc };
+    // For local generated images, prefer WebP
+    if (originalSrc.startsWith('/generated/')) {
+      if (preferWebP && !originalSrc.endsWith('.webp')) {
+        const webpSrc = originalSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+        return { webp: webpSrc, fallback: originalSrc };
+      }
+      return { webp: originalSrc, fallback: originalSrc };
     }
     
     return { webp: originalSrc, fallback: originalSrc };
