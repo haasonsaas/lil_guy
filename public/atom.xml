@@ -29,6 +29,23 @@
     <category term="development" />
   </entry>
   <entry>
+    <title><![CDATA[Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)]]></title>
+    <link href="https://www.haasonsaas.com/blog/coding-model-ui" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/coding-model-ui</id>
+    <published>2025-06-18T00:00:00.000Z</published>
+    <updated>2025-06-18T00:00:00.000Z</updated>
+    <summary><![CDATA[Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you think.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="developer-experience" />
+    <category term="ui-design" />
+    <category term="ai-tooling" />
+    <category term="prompt-engineering" />
+    <category term="product-strategy" />
+  </entry>
+  <entry>
     <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
     <link href="https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</id>
@@ -854,21 +871,5 @@
     <category term="strategy" />
     <category term="leadership" />
     <category term="personal-growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[Work-Life Meditation: Finding Balance in Tech]]></title>
-    <link href="https://www.haasonsaas.com/blog/work-life-meditation" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/work-life-meditation</id>
-    <published>2024-04-11T00:00:00.000Z</published>
-    <updated>2024-04-11T00:00:00.000Z</updated>
-    <summary><![CDATA[Practical approaches to maintaining work-life balance in the tech industry]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="personal-growth" />
-    <category term="productivity" />
-    <category term="leadership" />
-    <category term="culture" />
   </entry>
 </feed>

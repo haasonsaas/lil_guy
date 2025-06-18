@@ -36,6 +36,10 @@ jobs:
 
       - name: Run deployment health check
         run: bun run check:deploy
+        env:
+          VITE_RESEND_API_KEY: ${{ secrets.VITE_RESEND_API_KEY }}
+          VITE_EMAIL_TO: ${{ secrets.VITE_EMAIL_TO }}
+          VITE_EMAIL_FROM: ${{ secrets.VITE_EMAIL_FROM }}
 
       - name: Deploy to Cloudflare Pages
         uses: cloudflare/pages-action@v1

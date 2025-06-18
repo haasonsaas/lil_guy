@@ -132,7 +132,7 @@ async function checkHeadersFile(): Promise<CheckResult> {
     const content = await readFile(headersPath, 'utf-8');
     
     // Basic validation
-    if (!content.includes('export function onRequest')) {
+    if (!content.includes('export const onRequest') && !content.includes('export function onRequest')) {
       return {
         passed: false,
         message: 'Invalid headers file',

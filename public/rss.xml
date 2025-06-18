@@ -30,6 +30,18 @@
       <category><![CDATA[development]]></category>
     </item>
     <item>
+      <title><![CDATA[Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)]]></title>
+      <description><![CDATA[Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you think.]]></description>
+      <link>https://www.haasonsaas.com/blog/coding-model-ui</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/coding-model-ui</guid>
+      <pubDate>Wed, 18 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[ui-design]]></category>
+      <category><![CDATA[ai-tooling]]></category>
+      <category><![CDATA[prompt-engineering]]></category>
+      <category><![CDATA[product-strategy]]></category>
+    </item>
+    <item>
       <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
       <description><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation workflow.]]></description>
       <link>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</link>
@@ -615,17 +627,6 @@
       <category><![CDATA[strategy]]></category>
       <category><![CDATA[leadership]]></category>
       <category><![CDATA[personal-growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Work-Life Meditation: Finding Balance in Tech]]></title>
-      <description><![CDATA[Practical approaches to maintaining work-life balance in the tech industry]]></description>
-      <link>https://www.haasonsaas.com/blog/work-life-meditation</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/work-life-meditation</guid>
-      <pubDate>Thu, 11 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[personal-growth]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[culture]]></category>
     </item>
   </channel>
 </rss>

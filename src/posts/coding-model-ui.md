@@ -13,7 +13,7 @@ tags:
 - prompt-engineering
 - product-strategy
 image:
-  url: '[https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress\&cs=tinysrgb\&w=1260\&h=750\&dpr=2](https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)'
+  url: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: "Code editor and UI layout side by side, symbolizing the disconnect between generation and usability"
 
 ---
