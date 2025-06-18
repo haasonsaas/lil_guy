@@ -150,7 +150,21 @@ export function MetaTags({
  */
 export function BlogPostMeta({ frontmatter, slug, content, readingTime }: BlogPostMetaProps) {
   const url = `${DEFAULT_CONFIG.baseUrl}/blog/${slug}`;
-  const imageUrl = `${DEFAULT_CONFIG.baseUrl}/generated/${slug}-1200x630.webp`;
+  
+  // Use frontmatter image if available, otherwise generate based on title
+  // Match the exact title cleaning logic from blogImageGenerator.ts
+  const cleanTitle = frontmatter.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
+  const generatedImageUrl = `${DEFAULT_CONFIG.baseUrl}/generated/1200x630-${cleanTitle}.webp`;
+  
+  // Check if frontmatter has a custom image that's not the default unsplash one
+  const hasCustomImage = frontmatter.image?.url && 
+    !frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
+  
+  const imageUrl = hasCustomImage 
+    ? (frontmatter.image!.url.startsWith('http') 
+        ? frontmatter.image!.url 
+        : `${DEFAULT_CONFIG.baseUrl}${frontmatter.image!.url}`)
+    : generatedImageUrl;
   
   // Calculate reading time if not provided
   const estimatedReadingTime = readingTime || Math.ceil(content.split(/\s+/).length / 200);
@@ -167,7 +181,7 @@ export function BlogPostMeta({ frontmatter, slug, content, readingTime }: BlogPo
       url={url}
       type="article"
       image={imageUrl}
-      imageAlt={`Cover image for ${frontmatter.title}`}
+      imageAlt={hasCustomImage ? frontmatter.image!.alt || frontmatter.title : `Cover image for ${frontmatter.title}`}
       author={frontmatter.author || DEFAULT_CONFIG.authorName}
       publishedTime={new Date(frontmatter.pubDate).toISOString()}
       modifiedTime={frontmatter.updatedDate ? new Date(frontmatter.updatedDate).toISOString() : undefined}

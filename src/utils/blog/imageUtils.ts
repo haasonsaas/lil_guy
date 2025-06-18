@@ -10,7 +10,7 @@ interface BlogFrontmatter {
   };
 }
 
-const BASE_URL = 'https://www.haasonsaas.com';
+const BASE_URL = 'https://haasonsaas.com';
 
 /**
  * Generate a dynamic image URL based on a blog post title
