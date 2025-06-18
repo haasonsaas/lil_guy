@@ -13,6 +13,7 @@
     "generate-blog-images": "bun run scripts/generateBlogImages.ts",
     "generate-rss": "bun run scripts/generateStaticRSS.ts",
     "watch:images": "bun run scripts/watchBlogImages.ts",
+    "new-post": "bun run scripts/new-post.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",

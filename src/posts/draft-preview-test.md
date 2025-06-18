@@ -18,6 +18,8 @@ image:
 
 This post is marked as a draft and should only be visible with a valid preview token.
 
+**Hot reload test**: This text was added to test the new hot reload functionality!
+
 ### Testing Preview Features
 
 1. **Token Generation**: Secure tokens with expiration
