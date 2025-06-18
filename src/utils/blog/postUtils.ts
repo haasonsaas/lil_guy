@@ -9,15 +9,8 @@ import { generateOgImageUrl } from '../ogImageUtils';
 export const getAllPosts = async (includeDrafts: boolean = false): Promise<BlogPost[]> => {
   const filePosts = readFilePosts();
   
-  console.log('getAllPosts called with includeDrafts:', includeDrafts);
-  console.log('Total posts loaded:', filePosts.length);
-  console.log('Draft posts:', filePosts.filter(p => p.frontmatter.draft).length);
-  console.log('Non-draft posts:', filePosts.filter(p => !p.frontmatter.draft).length);
-  
   // Filter out drafts unless explicitly included
   const posts = includeDrafts ? filePosts : filePosts.filter(post => !post.frontmatter.draft);
-  
-  console.log('Posts after filtering:', posts.length);
   
   // Make sure each post has valid image information
   for (const post of posts) {

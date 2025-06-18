@@ -111,12 +111,23 @@ export const readFilePosts = (): BlogPost[] => {
         }
         
 
-        // Debug draft field
-        if (fileSlug === 'draft-preview-test' || fileSlug.includes('clarity')) {
-          console.log(`\nProcessing ${fileSlug}:`);
-          console.log('- frontmatter.draft:', frontmatter.draft);
-          console.log('- typeof frontmatter.draft:', typeof frontmatter.draft);
-          console.log('- defaultFrontmatter.draft:', defaultFrontmatter.draft);
+        // Process boolean fields - handle string boolean values
+        let draftValue = defaultFrontmatter.draft;
+        if (frontmatter.draft !== undefined) {
+          if (typeof frontmatter.draft === 'string') {
+            draftValue = frontmatter.draft === 'true';
+          } else {
+            draftValue = !!frontmatter.draft;
+          }
+        }
+        
+        let featuredValue = defaultFrontmatter.featured;
+        if (frontmatter.featured !== undefined) {
+          if (typeof frontmatter.featured === 'string') {
+            featuredValue = frontmatter.featured === 'true';
+          } else {
+            featuredValue = !!frontmatter.featured;
+          }
         }
 
         // Merge frontmatter with defaults, ensuring all required properties are present
@@ -126,18 +137,14 @@ export const readFilePosts = (): BlogPost[] => {
           pubDate: frontmatter.pubDate || defaultFrontmatter.pubDate,
           title: frontmatter.title || defaultFrontmatter.title,
           description: frontmatter.description || defaultFrontmatter.description,
-          featured: frontmatter.featured ?? defaultFrontmatter.featured,
-          draft: frontmatter.draft !== undefined ? frontmatter.draft : defaultFrontmatter.draft,
+          featured: featuredValue,
+          draft: draftValue,
           tags,
           image: {
             url: frontmatter.image?.url || defaultFrontmatter.image.url,
             alt: frontmatter.image?.alt || defaultFrontmatter.image.alt
           }
         };
-        
-        if (fileSlug === 'draft-preview-test' || fileSlug.includes('clarity')) {
-          console.log('- processedFrontmatter.draft:', processedFrontmatter.draft);
-        }
         
         posts.push({
           slug: fileSlug,
