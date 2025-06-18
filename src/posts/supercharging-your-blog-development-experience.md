@@ -1,6 +1,6 @@
 ---
 author: "Jonathan Haas"
-pubDate: "2025-06-18"
+pubDate: "2025-06-17"
 title: "Supercharging Your Blog Development Experience"
 description: "Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation workflow."
 featured: false
@@ -245,6 +245,9 @@ These improvements have transformed how I work with my blog:
 - Errors caught immediately with helpful fixes
 - Powerful search across all content
 - Confident deployments with local preview
+- Automated quality checks on every commit
+- Spell checking and link validation
+- Performance optimization alerts
 
 ## Implementation Details
 
@@ -256,6 +259,10 @@ All these tools leverage modern JavaScript tooling:
 4. **Sharp**: Lightning-fast image generation
 5. **Wrangler**: Local Cloudflare Pages development
 6. **Gray Matter**: Reliable YAML frontmatter parsing
+7. **Markdownlint-cli2**: Consistent markdown formatting
+8. **CSpell**: Intelligent spell checking with custom dictionaries
+9. **Markdown-link-check**: Automated link validation
+10. **Husky**: Git hooks for automated quality checks
 
 The best part? These tools are tailored specifically for this blog's needs, not generic solutions that almost fit.
 
@@ -270,11 +277,65 @@ Want to implement similar tools for your blog? Here's the approach:
 5. **Integrate deeply** - Use your build system's plugin architecture
 6. **Match production locally** - Especially important with edge platforms
 
+## 7. Automated Quality Assurance: Pre-commit Excellence
+
+The latest addition to the DevEx toolkit is comprehensive pre-commit automation that catches issues before they reach production:
+
+### Markdown Linting
+```bash
+# Automatic on commit, or manual check
+bun run lint:md
+```
+
+Using `markdownlint-cli2`, the system now validates:
+- Heading hierarchy and structure
+- Consistent list formatting
+- Proper code block syntax
+- Blog-friendly rules (no strict line length limits)
+
+### Spell Checking with Smart Dictionary
+```bash
+# Check spelling across all posts
+bun run spell
+```
+
+The `cspell` integration includes:
+- 100+ technical terms and proper names in custom dictionary
+- Blog-specific terminology (DevEx, CLI tools, framework names)
+- Context-aware suggestions for corrections
+- Warnings rather than blocking (maintains flow)
+
+### Link Validation
+```bash
+# Verify all links are working
+bun run check:links
+```
+
+Background link checking with `markdown-link-check`:
+- Detects broken external links
+- Handles timeouts and retries gracefully
+- Ignores localhost and email links appropriately
+- Runs async to avoid blocking commits
+
+### Image Optimization Alerts
+The pre-commit hook now warns about:
+- Images larger than 1MB (performance impact)
+- Suggestions for optimization before committing
+- Automated social media image regeneration
+
+### Enhanced Security Scanning
+Improved secret detection that:
+- Avoids false positives on tool configurations
+- Uses precise regex patterns for actual secrets
+- Excludes lock files and configuration files
+- Provides clear guidance when issues are found
+
+All these checks run automatically on every commit, creating a safety net that maintains quality without breaking workflow.
+
 ## What's Next?
 
 I'm not done yet. Future improvements include:
 
-- **Publishing workflow**: Convert drafts to published with one command
 - **Content analytics**: Track which posts perform best
 - **AI-assisted writing**: Integrated tools for content improvement
 - **Automated SEO checks**: Beyond just description length

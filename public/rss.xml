@@ -30,6 +30,20 @@
       <category><![CDATA[development]]></category>
     </item>
     <item>
+      <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
+      <description><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation workflow.]]></description>
+      <link>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</guid>
+      <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[blog-development]]></category>
+      <category><![CDATA[tooling]]></category>
+      <category><![CDATA[vscode]]></category>
+      <category><![CDATA[cli-tools]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[cloudflare-pages]]></category>
+    </item>
+    <item>
       <title><![CDATA[Claude Code: Setup, Strategy, and Sanity Checks]]></title>
       <description><![CDATA[A practical guide to getting the most out of Claude Code, from model selection and execution patterns to debugging loops and knowing when to quit.]]></description>
       <link>https://www.haasonsaas.com/blog/claude-code-setup</link>
@@ -612,18 +626,6 @@
       <category><![CDATA[productivity]]></category>
       <category><![CDATA[leadership]]></category>
       <category><![CDATA[culture]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Chrome Extension for Jira Titles: A Developer's Journey]]></title>
-      <description><![CDATA[Building a Chrome extension to improve Jira ticket management]]></description>
-      <link>https://www.haasonsaas.com/blog/chrome-extension-jira-titles</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/chrome-extension-jira-titles</guid>
-      <pubDate>Thu, 11 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[ux]]></category>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[productivity]]></category>
     </item>
   </channel>
 </rss>

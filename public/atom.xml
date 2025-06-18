@@ -29,6 +29,25 @@
     <category term="development" />
   </entry>
   <entry>
+    <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
+    <link href="https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</id>
+    <published>2025-06-17T00:00:00.000Z</published>
+    <updated>2025-06-17T00:00:00.000Z</updated>
+    <summary><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation workflow.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="developer-experience" />
+    <category term="blog-development" />
+    <category term="tooling" />
+    <category term="vscode" />
+    <category term="cli-tools" />
+    <category term="productivity" />
+    <category term="cloudflare-pages" />
+  </entry>
+  <entry>
     <title><![CDATA[Claude Code: Setup, Strategy, and Sanity Checks]]></title>
     <link href="https://www.haasonsaas.com/blog/claude-code-setup" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/claude-code-setup</id>
@@ -851,22 +870,5 @@
     <category term="productivity" />
     <category term="leadership" />
     <category term="culture" />
-  </entry>
-  <entry>
-    <title><![CDATA[Chrome Extension for Jira Titles: A Developer's Journey]]></title>
-    <link href="https://www.haasonsaas.com/blog/chrome-extension-jira-titles" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/chrome-extension-jira-titles</id>
-    <published>2024-04-11T00:00:00.000Z</published>
-    <updated>2024-04-11T00:00:00.000Z</updated>
-    <summary><![CDATA[Building a Chrome extension to improve Jira ticket management]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="engineering" />
-    <category term="product" />
-    <category term="ux" />
-    <category term="ai" />
-    <category term="productivity" />
   </entry>
 </feed>
