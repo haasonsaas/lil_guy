@@ -23,6 +23,14 @@ bun run generate-blog-images                                   # Generate social
 bun run watch:images                                           # Watch for new posts and auto-generate images
 ```
 
+### Quality Assurance & Linting
+```bash
+bun run lint             # ESLint with TypeScript support
+bun run lint:md          # Markdown linting with markdownlint-cli2
+bun run spell            # Spell checking with cspell (custom dictionary)
+bun run check:links      # Validate all links in markdown files
+```
+
 ### Deployment & DevOps
 ```bash
 bun run check:deploy         # Validate deployment readiness (CF Pages limits, env vars, etc.)
@@ -146,13 +154,25 @@ Automated blog image generation runs on:
 - **Validation**: Real-time frontmatter validation with helpful error messages and suggestions
 - **Hot Reload**: Instant preview updates when editing markdown files
 
-### Quality Assurance
+### Quality Assurance & Pre-commit Automation
 - **Frontmatter Validation**: Catches common errors (missing fields, wrong types, typos)
 - **Bundle Size Monitoring**: Automated checks for Cloudflare Pages limits (25MB)
 - **Security Scanning**: Prevents committing API keys and checks dependencies
 - **RSS Generation**: Automatic feed updates with deployment validation
+- **Markdown Linting**: Consistent formatting and structure validation
+- **Spell Checking**: Custom dictionary with 100+ technical terms and proper names
+- **Link Validation**: Background checking for broken external links
+- **Image Optimization**: Warnings for large files (>1MB) with optimization suggestions
 
 ### Local Development
 - **HMR**: Hot module replacement for markdown files
 - **Preview Matching Production**: `bun run preview:cf` uses Wrangler for exact CF Pages environment
 - **Deployment Health Checks**: Pre-deployment validation of build size, functions, env vars
+
+## Important Debugging Principles
+- NEVER skip steps when diagnosing build or runtime issues
+- ALWAYS investigate the root cause thoroughly rather than working around problems
+- When build fails, examine the specific error messages and fix the underlying issue
+- Don't use timeout commands or other shortcuts to avoid debugging - this is laziness
+- Properly diagnose esbuild service errors, dependency issues, and configuration problems
+- Clean reinstalls (rm -rf node_modules && bun install) often resolve service communication issues
