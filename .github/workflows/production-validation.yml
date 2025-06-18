@@ -49,5 +49,3 @@ jobs:
           echo "✅ Production build validated successfully!"
           echo "🚀 Cloudflare Pages will automatically deploy this commit"
           echo "📦 Build size: $(du -sh dist | cut -f1)"
-          echo "Check the logs above for details."
-          exit 1
