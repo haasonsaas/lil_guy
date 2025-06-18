@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import "./styles/print.css";
 import Index from "./pages/Index";
 import BlogPage from "./pages/BlogPage";
 import BlogPost from "./pages/BlogPost";

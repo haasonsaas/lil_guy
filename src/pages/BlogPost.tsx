@@ -165,7 +165,7 @@ export default function BlogPost() {
                 {frontmatter?.title || 'Untitled Post'}
               </h1>
               
-              <div className="flex items-center gap-4 text-muted-foreground mb-6">
+              <div className="article-meta flex items-center gap-4 text-muted-foreground mb-6">
                 <div className="flex items-center gap-2">
                   <Calendar size={16} />
                   <span>{formatDate(frontmatter.pubDate)}</span>
@@ -183,13 +183,16 @@ export default function BlogPost() {
                     </TooltipContent>
                   </Tooltip>
                 </TooltipProvider>
+                <span className="print-only">
+                  • {calculateReadingTime(content).wordCount} words
+                </span>
               </div>
 
               <div className="mb-6">
                 <AuthorBio />
               </div>
 
-              <div className="mb-8 flex items-center justify-between">
+              <div className="mb-8 flex items-center justify-between no-print">
                 <div className="text-sm text-muted-foreground">
                   Found this helpful? Share it with others:
                 </div>
@@ -208,7 +211,7 @@ export default function BlogPost() {
               />
             </div>
 
-            <div className="mt-16">
+            <div className="mt-16 no-print">
               <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm">
                 <div className="flex flex-col items-center text-center">
                   <h3 className="text-xl md:text-2xl font-bold mb-2">
@@ -226,7 +229,7 @@ export default function BlogPost() {
               </div>
             </div>
             
-            <div className="border-t border-border mt-16 pt-8">
+            <div className="border-t border-border mt-16 pt-8 no-print">
               <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
                 <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
                 {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
@@ -253,6 +256,18 @@ export default function BlogPost() {
                     Read more articles
                   </Button>
                 </Link>
+              </div>
+            </div>
+
+            {/* Print-only footer with article info */}
+            <div className="print-only mt-8 pt-4 border-t border-gray-300">
+              <div className="text-sm text-gray-600">
+                <p>This article was published on {formatDate(frontmatter.pubDate)} at haasonsaas.com</p>
+                {frontmatter?.tags && frontmatter.tags.length > 0 && (
+                  <p className="mt-2">
+                    Topics: {frontmatter.tags.join(', ')}
+                  </p>
+                )}
               </div>
             </div>
 
