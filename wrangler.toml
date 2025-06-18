@@ -3,6 +3,10 @@ name = "haas-blog"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "dist"
 
+# Build configuration
+[build]
+command = "bash scripts/cf-build.sh"
+
 # Function compatibility
 compatibility_flags = ["nodejs_compat"]
 
