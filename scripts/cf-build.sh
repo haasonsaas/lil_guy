@@ -1,13 +1,24 @@
 #!/bin/bash
+set -e
 
-# Install bun if not already installed
-if ! command -v bun &> /dev/null; then
-    echo "Installing bun..."
-    curl -fsSL https://bun.sh/install | bash
-    export BUN_INSTALL="$HOME/.bun"
-    export PATH="$BUN_INSTALL/bin:$PATH"
-fi
+echo "Starting Cloudflare Pages build..."
 
-# Run bun commands
-bun install
+# Install bun
+echo "Installing bun..."
+curl -fsSL https://bun.sh/install | bash
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Verify bun installation
+echo "Bun version:"
+bun --version
+
+# Install dependencies
+echo "Installing dependencies..."
+bun install --frozen-lockfile
+
+# Build the project
+echo "Building project..."
 bun run build
+
+echo "Build completed successfully!"
