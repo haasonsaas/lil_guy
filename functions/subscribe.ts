@@ -87,43 +87,34 @@ async function checkRateLimit(env: Env, ip: string): Promise<{ allowed: boolean;
   }
 }
 
-export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    // Handle CORS preflight requests
-    if (request.method === 'OPTIONS') {
-      return new Response(null, {
-        headers: corsHeaders,
+export async function onRequestPost(context: {
+  request: Request;
+  env: Env;
+  params: Record<string, string>;
+  waitUntil: (promise: Promise<unknown>) => void;
+}): Promise<Response> {
+  const { request, env } = context;
+
+  try {
+    // Get client IP for rate limiting
+    const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
+    console.log(`Request from IP: ${ip}`);
+    
+    // Check rate limit
+    const rateLimit = await checkRateLimit(env, ip);
+    if (!rateLimit.allowed) {
+      console.log(`Rate limit exceeded for IP ${ip}`);
+      return new Response(JSON.stringify({ 
+        error: 'Too many subscription attempts. Please try again later.',
+        retryAfter: RATE_LIMIT_WINDOW,
+      }), {
+        status: 429,
+        headers: {
+          ...responseHeaders,
+          'Retry-After': RATE_LIMIT_WINDOW.toString(),
+        },
       });
     }
-
-    // Only allow POST requests
-    if (request.method !== 'POST') {
-      return new Response('Method not allowed', { 
-        status: 405,
-        headers: responseHeaders,
-      });
-    }
-
-    try {
-      // Get client IP for rate limiting
-      const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
-      console.log(`Request from IP: ${ip}`);
-      
-      // Check rate limit
-      const rateLimit = await checkRateLimit(env, ip);
-      if (!rateLimit.allowed) {
-        console.log(`Rate limit exceeded for IP ${ip}`);
-        return new Response(JSON.stringify({ 
-          error: 'Too many subscription attempts. Please try again later.',
-          retryAfter: RATE_LIMIT_WINDOW,
-        }), {
-          status: 429,
-          headers: {
-            ...responseHeaders,
-            'Retry-After': RATE_LIMIT_WINDOW.toString(),
-          },
-        });
-      }
 
       // Parse the request body
       const data = await request.json() as RequestBody;
@@ -301,5 +292,10 @@ Website: https://haasonsaas.com`,
         headers: responseHeaders,
       });
     }
-  },
-}; 
+}
+
+export async function onRequestOptions(): Promise<Response> {
+  return new Response(null, {
+    headers: corsHeaders,
+  });
+} 
