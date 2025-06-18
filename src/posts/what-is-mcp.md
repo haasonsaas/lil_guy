@@ -6,6 +6,10 @@ description:
   A comprehensive analysis of the Model Context Protocol (MCP) — the enterprise-ready standard that's systematically solving the challenges of LLM tool integration across organizations of all sizes.
 featured: true
 draft: false
+series:
+  name: "AI & Enterprise Strategy"
+  part: 4
+  description: "A comprehensive guide to implementing AI in enterprise environments - from setting realistic expectations to building scalable infrastructure."
 tags:
   - ai-infrastructure
   - llm-apps

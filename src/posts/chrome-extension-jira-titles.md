@@ -3,6 +3,10 @@ title: "Chrome Extension for Jira Titles: A Developer's Journey"
 author: Jonathan Haas
 pubDate: 2024-04-11
 description: "Building a Chrome extension to improve Jira ticket management"
+series:
+  name: "Technical Deep-Dive"
+  part: 3
+  description: "Hands-on technical projects and implementations - from web development to infrastructure to AI frameworks."
 tags:
   - engineering
   - product

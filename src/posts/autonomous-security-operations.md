@@ -3,6 +3,10 @@ title: "Autonomous Security Operations: The Future of Enterprise Security"
 author: Jonathan Haas
 pubDate: 2024-04-11
 description: "Exploring the role of automation and AI in modern security operations"
+series:
+  name: "AI & Enterprise Strategy"
+  part: 2
+  description: "A comprehensive guide to implementing AI in enterprise environments - from setting realistic expectations to building scalable infrastructure."
 tags:
   - ai
   - ai-agents

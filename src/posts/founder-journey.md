@@ -6,6 +6,10 @@ title:
 description:
   An honest exploration of the psychological whiplash that comes with building a
   company, and why we keep coming back for more
+series:
+  name: "Founder Journey"
+  part: 3
+  description: "A personal series about the startup experience - from the emotional rollercoaster to practical challenges and life decisions."
 tags:
   - founder
   - startup

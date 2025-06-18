@@ -6,6 +6,10 @@ description:
   An insider's perspective on the growing disconnect between security practitioners and solution providers, and how both sides can better navigate the complex cybersecurity ecosystem
 featured: false
 draft: false
+series:
+  name: "Security Leadership & Vendor Relations"
+  part: 3
+  description: "A deep dive into the security industry from both practitioner and vendor perspectives - understanding challenges, building trust, and bridging the gap."
 tags:
   - cybersecurity
   - vendor-relations

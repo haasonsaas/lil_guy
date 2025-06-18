@@ -5,6 +5,10 @@ title: "AI Expectations: Managing the Hype Cycle"
 description: "How to set realistic expectations for AI implementation and avoid common pitfalls in enterprise adoption"
 featured: false
 draft: false
+series:
+  name: "AI & Enterprise Strategy"
+  part: 1
+  description: "A comprehensive guide to implementing AI in enterprise environments - from setting realistic expectations to building scalable infrastructure."
 tags:
   - ai
   - product

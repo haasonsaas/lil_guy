@@ -5,6 +5,10 @@ title: "Building the HTTP for Agents: A Complete Guide to Agent Infrastructure"
 description: "As AI agents grow from niche experiments to core infrastructure, we need a new control plane—identity, policy, and secrets—standardized and scalable. Here's how to build the HTTP layer for autonomous agents, from Envoy sidecars to Vault-backed secrets and a Python SDK."
 featured: false
 draft: false
+series:
+  name: "AI & Enterprise Strategy"
+  part: 5
+  description: "A comprehensive guide to implementing AI in enterprise environments - from setting realistic expectations to building scalable infrastructure."
 tags:
   - ai
   - ai-agents

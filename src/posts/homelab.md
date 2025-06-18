@@ -3,6 +3,10 @@ author: Jonathan Haas
 pubDate: 2024-04-11
 title: "Building My UniFi Homelab: A Technical Deep Dive"
 description: "A technical deep-dive into my homelab network built on UniFi enterprise equipment"
+series:
+  name: "Technical Deep-Dive"
+  part: 2
+  description: "Hands-on technical projects and implementations - from web development to infrastructure to AI frameworks."
 tags:
   - engineering
   - technical

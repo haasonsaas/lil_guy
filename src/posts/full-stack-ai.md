@@ -6,6 +6,10 @@ description:
   A critical examination of why enterprises that rely solely on third-party AI APIs are setting themselves up for long-term failure, and what a genuine AI strategy requires in today's competitive landscape
 featured: false
 draft: false
+series:
+  name: "AI & Enterprise Strategy"
+  part: 3
+  description: "A comprehensive guide to implementing AI in enterprise environments - from setting realistic expectations to building scalable infrastructure."
 tags:
   - enterprise-ai
   - artificial-intelligence

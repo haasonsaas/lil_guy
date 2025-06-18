@@ -5,6 +5,10 @@ title: "Back to the Bay: Why I'm Returning to San Francisco in 2025"
 postSlug: returning-to-sf
 featured: false
 draft: false
+series:
+  name: "Founder Journey"
+  part: 2
+  description: "A personal series about the startup experience - from the emotional rollercoaster to practical challenges and life decisions."
 tags:
   - personal-growth
   - leadership
