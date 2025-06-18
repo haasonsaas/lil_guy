@@ -11,8 +11,10 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock, Eye } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags, getAllPosts } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
-import { getBlogPostSchema, injectStructuredData } from '@/utils/seoUtils';
 import { validatePreviewToken, getTokenExpiration } from '@/utils/previewUtils';
+import { generateBlogPostStructuredData, generateBreadcrumbStructuredData, calculateReadingTime as seoCalculateReadingTime } from '@/utils/seo/structuredData';
+import StructuredData from '@/components/SEO/StructuredData';
+import { BlogPostMeta } from '@/components/SEO/MetaTags';
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
@@ -160,8 +162,19 @@ export default function BlogPost() {
   const imageUrl = imageError ? generateDynamicImageUrl(frontmatter.title, 1200, 630) : imageData.url;
   const imageAlt = imageData.alt;
   
+  // Generate structured data
+  const readingTime = seoCalculateReadingTime(content);
+  const blogPostStructuredData = generateBlogPostStructuredData(frontmatter, slug!, content, readingTime);
+  const breadcrumbStructuredData = generateBreadcrumbStructuredData([
+    { name: 'Home', url: 'https://haasonsaas.com' },
+    { name: 'Blog', url: 'https://haasonsaas.com/blog' },
+    { name: frontmatter.title, url: `https://haasonsaas.com/blog/${slug}` }
+  ]);
+  
   return (
     <Layout>
+      <BlogPostMeta frontmatter={frontmatter} slug={slug!} content={content} readingTime={readingTime} />
+      <StructuredData data={[blogPostStructuredData, breadcrumbStructuredData]} />
       <ReadingProgressBar />
       <article className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

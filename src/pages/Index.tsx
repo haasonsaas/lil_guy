@@ -7,7 +7,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import BlogCard from "@/components/BlogCard";
 import Layout from "@/components/Layout";
-import { getWebsiteSchema, injectStructuredData } from "@/utils/seoUtils";
+import { WebsiteMeta } from "@/components/SEO/MetaTags";
+import { generateWebsiteStructuredData } from "@/utils/seo/structuredData";
+import StructuredData from "@/components/SEO/StructuredData";
 import { 
   ArrowRight, 
   Mail, 
@@ -89,8 +91,12 @@ export default function Index() {
     loadData();
   }, []);
 
+  const websiteStructuredData = generateWebsiteStructuredData();
+
   return (
     <Layout>
+      <WebsiteMeta />
+      <StructuredData data={websiteStructuredData} />
       <div className="space-y-20">
         {/* Hero Section */}
         <section className="relative overflow-hidden">

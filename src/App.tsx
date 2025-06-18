@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { Suspense, lazy } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./styles/print.css";
@@ -38,39 +39,41 @@ const PageLoading = () => (
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="system" storageKey="haas-blog-theme">
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <Router>
-          <ScrollToTop />
-          <Suspense fallback={<PageLoading />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
-              <Route path="/drafts" element={<DraftsPage />} />
-              <Route path="/archive" element={<Archive />} />
-              <Route path="/tags" element={<TagsPage />} />
-              <Route path="/tags/:tag" element={<TagPage />} />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/faq" element={<FAQPage />} />
-              <Route path="/uses" element={<UsesPage />} />
-              <Route path="/reading" element={<ReadingPage />} />
-              <Route path="/newsletter" element={<NewsletterPage />} />
-              <Route path="/experiments" element={<ExperimentsPage />} />
-              <Route path="/webgl" element={<WebGLPage />} />
-              <Route path="/code-rain" element={<CodeRainPage />} />
-              {/* Redirect /admin to the home page */}
-              <Route path="/admin" element={<Navigate to="/" replace />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Suspense>
-        </Router>
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider defaultTheme="system" storageKey="haas-blog-theme">
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <Router>
+            <ScrollToTop />
+            <Suspense fallback={<PageLoading />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/drafts" element={<DraftsPage />} />
+                <Route path="/archive" element={<Archive />} />
+                <Route path="/tags" element={<TagsPage />} />
+                <Route path="/tags/:tag" element={<TagPage />} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/faq" element={<FAQPage />} />
+                <Route path="/uses" element={<UsesPage />} />
+                <Route path="/reading" element={<ReadingPage />} />
+                <Route path="/newsletter" element={<NewsletterPage />} />
+                <Route path="/experiments" element={<ExperimentsPage />} />
+                <Route path="/webgl" element={<WebGLPage />} />
+                <Route path="/code-rain" element={<CodeRainPage />} />
+                {/* Redirect /admin to the home page */}
+                <Route path="/admin" element={<Navigate to="/" replace />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Router>
+        </TooltipProvider>
+      </ThemeProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

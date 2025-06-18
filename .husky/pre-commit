@@ -40,6 +40,13 @@ if [ -n "$modified_posts" ]; then
     echo "Run 'bun run build' to see specific validation messages."
     exit 1
   fi
+  
+  # SEO validation for modified posts
+  echo "🔍 Validating SEO compliance..."
+  if ! echo "$modified_posts" | xargs bun run validate:seo 2>/dev/null; then
+    echo "⚠️  SEO validation issues found. Run 'bun run validate:seo' for details."
+    # Don't exit - just warn for SEO issues
+  fi
 fi
 
 # Generate blog images for any new or modified markdown files
@@ -120,11 +127,15 @@ if [ -n "$new_images" ]; then
   fi
 fi
 
-# Generate RSS feed if posts were modified
+# Generate RSS feed and sitemap if posts were modified
 if [ -n "$modified_posts" ]; then
   echo "📡 Regenerating RSS feed..."
   bun run generate-rss >/dev/null 2>&1
   git add dist/rss.xml 2>/dev/null || true
+  
+  echo "🗺️  Regenerating sitemap..."
+  bun run generate-sitemap >/dev/null 2>&1
+  git add dist/sitemap.xml dist/robots.txt 2>/dev/null || true
 fi
 
 echo "✅ All pre-commit checks passed!"
