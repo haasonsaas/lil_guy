@@ -1,17 +1,25 @@
+# Cloudflare Pages configuration
 name = "haas-blog"
-compatibility_date = "2024-05-01"
+compatibility_date = "2024-01-01"
+
+[env.production]
+# Production environment settings
 pages_build_output_dir = "dist"
 
+[env.preview]
+# Preview environment settings  
+pages_build_output_dir = "dist"
+
+# Build configuration
+[build]
+command = "bun run build"
+cwd = ""
+watch_dir = "src"
+
+# Environment variables that can be configured in Cloudflare Dashboard
 [vars]
-RESEND_API_KEY = "re_HYUMn1X1_C8wWsshiX8LepG2bQk2ZqobN"
-BUN_VERSION = "latest"
+# These are public variables, secrets should be set in CF Dashboard
+ENVIRONMENT = "production"
 
-[[kv_namespaces]]
-binding = "SUBSCRIBERS"
-id = "da9ea499f9534d1ba78cd9a3a381ae2a"
-preview_id = "subscribers_preview"
-
-[[kv_namespaces]]
-binding = "RATE_LIMIT"
-id = "12a9dd7606564fe9a3261bfab8de9d5a"
-preview_id = "ff97babc76ce45468391496974179dc7" 
+# Function compatibility
+compatibility_flags = ["nodejs_compat"]

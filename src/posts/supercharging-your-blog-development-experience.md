@@ -125,9 +125,28 @@ bun run search "DevEx" -C
 
 The search tool features:
 - Colored output with highlighted matches
-- Relevance scoring (title matches score higher)
+- Relevance scoring (title matches score higher)  
 - Line numbers for content matches
 - Configurable result limits
+
+Here's what searching looks like in action:
+
+```bash
+$ bun run search "devex" -l 3
+
+🔍 Searching for "devex" in 79 posts...
+
+Found 2 matching posts (showing top 3):
+
+1. Supercharging Your Blog Development Experience
+   📄 supercharging-your-blog-development-experience.md
+   📝 Line 23: Learn how I transformed my blog's devex with custom tools
+   🏷️  tags: developer-experience
+
+2. Building Better Developer Tools
+   📄 building-better-developer-tools.md  
+   📌 title: Building Better DevEx Tools for Modern Teams
+```
 
 ## 5. VS Code Integration 
 
@@ -154,24 +173,29 @@ This command:
 - Tests edge functions locally
 - Validates KV namespaces and environment variables
 
-### Deploy Preview for Every Branch
+### GitHub Actions for Automated Deployments
 
-I've configured automatic deploy previews:
+I've set up comprehensive GitHub Actions workflows:
 
-```yaml
-# .github/workflows/preview.yml
-- name: Deploy Preview
-  run: |
-    wrangler pages deploy ./dist \
-      --project-name=${{ env.CF_PROJECT }} \
-      --branch=${{ github.head_ref }}
-```
+**Preview Deployments** (`deploy-preview.yml`):
+- Triggers on pull requests
+- Runs type checking and linting
+- Deploys to unique preview URL
+- Comments the preview link directly on PRs
+- Automatic cleanup when PR is closed
 
-Every pull request gets:
-- A unique preview URL
-- Full functionality testing
-- Comments with deployment status
-- Automatic cleanup after merge
+**Production Deployments** (`deploy-production.yml`):
+- Triggers on pushes to main
+- Full quality checks before deployment
+- Cache purging for instant updates
+- Deployment status tracking
+
+**Quality Checks** (`quality-checks.yml`):
+- TypeScript and ESLint validation
+- Frontmatter validation across all posts
+- Bundle size monitoring
+- Security scanning for secrets
+- RSS feed verification
 
 ### Environment-Specific Configurations
 

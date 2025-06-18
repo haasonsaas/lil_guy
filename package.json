@@ -17,6 +17,8 @@
     "search": "bun run scripts/search.ts",
     "publish": "bun run scripts/publish-post.ts",
     "check:deploy": "bun run scripts/check-deploy.ts",
+    "preview:cf": "bun run build && wrangler pages dev ./dist --compatibility-date=2024-01-01",
+    "setup:secrets": "bun run scripts/setup-secrets.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
