@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
@@ -19,6 +19,7 @@ import { useAnalytics, useReadingProgress, useExternalLinkTracking } from '@/hoo
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
+import TableOfContents from '@/components/TableOfContents';
 import {
   Tooltip,
   TooltipContent,
@@ -47,6 +48,7 @@ export default function BlogPost() {
   const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([]);
   const [isPreview, setIsPreview] = useState(false);
   const [previewExpiration, setPreviewExpiration] = useState<Date | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   
   // Analytics hooks
   const { trackPostView, trackTagClick } = useAnalytics();
@@ -269,11 +271,29 @@ export default function BlogPost() {
               </div>
             </div>
             
-            <div className="animate-fade-up">
-              <MarkdownRenderer 
-                content={content} 
-                className="prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-slate-800 prose-pre:rounded-lg prose-pre:shadow-sm prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md prose-img:shadow-sm"
-              />
+            {/* Desktop layout with TOC sidebar */}
+            <div className="relative animate-fade-up">
+              <div className="lg:grid lg:grid-cols-12 lg:gap-8">
+                {/* Main content */}
+                <div className="lg:col-span-9">
+                  <div ref={contentRef}>
+                    <MarkdownRenderer 
+                      content={content} 
+                      className="prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-slate-800 prose-pre:rounded-lg prose-pre:shadow-sm prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md prose-img:shadow-sm"
+                    />
+                  </div>
+                </div>
+                
+                {/* TOC sidebar - hidden on mobile, sticky on desktop */}
+                <div className="hidden lg:block lg:col-span-3">
+                  <div className="sticky top-8">
+                    <TableOfContents 
+                      contentRef={contentRef}
+                      className="bg-card border rounded-lg p-4 shadow-sm"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
 
 
