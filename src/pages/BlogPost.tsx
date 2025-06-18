@@ -6,7 +6,6 @@ import TagCloud from '@/components/TagCloud';
 import BlogCard from '@/components/BlogCard';
 import AuthorBio from '@/components/AuthorBio';
 import SocialShare from '@/components/SocialShare';
-import Comments from '@/components/Comments';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags } from '@/utils/blogUtils';
@@ -249,8 +248,6 @@ export default function BlogPost() {
               </div>
             </div>
 
-            {/* Comments Section */}
-            <Comments />
           </div>
         </div>
       </article>
