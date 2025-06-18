@@ -195,7 +195,7 @@ export default {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
-            from: 'Jonathan Haas <jonathan@haasonsaas.com>',
+            from: 'jonathan@haasonsaas.com',
             to: email,
             subject: 'Welcome to Haas on SaaS! 👋',
             html: `
@@ -262,9 +262,12 @@ Website: https://haasonsaas.com`,
         });
 
         if (welcomeResponse.ok) {
-          console.log('Welcome email sent immediately to:', email);
+          const welcomeData = await welcomeResponse.json();
+          console.log('Welcome email sent immediately to:', email, 'ID:', welcomeData.id);
         } else {
-          console.error('Failed to send welcome email:', await welcomeResponse.text());
+          const errorText = await welcomeResponse.text();
+          console.error('Failed to send welcome email:', errorText);
+          console.error('Welcome response status:', welcomeResponse.status);
         }
       } catch (error) {
         console.error('Error sending welcome email:', error);
