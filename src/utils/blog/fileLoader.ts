@@ -13,6 +13,11 @@ interface RawFrontmatter {
     url?: string;
     alt?: string;
   };
+  series?: {
+    name?: string;
+    part?: number;
+    description?: string;
+  };
 }
 
 /**
@@ -110,6 +115,16 @@ export const readFilePosts = (): BlogPost[] => {
           image.alt = defaultFrontmatter.image!.alt;
         }
         
+        // Process series if it exists
+        let series: { name: string; part: number; description?: string } | undefined;
+        if (frontmatter.series && frontmatter.series.name && frontmatter.series.part) {
+          series = {
+            name: frontmatter.series.name,
+            part: frontmatter.series.part,
+            description: frontmatter.series.description
+          };
+        }
+
         // Merge frontmatter with defaults, ensuring all required properties are present
         const processedFrontmatter: BlogPostFrontmatter = {
           ...defaultFrontmatter,
@@ -123,7 +138,8 @@ export const readFilePosts = (): BlogPost[] => {
           image: {
             url: frontmatter.image?.url || defaultFrontmatter.image.url,
             alt: frontmatter.image?.alt || defaultFrontmatter.image.alt
-          }
+          },
+          series
         };
         
         posts.push({
