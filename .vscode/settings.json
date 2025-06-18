@@ -1,0 +1,147 @@
+{
+  // Editor settings for blog writing
+  "editor.wordWrap": "on",
+  "editor.lineNumbers": "off",
+  "editor.minimap.enabled": false,
+  "editor.fontSize": 16,
+  "editor.lineHeight": 1.6,
+  
+  // Markdown specific settings
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": false
+    },
+    "editor.rulers": [80, 100],
+    "editor.wordWrapColumn": 100
+  },
+  
+  // TypeScript settings
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll.eslint": "explicit"
+    }
+  },
+  
+  // Spell check settings
+  "cSpell.words": [
+    "haas",
+    "jonhaas",
+    "shadcn",
+    "tailwindcss",
+    "vite",
+    "frontmatter",
+    "devex",
+    "cloudflare",
+    "wrangler",
+    "bun",
+    "tsx",
+    "mdx",
+    "postcss",
+    "clsx",
+    "lucide",
+    "sonner",
+    "vaul",
+    "embla",
+    "recharts",
+    "cmdk",
+    "radix",
+    "hookform",
+    "tanstack",
+    "zod",
+    "rss",
+    "seo",
+    "hmr",
+    "cli",
+    "yaml",
+    "ripgrep",
+    "parseargs",
+    "bgcolor",
+    "bordercolor",
+    "textcolor",
+    "titlecolor",
+    "datecolor",
+    "tagcolor"
+  ],
+  
+  // Files to exclude from search
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true,
+    "**/public/generated": true,
+    "**/*.log": true
+  },
+  
+  // Files associations
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "CLAUDE.md": "markdown"
+  },
+  
+  // Terminal settings
+  "terminal.integrated.defaultProfile.osx": "zsh",
+  "terminal.integrated.fontSize": 14,
+  
+  // Git settings
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  
+  // Tailwind CSS IntelliSense
+  "tailwindCSS.experimental.classRegex": [
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  
+  // ESLint settings
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  
+  // Prettier settings
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.tabWidth": 2,
+  "prettier.semi": true,
+  "prettier.printWidth": 100,
+  
+  // Auto save
+  "files.autoSave": "onFocusChange",
+  
+  // Breadcrumbs
+  "breadcrumbs.enabled": true,
+  
+  // Minimap
+  "editor.minimap.maxColumn": 80,
+  
+  // Workspace specific TypeScript version
+  "typescript.tsdk": "node_modules/typescript/lib",
+  
+  // Markdown preview settings
+  "markdown.preview.fontSize": 16,
+  "markdown.preview.lineHeight": 1.6,
+  
+  // Quick suggestions for markdown
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": false
+  }
+}

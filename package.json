@@ -15,6 +15,8 @@
     "watch:images": "bun run scripts/watchBlogImages.ts",
     "new-post": "bun run scripts/new-post.ts",
     "search": "bun run scripts/search.ts",
+    "publish": "bun run scripts/publish-post.ts",
+    "check:deploy": "bun run scripts/check-deploy.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",

@@ -178,15 +178,7 @@ export function markdownPlugin(): Plugin {
 const data = ${JSON.stringify(result)};
 
 if (import.meta.hot) {
-  import.meta.hot.accept((newModule) => {
-    // Trigger re-render by updating the module
-    if (newModule) {
-      Object.assign(data, newModule.default);
-    }
-  });
-  
-  // Store original data for HMR
-  import.meta.hot.data = data;
+  import.meta.hot.accept();
 }
 
 export default data;
