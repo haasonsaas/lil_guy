@@ -52,11 +52,27 @@ export const ReadingProgressBar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1 bg-muted z-[100]">
+    <div className="fixed top-0 left-0 w-full h-1.5 bg-muted/30 z-[100] no-print backdrop-blur-sm">
       <div
-        className="h-full bg-primary transition-all duration-200"
+        className="h-full bg-gradient-to-r from-primary via-primary to-primary/80 transition-all duration-300 ease-out shadow-sm relative overflow-hidden"
         style={{ width: `${progress}%` }}
-      />
+      >
+        {/* Add a subtle glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-pulse" />
+        {/* Add a moving shine effect when progress is active */}
+        {progress > 0 && progress < 100 && (
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-shine" />
+        )}
+      </div>
+      
+      {/* Add percentage indicator for longer reads */}
+      {progress > 10 && (
+        <div className="absolute right-2 top-1.5 transform -translate-y-1/2">
+          <div className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full shadow-sm backdrop-blur-sm">
+            {Math.round(progress)}%
+          </div>
+        </div>
+      )}
     </div>
   );
 }; 

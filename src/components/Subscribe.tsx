@@ -2,21 +2,25 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { useAnalytics } from '@/hooks/useAnalytics';
+import analytics from '@/utils/analytics';
 
 interface SubscribeProps {
   className?: string;
+  source?: string; // Track where the subscription came from
 }
 
-export function Subscribe({ className }: SubscribeProps) {
+export function Subscribe({ className, source = 'unknown' }: SubscribeProps) {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { trackNewsletterSubscribe } = useAnalytics();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const response = await fetch('https://haas-blog.haasholdings.workers.dev', {
+      const response = await fetch('/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -33,6 +37,18 @@ export function Subscribe({ className }: SubscribeProps) {
 
       toast.success('Successfully subscribed!');
       setEmail('');
+      
+      // Track successful newsletter subscription
+      trackNewsletterSubscribe(source);
+      
+      // Track in analytics that welcome series will be triggered
+      analytics.track({
+        name: 'welcome_series_triggered',
+        properties: {
+          source,
+          email_hash: btoa(email).substring(0, 8) // Anonymous identifier
+        }
+      });
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to subscribe');
     } finally {

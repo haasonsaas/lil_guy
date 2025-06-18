@@ -4,12 +4,16 @@ import { generateOgImageUrl } from '../ogImageUtils';
 
 /**
  * Get all blog posts (only from markdown files)
+ * @param includeDrafts - Whether to include draft posts (default: false)
  */
-export const getAllPosts = async (): Promise<BlogPost[]> => {
+export const getAllPosts = async (includeDrafts: boolean = false): Promise<BlogPost[]> => {
   const filePosts = readFilePosts();
   
+  // Filter out drafts unless explicitly included
+  const posts = includeDrafts ? filePosts : filePosts.filter(post => !post.frontmatter.draft);
+  
   // Make sure each post has valid image information
-  for (const post of filePosts) {
+  for (const post of posts) {
     const hasExplicitImage = post.frontmatter.image && 
                            post.frontmatter.image.url && 
                            !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
@@ -26,7 +30,7 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
   }
   
   // Sort posts by date in descending order (most recent first)
-  const sortedPosts = filePosts.sort((a, b) => {
+  const sortedPosts = posts.sort((a, b) => {
     const dateA = new Date(a.frontmatter.pubDate);
     const dateB = new Date(b.frontmatter.pubDate);
     return dateB.getTime() - dateA.getTime();
@@ -47,9 +51,11 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
 
 /**
  * Get a specific post by slug
+ * @param slug - The post slug
+ * @param includeDrafts - Whether to include draft posts (default: false)
  */
-export const getPostBySlug = async (slug: string): Promise<BlogPost | undefined> => {
-  const posts = await getAllPosts();
+export const getPostBySlug = async (slug: string, includeDrafts: boolean = false): Promise<BlogPost | undefined> => {
+  const posts = await getAllPosts(includeDrafts);
   return posts.find(post => post.slug === slug);
 };
 

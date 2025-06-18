@@ -10,6 +10,8 @@ interface BlogImageConfig {
   backgroundColor?: string;
   textColor?: string;
   fontSize?: number;
+  formats?: ('png' | 'webp')[];
+  quality?: number;
 }
 
 /**
@@ -132,6 +134,70 @@ function adjustColor(color: string, amount: number): string {
 }
 
 /**
+ * Generate responsive image set for a blog post
+ */
+export function generateResponsiveImageConfigs(title: string, options?: {
+  quality?: number;
+  formats?: ('png' | 'webp')[];
+  backgroundColor?: string;
+  textColor?: string;
+}): BlogImageConfig[] {
+  const {
+    quality = 85,
+    formats = ['png', 'webp'],
+    backgroundColor = '#f5f5f5',
+    textColor = '#333333'
+  } = options || {};
+
+  return [
+    // Open Graph (1200x630) - Standard social media
+    {
+      width: 1200,
+      height: 630,
+      text: title,
+      type: 'blog' as const,
+      backgroundColor,
+      textColor,
+      formats,
+      quality
+    },
+    // Featured image (1200x400) - Hero/banner
+    {
+      width: 1200,
+      height: 400,
+      text: title,
+      type: 'blog' as const,
+      backgroundColor,
+      textColor,
+      formats,
+      quality
+    },
+    // Thumbnail (800x384) - List view
+    {
+      width: 800,
+      height: 384,
+      text: title,
+      type: 'blog' as const,
+      backgroundColor,
+      textColor,
+      formats,
+      quality
+    },
+    // Small thumbnail (400x192) - Mobile/compact view
+    {
+      width: 400,
+      height: 192,
+      text: title,
+      type: 'blog' as const,
+      backgroundColor,
+      textColor,
+      formats,
+      quality
+    }
+  ];
+}
+
+/**
  * Generate blog images for the given configurations
  */
 export async function generateBlogImages(configs: BlogImageConfig[]): Promise<void> {
@@ -144,32 +210,47 @@ export async function generateBlogImages(configs: BlogImageConfig[]): Promise<vo
   // Generate each blog image
   for (const config of configs) {
     const cleanText = config.text.toLowerCase().replace(/[^a-z0-9]/g, '-');
-    const fileName = `${config.width}x${config.height}-${cleanText}.png`;
-    const filePath = path.join(generatedDir, fileName);
+    const formats = config.formats || ['png', 'webp'];
+    const quality = config.quality || 85;
     
-    // Skip if image already exists
-    if (fs.existsSync(filePath)) {
-      console.log(`Image already exists, skipping: ${fileName}`);
-      continue;
-    }
+    // Generate SVG once
+    const svg = generateBlogSVG(config);
+    const buffer = Buffer.from(svg);
     
-    try {
-      // Generate SVG
-      const svg = generateBlogSVG(config);
+    console.log(`Generating images for: ${config.text}`);
+    
+    // Generate each format
+    for (const format of formats) {
+      const fileName = `${config.width}x${config.height}-${cleanText}.${format}`;
+      const filePath = path.join(generatedDir, fileName);
       
-      // For debugging
-      console.log(`Generating image for: ${config.text}`);
-      console.log(`SVG length: ${svg.length} bytes`);
+      // Skip if image already exists
+      if (fs.existsSync(filePath)) {
+        console.log(`Image already exists, skipping: ${fileName}`);
+        continue;
+      }
       
-      // Convert SVG to PNG using sharp
-      const buffer = Buffer.from(svg);
-      await sharp(buffer)
-        .png()
-        .toFile(filePath);
-      
-      console.log(`Generated: ${fileName}`);
-    } catch (error) {
-      console.error(`Error generating image for ${config.text}:`, error);
+      try {
+        const sharpInstance = sharp(buffer);
+        
+        if (format === 'webp') {
+          await sharpInstance
+            .webp({ quality, effort: 6 }) // High effort for better compression
+            .toFile(filePath);
+        } else if (format === 'png') {
+          await sharpInstance
+            .png({ compressionLevel: 9, adaptiveFiltering: true })
+            .toFile(filePath);
+        }
+        
+        // Get file size for optimization feedback
+        const stats = fs.statSync(filePath);
+        const sizeKB = Math.round(stats.size / 1024);
+        console.log(`Generated: ${fileName} (${sizeKB}KB)`);
+        
+      } catch (error) {
+        console.error(`Error generating ${format} image for ${config.text}:`, error);
+      }
     }
   }
 } 

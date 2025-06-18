@@ -1,7 +1,8 @@
-import type { Plugin } from 'vite';
+import type { Plugin, ModuleNode } from 'vite';
 import fs from 'fs';
 import path from 'path';
 import { BlogPostFrontmatter } from './types/blog';
+import { validateFrontmatter, formatValidationResults } from './utils/blog/frontmatterValidator';
 
 export function markdownPlugin(): Plugin {
   return {
@@ -31,6 +32,7 @@ export function markdownPlugin(): Plugin {
             let isNestedObject = false;
             let nestedObjectKey: string | null = null;
             const nestedObject: Record<string, string> = {};
+            
             
             for (let i = 0; i < frontmatterLines.length; i++) {
               const line = frontmatterLines[i].trim();
@@ -148,13 +150,41 @@ export function markdownPlugin(): Plugin {
             }
           }
           
+          // Validate frontmatter
+          const filename = path.basename(id);
+          const validationResult = validateFrontmatter(frontmatter, filename);
+          
+          // Log validation errors and warnings
+          if (!validationResult.isValid || validationResult.warnings.length > 0) {
+            const formatted = formatValidationResults(validationResult, filename);
+            if (formatted) {
+              console.log(formatted);
+            }
+          }
+          
+          // Throw error in production builds for invalid frontmatter
+          if (!validationResult.isValid && process.env.NODE_ENV === 'production') {
+            throw new Error(`Invalid frontmatter in ${filename}:\n${validationResult.errors.map(e => `- ${e.field}: ${e.message}`).join('\n')}`);
+          }
+          
           // Combine frontmatter and content
           const result = {
             frontmatter,
             content
           };
           
-          return `export default ${JSON.stringify(result)};`;
+          // Generate module with HMR support
+          const moduleCode = `
+const data = ${JSON.stringify(result)};
+
+if (import.meta.hot) {
+  import.meta.hot.accept();
+}
+
+export default data;
+`;
+          
+          return moduleCode;
         } catch (error) {
           console.error(`Error processing markdown file ${id}:`, error);
           return `export default { frontmatter: {}, content: "Error loading markdown file" };`;
@@ -167,6 +197,23 @@ export function markdownPlugin(): Plugin {
         return id;
       }
       return null;
+    },
+    
+    // Handle hot updates for markdown files
+    async handleHotUpdate({ file, server }) {
+      if (file.endsWith('.md')) {
+        console.log(`📝 Markdown file updated: ${path.basename(file)}`);
+        
+        // Find all modules that import this markdown file
+        const module = server.moduleGraph.getModuleById(file);
+        if (module) {
+          // Invalidate the module
+          server.moduleGraph.invalidateModule(module);
+          
+          // Send HMR update
+          return [module];
+        }
+      }
     }
   };
 }

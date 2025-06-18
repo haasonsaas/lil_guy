@@ -1,0 +1,33 @@
+{
+  "timeout": "30s",
+  "retryOn429": true,
+  "retryCount": 3,
+  "fallbackRetryDelay": "30s",
+  "aliveStatusCodes": [200, 206],
+  "ignorePatterns": [
+    {
+      "pattern": "^http://localhost"
+    },
+    {
+      "pattern": "^https://localhost"
+    },
+    {
+      "pattern": "^mailto:"
+    },
+    {
+      "pattern": "^tel:"
+    },
+    {
+      "pattern": "^#"
+    }
+  ],
+  "httpHeaders": [
+    {
+      "urls": [],
+      "headers": {
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+        "User-Agent": "Mozilla/5.0 (compatible; link-check)"
+      }
+    }
+  ]
+}

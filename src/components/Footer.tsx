@@ -1,4 +1,4 @@
-import { Github, Twitter, Linkedin } from 'lucide-react';
+import { Github, Twitter, Linkedin, Rss } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -68,6 +68,15 @@ export default function Footer() {
               >
                 <Linkedin size={20} />
                 <span className="sr-only">LinkedIn</span>
+              </a>
+              <a 
+                href="/rss.xml" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                <Rss size={20} />
+                <span className="sr-only">RSS Feed</span>
               </a>
             </div>
           </div>

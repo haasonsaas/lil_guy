@@ -110,6 +110,26 @@ export const readFilePosts = (): BlogPost[] => {
           image.alt = defaultFrontmatter.image!.alt;
         }
         
+
+        // Process boolean fields - handle string boolean values
+        let draftValue = defaultFrontmatter.draft;
+        if (frontmatter.draft !== undefined) {
+          if (typeof frontmatter.draft === 'string') {
+            draftValue = frontmatter.draft === 'true';
+          } else {
+            draftValue = !!frontmatter.draft;
+          }
+        }
+        
+        let featuredValue = defaultFrontmatter.featured;
+        if (frontmatter.featured !== undefined) {
+          if (typeof frontmatter.featured === 'string') {
+            featuredValue = frontmatter.featured === 'true';
+          } else {
+            featuredValue = !!frontmatter.featured;
+          }
+        }
+
         // Merge frontmatter with defaults, ensuring all required properties are present
         const processedFrontmatter: BlogPostFrontmatter = {
           ...defaultFrontmatter,
@@ -117,9 +137,9 @@ export const readFilePosts = (): BlogPost[] => {
           pubDate: frontmatter.pubDate || defaultFrontmatter.pubDate,
           title: frontmatter.title || defaultFrontmatter.title,
           description: frontmatter.description || defaultFrontmatter.description,
-          featured: frontmatter.featured ?? defaultFrontmatter.featured,
+          featured: featuredValue,
+          draft: draftValue,
           tags,
-          draft: frontmatter.draft === true,
           image: {
             url: frontmatter.image?.url || defaultFrontmatter.image.url,
             alt: frontmatter.image?.alt || defaultFrontmatter.image.alt

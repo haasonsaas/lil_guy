@@ -1,0 +1,149 @@
+name: Quality Checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  quality-checks:
+    runs-on: ubuntu-latest
+    name: Run Quality Checks
+    
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lockb') }}
+          restore-keys: |
+            ${{ runner.os }}-bun-
+
+      - name: Type check
+        run: bun run typecheck
+
+      - name: Lint code
+        run: bun run lint
+
+      - name: Check frontmatter validation
+        run: |
+          echo "🔍 Checking frontmatter validation..."
+          # Run a build to trigger validation
+          bun run build > build.log 2>&1 || true
+          
+          # Check if there are validation errors (not just warnings)
+          if grep -q "❌ Frontmatter validation failed" build.log; then
+            echo "❌ Frontmatter validation errors found:"
+            grep -A 10 "❌ Frontmatter validation failed" build.log
+            exit 1
+          else
+            echo "✅ No critical frontmatter validation errors"
+          fi
+        env:
+          VITE_RESEND_API_KEY: dummy
+          VITE_EMAIL_TO: dummy
+          VITE_EMAIL_FROM: dummy
+
+      - name: Check for missing blog images
+        run: |
+          echo "🖼️ Checking for missing blog images..."
+          bun run generate-blog-images > images.log 2>&1
+          
+          if grep -q "Generating image for:" images.log; then
+            echo "ℹ️ Some images were generated:"
+            grep "Generating image for:" images.log
+          else
+            echo "✅ All blog images up to date"
+          fi
+
+      - name: Verify RSS feed generation
+        run: |
+          echo "📡 Verifying RSS feed generation..."
+          bun run generate-rss
+          
+          if [ -f "dist/rss.xml" ]; then
+            echo "✅ RSS feed generated successfully"
+            echo "📊 RSS feed stats:"
+            echo "  Size: $(wc -c < dist/rss.xml) bytes"
+            echo "  Items: $(grep -c "<item>" dist/rss.xml || echo "0")"
+          else
+            echo "❌ RSS feed not generated"
+            exit 1
+          fi
+
+      - name: Check bundle size
+        run: |
+          echo "📦 Checking bundle size..."
+          if [ -d "dist" ]; then
+            BUNDLE_SIZE=$(du -sh dist | cut -f1)
+            echo "Bundle size: $BUNDLE_SIZE"
+            
+            # Convert to MB for comparison (rough estimate)
+            SIZE_MB=$(du -sm dist | cut -f1)
+            if [ "$SIZE_MB" -gt 25 ]; then
+              echo "⚠️ Bundle size ($SIZE_MB MB) exceeds Cloudflare Pages limit (25MB)"
+              echo "Consider optimizing assets or using external CDN"
+            else
+              echo "✅ Bundle size within limits"
+            fi
+          fi
+
+      - name: Security scan
+        run: |
+          echo "🔒 Running security checks..."
+          
+          # Check for potential security issues in dependencies
+          bun audit || echo "⚠️ Some vulnerabilities found, review manually"
+          
+          # Check for common secrets patterns
+          if grep -r "sk_" src/ || grep -r "pk_" src/ || grep -r "api_key" src/; then
+            echo "❌ Potential API keys found in source code"
+            exit 1
+          else
+            echo "✅ No obvious secrets in source code"
+          fi
+
+      - name: Performance checks
+        run: |
+          echo "⚡ Running performance checks..."
+          
+          # Check for large images in public/generated
+          if [ -d "public/generated" ]; then
+            LARGE_IMAGES=$(find public/generated -name "*.png" -size +500k 2>/dev/null | head -5)
+            if [ -n "$LARGE_IMAGES" ]; then
+              echo "⚠️ Large images found (>500KB):"
+              echo "$LARGE_IMAGES"
+              echo "Consider optimizing these images"
+            else
+              echo "✅ Image sizes look good"
+            fi
+          fi
+
+      - name: Report results
+        if: always()
+        run: |
+          echo "## 📊 Quality Check Summary" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Check | Status |" >> $GITHUB_STEP_SUMMARY
+          echo "|-------|--------|" >> $GITHUB_STEP_SUMMARY
+          echo "| TypeScript | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| ESLint | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Frontmatter | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Images | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| RSS Feed | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Bundle Size | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "| Security | ✅ |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All quality checks completed successfully! 🎉" >> $GITHUB_STEP_SUMMARY

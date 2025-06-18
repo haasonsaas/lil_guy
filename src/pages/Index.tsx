@@ -7,6 +7,9 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import BlogCard from "@/components/BlogCard";
 import Layout from "@/components/Layout";
+import { WebsiteMeta } from "@/components/SEO/MetaTags";
+import { generateWebsiteStructuredData } from "@/utils/seo/structuredData";
+import StructuredData from "@/components/SEO/StructuredData";
 import { 
   ArrowRight, 
   Mail, 
@@ -17,21 +20,29 @@ import {
   Sparkles,
   Building2,
   TrendingUp,
-  CheckCircle2
+  CheckCircle2,
+  LucideIcon
 } from "lucide-react";
 import type { BlogPost } from '@/types/blog';
 
-const featuredTopics = [
-  { name: "Product Strategy", icon: Rocket, count: 18 },
-  { name: "Infrastructure", icon: Building2, count: 14 },
-  { name: "Open Source", icon: Users, count: 12 },
-  { name: "Leadership", icon: Sparkles, count: 10 }
-];
+const topicIconMap: Record<string, LucideIcon> = {
+  "product strategy": Rocket,
+  "infrastructure": Building2,
+  "open source": Users,
+  "leadership": Sparkles,
+  "product": Rocket,
+  "technology": Building2,
+  "engineering": Building2,
+  "development": BookOpen,
+  "growth": TrendingUp,
+  "strategy": Sparkles
+};
 
 
 export default function Index() {
   const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
   const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
+  const [featuredTopics, setFeaturedTopics] = useState<Array<{name: string; icon: LucideIcon; count: number}>>([]);
   const [stats, setStats] = useState({
     totalPosts: 0,
     totalWordCount: 0,
@@ -56,8 +67,23 @@ export default function Index() {
           setRecentPosts(allPosts.slice(1, 4));
         }
         
+        // Create dynamic featured topics from top tags
+        const dynamicTopics = tags
+          .slice(0, 4) // Get top 4 tags
+          .map(tagInfo => ({
+            name: tagInfo.tag.charAt(0).toUpperCase() + tagInfo.tag.slice(1), // Capitalize first letter
+            icon: topicIconMap[tagInfo.tag.toLowerCase()] || BookOpen, // Use mapped icon or default
+            count: tagInfo.count
+          }));
+        
+        setFeaturedTopics(dynamicTopics);
+        
         const blogStats = await getBlogStats();
         setStats(blogStats);
+        
+        // Inject structured data for SEO
+        const websiteSchema = getWebsiteSchema();
+        injectStructuredData(websiteSchema);
       } catch (error) {
         console.error("Error loading data:", error);
       }
@@ -65,8 +91,12 @@ export default function Index() {
     loadData();
   }, []);
 
+  const websiteStructuredData = generateWebsiteStructuredData();
+
   return (
     <Layout>
+      <WebsiteMeta />
+      <StructuredData data={websiteStructuredData} />
       <div className="space-y-20">
         {/* Hero Section */}
         <section className="relative overflow-hidden">

@@ -30,7 +30,7 @@ export default function Layout({ children }: LayoutProps) {
     } else if (path === '/newsletter') {
       title = 'Newsletter - Haas on SaaS';
     } else if (path === '/') {
-      title = 'Where Technical Vision Meets Market Reality | Haas on SaaS';
+      title = 'Jonathan Haas | Haas on SaaS';
     }
 
     document.title = title;
