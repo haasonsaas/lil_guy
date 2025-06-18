@@ -11,16 +11,6 @@ export {
   getRelatedPosts 
 } from './blog/postUtils';
 export { formatDate } from './blog/dateUtils';
-export {
-  getAllSeries,
-  getSeriesByName,
-  getPostSeries,
-  getNextPostInSeries,
-  getPreviousPostInSeries,
-  isPartOfSeries,
-  getSeriesProgress,
-  getSeriesReadingTime
-} from './blog/seriesUtils';
 
 /**
  * Calculate reading time in minutes based on word count

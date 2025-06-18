@@ -5,10 +5,6 @@ title: "The CISO Survival Guide: What I've Learned From Hundreds of Conversation
 description: "A product manager's perspective on the growing disconnect between security vendors and practitioners, based on hundreds of CISO conversations"
 featured: false
 draft: false
-series:
-  name: "Security Leadership & Vendor Relations"
-  part: 1
-  description: "A deep dive into the security industry from both practitioner and vendor perspectives - understanding challenges, building trust, and bridging the gap."
 tags:
   - security
   - leadership

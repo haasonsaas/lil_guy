@@ -3,10 +3,6 @@ author: Jonathan Haas
 pubDate: 2024-04-11
 title: "Three Months Back in SF: Finding Balance After ThreatKey"
 description: "A personal reflection on returning to San Francisco three months ago, balancing a new PM role with personal health transformation, and finding sustainable rhythms after the intense four-year journey of founding ThreatKey"
-series:
-  name: "Founder Journey"
-  part: 1
-  description: "A personal series about the startup experience - from the emotional rollercoaster to practical challenges and life decisions."
 tags:
   - personal-growth
   - leadership

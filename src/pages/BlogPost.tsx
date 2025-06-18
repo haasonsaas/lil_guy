@@ -6,14 +6,13 @@ import TagCloud from '@/components/TagCloud';
 import BlogCard from '@/components/BlogCard';
 import AuthorBio from '@/components/AuthorBio';
 import SocialShare from '@/components/SocialShare';
-import SeriesNavigation from '@/components/SeriesNavigation';
 import { ReadingProgressBar } from '@/components/ReadingProgressBar';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
-import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags, getAllPosts, getPostSeries } from '@/utils/blogUtils';
+import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags, getAllPosts } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 import { getBlogPostSchema, injectStructuredData } from '@/utils/seoUtils';
-import type { BlogPost, Series } from '@/types/blog';
+import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
 import {
@@ -41,7 +40,6 @@ export default function BlogPost() {
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [imageError, setImageError] = useState(false);
   const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([]);
-  const [postSeries, setPostSeries] = useState<Series | null>(null);
   
   useEffect(() => {
     const loadPost = async () => {
@@ -58,10 +56,6 @@ export default function BlogPost() {
       }
       
       setPost(loadedPost);
-      
-      // Check if this post is part of a series
-      const series = getPostSeries(allPosts, loadedPost);
-      setPostSeries(series);
       
       if (loadedPost.frontmatter.tags) {
         const related = await getRelatedPosts(loadedPost);
@@ -222,12 +216,6 @@ export default function BlogPost() {
               />
             </div>
 
-            {/* Series Navigation */}
-            {postSeries && (
-              <div className="mt-12">
-                <SeriesNavigation currentPost={post} series={postSeries} />
-              </div>
-            )}
 
             <div className="mt-16 no-print">
               <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm">

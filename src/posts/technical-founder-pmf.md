@@ -6,10 +6,6 @@ description:
   Examining why technical founders often confuse early signals with genuine product-market fit, and how to recognize when you're building something people truly need
 featured: false
 draft: false
-series:
-  name: "Founder Journey"
-  part: 4
-  description: "A personal series about the startup experience - from the emotional rollercoaster to practical challenges and life decisions."
 tags:
   - entrepreneurship
   - product-development

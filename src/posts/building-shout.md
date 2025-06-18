@@ -5,10 +5,6 @@ title: "Engineering Recognition Through Evals: My Technical Journey Building Sho
 description: "A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way"
 featured: false
 draft: false
-series:
-  name: "Technical Deep-Dive"
-  part: 4
-  description: "Hands-on technical projects and implementations - from web development to infrastructure to AI frameworks."
 tags:
   - engineering
   - product

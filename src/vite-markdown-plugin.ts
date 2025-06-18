@@ -32,6 +32,7 @@ export function markdownPlugin(): Plugin {
             let nestedObjectKey: string | null = null;
             const nestedObject: Record<string, string> = {};
             
+            
             for (let i = 0; i < frontmatterLines.length; i++) {
               const line = frontmatterLines[i].trim();
               
