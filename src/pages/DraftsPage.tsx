@@ -25,7 +25,13 @@ export default function DraftsPage() {
     const loadDrafts = async () => {
       try {
         const allPosts = await getAllPosts(true); // Include drafts
+        console.log('All posts (including drafts):', allPosts.length);
+        // Find our test draft
+        const testDraft = allPosts.find(p => p.slug === 'draft-preview-test');
+        console.log('Test draft post:', testDraft);
+        console.log('Draft status for each post:', allPosts.map(p => `${p.slug}: draft=${p.frontmatter.draft}`));
         const draftPosts = allPosts.filter(post => post.frontmatter.draft);
+        console.log('Draft posts found:', draftPosts.length);
         setDrafts(draftPosts);
       } catch (error) {
         console.error('Error loading drafts:', error);

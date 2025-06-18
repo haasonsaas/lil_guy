@@ -111,6 +111,14 @@ export const readFilePosts = (): BlogPost[] => {
         }
         
 
+        // Debug draft field
+        if (fileSlug === 'draft-preview-test' || fileSlug.includes('clarity')) {
+          console.log(`\nProcessing ${fileSlug}:`);
+          console.log('- frontmatter.draft:', frontmatter.draft);
+          console.log('- typeof frontmatter.draft:', typeof frontmatter.draft);
+          console.log('- defaultFrontmatter.draft:', defaultFrontmatter.draft);
+        }
+
         // Merge frontmatter with defaults, ensuring all required properties are present
         const processedFrontmatter: BlogPostFrontmatter = {
           ...defaultFrontmatter,
@@ -119,13 +127,17 @@ export const readFilePosts = (): BlogPost[] => {
           title: frontmatter.title || defaultFrontmatter.title,
           description: frontmatter.description || defaultFrontmatter.description,
           featured: frontmatter.featured ?? defaultFrontmatter.featured,
+          draft: frontmatter.draft !== undefined ? frontmatter.draft : defaultFrontmatter.draft,
           tags,
-          draft: frontmatter.draft === true,
           image: {
             url: frontmatter.image?.url || defaultFrontmatter.image.url,
             alt: frontmatter.image?.alt || defaultFrontmatter.image.alt
           }
         };
+        
+        if (fileSlug === 'draft-preview-test' || fileSlug.includes('clarity')) {
+          console.log('- processedFrontmatter.draft:', processedFrontmatter.draft);
+        }
         
         posts.push({
           slug: fileSlug,

@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Tue, 17 Jun 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/generated/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,16 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[Testing Draft Preview Feature]]></title>
+      <description><![CDATA[This is a draft post to test the new preview link generation feature]]></description>
+      <link>https://www.haasonsaas.com/blog/draft-preview-test</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/draft-preview-test</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[features]]></category>
+      <category><![CDATA[development]]></category>
+    </item>
     <item>
       <title><![CDATA[Claude Code: Setup, Strategy, and Sanity Checks]]></title>
       <description><![CDATA[A practical guide to getting the most out of Claude Code, from model selection and execution patterns to debugging loops and knowing when to quit.]]></description>
@@ -614,20 +624,6 @@
       <category><![CDATA[ux]]></category>
       <category><![CDATA[ai]]></category>
       <category><![CDATA[productivity]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Autonomous Security Operations: The Future of Enterprise Security]]></title>
-      <description><![CDATA[Exploring the role of automation and AI in modern security operations]]></description>
-      <link>https://www.haasonsaas.com/blog/autonomous-security-operations</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/autonomous-security-operations</guid>
-      <pubDate>Thu, 11 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[ai-agents]]></category>
-      <category><![CDATA[security]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[automation]]></category>
     </item>
   </channel>
 </rss>
