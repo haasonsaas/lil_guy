@@ -1,28 +1,14 @@
 # Cloudflare Pages configuration
 name = "haas-blog"
 compatibility_date = "2024-01-01"
-
-[env.production]
-# Production environment settings
 pages_build_output_dir = "dist"
-
-[env.preview]
-# Preview environment settings  
-pages_build_output_dir = "dist"
-
-# Build configuration
-[build]
-command = "bun run build"
-cwd = ""
-watch_dir = "src"
-
-# Environment variables that can be configured in Cloudflare Dashboard
-[vars]
-# These are public variables, secrets should be set in CF Dashboard
-ENVIRONMENT = "production"
 
 # Function compatibility
 compatibility_flags = ["nodejs_compat"]
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
 
 # KV namespace bindings for functions
 [[kv_namespaces]]
