@@ -116,6 +116,13 @@ bun run search "keyword" -t
 bun run publish "post title" -c -p  # -c commits, -p pushes to trigger deployment
 ```
 
+## Existing Features (DO NOT SUGGEST THESE)
+
+- **Search Functionality**: Full-text search across all blog posts is already implemented
+- **Analytics**: Cloudflare Web Analytics with comprehensive event tracking  
+- **SEO**: Complete structured data, sitemaps, meta tags, and validation tools
+- **Email Automation**: Subscription system with welcome series (deployment needs fixing)
+
 ## Important Conventions
 
 ### File Structure
