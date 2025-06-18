@@ -186,9 +186,94 @@ export default {
 
       console.log('Email sent successfully:', resendData);
 
-      // Trigger welcome series automation
+      // Send immediate welcome email using Resend
       try {
-        const automationResponse = await fetch('https://haas-blog.haasholdings.workers.dev/email-automation/trigger-welcome', {
+        const welcomeResponse = await fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            from: 'Jonathan Haas <jonathan@haasonsaas.com>',
+            to: email,
+            subject: 'Welcome to Haas on SaaS! 👋',
+            html: `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"><style>body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,sans-serif;line-height:1.6;color:#333;max-width:600px;margin:0 auto;padding:20px}.content{margin-bottom:30px}.cta{background:#2563eb;color:white;padding:12px 24px;text-decoration:none;border-radius:6px;display:inline-block;margin:20px 0}.footer{border-top:1px solid #eee;padding-top:20px;margin-top:40px;color:#666;font-size:14px}</style></head>
+<body>
+<h1>Welcome to Haas on SaaS! 👋</h1>
+<div class="content">
+<p>Hey there,</p>
+<p>Thanks for subscribing! I'm Jonathan, and I write about the reality of building and scaling SaaS companies — the stuff they don't teach you in the startup playbooks.</p>
+<p>After a decade building enterprise software, I've learned that success comes down to three things:</p>
+<ul>
+<li><strong>Technical vision</strong> that actually solves real problems</li>
+<li><strong>Market reality</strong> that cuts through the hype</li>
+<li><strong>Execution discipline</strong> that bridges the gap between them</li>
+</ul>
+<p>Every Tuesday, I send one tactical insight that helps founders and builders navigate this complexity. No fluff, all signal.</p>
+<a href="https://haasonsaas.com/blog" class="cta">Browse Recent Posts</a>
+<p>Over the next few days, I'll share some of my favorite posts to get you started.</p>
+<p>Looking forward to having you along for the ride.</p>
+<p>Best,<br>Jonathan</p>
+</div>
+<div class="footer">
+<p>You're receiving this because you subscribed to Haas on SaaS.</p>
+<p><a href="https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}">Unsubscribe</a> | <a href="https://haasonsaas.com">haasonsaas.com</a></p>
+</div>
+</body>
+</html>`,
+            text: `Welcome to Haas on SaaS! 👋
+
+Hey there,
+
+Thanks for subscribing! I'm Jonathan, and I write about the reality of building and scaling SaaS companies.
+
+After a decade building enterprise software, I've learned that success comes down to three things:
+• Technical vision that actually solves real problems
+• Market reality that cuts through the hype  
+• Execution discipline that bridges the gap between them
+
+Every Tuesday, I send one tactical insight. No fluff, all signal.
+
+Browse recent posts: https://haasonsaas.com/blog
+
+Over the next few days, I'll share some of my favorite posts to get you started.
+
+Looking forward to having you along for the ride.
+
+Best,
+Jonathan
+
+---
+Unsubscribe: https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}
+Website: https://haasonsaas.com`,
+            headers: {
+              'List-Unsubscribe': `<https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}>`,
+              'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
+            },
+            tags: [
+              { name: 'campaign', value: 'welcome-series' },
+              { name: 'email_type', value: 'welcome1' }
+            ]
+          }),
+        });
+
+        if (welcomeResponse.ok) {
+          console.log('Welcome email sent immediately to:', email);
+        } else {
+          console.error('Failed to send welcome email:', await welcomeResponse.text());
+        }
+      } catch (error) {
+        console.error('Error sending welcome email:', error);
+        // Don't fail the subscription if welcome email fails
+      }
+
+      // Try to trigger full automation series (will work once KV is set up)
+      try {
+        const automationResponse = await fetch('https://haas-blog.haasholdings.workers.dev/resend-automation/trigger-welcome', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -196,14 +281,11 @@ export default {
           body: JSON.stringify({ email }),
         });
 
-        if (!automationResponse.ok) {
-          console.error('Failed to trigger welcome series:', await automationResponse.text());
-        } else {
-          console.log('Welcome series triggered for:', email);
+        if (automationResponse.ok) {
+          console.log('Full welcome series triggered for:', email);
         }
       } catch (error) {
-        console.error('Error triggering welcome series:', error);
-        // Don't fail the subscription if automation fails
+        console.log('Full automation not available yet, welcome email sent directly');
       }
 
       return new Response(JSON.stringify({ success: true }), {
