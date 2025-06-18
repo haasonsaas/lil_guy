@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build": "vite build && bun run generate-rss",
+    "build:dev": "vite build --mode development && bun run generate-rss",
     "generate-blog-images": "bun run scripts/generateBlogImages.ts",
+    "generate-rss": "bun run scripts/generateStaticRSS.ts",
     "watch:images": "bun run scripts/watchBlogImages.ts",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
