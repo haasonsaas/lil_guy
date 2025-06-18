@@ -1,4 +1,4 @@
-name: Deploy Preview
+name: PR Preview Validation
 
 on:
   pull_request:
@@ -8,12 +8,11 @@ on:
 permissions:
   contents: read
   pull-requests: write
-  deployments: write
 
 jobs:
-  deploy-preview:
+  validate-preview:
     runs-on: ubuntu-latest
-    name: Deploy Preview to Cloudflare Pages
+    name: Validate PR Build
     
     steps:
       - name: Checkout
