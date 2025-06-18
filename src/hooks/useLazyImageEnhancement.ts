@@ -43,18 +43,19 @@ export function useLazyImageEnhancement(containerRef: React.RefObject<HTMLElemen
       observer.observe(img);
 
       // Store the observer for cleanup
-      (img as any).__lazyObserver = observer;
+      (img as unknown as { __lazyObserver: IntersectionObserver }).__lazyObserver = observer;
     });
 
     // Cleanup function
     return () => {
-      if (containerRef.current) {
-        const images = containerRef.current.querySelectorAll('img[data-lazy-processed]');
+      const container = containerRef.current;
+      if (container) {
+        const images = container.querySelectorAll('img[data-lazy-processed]');
         images.forEach((img) => {
-          const observer = (img as any).__lazyObserver;
+          const observer = (img as unknown as { __lazyObserver?: IntersectionObserver }).__lazyObserver;
           if (observer) {
             observer.disconnect();
-            delete (img as any).__lazyObserver;
+            delete (img as unknown as { __lazyObserver?: IntersectionObserver }).__lazyObserver;
           }
         });
       }
@@ -79,33 +80,60 @@ function createPlaceholder(width: number, height: number): string {
 }
 
 function loadImage(imgElement: HTMLImageElement, src: string, alt: string) {
-  // Create a new image to preload
-  const tempImg = new Image();
+  // Try WebP version first if it's a generated image
+  const webpSrc = src.startsWith('/generated/') ? src.replace(/\.(png|jpg|jpeg)$/i, '.webp') : src;
   
-  tempImg.onload = () => {
-    // Image loaded successfully
-    imgElement.src = src;
-    imgElement.alt = alt;
-    imgElement.style.opacity = '1';
+  // Check if browser supports WebP and we have a WebP version
+  const supportsWebP = () => {
+    const canvas = document.createElement('canvas');
+    canvas.width = 1;
+    canvas.height = 1;
+    return canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0;
+  };
+
+  const tryLoadImage = (imageSrc: string, fallbackSrc?: string) => {
+    const tempImg = new Image();
     
-    // Add loaded class for any additional styling
-    imgElement.classList.add('lazy-loaded');
+    tempImg.onload = () => {
+      // Image loaded successfully
+      imgElement.src = imageSrc;
+      imgElement.alt = alt;
+      imgElement.style.opacity = '1';
+      
+      // Add loaded class for any additional styling
+      imgElement.classList.add('lazy-loaded');
+      if (imageSrc.endsWith('.webp')) {
+        imgElement.classList.add('webp-loaded');
+      }
+    };
+    
+    tempImg.onerror = () => {
+      if (fallbackSrc && fallbackSrc !== imageSrc) {
+        // Try fallback format
+        tryLoadImage(fallbackSrc);
+      } else {
+        // Image failed to load, show error placeholder
+        const errorPlaceholder = createErrorPlaceholder(
+          imgElement.width || 400, 
+          imgElement.height || 300,
+          alt
+        );
+        imgElement.src = errorPlaceholder;
+        imgElement.style.opacity = '1';
+        imgElement.classList.add('lazy-error');
+      }
+    };
+    
+    // Start loading
+    tempImg.src = imageSrc;
   };
-  
-  tempImg.onerror = () => {
-    // Image failed to load, show error placeholder
-    const errorPlaceholder = createErrorPlaceholder(
-      imgElement.width || 400, 
-      imgElement.height || 300,
-      alt
-    );
-    imgElement.src = errorPlaceholder;
-    imgElement.style.opacity = '1';
-    imgElement.classList.add('lazy-error');
-  };
-  
-  // Start loading
-  tempImg.src = src;
+
+  // Try WebP first if supported and available, fallback to original
+  if (supportsWebP() && webpSrc !== src) {
+    tryLoadImage(webpSrc, src);
+  } else {
+    tryLoadImage(src);
+  }
 }
 
 function createErrorPlaceholder(width: number, height: number, alt: string): string {

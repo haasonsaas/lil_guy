@@ -90,8 +90,9 @@ export function useCodeBlockEnhancement(containerRef: React.RefObject<HTMLElemen
 
     // Cleanup function
     return () => {
-      if (containerRef.current) {
-        const copyButtons = containerRef.current.querySelectorAll('.code-copy-button');
+      const container = containerRef.current;
+      if (container) {
+        const copyButtons = container.querySelectorAll('.code-copy-button');
         copyButtons.forEach(button => button.remove());
       }
     };

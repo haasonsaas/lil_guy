@@ -10,6 +10,8 @@ interface LazyImageProps {
   width?: number;
   height?: number;
   loading?: 'lazy' | 'eager';
+  preferWebP?: boolean;
+  sizes?: string;
 }
 
 export default function LazyImage({ 
@@ -20,7 +22,9 @@ export default function LazyImage({
   quality = 75,
   width,
   height,
-  loading = 'lazy'
+  loading = 'lazy',
+  preferWebP = true,
+  sizes
 }: LazyImageProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
@@ -54,16 +58,20 @@ export default function LazyImage({
     return () => observer.disconnect();
   }, [loading]);
 
-  // Generate optimized image URL
-  const getOptimizedSrc = (originalSrc: string) => {
-    // If it's already optimized or external, return as-is
+  // Generate optimized image sources
+  const getOptimizedSources = (originalSrc: string) => {
+    // If it's already external or optimized, return as-is
     if (originalSrc.includes('cloudflare') || originalSrc.startsWith('http')) {
-      return originalSrc;
+      return { webp: originalSrc, fallback: originalSrc };
     }
     
-    // For local images, you could add optimization params here
-    // For now, just return the original
-    return originalSrc;
+    // For local images, try to find WebP version
+    if (originalSrc.startsWith('/generated/') && preferWebP) {
+      const webpSrc = originalSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+      return { webp: webpSrc, fallback: originalSrc };
+    }
+    
+    return { webp: originalSrc, fallback: originalSrc };
   };
 
   // Generate placeholder - could be blur hash, solid color, or skeleton
@@ -94,6 +102,8 @@ export default function LazyImage({
     setIsLoaded(true);
   };
 
+  const sources = getOptimizedSources(src);
+
   return (
     <div 
       ref={imgRef}
@@ -112,24 +122,37 @@ export default function LazyImage({
         </div>
       )}
 
-      {/* Actual image */}
-      {isInView && (
-        <img
-          src={hasError ? getPlaceholder() : getOptimizedSrc(src)}
-          alt={alt}
-          className={cn(
-            'w-full h-full object-cover transition-opacity duration-300',
-            isLoaded ? 'opacity-100' : 'opacity-0'
+      {/* Actual image with WebP support */}
+      {isInView && !hasError && (
+        <picture className={cn(
+          'w-full h-full transition-opacity duration-300',
+          isLoaded ? 'opacity-100' : 'opacity-0'
+        )}>
+          {/* WebP source */}
+          {sources.webp !== sources.fallback && (
+            <source 
+              srcSet={sources.webp} 
+              type="image/webp"
+              {...(sizes && { sizes })}
+            />
           )}
-          onLoad={handleLoad}
-          onError={handleError}
-          loading={loading}
-          width={width}
-          height={height}
-          {...(width && height && {
-            style: { aspectRatio: `${width} / ${height}` }
-          })}
-        />
+          
+          {/* Fallback image */}
+          <img
+            src={sources.fallback}
+            alt={alt}
+            className="w-full h-full object-cover"
+            onLoad={handleLoad}
+            onError={handleError}
+            loading={loading}
+            width={width}
+            height={height}
+            {...(sizes && { sizes })}
+            {...(width && height && {
+              style: { aspectRatio: `${width} / ${height}` }
+            })}
+          />
+        </picture>
       )}
 
       {/* Error state */}
