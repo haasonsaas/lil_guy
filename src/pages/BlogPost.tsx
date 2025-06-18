@@ -15,6 +15,7 @@ import { validatePreviewToken, getTokenExpiration } from '@/utils/previewUtils';
 import { generateBlogPostStructuredData, generateBreadcrumbStructuredData, calculateReadingTime as seoCalculateReadingTime } from '@/utils/seo/structuredData';
 import StructuredData from '@/components/SEO/StructuredData';
 import { BlogPostMeta } from '@/components/SEO/MetaTags';
+import { useAnalytics, useReadingProgress, useExternalLinkTracking } from '@/hooks/useAnalytics';
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
@@ -46,6 +47,11 @@ export default function BlogPost() {
   const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([]);
   const [isPreview, setIsPreview] = useState(false);
   const [previewExpiration, setPreviewExpiration] = useState<Date | null>(null);
+  
+  // Analytics hooks
+  const { trackPostView, trackTagClick } = useAnalytics();
+  useReadingProgress(slug || '');
+  useExternalLinkTracking();
   
   useEffect(() => {
     const loadPost = async () => {
@@ -91,7 +97,14 @@ export default function BlogPost() {
   }, [slug, navigate, searchParams]);
   
   useEffect(() => {
-    if (!post) return;
+    if (!post || !slug) return;
+    
+    // Track post view for analytics
+    trackPostView(
+      slug,
+      post.frontmatter.title,
+      post.frontmatter.tags || []
+    );
     
     // Scroll to top when post loads
     window.scrollTo(0, 0);
@@ -144,12 +157,7 @@ export default function BlogPost() {
     if (ogTags && post.frontmatter.tags && post.frontmatter.tags.length > 0) {
       ogTags.setAttribute('content', post.frontmatter.tags.join(', '));
     }
-    
-    // Inject structured data for SEO
-    const readingTime = calculateReadingTime(post.content);
-    const blogPostSchema = getBlogPostSchema(post, readingTime.wordCount, readingTime.minutes);
-    injectStructuredData(blogPostSchema);
-  }, [post]);
+  }, [post, slug, trackPostView]);
   
   if (!post) {
     return null;
@@ -256,6 +264,7 @@ export default function BlogPost() {
                   title={frontmatter.title}
                   url={`https://www.haasonsaas.com/blog/${post.slug}`}
                   description={frontmatter.description}
+                  slug={post.slug}
                 />
               </div>
             </div>
@@ -278,7 +287,7 @@ export default function BlogPost() {
                     One tactical post per week on scaling SaaS with AI — zero fluff,
                     all signal
                   </p>
-                  <Subscribe />
+                  <Subscribe source="blog_post" />
                   <p className="text-xs md:text-sm text-muted-foreground mt-4">
                     Join SaaS builders and founders building the future
                   </p>

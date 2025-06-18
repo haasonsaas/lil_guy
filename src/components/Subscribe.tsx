@@ -2,14 +2,17 @@ import { useState } from 'react';
 import { Button } from './ui/button';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
+import { useAnalytics } from '@/hooks/useAnalytics';
 
 interface SubscribeProps {
   className?: string;
+  source?: string; // Track where the subscription came from
 }
 
-export function Subscribe({ className }: SubscribeProps) {
+export function Subscribe({ className, source = 'unknown' }: SubscribeProps) {
   const [email, setEmail] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const { trackNewsletterSubscribe } = useAnalytics();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,6 +36,9 @@ export function Subscribe({ className }: SubscribeProps) {
 
       toast.success('Successfully subscribed!');
       setEmail('');
+      
+      // Track successful newsletter subscription
+      trackNewsletterSubscribe(source);
     } catch (error) {
       toast.error(error instanceof Error ? error.message : 'Failed to subscribe');
     } finally {

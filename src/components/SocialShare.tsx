@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { 
   Share2, 
   Twitter, 
@@ -21,16 +22,23 @@ interface SocialShareProps {
   url: string;
   description?: string;
   className?: string;
+  slug?: string; // For analytics tracking
 }
 
-export default function SocialShare({ title, url, description, className = "" }: SocialShareProps) {
+export default function SocialShare({ title, url, description, className = "", slug }: SocialShareProps) {
   const [copied, setCopied] = useState(false);
+  const { trackPostShare } = useAnalytics();
 
   const handleCopyLink = async () => {
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+      
+      // Track copy link action
+      if (slug) {
+        trackPostShare(slug, 'copy_link');
+      }
     } catch (err) {
       console.error('Failed to copy link:', err);
     }
@@ -40,16 +48,31 @@ export default function SocialShare({ title, url, description, className = "" }:
     const text = `${title}`;
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}&via=haasonsaas`;
     window.open(twitterUrl, '_blank', 'noopener,noreferrer');
+    
+    // Track Twitter share
+    if (slug) {
+      trackPostShare(slug, 'twitter');
+    }
   };
 
   const shareToLinkedIn = () => {
     const linkedInUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
     window.open(linkedInUrl, '_blank', 'noopener,noreferrer');
+    
+    // Track LinkedIn share
+    if (slug) {
+      trackPostShare(slug, 'linkedin');
+    }
   };
 
   const shareToHackerNews = () => {
     const hnUrl = `https://news.ycombinator.com/submitlink?u=${encodeURIComponent(url)}&t=${encodeURIComponent(title)}`;
     window.open(hnUrl, '_blank', 'noopener,noreferrer');
+    
+    // Track Hacker News share
+    if (slug) {
+      trackPostShare(slug, 'hackernews');
+    }
   };
 
   const shareNative = async () => {

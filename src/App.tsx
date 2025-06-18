@@ -7,6 +7,7 @@ import { Suspense, lazy } from "react";
 import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { useAnalytics } from "@/hooks/useAnalytics";
 import "./styles/print.css";
 
 // Critical routes - load immediately
@@ -38,6 +39,12 @@ const PageLoading = () => (
 
 const queryClient = new QueryClient();
 
+// Analytics initialization component
+function AnalyticsProvider() {
+  useAnalytics(); // This initializes analytics
+  return null;
+}
+
 const App = () => (
   <HelmetProvider>
     <QueryClientProvider client={queryClient}>
@@ -46,6 +53,7 @@ const App = () => (
           <Toaster />
           <Sonner />
           <Router>
+            <AnalyticsProvider />
             <ScrollToTop />
             <Suspense fallback={<PageLoading />}>
               <Routes>

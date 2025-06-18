@@ -1,5 +1,6 @@
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "@/components/use-theme"
+import { useAnalytics } from "@/hooks/useAnalytics"
 import { Button } from "./ui/button"
 import {
   DropdownMenu,
@@ -10,6 +11,12 @@ import {
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
+  const { trackThemeChange } = useAnalytics()
+  
+  const handleThemeChange = (newTheme: "light" | "dark" | "system") => {
+    setTheme(newTheme)
+    trackThemeChange(newTheme)
+  }
 
   return (
     <DropdownMenu>
@@ -21,13 +28,13 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
+        <DropdownMenuItem onClick={() => handleThemeChange("light")}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
+        <DropdownMenuItem onClick={() => handleThemeChange("dark")}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
+        <DropdownMenuItem onClick={() => handleThemeChange("system")}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
