@@ -118,10 +118,34 @@ bun run publish "post title" -c -p  # -c commits, -p pushes to trigger deploymen
 
 ## Existing Features (DO NOT SUGGEST THESE)
 
-- **Search Functionality**: Full-text search across all blog posts is already implemented
-- **Analytics**: Cloudflare Web Analytics with comprehensive event tracking  
-- **SEO**: Complete structured data, sitemaps, meta tags, and validation tools
-- **Email Automation**: Subscription system with welcome series (deployment needs fixing)
+### Core Blog Features ✅ IMPLEMENTED
+- **Search Functionality**: Full-text search across all blog posts with fuzzy matching
+- **Analytics**: Cloudflare Web Analytics with comprehensive event tracking (page views, reading completion, social shares)
+- **SEO**: Complete structured data (JSON-LD), XML sitemaps (216 URLs), meta tags, and validation tools
+- **Related Posts**: Tag-based similarity algorithm using Jaccard similarity scoring
+- **Reading Time**: Dynamic calculation (200 WPM) with word count, excludes code blocks
+- **Social Sharing**: Twitter, LinkedIn, Hacker News + Web Share API with analytics tracking
+- **Code Copy Buttons**: Hover-to-show copy buttons on all code blocks with language labels
+- **Table of Contents**: Auto-generated TOC with active section highlighting
+- **Reading Progress**: Enhanced progress bar with gradient, animations, and percentage indicator
+- **Lazy Image Loading**: Intersection Observer with SVG placeholders and error handling
+- **Print Optimization**: Comprehensive print stylesheet removing nav/interactive elements
+
+### Performance & Optimization ✅ IMPLEMENTED  
+- **Bundle Optimization**: Sophisticated code splitting with manual chunks (vendor-react, vendor-ui, blog-utils, etc.)
+- **Tree Shaking**: Enabled via Vite build configuration
+- **Image Generation**: Automated social media images (1200x630, 800x384) for all posts
+- **Content Validation**: SEO validation + frontmatter validation with scoring system
+
+### Email & Subscriptions ⚠️ PARTIALLY WORKING
+- **Email Automation**: Subscription system with welcome series (deployment configuration needs fixing)
+
+### Missing Features (VALID TO SUGGEST)
+- **Service Worker**: Offline reading and caching (not implemented)
+- **Post Series Navigation**: Multi-part content navigation (not implemented) 
+- **Bookmark/Favorites**: Local storage favorites system (not implemented)
+- **Modern Image Formats**: WebP/AVIF conversion (lazy loading exists, format optimization missing)
+- **Core Web Vitals**: Performance monitoring beyond basic analytics (partially implemented)
 
 ## Important Conventions
 
