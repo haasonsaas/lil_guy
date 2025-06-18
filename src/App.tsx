@@ -8,6 +8,7 @@ import { HelmetProvider } from "react-helmet-async";
 import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { useAnalytics } from "@/hooks/useAnalytics";
+import { useServiceWorker } from "@/hooks/useServiceWorker";
 import "./styles/print.css";
 
 // Critical routes - load immediately
@@ -29,6 +30,7 @@ const ExperimentsPage = lazy(() => import("./pages/ExperimentsPage"));
 const WebGLPage = lazy(() => import("./pages/WebGLPage"));
 const CodeRainPage = lazy(() => import("./pages/CodeRainPage"));
 const DraftsPage = lazy(() => import("./pages/DraftsPage"));
+const OfflinePage = lazy(() => import("./pages/OfflinePage"));
 
 // Loading component
 const PageLoading = () => (
@@ -39,9 +41,10 @@ const PageLoading = () => (
 
 const queryClient = new QueryClient();
 
-// Analytics initialization component
+// Analytics and Service Worker initialization component
 function AnalyticsProvider() {
   useAnalytics(); // This initializes analytics
+  useServiceWorker(); // This initializes service worker
   return null;
 }
 
@@ -72,6 +75,7 @@ const App = () => (
                 <Route path="/experiments" element={<ExperimentsPage />} />
                 <Route path="/webgl" element={<WebGLPage />} />
                 <Route path="/code-rain" element={<CodeRainPage />} />
+                <Route path="/offline" element={<OfflinePage />} />
                 {/* Redirect /admin to the home page */}
                 <Route path="/admin" element={<Navigate to="/" replace />} />
                 <Route path="*" element={<NotFound />} />

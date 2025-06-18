@@ -92,11 +92,12 @@ export function generateBlogPostStructuredData(
     ? new Date(frontmatter.updatedDate).toISOString() 
     : publishDate;
 
-  // Generate image URLs for the post
+  // Generate image URLs for the post - use title-based naming
+  const cleanTitle = frontmatter.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
   const imageUrls = [
-    `${config.baseUrl}/generated/${slug}-1200x630.webp`,
-    `${config.baseUrl}/generated/${slug}-1200x400.webp`,
-    `${config.baseUrl}/generated/${slug}-800x384.webp`
+    `${config.baseUrl}/generated/1200x630-${cleanTitle}.webp`,
+    `${config.baseUrl}/generated/1200x400-${cleanTitle}.webp`,
+    `${config.baseUrl}/generated/800x384-${cleanTitle}.webp`
   ];
 
   // Calculate word count if not provided

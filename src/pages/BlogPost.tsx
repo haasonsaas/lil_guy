@@ -15,7 +15,9 @@ import { validatePreviewToken, getTokenExpiration } from '@/utils/previewUtils';
 import { generateBlogPostStructuredData, generateBreadcrumbStructuredData, calculateReadingTime as seoCalculateReadingTime } from '@/utils/seo/structuredData';
 import StructuredData from '@/components/SEO/StructuredData';
 import { BlogPostMeta } from '@/components/SEO/MetaTags';
+import { AdvancedSEO } from '@/components/SEO/AdvancedSEO';
 import { useAnalytics, useReadingProgress, useExternalLinkTracking } from '@/hooks/useAnalytics';
+import { useAutoCacheBlogPost } from '@/hooks/useServiceWorker';
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
@@ -54,6 +56,9 @@ export default function BlogPost() {
   const { trackPostView, trackTagClick } = useAnalytics();
   useReadingProgress(slug || '');
   useExternalLinkTracking();
+  
+  // Auto-cache this blog post for offline reading
+  useAutoCacheBlogPost(slug);
   
   useEffect(() => {
     const loadPost = async () => {
@@ -138,7 +143,14 @@ export default function BlogPost() {
   return (
     <Layout>
       <BlogPostMeta frontmatter={frontmatter} slug={slug!} content={content} readingTime={readingTime} />
-      <StructuredData data={[blogPostStructuredData, breadcrumbStructuredData]} />
+      <AdvancedSEO 
+        frontmatter={frontmatter} 
+        slug={slug!} 
+        content={content} 
+        readingTime={readingTime}
+        enableFAQ={true}
+        enableBreadcrumbs={true}
+      />
       <ReadingProgressBar />
       <article className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
