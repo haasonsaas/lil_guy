@@ -1,0 +1,230 @@
+{
+  // Blog post frontmatter snippets
+  "Blog Post Frontmatter": {
+    "prefix": "blog-front",
+    "scope": "markdown",
+    "body": [
+      "---",
+      "author: \"Jonathan Haas\"",
+      "pubDate: \"$CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE\"",
+      "title: \"$1\"",
+      "description: \"$2\"",
+      "featured: ${3|false,true|}",
+      "draft: ${4|true,false|}",
+      "tags:",
+      "  - $5",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "Create blog post frontmatter with all required fields"
+  },
+  
+  "Add Blog Tags": {
+    "prefix": "blog-tags",
+    "scope": "markdown,yaml",
+    "body": [
+      "tags:",
+      "  - ${1|developer-experience,productivity,tooling,react,typescript,javascript,security,startup,leadership,engineering,product-management,ai,machine-learning,cloudflare,deployment,testing,performance,architecture,design-patterns,best-practices,tutorial,guide,opinion,career,remote-work,open-source|}"
+    ],
+    "description": "Add common blog tags"
+  },
+  
+  "Code Block with Language": {
+    "prefix": "blog-code",
+    "scope": "markdown",
+    "body": [
+      "```${1|typescript,javascript,tsx,jsx,bash,json,yaml,css,html,python,go,rust|}",
+      "$2",
+      "```"
+    ],
+    "description": "Insert a code block with language"
+  },
+  
+  "TypeScript Code Example": {
+    "prefix": "blog-ts",
+    "scope": "markdown",
+    "body": [
+      "```typescript",
+      "// ${1:Description}",
+      "${2:// Your TypeScript code here}",
+      "```"
+    ],
+    "description": "Insert TypeScript code block"
+  },
+  
+  "Blog Image with Caption": {
+    "prefix": "blog-img",
+    "scope": "markdown",
+    "body": [
+      "![${1:Alt text}](${2:image-url})",
+      "*${3:Image caption}*",
+      ""
+    ],
+    "description": "Insert image with caption"
+  },
+  
+  "Blog Section Headers": {
+    "prefix": "blog-section",
+    "scope": "markdown",
+    "body": [
+      "## ${1:Section Title}",
+      "",
+      "${2:Section content}",
+      ""
+    ],
+    "description": "Create a new blog section"
+  },
+  
+  "Callout Box": {
+    "prefix": "blog-callout",
+    "scope": "markdown",
+    "body": [
+      "> **${1|Note,Tip,Warning,Important|}:** ${2:Callout content}",
+      ""
+    ],
+    "description": "Insert a callout box"
+  },
+  
+  "Blog Post Conclusion": {
+    "prefix": "blog-conclusion",
+    "scope": "markdown",
+    "body": [
+      "## Conclusion",
+      "",
+      "${1:Summary of key points}",
+      "",
+      "*${2:Call to action or final thoughts}*",
+      "",
+      "---",
+      "",
+      "*What are your thoughts on ${3:topic}? I'd love to hear your experiences in the comments below!*"
+    ],
+    "description": "Standard blog post conclusion"
+  },
+  
+  "Terminal Command Example": {
+    "prefix": "blog-terminal",
+    "scope": "markdown",
+    "body": [
+      "```bash",
+      "# ${1:Command description}",
+      "$ ${2:command}",
+      "${3:output}",
+      "```"
+    ],
+    "description": "Show terminal command with output"
+  },
+  
+  "React Component Example": {
+    "prefix": "blog-react",
+    "scope": "markdown",
+    "body": [
+      "```tsx",
+      "// ${1:Component description}",
+      "export function ${2:ComponentName}() {",
+      "  ${3:// Component logic}",
+      "  ",
+      "  return (",
+      "    <div>",
+      "      ${4:// JSX content}",
+      "    </div>",
+      "  );",
+      "}",
+      "```"
+    ],
+    "description": "React component code example"
+  },
+  
+  "API Endpoint Example": {
+    "prefix": "blog-api",
+    "scope": "markdown",
+    "body": [
+      "```typescript",
+      "// ${1:Endpoint description}",
+      "app.${2|get,post,put,delete|}('${3:/api/endpoint}', async (req, res) => {",
+      "  ${4:// Handler logic}",
+      "  ",
+      "  res.json({ ${5:response} });",
+      "});",
+      "```"
+    ],
+    "description": "API endpoint example"
+  },
+  
+  "Blog Series Navigation": {
+    "prefix": "blog-series",
+    "scope": "markdown",
+    "body": [
+      "---",
+      "",
+      "*This is part ${1:number} of the **${2:Series Name}** series.*",
+      "",
+      "**Previous:** [${3:Previous Title}](${4:previous-url})",
+      "**Next:** [${5:Next Title}](${6:next-url})",
+      "",
+      "---"
+    ],
+    "description": "Series navigation links"
+  },
+  
+  "Feature List": {
+    "prefix": "blog-features",
+    "scope": "markdown",
+    "body": [
+      "### ${1:Features}",
+      "",
+      "- ✅ **${2:Feature 1}**: ${3:Description}",
+      "- ✅ **${4:Feature 2}**: ${5:Description}",
+      "- ✅ **${6:Feature 3}**: ${7:Description}",
+      "- 🚧 **${8:Planned Feature}**: ${9:Coming soon}"
+    ],
+    "description": "Feature list with checkmarks"
+  },
+  
+  "Before/After Comparison": {
+    "prefix": "blog-compare",
+    "scope": "markdown",
+    "body": [
+      "**Before:**",
+      "- ${1:Old approach}",
+      "- ${2:Problem}",
+      "- ${3:Issue}",
+      "",
+      "**After:**",
+      "- ${4:New approach}",
+      "- ${5:Solution}",
+      "- ${6:Benefit}"
+    ],
+    "description": "Before/after comparison"
+  },
+  
+  "Package Installation": {
+    "prefix": "blog-install",
+    "scope": "markdown",
+    "body": [
+      "```bash",
+      "# Install with ${1|npm,yarn,pnpm,bun|}",
+      "${1} ${2|install,add|} ${3:package-name}",
+      "```"
+    ],
+    "description": "Package installation command"
+  },
+  
+  "File Structure": {
+    "prefix": "blog-files",
+    "scope": "markdown",
+    "body": [
+      "```",
+      "${1:project}/",
+      "├── ${2:src}/",
+      "│   ├── ${3:components}/",
+      "│   ├── ${4:utils}/",
+      "│   └── ${5:pages}/",
+      "├── ${6:public}/",
+      "└── ${7:package.json}",
+      "```"
+    ],
+    "description": "Show file/folder structure"
+  }
+}

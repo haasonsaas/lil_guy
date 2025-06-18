@@ -1,0 +1,632 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Haas on SaaS</title>
+    <description>Expert insights on bridging technical vision with market reality. Learn from a decade of enterprise software experience about AI, vertical SaaS, and building products that can't be ignored.</description>
+    <link>https://www.haasonsaas.com</link>
+    <language>en-us</language>
+    <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
+    <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
+    <lastBuildDate>Fri, 20 Jun 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+    <ttl>60</ttl>
+    <image>
+      <url>https://www.haasonsaas.com/generated/1200x630-haas-on-saas.png</url>
+      <title>Haas on SaaS</title>
+      <link>https://www.haasonsaas.com</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title><![CDATA[Testing Draft Preview Feature]]></title>
+      <description><![CDATA[This is a draft post to test the new preview link generation feature]]></description>
+      <link>https://www.haasonsaas.com/blog/draft-preview-test</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/draft-preview-test</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[features]]></category>
+      <category><![CDATA[development]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)]]></title>
+      <description><![CDATA[Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you think.]]></description>
+      <link>https://www.haasonsaas.com/blog/coding-model-ui</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/coding-model-ui</guid>
+      <pubDate>Wed, 18 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[ui-design]]></category>
+      <category><![CDATA[ai-tooling]]></category>
+      <category><![CDATA[prompt-engineering]]></category>
+      <category><![CDATA[product-strategy]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
+      <description><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation workflow.]]></description>
+      <link>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</guid>
+      <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[blog-development]]></category>
+      <category><![CDATA[tooling]]></category>
+      <category><![CDATA[vscode]]></category>
+      <category><![CDATA[cli-tools]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[cloudflare-pages]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Claude Code: Setup, Strategy, and Sanity Checks]]></title>
+      <description><![CDATA[A practical guide to getting the most out of Claude Code, from model selection and execution patterns to debugging loops and knowing when to quit.]]></description>
+      <link>https://www.haasonsaas.com/blog/claude-code-setup</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/claude-code-setup</guid>
+      <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[AI-tools]]></category>
+      <category><![CDATA[developer-productivity]]></category>
+      <category><![CDATA[prompt-engineering]]></category>
+      <category><![CDATA[Claude]]></category>
+      <category><![CDATA[software-strategy]]></category>
+    </item>
+    <item>
+      <title><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too)]]></title>
+      <description><![CDATA[After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by Ollama, running locally, and priced at $0 per token.]]></description>
+      <link>https://www.haasonsaas.com/blog/ocode</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ocode</guid>
+      <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[product]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[transparency]]></category>
+      <category><![CDATA[open-source]]></category>
+      <category><![CDATA[developer-tools]]></category>
+      <category><![CDATA[ai]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Optimization Trap: Why Technical Founders Self-Sabotage]]></title>
+      <description><![CDATA[A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's why doing less—at the right time—is often doing it right.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-optimization-trap</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-optimization-trap</guid>
+      <pubDate>Fri, 16 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[product-development]]></category>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[founder-advice]]></category>
+      <category><![CDATA[execution]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The New Series A Reality: Why It Feels Harder (Because It Is)]]></title>
+      <description><![CDATA[If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher, and what early-stage founders need to know to survive the new bar.]]></description>
+      <link>https://www.haasonsaas.com/blog/new-series-a-reality</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/new-series-a-reality</guid>
+      <pubDate>Mon, 12 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup-funding]]></category>
+      <category><![CDATA[founder-advice]]></category>
+      <category><![CDATA[venture-capital]]></category>
+      <category><![CDATA[early-stage]]></category>
+      <category><![CDATA[growth-strategy]]></category>
+    </item>
+    <item>
+      <title><![CDATA[When Vibe Coding Goes Wrong: Security Lessons from Granola]]></title>
+      <description><![CDATA[Vibe coding shifts software creation from careful engineering to casual AI generation. When startups skip security fundamentals, the consequences aren't just bugs—they're breaches. Here's what the Granola incident teaches us.]]></description>
+      <link>https://www.haasonsaas.com/blog/vibe-coding-goes-wrong</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/vibe-coding-goes-wrong</guid>
+      <pubDate>Mon, 12 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[cybersecurity]]></category>
+      <category><![CDATA[vibe-coding]]></category>
+      <category><![CDATA[AI-development]]></category>
+      <category><![CDATA[product-security]]></category>
+      <category><![CDATA[electron-apps]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Somebody Gave a Shit: The Quiet Power of Product Detail]]></title>
+      <description><![CDATA[Why the smallest details in product design—like a cable wrap—matter more than you think, and how they transmit care, conviction, and identity at scale.]]></description>
+      <link>https://www.haasonsaas.com/blog/somebody-gave-a-shit</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/somebody-gave-a-shit</guid>
+      <pubDate>Fri, 09 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[product-design]]></category>
+      <category><![CDATA[user-experience]]></category>
+      <category><![CDATA[craftsmanship]]></category>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[customer-emotion]]></category>
+    </item>
+    <item>
+      <title><![CDATA[From Gimmick to Game-Changer: Six Years of Living With Tesla FSD]]></title>
+      <description><![CDATA[Reflections on how Tesla’s Full Self-Driving went from laughably limited to astonishingly capable, and what it teaches us about compounding software and trust in autonomous systems.]]></description>
+      <link>https://www.haasonsaas.com/blog/six-years-with-fsd</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/six-years-with-fsd</guid>
+      <pubDate>Mon, 05 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[autonomous-driving]]></category>
+      <category><![CDATA[product-evolution]]></category>
+      <category><![CDATA[user-experience]]></category>
+      <category><![CDATA[software-development]]></category>
+      <category><![CDATA[machine-learning]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Culture Over Code: Why Learning Ability Beats Raw Skill]]></title>
+      <description><![CDATA[Hiring great engineers isn't just about finding the smartest person in the room—it's about building a team that learns fast, adapts well, and plays the long game together. Here's why cultural fit and learning velocity matter more than technical perfection.]]></description>
+      <link>https://www.haasonsaas.com/blog/culture-over-code</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/culture-over-code</guid>
+      <pubDate>Sun, 04 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[hiring]]></category>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[team-dynamics]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Building the HTTP for Agents: A Complete Guide to Agent Infrastructure]]></title>
+      <description><![CDATA[As AI agents grow from niche experiments to core infrastructure, we need a new control plane—identity, policy, and secrets—standardized and scalable. Here's how to build the HTTP layer for autonomous agents, from Envoy sidecars to Vault-backed secrets and a Python SDK.]]></description>
+      <link>https://www.haasonsaas.com/blog/http-for-agents</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/http-for-agents</guid>
+      <pubDate>Sat, 03 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[ai-agents]]></category>
+      <category><![CDATA[infrastructure]]></category>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[technical]]></category>
+      <category><![CDATA[framework]]></category>
+      <category><![CDATA[developer-tools]]></category>
+    </item>
+    <item>
+      <title><![CDATA[When Star Power Isn't Enough: The GTM Mistake We Keep Making]]></title>
+      <description><![CDATA[Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're solving the wrong problem for the wrong people.]]></description>
+      <link>https://www.haasonsaas.com/blog/star-power-isnt-enough</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/star-power-isnt-enough</guid>
+      <pubDate>Sat, 03 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[go-to-market]]></category>
+      <category><![CDATA[pricing-strategy]]></category>
+      <category><![CDATA[product-market-fit]]></category>
+      <category><![CDATA[saas]]></category>
+      <category><![CDATA[startup-lessons]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Authenticity Rebellion: Resisting the AI Echo Chamber]]></title>
+      <description><![CDATA[The internet is drowning in AI-generated content, but connection and creativity are drowning with it. This post explores why scaling your voice doesn't mean outsourcing your soul—and how to reclaim meaning, resonance, and trust in an age of auto-everything.]]></description>
+      <link>https://www.haasonsaas.com/blog/authenticity-rebellion</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/authenticity-rebellion</guid>
+      <pubDate>Fri, 02 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[product]]></category>
+      <category><![CDATA[culture]]></category>
+      <category><![CDATA[personal-growth]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Apple Ruling: A Win That Might Hurt More Than Help]]></title>
+      <description><![CDATA[Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-apple-ruling</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-apple-ruling</guid>
+      <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[app-store]]></category>
+      <category><![CDATA[product-strategy]]></category>
+      <category><![CDATA[conversion]]></category>
+      <category><![CDATA[user-experience]]></category>
+      <category><![CDATA[growth]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Most Startups Don't Have a Growth Problem—They Have a Clarity Problem]]></title>
+      <description><![CDATA[Growth might be your dashboard's favorite metric, but it's not your startup's biggest obstacle. More often, the real issue is fuzziness—about your customer, your message, your purpose. This post breaks down why clarity, not velocity, is the foundation for real traction.]]></description>
+      <link>https://www.haasonsaas.com/blog/clarity</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/clarity</guid>
+      <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[product]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[founder]]></category>
+      <category><![CDATA[growth]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Startup Bargain Is Broken]]></title>
+      <description><![CDATA[The startup ecosystem promised a tradeoff: take below-market pay, bet on equity, win big at IPO. That promise is unraveling—and it's time we reckon with what that means for talent, trust, and the future of innovation.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-startup-bargain</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-startup-bargain</guid>
+      <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[equity-compensation]]></category>
+      <category><![CDATA[employee-experience]]></category>
+      <category><![CDATA[venture-capital]]></category>
+      <category><![CDATA[organizational-dynamics]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Startup Reality Check: Payment, Promotion, and Pace]]></title>
+      <description><![CDATA[A blunt field guide for early-stage founders: why cash is your only true validator, marketing matters more than code, and slow shipping is the fast lane to failure.]]></description>
+      <link>https://www.haasonsaas.com/blog/payment-promotion-pace</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/payment-promotion-pace</guid>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[product-strategy]]></category>
+      <category><![CDATA[go-to-market]]></category>
+      <category><![CDATA[founder-advice]]></category>
+      <category><![CDATA[validation]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy]]></title>
+      <description><![CDATA[What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust, truth, and long-term value.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-agreement-trap</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-agreement-trap</guid>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[artificial-intelligence]]></category>
+      <category><![CDATA[feedback-loops]]></category>
+      <category><![CDATA[user-experience]]></category>
+      <category><![CDATA[product-strategy]]></category>
+      <category><![CDATA[trust]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Accountability Mirror: Would a Stranger Believe You?]]></title>
+      <description><![CDATA[A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-accountability-mirror</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-accountability-mirror</guid>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[mindset]]></category>
+      <category><![CDATA[execution]]></category>
+      <category><![CDATA[self-awareness]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[behavior-change]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company]]></title>
+      <description><![CDATA[After year four, founder CEOs are paid like caretakers—while hired CEOs are paid like kings. Here’s why the cap table math is broken, and what we can do about it.]]></description>
+      <link>https://www.haasonsaas.com/blog/founder-pay-gap</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/founder-pay-gap</guid>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup]]></category>
+      <category><![CDATA[founder]]></category>
+      <category><![CDATA[culture]]></category>
+      <category><![CDATA[transparency]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Day After: Building a System to Remember What Matters]]></title>
+      <description><![CDATA[How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's still imperfect.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-day-after</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-day-after</guid>
+      <pubDate>Mon, 28 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[reflection]]></category>
+      <category><![CDATA[personal-growth]]></category>
+      <category><![CDATA[conversation-analysis]]></category>
+      <category><![CDATA[memory]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Clarity Over Compromise: Making the Right Call on Work Models]]></title>
+      <description><![CDATA[Why thriving companies pick a lane—remote or in-office—and build everything around it, instead of wobbling in the messy middle.]]></description>
+      <link>https://www.haasonsaas.com/blog/clarity-over-compromise</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/clarity-over-compromise</guid>
+      <pubDate>Sat, 26 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[organizational-culture]]></category>
+      <category><![CDATA[remote-work]]></category>
+      <category><![CDATA[work-strategy]]></category>
+      <category><![CDATA[decision-making]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Rise of Single-Serving Software]]></title>
+      <description><![CDATA[Why small, purposeful, disposable apps are becoming the future of creativity—and how AI and vibe-coding are accelerating the trend]]></description>
+      <link>https://www.haasonsaas.com/blog/single-serving-software</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/single-serving-software</guid>
+      <pubDate>Fri, 25 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[software-development]]></category>
+      <category><![CDATA[technology]]></category>
+      <category><![CDATA[product-strategy]]></category>
+      <category><![CDATA[startups]]></category>
+      <category><![CDATA[creativity]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Psychological Safety and Productive Conflict: The Hidden Link Driving High-Performing Teams]]></title>
+      <description><![CDATA[Exploring why the best teams don't avoid disagreement—they lean into it with trust, clarity, and safety. Here's how psychological safety turns conflict into collaboration.]]></description>
+      <link>https://www.haasonsaas.com/blog/productive-conflict</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/productive-conflict</guid>
+      <pubDate>Fri, 25 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[team-dynamics]]></category>
+      <category><![CDATA[psychological-safety]]></category>
+      <category><![CDATA[organizational-culture]]></category>
+      <category><![CDATA[productivity]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Phantom Projects of Overhiring]]></title>
+      <description><![CDATA[When companies overhire, it’s not laziness or malice that creeps in—it’s the quiet invention of work. Here’s why idle bandwidth leads to dangerous distractions, and how to spot the signs before your team builds a palace of process.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-phantom-projects</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-phantom-projects</guid>
+      <pubDate>Tue, 22 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[organizational-dynamics]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[team-structure]]></category>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[leadership]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Same Data, Same Dance: Why the Moat Isn't Technical Anymore]]></title>
+      <description><![CDATA[In an era where every security tool starts from the same place—your data—the technical playing field is flat. So where's the moat? It's not in the tech. It's in everything around it: execution speed, user experience, trust, and distribution.]]></description>
+      <link>https://www.haasonsaas.com/blog/same-data-same-dance</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/same-data-same-dance</guid>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[cybersecurity]]></category>
+      <category><![CDATA[product-strategy]]></category>
+      <category><![CDATA[user-experience]]></category>
+      <category><![CDATA[vendor-differentiation]]></category>
+      <category><![CDATA[cspm]]></category>
+      <category><![CDATA[security-tools]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Confidence Cliff: Why Overcertainty Kills Good Decisions]]></title>
+      <description><![CDATA[How early confidence in ideas can feel like clarity—but often leads to blind spots, brittle strategy, and bad decisions. Here’s how to catch yourself before you go over the edge.]]></description>
+      <link>https://www.haasonsaas.com/blog/confidence-cliff</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/confidence-cliff</guid>
+      <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[decision-making]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[product-strategy]]></category>
+      <category><![CDATA[organizational-dynamics]]></category>
+      <category><![CDATA[mindset]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Prompt Improver: Structured Thinking for Better AI Prompts]]></title>
+      <description><![CDATA[An exploration of how the Prompt Improver platform transforms basic AI prompts into powerful, structured instructions that yield more reliable and consistent results]]></description>
+      <link>https://www.haasonsaas.com/blog/prompt-improver</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/prompt-improver</guid>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[artificial-intelligence]]></category>
+      <category><![CDATA[prompt-engineering]]></category>
+      <category><![CDATA[user-experience]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[technology]]></category>
+      <category><![CDATA[software-development]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Dehydrated Entity: Hire Only When You're Truly Underwater]]></title>
+      <description><![CDATA[Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to think about hiring pressure, prioritization, and company clarity]]></description>
+      <link>https://www.haasonsaas.com/blog/dehydrated-entity</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/dehydrated-entity</guid>
+      <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[management]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[culture]]></category>
+      <category><![CDATA[startup]]></category>
+      <category><![CDATA[growth]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Responsiveness Principle: How Small Signals Build Big Trust in Venture]]></title>
+      <description><![CDATA[A practical field guide for early-stage investors and founders on why responsiveness—not just capital—sets the tone for trust, momentum, and long-term outcomes.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-responsiveness-principle</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-responsiveness-principle</guid>
+      <pubDate>Sat, 19 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[venture-capital]]></category>
+      <category><![CDATA[founder-relations]]></category>
+      <category><![CDATA[early-stage-investing]]></category>
+      <category><![CDATA[trust-building]]></category>
+      <category><![CDATA[startup-etiquette]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Answer Is Obvious—You Just Don’t Like It]]></title>
+      <description><![CDATA[Why some problems remain "intractable" not because they’re unsolvable, but because the solution challenges a deeply held assumption.]]></description>
+      <link>https://www.haasonsaas.com/blog/you-just-dont-like-it</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/you-just-dont-like-it</guid>
+      <pubDate>Sat, 19 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[decision-making]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[mindset]]></category>
+      <category><![CDATA[problem-solving]]></category>
+      <category><![CDATA[organizational-dynamics]]></category>
+    </item>
+    <item>
+      <title><![CDATA[AI Detection Hysteria: When Human Creativity Gets Mislabeled]]></title>
+      <description><![CDATA[An examination of the growing trend of falsely attributing human-created content to AI generation, and why this luddite perspective is problematic for creative communities and technological progress]]></description>
+      <link>https://www.haasonsaas.com/blog/ai-detection-hysteria</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-detection-hysteria</guid>
+      <pubDate>Thu, 17 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[product]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[trust]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Secondary Celebration: A Founder's Perspective on VC Liquidity Events]]></title>
+      <description><![CDATA[Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy]]></description>
+      <link>https://www.haasonsaas.com/blog/the-secondary-celebration</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-secondary-celebration</guid>
+      <pubDate>Wed, 16 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[venture-capital]]></category>
+      <category><![CDATA[founder-relations]]></category>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[liquidity-events]]></category>
+      <category><![CDATA[secondary-transactions]]></category>
+      <category><![CDATA[investor-dynamics]]></category>
+      <category><![CDATA[entrepreneurship]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Reading Between the Lines: How to Decode Community Investment Rounds]]></title>
+      <description><![CDATA[A practical guide to interpreting startup metrics in community investment rounds and identifying potential red flags before investing]]></description>
+      <link>https://www.haasonsaas.com/blog/reading-between-the-lines</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/reading-between-the-lines</guid>
+      <pubDate>Mon, 14 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup-investment]]></category>
+      <category><![CDATA[community-rounds]]></category>
+      <category><![CDATA[investment-analysis]]></category>
+      <category><![CDATA[due-diligence]]></category>
+      <category><![CDATA[DTC-brands]]></category>
+      <category><![CDATA[funding-strategy]]></category>
+      <category><![CDATA[retail-investing]]></category>
+      <category><![CDATA[financial-literacy]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Model Context Protocol: The Enterprise Standard Transforming AI Tool Integration]]></title>
+      <description><![CDATA[A comprehensive analysis of the Model Context Protocol (MCP) — the enterprise-ready standard that's systematically solving the challenges of LLM tool integration across organizations of all sizes.]]></description>
+      <link>https://www.haasonsaas.com/blog/what-is-mcp</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/what-is-mcp</guid>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-infrastructure]]></category>
+      <category><![CDATA[llm-apps]]></category>
+      <category><![CDATA[agentic-frameworks]]></category>
+      <category><![CDATA[enterprise-ai]]></category>
+      <category><![CDATA[developer-tools]]></category>
+      <category><![CDATA[automation]]></category>
+      <category><![CDATA[mcp-standard]]></category>
+      <category><![CDATA[system-integration]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand]]></title>
+      <description><![CDATA[An insider's perspective on the growing disconnect between security practitioners and solution providers, and how both sides can better navigate the complex cybersecurity ecosystem]]></description>
+      <link>https://www.haasonsaas.com/blog/security-vendor-paradox</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/security-vendor-paradox</guid>
+      <pubDate>Sun, 13 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[cybersecurity]]></category>
+      <category><![CDATA[vendor-relations]]></category>
+      <category><![CDATA[CISO]]></category>
+      <category><![CDATA[security-leadership]]></category>
+      <category><![CDATA[industry-insights]]></category>
+      <category><![CDATA[security-operations]]></category>
+      <category><![CDATA[sales-tactics]]></category>
+    </item>
+    <item>
+      <title><![CDATA[API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI Approach]]></title>
+      <description><![CDATA[A critical examination of why enterprises that rely solely on third-party AI APIs are setting themselves up for long-term failure, and what a genuine AI strategy requires in today's competitive landscape]]></description>
+      <link>https://www.haasonsaas.com/blog/full-stack-ai</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/full-stack-ai</guid>
+      <pubDate>Sat, 12 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[enterprise-ai]]></category>
+      <category><![CDATA[artificial-intelligence]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[technical-architecture]]></category>
+      <category><![CDATA[innovation]]></category>
+      <category><![CDATA[competitive-advantage]]></category>
+      <category><![CDATA[platform-thinking]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Time Architects: How Visionary Founders Reimagine What's Possible]]></title>
+      <description><![CDATA[An introspective exploration of how exceptional founders reshape our understanding of time, innovation, and the boundaries of what organizations can achieve]]></description>
+      <link>https://www.haasonsaas.com/blog/the-time-architects</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-time-architects</guid>
+      <pubDate>Fri, 11 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[entrepreneurship]]></category>
+      <category><![CDATA[innovation]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[organizational-culture]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[startups]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit]]></title>
+      <description><![CDATA[Examining why technical founders often confuse early signals with genuine product-market fit, and how to recognize when you're building something people truly need]]></description>
+      <link>https://www.haasonsaas.com/blog/technical-founder-pmf</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/technical-founder-pmf</guid>
+      <pubDate>Tue, 08 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[entrepreneurship]]></category>
+      <category><![CDATA[product-development]]></category>
+      <category><![CDATA[startups]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster]]></title>
+      <description><![CDATA[An honest exploration of the psychological whiplash that comes with building a company, and why we keep coming back for more]]></description>
+      <link>https://www.haasonsaas.com/blog/founder-journey</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/founder-journey</guid>
+      <pubDate>Fri, 13 Dec 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[founder]]></category>
+      <category><![CDATA[startup]]></category>
+      <category><![CDATA[personal-growth]]></category>
+      <category><![CDATA[leadership]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Product Manager's Secret Superpower: Finding Signal in the Noise]]></title>
+      <description><![CDATA[How great product managers find hidden patterns across seemingly unrelated requirements to build extraordinary products]]></description>
+      <link>https://www.haasonsaas.com/blog/product-manager-skills</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/product-manager-skills</guid>
+      <pubDate>Wed, 27 Nov 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[product-development]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[systems-thinking]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Three Types of Startup Advice (And Why They're All Wrong)]]></title>
+      <description><![CDATA[Breaking down why most startup advice falls flat, and what to do about it]]></description>
+      <link>https://www.haasonsaas.com/blog/startup-advice</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/startup-advice</guid>
+      <pubDate>Mon, 25 Nov 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[personal-growth]]></category>
+      <category><![CDATA[product-development]]></category>
+      <category><![CDATA[startups]]></category>
+      <category><![CDATA[strategy]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Ubiquiti Effect: Why Enterprise Software Needs a Consumer Revolution]]></title>
+      <description><![CDATA[How Ubiquiti's approach to product design offers a blueprint for the future of enterprise software]]></description>
+      <link>https://www.haasonsaas.com/blog/the-ubiquiti-effect</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-ubiquiti-effect</guid>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[enterprise-software]]></category>
+      <category><![CDATA[product-development]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[systems-thinking]]></category>
+      <category><![CDATA[user-experience]]></category>
+    </item>
+    <item>
+      <title><![CDATA[When the Ask Feels Awkward, It’s Already Too Late]]></title>
+      <description><![CDATA[If you're hesitating to ask someone to do their job—or just doing it yourself to avoid conflict—it’s not a performance problem. It’s a role problem. Here's why discomfort delegating is the clearest signal a team reset is overdue.]]></description>
+      <link>https://www.haasonsaas.com/blog/when-the-ask-feels-awkward</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-the-ask-feels-awkward</guid>
+      <pubDate>Sat, 04 May 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[team-dynamics]]></category>
+      <category><![CDATA[accountability]]></category>
+      <category><![CDATA[organizational-culture]]></category>
+      <category><![CDATA[management]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Passive-Aggressive Manager: Navigating Feedback That Never Comes]]></title>
+      <description><![CDATA[Why some of the most frustrating managers succeed without giving direct feedback, and how to work with them without losing your mind—or your momentum.]]></description>
+      <link>https://www.haasonsaas.com/blog/feedback-that-never-comes</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/feedback-that-never-comes</guid>
+      <pubDate>Mon, 22 Apr 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[management]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[career]]></category>
+      <category><![CDATA[culture]]></category>
+      <category><![CDATA[personal-growth]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Founder-Led Sales: The Art of Selling Your Vision]]></title>
+      <description><![CDATA[How founders can effectively lead sales efforts in the early stages of their startup]]></description>
+      <link>https://www.haasonsaas.com/blog/founder-led-sales</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/founder-led-sales</guid>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[product]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[sales]]></category>
+      <category><![CDATA[growth]]></category>
+      <category><![CDATA[strategy]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Alignment Gap: Bridging Strategy and Execution]]></title>
+      <description><![CDATA[How to ensure your team's execution aligns with your strategic vision]]></description>
+      <link>https://www.haasonsaas.com/blog/the-alignment-gap</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-alignment-gap</guid>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[management]]></category>
+      <category><![CDATA[culture]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Performance Reviews: A Guide for Modern Leaders]]></title>
+      <description><![CDATA[How to conduct effective performance reviews that drive growth and development while maintaining team morale and engagement]]></description>
+      <link>https://www.haasonsaas.com/blog/performance-reviews</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/performance-reviews</guid>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[management]]></category>
+      <category><![CDATA[culture]]></category>
+      <category><![CDATA[career]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Thinking Frameworks: Tools for Better Decision Making]]></title>
+      <description><![CDATA[A collection of mental models and frameworks for improving decision making in product and business]]></description>
+      <link>https://www.haasonsaas.com/blog/thinking-frameworks</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/thinking-frameworks</guid>
+      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
+      <category><![CDATA[product]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[personal-growth]]></category>
+    </item>
+  </channel>
+</rss>

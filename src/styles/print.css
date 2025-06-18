@@ -1,0 +1,274 @@
+/* Print-specific styles for blog articles */
+@media print {
+  /* Remove unnecessary elements for print */
+  header,
+  .reading-progress-bar,
+  nav,
+  .newsletter-signup,
+  .social-share,
+  .related-articles,
+  .subscribe-section,
+  .back-to-blog,
+  button,
+  .button,
+  [role="button"],
+  .hover\:shadow-md,
+  .transition-shadow,
+  .group,
+  .animate-fade-in,
+  .animate-fade-up {
+    display: none !important;
+  }
+
+  /* Reset page styles for print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html {
+    font-size: 12pt;
+    line-height: 1.4;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: white !important;
+    color: black !important;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  /* Article layout */
+  article {
+    margin: 0 !important;
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+  }
+
+  .max-w-4xl,
+  .max-w-7xl {
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 1cm !important;
+  }
+
+  /* Typography for print */
+  h1 {
+    font-size: 24pt;
+    font-weight: bold;
+    margin: 0 0 0.5cm 0;
+    page-break-after: avoid;
+    color: black !important;
+  }
+
+  h2 {
+    font-size: 18pt;
+    font-weight: bold;
+    margin: 0.8cm 0 0.3cm 0;
+    page-break-after: avoid;
+    color: black !important;
+  }
+
+  h3 {
+    font-size: 14pt;
+    font-weight: bold;
+    margin: 0.6cm 0 0.2cm 0;
+    page-break-after: avoid;
+    color: black !important;
+  }
+
+  h4, h5, h6 {
+    font-size: 12pt;
+    font-weight: bold;
+    margin: 0.4cm 0 0.2cm 0;
+    page-break-after: avoid;
+    color: black !important;
+  }
+
+  p {
+    margin: 0 0 0.4cm 0;
+    text-align: justify;
+    orphans: 3;
+    widows: 3;
+    color: black !important;
+  }
+
+  /* Lists */
+  ul, ol {
+    margin: 0.4cm 0;
+    padding-left: 1cm;
+  }
+
+  li {
+    margin: 0.1cm 0;
+    page-break-inside: avoid;
+  }
+
+  /* Code blocks */
+  pre, code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 10pt;
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    page-break-inside: avoid;
+  }
+
+  pre {
+    padding: 0.3cm;
+    margin: 0.4cm 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  code {
+    padding: 0.05cm 0.1cm;
+  }
+
+  /* Block quotes */
+  blockquote {
+    margin: 0.4cm 1cm;
+    padding: 0.2cm 0.5cm;
+    border-left: 3px solid #ddd;
+    font-style: italic;
+    page-break-inside: avoid;
+  }
+
+  /* Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+    margin: 0.3cm 0;
+  }
+
+  /* Tables */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0.4cm 0;
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #ddd;
+    padding: 0.2cm;
+    text-align: left;
+  }
+
+  th {
+    background: #f5f5f5 !important;
+    font-weight: bold;
+  }
+
+  /* Links */
+  a {
+    color: black !important;
+    text-decoration: underline;
+  }
+
+  a:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Don't show URLs for internal links */
+  a[href^="/"],
+  a[href^="#"] {
+    text-decoration: none;
+  }
+
+  a[href^="/"]::after,
+  a[href^="#"]::after {
+    content: "";
+  }
+
+  /* Article metadata */
+  .article-meta {
+    margin: 0.5cm 0 1cm 0;
+    padding: 0.3cm 0;
+    border-bottom: 1px solid #ddd;
+    font-size: 10pt;
+    color: #666 !important;
+  }
+
+  /* Tags */
+  .tags {
+    margin: 0.3cm 0;
+  }
+
+  .tag {
+    background: none !important;
+    border: 1px solid #ddd !important;
+    padding: 0.1cm 0.2cm;
+    margin-right: 0.2cm;
+    font-size: 9pt;
+    color: black !important;
+  }
+
+  /* Page breaks */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+
+  h1 + *, h2 + *, h3 + * {
+    page-break-before: avoid;
+  }
+
+  /* Footer with page info */
+  @page {
+    margin: 2cm;
+    
+    @bottom-right {
+      content: "Page " counter(page) " of " counter(pages);
+      font-size: 9pt;
+      color: #666;
+    }
+    
+    @bottom-left {
+      content: "haasonsaas.com";
+      font-size: 9pt;
+      color: #666;
+    }
+  }
+
+  /* First page header */
+  @page :first {
+    @top-center {
+      content: "Haas on SaaS";
+      font-size: 12pt;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+
+  /* Utility classes */
+  .print-only {
+    display: block !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* Override dark mode colors */
+  .dark * {
+    background: white !important;
+    color: black !important;
+  }
+
+  /* Ensure readability */
+  .text-muted-foreground,
+  .text-gray-600,
+  .text-gray-500 {
+    color: #333 !important;
+  }
+
+  .bg-muted,
+  .bg-gray-100 {
+    background: #f9f9f9 !important;
+  }
+}

@@ -21,7 +21,7 @@ export const generateDynamicImageUrl = (title: string, width: number = 1200, hei
   const cleanTitle = title.trim().toLowerCase().replace(/[^a-z0-9]/g, '-');
   
   // Return path to dynamically generated image
-  return `/generated/${width}x${height}-${cleanTitle}.png`;
+  return `/generated/${width}x${height}-${cleanTitle}.webp`;
 }
 
 /**

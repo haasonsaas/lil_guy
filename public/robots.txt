@@ -1,14 +1,15 @@
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
 User-agent: *
 Allow: /
+
+# Sitemaps
+Sitemap: https://haasonsaas.com/sitemap.xml
+
+# Disallow admin and draft pages
+Disallow: /admin
+Disallow: /drafts
+
+# Allow crawling of generated images
+Allow: /generated/
+
+# Crawl delay (be nice to our server)
+Crawl-delay: 1

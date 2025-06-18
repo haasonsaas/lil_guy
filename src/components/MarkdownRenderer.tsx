@@ -6,6 +6,8 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
 import { markedHighlight } from 'marked-highlight';
+import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
+import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
 // Configure marked globally
 marked.use(markedHighlight({
@@ -45,6 +47,12 @@ export default function MarkdownRenderer({
   className = '' 
 }: MarkdownRendererProps) {
   const contentRef = useRef<HTMLDivElement>(null);
+  
+  // Add code block enhancement (copy buttons, language labels)
+  useCodeBlockEnhancement(contentRef);
+  
+  // Add lazy loading for images
+  useLazyImageEnhancement(contentRef);
   
   useEffect(() => {
     // Apply syntax highlighting to any code blocks

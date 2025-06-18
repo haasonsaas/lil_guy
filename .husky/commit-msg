@@ -1,0 +1,63 @@
+#!/usr/bin/env sh
+
+# Read the commit message
+commit_message=$(cat "$1")
+
+# Skip checks for merge commits
+if echo "$commit_message" | grep -q "^Merge"; then
+  exit 0
+fi
+
+# Skip checks for revert commits
+if echo "$commit_message" | grep -q "^Revert"; then
+  exit 0
+fi
+
+# Skip checks for commits that include "Generated with Claude Code" (our automated commits)
+if echo "$commit_message" | grep -q "Generated with \[Claude Code\]"; then
+  exit 0
+fi
+
+echo "📝 Validating commit message..."
+
+# Check minimum length (at least 10 characters for subject)
+subject_line=$(echo "$commit_message" | head -n1)
+if [ ${#subject_line} -lt 10 ]; then
+  echo "❌ Commit message too short. Please provide a descriptive message (at least 10 characters)."
+  echo "Current: '$subject_line'"
+  exit 1
+fi
+
+# Check maximum length for subject line (50 characters recommended, 72 max)
+if [ ${#subject_line} -gt 72 ]; then
+  echo "❌ Commit subject line too long (${#subject_line} chars). Keep under 72 characters."
+  echo "Current: '$subject_line'"
+  exit 1
+fi
+
+# Warn if subject line is longer than 50 characters
+if [ ${#subject_line} -gt 50 ]; then
+  echo "⚠️  Commit subject line is long (${#subject_line} chars). Consider keeping under 50 characters."
+fi
+
+# Check for conventional commit format (optional but encouraged)
+if echo "$subject_line" | grep -qE "^(feat|fix|docs|style|refactor|test|chore|perf|ci|build|revert)(\(.+\))?: "; then
+  echo "✅ Using conventional commit format"
+elif echo "$subject_line" | grep -qE "^[A-Z]"; then
+  echo "✅ Capitalized commit message"
+else
+  echo "💡 Consider using conventional commit format: feat|fix|docs|style|refactor|test|chore|perf|ci|build: description"
+  echo "   Or start with a capital letter"
+fi
+
+# Check that subject doesn't end with a period
+if echo "$subject_line" | grep -q "\.$"; then
+  echo "⚠️  Commit subject should not end with a period"
+fi
+
+# For blog posts, suggest mentioning the post title
+if echo "$commit_message" | grep -q "src/posts/"; then
+  echo "💡 Blog post commit detected. Consider including the post title in your message."
+fi
+
+echo "✅ Commit message validation passed!"

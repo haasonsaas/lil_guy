@@ -1,0 +1,23 @@
+export async function onRequest(context: { request: Request; env: unknown }) {
+  try {
+    // Dynamic import to avoid bundling issues
+    const { generateRSSFeed } = await import('../src/utils/rssGenerator');
+    const { getAllPosts } = await import('../src/utils/blogUtils');
+    
+    // Debug: Check if posts are loading
+    const posts = await getAllPosts();
+    console.log(`DEBUG: Found ${posts.length} posts for RSS feed`);
+    
+    const rssContent = await generateRSSFeed();
+
+    return new Response(rssContent, {
+      headers: {
+        'Content-Type': 'application/rss+xml; charset=utf-8',
+        'Cache-Control': 'public, max-age=3600, s-maxage=3600', // Cache for 1 hour
+      },
+    });
+  } catch (error) {
+    console.error('Error generating RSS feed:', error);
+    return new Response(`Error generating RSS feed: ${error.message}`, { status: 500 });
+  }
+}
