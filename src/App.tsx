@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Index from "./pages/Index";
 import BlogPage from "./pages/BlogPage";
 import BlogPost from "./pages/BlogPost";
+import Archive from "./pages/Archive";
 import TagsPage from "./pages/TagsPage";
 import TagPage from "./pages/TagPage";
 import AboutPage from "./pages/AboutPage";
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/archive" element={<Archive />} />
             <Route path="/tags" element={<TagsPage />} />
             <Route path="/tags/:tag" element={<TagPage />} />
             <Route path="/about" element={<AboutPage />} />

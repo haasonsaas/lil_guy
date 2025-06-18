@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import BlogCard from "@/components/BlogCard";
 import Layout from "@/components/Layout";
+import { getWebsiteSchema, injectStructuredData } from "@/utils/seoUtils";
 import { 
   ArrowRight, 
   Mail, 
@@ -77,6 +78,10 @@ export default function Index() {
         
         const blogStats = await getBlogStats();
         setStats(blogStats);
+        
+        // Inject structured data for SEO
+        const websiteSchema = getWebsiteSchema();
+        injectStructuredData(websiteSchema);
       } catch (error) {
         console.error("Error loading data:", error);
       }

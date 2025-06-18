@@ -10,6 +10,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
+import { getBlogPostSchema, injectStructuredData } from '@/utils/seoUtils';
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
@@ -117,6 +118,11 @@ export default function BlogPost() {
     if (ogTags && post.frontmatter.tags && post.frontmatter.tags.length > 0) {
       ogTags.setAttribute('content', post.frontmatter.tags.join(', '));
     }
+    
+    // Inject structured data for SEO
+    const readingTime = calculateReadingTime(post.content);
+    const blogPostSchema = getBlogPostSchema(post, readingTime.wordCount, readingTime.minutes);
+    injectStructuredData(blogPostSchema);
   }, [post]);
   
   if (!post) {

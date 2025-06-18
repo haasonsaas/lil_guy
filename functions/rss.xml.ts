@@ -1,4 +1,4 @@
-export async function onRequest(context: any) {
+export async function onRequest(context: { request: Request; env: unknown }) {
   try {
     // Dynamic import to avoid bundling issues
     const { generateRSSFeed } = await import('../src/utils/rssGenerator');
