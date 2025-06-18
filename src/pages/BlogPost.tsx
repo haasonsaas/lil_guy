@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, useSearchParams } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import TagCloud from '@/components/TagCloud';
@@ -8,10 +8,11 @@ import AuthorBio from '@/components/AuthorBio';
 import SocialShare from '@/components/SocialShare';
 import { ReadingProgressBar } from '@/components/ReadingProgressBar';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
+import { ArrowLeft, Tag, Calendar, Clock, Eye } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags, getAllPosts } from '@/utils/blogUtils';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 import { getBlogPostSchema, injectStructuredData } from '@/utils/seoUtils';
+import { validatePreviewToken, getTokenExpiration } from '@/utils/previewUtils';
 import type { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
 import { Subscribe } from '@/components/Subscribe';
@@ -36,17 +37,34 @@ const optimizeImage = (url: string) => {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [imageError, setImageError] = useState(false);
   const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([]);
+  const [isPreview, setIsPreview] = useState(false);
+  const [previewExpiration, setPreviewExpiration] = useState<Date | null>(null);
   
   useEffect(() => {
     const loadPost = async () => {
       if (!slug) return;
       
+      // Check for preview token
+      const previewToken = searchParams.get('preview');
+      let includesDrafts = false;
+      
+      if (previewToken) {
+        const isValid = await validatePreviewToken(previewToken, slug);
+        if (isValid) {
+          includesDrafts = true;
+          setIsPreview(true);
+          const expiration = getTokenExpiration(previewToken);
+          setPreviewExpiration(expiration);
+        }
+      }
+      
       const [loadedPost, allPosts] = await Promise.all([
-        getPostBySlug(slug),
+        getPostBySlug(slug, includesDrafts),
         getAllPosts()
       ]);
       
@@ -68,7 +86,7 @@ export default function BlogPost() {
     };
     
     loadPost();
-  }, [slug, navigate]);
+  }, [slug, navigate, searchParams]);
   
   useEffect(() => {
     if (!post) return;
@@ -154,6 +172,26 @@ export default function BlogPost() {
           </Link>
           
           <div className="max-w-4xl mx-auto">
+            {/* Preview Mode Banner */}
+            {isPreview && (
+              <div className="mb-6 p-4 bg-amber-50 dark:bg-amber-950 border border-amber-200 dark:border-amber-800 rounded-lg animate-fade-in">
+                <div className="flex items-center gap-2 text-amber-800 dark:text-amber-200">
+                  <Eye className="h-5 w-5" />
+                  <span className="font-medium">Preview Mode</span>
+                  {previewExpiration && (
+                    <span className="text-sm">
+                      • Expires {formatDate(previewExpiration.toISOString().split('T')[0])}
+                    </span>
+                  )}
+                </div>
+                {frontmatter.draft && (
+                  <p className="text-sm text-amber-700 dark:text-amber-300 mt-1">
+                    This is a draft post and is not publicly visible.
+                  </p>
+                )}
+              </div>
+            )}
+            
             <div className="mb-8 animate-fade-in">
               <div className="flex flex-wrap gap-2 mb-4">
                 {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.map(tag => (

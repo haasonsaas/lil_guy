@@ -26,6 +26,7 @@ const NewsletterPage = lazy(() => import("./pages/NewsletterPage"));
 const ExperimentsPage = lazy(() => import("./pages/ExperimentsPage"));
 const WebGLPage = lazy(() => import("./pages/WebGLPage"));
 const CodeRainPage = lazy(() => import("./pages/CodeRainPage"));
+const DraftsPage = lazy(() => import("./pages/DraftsPage"));
 
 // Loading component
 const PageLoading = () => (
@@ -49,6 +50,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/:slug" element={<BlogPost />} />
+              <Route path="/drafts" element={<DraftsPage />} />
               <Route path="/archive" element={<Archive />} />
               <Route path="/tags" element={<TagsPage />} />
               <Route path="/tags/:tag" element={<TagPage />} />
