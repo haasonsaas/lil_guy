@@ -6,6 +6,7 @@ import TagCloud from '@/components/TagCloud';
 import BlogCard from '@/components/BlogCard';
 import AuthorBio from '@/components/AuthorBio';
 import SocialShare from '@/components/SocialShare';
+import { ReadingProgressBar } from '@/components/ReadingProgressBar';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags } from '@/utils/blogUtils';
@@ -138,6 +139,7 @@ export default function BlogPost() {
   
   return (
     <Layout>
+      <ReadingProgressBar />
       <article className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/blog">
