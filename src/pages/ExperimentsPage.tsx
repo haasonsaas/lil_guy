@@ -176,8 +176,14 @@ export default function ExperimentsPage() {
       
       // Filter repos with at least 1 star and process them
       const starredRepos = repos
-        .filter((repo: any) => repo.stargazers_count > 0)
-        .map((repo: any): Repository => ({
+        .filter((repo: { stargazers_count: number }) => repo.stargazers_count > 0)
+        .map((repo: { 
+          name: string; 
+          description: string | null; 
+          stargazers_count: number; 
+          language: string | null; 
+          topics?: string[];
+        }): Repository => ({
           name: repo.name.split('-').map((word: string) => 
             word.charAt(0).toUpperCase() + word.slice(1)
           ).join(' '),
