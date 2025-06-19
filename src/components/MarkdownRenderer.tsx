@@ -17,9 +17,14 @@ import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 // Configure unified processor for markdown with math support
 const processor = unified()
   .use(remarkParse)
-  .use(remarkMath)
+  .use(remarkMath, {
+    singleDollarTextMath: true
+  })
   .use(remarkRehype, { allowDangerousHtml: true })
-  .use(rehypeKatex)
+  .use(rehypeKatex, {
+    throwOnError: false,
+    errorColor: '#cc0000'
+  })
   .use(rehypeHighlight, {
     detect: true,
     ignoreMissing: true
@@ -83,8 +88,25 @@ export default function MarkdownRenderer({
       });
       
       // Process markdown with math support
-      const result = processor.processSync(processedContent);
-      const rawMarkup = String(result);
+      let rawMarkup: string;
+      try {
+        const result = processor.processSync(processedContent);
+        rawMarkup = String(result);
+        
+        // Debug: Check if math content was processed
+        if (processedContent.includes('$$') || processedContent.includes('$')) {
+          console.log('Original content has math:', processedContent.includes('katex') ? 'YES' : 'NO');
+          console.log('Processed HTML has katex class:', rawMarkup.includes('katex') ? 'YES' : 'NO');
+          if (!rawMarkup.includes('katex')) {
+            console.log('Sample processed content:', rawMarkup.substring(0, 500));
+          }
+        }
+      } catch (mathError) {
+        console.error('Math processing error:', mathError);
+        // Fallback to basic processing without math
+        const result = processor.processSync(processedContent);
+        rawMarkup = String(result);
+      }
       
       const cleanHtml = DOMPurify.sanitize(rawMarkup, {
         ADD_ATTR: [
