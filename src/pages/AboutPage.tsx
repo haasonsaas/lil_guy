@@ -157,6 +157,15 @@ export default function AboutPage() {
                     and leading ThreatKey through exit. I believe the best technology feels invisible—
                     it just works, enabling people to focus on what matters most.
                   </p>
+                  <p className="mb-6">
+                    These days, I'm deeply interested in how AI can augment human capabilities without 
+                    replacing human judgment. I use tools like Claude Code as development partners, 
+                    treating them as senior team members who help with everything from complex 
+                    implementations to creative problem-solving.{' '}
+                    <Link to="/ai" className="text-primary hover:underline">
+                      Read more about my AI workflow →
+                    </Link>
+                  </p>
                 </div>
 
                 {/* Experience Section */}
@@ -324,6 +333,11 @@ export default function AboutPage() {
                 <Button variant="outline" size="lg" asChild>
                   <Link to="/blog">
                     Read My Articles
+                  </Link>
+                </Button>
+                <Button variant="outline" size="lg" asChild>
+                  <Link to="/ai">
+                    My AI Workflow
                   </Link>
                 </Button>
               </div>

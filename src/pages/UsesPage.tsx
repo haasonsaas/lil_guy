@@ -174,6 +174,17 @@ export default function UsesPage() {
                       
                       <p className="text-sm">Why I love it: Cursor combines the familiarity of VS Code with powerful AI capabilities that make coding more efficient. The AI assistant understands my codebase context and provides relevant suggestions, while the semantic search makes it easy to find code across the project.</p>
                     </div>
+
+                    <div>
+                      <h3 className="font-medium text-lg mb-2">Claude Code</h3>
+                      <p className="text-muted-foreground mb-2">AI coding assistant with file system access</p>
+                      <p className="text-sm mb-2">My primary AI development partner for complex implementations, architecture decisions, and creative problem-solving. Unlike other AI tools, Claude Code can read, write, and execute code in my actual development environment.</p>
+                      <p className="text-sm">
+                        <Link to="/ai" className="text-primary hover:underline">
+                          → Read more about my complete AI workflow and philosophy
+                        </Link>
+                      </p>
+                    </div>
                     
                     <div>
                       <h3 className="font-medium text-lg mb-2">Alacritty Terminal</h3>
