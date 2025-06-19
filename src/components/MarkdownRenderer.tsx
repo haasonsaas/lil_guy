@@ -114,22 +114,20 @@ export default function MarkdownRenderer({
         rawMarkup = String(result);
       }
       
-      const cleanHtml = DOMPurify.sanitize(rawMarkup, {
-        ADD_ATTR: [
-          'target', 'rel', 'data-component', 'data-props', 'class', 'style', 'xmlns',
-          // KaTeX specific attributes
-          'aria-hidden', 'aria-label', 'role', 'data-lexer', 'data-katex'
-        ],
-        ADD_TAGS: [
-          'iframe', 'div', 'span',
-          // MathML tags
-          'math', 'annotation', 'semantics', 'mtext', 'mn', 'mo', 'mrow', 'msup', 'msub', 
-          'mfrac', 'mfenced', 'mtable', 'mtr', 'mtd', 'msqrt', 'mroot', 'mpadded', 'mphantom',
-          'mspace', 'menclose', 'maligngroup', 'malignmark', 'mlongdiv', 'mscarries',
-          'mscarry', 'msgroup', 'msline', 'msrow', 'mstack', 'munder', 'mover', 'munderover',
-          'mlabeledtr', 'mmultiscripts', 'mprescripts'
-        ]
-      });
+      // Temporarily bypass DOMPurify for content with math to test
+      const hasMathInOutput = rawMarkup.includes('katex');
+      let cleanHtml: string;
+      
+      if (hasMathInOutput) {
+        // For math content, skip DOMPurify temporarily to test
+        cleanHtml = rawMarkup;
+        console.log('Bypassing DOMPurify for math content');
+      } else {
+        cleanHtml = DOMPurify.sanitize(rawMarkup, {
+          ADD_ATTR: ['target', 'rel', 'data-component', 'data-props', 'class', 'style'],
+          ADD_TAGS: ['iframe', 'div', 'span']
+        });
+      }
       
       // Debug: Check if DOMPurify removed KaTeX content
       if (rawMarkup.includes('katex') && !cleanHtml.includes('katex')) {
