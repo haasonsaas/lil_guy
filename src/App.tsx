@@ -29,6 +29,11 @@ const NewsletterPage = lazy(() => import("./pages/NewsletterPage"));
 const ExperimentsPage = lazy(() => import("./pages/ExperimentsPage"));
 const WebGLPage = lazy(() => import("./pages/WebGLPage"));
 const CodeRainPage = lazy(() => import("./pages/CodeRainPage"));
+const AudioVisualizerPage = lazy(() => import("./pages/AudioVisualizerPage"));
+const RayMarchingPage = lazy(() => import("./pages/RayMarchingPage"));
+const NBodySimulationPage = lazy(() => import("./pages/NBodySimulationPage"));
+const CellularAutomataPage = lazy(() => import("./pages/CellularAutomataPage"));
+const GenerativeArtPage = lazy(() => import("./pages/GenerativeArtPage"));
 const DraftsPage = lazy(() => import("./pages/DraftsPage"));
 const OfflinePage = lazy(() => import("./pages/OfflinePage"));
 
@@ -75,6 +80,11 @@ const App = () => (
                 <Route path="/experiments" element={<ExperimentsPage />} />
                 <Route path="/webgl" element={<WebGLPage />} />
                 <Route path="/code-rain" element={<CodeRainPage />} />
+                <Route path="/audio-visualizer" element={<AudioVisualizerPage />} />
+                <Route path="/ray-marching" element={<RayMarchingPage />} />
+                <Route path="/n-body" element={<NBodySimulationPage />} />
+                <Route path="/cellular-automata" element={<CellularAutomataPage />} />
+                <Route path="/generative-art" element={<GenerativeArtPage />} />
                 <Route path="/offline" element={<OfflinePage />} />
                 {/* Redirect /admin to the home page */}
                 <Route path="/admin" element={<Navigate to="/" replace />} />

@@ -446,33 +446,33 @@ export default function ExperimentsPage() {
               <h2 className="text-2xl font-semibold mb-6 text-center">Interactive Experiments</h2>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {/* WebGL Demo */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.45 }}
               >
-                <Card className="p-8 h-full bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
+                <Card className="p-6 h-full bg-gradient-to-br from-primary/5 to-secondary/5 border-primary/20">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                       <RefreshCw className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold">WebGL Playground</h3>
-                      <p className="text-muted-foreground">Interactive fluid simulation</p>
+                      <h3 className="text-lg font-semibold">WebGL Playground</h3>
+                      <p className="text-sm text-muted-foreground">Interactive fluid simulation</p>
                     </div>
                   </div>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-muted-foreground mb-4 text-sm">
                     Experience real-time fluid dynamics powered by WebGL shaders. Features three experiments: 
                     fluid simulation, particle system, and Mandelbrot fractals.
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    <Badge variant="secondary">WebGL</Badge>
-                    <Badge variant="secondary">GLSL Shaders</Badge>
-                    <Badge variant="secondary">Real-time</Badge>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">WebGL</Badge>
+                    <Badge variant="secondary" className="text-xs">GLSL Shaders</Badge>
+                    <Badge variant="secondary" className="text-xs">Real-time</Badge>
                   </div>
-                  <Button asChild className="gap-2">
+                  <Button asChild className="gap-2 w-full" size="sm">
                     <a href="/webgl">
                       <RefreshCw className="h-4 w-4" />
                       Try WebGL Demo
@@ -488,29 +488,204 @@ export default function ExperimentsPage() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <Card className="p-8 h-full bg-gradient-to-br from-green-500/5 to-emerald-500/5 border-green-500/20">
+                <Card className="p-6 h-full bg-gradient-to-br from-green-500/5 to-emerald-500/5 border-green-500/20">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center">
                       <CodeIcon className="h-6 w-6 text-green-500" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold">Code Rain</h3>
-                      <p className="text-muted-foreground">Matrix-style visualization</p>
+                      <h3 className="text-lg font-semibold">Code Rain</h3>
+                      <p className="text-sm text-muted-foreground">Matrix-style visualization</p>
                     </div>
                   </div>
-                  <p className="text-muted-foreground mb-6">
+                  <p className="text-muted-foreground mb-4 text-sm">
                     Watch real code from this codebase cascade down your screen Matrix-style. 
                     Features actual TypeScript, React, and WebGL snippets.
                   </p>
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    <Badge variant="secondary">Canvas API</Badge>
-                    <Badge variant="secondary">Animation</Badge>
-                    <Badge variant="secondary">Real Code</Badge>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">Canvas API</Badge>
+                    <Badge variant="secondary" className="text-xs">Animation</Badge>
+                    <Badge variant="secondary" className="text-xs">Real Code</Badge>
                   </div>
-                  <Button asChild className="gap-2">
+                  <Button asChild className="gap-2 w-full" size="sm">
                     <a href="/code-rain">
                       <CodeIcon className="h-4 w-4" />
                       Enter the Matrix
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
+
+              {/* Audio Visualizer */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.55 }}
+              >
+                <Card className="p-6 h-full bg-gradient-to-br from-purple-500/5 to-pink-500/5 border-purple-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-purple-500/10 rounded-lg flex items-center justify-center">
+                      <RefreshCw className="h-6 w-6 text-purple-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">Audio Visualizer</h3>
+                      <p className="text-sm text-muted-foreground">3D music visualization</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Real-time 3D audio visualization using WebGL and Web Audio API. 
+                    Upload music or use your microphone to see sound come alive.
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">Web Audio API</Badge>
+                    <Badge variant="secondary" className="text-xs">3D Graphics</Badge>
+                    <Badge variant="secondary" className="text-xs">Microphone</Badge>
+                  </div>
+                  <Button asChild className="gap-2 w-full" size="sm">
+                    <a href="/audio-visualizer">
+                      <RefreshCw className="h-4 w-4" />
+                      Visualize Audio
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
+
+              {/* Ray Marching */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+              >
+                <Card className="p-6 h-full bg-gradient-to-br from-blue-500/5 to-cyan-500/5 border-blue-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center">
+                      <RefreshCw className="h-6 w-6 text-blue-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">Ray Marching</h3>
+                      <p className="text-sm text-muted-foreground">3D scene explorer</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Explore 3D scenes rendered entirely in fragment shaders using ray marching. 
+                    Features soft shadows, ambient occlusion, and PBR materials.
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">Ray Marching</Badge>
+                    <Badge variant="secondary" className="text-xs">SDF</Badge>
+                    <Badge variant="secondary" className="text-xs">PBR</Badge>
+                  </div>
+                  <Button asChild className="gap-2 w-full" size="sm">
+                    <a href="/ray-marching">
+                      <RefreshCw className="h-4 w-4" />
+                      Explore 3D
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
+
+              {/* N-Body Simulation */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.65 }}
+              >
+                <Card className="p-6 h-full bg-gradient-to-br from-orange-500/5 to-red-500/5 border-orange-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-orange-500/10 rounded-lg flex items-center justify-center">
+                      <RefreshCw className="h-6 w-6 text-orange-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">N-Body Simulation</h3>
+                      <p className="text-sm text-muted-foreground">Gravitational physics</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Interactive gravitational physics simulation. Add celestial bodies, 
+                    watch them orbit, collide, and create complex gravitational interactions.
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">Physics</Badge>
+                    <Badge variant="secondary" className="text-xs">Gravity</Badge>
+                    <Badge variant="secondary" className="text-xs">Orbital Mechanics</Badge>
+                  </div>
+                  <Button asChild className="gap-2 w-full" size="sm">
+                    <a href="/n-body">
+                      <RefreshCw className="h-4 w-4" />
+                      Simulate Space
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
+
+              {/* Cellular Automata */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <Card className="p-6 h-full bg-gradient-to-br from-teal-500/5 to-green-500/5 border-teal-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center">
+                      <RefreshCw className="h-6 w-6 text-teal-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">Cellular Automata</h3>
+                      <p className="text-sm text-muted-foreground">Emergent patterns</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Explore the fascinating world of cellular automata. Simple rules create complex patterns, 
+                    from Conway's Game of Life to elementary automata.
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">Game of Life</Badge>
+                    <Badge variant="secondary" className="text-xs">Algorithms</Badge>
+                    <Badge variant="secondary" className="text-xs">Emergence</Badge>
+                  </div>
+                  <Button asChild className="gap-2 w-full" size="sm">
+                    <a href="/cellular-automata">
+                      <RefreshCw className="h-4 w-4" />
+                      Create Life
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
+
+              {/* Generative Art */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.75 }}
+              >
+                <Card className="p-6 h-full bg-gradient-to-br from-indigo-500/5 to-purple-500/5 border-indigo-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-indigo-500/10 rounded-lg flex items-center justify-center">
+                      <RefreshCw className="h-6 w-6 text-indigo-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">Generative Art</h3>
+                      <p className="text-sm text-muted-foreground">Algorithmic creativity</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Create algorithmic art using mathematical functions and natural patterns. 
+                    Explore different techniques from Perlin noise to L-systems and fractals.
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">Perlin Noise</Badge>
+                    <Badge variant="secondary" className="text-xs">L-Systems</Badge>
+                    <Badge variant="secondary" className="text-xs">Fractals</Badge>
+                  </div>
+                  <Button asChild className="gap-2 w-full" size="sm">
+                    <a href="/generative-art">
+                      <RefreshCw className="h-4 w-4" />
+                      Generate Art
                       <ExternalLink className="h-3 w-3" />
                     </a>
                   </Button>
