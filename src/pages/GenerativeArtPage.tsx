@@ -348,7 +348,7 @@ export default function GenerativeArtPage() {
     
     for (const char of system) {
       switch (char) {
-        case 'F':
+        case 'F': {
           ctx.strokeStyle = colors[colorIndex % colors.length];
           ctx.lineWidth = Math.max(1, 3 - iterations[0] * 0.3);
           ctx.beginPath();
@@ -362,6 +362,7 @@ export default function GenerativeArtPage() {
           ctx.translate(newX, newY);
           colorIndex++;
           break;
+        }
           
         case '+':
           currentAngle += angleStep;
@@ -379,13 +380,14 @@ export default function GenerativeArtPage() {
           });
           break;
           
-        case ']':
+        case ']': {
           const state = stack.pop();
           if (state) {
             ctx.setTransform(1, 0, 0, 1, state.x, state.y);
             currentAngle = state.angle;
           }
           break;
+        }
       }
     }
     

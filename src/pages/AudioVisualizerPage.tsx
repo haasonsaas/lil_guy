@@ -192,7 +192,7 @@ export default function AudioVisualizerPage() {
   const initAudio = async (useMicrophone: boolean = false) => {
     try {
       if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext || (window as any).webkitAudioContext)();
+        audioContextRef.current = new (window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext)();
       }
 
       const audioContext = audioContextRef.current;
@@ -240,7 +240,7 @@ export default function AudioVisualizerPage() {
     if (isUsingMic) {
       // Stop microphone
       if (sourceRef.current && 'mediaStream' in sourceRef.current) {
-        const stream = (sourceRef.current as any).mediaStream;
+        const stream = (sourceRef.current as MediaStreamAudioSourceNode & { mediaStream: MediaStream }).mediaStream;
         stream.getTracks().forEach((track: MediaStreamTrack) => track.stop());
       }
       sourceRef.current = null;
@@ -624,7 +624,7 @@ export default function AudioVisualizerPage() {
       
       // Clean up audio
       if (sourceRef.current && 'mediaStream' in sourceRef.current) {
-        const stream = (sourceRef.current as any).mediaStream;
+        const stream = (sourceRef.current as MediaStreamAudioSourceNode & { mediaStream: MediaStream }).mediaStream;
         stream?.getTracks().forEach((track: MediaStreamTrack) => track.stop());
       }
       
