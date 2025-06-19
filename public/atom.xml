@@ -29,6 +29,19 @@
     <category term="development" />
   </entry>
   <entry>
+    <title><![CDATA[Why Your A/B Tests Are Lying to You]]></title>
+    <link href="https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[Statistical significance doesn't mean what you think it means. Here's why 95% of A/B tests are misleading and what to track instead.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="product" />
+  </entry>
+  <entry>
     <title><![CDATA[The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic]]></title>
     <link href="https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic</id>
@@ -44,6 +57,22 @@
     <category term="linear-algebra" />
     <category term="shaders" />
     <category term="webgl" />
+  </entry>
+  <entry>
+    <title><![CDATA[The Unit Economics That Actually Matter]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="saas" />
+    <category term="metrics" />
+    <category term="unit-economics" />
+    <category term="growth" />
   </entry>
   <entry>
     <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
@@ -839,38 +868,5 @@
     <category term="career" />
     <category term="culture" />
     <category term="personal-growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[Founder-Led Sales: The Art of Selling Your Vision]]></title>
-    <link href="https://www.haasonsaas.com/blog/founder-led-sales" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/founder-led-sales</id>
-    <published>2024-04-20T00:00:00.000Z</published>
-    <updated>2024-04-20T00:00:00.000Z</updated>
-    <summary><![CDATA[How founders can effectively lead sales efforts in the early stages of their startup]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="product" />
-    <category term="leadership" />
-    <category term="sales" />
-    <category term="growth" />
-    <category term="strategy" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Alignment Gap: Bridging Strategy and Execution]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-alignment-gap" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-alignment-gap</id>
-    <published>2024-04-20T00:00:00.000Z</published>
-    <updated>2024-04-20T00:00:00.000Z</updated>
-    <summary><![CDATA[How to ensure your team's execution aligns with your strategic vision]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="strategy" />
-    <category term="leadership" />
-    <category term="management" />
-    <category term="culture" />
   </entry>
 </feed>

@@ -30,6 +30,14 @@
       <category><![CDATA[development]]></category>
     </item>
     <item>
+      <title><![CDATA[Why Your A/B Tests Are Lying to You]]></title>
+      <description><![CDATA[Statistical significance doesn't mean what you think it means. Here's why 95% of A/B tests are misleading and what to track instead.]]></description>
+      <link>https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[product]]></category>
+    </item>
+    <item>
       <title><![CDATA[The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic]]></title>
       <description><![CDATA[Exploring the mathematical foundations that power modern graphics programming, from transformation matrices to lighting equations]]></description>
       <link>https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic</link>
@@ -40,6 +48,17 @@
       <category><![CDATA[linear-algebra]]></category>
       <category><![CDATA[shaders]]></category>
       <category><![CDATA[webgl]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Unit Economics That Actually Matter]]></title>
+      <description><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[saas]]></category>
+      <category><![CDATA[metrics]]></category>
+      <category><![CDATA[unit-economics]]></category>
+      <category><![CDATA[growth]]></category>
     </item>
     <item>
       <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
@@ -605,29 +624,6 @@
       <category><![CDATA[career]]></category>
       <category><![CDATA[culture]]></category>
       <category><![CDATA[personal-growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Founder-Led Sales: The Art of Selling Your Vision]]></title>
-      <description><![CDATA[How founders can effectively lead sales efforts in the early stages of their startup]]></description>
-      <link>https://www.haasonsaas.com/blog/founder-led-sales</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/founder-led-sales</guid>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[sales]]></category>
-      <category><![CDATA[growth]]></category>
-      <category><![CDATA[strategy]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Alignment Gap: Bridging Strategy and Execution]]></title>
-      <description><![CDATA[How to ensure your team's execution aligns with your strategic vision]]></description>
-      <link>https://www.haasonsaas.com/blog/the-alignment-gap</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-alignment-gap</guid>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[management]]></category>
-      <category><![CDATA[culture]]></category>
     </item>
   </channel>
 </rss>
