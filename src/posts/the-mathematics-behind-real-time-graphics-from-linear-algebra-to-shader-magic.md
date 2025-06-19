@@ -26,26 +26,15 @@ Having just built [five interactive WebGL experiments](/experiments), I've been 
 
 In 3D graphics, everything starts with vectors. A vector represents both direction and magnitude, and we use them for positions, velocities, normals, and more.
 
-A 3D vector is simply:
-```
-v = [x, y, z]
-```
+A 3D vector is simply: $\vec{v} = (x, y, z)$
 
 But vectors become powerful when we perform operations on them:
 
 **Dot Product** - measures how aligned two vectors are:
-```
-a · b = (a.x × b.x) + (a.y × b.y) + (a.z × b.z) = |a| × |b| × cos(θ)
-```
+$\vec{a} \cdot \vec{b} = a_x b_x + a_y b_y + a_z b_z = |\vec{a}||\vec{b}|\cos\theta$
 
 **Cross Product** - finds a vector perpendicular to two others:
-```
-a × b = [
-  (a.y × b.z) - (a.z × b.y),
-  (a.z × b.x) - (a.x × b.z),
-  (a.x × b.y) - (a.y × b.x)
-]
-```
+$\vec{a} \times \vec{b} = (a_y b_z - a_z b_y, a_z b_x - a_x b_z, a_x b_y - a_y b_x)$
 
 ### Matrix Transformations: Moving Through Space
 
@@ -73,9 +62,7 @@ Ry(θ) = [
 ```
 
 The beauty of matrices is composition - multiple transformations combine into a single matrix multiplication:
-```
-M_final = M_projection × M_view × M_model
-```
+$M_{final} = M_{projection} \cdot M_{view} \cdot M_{model}$
 
 ## Projection: From 3D to 2D
 
@@ -116,24 +103,16 @@ This division by w is what creates the perspective effect - objects further away
 
 Real-time lighting is based on simplified physics models. The Phong reflection model breaks light into three components:
 
-```
-I = I_ambient + I_diffuse + I_specular
-```
+$I = I_{ambient} + I_{diffuse} + I_{specular}$
 
 **Ambient lighting** provides uniform base illumination:
-```
-I_ambient = k_ambient × I_ambient_light
-```
+$I_{ambient} = k_{ambient} \times I_{ambient\_light}$
 
 **Diffuse reflection** follows Lambert's cosine law:
-```
-I_diffuse = k_diffuse × I_light × max(0, N · L)
-```
+$I_{diffuse} = k_{diffuse} \times I_{light} \times \max(0, \vec{N} \cdot \vec{L})$
 
 **Specular reflection** creates shiny highlights:
-```
-I_specular = k_specular × I_light × max(0, R · V)^shininess
-```
+$I_{specular} = k_{specular} \times I_{light} \times \max(0, \vec{R} \cdot \vec{V})^{shininess}$
 
 Where:
 - N is the surface normal vector
@@ -145,9 +124,7 @@ Where:
 
 Modern graphics use more sophisticated models like the Cook-Torrance BRDF (Bidirectional Reflectance Distribution Function):
 
-```
-f_r = DFG / (4 × (N · L) × (N · V))
-```
+$f_r = \frac{DFG}{4 \times (\vec{N} \cdot \vec{L}) \times (\vec{N} \cdot \vec{V})}$
 
 Where:
 - D is the normal distribution function (how microfacets are oriented)
@@ -155,9 +132,7 @@ Where:
 - G is the geometry function (shadowing and masking)
 
 The **Fresnel equations** describe how reflection varies with viewing angle:
-```
-F(θ) = F_0 + (1 - F_0)(1 - cos(θ))^5
-```
+$F(\theta) = F_0 + (1 - F_0)(1 - \cos(\theta))^5$
 
 This is why water appears more reflective when viewed at shallow angles!
 
