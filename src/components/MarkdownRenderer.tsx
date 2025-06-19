@@ -68,6 +68,13 @@ export default function MarkdownRenderer({
       // Only render the content, not the frontmatter
       const contentWithoutFrontmatter = contentString.replace(/^---[\s\S]*?---/, '').trim();
       
+      // Debug: Log the actual content being processed
+      if (contentWithoutFrontmatter.includes('Matrix') || contentWithoutFrontmatter.includes('mathematics')) {
+        console.log('Raw content sample:', contentWithoutFrontmatter.substring(0, 1000));
+        console.log('Content contains $$:', contentWithoutFrontmatter.includes('$$'));
+        console.log('Content contains single $:', contentWithoutFrontmatter.includes('$') && !contentWithoutFrontmatter.includes('$$'));
+      }
+      
       // Replace custom component tags with placeholders
       let processedContent = contentWithoutFrontmatter;
       const componentMatches = (contentWithoutFrontmatter.match(/<(\w+)([^>]*)>/g) || []) as string[];
