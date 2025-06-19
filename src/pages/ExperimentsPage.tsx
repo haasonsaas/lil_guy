@@ -691,6 +691,41 @@ export default function ExperimentsPage() {
                   </Button>
                 </Card>
               </motion.div>
+
+              {/* HDR Holographic Foil */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <Card className="p-6 h-full bg-gradient-to-br from-violet-500/5 to-pink-500/5 border-violet-500/20">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-12 h-12 bg-violet-500/10 rounded-lg flex items-center justify-center">
+                      <RefreshCw className="h-6 w-6 text-violet-500" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold">HDR Holographic Foil</h3>
+                      <p className="text-sm text-muted-foreground">True HDR effects</p>
+                    </div>
+                  </div>
+                  <p className="text-muted-foreground mb-4 text-sm">
+                    Experience true HDR colors that exceed standard RGB range on compatible displays. 
+                    Interactive holographic surface with mouse-driven lighting and 3D transforms.
+                  </p>
+                  <div className="flex flex-wrap gap-1 mb-4">
+                    <Badge variant="secondary" className="text-xs">HDR Colors</Badge>
+                    <Badge variant="secondary" className="text-xs">Interactive</Badge>
+                    <Badge variant="secondary" className="text-xs">Mac Optimized</Badge>
+                  </div>
+                  <Button asChild className="gap-2 w-full" size="sm">
+                    <a href="/experiments/hdr-holographic-foil">
+                      <RefreshCw className="h-4 w-4" />
+                      Experience HDR
+                      <ExternalLink className="h-3 w-3" />
+                    </a>
+                  </Button>
+                </Card>
+              </motion.div>
             </div>
           </div>
 
