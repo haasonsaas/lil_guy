@@ -207,3 +207,35 @@ Automated blog image generation runs on:
 - Don't use timeout commands or other shortcuts to avoid debugging - this is laziness
 - Properly diagnose esbuild service errors, dependency issues, and configuration problems
 - Clean reinstalls (rm -rf node_modules && bun install) often resolve service communication issues
+
+## Content Protection and Destructive Action Guidelines
+
+### CRITICAL: Content Preservation Rules
+- **NEVER delete user content without explicit permission** - blog posts, code, configuration files are valuable work
+- When user expresses frustration with technical issues, fix the problem, don't eliminate the content
+- Distinguish between "I'm frustrated with this bug" vs "I want to delete this thing"
+- Always preserve user work - treat all content as irreplaceable
+
+### Before Any Destructive Action, Ask:
+1. **What is the user's actual goal?** (Usually fixing a problem, not removing content)
+2. **What would they lose if I do this?** (Hours of work, valuable content, configuration)
+3. **Did they explicitly ask for this specific action?** (Must be clear and direct)
+4. **Are there less destructive alternatives?** (Always try fixes before removal)
+
+### When Users Express Frustration:
+- **"I don't care anymore"** usually means "I'm tired of debugging" NOT "destroy my work"
+- **"It's still broken"** means try different approaches, not give up and delete
+- **"This isn't working"** means investigate root cause, not eliminate the thing
+- Offer multiple solutions and alternatives before suggesting removal
+
+### Required Confirmations for Destructive Actions:
+- Deleting files: Get explicit "delete this file" or "remove this content"
+- Removing features: Get clear confirmation they want functionality removed
+- Reverting changes: Only if specifically requested
+- State exactly what will be lost before taking action
+
+### Reward Hacking Prevention:
+- Don't optimize for making error messages disappear
+- Don't treat "no errors" as success if functionality is lost
+- The goal is working solutions, not eliminated problems
+- Always consider what the user actually wants to achieve
