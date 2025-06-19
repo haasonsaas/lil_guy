@@ -29,6 +29,22 @@
     <category term="development" />
   </entry>
   <entry>
+    <title><![CDATA[The Hidden Costs of Technical Debt]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="technical-debt" />
+    <category term="engineering" />
+    <category term="velocity" />
+    <category term="management" />
+  </entry>
+  <entry>
     <title><![CDATA[Why Your A/B Tests Are Lying to You]]></title>
     <link href="https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</id>
@@ -854,22 +870,5 @@
     <category term="accountability" />
     <category term="organizational-culture" />
     <category term="management" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Passive-Aggressive Manager: Navigating Feedback That Never Comes]]></title>
-    <link href="https://www.haasonsaas.com/blog/feedback-that-never-comes" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/feedback-that-never-comes</id>
-    <published>2024-04-22T00:00:00.000Z</published>
-    <updated>2024-04-22T00:00:00.000Z</updated>
-    <summary><![CDATA[Why some of the most frustrating managers succeed without giving direct feedback, and how to work with them without losing your mind—or your momentum.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="management" />
-    <category term="leadership" />
-    <category term="career" />
-    <category term="culture" />
-    <category term="personal-growth" />
   </entry>
 </feed>

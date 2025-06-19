@@ -14,6 +14,7 @@ import SoundCloudEmbed from './SoundCloudEmbed';
 import UnitEconomicsCalculator from './UnitEconomicsCalculator';
 import ABTestSimulator from './ABTestSimulator';
 import TechnicalDebtSimulator from './TechnicalDebtSimulator';
+import PricingPsychologySimulator from './PricingPsychologySimulator';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -44,7 +45,8 @@ const components = {
   'soundcloud': SoundCloudEmbed,
   'unit-economics-calculator': UnitEconomicsCalculator,
   'ab-test-simulator': ABTestSimulator,
-  'technical-debt-simulator': TechnicalDebtSimulator
+  'technical-debt-simulator': TechnicalDebtSimulator,
+  'pricing-psychology-simulator': PricingPsychologySimulator
 };
 
 interface MarkdownRendererProps {

@@ -30,6 +30,17 @@
       <category><![CDATA[development]]></category>
     </item>
     <item>
+      <title><![CDATA[The Hidden Costs of Technical Debt]]></title>
+      <description><![CDATA[Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[technical-debt]]></category>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[velocity]]></category>
+      <category><![CDATA[management]]></category>
+    </item>
+    <item>
       <title><![CDATA[Why Your A/B Tests Are Lying to You]]></title>
       <description><![CDATA[Statistical significance doesn't mean what you think it means. Here's why 95% of A/B tests are misleading and what to track instead.]]></description>
       <link>https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</link>
@@ -615,18 +626,6 @@
       <category><![CDATA[accountability]]></category>
       <category><![CDATA[organizational-culture]]></category>
       <category><![CDATA[management]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Passive-Aggressive Manager: Navigating Feedback That Never Comes]]></title>
-      <description><![CDATA[Why some of the most frustrating managers succeed without giving direct feedback, and how to work with them without losing your mind—or your momentum.]]></description>
-      <link>https://www.haasonsaas.com/blog/feedback-that-never-comes</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/feedback-that-never-comes</guid>
-      <pubDate>Mon, 22 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[management]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[career]]></category>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[personal-growth]]></category>
     </item>
   </channel>
 </rss>
