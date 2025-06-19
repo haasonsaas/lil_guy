@@ -30,6 +30,30 @@
       <category><![CDATA[development]]></category>
     </item>
     <item>
+      <title><![CDATA[The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic]]></title>
+      <description><![CDATA[Exploring the mathematical foundations that power modern graphics programming, from transformation matrices to lighting equations]]></description>
+      <link>https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[mathematics]]></category>
+      <category><![CDATA[graphics]]></category>
+      <category><![CDATA[linear-algebra]]></category>
+      <category><![CDATA[shaders]]></category>
+      <category><![CDATA[webgl]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
+      <description><![CDATA[How I built 5 immersive WebGL experiments showcasing real-time graphics, physics simulations, and algorithmic creativity]]></description>
+      <link>https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[webgl]]></category>
+      <category><![CDATA[javascript]]></category>
+      <category><![CDATA[graphics]]></category>
+      <category><![CDATA[experiments]]></category>
+      <category><![CDATA[creative-coding]]></category>
+    </item>
+    <item>
       <title><![CDATA[Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)]]></title>
       <description><![CDATA[Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you think.]]></description>
       <link>https://www.haasonsaas.com/blog/coding-model-ui</link>
@@ -604,29 +628,6 @@
       <category><![CDATA[leadership]]></category>
       <category><![CDATA[management]]></category>
       <category><![CDATA[culture]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Performance Reviews: A Guide for Modern Leaders]]></title>
-      <description><![CDATA[How to conduct effective performance reviews that drive growth and development while maintaining team morale and engagement]]></description>
-      <link>https://www.haasonsaas.com/blog/performance-reviews</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/performance-reviews</guid>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[management]]></category>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[career]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Thinking Frameworks: Tools for Better Decision Making]]></title>
-      <description><![CDATA[A collection of mental models and frameworks for improving decision making in product and business]]></description>
-      <link>https://www.haasonsaas.com/blog/thinking-frameworks</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/thinking-frameworks</guid>
-      <pubDate>Sat, 20 Apr 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[personal-growth]]></category>
     </item>
   </channel>
 </rss>

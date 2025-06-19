@@ -1,36 +1,30 @@
 import { useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
-import { marked } from 'marked';
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkMath from 'remark-math';
+import remarkRehype from 'remark-rehype';
+import rehypeKatex from 'rehype-katex';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
 import DOMPurify from 'dompurify';
-import hljs from 'highlight.js';
+import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/atom-one-dark.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
-import { markedHighlight } from 'marked-highlight';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
-// Configure marked globally
-marked.use(markedHighlight({
-  langPrefix: 'hljs language-',
-  highlight(code, lang) {
-    try {
-      if (lang && hljs.getLanguage(lang)) {
-        return hljs.highlight(code, { language: lang }).value;
-      }
-      return hljs.highlightAuto(code).value;
-    } catch (e) {
-      console.error('Highlight error:', e);
-      return code;
-    }
-  }
-}));
-
-marked.setOptions({
-  breaks: true,
-  gfm: true,
-  mangle: false,
-  headerIds: false
-});
+// Configure unified processor for markdown with math support
+const processor = unified()
+  .use(remarkParse)
+  .use(remarkMath)
+  .use(remarkRehype, { allowDangerousHtml: true })
+  .use(rehypeKatex)
+  .use(rehypeHighlight, {
+    detect: true,
+    ignoreMissing: true
+  })
+  .use(rehypeStringify, { allowDangerousHtml: true });
 
 // Component registry
 const components = {
@@ -54,17 +48,9 @@ export default function MarkdownRenderer({
   // Add lazy loading for images
   useLazyImageEnhancement(contentRef);
   
-  useEffect(() => {
-    // Apply syntax highlighting to any code blocks
-    if (contentRef.current) {
-      const codeBlocks = contentRef.current.querySelectorAll('pre code');
-      codeBlocks.forEach(block => {
-        hljs.highlightElement(block as HTMLElement);
-      });
-    }
-  }, [content]);
+  // No longer need manual highlight.js application since rehype-highlight handles it
   
-  // Safely parse markdown to HTML
+  // Safely parse markdown to HTML with math support
   const createMarkup = () => {
     try {
       if (!content) {
@@ -96,10 +82,13 @@ export default function MarkdownRenderer({
         }
       });
       
-      const rawMarkup = marked.parse(processedContent);
+      // Process markdown with math support
+      const result = processor.processSync(processedContent);
+      const rawMarkup = String(result);
+      
       const cleanHtml = DOMPurify.sanitize(rawMarkup, {
-        ADD_ATTR: ['target', 'rel', 'data-component', 'data-props'],
-        ADD_TAGS: ['iframe', 'div']
+        ADD_ATTR: ['target', 'rel', 'data-component', 'data-props', 'class', 'style', 'xmlns'],
+        ADD_TAGS: ['iframe', 'div', 'span', 'annotation', 'semantics', 'mtext', 'mn', 'mo', 'mrow', 'msup', 'msub', 'mfrac', 'mfenced', 'mtable', 'mtr', 'mtd']
       });
       return { __html: cleanHtml };
     } catch (error) {

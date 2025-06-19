@@ -29,6 +29,40 @@
     <category term="development" />
   </entry>
   <entry>
+    <title><![CDATA[The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[Exploring the mathematical foundations that power modern graphics programming, from transformation matrices to lighting equations]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="mathematics" />
+    <category term="graphics" />
+    <category term="linear-algebra" />
+    <category term="shaders" />
+    <category term="webgl" />
+  </entry>
+  <entry>
+    <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
+    <link href="https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[How I built 5 immersive WebGL experiments showcasing real-time graphics, physics simulations, and algorithmic creativity]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="webgl" />
+    <category term="javascript" />
+    <category term="graphics" />
+    <category term="experiments" />
+    <category term="creative-coding" />
+  </entry>
+  <entry>
     <title><![CDATA[Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)]]></title>
     <link href="https://www.haasonsaas.com/blog/coding-model-ui" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/coding-model-ui</id>
@@ -838,38 +872,5 @@
     <category term="leadership" />
     <category term="management" />
     <category term="culture" />
-  </entry>
-  <entry>
-    <title><![CDATA[Performance Reviews: A Guide for Modern Leaders]]></title>
-    <link href="https://www.haasonsaas.com/blog/performance-reviews" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/performance-reviews</id>
-    <published>2024-04-20T00:00:00.000Z</published>
-    <updated>2024-04-20T00:00:00.000Z</updated>
-    <summary><![CDATA[How to conduct effective performance reviews that drive growth and development while maintaining team morale and engagement]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="leadership" />
-    <category term="productivity" />
-    <category term="management" />
-    <category term="culture" />
-    <category term="career" />
-  </entry>
-  <entry>
-    <title><![CDATA[Thinking Frameworks: Tools for Better Decision Making]]></title>
-    <link href="https://www.haasonsaas.com/blog/thinking-frameworks" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/thinking-frameworks</id>
-    <published>2024-04-20T00:00:00.000Z</published>
-    <updated>2024-04-20T00:00:00.000Z</updated>
-    <summary><![CDATA[A collection of mental models and frameworks for improving decision making in product and business]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="product" />
-    <category term="strategy" />
-    <category term="leadership" />
-    <category term="personal-growth" />
   </entry>
 </feed>
