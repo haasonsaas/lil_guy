@@ -78,20 +78,33 @@
     <category term="webgl" />
   </entry>
   <entry>
-    <title><![CDATA[The Unit Economics That Actually Matter]]></title>
+    <title><![CDATA[the unit economics that actually matter]]></title>
     <link href="https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></summary>
+    <summary><![CDATA[No description provided]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
+    
+  </entry>
+  <entry>
+    <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
+    <link href="https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="pricing" />
+    <category term="psychology" />
     <category term="saas" />
-    <category term="metrics" />
-    <category term="unit-economics" />
-    <category term="growth" />
+    <category term="conversion" />
   </entry>
   <entry>
     <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
@@ -853,22 +866,5 @@
     <category term="strategy" />
     <category term="systems-thinking" />
     <category term="user-experience" />
-  </entry>
-  <entry>
-    <title><![CDATA[When the Ask Feels Awkward, It’s Already Too Late]]></title>
-    <link href="https://www.haasonsaas.com/blog/when-the-ask-feels-awkward" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/when-the-ask-feels-awkward</id>
-    <published>2024-05-04T00:00:00.000Z</published>
-    <updated>2024-05-04T00:00:00.000Z</updated>
-    <summary><![CDATA[If you're hesitating to ask someone to do their job—or just doing it yourself to avoid conflict—it’s not a performance problem. It’s a role problem. Here's why discomfort delegating is the clearest signal a team reset is overdue.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="leadership" />
-    <category term="team-dynamics" />
-    <category term="accountability" />
-    <category term="organizational-culture" />
-    <category term="management" />
   </entry>
 </feed>

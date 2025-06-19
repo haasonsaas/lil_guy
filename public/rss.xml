@@ -64,15 +64,15 @@
       <category><![CDATA[webgl]]></category>
     </item>
     <item>
-      <title><![CDATA[The Unit Economics That Actually Matter]]></title>
-      <description><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</guid>
+      <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
+      <description><![CDATA[The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value.]]></description>
+      <link>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[pricing]]></category>
+      <category><![CDATA[psychology]]></category>
       <category><![CDATA[saas]]></category>
-      <category><![CDATA[metrics]]></category>
-      <category><![CDATA[unit-economics]]></category>
-      <category><![CDATA[growth]]></category>
+      <category><![CDATA[conversion]]></category>
     </item>
     <item>
       <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
