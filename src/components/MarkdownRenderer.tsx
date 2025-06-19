@@ -11,6 +11,8 @@ import DOMPurify from 'dompurify';
 import 'katex/dist/katex.min.css';
 import 'highlight.js/styles/atom-one-dark.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
+import UnitEconomicsCalculator from './UnitEconomicsCalculator';
+import ABTestSimulator from './ABTestSimulator';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -38,7 +40,9 @@ const processor = unified()
 
 // Component registry
 const components = {
-  'soundcloud': SoundCloudEmbed
+  'soundcloud': SoundCloudEmbed,
+  'unit-economics-calculator': UnitEconomicsCalculator,
+  'ab-test-simulator': ABTestSimulator
 };
 
 interface MarkdownRendererProps {

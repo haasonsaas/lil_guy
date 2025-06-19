@@ -146,6 +146,7 @@ bun run publish "post title" -c -p  # -c commits, -p pushes to trigger deploymen
 - **Bookmark/Favorites**: Local storage favorites system (not implemented)
 - **Modern Image Formats**: WebP/AVIF conversion (lazy loading exists, format optimization missing)
 - **Core Web Vitals**: Performance monitoring beyond basic analytics (partially implemented)
+- **Interactive Demos**: Embedded React components for calculators, simulators, and visualizations (not implemented)
 
 ## Important Conventions
 
@@ -172,6 +173,30 @@ Automated blog image generation runs on:
 - Manual execution (`bun run generate-blog-images`)
 - Generates 3 sizes for different social media platforms
 - Uses SVG templates converted to PNG with Sharp
+
+### Interactive Components & Demos
+When creating blog posts, consider adding **interactive demos** to enhance engagement:
+
+**Types of Interactive Demos to Create:**
+- **SaaS Metrics Calculators**: Unit economics, LTV/CAC, growth projections
+- **Technical Visualizations**: Algorithm demos, performance comparisons, architectural diagrams
+- **Business Simulations**: Pricing strategy, A/B testing results, market scenarios
+- **Product Demos**: Feature workflows, user experience flows, decision trees
+
+**Implementation Guidelines:**
+- Create React components in `src/components/` following existing patterns
+- Register new components in `MarkdownRenderer.tsx` component registry
+- Embed using custom tags: `<component-name prop="value" />`
+- Keep demos focused and lightweight (avoid complex state management)
+- Ensure demos work across devices and are accessible
+- Include fallback text for non-JS environments
+
+**Best Practices:**
+- Match demos to post content (unit economics post = calculator demo)
+- Use interactive elements that directly illustrate the concepts being discussed
+- Provide clear value - demos should enhance understanding, not just be flashy
+- Consider mobile responsiveness and touch interactions
+- Add loading states and error handling
 
 ## Developer Experience Features
 
