@@ -27,39 +27,55 @@ Having just built [five interactive WebGL experiments](/experiments), I've been 
 In 3D graphics, everything starts with vectors. A vector represents both direction and magnitude, and we use them for positions, velocities, normals, and more.
 
 A 3D vector is simply:
-$$\vec{v} = \begin{pmatrix} x \\ y \\ z \end{pmatrix}$$
+```
+v = [x, y, z]
+```
 
 But vectors become powerful when we perform operations on them:
 
 **Dot Product** - measures how aligned two vectors are:
-$$\vec{a} \cdot \vec{b} = a_x b_x + a_y b_y + a_z b_z = |\vec{a}||\vec{b}|\cos\theta$$
+```
+a · b = (a.x × b.x) + (a.y × b.y) + (a.z × b.z) = |a| × |b| × cos(θ)
+```
 
 **Cross Product** - finds a vector perpendicular to two others:
-$$\vec{a} \times \vec{b} = \begin{pmatrix} a_y b_z - a_z b_y \\ a_z b_x - a_x b_z \\ a_x b_y - a_y b_x \end{pmatrix}$$
+```
+a × b = [
+  (a.y × b.z) - (a.z × b.y),
+  (a.z × b.x) - (a.x × b.z),
+  (a.x × b.y) - (a.y × b.x)
+]
+```
 
 ### Matrix Transformations: Moving Through Space
 
 Matrices are the workhorses of 3D graphics. A 4×4 matrix can encode translation, rotation, and scaling in a single operation:
 
-$$M = \begin{pmatrix} 
-r_{11} & r_{12} & r_{13} & t_x \\
-r_{21} & r_{22} & r_{23} & t_y \\
-r_{31} & r_{32} & r_{33} & t_z \\
-0 & 0 & 0 & 1
-\end{pmatrix}$$
+```
+M = [
+  [r11, r12, r13, tx],
+  [r21, r22, r23, ty],
+  [r31, r32, r33, tz],
+  [ 0,   0,   0,  1]
+]
+```
 
 Where the upper-left 3×3 submatrix handles rotation and scaling, and the rightmost column handles translation.
 
 **Rotation around the Y-axis:**
-$$R_y(\theta) = \begin{pmatrix}
-\cos\theta & 0 & \sin\theta & 0 \\
-0 & 1 & 0 & 0 \\
--\sin\theta & 0 & \cos\theta & 0 \\
-0 & 0 & 0 & 1
-\end{pmatrix}$$
+```
+Ry(θ) = [
+  [ cos(θ),  0,  sin(θ),  0],
+  [      0,  1,       0,  0],
+  [-sin(θ),  0,  cos(θ),  0],
+  [      0,  0,       0,  1]
+]
+```
 
 The beauty of matrices is composition - multiple transformations combine into a single matrix multiplication:
-$$M_{final} = M_{projection} \cdot M_{view} \cdot M_{model}$$
+```
+M_final = M_projection × M_view × M_model
+```
 
 ## Projection: From 3D to 2D
 
@@ -68,25 +84,31 @@ $$M_{final} = M_{projection} \cdot M_{view} \cdot M_{model}$$
 The most crucial transformation in 3D graphics is perspective projection, which creates the illusion of depth by making distant objects appear smaller.
 
 The perspective projection matrix is:
-$$P = \begin{pmatrix}
-\frac{1}{a \cdot \tan(\frac{fov}{2})} & 0 & 0 & 0 \\
-0 & \frac{1}{\tan(\frac{fov}{2})} & 0 & 0 \\
-0 & 0 & \frac{f+n}{n-f} & \frac{2fn}{n-f} \\
-0 & 0 & -1 & 0
-\end{pmatrix}$$
+```
+P = [
+  [1/(a × tan(fov/2)),  0,                 0,           0        ],
+  [0,                   1/tan(fov/2),      0,           0        ],
+  [0,                   0,                 (f+n)/(n-f), 2fn/(n-f)],
+  [0,                   0,                 -1,          0        ]
+]
+```
 
 Where:
-- $fov$ is the field of view angle
-- $a$ is the aspect ratio (width/height)
-- $n$ and $f$ are the near and far clipping planes
+- `fov` is the field of view angle
+- `a` is the aspect ratio (width/height)
+- `n` and `f` are the near and far clipping planes
 
 ### Homogeneous Coordinates
 
-We use 4D homogeneous coordinates to handle perspective division elegantly. A 3D point $(x, y, z)$ becomes $(x, y, z, 1)$, and after projection, we divide by the $w$ component:
+We use 4D homogeneous coordinates to handle perspective division elegantly. A 3D point (x, y, z) becomes (x, y, z, 1), and after projection, we divide by the w component:
 
-$$\begin{pmatrix} x' \\ y' \\ z' \end{pmatrix} = \begin{pmatrix} x/w \\ y/w \\ z/w \end{pmatrix}$$
+```
+[x']   [x/w]
+[y'] = [y/w]
+[z']   [z/w]
+```
 
-This division by $w$ is what creates the perspective effect - objects further away have larger $w$ values, making them appear smaller after division.
+This division by w is what creates the perspective effect - objects further away have larger w values, making them appear smaller after division.
 
 ## Lighting: The Physics of Illumination
 
@@ -94,36 +116,48 @@ This division by $w$ is what creates the perspective effect - objects further aw
 
 Real-time lighting is based on simplified physics models. The Phong reflection model breaks light into three components:
 
-$$I = I_a + I_d + I_s$$
+```
+I = I_ambient + I_diffuse + I_specular
+```
 
 **Ambient lighting** provides uniform base illumination:
-$$I_a = k_a \cdot I_{ambient}$$
+```
+I_ambient = k_ambient × I_ambient_light
+```
 
 **Diffuse reflection** follows Lambert's cosine law:
-$$I_d = k_d \cdot I_{light} \cdot \max(0, \vec{N} \cdot \vec{L})$$
+```
+I_diffuse = k_diffuse × I_light × max(0, N · L)
+```
 
 **Specular reflection** creates shiny highlights:
-$$I_s = k_s \cdot I_{light} \cdot \max(0, \vec{R} \cdot \vec{V})^{shininess}$$
+```
+I_specular = k_specular × I_light × max(0, R · V)^shininess
+```
 
 Where:
-- $\vec{N}$ is the surface normal
-- $\vec{L}$ is the light direction
-- $\vec{R}$ is the reflection vector: $\vec{R} = 2(\vec{N} \cdot \vec{L})\vec{N} - \vec{L}$
-- $\vec{V}$ is the view direction
+- N is the surface normal vector
+- L is the light direction vector
+- R is the reflection vector: `R = 2(N · L)N - L`
+- V is the view direction vector
 
 ### Physically Based Rendering (PBR)
 
 Modern graphics use more sophisticated models like the Cook-Torrance BRDF (Bidirectional Reflectance Distribution Function):
 
-$$f_r = \frac{DFG}{4(\vec{N} \cdot \vec{L})(\vec{N} \cdot \vec{V})}$$
+```
+f_r = DFG / (4 × (N · L) × (N · V))
+```
 
 Where:
-- $D$ is the normal distribution function (how microfacets are oriented)
-- $F$ is the Fresnel reflectance (how reflectivity changes with angle)
-- $G$ is the geometry function (shadowing and masking)
+- D is the normal distribution function (how microfacets are oriented)
+- F is the Fresnel reflectance (how reflectivity changes with angle)
+- G is the geometry function (shadowing and masking)
 
 The **Fresnel equations** describe how reflection varies with viewing angle:
-$$F(\theta) = F_0 + (1 - F_0)(1 - \cos\theta)^5$$
+```
+F(θ) = F_0 + (1 - F_0)(1 - cos(θ))^5
+```
 
 This is why water appears more reflective when viewed at shallow angles!
 
@@ -136,21 +170,27 @@ In my [ray marching experiment](/ray-marching), I implemented a technique that r
 The core concept is the Signed Distance Function (SDF), which returns the shortest distance from any point to a surface:
 
 **Sphere SDF:**
-$$d_{sphere}(p) = |p - center| - radius$$
+```
+d_sphere(p) = |p - center| - radius
+```
 
 **Box SDF:**
-$$d_{box}(p) = \max(|p_x| - size_x, |p_y| - size_y, |p_z| - size_z)$$
+```
+d_box(p) = max(|p.x| - size.x, |p.y| - size.y, |p.z| - size.z)
+```
 
 ### Boolean Operations
 
 SDFs can be combined using simple mathematical operations:
 
-**Union:** $d_{union} = \min(d_1, d_2)$
-**Intersection:** $d_{intersection} = \max(d_1, d_2)$
-**Subtraction:** $d_{subtraction} = \max(d_1, -d_2)$
+**Union:** `d_union = min(d1, d2)`
+**Intersection:** `d_intersection = max(d1, d2)`
+**Subtraction:** `d_subtraction = max(d1, -d2)`
 
 **Smooth blending** creates organic transitions:
-$$d_{smooth} = d_1 + d_2 - \sqrt{d_1^2 + d_2^2 + 2kd_1d_2}$$
+```
+d_smooth = d1 + d2 - sqrt(d1² + d2² + 2k×d1×d2)
+```
 
 ### The Ray Marching Algorithm
 
@@ -182,9 +222,11 @@ The beauty is that the SDF guarantees we can step by its value without overshoot
 
 The Mandelbrot set demonstrates how simple mathematics can create infinite complexity:
 
-$$z_{n+1} = z_n^2 + c$$
+```
+z(n+1) = z(n)² + c
+```
 
-In a fragment shader, each pixel represents a complex number $c$, and we iterate to see if the sequence diverges:
+In a fragment shader, each pixel represents a complex number c, and we iterate to see if the sequence diverges:
 
 ```glsl
 vec2 mandelbrot(vec2 c) {
@@ -228,18 +270,24 @@ This creates infinite detail at any zoom level - pure mathematics manifesting as
 
 Perlin noise generates natural-looking randomness using smooth interpolation:
 
-$$noise(x) = interpolate(random(floor(x)), random(floor(x) + 1), smooth(frac(x)))$$
+```
+noise(x) = interpolate(random(floor(x)), random(floor(x) + 1), smooth(frac(x)))
+```
 
 The smoothing function uses a quintic polynomial:
-$$smooth(t) = 6t^5 - 15t^4 + 10t^3$$
+```
+smooth(t) = 6t⁵ - 15t⁴ + 10t³
+```
 
 ### Fractal Brownian Motion
 
 Combining multiple octaves of noise creates natural textures:
 
-$$fbm(x) = \sum_{i=0}^{octaves} amplitude_i \cdot noise(frequency_i \cdot x)$$
+```
+fbm(x) = Σ(i=0 to octaves) amplitude_i × noise(frequency_i × x)
+```
 
-Where $amplitude_i = 0.5^i$ and $frequency_i = 2^i$.
+Where `amplitude_i = 0.5^i` and `frequency_i = 2^i`.
 
 This mathematical principle powers everything from terrain generation to cloud simulation!
 
@@ -247,15 +295,21 @@ This mathematical principle powers everything from terrain generation to cloud s
 
 While Euler angles suffer from gimbal lock, quaternions provide smooth, stable rotations:
 
-$$q = w + xi + yj + zk$$
+```
+q = w + xi + yj + zk
+```
 
-Where $i^2 = j^2 = k^2 = ijk = -1$.
+Where `i² = j² = k² = ijk = -1`.
 
-**Rotating a vector** $\vec{v}$ by quaternion $q$:
-$$\vec{v}' = q \vec{v} q^{-1}$$
+**Rotating a vector** v by quaternion q:
+```
+v' = q × v × q⁻¹
+```
 
 **Spherical linear interpolation (SLERP)** between quaternions:
-$$slerp(q_1, q_2, t) = \frac{\sin((1-t)\theta)}{\sin\theta}q_1 + \frac{\sin(t\theta)}{\sin\theta}q_2$$
+```
+slerp(q1, q2, t) = (sin((1-t)θ) / sin(θ)) × q1 + (sin(tθ) / sin(θ)) × q2
+```
 
 This creates the smoothest possible rotation between two orientations.
 
@@ -265,7 +319,9 @@ This creates the smoothest possible rotation between two orientations.
 
 In my [audio visualizer](/audio-visualizer), the Fast Fourier Transform decomposes audio signals:
 
-$$X(k) = \sum_{n=0}^{N-1} x(n) e^{-i2\pi kn/N}$$
+```
+X(k) = Σ(n=0 to N-1) x(n) × e^(-i2πkn/N)
+```
 
 This reveals frequency components that drive the 3D visualization, turning sound waves into geometric motion.
 
@@ -273,10 +329,14 @@ This reveals frequency components that drive the 3D visualization, turning sound
 
 The [gravitational simulation](/n-body) implements Newton's law of universal gravitation:
 
-$$\vec{F} = G \frac{m_1 m_2}{r^2} \hat{r}$$
+```
+F = G × (m1 × m2) / r² × r̂
+```
 
 Combined with Verlet integration for stable numerical solutions:
-$$x_{n+1} = 2x_n - x_{n-1} + a_n \Delta t^2$$
+```
+x(n+1) = 2x(n) - x(n-1) + a(n) × Δt²
+```
 
 ### Cellular Automata
 
@@ -294,20 +354,26 @@ The mathematics of cellular automata connects to chaos theory, complexity scienc
 
 We can optimize rendering by reducing detail based on distance:
 
-$$LOD = \max(0, \log_2(\frac{distance}{base\_distance}))$$
+```
+LOD = max(0, log₂(distance / base_distance))
+```
 
 ### Frustum Culling
 
 Objects outside the viewing frustum are culled using plane equations:
 
-$$plane \cdot point = ax + by + cz + d$$
+```
+plane · point = ax + by + cz + d
+```
 
 If the result is negative, the point is behind the plane.
 
 ### Occlusion Culling
 
 Z-buffer testing prevents overdraw by comparing depths:
-$$depth_{fragment} < depth_{buffer} \rightarrow visible$$
+```
+depth_fragment < depth_buffer → visible
+```
 
 ## The Beauty of Mathematical Graphics
 
@@ -315,19 +381,25 @@ What fascinates me most is how abstract mathematical concepts manifest as visual
 
 ### Golden Ratio in Computer Graphics
 
-Even the golden ratio $\phi = \frac{1 + \sqrt{5}}{2} \approx 1.618$ appears in graphics:
+Even the golden ratio φ = (1 + √5)/2 ≈ 1.618 appears in graphics:
 
-$$\phi = 1 + \frac{1}{\phi}$$
+```
+φ = 1 + 1/φ
+```
 
 This ratio creates pleasing compositions and appears in spiral patterns generated by:
-$$r = a \phi^{\frac{\theta}{90°}}$$
+```
+r = a × φ^(θ/90°)
+```
 
 ### Fibonacci Spirals
 
-The Fibonacci sequence (where $F_n = F_{n-1} + F_{n-2}$) creates beautiful spiral arrangements:
+The Fibonacci sequence (where F_n = F_(n-1) + F_(n-2)) creates beautiful spiral arrangements:
 
-$$\theta_n = n \cdot 137.5°$$
-$$r_n = \sqrt{n}$$
+```
+θ_n = n × 137.5°
+r_n = √n
+```
 
 This is why sunflower seed patterns and pinecone spirals look so natural - they follow mathematical principles!
 
@@ -351,9 +423,11 @@ This mathematical expression runs for every pixel, every frame, creating fluid, 
 
 Modern graphics increasingly use neural networks, which are fundamentally mathematical. Neural radiance fields (NeRFs) represent 3D scenes as continuous functions:
 
-$$F_\Theta: (x, y, z, \theta, \phi) \rightarrow (r, g, b, \sigma)$$
+```
+F_Θ: (x, y, z, θ, φ) → (r, g, b, σ)
+```
 
-Where $\Theta$ represents learned neural network parameters.
+Where Θ represents learned neural network parameters.
 
 ### Quantum Computing Graphics
 
@@ -367,7 +441,7 @@ New techniques use automatic differentiation to optimize entire rendering pipeli
 
 ### Understanding Performance
 
-Knowing the mathematics helps optimize code. Matrix multiplications are expensive ($O(n^3)$ for general matrices), but graphics matrices have special structure we can exploit.
+Knowing the mathematics helps optimize code. Matrix multiplications are expensive (O(n³) for general matrices), but graphics matrices have special structure we can exploit.
 
 ### Debugging Graphics Issues
 
@@ -396,7 +470,7 @@ Some excellent resources for exploring these concepts:
 
 Mathematics isn't just the foundation of computer graphics - it's a creative medium in its own right. Every equation we've explored can be viewed as an artistic expression waiting to be visualized.
 
-From the elegant simplicity of $e^{i\pi} + 1 = 0$ (Euler's identity) to the infinite complexity of fractal geometry, mathematics provides endless inspiration for visual creation.
+From the elegant simplicity of e^(iπ) + 1 = 0 (Euler's identity) to the infinite complexity of fractal geometry, mathematics provides endless inspiration for visual creation.
 
 The next time you see a stunning 3D scene, remember: you're witnessing pure mathematics transformed into art. Every rotation, every reflection of light, every particle system - it's all numbers dancing in perfect harmony.
 
