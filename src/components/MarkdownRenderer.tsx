@@ -101,12 +101,11 @@ export default function MarkdownRenderer({
         rawMarkup = String(result);
         
         // Debug: Check if math content was processed
-        if (processedContent.includes('$$') || processedContent.includes('$')) {
-          console.log('Original content has math:', processedContent.includes('katex') ? 'YES' : 'NO');
+        const hasMathContent = processedContent.includes('$$') || (processedContent.includes('$') && !processedContent.includes('USD'));
+        if (hasMathContent) {
+          console.log('Original content has math:', hasMathContent ? 'YES' : 'NO');
           console.log('Processed HTML has katex class:', rawMarkup.includes('katex') ? 'YES' : 'NO');
-          if (!rawMarkup.includes('katex')) {
-            console.log('Sample processed content:', rawMarkup.substring(0, 500));
-          }
+          console.log('Sample processed HTML with math:', rawMarkup.substring(rawMarkup.indexOf('katex'), rawMarkup.indexOf('katex') + 200));
         }
       } catch (mathError) {
         console.error('Math processing error:', mathError);
@@ -131,6 +130,14 @@ export default function MarkdownRenderer({
           'mlabeledtr', 'mmultiscripts', 'mprescripts'
         ]
       });
+      
+      // Debug: Check if DOMPurify removed KaTeX content
+      if (rawMarkup.includes('katex') && !cleanHtml.includes('katex')) {
+        console.log('DOMPurify removed KaTeX content!');
+        console.log('Before sanitize (katex count):', (rawMarkup.match(/katex/g) || []).length);
+        console.log('After sanitize (katex count):', (cleanHtml.match(/katex/g) || []).length);
+      }
+      
       return { __html: cleanHtml };
     } catch (error) {
       console.error('Error parsing markdown:', error);
