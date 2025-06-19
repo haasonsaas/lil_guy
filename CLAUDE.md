@@ -264,3 +264,100 @@ When creating blog posts, consider adding **interactive demos** to enhance engag
 - Don't treat "no errors" as success if functionality is lost
 - The goal is working solutions, not eliminated problems
 - Always consider what the user actually wants to achieve
+
+## Blog Writing Style Guidelines
+
+When creating or editing blog posts for Jonathan Haas, follow these specific style guidelines based on analysis of existing posts:
+
+### Voice and Tone
+- **Direct and conversational**: Address the reader as "you" throughout
+- **Confident and authoritative**: Make bold statements backed by experience
+- **Slightly irreverent**: Challenge conventional wisdom when appropriate
+- **Practical over theoretical**: Focus on real-world application, not abstract concepts
+- **No-nonsense approach**: Get straight to the point without unnecessary preamble
+
+### Content Structure
+
+#### Introductions
+- Start with a **hook**: Personal anecdote, bold claim, or provocative statement
+- **Problem-first approach**: Identify the pain point before offering solutions
+- **Immediate value proposition**: Tell readers what they'll learn upfront
+- Create **tension**: Set up contrast between common belief and reality
+
+#### Body Content
+- **Short paragraphs**: 2-4 sentences maximum, single-idea focus
+- **Varied sentence rhythm**: Mix short, punchy sentences with longer explanatory ones
+- **Strategic fragments**: Use incomplete sentences for emphasis
+- **Visual breathing room**: Use spacing effectively between ideas
+
+#### Transitions
+- Use **rhetorical questions** to move between sections
+- **Clear section headers**: ## for main sections, ### for subsections
+- **Summary statements**: Wrap up one idea before moving to the next
+- Ensure **logical flow**: Each section builds on the previous one
+
+### Writing Patterns
+
+#### Language Characteristics
+- **Active voice** predominant
+- **Present tense** for immediacy
+- **Contractions** for conversational feel (don't, isn't, you'll)
+- **Imperative mood** for advice ("Start shipping. Start learning.")
+
+#### Examples and Evidence
+- **Concrete scenarios**: "Scenario A vs Scenario B" comparisons
+- **Specific numbers**: Use exact metrics and timeframes
+- **Real-world references**: Draw from actual developer experiences
+- **Physics/science metaphors**: When explaining abstract concepts
+
+#### Code Integration
+- **Context first**: Explain why the code matters before showing it
+- **Minimal examples**: Show just enough code to make the point
+- **Before/after patterns**: "Instead of X, do Y" structure
+- **Practical focus**: Code that readers might actually encounter
+
+### Formatting Preferences
+- **Bold** for emphasis on key phrases and important concepts
+- *Italics* for subtle emphasis or voice modulation
+- Numbered lists for processes or steps
+- Bullet points for characteristics or examples
+- Block quotes for important principles or standout ideas
+
+### Emotional Intelligence
+- **Acknowledge challenges**: Validate reader's frustrations first
+- **Show empathy**: "I've been there" without being condescending
+- **Balance criticism**: Always provide constructive alternatives
+- **Encourage action**: End sections with clear next steps
+
+### Call-to-Action Patterns
+- **Soft CTAs**: "I'd love to hear how you've approached it"
+- **Action-oriented conclusions**: Provide clear next steps
+- **Encourage reflection**: Ask readers to think about their own situation
+- **Community building**: Invite dialogue and shared experiences
+
+### What to Avoid
+- Long, academic paragraphs
+- Excessive jargon without context
+- Theoretical discussions without practical application
+- Hedge words ("maybe", "perhaps", "might consider")
+- Passive voice unless absolutely necessary
+- Over-explaining simple concepts
+- Unnecessary apologies or qualifiers
+
+### Example Opening Pattern
+```
+I've [personal experience that sets up the problem].
+
+[Bold statement that challenges conventional wisdom.]
+
+[What the reader will learn/gain from this post.]
+```
+
+### Example Closing Pattern
+```
+[Summary of key insight]
+
+[Clear action step]
+
+[Soft invitation for engagement]
+```
