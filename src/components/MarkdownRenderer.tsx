@@ -63,6 +63,12 @@ export default function MarkdownRenderer({
       // Only render the content, not the frontmatter
       const contentWithoutFrontmatter = contentString.replace(/^---[\s\S]*?---/, '').trim();
       
+      // Debug: log if we have math content
+      const hasMath = contentWithoutFrontmatter.includes('$$') || contentWithoutFrontmatter.includes('$');
+      if (hasMath) {
+        console.log('Math content detected in markdown');
+      }
+      
       // Replace custom component tags with placeholders
       let processedContent = contentWithoutFrontmatter;
       const componentMatches = (contentWithoutFrontmatter.match(/<(\w+)([^>]*)>/g) || []) as string[];
@@ -86,9 +92,27 @@ export default function MarkdownRenderer({
       const result = processor.processSync(processedContent);
       const rawMarkup = String(result);
       
+      // Debug: log processed output
+      if (hasMath) {
+        console.log('Processed HTML contains KaTeX:', rawMarkup.includes('katex'));
+        console.log('First 500 chars of processed HTML:', rawMarkup.substring(0, 500));
+      }
+      
       const cleanHtml = DOMPurify.sanitize(rawMarkup, {
-        ADD_ATTR: ['target', 'rel', 'data-component', 'data-props', 'class', 'style', 'xmlns'],
-        ADD_TAGS: ['iframe', 'div', 'span', 'annotation', 'semantics', 'mtext', 'mn', 'mo', 'mrow', 'msup', 'msub', 'mfrac', 'mfenced', 'mtable', 'mtr', 'mtd']
+        ADD_ATTR: [
+          'target', 'rel', 'data-component', 'data-props', 'class', 'style', 'xmlns',
+          // KaTeX specific attributes
+          'aria-hidden', 'aria-label', 'role', 'data-lexer', 'data-katex'
+        ],
+        ADD_TAGS: [
+          'iframe', 'div', 'span',
+          // MathML tags
+          'math', 'annotation', 'semantics', 'mtext', 'mn', 'mo', 'mrow', 'msup', 'msub', 
+          'mfrac', 'mfenced', 'mtable', 'mtr', 'mtd', 'msqrt', 'mroot', 'mpadded', 'mphantom',
+          'mspace', 'menclose', 'maligngroup', 'malignmark', 'mlongdiv', 'mscarries',
+          'mscarry', 'msgroup', 'msline', 'msrow', 'mstack', 'munder', 'mover', 'munderover',
+          'mlabeledtr', 'mmultiscripts', 'mprescripts'
+        ]
       });
       return { __html: cleanHtml };
     } catch (error) {
