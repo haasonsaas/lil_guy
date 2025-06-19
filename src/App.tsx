@@ -37,6 +37,7 @@ const GenerativeArtPage = lazy(() => import("./pages/GenerativeArtPage"));
 const DraftsPage = lazy(() => import("./pages/DraftsPage"));
 const OfflinePage = lazy(() => import("./pages/OfflinePage"));
 const HDRHolographicFoilPage = lazy(() => import("./pages/HDRHolographicFoilPage"));
+const LiquidMetalPage = lazy(() => import("./pages/LiquidMetalPage"));
 
 // Loading component
 const PageLoading = () => (
@@ -87,6 +88,7 @@ const App = () => (
                 <Route path="/cellular-automata" element={<CellularAutomataPage />} />
                 <Route path="/generative-art" element={<GenerativeArtPage />} />
                 <Route path="/experiments/hdr-holographic-foil" element={<HDRHolographicFoilPage />} />
+                <Route path="/experiments/liquid-metal" element={<LiquidMetalPage />} />
                 <Route path="/offline" element={<OfflinePage />} />
                 {/* Redirect /admin to the home page */}
                 <Route path="/admin" element={<Navigate to="/" replace />} />
