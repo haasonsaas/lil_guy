@@ -21,11 +21,14 @@ export default function TableOfContents({ contentRef, className }: TableOfConten
           <li key={item.id}>
             <button
               onClick={() => scrollToHeading(item.id)}
+              aria-label={`Jump to section: ${item.text}`}
               className={cn(
-                'block w-full text-left text-sm transition-colors hover:text-foreground',
-                'border-l-2 border-transparent hover:border-border pl-3 py-1',
+                'block w-full text-left text-sm transition-all duration-200',
+                'border-l-2 border-transparent pl-3 py-1',
+                'hover:text-foreground hover:border-primary/50 hover:bg-primary/5',
+                'focus:outline-none focus:ring-2 focus:ring-primary/20 focus:ring-offset-2 rounded-r',
                 {
-                  'text-primary border-primary bg-primary/5': activeId === item.id,
+                  'text-primary border-primary bg-primary/10 font-medium': activeId === item.id,
                   'text-muted-foreground': activeId !== item.id,
                   'pl-3': item.level === 1,
                   'pl-5': item.level === 2,

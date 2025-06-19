@@ -65,7 +65,15 @@ export function useTableOfContents(contentRef: React.RefObject<HTMLElement>) {
   const scrollToHeading = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Get the header height to offset the scroll position
+      const headerOffset = 80; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
     }
   };
 
