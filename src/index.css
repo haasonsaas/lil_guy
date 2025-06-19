@@ -3,6 +3,17 @@
 /* KaTeX CSS for math rendering */
 @import 'katex/dist/katex.min.css';
 
+/* Hide KaTeX error styling */
+.katex-error {
+  color: inherit !important;
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.katex .mord.mathrm {
+  font-family: inherit;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

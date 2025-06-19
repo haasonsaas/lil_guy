@@ -23,7 +23,12 @@ const processor = unified()
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeKatex, {
     throwOnError: false,
-    errorColor: '#cc0000'
+    displayMode: false,
+    output: 'html',
+    strict: 'ignore',
+    trust: false,
+    errorColor: 'transparent',
+    macros: {}
   })
   .use(rehypeHighlight, {
     detect: true,
@@ -68,12 +73,6 @@ export default function MarkdownRenderer({
       // Only render the content, not the frontmatter
       const contentWithoutFrontmatter = contentString.replace(/^---[\s\S]*?---/, '').trim();
       
-      // Debug: Log the actual content being processed
-      if (contentWithoutFrontmatter.includes('Matrix') || contentWithoutFrontmatter.includes('mathematics')) {
-        console.log('Raw content sample:', contentWithoutFrontmatter.substring(0, 1000));
-        console.log('Content contains $$:', contentWithoutFrontmatter.includes('$$'));
-        console.log('Content contains single $:', contentWithoutFrontmatter.includes('$') && !contentWithoutFrontmatter.includes('$$'));
-      }
       
       // Replace custom component tags with placeholders
       let processedContent = contentWithoutFrontmatter;
@@ -100,13 +99,6 @@ export default function MarkdownRenderer({
         const result = processor.processSync(processedContent);
         rawMarkup = String(result);
         
-        // Debug: Check if math content was processed
-        const hasMathContent = processedContent.includes('$$') || (processedContent.includes('$') && !processedContent.includes('USD'));
-        if (hasMathContent) {
-          console.log('Original content has math:', hasMathContent ? 'YES' : 'NO');
-          console.log('Processed HTML has katex class:', rawMarkup.includes('katex') ? 'YES' : 'NO');
-          console.log('Sample processed HTML with math:', rawMarkup.substring(rawMarkup.indexOf('katex'), rawMarkup.indexOf('katex') + 200));
-        }
       } catch (mathError) {
         console.error('Math processing error:', mathError);
         // Fallback to basic processing without math
@@ -114,14 +106,32 @@ export default function MarkdownRenderer({
         rawMarkup = String(result);
       }
       
-      // Temporarily bypass DOMPurify for content with math to test
+      // Configure DOMPurify to properly handle KaTeX elements
       const hasMathInOutput = rawMarkup.includes('katex');
       let cleanHtml: string;
       
       if (hasMathInOutput) {
-        // For math content, skip DOMPurify temporarily to test
-        cleanHtml = rawMarkup;
-        console.log('Bypassing DOMPurify for math content');
+        // Allow all KaTeX-specific elements and attributes
+        cleanHtml = DOMPurify.sanitize(rawMarkup, {
+          ADD_TAGS: [
+            'math', 'semantics', 'mrow', 'msup', 'msub', 'mfrac', 'munder', 'mover', 'munderover',
+            'mtable', 'mtr', 'mtd', 'mi', 'mo', 'mn', 'mtext', 'mspace', 'mpadded', 'mphantom',
+            'mfenced', 'menclose', 'mstyle', 'mlabeledtr', 'annotation', 'annotation-xml'
+          ],
+          ADD_ATTR: [
+            'xmlns', 'class', 'style', 'data-*', 'mathvariant', 'mathsize', 'mathcolor',
+            'mathbackground', 'displaystyle', 'scriptlevel', 'form', 'fence', 'separator',
+            'lspace', 'rspace', 'stretchy', 'symmetric', 'maxsize', 'minsize', 'largeop',
+            'movablelimits', 'accent', 'linebreak', 'lineleading', 'linebreakstyle',
+            'linebreakmultchar', 'indentalign', 'indentshift', 'indenttarget', 'indentalignfirst',
+            'indentshiftfirst', 'indentalignlast', 'indentshiftlast', 'depth', 'height', 'width',
+            'lquote', 'rquote', 'linethickness', 'munalign', 'denomalign', 'bevelled', 'numalign',
+            'align', 'rowalign', 'columnalign', 'columnwidth', 'equalrows', 'equalcolumns',
+            'rowspacing', 'columnspacing', 'rowlines', 'columnlines', 'frame', 'framespacing',
+            'groupalign', 'alignmentscope', 'side', 'rowspan', 'columnspan', 'edge', 'selection',
+            'notation', 'href', 'target', 'rel', 'data-component', 'data-props'
+          ]
+        });
       } else {
         cleanHtml = DOMPurify.sanitize(rawMarkup, {
           ADD_ATTR: ['target', 'rel', 'data-component', 'data-props', 'class', 'style'],
@@ -129,12 +139,6 @@ export default function MarkdownRenderer({
         });
       }
       
-      // Debug: Check if DOMPurify removed KaTeX content
-      if (rawMarkup.includes('katex') && !cleanHtml.includes('katex')) {
-        console.log('DOMPurify removed KaTeX content!');
-        console.log('Before sanitize (katex count):', (rawMarkup.match(/katex/g) || []).length);
-        console.log('After sanitize (katex count):', (cleanHtml.match(/katex/g) || []).length);
-      }
       
       return { __html: cleanHtml };
     } catch (error) {
