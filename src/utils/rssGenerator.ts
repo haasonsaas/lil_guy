@@ -42,7 +42,7 @@ export const generateRSSFeed = async (): Promise<string> => {
     <pubDate>${lastBuildDate}</pubDate>
     <ttl>60</ttl>
     <image>
-      <url>${baseUrl}/generated/1200x630-haas-on-saas.webp</url>
+      <url>${baseUrl}/placeholders/1200x630-haas-on-saas.png</url>
       <title>Haas on SaaS</title>
       <link>${baseUrl}</link>
       <width>144</width>
