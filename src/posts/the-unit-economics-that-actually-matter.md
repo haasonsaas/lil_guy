@@ -51,7 +51,7 @@ This assumes customers churn linearly forever. In reality, churn rates change ov
 
 ### 2. True CAC (Not Blended CAC)
 
-That $200 CAC you calculated? It's probably wrong. Most founders use blended CAC across all channels, which hides the fact that their best channel has a $50 CAC while their worst has a $800 CAC.
+That \$200 CAC you calculated? It's probably wrong. Most founders use blended CAC across all channels, which hides the fact that their best channel has a \$50 CAC while their worst has a \$800 CAC.
 
 **What to track instead:**
 - CAC by acquisition channel
