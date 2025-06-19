@@ -13,6 +13,7 @@ import 'highlight.js/styles/atom-one-dark.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
 import UnitEconomicsCalculator from './UnitEconomicsCalculator';
 import ABTestSimulator from './ABTestSimulator';
+import TechnicalDebtSimulator from './TechnicalDebtSimulator';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -42,7 +43,8 @@ const processor = unified()
 const components = {
   'soundcloud': SoundCloudEmbed,
   'unit-economics-calculator': UnitEconomicsCalculator,
-  'ab-test-simulator': ABTestSimulator
+  'ab-test-simulator': ABTestSimulator,
+  'technical-debt-simulator': TechnicalDebtSimulator
 };
 
 interface MarkdownRendererProps {

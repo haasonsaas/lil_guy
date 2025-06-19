@@ -39,6 +39,9 @@
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
+    <category term="ab-testing" />
+    <category term="statistics" />
+    <category term="data" />
     <category term="product" />
   </entry>
   <entry>
