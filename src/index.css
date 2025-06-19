@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
 
+/* KaTeX CSS for math rendering */
+@import 'katex/dist/katex.min.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
