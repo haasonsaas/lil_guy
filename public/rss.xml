@@ -64,6 +64,17 @@
       <category><![CDATA[webgl]]></category>
     </item>
     <item>
+      <title><![CDATA[When AI Learns to Write Like You: A Meta-Analysis]]></title>
+      <description><![CDATA[What happens when you teach Claude to analyze and replicate your writing style? A meta experiment in AI-assisted content creation.]]></description>
+      <link>https://www.haasonsaas.com/blog/when-ai-learns-to-write-like-you-a-meta-analysis</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-ai-learns-to-write-like-you-a-meta-analysis</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[writing]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[meta]]></category>
+    </item>
+    <item>
       <title><![CDATA[The Unit Economics That Actually Matter]]></title>
       <description><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></description>
       <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
@@ -613,18 +624,6 @@
       <category><![CDATA[product-development]]></category>
       <category><![CDATA[startups]]></category>
       <category><![CDATA[strategy]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Ubiquiti Effect: Why Enterprise Software Needs a Consumer Revolution]]></title>
-      <description><![CDATA[How Ubiquiti's approach to product design offers a blueprint for the future of enterprise software]]></description>
-      <link>https://www.haasonsaas.com/blog/the-ubiquiti-effect</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-ubiquiti-effect</guid>
-      <pubDate>Sat, 23 Nov 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[enterprise-software]]></category>
-      <category><![CDATA[product-development]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[systems-thinking]]></category>
-      <category><![CDATA[user-experience]]></category>
     </item>
   </channel>
 </rss>
