@@ -77,12 +77,18 @@ export function validateFrontmatter(frontmatter: Record<string, unknown>, filena
         message: 'Invalid date',
         suggestion: 'Check that the date is valid (e.g., not February 30)'
       });
-    } else if (date > new Date()) {
-      warnings.push({
-        field: 'pubDate',
-        message: 'Publication date is in the future',
-        suggestion: 'This post will not be visible until the publication date'
-      });
+    } else {
+      // Compare dates only (not time) to avoid timezone issues
+      const today = new Date();
+      today.setHours(23, 59, 59, 999); // End of today
+      
+      if (date > today) {
+        warnings.push({
+          field: 'pubDate',
+          message: 'Publication date is in the future',
+          suggestion: 'This post will not be visible until the publication date'
+        });
+      }
     }
   }
 

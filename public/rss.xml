@@ -64,6 +64,17 @@
       <category><![CDATA[webgl]]></category>
     </item>
     <item>
+      <title><![CDATA[The Unit Economics That Actually Matter]]></title>
+      <description><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[saas]]></category>
+      <category><![CDATA[metrics]]></category>
+      <category><![CDATA[unit-economics]]></category>
+      <category><![CDATA[growth]]></category>
+    </item>
+    <item>
       <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
       <description><![CDATA[The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value.]]></description>
       <link>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</link>
@@ -614,18 +625,6 @@
       <category><![CDATA[strategy]]></category>
       <category><![CDATA[systems-thinking]]></category>
       <category><![CDATA[user-experience]]></category>
-    </item>
-    <item>
-      <title><![CDATA[When the Ask Feels Awkward, It’s Already Too Late]]></title>
-      <description><![CDATA[If you're hesitating to ask someone to do their job—or just doing it yourself to avoid conflict—it’s not a performance problem. It’s a role problem. Here's why discomfort delegating is the clearest signal a team reset is overdue.]]></description>
-      <link>https://www.haasonsaas.com/blog/when-the-ask-feels-awkward</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-the-ask-feels-awkward</guid>
-      <pubDate>Sat, 04 May 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[team-dynamics]]></category>
-      <category><![CDATA[accountability]]></category>
-      <category><![CDATA[organizational-culture]]></category>
-      <category><![CDATA[management]]></category>
     </item>
   </channel>
 </rss>
