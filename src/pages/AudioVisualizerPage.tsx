@@ -197,6 +197,11 @@ export default function AudioVisualizerPage() {
 
       const audioContext = audioContextRef.current;
       
+      // Resume audio context if suspended
+      if (audioContext.state === 'suspended') {
+        await audioContext.resume();
+      }
+      
       // Create analyser
       analyserRef.current = audioContext.createAnalyser();
       analyserRef.current.fftSize = 256;
@@ -210,10 +215,24 @@ export default function AudioVisualizerPage() {
         setIsUsingMic(true);
       } else {
         // Use audio element
-        if (audioElementRef.current && !sourceRef.current) {
-          sourceRef.current = audioContext.createMediaElementSource(audioElementRef.current);
-          sourceRef.current.connect(analyserRef.current);
-          sourceRef.current.connect(audioContext.destination);
+        if (audioElementRef.current) {
+          // Disconnect existing source if any
+          if (sourceRef.current) {
+            sourceRef.current.disconnect();
+          }
+          
+          // Create new source only if needed
+          try {
+            sourceRef.current = audioContext.createMediaElementSource(audioElementRef.current);
+          } catch (e) {
+            // Element might already be connected to another context
+            console.log('Audio element already connected, reusing existing connection');
+          }
+          
+          if (sourceRef.current) {
+            sourceRef.current.connect(analyserRef.current);
+            sourceRef.current.connect(audioContext.destination);
+          }
         }
       }
 
@@ -225,13 +244,16 @@ export default function AudioVisualizerPage() {
   };
 
   // Handle file upload
-  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file && audioElementRef.current) {
       const url = URL.createObjectURL(file);
       audioElementRef.current.src = url;
       audioElementRef.current.load();
-      initAudio(false);
+      const success = await initAudio(false);
+      if (success && !animationRef.current) {
+        render();
+      }
     }
   };
 
@@ -251,6 +273,9 @@ export default function AudioVisualizerPage() {
       const success = await initAudio(true);
       if (success) {
         setIsPlaying(true);
+        if (!animationRef.current) {
+          render();
+        }
       }
     }
   };
@@ -309,6 +334,12 @@ export default function AudioVisualizerPage() {
     const bufferLength = analyser.frequencyBinCount;
     const dataArray = new Uint8Array(bufferLength);
     analyser.getByteFrequencyData(dataArray);
+
+    // Check if we're getting audio data
+    const maxValue = Math.max(...dataArray);
+    if (maxValue === 0 && isPlaying) {
+      console.log('Warning: No audio data detected');
+    }
 
     // Detect beats
     const average = dataArray.reduce((a, b) => a + b) / bufferLength;
@@ -572,13 +603,22 @@ export default function AudioVisualizerPage() {
   };
 
   // Play/pause toggle
-  const togglePlayPause = () => {
+  const togglePlayPause = async () => {
     if (!audioElementRef.current) return;
     
     if (isPlaying) {
       audioElementRef.current.pause();
     } else {
-      audioElementRef.current.play();
+      // Resume audio context if needed
+      if (audioContextRef.current?.state === 'suspended') {
+        await audioContextRef.current.resume();
+      }
+      
+      try {
+        await audioElementRef.current.play();
+      } catch (error) {
+        console.error('Playback error:', error);
+      }
     }
     setIsPlaying(!isPlaying);
   };
