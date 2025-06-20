@@ -20,6 +20,7 @@ import StartupRunwayCalculator from './StartupRunwayCalculator';
 import ProductMarketFitScorer from './ProductMarketFitScorer';
 import TAMSAMSOMCalculator from './TAMSAMSOMCalculator';
 import GrowthStrategySimulator from './GrowthStrategySimulator';
+import HiringCostCalculator from './HiringCostCalculator';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -56,7 +57,8 @@ const components = {
   'startup-runway-calculator': StartupRunwayCalculator,
   'product-market-fit-scorer': ProductMarketFitScorer,
   'tam-sam-som-calculator': TAMSAMSOMCalculator,
-  'growth-strategy-simulator': GrowthStrategySimulator
+  'growth-strategy-simulator': GrowthStrategySimulator,
+  'hiring-cost-calculator': HiringCostCalculator
 };
 
 interface MarkdownRendererProps {
