@@ -10,6 +10,7 @@ import Layout from "@/components/Layout";
 import { WebsiteMeta } from "@/components/SEO/MetaTags";
 import { generateWebsiteStructuredData } from "@/utils/seo/structuredData";
 import StructuredData from "@/components/SEO/StructuredData";
+import { getWebsiteSchema, injectStructuredData } from "@/utils/seoUtils";
 import { 
   ArrowRight, 
   Mail, 
