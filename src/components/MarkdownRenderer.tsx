@@ -22,6 +22,7 @@ import TAMSAMSOMCalculator from './TAMSAMSOMCalculator';
 import GrowthStrategySimulator from './GrowthStrategySimulator';
 import HiringCostCalculator from './HiringCostCalculator';
 import FeaturePrioritizationMatrix from './FeaturePrioritizationMatrix';
+import TechnicalArchitectureVisualizer from './TechnicalArchitectureVisualizer';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -60,7 +61,8 @@ const components = {
   'tam-sam-som-calculator': TAMSAMSOMCalculator,
   'growth-strategy-simulator': GrowthStrategySimulator,
   'hiring-cost-calculator': HiringCostCalculator,
-  'feature-prioritization-matrix': FeaturePrioritizationMatrix
+  'feature-prioritization-matrix': FeaturePrioritizationMatrix,
+  'technical-architecture-visualizer': TechnicalArchitectureVisualizer
 };
 
 interface MarkdownRendererProps {
