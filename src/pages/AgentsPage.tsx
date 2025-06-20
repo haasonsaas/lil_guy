@@ -2,42 +2,43 @@ import Layout from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Code, Bot, Search, Tag, FileText, Database, Zap, Globe, Shield } from "lucide-react";
+import { Code, Bot, Search, Tag, FileText, Database, Zap, Globe, Shield, BookOpen } from "lucide-react";
 import { WebsiteMeta } from "@/components/SEO/MetaTags";
+import AgentOnboarding from "@/components/AgentOnboarding";
 
 export default function AgentsPage() {
   const apiEndpoints = [
     {
       method: "GET",
-      path: "/api/posts",
-      description: "List all blog posts with metadata",
-      params: ["limit", "offset", "tag", "author"],
-      example: "/api/posts?limit=10&tag=react",
-      icon: <FileText className="w-4 h-4" />
-    },
-    {
-      method: "GET", 
-      path: "/api/posts/{slug}",
-      description: "Get individual post with content and metadata",
+      path: "/api/capabilities",
+      description: "Discover all available AI-agent features and capabilities",
       params: [],
-      example: "/api/posts/solving-opengraph-for-spas-the-cloudflare-way",
-      icon: <FileText className="w-4 h-4" />
+      example: "/api/capabilities",
+      icon: <Bot className="w-4 h-4" />
     },
     {
       method: "GET",
       path: "/api/search",
-      description: "Search posts by query or tags",
-      params: ["q", "tags", "limit"],
-      example: "/api/search?q=cloudflare&tags=react&limit=5",
+      description: "Search blog content with relevance scoring and multiple formats",
+      params: ["q", "limit", "format", "content"],
+      example: "/api/search?q=technical+debt&limit=3&format=json",
       icon: <Search className="w-4 h-4" />
     },
     {
       method: "GET",
-      path: "/api/tags",
-      description: "Get all tags with post counts",
-      params: ["posts", "sort", "minCount"],
-      example: "/api/tags?posts=true&sort=count",
-      icon: <Tag className="w-4 h-4" />
+      path: "/api/recommendations",
+      description: "Get personalized content recommendations by role and topic",
+      params: ["role", "topic", "experience", "limit"],
+      example: "/api/recommendations?role=founder&topic=technical-leadership",
+      icon: <Zap className="w-4 h-4" />
+    },
+    {
+      method: "GET",
+      path: "/api/posts",
+      description: "List all blog posts with metadata (legacy endpoint)",
+      params: ["limit", "offset", "tag", "author"],
+      example: "/api/posts?limit=10&tag=startup-funding",
+      icon: <FileText className="w-4 h-4" />
     }
   ];
 
@@ -93,6 +94,22 @@ export default function AgentsPage() {
           </p>
         </div>
 
+        {/* Quick Start Guide */}
+        <Card className="mb-12">
+          <CardHeader>
+            <CardTitle className="flex items-center gap-2">
+              <BookOpen className="w-5 h-5" />
+              Interactive Quick Start
+            </CardTitle>
+            <CardDescription>
+              Learn how to use our AI-agent-friendly APIs with live examples and copy-paste code
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <AgentOnboarding />
+          </CardContent>
+        </Card>
+
         {/* Features */}
         <div className="grid md:grid-cols-2 gap-6 mb-12">
           {features.map((feature, index) => (
@@ -118,7 +135,7 @@ export default function AgentsPage() {
               API Endpoints
             </CardTitle>
             <CardDescription>
-              All endpoints return JSON and support CORS. Base URL: https://haasonsaas.com
+              All endpoints return JSON and support CORS. Base URL: https://jonathanhaas.com
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -152,7 +169,7 @@ export default function AgentsPage() {
                   <div className="bg-muted p-3 rounded font-mono text-sm">
                     <span className="text-muted-foreground">Example: </span>
                     <a 
-                      href={`https://haasonsaas.com${endpoint.example}`}
+                      href={`https://jonathanhaas.com${endpoint.example}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"
@@ -222,29 +239,21 @@ export default function AgentsPage() {
           <CardContent>
             <pre className="bg-muted p-4 rounded-lg overflow-x-auto text-sm font-mono">
 {`{
-  "slug": "solving-opengraph-for-spas-the-cloudflare-way",
-  "metadata": {
-    "title": "Solving OpenGraph for SPAs: The Cloudflare Way",
-    "description": "How to fix social media previews...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["cloudflare", "react", "spa"]
-  },
-  "content": {
-    "markdown": "# The Problem Nobody Warns You About...",
-    "wordCount": 1250,
-    "readingTimeMinutes": 6
-  },
-  "urls": {
-    "web": "https://haasonsaas.com/blog/...",
-    "api": "https://haasonsaas.com/api/posts/...",
-    "image": "https://haasonsaas.com/generated/..."
-  },
-  "structured_data": {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    ...
-  }
+  "query": "technical debt",
+  "results": [
+    {
+      "title": "The Hidden Costs of Technical Debt",
+      "slug": "the-hidden-costs-of-technical-debt",
+      "description": "Technical debt isn't just messy code...",
+      "url": "https://jonathanhaas.com/posts/...",
+      "tags": ["technical-debt", "engineering", "velocity"],
+      "author": "Jonathan Haas",
+      "pubDate": "2025-06-19",
+      "relevance": 0.95
+    }
+  ],
+  "totalResults": 1,
+  "processingTime": 12
 }`}
             </pre>
           </CardContent>
