@@ -8,9 +8,8 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build && bun run generate-metadata && bun run generate-rss && bun run generate-sitemap && bun run generate-og-pages",
+    "build": "vite build && bun run generate-metadata && bun run generate-rss && bun run generate-sitemap",
     "generate-metadata": "bun run scripts/generate-opengraph-metadata.ts",
-    "generate-og-pages": "bun run scripts/generate-og-pages.ts",
     "build:dev": "vite build --mode development && bun run generate-rss && bun run generate-sitemap",
     "generate-blog-images": "bun run scripts/generateBlogImages.ts",
     "migrate-to-webp": "bun run scripts/migrateToWebP.ts",
