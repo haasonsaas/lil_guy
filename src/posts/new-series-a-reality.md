@@ -76,6 +76,10 @@ This means:
 
 To win, you often have to **outspend** or **outperform** entrenched competitors—and that burns runway faster than most models assume.
 
+**Model different growth strategies and their ROI across channels:**
+
+<growth-strategy-simulator />
+
 ### Operational Maturity Is Expected Early
 
 It's no longer enough to "hustle and figure it out."

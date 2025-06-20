@@ -127,6 +127,10 @@ Spend hours with individual potential customers. Understand their workflows in e
 
 The insights that lead to PMF almost never come from scalable research methods.
 
+**Assess your current position with a systematic PMF evaluation:**
+
+<product-market-fit-scorer />
+
 ### 3. Narrow Your Target Market Ruthlessly
 
 One of the most consistent patterns I've observed: founders who achieve PMF typically do so by focusing on an almost embarrassingly narrow initial market.
