@@ -82,6 +82,19 @@
     <category term="future-of-coding" />
   </entry>
   <entry>
+    <title><![CDATA[building ai agent friendly infrastructure a case study in human ai collaboration]]></title>
+    <link href="https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[No description provided]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    
+  </entry>
+  <entry>
     <title><![CDATA[Testing Draft Preview Feature]]></title>
     <link href="https://www.haasonsaas.com/blog/draft-preview-test" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/draft-preview-test</id>
@@ -848,24 +861,5 @@
     <category term="automation" />
     <category term="mcp-standard" />
     <category term="system-integration" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand]]></title>
-    <link href="https://www.haasonsaas.com/blog/security-vendor-paradox" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/security-vendor-paradox</id>
-    <published>2025-04-13T00:00:00.000Z</published>
-    <updated>2025-04-13T00:00:00.000Z</updated>
-    <summary><![CDATA[An insider's perspective on the growing disconnect between security practitioners and solution providers, and how both sides can better navigate the complex cybersecurity ecosystem]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="cybersecurity" />
-    <category term="vendor-relations" />
-    <category term="CISO" />
-    <category term="security-leadership" />
-    <category term="industry-insights" />
-    <category term="security-operations" />
-    <category term="sales-tactics" />
   </entry>
 </feed>

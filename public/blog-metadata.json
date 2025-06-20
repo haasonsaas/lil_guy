@@ -666,6 +666,15 @@
       "transparency"
     ]
   },
+  "building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration": {
+    "title": "Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration",
+    "description": "How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": [
+      "developer-experience"
+    ]
+  },
   "new-series-a-reality": {
     "title": "The New Series A Reality: Why It Feels Harder (Because It Is)",
     "description": "If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher, and what early-stage founders need to know to survive the new bar.",
