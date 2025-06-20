@@ -94,6 +94,22 @@
     <category term="meta" />
   </entry>
   <entry>
+    <title><![CDATA[Simulating Liquid Metal: Building T-1000 Physics with Web Technologies]]></title>
+    <link href="https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[Deep dive into creating realistic liquid metal fluid dynamics using metaballs, surface tension, and real-time rendering]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="fluid-dynamics" />
+    <category term="webgl" />
+    <category term="physics" />
+    <category term="creative-coding" />
+  </entry>
+  <entry>
     <title><![CDATA[The Unit Economics That Actually Matter]]></title>
     <link href="https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</id>
@@ -124,6 +140,22 @@
     <category term="psychology" />
     <category term="saas" />
     <category term="conversion" />
+  </entry>
+  <entry>
+    <title><![CDATA[Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination]]></title>
+    <link href="https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[How to create true HDR holographic foil effects that push beyond standard RGB limits on modern displays]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="webgl" />
+    <category term="hdr" />
+    <category term="creative-coding" />
+    <category term="experiments" />
   </entry>
   <entry>
     <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
@@ -835,38 +867,5 @@
     <category term="startup" />
     <category term="personal-growth" />
     <category term="leadership" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Product Manager's Secret Superpower: Finding Signal in the Noise]]></title>
-    <link href="https://www.haasonsaas.com/blog/product-manager-skills" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/product-manager-skills</id>
-    <published>2024-11-27T00:00:00.000Z</published>
-    <updated>2024-11-27T00:00:00.000Z</updated>
-    <summary><![CDATA[How great product managers find hidden patterns across seemingly unrelated requirements to build extraordinary products]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="leadership" />
-    <category term="product-development" />
-    <category term="strategy" />
-    <category term="systems-thinking" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Three Types of Startup Advice (And Why They're All Wrong)]]></title>
-    <link href="https://www.haasonsaas.com/blog/startup-advice" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/startup-advice</id>
-    <published>2024-11-25T00:00:00.000Z</published>
-    <updated>2024-11-25T00:00:00.000Z</updated>
-    <summary><![CDATA[Breaking down why most startup advice falls flat, and what to do about it]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="leadership" />
-    <category term="personal-growth" />
-    <category term="product-development" />
-    <category term="startups" />
-    <category term="strategy" />
   </entry>
 </feed>

@@ -75,6 +75,17 @@
       <category><![CDATA[meta]]></category>
     </item>
     <item>
+      <title><![CDATA[Simulating Liquid Metal: Building T-1000 Physics with Web Technologies]]></title>
+      <description><![CDATA[Deep dive into creating realistic liquid metal fluid dynamics using metaballs, surface tension, and real-time rendering]]></description>
+      <link>https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[fluid-dynamics]]></category>
+      <category><![CDATA[webgl]]></category>
+      <category><![CDATA[physics]]></category>
+      <category><![CDATA[creative-coding]]></category>
+    </item>
+    <item>
       <title><![CDATA[The Unit Economics That Actually Matter]]></title>
       <description><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></description>
       <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
@@ -95,6 +106,17 @@
       <category><![CDATA[psychology]]></category>
       <category><![CDATA[saas]]></category>
       <category><![CDATA[conversion]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination]]></title>
+      <description><![CDATA[How to create true HDR holographic foil effects that push beyond standard RGB limits on modern displays]]></description>
+      <link>https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[webgl]]></category>
+      <category><![CDATA[hdr]]></category>
+      <category><![CDATA[creative-coding]]></category>
+      <category><![CDATA[experiments]]></category>
     </item>
     <item>
       <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
@@ -601,29 +623,6 @@
       <category><![CDATA[startup]]></category>
       <category><![CDATA[personal-growth]]></category>
       <category><![CDATA[leadership]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Product Manager's Secret Superpower: Finding Signal in the Noise]]></title>
-      <description><![CDATA[How great product managers find hidden patterns across seemingly unrelated requirements to build extraordinary products]]></description>
-      <link>https://www.haasonsaas.com/blog/product-manager-skills</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/product-manager-skills</guid>
-      <pubDate>Wed, 27 Nov 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[product-development]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[systems-thinking]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Three Types of Startup Advice (And Why They're All Wrong)]]></title>
-      <description><![CDATA[Breaking down why most startup advice falls flat, and what to do about it]]></description>
-      <link>https://www.haasonsaas.com/blog/startup-advice</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/startup-advice</guid>
-      <pubDate>Mon, 25 Nov 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[personal-growth]]></category>
-      <category><![CDATA[product-development]]></category>
-      <category><![CDATA[startups]]></category>
-      <category><![CDATA[strategy]]></category>
     </item>
   </channel>
 </rss>

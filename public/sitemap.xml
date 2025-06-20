@@ -55,6 +55,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -333,6 +339,12 @@
   <url>
     <loc>https://haasonsaas.com/blog/ship-to-learn</loc>
     <lastmod>2024-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</loc>
+    <lastmod>2025-06-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -865,6 +877,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/fluid-dynamics</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/founder</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -914,6 +932,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/growth-strategy</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/hdr</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1052,6 +1076,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/personal-growth</loc>
+    <lastmod>2025-06-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/physics</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

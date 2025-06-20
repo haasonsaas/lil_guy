@@ -4,13 +4,14 @@ import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
 import { getAllPosts, getAllTags, calculateReadingTime } from '@/utils/blogUtils';
 import { Input } from '@/components/ui/input';
-import { Search, ChevronLeft, ChevronRight, Filter, X } from 'lucide-react';
+import { Search, ChevronLeft, ChevronRight, Filter, X, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { BlogPost } from '@/types/blog';
 import WeeklyPlaybook from '@/components/WeeklyPlaybook';
+import SmartSearch from '@/components/SmartSearch';
 
 const POSTS_PER_PAGE = 9;
 
@@ -33,6 +34,7 @@ export default function BlogPage() {
   const [selectedTags, setSelectedTags] = useState<string[]>(
     searchParams.get("tags")?.split(",").filter(Boolean) || []
   );
+  const [isSmartSearchOpen, setIsSmartSearchOpen] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
@@ -228,15 +230,26 @@ export default function BlogPage() {
             {/* Search and Filter Controls */}
             <div className="space-y-4">
               {/* Search Bar */}
-              <div className="relative max-w-md mx-auto">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
-                <Input
-                  type="text"
-                  placeholder="Search articles..."
-                  className="pl-10"
-                  value={searchInput}
-                  onChange={handleSearchChange}
-                />
+              <div className="flex items-center justify-center gap-3 max-w-lg mx-auto">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+                  <Input
+                    type="text"
+                    placeholder="Search articles..."
+                    className="pl-10"
+                    value={searchInput}
+                    onChange={handleSearchChange}
+                  />
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => setIsSmartSearchOpen(true)}
+                  className="flex items-center gap-2 px-3"
+                >
+                  <Sparkles size={16} />
+                  <span className="hidden sm:inline">Smart Search</span>
+                </Button>
               </div>
 
               {/* Filter Toggle */}
@@ -432,6 +445,13 @@ export default function BlogPage() {
           </div>
         </div>
       </section>
+      
+      {/* Smart Search Modal */}
+      <SmartSearch
+        isOpen={isSmartSearchOpen}
+        onClose={() => setIsSmartSearchOpen(false)}
+        onOpen={() => setIsSmartSearchOpen(true)}
+      />
     </Layout>
   );
 }

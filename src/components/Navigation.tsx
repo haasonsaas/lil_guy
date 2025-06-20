@@ -1,9 +1,12 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import SmartSearch from '@/components/SmartSearch';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
   
   const navItems = [
     { name: 'About', href: '/about' },
@@ -44,10 +47,30 @@ const Navigation = () => {
               {item.name}
             </Link>
           ))}
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsSearchOpen(true)}
+            className="flex items-center gap-2 text-foreground/60 hover:text-foreground"
+          >
+            <Search size={16} />
+            <span className="hidden lg:inline">Search</span>
+            <kbd className="hidden lg:inline-flex h-5 px-1.5 text-xs font-mono border border-border rounded bg-muted text-muted-foreground">
+              ⌘K
+            </kbd>
+          </Button>
         </div>
 
         {/* Mobile Navigation */}
         <div className="flex items-center gap-4 md:hidden">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setIsSearchOpen(true)}
+            className="text-foreground/60 hover:text-foreground"
+          >
+            <Search size={18} />
+          </Button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="rounded-md p-2 text-foreground/60 hover:bg-accent hover:text-foreground"
@@ -74,6 +97,13 @@ const Navigation = () => {
           </div>
         </div>
       )}
+
+      {/* Smart Search Modal */}
+      <SmartSearch
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onOpen={() => setIsSearchOpen(true)}
+      />
     </nav>
   );
 };
