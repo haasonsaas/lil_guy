@@ -14,6 +14,23 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes]]></title>
+    <link href="https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword matching]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="react" />
+    <category term="search" />
+    <category term="developer-experience" />
+    <category term="tutorial" />
+  </entry>
+  <entry>
     <title><![CDATA[Testing Draft Preview Feature]]></title>
     <link href="https://www.haasonsaas.com/blog/draft-preview-test" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/draft-preview-test</id>
@@ -851,21 +868,5 @@
     <category term="entrepreneurship" />
     <category term="product-development" />
     <category term="startups" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster]]></title>
-    <link href="https://www.haasonsaas.com/blog/founder-journey" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/founder-journey</id>
-    <published>2024-12-13T00:00:00.000Z</published>
-    <updated>2024-12-13T00:00:00.000Z</updated>
-    <summary><![CDATA[An honest exploration of the psychological whiplash that comes with building a company, and why we keep coming back for more]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="founder" />
-    <category term="startup" />
-    <category term="personal-growth" />
-    <category term="leadership" />
   </entry>
 </feed>

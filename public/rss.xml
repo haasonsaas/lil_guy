@@ -20,6 +20,18 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes]]></title>
+      <description><![CDATA[A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword matching]]></description>
+      <link>https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[react]]></category>
+      <category><![CDATA[search]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[tutorial]]></category>
+    </item>
+    <item>
       <title><![CDATA[Testing Draft Preview Feature]]></title>
       <description><![CDATA[This is a draft post to test the new preview link generation feature]]></description>
       <link>https://www.haasonsaas.com/blog/draft-preview-test</link>
@@ -612,17 +624,6 @@
       <category><![CDATA[entrepreneurship]]></category>
       <category><![CDATA[product-development]]></category>
       <category><![CDATA[startups]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster]]></title>
-      <description><![CDATA[An honest exploration of the psychological whiplash that comes with building a company, and why we keep coming back for more]]></description>
-      <link>https://www.haasonsaas.com/blog/founder-journey</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/founder-journey</guid>
-      <pubDate>Fri, 13 Dec 2024 00:00:00 GMT</pubDate>
-      <category><![CDATA[founder]]></category>
-      <category><![CDATA[startup]]></category>
-      <category><![CDATA[personal-growth]]></category>
-      <category><![CDATA[leadership]]></category>
     </item>
   </channel>
 </rss>
