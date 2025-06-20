@@ -84,10 +84,10 @@ export default function MarkdownRenderer({
       
       // Replace custom component tags with placeholders
       let processedContent = contentWithoutFrontmatter;
-      const componentMatches = (contentWithoutFrontmatter.match(/<(\w+)([^>]*)>/g) || []) as string[];
+      const componentMatches = (contentWithoutFrontmatter.match(/<([\w-]+)([^>]*)>/g) || []) as string[];
       
       componentMatches.forEach(match => {
-        const componentName = match.match(/<(\w+)/)?.[1];
+        const componentName = match.match(/<([\w-]+)/)?.[1];
         if (componentName && components[componentName]) {
           const props = match.match(/\s+(\w+)="([^"]+)"/g)?.reduce((acc, prop) => {
             const [key, value] = prop.trim().split('=');
