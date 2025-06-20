@@ -1,3 +1,8 @@
+interface Env {
+  // Environment variables can be added here if needed
+  [key: string]: unknown;
+}
+
 interface Capability {
   name: string;
   description: string;
@@ -35,7 +40,7 @@ interface CapabilitiesResponse {
   };
 }
 
-export async function onRequest(context: EventContext<Env, string, Record<string, unknown>>): Promise<Response> {
+export async function onRequest(context: { request: Request; env: Env }): Promise<Response> {
   const { request } = context;
   const baseUrl = 'https://haasonsaas.com';
 
