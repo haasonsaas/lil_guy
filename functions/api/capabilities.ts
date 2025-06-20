@@ -282,7 +282,7 @@ export async function onRequest(context: EventContext<Env, string, Record<string
   const response: CapabilitiesResponse = {
     site: {
       name: 'Haas on SaaS',
-      description: 'Startup advice, technical leadership insights, and interactive business tools',
+      description: 'Startup advice, technical leadership insights, and interactive business tools for AI agents',
       baseUrl,
       lastUpdated: new Date().toISOString()
     },
