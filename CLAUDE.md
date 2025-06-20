@@ -31,6 +31,12 @@ bun run spell            # Spell checking with cspell (custom dictionary)
 bun run check:links      # Validate all links in markdown files
 ```
 
+### Analytics & Monitoring
+```bash
+bun scripts/agent-report.ts [-p 7d|14d|30d] [-f table|json|markdown]     # AI agent usage analytics
+bun scripts/seo-audit.ts [-u URL] [-f table|json|markdown] [-d basic|comprehensive]  # SEO health audit
+```
+
 ### Deployment & DevOps
 ```bash
 bun run check:deploy         # Validate deployment readiness (CF Pages limits, env vars, etc.)
