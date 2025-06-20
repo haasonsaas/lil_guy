@@ -61,6 +61,10 @@ Sure, your first 20 customers might look fantastic. But once you try scaling to 
 
 Scaling exposes everything.
 
+**Calculate your metrics and see how they impact fundraising potential:**
+
+<saas-metrics-dashboard />
+
 ### Market Competition Is Brutal (and Getting Worse)
 
 Every good startup idea now has three venture-backed clones.
@@ -152,6 +156,10 @@ The old "12–18 month seed-to-A journey" is dead for most startups.
 Plan for 24+ months runway, especially if you’re pre-revenue or pre-product-market fit. 
 
 Speed is still an advantage—but sustainability is the cost of admission.
+
+**Calculate how long your runway really lasts with realistic growth assumptions:**
+
+<startup-runway-calculator />
 
 ### 5. Embrace Operational Maturity as a Superpower
 

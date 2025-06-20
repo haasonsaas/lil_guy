@@ -103,6 +103,10 @@ that helps you make better decisions in your specific context. This comes from
 synthesizing multiple perspectives and understanding why different approaches
 work in different situations.
 
+**Use this framework to systematically evaluate startup decisions:**
+
+<feature-prioritization-matrix />
+
 ## The Real Work
 
 The hard truth is that there are no shortcuts. Every successful company,
