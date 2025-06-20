@@ -100,7 +100,10 @@ export default function Index() {
 
   return (
     <Layout>
-      <WebsiteMeta />
+      <WebsiteMeta 
+        title="Building Systems That Actually Scale | Haas on SaaS"
+        description="Insights on building and scaling SaaS products, startup strategy, security engineering, and AI systems from an experienced technical leader."
+      />
       <StructuredData data={websiteStructuredData} />
       <div className="space-y-20">
         {/* Hero Section */}
