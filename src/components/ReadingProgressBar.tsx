@@ -67,8 +67,8 @@ export const ReadingProgressBar = () => {
       
       {/* Add percentage indicator for longer reads */}
       {progress > 10 && (
-        <div className="absolute right-2 top-1.5 transform -translate-y-1/2">
-          <div className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full shadow-sm backdrop-blur-sm">
+        <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+          <div className="bg-primary text-primary-foreground text-xs px-2 py-0.5 rounded-full shadow-sm backdrop-blur-sm">
             {Math.round(progress)}%
           </div>
         </div>
