@@ -29,7 +29,7 @@ const DEFAULT_CONFIG = {
   baseUrl: 'https://haasonsaas.com',
   authorName: 'Jonathan Haas',
   authorTwitter: '@haasonsaas',
-  defaultImage: 'https://haasonsaas.com/og-default.webp',
+  defaultImage: 'https://haasonsaas.com/generated/1200x630-haas-on-saas.webp',
   favicon: '/favicon.ico'
 };
 
