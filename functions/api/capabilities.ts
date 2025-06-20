@@ -248,7 +248,7 @@ export async function onRequest(context: EventContext<Env, string, Record<string
 
   const response: CapabilitiesResponse = {
     site: {
-      name: 'Jonathan Haas Blog',
+      name: 'Haas on SaaS',
       description: 'Startup advice, technical leadership insights, and interactive business tools',
       baseUrl,
       lastUpdated: new Date().toISOString()
