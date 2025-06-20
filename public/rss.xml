@@ -68,6 +68,17 @@
       <category><![CDATA[future-of-coding]]></category>
     </item>
     <item>
+      <title><![CDATA[Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration]]></title>
+      <description><![CDATA[How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform.]]></description>
+      <link>https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-agents]]></category>
+      <category><![CDATA[collaboration]]></category>
+      <category><![CDATA[apis]]></category>
+      <category><![CDATA[developer-experience]]></category>
+    </item>
+    <item>
       <title><![CDATA[Testing Draft Preview Feature]]></title>
       <description><![CDATA[This is a draft post to test the new preview link generation feature]]></description>
       <link>https://www.haasonsaas.com/blog/draft-preview-test</link>
@@ -609,20 +620,6 @@
       <category><![CDATA[automation]]></category>
       <category><![CDATA[mcp-standard]]></category>
       <category><![CDATA[system-integration]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand]]></title>
-      <description><![CDATA[An insider's perspective on the growing disconnect between security practitioners and solution providers, and how both sides can better navigate the complex cybersecurity ecosystem]]></description>
-      <link>https://www.haasonsaas.com/blog/security-vendor-paradox</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/security-vendor-paradox</guid>
-      <pubDate>Sun, 13 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[cybersecurity]]></category>
-      <category><![CDATA[vendor-relations]]></category>
-      <category><![CDATA[CISO]]></category>
-      <category><![CDATA[security-leadership]]></category>
-      <category><![CDATA[industry-insights]]></category>
-      <category><![CDATA[security-operations]]></category>
-      <category><![CDATA[sales-tactics]]></category>
     </item>
   </channel>
 </rss>

@@ -61,6 +61,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -655,6 +661,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/apis</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/app-store</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -722,6 +734,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/cloudflare-pages</loc>
+    <lastmod>2025-06-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/collaboration</loc>
     <lastmod>2025-06-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

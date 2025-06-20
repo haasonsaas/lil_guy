@@ -82,17 +82,20 @@
     <category term="future-of-coding" />
   </entry>
   <entry>
-    <title><![CDATA[building ai agent friendly infrastructure a case study in human ai collaboration]]></title>
+    <title><![CDATA[Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration]]></title>
     <link href="https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[No description provided]]></summary>
+    <summary><![CDATA[How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    
+    <category term="ai-agents" />
+    <category term="collaboration" />
+    <category term="apis" />
+    <category term="developer-experience" />
   </entry>
   <entry>
     <title><![CDATA[Testing Draft Preview Feature]]></title>

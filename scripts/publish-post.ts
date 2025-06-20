@@ -157,24 +157,48 @@ async function findDraftPosts(query: string): Promise<DraftPost[]> {
 
 // Update frontmatter to publish
 function updateFrontmatter(content: string, pubDate: string): string {
-  return content.replace(
-    /^(---\r?\n[\s\S]+?)(draft:\s*(?:true|"true"|'true'))([\s\S]*?\r?\n)(pubDate:\s*"[^"]+"|pubDate:\s*'[^']+'|pubDate:\s*[^\n]+)?([\s\S]*?\r?\n---)/,
-    (match, start, draftLine, middle, pubDateLine, end) => {
-      // Change draft to false
-      const newDraftLine = 'draft: false';
-      
-      // Update or add pubDate
-      const newPubDate = `pubDate: "${pubDate}"`;
-      
-      if (pubDateLine) {
-        // Replace existing pubDate
-        return start + newDraftLine + middle + newPubDate + end;
-      } else {
-        // Add pubDate after draft
-        return start + newDraftLine + '\n' + newPubDate + middle + end;
+  // First, parse the frontmatter properly
+  const frontmatterMatch = content.match(/^(---\r?\n)([\s\S]+?)(\r?\n---\r?\n)([\s\S]*)$/);
+  if (!frontmatterMatch) {
+    console.error('❌ Could not parse frontmatter');
+    return content;
+  }
+
+  const [, startDelim, frontmatterContent, endDelim, body] = frontmatterMatch;
+  
+  // Process frontmatter line by line
+  const lines = frontmatterContent.split(/\r?\n/);
+  const updatedLines: string[] = [];
+  let foundDraft = false;
+  let foundPubDate = false;
+
+  for (const line of lines) {
+    if (line.match(/^\s*draft:\s*/)) {
+      updatedLines.push('draft: false');
+      foundDraft = true;
+    } else if (line.match(/^\s*pubDate:\s*/)) {
+      updatedLines.push(`pubDate: "${pubDate}"`);
+      foundPubDate = true;
+    } else {
+      updatedLines.push(line);
+    }
+  }
+
+  // Add pubDate if it wasn't found
+  if (!foundPubDate) {
+    // Find a good place to insert pubDate (after author or at the beginning)
+    let insertIndex = 0;
+    for (let i = 0; i < updatedLines.length; i++) {
+      if (updatedLines[i].match(/^\s*author:\s*/) || updatedLines[i].match(/^\s*title:\s*/)) {
+        insertIndex = i + 1;
+        break;
       }
     }
-  );
+    updatedLines.splice(insertIndex, 0, `pubDate: "${pubDate}"`);
+  }
+
+  // Reconstruct the file
+  return startDelim + updatedLines.join('\n') + endDelim + body;
 }
 
 // Main publish function
