@@ -2,10 +2,12 @@ import { Link } from 'react-router-dom';
 import { ThemeToggle } from './ThemeToggle';
 import { Button } from './ui/button';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Search } from 'lucide-react';
+import SmartSearch from './SmartSearch';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 border-b bg-background">
@@ -39,11 +41,31 @@ export default function Header() {
                 Subscribe
               </Button>
             </Link>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsSearchOpen(true)}
+              className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+            >
+              <Search size={16} />
+              <span className="hidden lg:inline">Search</span>
+              <kbd className="hidden lg:inline-flex h-5 px-1.5 text-xs font-mono border border-border rounded bg-muted text-muted-foreground">
+                ⌘K
+              </kbd>
+            </Button>
             <ThemeToggle />
           </nav>
 
           {/* Mobile menu button */}
           <div className="flex items-center gap-4 md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsSearchOpen(true)}
+              className="text-muted-foreground hover:text-foreground"
+            >
+              <Search size={18} />
+            </Button>
             <ThemeToggle />
             <Button 
               variant="ghost" 
@@ -110,6 +132,13 @@ export default function Header() {
           </div>
         )}
       </div>
+
+      {/* Smart Search Modal */}
+      <SmartSearch
+        isOpen={isSearchOpen}
+        onClose={() => setIsSearchOpen(false)}
+        onOpen={() => setIsSearchOpen(true)}
+      />
     </header>
   );
 } 

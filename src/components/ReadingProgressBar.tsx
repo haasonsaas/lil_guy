@@ -52,7 +52,7 @@ export const ReadingProgressBar = () => {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 w-full h-1.5 bg-muted/30 z-[100] no-print backdrop-blur-sm">
+    <div className="fixed top-0 left-0 w-full h-1.5 bg-muted/30 z-[100] no-print backdrop-blur-sm overflow-visible">
       <div
         className="h-full bg-gradient-to-r from-primary via-primary to-primary/80 transition-all duration-300 ease-out shadow-sm relative overflow-hidden"
         style={{ width: `${progress}%` }}
@@ -67,7 +67,7 @@ export const ReadingProgressBar = () => {
       
       {/* Add percentage indicator for longer reads */}
       {progress > 10 && (
-        <div className="absolute right-2 top-1/2 transform -translate-y-1/2">
+        <div className="absolute right-2 top-3 transform">
           <div className="bg-primary text-primary-foreground text-xs px-2 py-0.5 rounded-full shadow-sm backdrop-blur-sm">
             {Math.round(progress)}%
           </div>
