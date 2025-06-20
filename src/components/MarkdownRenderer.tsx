@@ -19,6 +19,7 @@ import SaaSMetricsDashboard from './SaaSMetricsDashboard';
 import StartupRunwayCalculator from './StartupRunwayCalculator';
 import ProductMarketFitScorer from './ProductMarketFitScorer';
 import TAMSAMSOMCalculator from './TAMSAMSOMCalculator';
+import GrowthStrategySimulator from './GrowthStrategySimulator';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -54,7 +55,8 @@ const components = {
   'saas-metrics-dashboard': SaaSMetricsDashboard,
   'startup-runway-calculator': StartupRunwayCalculator,
   'product-market-fit-scorer': ProductMarketFitScorer,
-  'tam-sam-som-calculator': TAMSAMSOMCalculator
+  'tam-sam-som-calculator': TAMSAMSOMCalculator,
+  'growth-strategy-simulator': GrowthStrategySimulator
 };
 
 interface MarkdownRendererProps {
