@@ -85,14 +85,9 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const { params, request, env } = context;
   const slug = params.slug as string;
   
-  console.log(`Blog function triggered for slug: ${slug}`);
-  
   // Check if this is a crawler by looking at the User-Agent
   const userAgent = request.headers.get('User-Agent') || '';
   const isCrawler = /bot|crawler|spider|facebook|twitter|telegram|whatsapp|linkedin|slack|discord/i.test(userAgent);
-  
-  console.log(`User-Agent: ${userAgent}`);
-  console.log(`Is crawler: ${isCrawler}`);
   
   // If not a crawler, just serve the normal SPA
   if (!isCrawler) {
@@ -105,7 +100,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const metadataResponse = await env.ASSETS.fetch(metadataRequest);
     
     if (!metadataResponse.ok) {
-      console.log(`Metadata fetch failed: ${metadataResponse.status}`);
       // If metadata fetch fails, serve the normal SPA
       return env.ASSETS.fetch(request);
     }
@@ -114,7 +108,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     const metadata = allMetadata[slug];
     
     if (!metadata) {
-      console.log(`No metadata found for slug: ${slug}`);
       // If no metadata found for this slug, serve the normal SPA
       return env.ASSETS.fetch(request);
     }
