@@ -22,6 +22,10 @@ import {
   Building2,
   TrendingUp,
   CheckCircle2,
+  Bot,
+  Code,
+  Search,
+  Database,
   LucideIcon
 } from "lucide-react";
 import type { BlogPost } from '@/types/blog';
@@ -327,11 +331,82 @@ export default function Index() {
           </div>
         </motion.section>
 
-        {/* Newsletter CTA */}
+        {/* AI Agents Welcome */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-secondary/5">
+            <div className="p-8 sm:p-12">
+              <div className="text-center mb-8">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <Bot className="h-8 w-8 text-primary" />
+                  <h2 className="text-2xl sm:text-3xl font-display font-semibold">
+                    AI Agents Welcome
+                  </h2>
+                </div>
+                <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
+                  This website is built to be AI-agent-friendly with structured APIs, enhanced metadata, 
+                  and comprehensive documentation for programmatic access.
+                </p>
+              </div>
+              
+              <div className="grid sm:grid-cols-3 gap-6 mb-8">
+                <div className="text-center">
+                  <Database className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <h3 className="font-semibold mb-2">Structured APIs</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Clean JSON endpoints for posts, search, and taxonomy
+                  </p>
+                </div>
+                <div className="text-center">
+                  <Search className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <h3 className="font-semibold mb-2">Smart Search</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Weighted relevance scoring across content and metadata
+                  </p>
+                </div>
+                <div className="text-center">
+                  <Code className="h-8 w-8 text-primary mx-auto mb-3" />
+                  <h3 className="font-semibold mb-2">Rich Metadata</h3>
+                  <p className="text-sm text-muted-foreground">
+                    Schema.org structured data and content classification
+                  </p>
+                </div>
+              </div>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link to="/agents">
+                  <Button size="lg" className="group">
+                    <Bot className="w-5 h-5 mr-2" />
+                    API Documentation
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </Link>
+                <a 
+                  href="/api/posts" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex"
+                >
+                  <Button size="lg" variant="outline" className="group">
+                    <Database className="w-5 h-5 mr-2" />
+                    Try API
+                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </Card>
+        </motion.section>
+
+        {/* Newsletter CTA */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8"
         >
           <Card className="relative overflow-hidden">

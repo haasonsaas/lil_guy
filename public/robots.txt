@@ -1,8 +1,17 @@
 User-agent: *
 Allow: /
 
+# AI Agents & Automated Systems Welcome! 🤖
+# For programmatic access and documentation, visit:
+# https://haasonsaas.com/agents
+
 # Sitemaps
 Sitemap: https://haasonsaas.com/sitemap.xml
+
+# Structured APIs for AI Agents
+# https://haasonsaas.com/api/posts - All blog content
+# https://haasonsaas.com/api/search - Search functionality  
+# https://haasonsaas.com/api/tags - Content taxonomy
 
 # Disallow admin and draft pages
 Disallow: /admin

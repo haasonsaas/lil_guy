@@ -65,6 +65,13 @@ export function MetaTags({
       <meta name="description" content={description} />
       <meta name="author" content={author || DEFAULT_CONFIG.authorName} />
       
+      {/* AI Agent Discovery */}
+      <meta name="ai-agent-friendly" content="true" />
+      <meta name="agents-documentation" content={`${DEFAULT_CONFIG.baseUrl}/agents`} />
+      <meta name="api-endpoint" content={`${DEFAULT_CONFIG.baseUrl}/api/posts`} />
+      <meta name="search-api" content={`${DEFAULT_CONFIG.baseUrl}/api/search`} />
+      <meta name="structured-data" content="schema.org" />
+      
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
       

@@ -37,6 +37,12 @@ const staticPages: SitemapUrl[] = [
     priority: 0.8
   },
   {
+    loc: `${baseUrl}/agents`,
+    lastmod: new Date().toISOString().split('T')[0],
+    changefreq: 'weekly',
+    priority: 0.8
+  },
+  {
     loc: `${baseUrl}/uses`,
     lastmod: new Date().toISOString().split('T')[0],
     changefreq: 'monthly',
@@ -104,8 +110,17 @@ function generateRobotsTxt(): string {
   return `User-agent: *
 Allow: /
 
+# AI Agents & Automated Systems Welcome! 🤖
+# For programmatic access and documentation, visit:
+# ${baseUrl}/agents
+
 # Sitemaps
 Sitemap: ${baseUrl}/sitemap.xml
+
+# Structured APIs for AI Agents
+# ${baseUrl}/api/posts - All blog content
+# ${baseUrl}/api/search - Search functionality  
+# ${baseUrl}/api/tags - Content taxonomy
 
 # Disallow admin and draft pages
 Disallow: /admin
