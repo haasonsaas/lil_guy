@@ -29,7 +29,7 @@ The result? Beautiful unit economics on paper, burning cash in reality.
 
 Before we dive deeper, let's see where your unit economics actually stand. Plug in your real numbers—not the ones you tell investors:
 
-<unit-economics-calculator />
+<saas-metrics-dashboard />
 
 Uncomfortable with those results? You're not alone. Let's break down what's actually happening.
 

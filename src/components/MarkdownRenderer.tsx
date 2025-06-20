@@ -15,6 +15,10 @@ import UnitEconomicsCalculator from './UnitEconomicsCalculator';
 import ABTestSimulator from './ABTestSimulator';
 import TechnicalDebtSimulator from './TechnicalDebtSimulator';
 import PricingPsychologySimulator from './PricingPsychologySimulator';
+import SaaSMetricsDashboard from './SaaSMetricsDashboard';
+import StartupRunwayCalculator from './StartupRunwayCalculator';
+import ProductMarketFitScorer from './ProductMarketFitScorer';
+import TAMSAMSOMCalculator from './TAMSAMSOMCalculator';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -46,7 +50,11 @@ const components = {
   'unit-economics-calculator': UnitEconomicsCalculator,
   'ab-test-simulator': ABTestSimulator,
   'technical-debt-simulator': TechnicalDebtSimulator,
-  'pricing-psychology-simulator': PricingPsychologySimulator
+  'pricing-psychology-simulator': PricingPsychologySimulator,
+  'saas-metrics-dashboard': SaaSMetricsDashboard,
+  'startup-runway-calculator': StartupRunwayCalculator,
+  'product-market-fit-scorer': ProductMarketFitScorer,
+  'tam-sam-som-calculator': TAMSAMSOMCalculator
 };
 
 interface MarkdownRendererProps {
