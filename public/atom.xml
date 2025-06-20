@@ -31,6 +31,23 @@
     <category term="tutorial" />
   </entry>
   <entry>
+    <title><![CDATA[The 100x Developer: What I Learned Building with Claude Code]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[A meta-analysis of AI pair programming after shipping 4 features in 50 minutes - including physics simulations, smart search, and this very blog post]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="developer-experience" />
+    <category term="productivity" />
+    <category term="meta" />
+    <category term="future-of-coding" />
+  </entry>
+  <entry>
     <title><![CDATA[Testing Draft Preview Feature]]></title>
     <link href="https://www.haasonsaas.com/blog/draft-preview-test" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/draft-preview-test</id>
@@ -852,21 +869,6 @@
     <category term="leadership" />
     <category term="organizational-culture" />
     <category term="productivity" />
-    <category term="startups" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit]]></title>
-    <link href="https://www.haasonsaas.com/blog/technical-founder-pmf" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/technical-founder-pmf</id>
-    <published>2025-04-08T00:00:00.000Z</published>
-    <updated>2025-04-08T00:00:00.000Z</updated>
-    <summary><![CDATA[Examining why technical founders often confuse early signals with genuine product-market fit, and how to recognize when you're building something people truly need]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="entrepreneurship" />
-    <category term="product-development" />
     <category term="startups" />
   </entry>
 </feed>

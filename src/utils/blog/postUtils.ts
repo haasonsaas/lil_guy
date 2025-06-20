@@ -64,7 +64,9 @@ export const getPostBySlug = async (slug: string, includeDrafts: boolean = false
  */
 export const getFeaturedPosts = async (): Promise<BlogPost[]> => {
   const posts = await getAllPosts();
-  return posts.slice(0, 3); // Just return the first 3 posts instead of filtering by featured
+  // Return posts marked as featured, or fall back to first 3 if none are featured
+  const featuredPosts = posts.filter(post => post.frontmatter.featured);
+  return featuredPosts.length > 0 ? featuredPosts : posts.slice(0, 3);
 };
 
 /**

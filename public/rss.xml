@@ -32,6 +32,18 @@
       <category><![CDATA[tutorial]]></category>
     </item>
     <item>
+      <title><![CDATA[The 100x Developer: What I Learned Building with Claude Code]]></title>
+      <description><![CDATA[A meta-analysis of AI pair programming after shipping 4 features in 50 minutes - including physics simulations, smart search, and this very blog post]]></description>
+      <link>https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[meta]]></category>
+      <category><![CDATA[future-of-coding]]></category>
+    </item>
+    <item>
       <title><![CDATA[Testing Draft Preview Feature]]></title>
       <description><![CDATA[This is a draft post to test the new preview link generation feature]]></description>
       <link>https://www.haasonsaas.com/blog/draft-preview-test</link>
@@ -613,16 +625,6 @@
       <category><![CDATA[leadership]]></category>
       <category><![CDATA[organizational-culture]]></category>
       <category><![CDATA[productivity]]></category>
-      <category><![CDATA[startups]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit]]></title>
-      <description><![CDATA[Examining why technical founders often confuse early signals with genuine product-market fit, and how to recognize when you're building something people truly need]]></description>
-      <link>https://www.haasonsaas.com/blog/technical-founder-pmf</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/technical-founder-pmf</guid>
-      <pubDate>Tue, 08 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[entrepreneurship]]></category>
-      <category><![CDATA[product-development]]></category>
       <category><![CDATA[startups]]></category>
     </item>
   </channel>
