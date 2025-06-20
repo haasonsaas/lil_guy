@@ -11,6 +11,20 @@
       "culture"
     ]
   },
+  "solving-opengraph-for-spas-the-cloudflare-way": {
+    "title": "Solving OpenGraph for SPAs: The Cloudflare Way",
+    "description": "How to fix social media previews for React SPAs using Cloudflare's edge functions - no SSR required",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": [
+      "cloudflare",
+      "react",
+      "spa",
+      "opengraph",
+      "edge-computing",
+      "developer-experience"
+    ]
+  },
   "the-secondary-celebration": {
     "title": "The Secondary Celebration: A Founder's Perspective on VC Liquidity Events",
     "description": "Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy",
@@ -305,6 +319,18 @@
       "product",
       "strategy",
       "trust"
+    ]
+  },
+  "building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content": {
+    "title": "Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content",
+    "description": "How to make your website accessible to AI agents with proper APIs, enhanced structured data, and machine-readable content formats",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": [
+      "ai",
+      "web-development",
+      "api-design",
+      "structured-data"
     ]
   },
   "eng-product-collaboration": {

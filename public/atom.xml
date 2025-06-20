@@ -14,6 +14,40 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[Solving OpenGraph for SPAs: The Cloudflare Way]]></title>
+    <link href="https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[How to fix social media previews for React SPAs using Cloudflare's edge functions - no SSR required]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="cloudflare" />
+    <category term="react" />
+    <category term="spa" />
+    <category term="opengraph" />
+    <category term="edge-computing" />
+    <category term="developer-experience" />
+  </entry>
+  <entry>
+    <title><![CDATA[Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content]]></title>
+    <link href="https://www.haasonsaas.com/blog/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[How to make your website accessible to AI agents with proper APIs, enhanced structured data, and machine-readable content formats]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="web-development" />
+    <category term="api-design" />
+    <category term="structured-data" />
+  </entry>
+  <entry>
     <title><![CDATA[Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes]]></title>
     <link href="https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes</id>
@@ -833,42 +867,5 @@
     <category term="industry-insights" />
     <category term="security-operations" />
     <category term="sales-tactics" />
-  </entry>
-  <entry>
-    <title><![CDATA[API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI Approach]]></title>
-    <link href="https://www.haasonsaas.com/blog/full-stack-ai" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/full-stack-ai</id>
-    <published>2025-04-12T00:00:00.000Z</published>
-    <updated>2025-04-12T00:00:00.000Z</updated>
-    <summary><![CDATA[A critical examination of why enterprises that rely solely on third-party AI APIs are setting themselves up for long-term failure, and what a genuine AI strategy requires in today's competitive landscape]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="enterprise-ai" />
-    <category term="artificial-intelligence" />
-    <category term="strategy" />
-    <category term="technical-architecture" />
-    <category term="innovation" />
-    <category term="competitive-advantage" />
-    <category term="platform-thinking" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Time Architects: How Visionary Founders Reimagine What's Possible]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-time-architects" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-time-architects</id>
-    <published>2025-04-11T00:00:00.000Z</published>
-    <updated>2025-04-11T00:00:00.000Z</updated>
-    <summary><![CDATA[An introspective exploration of how exceptional founders reshape our understanding of time, innovation, and the boundaries of what organizations can achieve]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="entrepreneurship" />
-    <category term="innovation" />
-    <category term="leadership" />
-    <category term="organizational-culture" />
-    <category term="productivity" />
-    <category term="startups" />
   </entry>
 </feed>

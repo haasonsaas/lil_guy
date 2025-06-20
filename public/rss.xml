@@ -20,6 +20,30 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[Solving OpenGraph for SPAs: The Cloudflare Way]]></title>
+      <description><![CDATA[How to fix social media previews for React SPAs using Cloudflare's edge functions - no SSR required]]></description>
+      <link>https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[cloudflare]]></category>
+      <category><![CDATA[react]]></category>
+      <category><![CDATA[spa]]></category>
+      <category><![CDATA[opengraph]]></category>
+      <category><![CDATA[edge-computing]]></category>
+      <category><![CDATA[developer-experience]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content]]></title>
+      <description><![CDATA[How to make your website accessible to AI agents with proper APIs, enhanced structured data, and machine-readable content formats]]></description>
+      <link>https://www.haasonsaas.com/blog/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[web-development]]></category>
+      <category><![CDATA[api-design]]></category>
+      <category><![CDATA[structured-data]]></category>
+    </item>
+    <item>
       <title><![CDATA[Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes]]></title>
       <description><![CDATA[A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword matching]]></description>
       <link>https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes</link>
@@ -599,33 +623,6 @@
       <category><![CDATA[industry-insights]]></category>
       <category><![CDATA[security-operations]]></category>
       <category><![CDATA[sales-tactics]]></category>
-    </item>
-    <item>
-      <title><![CDATA[API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI Approach]]></title>
-      <description><![CDATA[A critical examination of why enterprises that rely solely on third-party AI APIs are setting themselves up for long-term failure, and what a genuine AI strategy requires in today's competitive landscape]]></description>
-      <link>https://www.haasonsaas.com/blog/full-stack-ai</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/full-stack-ai</guid>
-      <pubDate>Sat, 12 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[enterprise-ai]]></category>
-      <category><![CDATA[artificial-intelligence]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[technical-architecture]]></category>
-      <category><![CDATA[innovation]]></category>
-      <category><![CDATA[competitive-advantage]]></category>
-      <category><![CDATA[platform-thinking]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Time Architects: How Visionary Founders Reimagine What's Possible]]></title>
-      <description><![CDATA[An introspective exploration of how exceptional founders reshape our understanding of time, innovation, and the boundaries of what organizations can achieve]]></description>
-      <link>https://www.haasonsaas.com/blog/the-time-architects</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-time-architects</guid>
-      <pubDate>Fri, 11 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[entrepreneurship]]></category>
-      <category><![CDATA[innovation]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[organizational-culture]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[startups]]></category>
     </item>
   </channel>
 </rss>

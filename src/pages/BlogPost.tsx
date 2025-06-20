@@ -16,6 +16,7 @@ import { generateBlogPostStructuredData, generateBreadcrumbStructuredData, calcu
 import StructuredData from '@/components/SEO/StructuredData';
 import { BlogPostMeta } from '@/components/SEO/MetaTags';
 import { AdvancedSEO } from '@/components/SEO/AdvancedSEO';
+import { AgentStructuredData } from '@/components/SEO/AgentStructuredData';
 import { useAnalytics, useReadingProgress, useExternalLinkTracking } from '@/hooks/useAnalytics';
 import { useAutoCacheBlogPost } from '@/hooks/useServiceWorker';
 import type { BlogPost } from '@/types/blog';
@@ -150,6 +151,12 @@ export default function BlogPost() {
         readingTime={readingTime}
         enableFAQ={true}
         enableBreadcrumbs={true}
+      />
+      <AgentStructuredData 
+        frontmatter={frontmatter}
+        slug={slug!}
+        content={content}
+        readingTime={readingTime}
       />
       <ReadingProgressBar />
       <article className="py-8">

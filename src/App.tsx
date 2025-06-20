@@ -39,6 +39,7 @@ const OfflinePage = lazy(() => import("./pages/OfflinePage"));
 const HDRHolographicFoilPage = lazy(() => import("./pages/HDRHolographicFoilPage"));
 const LiquidMetalPage = lazy(() => import("./pages/LiquidMetalPage"));
 const AIPage = lazy(() => import("./pages/AIPage"));
+const AgentsPage = lazy(() => import("./pages/AgentsPage"));
 
 // Loading component
 const PageLoading = () => (
@@ -80,6 +81,7 @@ const App = () => (
                 <Route path="/uses" element={<UsesPage />} />
                 <Route path="/reading" element={<ReadingPage />} />
                 <Route path="/ai" element={<AIPage />} />
+                <Route path="/agents" element={<AgentsPage />} />
                 <Route path="/newsletter" element={<NewsletterPage />} />
                 <Route path="/experiments" element={<ExperimentsPage />} />
                 <Route path="/webgl" element={<WebGLPage />} />
