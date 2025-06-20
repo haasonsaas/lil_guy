@@ -21,6 +21,7 @@ import ProductMarketFitScorer from './ProductMarketFitScorer';
 import TAMSAMSOMCalculator from './TAMSAMSOMCalculator';
 import GrowthStrategySimulator from './GrowthStrategySimulator';
 import HiringCostCalculator from './HiringCostCalculator';
+import FeaturePrioritizationMatrix from './FeaturePrioritizationMatrix';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -58,7 +59,8 @@ const components = {
   'product-market-fit-scorer': ProductMarketFitScorer,
   'tam-sam-som-calculator': TAMSAMSOMCalculator,
   'growth-strategy-simulator': GrowthStrategySimulator,
-  'hiring-cost-calculator': HiringCostCalculator
+  'hiring-cost-calculator': HiringCostCalculator,
+  'feature-prioritization-matrix': FeaturePrioritizationMatrix
 };
 
 interface MarkdownRendererProps {
