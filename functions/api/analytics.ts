@@ -1,3 +1,7 @@
+interface Env {
+  AGENT_ANALYTICS?: KVNamespace;
+}
+
 interface AnalyticsEvent {
   event: string;
   agent?: string;
@@ -90,61 +94,151 @@ function detectAgent(userAgent: string): string {
   return 'Unknown';
 }
 
-function addEvent(event: AnalyticsEvent) {
+async function addEvent(event: AnalyticsEvent, kv?: KVNamespace) {
+  // Add to in-memory storage (for immediate access)
   analyticsData.push(event);
   
-  // Keep only the last MAX_EVENTS
+  // Keep only the last MAX_EVENTS in memory
   if (analyticsData.length > MAX_EVENTS) {
     analyticsData = analyticsData.slice(-MAX_EVENTS);
   }
+
+  // Persist to KV if available
+  if (kv) {
+    try {
+      const eventKey = `event:${Date.now()}:${Math.random().toString(36).substr(2, 9)}`;
+      await kv.put(eventKey, JSON.stringify(event), {
+        expirationTtl: 30 * 24 * 60 * 60 // 30 days
+      });
+
+      // Also maintain a rolling summary
+      const today = new Date().toISOString().split('T')[0];
+      const summaryKey = `summary:${today}`;
+      
+      const existingSummary = await kv.get(summaryKey);
+      const summary = existingSummary ? JSON.parse(existingSummary) : {
+        date: today,
+        totalEvents: 0,
+        endpoints: {},
+        agents: {},
+        events: {}
+      };
+
+      summary.totalEvents++;
+      summary.events[event.event] = (summary.events[event.event] || 0) + 1;
+      if (event.endpoint) summary.endpoints[event.endpoint] = (summary.endpoints[event.endpoint] || 0) + 1;
+      if (event.agent) summary.agents[event.agent] = (summary.agents[event.agent] || 0) + 1;
+
+      await kv.put(summaryKey, JSON.stringify(summary), {
+        expirationTtl: 30 * 24 * 60 * 60 // 30 days
+      });
+    } catch (error) {
+      console.error('Failed to persist analytics event to KV:', error);
+    }
+  }
 }
 
-function getStats(): AnalyticsResponse['stats'] {
-  if (analyticsData.length === 0) {
-    return {
-      totalEvents: 0,
-      topEndpoints: [],
-      topAgents: [],
-      timeRange: 'No data'
+async function getStats(kv?: KVNamespace, days = 7): Promise<AnalyticsResponse['stats']> {
+  let stats = {
+    totalEvents: 0,
+    topEndpoints: [] as Array<{ endpoint: string; count: number }>,
+    topAgents: [] as Array<{ agent: string; count: number }>,
+    timeRange: 'No data'
+  };
+
+  // Try to get data from KV first
+  if (kv) {
+    try {
+      const endpointCounts = new Map<string, number>();
+      const agentCounts = new Map<string, number>();
+      let totalEvents = 0;
+      const dates: string[] = [];
+
+      // Get summaries for the last N days
+      for (let i = 0; i < days; i++) {
+        const date = new Date();
+        date.setDate(date.getDate() - i);
+        const dateStr = date.toISOString().split('T')[0];
+        dates.push(dateStr);
+
+        const summaryKey = `summary:${dateStr}`;
+        const summary = await kv.get(summaryKey);
+        
+        if (summary) {
+          const data = JSON.parse(summary);
+          totalEvents += data.totalEvents || 0;
+          
+          // Aggregate endpoints
+          for (const [endpoint, count] of Object.entries(data.endpoints || {})) {
+            endpointCounts.set(endpoint, (endpointCounts.get(endpoint) || 0) + (count as number));
+          }
+          
+          // Aggregate agents
+          for (const [agent, count] of Object.entries(data.agents || {})) {
+            agentCounts.set(agent, (agentCounts.get(agent) || 0) + (count as number));
+          }
+        }
+      }
+
+      if (totalEvents > 0) {
+        stats = {
+          totalEvents,
+          topEndpoints: Array.from(endpointCounts.entries())
+            .map(([endpoint, count]) => ({ endpoint, count }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 5),
+          topAgents: Array.from(agentCounts.entries())
+            .map(([agent, count]) => ({ agent, count }))
+            .sort((a, b) => b.count - a.count)
+            .slice(0, 5),
+          timeRange: `Last ${days} days (${dates[dates.length - 1]} to ${dates[0]})`
+        };
+      }
+    } catch (error) {
+      console.error('Failed to get stats from KV:', error);
+    }
+  }
+
+  // Fallback to in-memory data if KV is empty or unavailable
+  if (stats.totalEvents === 0 && analyticsData.length > 0) {
+    const endpointCounts = new Map<string, number>();
+    const agentCounts = new Map<string, number>();
+    
+    for (const event of analyticsData) {
+      if (event.endpoint) {
+        endpointCounts.set(event.endpoint, (endpointCounts.get(event.endpoint) || 0) + 1);
+      }
+      if (event.agent) {
+        agentCounts.set(event.agent, (agentCounts.get(event.agent) || 0) + 1);
+      }
+    }
+
+    const topEndpoints = Array.from(endpointCounts.entries())
+      .map(([endpoint, count]) => ({ endpoint, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
+    const topAgents = Array.from(agentCounts.entries())
+      .map(([agent, count]) => ({ agent, count }))
+      .sort((a, b) => b.count - a.count)
+      .slice(0, 5);
+
+    const oldestEvent = analyticsData[0];
+    const newestEvent = analyticsData[analyticsData.length - 1];
+    
+    stats = {
+      totalEvents: analyticsData.length,
+      topEndpoints,
+      topAgents,
+      timeRange: `In-memory: ${oldestEvent.timestamp} to ${newestEvent.timestamp}`
     };
   }
 
-  // Count endpoints
-  const endpointCounts = new Map<string, number>();
-  const agentCounts = new Map<string, number>();
-  
-  for (const event of analyticsData) {
-    if (event.endpoint) {
-      endpointCounts.set(event.endpoint, (endpointCounts.get(event.endpoint) || 0) + 1);
-    }
-    if (event.agent) {
-      agentCounts.set(event.agent, (agentCounts.get(event.agent) || 0) + 1);
-    }
-  }
-
-  const topEndpoints = Array.from(endpointCounts.entries())
-    .map(([endpoint, count]) => ({ endpoint, count }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 5);
-
-  const topAgents = Array.from(agentCounts.entries())
-    .map(([agent, count]) => ({ agent, count }))
-    .sort((a, b) => b.count - a.count)
-    .slice(0, 5);
-
-  const oldestEvent = analyticsData[0];
-  const newestEvent = analyticsData[analyticsData.length - 1];
-  
-  return {
-    totalEvents: analyticsData.length,
-    topEndpoints,
-    topAgents,
-    timeRange: `${oldestEvent.timestamp} to ${newestEvent.timestamp}`
-  };
+  return stats;
 }
 
 export async function onRequest(context: EventContext<Env, string, Record<string, unknown>>): Promise<Response> {
-  const { request } = context;
+  const { request, env } = context;
   const clientIP = getClientIP(request);
 
   // CORS headers
@@ -171,8 +265,12 @@ export async function onRequest(context: EventContext<Env, string, Record<string
   }
 
   if (request.method === 'GET') {
+    // Parse query parameters
+    const url = new URL(request.url);
+    const days = Math.min(parseInt(url.searchParams.get('days') || '7'), 30); // Max 30 days
+
     // Return analytics stats
-    const stats = getStats();
+    const stats = await getStats(env.AGENT_ANALYTICS, days);
     const response: AnalyticsResponse = {
       success: true,
       message: 'Analytics data retrieved successfully',
@@ -204,7 +302,7 @@ export async function onRequest(context: EventContext<Env, string, Record<string
         metadata: body.metadata || {}
       };
 
-      addEvent(event);
+      await addEvent(event, env.AGENT_ANALYTICS);
 
       const response: AnalyticsResponse = {
         success: true,

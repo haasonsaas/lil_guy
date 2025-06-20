@@ -100,7 +100,7 @@ const mockBlogPosts = [
 
 export async function onRequest(context: EventContext<Env, string, Record<string, unknown>>): Promise<Response> {
   const { request } = context;
-  const baseUrl = 'https://jonathanhaas.com';
+  const baseUrl = 'https://haasonsaas.com';
   const startTime = Date.now();
 
   // CORS headers
