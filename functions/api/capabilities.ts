@@ -284,7 +284,7 @@ export async function onRequest(context: EventContext<Env, string, Record<string
       name: 'Haas on SaaS',
       description: 'Startup advice, technical leadership insights, and interactive business tools for AI agents',
       baseUrl,
-      lastUpdated: new Date().toISOString()
+      lastUpdated: new Date().toISOString() // Force deployment update
     },
     capabilities,
     usage: {
