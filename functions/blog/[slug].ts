@@ -85,9 +85,14 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const { params, request, env } = context;
   const slug = params.slug as string;
   
+  console.log(`Blog function triggered for slug: ${slug}`);
+  
   // Check if this is a crawler by looking at the User-Agent
   const userAgent = request.headers.get('User-Agent') || '';
   const isCrawler = /bot|crawler|spider|facebook|twitter|telegram|whatsapp|linkedin|slack|discord/i.test(userAgent);
+  
+  console.log(`User-Agent: ${userAgent}`);
+  console.log(`Is crawler: ${isCrawler}`);
   
   // If not a crawler, just serve the normal SPA
   if (!isCrawler) {
@@ -95,17 +100,21 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   }
   
   try {
-    // Fetch the blog metadata
-    const metadataResponse = await fetch(`https://haasonsaas.com/blog-metadata.json`);
+    // Try to fetch metadata from the deployed assets
+    const metadataRequest = new Request(new URL('/blog-metadata.json', request.url));
+    const metadataResponse = await env.ASSETS.fetch(metadataRequest);
+    
     if (!metadataResponse.ok) {
+      console.log(`Metadata fetch failed: ${metadataResponse.status}`);
       // If metadata fetch fails, serve the normal SPA
       return env.ASSETS.fetch(request);
     }
     
-    const allMetadata = await metadataResponse.json();
+    const allMetadata = await metadataResponse.json() as Record<string, BlogMetadata>;
     const metadata = allMetadata[slug];
     
     if (!metadata) {
+      console.log(`No metadata found for slug: ${slug}`);
       // If no metadata found for this slug, serve the normal SPA
       return env.ASSETS.fetch(request);
     }
