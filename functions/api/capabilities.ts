@@ -243,6 +243,39 @@ export async function onRequest(context: EventContext<Env, string, Record<string
           }
         }
       ]
+    },
+    {
+      name: 'Health Monitoring',
+      description: 'Check API health status and service availability for monitoring and reliability',
+      endpoint: `${baseUrl}/api/health`,
+      method: 'GET',
+      parameters: {},
+      examples: [
+        {
+          description: 'Check overall system health',
+          request: `GET ${baseUrl}/api/health`,
+          response: {
+            status: 'healthy',
+            timestamp: '2024-01-01T12:00:00.000Z',
+            version: '1.0.0',
+            uptime: 3600000,
+            services: {
+              database: 'operational',
+              search: 'operational', 
+              analytics: 'operational',
+              cdn: 'operational'
+            },
+            performance: {
+              responseTimeMs: 45
+            },
+            endpoints: [
+              { name: 'Search API', url: `${baseUrl}/api/search`, status: 'operational' },
+              { name: 'Capabilities API', url: `${baseUrl}/api/capabilities`, status: 'operational' }
+            ],
+            message: 'All systems operational. AI agents can access all endpoints normally.'
+          }
+        }
+      ]
     }
   ];
 

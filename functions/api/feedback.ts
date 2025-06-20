@@ -1,3 +1,8 @@
+interface Env {
+  // Environment variables can be added here if needed
+  [key: string]: unknown;
+}
+
 interface FeedbackSubmission {
   type: 'bug' | 'suggestion' | 'compliment' | 'question';
   category: 'api' | 'documentation' | 'performance' | 'features' | 'other';
