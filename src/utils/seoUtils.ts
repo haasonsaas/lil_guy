@@ -54,8 +54,8 @@ export const getPersonSchema = (): PersonSchema => ({
   url: "https://www.haasonsaas.com",
   sameAs: [
     "https://twitter.com/haasonsaas",
-    "https://www.linkedin.com/in/jonathanhaas",
-    "https://github.com/jonathanhaas"
+    "https://www.linkedin.com/in/haasonsaas",
+    "https://github.com/haasonsaas"
   ],
   jobTitle: "SaaS Product Leader",
   worksFor: {

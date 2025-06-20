@@ -135,7 +135,7 @@ export default function AgentsPage() {
               API Endpoints
             </CardTitle>
             <CardDescription>
-              All endpoints return JSON and support CORS. Base URL: https://jonathanhaas.com
+              All endpoints return JSON and support CORS. Base URL: https://haasonsaas.com
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -169,7 +169,7 @@ export default function AgentsPage() {
                   <div className="bg-muted p-3 rounded font-mono text-sm">
                     <span className="text-muted-foreground">Example: </span>
                     <a 
-                      href={`https://jonathanhaas.com${endpoint.example}`}
+                      href={`https://haasonsaas.com${endpoint.example}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary hover:underline"
@@ -245,7 +245,7 @@ export default function AgentsPage() {
       "title": "The Hidden Costs of Technical Debt",
       "slug": "the-hidden-costs-of-technical-debt",
       "description": "Technical debt isn't just messy code...",
-      "url": "https://jonathanhaas.com/posts/...",
+      "url": "https://haasonsaas.com/posts/...",
       "tags": ["technical-debt", "engineering", "velocity"],
       "author": "Jonathan Haas",
       "pubDate": "2025-06-19",

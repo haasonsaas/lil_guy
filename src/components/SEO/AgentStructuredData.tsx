@@ -87,8 +87,8 @@ export function AgentStructuredData({
       url: baseUrl,
       sameAs: [
         'https://twitter.com/haasonsaas',
-        'https://linkedin.com/in/jonathanhaas',
-        'https://github.com/jonathanhaas'
+        'https://linkedin.com/in/haasonsaas',
+        'https://github.com/haasonsaas'
       ]
     },
     publisher: {

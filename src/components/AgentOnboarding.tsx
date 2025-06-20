@@ -22,7 +22,7 @@ const onboardingSteps: Step[] = [
     description: 'Get a comprehensive overview of all AI-agent-friendly features and APIs',
     action: 'demo',
     endpoint: '/api/capabilities',
-    example: 'curl https://jonathanhaas.com/api/capabilities',
+    example: 'curl https://haasonsaas.com/api/capabilities',
     expected: {
       site: { name: 'Jonathan Haas Blog', description: 'Startup advice...' },
       capabilities: ['Blog Content Access', 'Interactive Calculators', '...']
@@ -34,7 +34,7 @@ const onboardingSteps: Step[] = [
     description: 'Find relevant articles using intelligent search with relevance scoring',
     action: 'demo',
     endpoint: '/api/search?q=technical+debt&limit=3',
-    example: 'curl "https://jonathanhaas.com/api/search?q=technical+debt&limit=3"',
+    example: 'curl "https://haasonsaas.com/api/search?q=technical+debt&limit=3"',
     expected: {
       query: 'technical debt',
       results: [{ title: 'The Hidden Costs of Technical Debt', relevance: 0.95 }],
@@ -47,7 +47,7 @@ const onboardingSteps: Step[] = [
     description: 'Receive content recommendations tailored to specific roles and interests',
     action: 'demo',
     endpoint: '/api/recommendations?role=founder&topic=technical-leadership',
-    example: 'curl "https://jonathanhaas.com/api/recommendations?role=founder&topic=technical-leadership"',
+    example: 'curl "https://haasonsaas.com/api/recommendations?role=founder&topic=technical-leadership"',
     expected: {
       role: 'founder',
       recommendations: [{ title: 'The Hidden Costs of Technical Debt', priority: 'high' }]
@@ -89,7 +89,7 @@ export default function AgentOnboarding() {
     setLoading(prev => ({ ...prev, [step.id]: true }));
     
     try {
-      const response = await fetch(`https://jonathanhaas.com${step.endpoint}`);
+      const response = await fetch(`https://haasonsaas.com${step.endpoint}`);
       const data = await response.json();
       setDemoResults(prev => ({ ...prev, [step.id]: data }));
       
