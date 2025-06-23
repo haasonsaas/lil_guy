@@ -20,6 +20,17 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[Debugging in Real-Time: A Human-AI Pair Programming Session]]></title>
+      <description><![CDATA[An inside look at how Claude Code and I debug complex technical problems together, from TypeScript compilation errors to serverless deployment failures.]]></description>
+      <link>https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[debugging]]></category>
+      <category><![CDATA[collaboration]]></category>
+      <category><![CDATA[pair-programming]]></category>
+    </item>
+    <item>
       <title><![CDATA[Solving OpenGraph for SPAs: The Cloudflare Way]]></title>
       <description><![CDATA[How to fix social media previews for React SPAs using Cloudflare's edge functions - no SSR required]]></description>
       <link>https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way</link>
@@ -79,6 +90,17 @@
       <category><![CDATA[developer-experience]]></category>
     </item>
     <item>
+      <title><![CDATA[Building for Humans AND Machines: The Dual-Audience Problem]]></title>
+      <description><![CDATA[How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.]]></description>
+      <link>https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[web-development]]></category>
+      <category><![CDATA[ux-design]]></category>
+      <category><![CDATA[architecture]]></category>
+    </item>
+    <item>
       <title><![CDATA[Testing Draft Preview Feature]]></title>
       <description><![CDATA[This is a draft post to test the new preview link generation feature]]></description>
       <link>https://www.haasonsaas.com/blog/draft-preview-test</link>
@@ -87,6 +109,18 @@
       <category><![CDATA[testing]]></category>
       <category><![CDATA[features]]></category>
       <category><![CDATA[development]]></category>
+    </item>
+    <item>
+      <title><![CDATA[When TypeScript Errors Break Production: Silent Cloudflare Function Failures]]></title>
+      <description><![CDATA[A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.]]></description>
+      <link>https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[cloudflare]]></category>
+      <category><![CDATA[typescript]]></category>
+      <category><![CDATA[debugging]]></category>
+      <category><![CDATA[serverless]]></category>
+      <category><![CDATA[deployment]]></category>
     </item>
     <item>
       <title><![CDATA[The Hidden Costs of Technical Debt]]></title>
@@ -576,50 +610,6 @@
       <category><![CDATA[product]]></category>
       <category><![CDATA[strategy]]></category>
       <category><![CDATA[trust]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Secondary Celebration: A Founder's Perspective on VC Liquidity Events]]></title>
-      <description><![CDATA[Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy]]></description>
-      <link>https://www.haasonsaas.com/blog/the-secondary-celebration</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-secondary-celebration</guid>
-      <pubDate>Wed, 16 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[venture-capital]]></category>
-      <category><![CDATA[founder-relations]]></category>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[liquidity-events]]></category>
-      <category><![CDATA[secondary-transactions]]></category>
-      <category><![CDATA[investor-dynamics]]></category>
-      <category><![CDATA[entrepreneurship]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Reading Between the Lines: How to Decode Community Investment Rounds]]></title>
-      <description><![CDATA[A practical guide to interpreting startup metrics in community investment rounds and identifying potential red flags before investing]]></description>
-      <link>https://www.haasonsaas.com/blog/reading-between-the-lines</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/reading-between-the-lines</guid>
-      <pubDate>Mon, 14 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-investment]]></category>
-      <category><![CDATA[community-rounds]]></category>
-      <category><![CDATA[investment-analysis]]></category>
-      <category><![CDATA[due-diligence]]></category>
-      <category><![CDATA[DTC-brands]]></category>
-      <category><![CDATA[funding-strategy]]></category>
-      <category><![CDATA[retail-investing]]></category>
-      <category><![CDATA[financial-literacy]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Model Context Protocol: The Enterprise Standard Transforming AI Tool Integration]]></title>
-      <description><![CDATA[A comprehensive analysis of the Model Context Protocol (MCP) — the enterprise-ready standard that's systematically solving the challenges of LLM tool integration across organizations of all sizes.]]></description>
-      <link>https://www.haasonsaas.com/blog/what-is-mcp</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/what-is-mcp</guid>
-      <pubDate>Sun, 13 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai-infrastructure]]></category>
-      <category><![CDATA[llm-apps]]></category>
-      <category><![CDATA[agentic-frameworks]]></category>
-      <category><![CDATA[enterprise-ai]]></category>
-      <category><![CDATA[developer-tools]]></category>
-      <category><![CDATA[automation]]></category>
-      <category><![CDATA[mcp-standard]]></category>
-      <category><![CDATA[system-integration]]></category>
     </item>
   </channel>
 </rss>

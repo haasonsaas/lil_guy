@@ -14,6 +14,22 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[Debugging in Real-Time: A Human-AI Pair Programming Session]]></title>
+    <link href="https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[An inside look at how Claude Code and I debug complex technical problems together, from TypeScript compilation errors to serverless deployment failures.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="debugging" />
+    <category term="collaboration" />
+    <category term="pair-programming" />
+  </entry>
+  <entry>
     <title><![CDATA[Solving OpenGraph for SPAs: The Cloudflare Way]]></title>
     <link href="https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way</id>
@@ -98,6 +114,22 @@
     <category term="developer-experience" />
   </entry>
   <entry>
+    <title><![CDATA[Building for Humans AND Machines: The Dual-Audience Problem]]></title>
+    <link href="https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="web-development" />
+    <category term="ux-design" />
+    <category term="architecture" />
+  </entry>
+  <entry>
     <title><![CDATA[Testing Draft Preview Feature]]></title>
     <link href="https://www.haasonsaas.com/blog/draft-preview-test" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/draft-preview-test</id>
@@ -111,6 +143,23 @@
     <category term="testing" />
     <category term="features" />
     <category term="development" />
+  </entry>
+  <entry>
+    <title><![CDATA[When TypeScript Errors Break Production: Silent Cloudflare Function Failures]]></title>
+    <link href="https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</id>
+    <published>2025-06-20T00:00:00.000Z</published>
+    <updated>2025-06-20T00:00:00.000Z</updated>
+    <summary><![CDATA[A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="cloudflare" />
+    <category term="typescript" />
+    <category term="debugging" />
+    <category term="serverless" />
+    <category term="deployment" />
   </entry>
   <entry>
     <title><![CDATA[The Hidden Costs of Technical Debt]]></title>
@@ -805,64 +854,5 @@
     <category term="product" />
     <category term="strategy" />
     <category term="trust" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Secondary Celebration: A Founder's Perspective on VC Liquidity Events]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-secondary-celebration" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-secondary-celebration</id>
-    <published>2025-04-16T00:00:00.000Z</published>
-    <updated>2025-04-16T00:00:00.000Z</updated>
-    <summary><![CDATA[Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="venture-capital" />
-    <category term="founder-relations" />
-    <category term="startup-culture" />
-    <category term="liquidity-events" />
-    <category term="secondary-transactions" />
-    <category term="investor-dynamics" />
-    <category term="entrepreneurship" />
-  </entry>
-  <entry>
-    <title><![CDATA[Reading Between the Lines: How to Decode Community Investment Rounds]]></title>
-    <link href="https://www.haasonsaas.com/blog/reading-between-the-lines" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/reading-between-the-lines</id>
-    <published>2025-04-14T00:00:00.000Z</published>
-    <updated>2025-04-14T00:00:00.000Z</updated>
-    <summary><![CDATA[A practical guide to interpreting startup metrics in community investment rounds and identifying potential red flags before investing]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup-investment" />
-    <category term="community-rounds" />
-    <category term="investment-analysis" />
-    <category term="due-diligence" />
-    <category term="DTC-brands" />
-    <category term="funding-strategy" />
-    <category term="retail-investing" />
-    <category term="financial-literacy" />
-  </entry>
-  <entry>
-    <title><![CDATA[Model Context Protocol: The Enterprise Standard Transforming AI Tool Integration]]></title>
-    <link href="https://www.haasonsaas.com/blog/what-is-mcp" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/what-is-mcp</id>
-    <published>2025-04-13T00:00:00.000Z</published>
-    <updated>2025-04-13T00:00:00.000Z</updated>
-    <summary><![CDATA[A comprehensive analysis of the Model Context Protocol (MCP) — the enterprise-ready standard that's systematically solving the challenges of LLM tool integration across organizations of all sizes.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="ai-infrastructure" />
-    <category term="llm-apps" />
-    <category term="agentic-frameworks" />
-    <category term="enterprise-ai" />
-    <category term="developer-tools" />
-    <category term="automation" />
-    <category term="mcp-standard" />
-    <category term="system-integration" />
   </entry>
 </feed>

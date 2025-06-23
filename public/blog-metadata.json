@@ -11,6 +11,18 @@
       "culture"
     ]
   },
+  "debugging-in-real-time-a-human-ai-pair-programming-session": {
+    "title": "Debugging in Real-Time: A Human-AI Pair Programming Session",
+    "description": "An inside look at how Claude Code and I debug complex technical problems together, from TypeScript compilation errors to serverless deployment failures.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": [
+      "ai",
+      "debugging",
+      "collaboration",
+      "pair-programming"
+    ]
+  },
   "solving-opengraph-for-spas-the-cloudflare-way": {
     "title": "Solving OpenGraph for SPAs: The Cloudflare Way",
     "description": "How to fix social media previews for React SPAs using Cloudflare's edge functions - no SSR required",
@@ -728,6 +740,18 @@
       "transparency"
     ]
   },
+  "building-for-humans-and-machines-the-dual-audience-problem": {
+    "title": "Building for Humans AND Machines: The Dual-Audience Problem",
+    "description": "How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": [
+      "ai",
+      "web-development",
+      "ux-design",
+      "architecture"
+    ]
+  },
   "pricing-psychology-what-vs-really-means": {
     "title": "Pricing Psychology: What $99 vs $100 Really Means",
     "description": "The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value.",
@@ -1005,6 +1029,19 @@
       "leadership",
       "culture",
       "strategy"
+    ]
+  },
+  "when-typescript-errors-break-production-silent-cloudflare-function-failures": {
+    "title": "When TypeScript Errors Break Production: Silent Cloudflare Function Failures",
+    "description": "A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": [
+      "cloudflare",
+      "typescript",
+      "debugging",
+      "serverless",
+      "deployment"
     ]
   },
   "product-manager-skills": {
