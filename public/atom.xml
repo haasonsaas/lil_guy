@@ -5,7 +5,7 @@
   <link href="https://www.haasonsaas.com/atom.xml" rel="self" type="application/atom+xml" />
   <link href="https://www.haasonsaas.com" rel="alternate" type="text/html" />
   <id>https://www.haasonsaas.com/</id>
-  <updated>2025-06-20T00:00:00.000Z</updated>
+  <updated>2025-06-23T00:00:00.000Z</updated>
   <author>
     <name>Jonathan Haas</name>
     <email>jonathan@haasonsaas.com</email>
@@ -13,6 +13,23 @@
   </author>
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
+  <entry>
+    <title><![CDATA[DSPy: The End of Prompt Engineering As We Know It]]></title>
+    <link href="https://www.haasonsaas.com/blog/dspy-the-end-of-prompt-engineering-as-we-know-it" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/dspy-the-end-of-prompt-engineering-as-we-know-it</id>
+    <published>2025-06-23T00:00:00.000Z</published>
+    <updated>2025-06-23T00:00:00.000Z</updated>
+    <summary><![CDATA[Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready techniques]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="developer-experience" />
+    <category term="prompt-engineering" />
+    <category term="dspy" />
+    <category term="future-of-coding" />
+  </entry>
   <entry>
     <title><![CDATA[Debugging in Real-Time: A Human-AI Pair Programming Session]]></title>
     <link href="https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session" rel="alternate" type="text/html" />
@@ -838,21 +855,5 @@
     <category term="mindset" />
     <category term="problem-solving" />
     <category term="organizational-dynamics" />
-  </entry>
-  <entry>
-    <title><![CDATA[AI Detection Hysteria: When Human Creativity Gets Mislabeled]]></title>
-    <link href="https://www.haasonsaas.com/blog/ai-detection-hysteria" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/ai-detection-hysteria</id>
-    <published>2025-04-17T00:00:00.000Z</published>
-    <updated>2025-04-17T00:00:00.000Z</updated>
-    <summary><![CDATA[An examination of the growing trend of falsely attributing human-created content to AI generation, and why this luddite perspective is problematic for creative communities and technological progress]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="ai" />
-    <category term="product" />
-    <category term="strategy" />
-    <category term="trust" />
   </entry>
 </feed>

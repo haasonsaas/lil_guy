@@ -690,6 +690,19 @@
       "developer-experience"
     ]
   },
+  "dspy-the-end-of-prompt-engineering-as-we-know-it": {
+    "title": "DSPy: The End of Prompt Engineering As We Know It",
+    "description": "Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready techniques",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-23",
+    "tags": [
+      "ai",
+      "developer-experience",
+      "prompt-engineering",
+      "dspy",
+      "future-of-coding"
+    ]
+  },
   "new-series-a-reality": {
     "title": "The New Series A Reality: Why It Feels Harder (Because It Is)",
     "description": "If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher, and what early-stage founders need to know to survive the new bar.",
