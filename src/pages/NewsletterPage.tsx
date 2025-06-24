@@ -6,19 +6,54 @@ import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
 import Layout from "@/components/Layout";
+import { useAsyncState } from "@/components/AsyncBoundary";
+import { Loader2 } from "lucide-react";
 
 const NewsletterPage = () => {
   const [email, setEmail] = useState("");
   const { toast } = useToast();
+  const { isLoading, execute } = useAsyncState<void>();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement newsletter signup logic
-    toast({
-      title: "Thanks for subscribing!",
-      description: "You'll receive our next newsletter soon.",
-    });
-    setEmail("");
+    
+    if (!email.trim() || !email.includes('@')) {
+      toast({
+        title: "Invalid email",
+        description: "Please enter a valid email address.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    try {
+      await execute(async () => {
+        const response = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        
+        if (!response.ok) {
+          const error = await response.text();
+          throw new Error(error || 'Subscription failed');
+        }
+        
+        return response.json();
+      });
+      
+      toast({
+        title: "Thanks for subscribing!",
+        description: "You'll receive our next newsletter soon.",
+      });
+      setEmail("");
+    } catch (error) {
+      toast({
+        title: "Subscription failed",
+        description: "Please try again later or contact support.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -231,10 +266,18 @@ const NewsletterPage = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    disabled={isLoading}
                   />
                 </div>
-                <Button type="submit" className="w-full">
-                  Send It →
+                <Button type="submit" className="w-full" disabled={isLoading}>
+                  {isLoading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Subscribing...
+                    </>
+                  ) : (
+                    'Send It →'
+                  )}
                 </Button>
                 <p className="text-xs text-center text-muted-foreground">
                   No spam. Unsubscribe in two clicks.

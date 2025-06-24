@@ -9,6 +9,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { useServiceWorker } from "@/hooks/useServiceWorker";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
+import { DevTools } from "@/components/DevTools";
 import "./styles/print.css";
 
 // Critical routes - load immediately
@@ -41,10 +43,13 @@ const LiquidMetalPage = lazy(() => import("./pages/LiquidMetalPage"));
 const AIPage = lazy(() => import("./pages/AIPage"));
 const AgentsPage = lazy(() => import("./pages/AgentsPage"));
 
-// Loading component
+// Loading component with better UX
 const PageLoading = () => (
   <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+    <div className="text-center">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+      <p className="mt-4 text-sm text-muted-foreground">Loading...</p>
+    </div>
   </div>
 );
 
@@ -62,13 +67,14 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider defaultTheme="system" storageKey="haas-blog-theme">
         <TooltipProvider>
-          <Toaster />
-          <Sonner />
-          <Router>
-            <AnalyticsProvider />
-            <ScrollToTop />
-            <Suspense fallback={<PageLoading />}>
-              <Routes>
+          <ErrorBoundary>
+            <Toaster />
+            <Sonner />
+            <Router>
+              <AnalyticsProvider />
+              <ScrollToTop />
+              <Suspense fallback={<PageLoading />}>
+                <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
@@ -100,6 +106,8 @@ const App = () => (
               </Routes>
             </Suspense>
           </Router>
+          <DevTools />
+        </ErrorBoundary>
         </TooltipProvider>
       </ThemeProvider>
     </QueryClientProvider>
