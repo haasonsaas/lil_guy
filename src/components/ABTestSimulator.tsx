@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -43,11 +43,7 @@ export default function ABTestSimulator() {
 
   const [scenarios, setScenarios] = useState<Array<{name: string, config: TestConfig}>>([]);
 
-  useEffect(() => {
-    calculateResults();
-  }, [config]);
-
-  const calculateResults = () => {
+  const calculateResults = useCallback(() => {
     const { controlConversion, variantConversion, sampleSize, confidenceLevel } = config;
     
     const p1 = controlConversion / 100;
@@ -106,15 +102,14 @@ export default function ABTestSimulator() {
       powerAnalysis: Math.round(powerAnalysis),
       recommendation
     });
-  };
+  }, [config, normalCDF, getZCritical]);
 
-  // Normal CDF approximation
-  const normalCDF = (x: number): number => {
-    return 0.5 * (1 + erf(x / Math.sqrt(2)));
-  };
+  useEffect(() => {
+    calculateResults();
+  }, [calculateResults]);
 
   // Error function approximation
-  const erf = (x: number): number => {
+  const erf = useCallback((x: number): number => {
     const a1 =  0.254829592;
     const a2 = -0.284496736;
     const a3 =  1.421413741;
@@ -129,16 +124,21 @@ export default function ABTestSimulator() {
     const y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * Math.exp(-x * x);
 
     return sign * y;
-  };
+  }, []);
 
-  const getZCritical = (confidenceLevel: number): number => {
+  // Normal CDF approximation
+  const normalCDF = useCallback((x: number): number => {
+    return 0.5 * (1 + erf(x / Math.sqrt(2)));
+  }, [erf]);
+
+  const getZCritical = useCallback((confidenceLevel: number): number => {
     const alpha = (100 - confidenceLevel) / 100;
     // Approximations for common confidence levels
     if (confidenceLevel === 90) return 1.645;
     if (confidenceLevel === 95) return 1.96;
     if (confidenceLevel === 99) return 2.576;
     return 1.96; // Default to 95%
-  };
+  }, []);
 
   const handleInputChange = (field: keyof TestConfig, value: string | number) => {
     const numValue = typeof value === 'string' ? parseFloat(value) || 0 : value;

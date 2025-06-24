@@ -4,7 +4,8 @@ export function useLazyImageEnhancement(containerRef: React.RefObject<HTMLElemen
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const images = containerRef.current.querySelectorAll('img');
+    const container = containerRef.current; // Capture ref value early
+    const images = container.querySelectorAll('img');
     
     images.forEach((img) => {
       // Skip if already processed or is a placeholder
@@ -48,7 +49,6 @@ export function useLazyImageEnhancement(containerRef: React.RefObject<HTMLElemen
 
     // Cleanup function
     return () => {
-      const container = containerRef.current;
       if (container) {
         const images = container.querySelectorAll('img[data-lazy-processed]');
         images.forEach((img) => {

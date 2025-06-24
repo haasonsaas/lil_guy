@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { useNumberFormatter } from './useNumberFormatter';
 
 interface AnimatedCounterOptions {
@@ -34,15 +34,15 @@ export function useAnimatedCounter(
 
   const { formatNumber, formatCurrency, formatPercent, formatCompact } = useNumberFormatter();
 
-  // Easing functions
-  const easingFunctions = {
+  // Easing functions (memoized to prevent unnecessary re-renders)
+  const easingFunctions = useMemo(() => ({
     linear: (t: number) => t,
     easeInOut: (t: number) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t,
     easeOut: (t: number) => t * (2 - t),
     easeIn: (t: number) => t * t,
-  };
+  }), []);
 
-  const animate = (timestamp: number) => {
+  const animate = useCallback((timestamp: number) => {
     if (!startTimeRef.current) {
       startTimeRef.current = timestamp;
     }
@@ -54,9 +54,9 @@ export function useAnimatedCounter(
     setDisplayValue(currentValue);
 
     if (progress < 1) {
-      requestRef.current = requestAnimationFrame(animate);
+      requestRef.current = requestAnimationFrame(() => animate(performance.now()));
     }
-  };
+  }, [duration, easing, endValue, easingFunctions]);
 
   useEffect(() => {
     // Only animate if the value actually changed and is finite
@@ -73,7 +73,7 @@ export function useAnimatedCounter(
       }
       startValueRef.current = endValue;
     };
-  }, [endValue, duration, easing]);
+  }, [endValue, duration, easing, animate]);
 
   // Format the display value
   let formatted: string;

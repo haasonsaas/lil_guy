@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -157,7 +157,7 @@ export default function TAMSAMSOMCalculator() {
 
   const [showAdvanced, setShowAdvanced] = useState(false);
 
-  const calculateMarkets = () => {
+  const calculateMarkets = useCallback(() => {
     const newData = { ...marketData };
     
     // SAM = TAM × Geographic Reach × Channel Reach × Product Fit
@@ -193,7 +193,7 @@ export default function TAMSAMSOMCalculator() {
     };
     
     setAnalysis(newAnalysis);
-  };
+  }, [marketData]);
 
   const getRecommendedStrategy = (data: MarketData, inputs: MarketData): string => {
     const tamSize = getMarketSizeCategory(inputs.totalMarketSize);
@@ -215,11 +215,7 @@ export default function TAMSAMSOMCalculator() {
 
   useEffect(() => {
     calculateMarkets();
-  }, [
-    marketData.totalMarketSize, marketData.marketGrowthRate, marketData.geographicReach,
-    marketData.channelReach, marketData.productFit, marketData.competitiveAdvantage,
-    marketData.marketingBudget, marketData.salesEfficiency, marketData.timeframe
-  ]);
+  }, [calculateMarkets]);
 
   const updateField = (field: keyof MarketData, value: string) => {
     const numValue = parseFloat(value) || 0;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -243,7 +243,7 @@ export default function TechnicalArchitectureVisualizer() {
     connections: []
   });
 
-  const analyzeArchitecture = () => {
+  const analyzeArchitecture = useCallback(() => {
     const totalComplexity = components.reduce((sum, comp) => sum + comp.complexity, 0);
     const averageScalability = components.reduce((sum, comp) => sum + comp.scalability, 0) / components.length;
     const maintenanceBurden = components.reduce((sum, comp) => sum + comp.maintenance, 0);
@@ -301,11 +301,11 @@ export default function TechnicalArchitectureVisualizer() {
       singlePointsOfFailure,
       recommendations
     });
-  };
+  }, [components]);
 
   useEffect(() => {
     analyzeArchitecture();
-  }, [components]);
+  }, [analyzeArchitecture]);
 
   const addComponent = () => {
     if (!newComponent.name) return;

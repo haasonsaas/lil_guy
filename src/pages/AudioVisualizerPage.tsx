@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -79,6 +79,272 @@ const fragmentShaderSource = `
 
 type VisualizationType = 'bars' | 'waves' | 'circular' | 'particles';
 
+// Create 3D matrix for perspective
+const createMatrix = (aspect: number, time: number) => {
+  const fov = Math.PI / 4;
+  const near = 0.1;
+  const far = 100;
+  
+  // Perspective matrix
+  const f = Math.tan(Math.PI * 0.5 - 0.5 * fov);
+  const rangeInv = 1.0 / (near - far);
+  
+  const matrix = new Float32Array(16);
+  matrix[0] = f / aspect;
+  matrix[5] = f;
+  matrix[10] = (near + far) * rangeInv;
+  matrix[11] = -1;
+  matrix[14] = near * far * rangeInv * 2;
+  
+  // Rotation
+  const angle = time * 0.5;
+  const c = Math.cos(angle);
+  const s = Math.sin(angle);
+  
+  // Apply rotation to x and z
+  const rotated = new Float32Array(16);
+  rotated[0] = matrix[0] * c;
+  rotated[2] = matrix[0] * s;
+  rotated[5] = matrix[5];
+  rotated[8] = -matrix[0] * s;
+  rotated[10] = matrix[10] * c + matrix[14] * s;
+  rotated[11] = matrix[11];
+  rotated[14] = matrix[14] * c - matrix[10] * s;
+  rotated[15] = 1;
+  
+  // Translation
+  rotated[12] = 0;
+  rotated[13] = -0.5;
+  rotated[14] -= 5;
+  
+  return rotated;
+};
+
+// Render bars visualization
+const renderBars = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
+  const barCount = 64;
+  const positions: number[] = [];
+  const frequencies: number[] = [];
+  
+  for (let i = 0; i < barCount; i++) {
+    const x = (i / barCount - 0.5) * 20;
+    const frequency = dataArray[Math.floor(i * dataArray.length / barCount)] / 255;
+    
+    // Create a bar (two triangles)
+    const width = 20 / barCount * 0.8;
+    
+    // Triangle 1
+    positions.push(x - width/2, 0, 0);
+    positions.push(x + width/2, 0, 0);
+    positions.push(x - width/2, 1, 0);
+    
+    // Triangle 2
+    positions.push(x + width/2, 0, 0);
+    positions.push(x + width/2, 1, 0);
+    positions.push(x - width/2, 1, 0);
+    
+    // Frequency for each vertex
+    for (let j = 0; j < 6; j++) {
+      frequencies.push(frequency);
+    }
+  }
+  
+  // Create buffers
+  const positionBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
+  
+  const positionLocation = gl.getAttribLocation(program, 'a_position');
+  gl.enableVertexAttribArray(positionLocation);
+  gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
+  
+  const frequencyBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
+  
+  const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
+  gl.enableVertexAttribArray(frequencyLocation);
+  gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
+  
+  // Set matrix
+  const matrix = createMatrix(canvas.width / canvas.height, Date.now() * 0.001);
+  gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
+  
+  // Draw
+  gl.drawArrays(gl.TRIANGLES, 0, positions.length / 3);
+};
+
+// Render waves visualization
+const renderWaves = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
+  const points = 128;
+  const positions: number[] = [];
+  const frequencies: number[] = [];
+  
+  for (let layer = 0; layer < 3; layer++) {
+    for (let i = 0; i < points; i++) {
+      const x = (i / (points - 1) - 0.5) * 20;
+      const frequency = dataArray[Math.floor(i * dataArray.length / points)] / 255;
+      const z = layer * -2;
+      
+      positions.push(x, 0, z);
+      frequencies.push(frequency * (1 - layer * 0.2));
+    }
+  }
+  
+  // Create line strip indices
+  const indices: number[] = [];
+  for (let layer = 0; layer < 3; layer++) {
+    for (let i = 0; i < points - 1; i++) {
+      indices.push(layer * points + i);
+      indices.push(layer * points + i + 1);
+    }
+  }
+  
+  // Create buffers
+  const positionBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
+  
+  const positionLocation = gl.getAttribLocation(program, 'a_position');
+  gl.enableVertexAttribArray(positionLocation);
+  gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
+  
+  const frequencyBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
+  
+  const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
+  gl.enableVertexAttribArray(frequencyLocation);
+  gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
+  
+  const indexBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
+  
+  // Set matrix
+  const matrix = createMatrix(canvas.width / canvas.height, Date.now() * 0.001);
+  gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
+  
+  // Draw
+  gl.lineWidth(2);
+  gl.drawElements(gl.LINES, indices.length, gl.UNSIGNED_SHORT, 0);
+};
+
+// Render circular visualization
+const renderCircular = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
+  const segments = 64;
+  const positions: number[] = [];
+  const frequencies: number[] = [];
+  
+  for (let i = 0; i < segments; i++) {
+    const angle1 = (i / segments) * Math.PI * 2;
+    const angle2 = ((i + 1) / segments) * Math.PI * 2;
+    const frequency = dataArray[Math.floor(i * dataArray.length / segments)] / 255;
+    const radius = 3 + frequency * 2;
+    
+    // Center
+    positions.push(0, 0, 0);
+    frequencies.push(frequency * 0.5);
+    
+    // Edge point 1
+    positions.push(Math.cos(angle1) * radius, Math.sin(angle1) * radius, 0);
+    frequencies.push(frequency);
+    
+    // Edge point 2
+    positions.push(Math.cos(angle2) * radius, Math.sin(angle2) * radius, 0);
+    frequencies.push(frequency);
+  }
+  
+  // Create buffers
+  const positionBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
+  
+  const positionLocation = gl.getAttribLocation(program, 'a_position');
+  gl.enableVertexAttribArray(positionLocation);
+  gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
+  
+  const frequencyBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
+  
+  const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
+  gl.enableVertexAttribArray(frequencyLocation);
+  gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
+  
+  // Set matrix with modified rotation
+  const time = Date.now() * 0.001;
+  const matrix = createMatrix(canvas.width / canvas.height, time * 0.3);
+  gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
+  
+  // Draw
+  gl.drawArrays(gl.TRIANGLES, 0, positions.length / 3);
+};
+
+// Render particles visualization
+const renderParticles = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
+  const particleCount = 512;
+  const positions: number[] = [];
+  const frequencies: number[] = [];
+  const time = Date.now() * 0.001;
+  
+  for (let i = 0; i < particleCount; i++) {
+    const frequencyIndex = Math.floor(i * dataArray.length / particleCount);
+    const frequency = dataArray[frequencyIndex] / 255;
+    
+    // Particle position with some randomness
+    const angle = (i / particleCount) * Math.PI * 2 + time * 0.1;
+    const radius = 2 + frequency * 4 + Math.sin(time * 2 + i) * 0.5;
+    const height = (Math.random() - 0.5) * 4 * frequency;
+    
+    const x = Math.cos(angle) * radius;
+    const z = Math.sin(angle) * radius;
+    const y = height;
+    
+    // Create a small quad for each particle
+    const size = 0.1 + frequency * 0.1;
+    
+    // Triangle 1
+    positions.push(x - size, y - size, z);
+    positions.push(x + size, y - size, z);
+    positions.push(x - size, y + size, z);
+    
+    // Triangle 2
+    positions.push(x + size, y - size, z);
+    positions.push(x + size, y + size, z);
+    positions.push(x - size, y + size, z);
+    
+    // Frequency for each vertex
+    for (let j = 0; j < 6; j++) {
+      frequencies.push(frequency);
+    }
+  }
+  
+  // Create buffers
+  const positionBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
+  
+  const positionLocation = gl.getAttribLocation(program, 'a_position');
+  gl.enableVertexAttribArray(positionLocation);
+  gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
+  
+  const frequencyBuffer = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
+  
+  const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
+  gl.enableVertexAttribArray(frequencyLocation);
+  gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
+  
+  // Set matrix
+  const matrix = createMatrix(canvas.width / canvas.height, time);
+  gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
+  
+  // Draw
+  gl.drawArrays(gl.TRIANGLES, 0, positions.length / 3);
+};
+
 export default function AudioVisualizerPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const audioContextRef = useRef<AudioContext | null>(null);
@@ -98,7 +364,13 @@ export default function AudioVisualizerPage() {
   const [colorScheme, setColorScheme] = useState(0);
   const [beatDetected, setBeatDetected] = useState(false);
 
-  const colorSchemes = [
+  // Refs for stable access to current values in render loop
+  const isPlayingRef = useRef(isPlaying);
+  const sensitivityRef = useRef(sensitivity);
+  const colorSchemeRef = useRef(colorScheme);
+  const visualizationRef = useRef(visualization);
+
+  const colorSchemes = useMemo(() => [
     {
       name: "Neon",
       colors: [[0.0, 1.0, 1.0], [1.0, 0.0, 1.0], [1.0, 1.0, 0.0]]
@@ -119,7 +391,7 @@ export default function AudioVisualizerPage() {
       name: "Galaxy",
       colors: [[0.4, 0.0, 0.8], [0.8, 0.0, 0.8], [1.0, 0.4, 1.0]]
     }
-  ];
+  ], []);
 
   // Create shader helper
   const createShader = (gl: WebGLRenderingContext, type: number, source: string) => {
@@ -157,7 +429,7 @@ export default function AudioVisualizerPage() {
   };
 
   // Initialize WebGL
-  const initWebGL = () => {
+  const initWebGL = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return false;
 
@@ -186,7 +458,7 @@ export default function AudioVisualizerPage() {
     gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
 
     return true;
-  };
+  }, []);
 
   // Initialize audio context
   const initAudio = async (useMicrophone: boolean = false) => {
@@ -280,49 +552,8 @@ export default function AudioVisualizerPage() {
     }
   };
 
-  // Create 3D matrix for perspective
-  const createMatrix = (aspect: number, time: number) => {
-    const fov = Math.PI / 4;
-    const near = 0.1;
-    const far = 100;
-    
-    // Perspective matrix
-    const f = Math.tan(Math.PI * 0.5 - 0.5 * fov);
-    const rangeInv = 1.0 / (near - far);
-    
-    const matrix = new Float32Array(16);
-    matrix[0] = f / aspect;
-    matrix[5] = f;
-    matrix[10] = (near + far) * rangeInv;
-    matrix[11] = -1;
-    matrix[14] = near * far * rangeInv * 2;
-    
-    // Rotation
-    const angle = time * 0.5;
-    const c = Math.cos(angle);
-    const s = Math.sin(angle);
-    
-    // Apply rotation to x and z
-    const rotated = new Float32Array(16);
-    rotated[0] = matrix[0] * c;
-    rotated[2] = matrix[0] * s;
-    rotated[5] = matrix[5];
-    rotated[8] = -matrix[0] * s;
-    rotated[10] = matrix[10] * c + matrix[14] * s;
-    rotated[11] = matrix[11];
-    rotated[14] = matrix[14] * c - matrix[10] * s;
-    rotated[15] = 1;
-    
-    // Translation
-    rotated[12] = 0;
-    rotated[13] = -0.5;
-    rotated[14] -= 5;
-    
-    return rotated;
-  };
-
   // Render visualization
-  const render = () => {
+  const render = useCallback(() => {
     const gl = glRef.current;
     const program = programRef.current;
     const analyser = analyserRef.current;
@@ -337,13 +568,13 @@ export default function AudioVisualizerPage() {
 
     // Check if we're getting audio data
     const maxValue = Math.max(...dataArray);
-    if (maxValue === 0 && isPlaying) {
+    if (maxValue === 0 && isPlayingRef.current) {
       console.log('Warning: No audio data detected');
     }
 
     // Detect beats
     const average = dataArray.reduce((a, b) => a + b) / bufferLength;
-    if (average > 128 * sensitivity[0]) {
+    if (average > 128 * sensitivityRef.current[0]) {
       setBeatDetected(true);
       setTimeout(() => setBeatDetected(false), 100);
     }
@@ -356,251 +587,26 @@ export default function AudioVisualizerPage() {
     gl.useProgram(program);
 
     // Set uniforms
-    const colors = colorSchemes[colorScheme].colors;
+    const colors = colorSchemes[colorSchemeRef.current].colors;
     gl.uniform3fv(gl.getUniformLocation(program, 'u_color1'), colors[0]);
     gl.uniform3fv(gl.getUniformLocation(program, 'u_color2'), colors[1]);
     gl.uniform3fv(gl.getUniformLocation(program, 'u_color3'), colors[2]);
     gl.uniform1f(gl.getUniformLocation(program, 'u_time'), Date.now() * 0.001);
-    gl.uniform1f(gl.getUniformLocation(program, 'u_intensity'), sensitivity[0]);
+    gl.uniform1f(gl.getUniformLocation(program, 'u_intensity'), sensitivityRef.current[0]);
 
     // Create visualization based on type
-    if (visualization === 'bars') {
+    if (visualizationRef.current === 'bars') {
       renderBars(gl, program, dataArray, canvas);
-    } else if (visualization === 'waves') {
+    } else if (visualizationRef.current === 'waves') {
       renderWaves(gl, program, dataArray, canvas);
-    } else if (visualization === 'circular') {
+    } else if (visualizationRef.current === 'circular') {
       renderCircular(gl, program, dataArray, canvas);
-    } else if (visualization === 'particles') {
+    } else if (visualizationRef.current === 'particles') {
       renderParticles(gl, program, dataArray, canvas);
     }
 
     animationRef.current = requestAnimationFrame(render);
-  };
-
-  // Render bars visualization
-  const renderBars = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
-    const barCount = 64;
-    const positions: number[] = [];
-    const frequencies: number[] = [];
-    
-    for (let i = 0; i < barCount; i++) {
-      const x = (i / barCount - 0.5) * 20;
-      const frequency = dataArray[Math.floor(i * dataArray.length / barCount)] / 255;
-      
-      // Create a bar (two triangles)
-      const width = 20 / barCount * 0.8;
-      
-      // Triangle 1
-      positions.push(x - width/2, 0, 0);
-      positions.push(x + width/2, 0, 0);
-      positions.push(x - width/2, 1, 0);
-      
-      // Triangle 2
-      positions.push(x + width/2, 0, 0);
-      positions.push(x + width/2, 1, 0);
-      positions.push(x - width/2, 1, 0);
-      
-      // Frequency for each vertex
-      for (let j = 0; j < 6; j++) {
-        frequencies.push(frequency);
-      }
-    }
-    
-    // Create buffers
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
-    
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
-    gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
-    
-    const frequencyBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
-    
-    const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
-    gl.enableVertexAttribArray(frequencyLocation);
-    gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
-    
-    // Set matrix
-    const matrix = createMatrix(canvas.width / canvas.height, Date.now() * 0.001);
-    gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
-    
-    // Draw
-    gl.drawArrays(gl.TRIANGLES, 0, positions.length / 3);
-  };
-
-  // Render waves visualization
-  const renderWaves = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
-    const points = 128;
-    const positions: number[] = [];
-    const frequencies: number[] = [];
-    
-    for (let layer = 0; layer < 3; layer++) {
-      for (let i = 0; i < points; i++) {
-        const x = (i / (points - 1) - 0.5) * 20;
-        const frequency = dataArray[Math.floor(i * dataArray.length / points)] / 255;
-        const z = layer * -2;
-        
-        positions.push(x, 0, z);
-        frequencies.push(frequency * (1 - layer * 0.2));
-      }
-    }
-    
-    // Create line strip indices
-    const indices: number[] = [];
-    for (let layer = 0; layer < 3; layer++) {
-      for (let i = 0; i < points - 1; i++) {
-        indices.push(layer * points + i);
-        indices.push(layer * points + i + 1);
-      }
-    }
-    
-    // Create buffers
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
-    
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
-    gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
-    
-    const frequencyBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
-    
-    const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
-    gl.enableVertexAttribArray(frequencyLocation);
-    gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
-    
-    const indexBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer);
-    gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
-    
-    // Set matrix
-    const matrix = createMatrix(canvas.width / canvas.height, Date.now() * 0.001);
-    gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
-    
-    // Draw
-    gl.lineWidth(2);
-    gl.drawElements(gl.LINES, indices.length, gl.UNSIGNED_SHORT, 0);
-  };
-
-  // Render circular visualization
-  const renderCircular = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
-    const segments = 64;
-    const positions: number[] = [];
-    const frequencies: number[] = [];
-    
-    for (let i = 0; i < segments; i++) {
-      const angle1 = (i / segments) * Math.PI * 2;
-      const angle2 = ((i + 1) / segments) * Math.PI * 2;
-      const frequency = dataArray[Math.floor(i * dataArray.length / segments)] / 255;
-      const radius = 3 + frequency * 2;
-      
-      // Center
-      positions.push(0, 0, 0);
-      frequencies.push(frequency * 0.5);
-      
-      // Edge point 1
-      positions.push(Math.cos(angle1) * radius, Math.sin(angle1) * radius, 0);
-      frequencies.push(frequency);
-      
-      // Edge point 2
-      positions.push(Math.cos(angle2) * radius, Math.sin(angle2) * radius, 0);
-      frequencies.push(frequency);
-    }
-    
-    // Create buffers
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
-    
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
-    gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
-    
-    const frequencyBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
-    
-    const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
-    gl.enableVertexAttribArray(frequencyLocation);
-    gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
-    
-    // Set matrix with modified rotation
-    const time = Date.now() * 0.001;
-    const matrix = createMatrix(canvas.width / canvas.height, time * 0.3);
-    gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
-    
-    // Draw
-    gl.drawArrays(gl.TRIANGLES, 0, positions.length / 3);
-  };
-
-  // Render particles visualization
-  const renderParticles = (gl: WebGLRenderingContext, program: WebGLProgram, dataArray: Uint8Array, canvas: HTMLCanvasElement) => {
-    const particleCount = 512;
-    const positions: number[] = [];
-    const frequencies: number[] = [];
-    const time = Date.now() * 0.001;
-    
-    for (let i = 0; i < particleCount; i++) {
-      const frequencyIndex = Math.floor(i * dataArray.length / particleCount);
-      const frequency = dataArray[frequencyIndex] / 255;
-      
-      // Particle position with some randomness
-      const angle = (i / particleCount) * Math.PI * 2 + time * 0.1;
-      const radius = 2 + frequency * 4 + Math.sin(time * 2 + i) * 0.5;
-      const height = (Math.random() - 0.5) * 4 * frequency;
-      
-      const x = Math.cos(angle) * radius;
-      const z = Math.sin(angle) * radius;
-      const y = height;
-      
-      // Create a small quad for each particle
-      const size = 0.1 + frequency * 0.1;
-      
-      // Triangle 1
-      positions.push(x - size, y - size, z);
-      positions.push(x + size, y - size, z);
-      positions.push(x - size, y + size, z);
-      
-      // Triangle 2
-      positions.push(x + size, y - size, z);
-      positions.push(x + size, y + size, z);
-      positions.push(x - size, y + size, z);
-      
-      // Frequency for each vertex
-      for (let j = 0; j < 6; j++) {
-        frequencies.push(frequency);
-      }
-    }
-    
-    // Create buffers
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
-    
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
-    gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 3, gl.FLOAT, false, 0, 0);
-    
-    const frequencyBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, frequencyBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(frequencies), gl.DYNAMIC_DRAW);
-    
-    const frequencyLocation = gl.getAttribLocation(program, 'a_frequency');
-    gl.enableVertexAttribArray(frequencyLocation);
-    gl.vertexAttribPointer(frequencyLocation, 1, gl.FLOAT, false, 0, 0);
-    
-    // Set matrix
-    const matrix = createMatrix(canvas.width / canvas.height, time);
-    gl.uniformMatrix4fv(gl.getUniformLocation(program, 'u_matrix'), false, matrix);
-    
-    // Draw
-    gl.drawArrays(gl.TRIANGLES, 0, positions.length / 3);
-  };
+  }, [setBeatDetected, colorSchemes]);
 
   // Play/pause toggle
   const togglePlayPause = async () => {
@@ -624,13 +630,13 @@ export default function AudioVisualizerPage() {
   };
 
   // Handle canvas resize
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-  };
+  }, []);
 
   // Update analyser settings
   useEffect(() => {
@@ -645,6 +651,23 @@ export default function AudioVisualizerPage() {
       audioElementRef.current.volume = volume[0];
     }
   }, [volume]);
+
+  // Keep refs in sync with state
+  useEffect(() => {
+    isPlayingRef.current = isPlaying;
+  }, [isPlaying]);
+
+  useEffect(() => {
+    sensitivityRef.current = sensitivity;
+  }, [sensitivity]);
+
+  useEffect(() => {
+    colorSchemeRef.current = colorScheme;
+  }, [colorScheme]);
+
+  useEffect(() => {
+    visualizationRef.current = visualization;
+  }, [visualization]);
 
   // Initialize on mount
   useEffect(() => {
@@ -672,7 +695,7 @@ export default function AudioVisualizerPage() {
         audioContextRef.current?.close();
       }
     };
-  }, []);
+  }, [handleResize, initWebGL, render]);
 
   return (
     <Layout>

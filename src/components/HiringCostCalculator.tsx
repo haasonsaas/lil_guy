@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -204,7 +204,7 @@ export default function HiringCostCalculator() {
     firstYearROI: 0
   });
 
-  const calculateCosts = () => {
+  const calculateCosts = useCallback(() => {
     const newCosts: HiringCosts = {
       // Direct costs
       salary: role.baseSalary,
@@ -244,11 +244,11 @@ export default function HiringCostCalculator() {
     newCosts.firstYearROI = ((companyMetrics.revenuePerEmployee - newCosts.grandTotal) / newCosts.grandTotal) * 100;
     
     setCosts(newCosts);
-  };
+  }, [role, companyMetrics]);
 
   useEffect(() => {
     calculateCosts();
-  }, [role, companyMetrics]);
+  }, [calculateCosts]);
 
   const updateRole = (field: keyof HiringRole, value: string | number) => {
     setRole(prev => ({ ...prev, [field]: value }));

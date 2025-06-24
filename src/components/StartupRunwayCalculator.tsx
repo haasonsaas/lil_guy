@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -147,20 +147,20 @@ export default function StartupRunwayCalculator() {
     riskLevel: 'medium'
   });
 
-  const calculateMetrics = () => {
-    const newMetrics = { ...metrics };
+  const calculateMetrics = useCallback((currentMetrics: RunwayMetrics) => {
+    const newMetrics = { ...currentMetrics };
     
     // Current runway (simple)
-    newMetrics.currentRunway = metrics.currentCash / metrics.monthlyBurn;
+    newMetrics.currentRunway = currentMetrics.currentCash / currentMetrics.monthlyBurn;
     
     // Calculate runway with revenue growth
-    let cash = metrics.currentCash;
-    let revenue = metrics.monthlyRevenue;
+    let cash = currentMetrics.currentCash;
+    let revenue = currentMetrics.monthlyRevenue;
     let months = 0;
-    const monthlyGrowthRate = metrics.revenueGrowthRate / 100;
+    const monthlyGrowthRate = currentMetrics.revenueGrowthRate / 100;
     
     while (cash > 0 && months < 60) { // Cap at 5 years
-      const netBurn = metrics.monthlyBurn - revenue;
+      const netBurn = currentMetrics.monthlyBurn - revenue;
       if (netBurn <= 0) break; // Break even reached
       
       cash -= netBurn;
@@ -171,23 +171,23 @@ export default function StartupRunwayCalculator() {
     newMetrics.runwayWithGrowth = months;
     
     // Cash at expected funding date
-    let fundingCash = metrics.currentCash;
-    let fundingRevenue = metrics.monthlyRevenue;
-    for (let i = 0; i < metrics.fundingTimeline; i++) {
-      const netBurn = metrics.monthlyBurn - fundingRevenue;
+    let fundingCash = currentMetrics.currentCash;
+    let fundingRevenue = currentMetrics.monthlyRevenue;
+    for (let i = 0; i < currentMetrics.fundingTimeline; i++) {
+      const netBurn = currentMetrics.monthlyBurn - fundingRevenue;
       fundingCash -= netBurn;
       fundingRevenue *= (1 + monthlyGrowthRate);
     }
     newMetrics.cashAtFunding = Math.max(0, fundingCash);
     
     // Extended runway with funding
-    const totalCashAfterFunding = newMetrics.cashAtFunding + metrics.expectedFunding;
-    newMetrics.extendedRunway = newMetrics.runwayWithGrowth + (totalCashAfterFunding / metrics.monthlyBurn);
+    const totalCashAfterFunding = newMetrics.cashAtFunding + currentMetrics.expectedFunding;
+    newMetrics.extendedRunway = newMetrics.runwayWithGrowth + (totalCashAfterFunding / currentMetrics.monthlyBurn);
     
     // Break even calculation
     let breakEvenMonths = 0;
-    let breakEvenRevenue = metrics.monthlyRevenue;
-    while (breakEvenRevenue < metrics.monthlyBurn && breakEvenMonths < 60) {
+    let breakEvenRevenue = currentMetrics.monthlyRevenue;
+    while (breakEvenRevenue < currentMetrics.monthlyBurn && breakEvenMonths < 60) {
       breakEvenRevenue *= (1 + monthlyGrowthRate);
       breakEvenMonths++;
     }
@@ -196,12 +196,12 @@ export default function StartupRunwayCalculator() {
     // Risk assessment
     newMetrics.riskLevel = getRiskLevel(newMetrics.runwayWithGrowth);
     
-    setMetrics(newMetrics);
-  };
+    return newMetrics;
+  }, []);
 
   useEffect(() => {
-    calculateMetrics();
-  }, [metrics.currentCash, metrics.monthlyBurn, metrics.monthlyRevenue, metrics.revenueGrowthRate, metrics.expectedFunding, metrics.fundingTimeline]);
+    setMetrics(prevMetrics => calculateMetrics(prevMetrics));
+  }, [metrics.currentCash, metrics.monthlyBurn, metrics.monthlyRevenue, metrics.revenueGrowthRate, metrics.expectedFunding, metrics.fundingTimeline, calculateMetrics]);
 
   const updateMetric = (key: keyof RunwayMetrics, value: string) => {
     const numValue = parseFloat(value) || 0;

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -37,6 +37,43 @@ interface Rule {
   birthRules?: number[];
 }
 
+const rules: Rule[] = [
+  {
+    name: "Conway's Game of Life",
+    description: "The classic cellular automaton",
+    type: 'life',
+    surviveRules: [2, 3],
+    birthRules: [3]
+  },
+  {
+    name: "Seeds",
+    description: "Explosive growth patterns",
+    type: 'seeds',
+    surviveRules: [],
+    birthRules: [2]
+  },
+  {
+    name: "Brian's Brain",
+    description: "Three-state automaton with trails",
+    type: 'brian'
+  },
+  {
+    name: "Langton's Ant",
+    description: "Simple rules, complex behavior",
+    type: 'langton'
+  },
+  {
+    name: "Rule 110",
+    description: "Elementary cellular automaton",
+    type: 'rule110'
+  },
+  {
+    name: "Rule 30",
+    description: "Chaotic elementary automaton",
+    type: 'rule30'
+  }
+];
+
 export default function CellularAutomataPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const gridRef = useRef<Uint8Array | null>(null);
@@ -59,43 +96,6 @@ export default function CellularAutomataPage() {
 
   const frameCount = useRef(0);
   const lastUpdate = useRef(0);
-
-  const rules: Rule[] = [
-    {
-      name: "Conway's Game of Life",
-      description: "The classic cellular automaton",
-      type: 'life',
-      surviveRules: [2, 3],
-      birthRules: [3]
-    },
-    {
-      name: "Seeds",
-      description: "Explosive growth patterns",
-      type: 'seeds',
-      surviveRules: [],
-      birthRules: [2]
-    },
-    {
-      name: "Brian's Brain",
-      description: "Three-state automaton with trails",
-      type: 'brian'
-    },
-    {
-      name: "Langton's Ant",
-      description: "Simple rules, complex behavior",
-      type: 'langton'
-    },
-    {
-      name: "Rule 110",
-      description: "Elementary cellular automaton",
-      type: 'rule110'
-    },
-    {
-      name: "Rule 30",
-      description: "Chaotic elementary automaton",
-      type: 'rule30'
-    }
-  ];
 
   const patterns: Pattern[] = [
     {
@@ -174,7 +174,7 @@ export default function CellularAutomataPage() {
     }
   ];
 
-  const colorSchemes = [
+const colorSchemes = [
     {
       name: "Classic",
       alive: '#ffffff',
@@ -213,7 +213,7 @@ export default function CellularAutomataPage() {
   ];
 
   // Initialize grid
-  const initializeGrid = () => {
+  const initializeGrid = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -236,7 +236,7 @@ export default function CellularAutomataPage() {
     generationRef.current = 0;
     setGeneration(0);
     updatePopulation();
-  };
+  }, [cellSize, currentRule, updatePopulation]);
 
   // Get cell index
   const getIndex = (x: number, y: number): number => {
@@ -245,12 +245,12 @@ export default function CellularAutomataPage() {
   };
 
   // Get cell value with wrapping
-  const getCell = (x: number, y: number): number => {
+  const getCell = useCallback((x: number, y: number): number => {
     const wrappedX = (x + gridWidth) % gridWidth;
     const wrappedY = (y + gridHeight) % gridHeight;
     const index = wrappedY * gridWidth + wrappedX;
     return gridRef.current?.[index] || 0;
-  };
+  }, [gridHeight, gridWidth]);
 
   // Set cell value
   const setCell = (x: number, y: number, value: number) => {
@@ -261,7 +261,7 @@ export default function CellularAutomataPage() {
   };
 
   // Count neighbors for Game of Life type rules
-  const countNeighbors = (x: number, y: number): number => {
+  const countNeighbors = useCallback((x: number, y: number): number => {
     let count = 0;
     for (let dy = -1; dy <= 1; dy++) {
       for (let dx = -1; dx <= 1; dx++) {
@@ -270,10 +270,10 @@ export default function CellularAutomataPage() {
       }
     }
     return count;
-  };
+  }, [getCell]);
 
   // Update grid based on current rule
-  const updateGrid = () => {
+  const updateGrid = useCallback(() => {
     if (!gridRef.current || !nextGridRef.current) return;
     
     const grid = gridRef.current;
@@ -408,10 +408,10 @@ export default function CellularAutomataPage() {
     generationRef.current++;
     setGeneration(generationRef.current);
     updatePopulation();
-  };
+  }, [countNeighbors, currentRule, getCell, gridHeight, gridWidth, updatePopulation]);
 
   // Update population count
-  const updatePopulation = () => {
+  const updatePopulation = useCallback(() => {
     if (!gridRef.current) return;
     
     let count = 0;
@@ -421,10 +421,10 @@ export default function CellularAutomataPage() {
       }
     }
     setPopulation(count);
-  };
+  }, [currentRule]);
 
   // Draw grid
-  const drawGrid = () => {
+  const drawGrid = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas || !gridRef.current) return;
     
@@ -481,10 +481,10 @@ export default function CellularAutomataPage() {
         }
       }
     }
-  };
+  }, [cellSize, colorScheme, currentRule, gridHeight, gridWidth, showGrid]); // eslint-disable-line react-hooks/exhaustive-deps
 
   // Animation loop
-  const animate = () => {
+  const animate = useCallback(function animateLoop() {
     frameCount.current++;
     
     if (frameCount.current >= (60 / speed[0])) {
@@ -494,13 +494,14 @@ export default function CellularAutomataPage() {
     
     drawGrid();
     
-    if (isPlaying) {
-      animationRef.current = requestAnimationFrame(animate);
+    // Check if we should continue animation
+    if (animationRef.current) {
+      animationRef.current = requestAnimationFrame(animateLoop);
     }
-  };
+  }, [drawGrid, speed, updateGrid]);
 
   // Handle canvas resize
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -508,7 +509,7 @@ export default function CellularAutomataPage() {
     canvas.height = canvas.clientHeight;
     
     initializeGrid();
-  };
+  }, [initializeGrid]);
 
   // Handle mouse events
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -549,7 +550,7 @@ export default function CellularAutomataPage() {
   };
 
   // Clear grid
-  const clearGrid = () => {
+  const clearGrid = useCallback(() => {
     if (gridRef.current) {
       gridRef.current.fill(0);
       generationRef.current = 0;
@@ -564,7 +565,7 @@ export default function CellularAutomataPage() {
       
       drawGrid();
     }
-  };
+  }, [currentRule, drawGrid, gridHeight, gridWidth]);
 
   // Randomize grid
   const randomizeGrid = () => {
@@ -627,27 +628,28 @@ export default function CellularAutomataPage() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [handleResize]);
 
   // Update when cell size changes
   useEffect(() => {
     initializeGrid();
     drawGrid();
-  }, [cellSize]);
+  }, [cellSize, drawGrid, initializeGrid]);
 
   // Update when rule changes
   useEffect(() => {
     clearGrid();
-  }, [currentRule]);
+  }, [clearGrid, currentRule]);
 
   // Handle play/pause
   useEffect(() => {
     if (isPlaying) {
-      animate();
+      animationRef.current = requestAnimationFrame(animate);
     } else if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
+      animationRef.current = null;
     }
-  }, [isPlaying]);
+  }, [animate, isPlaying]);
 
   return (
     <Layout>

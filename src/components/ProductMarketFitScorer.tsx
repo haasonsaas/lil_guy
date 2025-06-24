@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
@@ -162,7 +162,7 @@ export default function ProductMarketFitScorer() {
     overall: 0
   });
 
-  const calculateScores = () => {
+  const calculateScores = useCallback(() => {
     const categoryScores = {
       retention: 0,
       satisfaction: 0,
@@ -204,11 +204,11 @@ export default function ProductMarketFitScorer() {
       ...categoryScores,
       overall
     });
-  };
+  }, [responses]);
 
   useEffect(() => {
     calculateScores();
-  }, [responses]);
+  }, [calculateScores]);
 
   const handleResponseChange = (questionId: string, value: string) => {
     setResponses(prev => ({

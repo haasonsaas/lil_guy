@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -244,7 +244,7 @@ export default function FeaturePrioritizationMatrix() {
     estimatedWeeks: 4
   });
 
-  const calculatePriority = (feature: Feature): Feature => {
+  const calculatePriority = useCallback((feature: Feature): Feature => {
     const totalImpact = (
       (feature.userImpact * criteria.userImpactWeight / 100) +
       (feature.businessImpact * criteria.businessImpactWeight / 100) +
@@ -261,15 +261,15 @@ export default function FeaturePrioritizationMatrix() {
       totalEffort,
       priorityScore
     };
-  };
+  }, [criteria]);
 
-  const recalculateAllPriorities = () => {
+  const recalculateAllPriorities = useCallback(() => {
     setFeatures(prev => prev.map(calculatePriority));
-  };
+  }, [calculatePriority]);
 
   useEffect(() => {
     recalculateAllPriorities();
-  }, [criteria]);
+  }, [recalculateAllPriorities]);
 
   const addFeature = () => {
     if (!newFeature.name) return;

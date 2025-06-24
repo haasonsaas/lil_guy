@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -136,44 +136,52 @@ export default function SaaSMetricsDashboard() {
     npsScore: 0,
   });
 
-  const calculateMetrics = () => {
-    const newMetrics = { ...metrics };
-    
+  const calculateMetrics = useCallback((currentMetrics: SaaSMetrics) => {
     // Net New MRR
-    newMetrics.netNewMrr = metrics.newMrr - metrics.churnedMrr;
+    const netNewMrr = currentMetrics.newMrr - currentMetrics.churnedMrr;
     
     // MRR Growth Rate
-    newMetrics.mrrGrowthRate = (newMetrics.netNewMrr / metrics.mrr) * 100;
+    const mrrGrowthRate = (netNewMrr / currentMetrics.mrr) * 100;
     
     // ARR
-    newMetrics.arr = metrics.mrr * 12;
+    const arr = currentMetrics.mrr * 12;
     
     // Revenue Churn Rate
-    newMetrics.revenueChurnRate = (metrics.churnedMrr / metrics.mrr) * 100;
+    const revenueChurnRate = (currentMetrics.churnedMrr / currentMetrics.mrr) * 100;
     
     // Customer Churn Rate (approximation)
-    const avgCustomers = metrics.mrr / metrics.averageSellingPrice;
-    const churnedCustomers = metrics.churnedMrr / metrics.averageSellingPrice;
-    newMetrics.churnRate = (churnedCustomers / avgCustomers) * 100;
+    const avgCustomers = currentMetrics.mrr / currentMetrics.averageSellingPrice;
+    const churnedCustomers = currentMetrics.churnedMrr / currentMetrics.averageSellingPrice;
+    const churnRate = (churnedCustomers / avgCustomers) * 100;
     
     // LTV calculation (simplified)
-    const monthlyChurnRate = newMetrics.churnRate / 100;
+    const monthlyChurnRate = churnRate / 100;
     const avgCustomerLifetime = monthlyChurnRate > 0 ? 1 / monthlyChurnRate : 50; // months
-    newMetrics.ltv = metrics.averageSellingPrice * avgCustomerLifetime * (metrics.grossMargin / 100);
+    const ltv = currentMetrics.averageSellingPrice * avgCustomerLifetime * (currentMetrics.grossMargin / 100);
     
     // LTV:CAC Ratio
-    newMetrics.ltvCacRatio = metrics.cac > 0 ? newMetrics.ltv / metrics.cac : 0;
+    const ltvCacRatio = currentMetrics.cac > 0 ? ltv / currentMetrics.cac : 0;
     
     // CAC Payback Period
-    const monthlyGrossRevenue = metrics.averageSellingPrice * (metrics.grossMargin / 100);
-    newMetrics.cacPaybackPeriod = monthlyGrossRevenue > 0 ? metrics.cac / monthlyGrossRevenue : 0;
+    const monthlyGrossRevenue = currentMetrics.averageSellingPrice * (currentMetrics.grossMargin / 100);
+    const cacPaybackPeriod = monthlyGrossRevenue > 0 ? currentMetrics.cac / monthlyGrossRevenue : 0;
     
-    setMetrics(newMetrics);
-  };
+    return {
+      ...currentMetrics,
+      netNewMrr,
+      mrrGrowthRate,
+      ltv,
+      ltvCacRatio,
+      cacPaybackPeriod,
+      arr,
+      churnRate,
+      revenueChurnRate,
+    };
+  }, []);
 
   useEffect(() => {
-    calculateMetrics();
-  }, [metrics.mrr, metrics.newMrr, metrics.churnedMrr, metrics.cac, metrics.averageSellingPrice, metrics.grossMargin]);
+    setMetrics(prevMetrics => calculateMetrics(prevMetrics));
+  }, [metrics.mrr, metrics.newMrr, metrics.churnedMrr, metrics.cac, metrics.averageSellingPrice, metrics.grossMargin, calculateMetrics]);
 
   const updateMetric = (key: keyof SaaSMetrics, value: string) => {
     const numValue = parseFloat(value) || 0;

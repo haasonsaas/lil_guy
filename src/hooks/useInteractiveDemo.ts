@@ -55,7 +55,11 @@ export function useInteractiveDemo<TConfig extends object, TResults>({
   
   // Use persisted or default config based on enablePersistence
   const storedConfig = enablePersistence ? persistedConfig : defaultConfig;
-  const setStoredConfig = enablePersistence ? setPersistedConfig : () => {};
+  
+  // Memoize setStoredConfig to prevent dependencies from changing on every render
+  const setStoredConfig = useMemo(() => {
+    return enablePersistence ? setPersistedConfig : () => {};
+  }, [enablePersistence, setPersistedConfig]);
   
   const [config, setConfig] = useState<TConfig>(storedConfig as TConfig);
   const [history, setHistory] = useState<TConfig[]>([config]);

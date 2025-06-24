@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -34,11 +34,7 @@ export default function TechnicalDebtSimulator() {
 
   const [scenarios, setScenarios] = useState<Scenario[]>([]);
 
-  useEffect(() => {
-    calculateScenarios();
-  }, [config]);
-
-  const calculateScenarios = () => {
+  const calculateScenarios = useCallback(() => {
     const { initialVelocity, debtAccumulation, maintenanceEffort, refactoringEffort, timeHorizon } = config;
     
     // Scenario 1: Keep accumulating debt
@@ -60,7 +56,11 @@ export default function TechnicalDebtSimulator() {
     }, 'Balanced Approach');
 
     setScenarios([accumulateDebt, aggressiveRefactor, balanced]);
-  };
+  }, [config]);
+
+  useEffect(() => {
+    calculateScenarios();
+  }, [calculateScenarios]);
 
   const simulateDebt = (params: DebtConfig, name: string): Scenario => {
     const { initialVelocity, debtAccumulation, maintenanceEffort, refactoringEffort, timeHorizon } = params;

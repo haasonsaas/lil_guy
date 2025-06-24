@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -200,7 +200,7 @@ export default function GrowthStrategySimulator() {
 
   const [results, setResults] = useState<SimulationResult[]>([]);
 
-  const runSimulation = () => {
+  const runSimulation = useCallback(() => {
     const monthlyBudget = strategy.totalBudget / strategy.timeHorizon;
     const results: SimulationResult[] = [];
     
@@ -255,11 +255,11 @@ export default function GrowthStrategySimulator() {
     }
     
     setResults(results);
-  };
+  }, [strategy, channelAllocations]);
 
   useEffect(() => {
     runSimulation();
-  }, [strategy, channelAllocations]);
+  }, [runSimulation]);
 
   const updateStrategy = (field: keyof GrowthStrategy, value: number) => {
     setStrategy(prev => ({ ...prev, [field]: value }));

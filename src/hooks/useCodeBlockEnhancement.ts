@@ -4,7 +4,8 @@ export function useCodeBlockEnhancement(containerRef: React.RefObject<HTMLElemen
   useEffect(() => {
     if (!containerRef.current) return;
 
-    const codeBlocks = containerRef.current.querySelectorAll('pre code');
+    const container = containerRef.current; // Capture ref value early
+    const codeBlocks = container.querySelectorAll('pre code');
     
     codeBlocks.forEach((codeElement) => {
       const preElement = codeElement.parentElement as HTMLPreElement;
@@ -90,7 +91,6 @@ export function useCodeBlockEnhancement(containerRef: React.RefObject<HTMLElemen
 
     // Cleanup function
     return () => {
-      const container = containerRef.current;
       if (container) {
         const copyButtons = container.querySelectorAll('.code-copy-button');
         copyButtons.forEach(button => button.remove());

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -40,6 +40,63 @@ interface Preset {
 
 const G = 6.67430e-11 * 1e10; // Gravitational constant (scaled for visualization)
 
+const presets: Preset[] = [
+  {
+    name: "Binary Star System",
+    description: "Two stars orbiting their common center of mass",
+    bodies: [
+      { x: -100, y: 0, vx: 0, vy: -30, mass: 100, radius: 20, color: '#ffaa00' },
+      { x: 100, y: 0, vx: 0, vy: 30, mass: 100, radius: 20, color: '#ff5500' }
+    ]
+  },
+  {
+    name: "Planet and Moon",
+    description: "A planet with an orbiting moon",
+    bodies: [
+      { x: 0, y: 0, vx: 0, vy: 0, mass: 200, radius: 25, color: '#4488ff' },
+      { x: 150, y: 0, vx: 0, vy: 40, mass: 20, radius: 8, color: '#cccccc' }
+    ]
+  },
+  {
+    name: "Solar System",
+    description: "A star with multiple orbiting planets",
+    bodies: [
+      { x: 0, y: 0, vx: 0, vy: 0, mass: 300, radius: 30, color: '#ffdd00' },
+      { x: 80, y: 0, vx: 0, vy: 55, mass: 10, radius: 5, color: '#8888ff' },
+      { x: 150, y: 0, vx: 0, vy: 40, mass: 20, radius: 8, color: '#ff8844' },
+      { x: 250, y: 0, vx: 0, vy: 30, mass: 15, radius: 7, color: '#44ff88' }
+    ]
+  },
+  {
+    name: "Lagrange Points",
+    description: "Three bodies demonstrating Lagrange point stability",
+    bodies: [
+      { x: -100, y: 0, vx: 0, vy: -20, mass: 100, radius: 20, color: '#ff6600' },
+      { x: 100, y: 0, vx: 0, vy: 20, mass: 100, radius: 20, color: '#0066ff' },
+      { x: 0, y: 173.2, vx: -34.64, vy: 0, mass: 10, radius: 5, color: '#00ff66' }
+    ]
+  },
+  {
+    name: "Chaos",
+    description: "Multiple bodies creating chaotic interactions",
+    bodies: [
+      { x: -150, y: -50, vx: 10, vy: 20, mass: 80, radius: 18, color: '#ff4400' },
+      { x: 100, y: -100, vx: -15, vy: 25, mass: 60, radius: 15, color: '#4400ff' },
+      { x: 50, y: 150, vx: -20, vy: -10, mass: 70, radius: 16, color: '#00ff44' },
+      { x: -80, y: 120, vx: 25, vy: -30, mass: 40, radius: 12, color: '#ff0044' }
+    ]
+  },
+  {
+    name: "Figure Eight",
+    description: "Three equal masses in a figure-8 orbit",
+    bodies: [
+      { x: -97.0, y: -24.3, vx: 46.6, vy: 43.3, mass: 50, radius: 12, color: '#ff6600' },
+      { x: 97.0, y: 24.3, vx: 46.6, vy: 43.3, mass: 50, radius: 12, color: '#0066ff' },
+      { x: 0, y: 0, vx: -93.2, vy: -86.6, mass: 50, radius: 12, color: '#00ff66' }
+    ]
+  }
+];
+
 export default function NBodySimulationPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
@@ -60,66 +117,17 @@ export default function NBodySimulationPage() {
   const [placementMode, setPlacementMode] = useState<'click' | 'drag'>('drag');
   const [newBodyMass, setNewBodyMass] = useState([50]);
 
-  const presets: Preset[] = [
-    {
-      name: "Binary Star System",
-      description: "Two stars orbiting their common center of mass",
-      bodies: [
-        { x: -100, y: 0, vx: 0, vy: -30, mass: 100, radius: 20, color: '#ffaa00' },
-        { x: 100, y: 0, vx: 0, vy: 30, mass: 100, radius: 20, color: '#ff5500' }
-      ]
-    },
-    {
-      name: "Planet and Moon",
-      description: "A planet with an orbiting moon",
-      bodies: [
-        { x: 0, y: 0, vx: 0, vy: 0, mass: 200, radius: 25, color: '#4488ff' },
-        { x: 150, y: 0, vx: 0, vy: 40, mass: 20, radius: 8, color: '#cccccc' }
-      ]
-    },
-    {
-      name: "Solar System",
-      description: "A star with multiple orbiting planets",
-      bodies: [
-        { x: 0, y: 0, vx: 0, vy: 0, mass: 300, radius: 30, color: '#ffdd00' },
-        { x: 80, y: 0, vx: 0, vy: 55, mass: 10, radius: 5, color: '#8888ff' },
-        { x: 150, y: 0, vx: 0, vy: 40, mass: 20, radius: 8, color: '#ff8844' },
-        { x: 250, y: 0, vx: 0, vy: 30, mass: 15, radius: 7, color: '#44ff88' }
-      ]
-    },
-    {
-      name: "Lagrange Points",
-      description: "Three bodies demonstrating Lagrange point stability",
-      bodies: [
-        { x: -100, y: 0, vx: 0, vy: -20, mass: 100, radius: 20, color: '#ff6600' },
-        { x: 100, y: 0, vx: 0, vy: 20, mass: 100, radius: 20, color: '#0066ff' },
-        { x: 0, y: 173.2, vx: -34.64, vy: 0, mass: 10, radius: 5, color: '#00ff66' }
-      ]
-    },
-    {
-      name: "Chaos",
-      description: "Multiple bodies in chaotic interaction",
-      bodies: [
-        { x: -100, y: -100, vx: 20, vy: 20, mass: 50, radius: 12, color: '#ff0066' },
-        { x: 100, y: -100, vx: -20, vy: 20, mass: 50, radius: 12, color: '#66ff00' },
-        { x: 100, y: 100, vx: -20, vy: -20, mass: 50, radius: 12, color: '#0066ff' },
-        { x: -100, y: 100, vx: 20, vy: -20, mass: 50, radius: 12, color: '#ff6600' },
-        { x: 0, y: 0, vx: 0, vy: 0, mass: 80, radius: 15, color: '#ffff00' }
-      ]
-    }
-  ];
-
   // Generate star color based on mass (temperature)
-  const getStarColor = (mass: number): string => {
+  const getStarColor = useCallback((mass: number): string => {
     if (mass < 30) return '#ffccaa'; // Red dwarf
     if (mass < 60) return '#ffffaa'; // Yellow star
     if (mass < 100) return '#ffffff'; // White star
     if (mass < 150) return '#aaccff'; // Blue star
     return '#8899ff'; // Blue giant
-  };
+  }, []);
 
   // Create a new body
-  const createBody = (x: number, y: number, vx: number, vy: number, mass: number): Body => {
+  const createBody = useCallback((x: number, y: number, vx: number, vy: number, mass: number): Body => {
     const radius = Math.sqrt(mass) * 2;
     return {
       id: nextIdRef.current++,
@@ -132,20 +140,20 @@ export default function NBodySimulationPage() {
       color: getStarColor(mass),
       trail: []
     };
-  };
+  }, [getStarColor]);
 
   // Load preset
-  const loadPreset = (preset: Preset) => {
+  const loadPreset = useCallback((preset: Preset) => {
     bodiesRef.current = preset.bodies.map(body => ({
       ...body,
       id: nextIdRef.current++,
       trail: []
     }));
     setBodyCount(bodiesRef.current.length);
-  };
+  }, []);
 
   // Calculate gravitational force between two bodies
-  const calculateForce = (body1: Body, body2: Body): { fx: number; fy: number } => {
+  const calculateForce = useCallback((body1: Body, body2: Body): { fx: number; fy: number } => {
     const dx = body2.x - body1.x;
     const dy = body2.y - body1.y;
     const distSq = dx * dx + dy * dy;
@@ -161,18 +169,18 @@ export default function NBodySimulationPage() {
     const fy = force * dy / effectiveDist;
     
     return { fx, fy };
-  };
+  }, []);
 
   // Check collision between two bodies
-  const checkCollision = (body1: Body, body2: Body): boolean => {
+  const checkCollision = useCallback((body1: Body, body2: Body): boolean => {
     const dx = body2.x - body1.x;
     const dy = body2.y - body1.y;
     const dist = Math.sqrt(dx * dx + dy * dy);
     return dist < body1.radius + body2.radius;
-  };
+  }, []);
 
   // Merge two bodies after collision
-  const mergeBodies = (body1: Body, body2: Body): Body => {
+  const mergeBodies = useCallback((body1: Body, body2: Body): Body => {
     const totalMass = body1.mass + body2.mass;
     const newX = (body1.x * body1.mass + body2.x * body2.mass) / totalMass;
     const newY = (body1.y * body1.mass + body2.y * body2.mass) / totalMass;
@@ -180,10 +188,10 @@ export default function NBodySimulationPage() {
     const newVy = (body1.vy * body1.mass + body2.vy * body2.mass) / totalMass;
     
     return createBody(newX, newY, newVx, newVy, totalMass);
-  };
+  }, [createBody]);
 
   // Update physics
-  const updatePhysics = (dt: number) => {
+  const updatePhysics = useCallback((dt: number) => {
     const bodies = bodiesRef.current;
     const forces: { [key: number]: { fx: number; fy: number } } = {};
     
@@ -256,10 +264,10 @@ export default function NBodySimulationPage() {
     }
     
     setBodyCount(bodiesRef.current.length);
-  };
+  }, [trailLength, collisionsEnabled, calculateForce, checkCollision, mergeBodies]);
 
   // Draw gravity field
-  const drawGravityField = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+  const drawGravityField = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
     const gridSize = 40;
     const centerX = canvas.width / 2;
     const centerY = canvas.height / 2;
@@ -317,10 +325,10 @@ export default function NBodySimulationPage() {
         }
       }
     }
-  };
+  }, []);
 
   // Render frame
-  const render = () => {
+  const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -447,16 +455,16 @@ export default function NBodySimulationPage() {
     }
     
     animationRef.current = requestAnimationFrame(render);
-  };
+  }, [showGravityField, drawGravityField, showVelocityVectors, centerOfMass, placementMode, newBodyMass, isPlaying, timeScale, updatePhysics, getStarColor]);
 
   // Handle canvas resize
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-  };
+  }, []);
 
   // Handle mouse down
   const handleMouseDown = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -553,7 +561,7 @@ export default function NBodySimulationPage() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [handleResize, loadPreset, render]);
 
   return (
     <Layout>

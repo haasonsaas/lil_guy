@@ -157,7 +157,10 @@ export default function EngineeringVelocityTracker() {
   const [debtPaydownRate, setDebtPaydownRate] = useState<number>(20); // percentage of capacity
 
   const currentScenario = DEBT_SCENARIOS.find(s => s.name.toLowerCase().replace(' ', '_').replace('-', '_') === selectedScenario) || DEBT_SCENARIOS[0];
-  const allDebtItems = [...currentScenario.debtItems, ...customDebtItems];
+  
+  const allDebtItems = useMemo(() => {
+    return [...currentScenario.debtItems, ...customDebtItems];
+  }, [currentScenario.debtItems, customDebtItems]);
 
   const velocityProjection = useMemo(() => {
     const data: VelocityData[] = [];

@@ -186,7 +186,7 @@ export default function RetentionCohortAnalyzer() {
     }
     
     return data.reverse(); // Show oldest cohorts first
-  }, [selectedScenario, activeRetention, arpu, cac, improvementRate, numberOfCohorts, currentScenario]);
+  }, [activeRetention, arpu, cac, improvementRate, numberOfCohorts, currentScenario]);
 
   const calculateLTV = (m1: number, m2: number, m3: number, m6: number, m12: number, monthlyRevenue: number): number => {
     // Simplified LTV calculation based on retention curve

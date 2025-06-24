@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -385,6 +385,7 @@ export default function RayMarchingPage() {
   const animationRef = useRef<number | null>(null);
   const mouseRef = useRef<{ x: number; y: number }>({ x: 0.5, y: 0.5 });
   const startTimeRef = useRef<number>(Date.now());
+  const renderRef = useRef<(() => void) | null>(null);
   
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentScene, setCurrentScene] = useState(0);
@@ -419,7 +420,7 @@ export default function RayMarchingPage() {
     }
   ];
 
-  const colorSchemes = [
+  const colorSchemes = useMemo(() => [
     {
       name: "Metal",
       colors: [[0.5, 0.5, 0.6], [0.7, 0.7, 0.8], [0.9, 0.9, 1.0]]
@@ -440,10 +441,10 @@ export default function RayMarchingPage() {
       name: "Ruby",
       colors: [[0.8, 0.1, 0.2], [0.9, 0.2, 0.3], [1.0, 0.3, 0.4]]
     }
-  ];
+  ], []);
 
   // Create shader helper
-  const createShader = (gl: WebGLRenderingContext, type: number, source: string) => {
+  const createShader = useCallback((gl: WebGLRenderingContext, type: number, source: string) => {
     const shader = gl.createShader(type);
     if (!shader) return null;
     
@@ -457,10 +458,10 @@ export default function RayMarchingPage() {
     }
     
     return shader;
-  };
+  }, []);
 
   // Create program helper
-  const createProgram = (gl: WebGLRenderingContext, vertexShader: WebGLShader, fragmentShader: WebGLShader) => {
+  const createProgram = useCallback((gl: WebGLRenderingContext, vertexShader: WebGLShader, fragmentShader: WebGLShader) => {
     const program = gl.createProgram();
     if (!program) return null;
     
@@ -475,10 +476,10 @@ export default function RayMarchingPage() {
     }
     
     return program;
-  };
+  }, []);
 
   // Initialize WebGL
-  const initWebGL = () => {
+  const initWebGL = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return false;
 
@@ -519,10 +520,10 @@ export default function RayMarchingPage() {
     gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
     return true;
-  };
+  }, [createShader, createProgram]);
 
   // Render frame
-  const render = () => {
+  const render = useCallback(() => {
     const gl = glRef.current;
     const program = programRef.current;
     const canvas = canvasRef.current;
@@ -561,17 +562,22 @@ export default function RayMarchingPage() {
     // Draw
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-    animationRef.current = requestAnimationFrame(render);
-  };
+    if (renderRef.current) {
+      animationRef.current = requestAnimationFrame(renderRef.current);
+    }
+  }, [isPlaying, autoRotate, currentScene, lightIntensity, shadowSoftness, metallic, roughness, cameraDistance, colorSchemes, colorScheme]);
+
+  // Update render ref
+  renderRef.current = render;
 
   // Handle canvas resize
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
     canvas.width = canvas.clientWidth;
     canvas.height = canvas.clientHeight;
-  };
+  }, []);
 
   // Handle mouse move
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
@@ -607,14 +613,14 @@ export default function RayMarchingPage() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [handleResize, initWebGL, render]);
 
   // Update render when settings change
   useEffect(() => {
     if (isPlaying && !animationRef.current) {
       render();
     }
-  }, [isPlaying]);
+  }, [isPlaying, render]);
 
   return (
     <Layout>

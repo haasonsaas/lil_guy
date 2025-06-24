@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState, useCallback } from 'react';
 import Layout from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
@@ -29,6 +29,94 @@ interface Preset {
   type: ArtType;
   params: Record<string, number>;
 }
+
+// Perlin noise implementation
+class PerlinNoise {
+  private permutation: number[];
+  
+  constructor() {
+    this.permutation = [];
+    for (let i = 0; i < 256; i++) {
+      this.permutation[i] = i;
+    }
+    
+    for (let i = 255; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [this.permutation[i], this.permutation[j]] = [this.permutation[j], this.permutation[i]];
+    }
+    
+    for (let i = 0; i < 256; i++) {
+      this.permutation[256 + i] = this.permutation[i];
+    }
+  }
+  
+  private fade(t: number): number {
+    return t * t * t * (t * (t * 6 - 15) + 10);
+  }
+  
+  private lerp(t: number, a: number, b: number): number {
+    return a + t * (b - a);
+  }
+  
+  private grad(hash: number, x: number, y: number): number {
+    const h = hash & 15;
+    const u = h < 8 ? x : y;
+    const v = h < 4 ? y : h === 12 || h === 14 ? x : 0;
+    return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
+  }
+  
+  noise(x: number, y: number): number {
+    const X = Math.floor(x) & 255;
+    const Y = Math.floor(y) & 255;
+    
+    x -= Math.floor(x);
+    y -= Math.floor(y);
+    
+    const u = this.fade(x);
+    const v = this.fade(y);
+    
+    const A = this.permutation[X] + Y;
+    const AA = this.permutation[A];
+    const AB = this.permutation[A + 1];
+    const B = this.permutation[X + 1] + Y;
+    const BA = this.permutation[B];
+    const BB = this.permutation[B + 1];
+    
+    return this.lerp(v,
+      this.lerp(u, this.grad(this.permutation[AA], x, y),
+                   this.grad(this.permutation[BA], x - 1, y)),
+      this.lerp(u, this.grad(this.permutation[AB], x, y - 1),
+                   this.grad(this.permutation[BB], x - 1, y - 1))
+    );
+  }
+}
+
+const colorSchemes = [
+  {
+    name: "Sunset",
+    colors: ['#ff6b35', '#f7931e', '#ffd23f', '#06ffa5', '#118ab2', '#073b4c']
+  },
+  {
+    name: "Ocean",
+    colors: ['#006466', '#065a60', '#0b525b', '#144552', '#1b3a4b', '#212f45']
+  },
+  {
+    name: "Forest",
+    colors: ['#2d5016', '#3e6b1c', '#4f8522', '#609f28', '#72b82e', '#84d234']
+  },
+  {
+    name: "Cosmic",
+    colors: ['#240046', '#3c096c', '#5a189a', '#7b2cbf', '#9d4edd', '#c77dff']
+  },
+  {
+    name: "Fire",
+    colors: ['#370617', '#6a040f', '#9d0208', '#d00000', '#dc2f02', '#e85d04']
+  },
+  {
+    name: "Monochrome",
+    colors: ['#000000', '#1a1a1a', '#333333', '#4d4d4d', '#666666', '#808080']
+  }
+];
 
 export default function GenerativeArtPage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -93,32 +181,6 @@ export default function GenerativeArtPage() {
     }
   ];
 
-  const colorSchemes = [
-    {
-      name: "Sunset",
-      colors: ['#ff6b35', '#f7931e', '#ffd23f', '#06ffa5', '#118ab2', '#073b4c']
-    },
-    {
-      name: "Ocean",
-      colors: ['#006466', '#065a60', '#0b525b', '#144552', '#1b3a4b', '#212f45']
-    },
-    {
-      name: "Forest",
-      colors: ['#2d5016', '#3e6b1c', '#4f8522', '#609f28', '#72b82e', '#84d234']
-    },
-    {
-      name: "Cosmic",
-      colors: ['#240046', '#3c096c', '#5a189a', '#7b2cbf', '#9d4edd', '#c77dff']
-    },
-    {
-      name: "Fire",
-      colors: ['#370617', '#6a040f', '#9d0208', '#d00000', '#dc2f02', '#e85d04']
-    },
-    {
-      name: "Monochrome",
-      colors: ['#000000', '#1a1a1a', '#333333', '#4d4d4d', '#666666', '#808080']
-    }
-  ];
 
   const presets: Preset[] = [
     {
@@ -159,71 +221,11 @@ export default function GenerativeArtPage() {
     }
   ];
 
-  // Perlin noise implementation
-  class PerlinNoise {
-    private permutation: number[];
-    
-    constructor() {
-      this.permutation = [];
-      for (let i = 0; i < 256; i++) {
-        this.permutation[i] = i;
-      }
-      
-      for (let i = 255; i >= 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [this.permutation[i], this.permutation[j]] = [this.permutation[j], this.permutation[i]];
-      }
-      
-      for (let i = 0; i < 256; i++) {
-        this.permutation[256 + i] = this.permutation[i];
-      }
-    }
-    
-    private fade(t: number): number {
-      return t * t * t * (t * (t * 6 - 15) + 10);
-    }
-    
-    private lerp(t: number, a: number, b: number): number {
-      return a + t * (b - a);
-    }
-    
-    private grad(hash: number, x: number, y: number): number {
-      const h = hash & 15;
-      const u = h < 8 ? x : y;
-      const v = h < 4 ? y : h === 12 || h === 14 ? x : 0;
-      return ((h & 1) === 0 ? u : -u) + ((h & 2) === 0 ? v : -v);
-    }
-    
-    noise(x: number, y: number): number {
-      const X = Math.floor(x) & 255;
-      const Y = Math.floor(y) & 255;
-      
-      x -= Math.floor(x);
-      y -= Math.floor(y);
-      
-      const u = this.fade(x);
-      const v = this.fade(y);
-      
-      const A = this.permutation[X] + Y;
-      const AA = this.permutation[A];
-      const AB = this.permutation[A + 1];
-      const B = this.permutation[X + 1] + Y;
-      const BA = this.permutation[B];
-      const BB = this.permutation[B + 1];
-      
-      return this.lerp(v,
-        this.lerp(u, this.grad(this.permutation[AA], x, y),
-                     this.grad(this.permutation[BA], x - 1, y)),
-        this.lerp(u, this.grad(this.permutation[AB], x, y - 1),
-                     this.grad(this.permutation[BB], x - 1, y - 1))
-      );
-    }
-  }
 
   const perlinNoise = useRef(new PerlinNoise());
 
   // Generate Perlin noise art
-  const generatePerlinArt = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
+  const generatePerlinArt = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
     const imageData = ctx.createImageData(canvas.width, canvas.height);
     const data = imageData.data;
     const colors = colorSchemes[colorScheme].colors;
@@ -272,10 +274,10 @@ export default function GenerativeArtPage() {
     }
     
     ctx.putImageData(imageData, 0, 0);
-  };
+  }, [colorScheme, noiseDetail, scale, speed]);
 
   // Generate flow field art
-  const generateFlowField = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
+  const generateFlowField = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
     ctx.fillStyle = colorSchemes[colorScheme].colors[0];
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -306,7 +308,7 @@ export default function GenerativeArtPage() {
       
       ctx.stroke();
     }
-  };
+  }, [colorScheme, particleCount, detail, scale, speed, complexity, flowStrength]);
 
   // L-System generator
   const generateLSystem = (axiom: string, rules: Record<string, string>, iterations: number): string => {
@@ -324,7 +326,7 @@ export default function GenerativeArtPage() {
   };
 
   // Generate L-System art
-  const generateLSystemArt = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+  const generateLSystemArt = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
     ctx.fillStyle = colorSchemes[colorScheme].colors[0];
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
@@ -392,20 +394,20 @@ export default function GenerativeArtPage() {
     }
     
     ctx.restore();
-  };
+  }, [colorScheme, iterations, angle, scale]);
 
   // Generate fractal tree
-  const generateFractalTree = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+  const generateFractalTree = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
     ctx.fillStyle = colorSchemes[colorScheme].colors[0];
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     const colors = colorSchemes[colorScheme].colors;
     
-    const drawBranch = (x: number, y: number, length: number, angle: number, depth: number) => {
+    const drawBranch = (x: number, y: number, length: number, branchAngle: number, depth: number) => {
       if (depth === 0) return;
       
-      const endX = x + Math.cos(angle) * length;
-      const endY = y + Math.sin(angle) * length;
+      const endX = x + Math.cos(branchAngle) * length;
+      const endY = y + Math.sin(branchAngle) * length;
       
       ctx.strokeStyle = colors[Math.floor((depth / iterations[0]) * (colors.length - 1))];
       ctx.lineWidth = depth * 0.8;
@@ -417,15 +419,15 @@ export default function GenerativeArtPage() {
       const newLength = length * (0.7 + Math.random() * 0.2);
       const angleVariation = (Math.random() - 0.5) * 0.3;
       
-      drawBranch(endX, endY, newLength, angle - (angle[0] * Math.PI / 180) + angleVariation, depth - 1);
-      drawBranch(endX, endY, newLength, angle + (angle[0] * Math.PI / 180) + angleVariation, depth - 1);
+      drawBranch(endX, endY, newLength, branchAngle - (angle[0] * Math.PI / 180) + angleVariation, depth - 1);
+      drawBranch(endX, endY, newLength, branchAngle + (angle[0] * Math.PI / 180) + angleVariation, depth - 1);
     };
     
     drawBranch(canvas.width / 2, canvas.height - 50, scale[0], -Math.PI / 2, iterations[0]);
-  };
+  }, [colorScheme, iterations, angle, scale]);
 
   // Generate Voronoi diagram
-  const generateVoronoi = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
+  const generateVoronoi = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) => {
     const sites: Array<{ x: number; y: number; color: string }> = [];
     const colors = colorSchemes[colorScheme].colors;
     
@@ -479,7 +481,7 @@ export default function GenerativeArtPage() {
       ctx.arc(site.x, site.y, 2, 0, Math.PI * 2);
       ctx.fill();
     }
-  };
+  }, [colorScheme, points, scale]);
 
   // Particle system
   const particleSystemRef = useRef<Array<{
@@ -492,7 +494,7 @@ export default function GenerativeArtPage() {
     color: string;
   }>>([]);
 
-  const generateParticleSystem = (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
+  const generateParticleSystem = useCallback((ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
     // Initialize particles if needed
     if (particleSystemRef.current.length === 0) {
       const colors = colorSchemes[colorScheme].colors;
@@ -567,10 +569,10 @@ export default function GenerativeArtPage() {
         }
       }
     }
-  };
+  }, [colorScheme, particleCount, speed, scale, complexity]);
 
   // Main render function
-  const render = () => {
+  const render = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -609,10 +611,10 @@ export default function GenerativeArtPage() {
     if (isAnimated && (currentArt === 'perlin' || currentArt === 'flowfield' || currentArt === 'particle')) {
       animationRef.current = requestAnimationFrame(render);
     }
-  };
+  }, [currentArt, isAnimated, generatePerlinArt, generateFlowField, generateLSystemArt, generateFractalTree, generateVoronoi, generateParticleSystem]);
 
   // Handle canvas resize
-  const handleResize = () => {
+  const handleResize = useCallback(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     
@@ -621,15 +623,15 @@ export default function GenerativeArtPage() {
     
     // Reset particle system
     particleSystemRef.current = [];
-  };
+  }, []);
 
   // Generate new art
-  const generateArt = () => {
+  const generateArt = useCallback(() => {
     perlinNoise.current = new PerlinNoise();
     particleSystemRef.current = [];
     startTimeRef.current = Date.now();
     render();
-  };
+  }, [render]);
 
   // Export as image
   const exportImage = () => {
@@ -674,7 +676,7 @@ export default function GenerativeArtPage() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+  }, [handleResize, generateArt]);
 
   // Update when art type changes
   useEffect(() => {
@@ -682,7 +684,7 @@ export default function GenerativeArtPage() {
       cancelAnimationFrame(animationRef.current);
     }
     generateArt();
-  }, [currentArt, colorScheme]);
+  }, [currentArt, colorScheme, generateArt]);
 
   // Handle animation toggle
   useEffect(() => {
@@ -691,7 +693,7 @@ export default function GenerativeArtPage() {
     } else if (animationRef.current) {
       cancelAnimationFrame(animationRef.current);
     }
-  }, [isAnimated]);
+  }, [isAnimated, currentArt, render]);
 
   return (
     <Layout>

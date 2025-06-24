@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -33,11 +33,7 @@ export default function PricingPsychologySimulator() {
 
   const [strategies, setStrategies] = useState<PricingStrategy[]>([]);
 
-  useEffect(() => {
-    calculateStrategies();
-  }, [config]);
-
-  const calculateStrategies = () => {
+  const calculateStrategies = useCallback(() => {
     const { basePrice, visitors, baseConversion, pricingSensitivity } = config;
     
     const newStrategies: PricingStrategy[] = [
@@ -116,7 +112,11 @@ export default function PricingPsychologySimulator() {
     });
 
     setStrategies(newStrategies);
-  };
+  }, [config]);
+
+  useEffect(() => {
+    calculateStrategies();
+  }, [calculateStrategies]);
 
   const handleInputChange = (field: keyof PricingConfig, value: string | number) => {
     const numValue = typeof value === 'string' ? parseFloat(value) || 0 : value;
