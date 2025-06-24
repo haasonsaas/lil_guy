@@ -23,6 +23,9 @@ import GrowthStrategySimulator from './GrowthStrategySimulator';
 import HiringCostCalculator from './HiringCostCalculator';
 import FeaturePrioritizationMatrix from './FeaturePrioritizationMatrix';
 import TechnicalArchitectureVisualizer from './TechnicalArchitectureVisualizer';
+import CustomerDevelopmentSimulator from './CustomerDevelopmentSimulator';
+import EngineeringVelocityTracker from './EngineeringVelocityTracker';
+import RetentionCohortAnalyzer from './RetentionCohortAnalyzer';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
@@ -62,7 +65,10 @@ const components = {
   'growth-strategy-simulator': GrowthStrategySimulator,
   'hiring-cost-calculator': HiringCostCalculator,
   'feature-prioritization-matrix': FeaturePrioritizationMatrix,
-  'technical-architecture-visualizer': TechnicalArchitectureVisualizer
+  'technical-architecture-visualizer': TechnicalArchitectureVisualizer,
+  'customer-development-simulator': CustomerDevelopmentSimulator,
+  'engineering-velocity-tracker': EngineeringVelocityTracker,
+  'retention-cohort-analyzer': RetentionCohortAnalyzer
 };
 
 interface MarkdownRendererProps {
