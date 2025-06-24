@@ -19,8 +19,6 @@ image:
   alt: "Person examining financial documents with a magnifying glass"
 ---
 
-# Reading Between the Lines: How to Decode Community Investment Rounds
-
 The democratization of startup investing through community rounds has opened exciting opportunities for retail investors. However, it's created a new challenge: interpreting the carefully curated metrics these companies share in their pitch materials.
 
 Having analyzed dozens of community investment rounds over the past two years, I've noticed consistent patterns in how companies present their data—and how these presentations can sometimes mask underlying business challenges.

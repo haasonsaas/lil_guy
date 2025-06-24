@@ -1083,6 +1083,20 @@
       "startups"
     ]
   },
+  "turning-thoughts-into-graphs-deliberate-reasoning-engine": {
+    "title": "Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine",
+    "description": "An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": [
+      "open-source",
+      "ai",
+      "reasoning",
+      "graph-structure",
+      "mcp",
+      "developer-tools"
+    ]
+  },
   "full-stack-ai": {
     "title": "API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI Approach",
     "description": "A critical examination of why enterprises that rely solely on third-party AI APIs are setting themselves up for long-term failure, and what a genuine AI strategy requires in today's competitive landscape",

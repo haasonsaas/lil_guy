@@ -11,8 +11,6 @@ image:
   alt: "A mind map drawn on glass, representing structured thought and graph-based reasoning"
 ---
 
-# Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine
-
 One of the things that's always bugged me about LLMs is how opaque their thinking is.
 
 They produce answers. Sometimes correct, sometimes not. But how did they get there? What assumptions did they make? What were they unsure about? Did they even remember the question?

@@ -14,8 +14,6 @@ image:
   alt: "A peaceful arrangement of wellness items including plants, journal, and meditation stones, representing the integrated approach of the Bloom Life Dashboard"
 ---
 
-# Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness
-
 This digital fragmentation mirrors the very compartmentalization of health that holistic wellness seeks to overcome.
 
 Bloom Life Dashboard emerges as a response to this fundamental contradiction. Not as another app in the ever-expanding wellness ecosystem, but as a reimagining of how technology can serve our pursuit of integrated wellbeing.

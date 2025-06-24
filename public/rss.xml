@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Mon, 23 Jun 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Mon, 23 Jun 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 24 Jun 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,19 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine]]></title>
+      <description><![CDATA[An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency.]]></description>
+      <link>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</guid>
+      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[open-source]]></category>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[reasoning]]></category>
+      <category><![CDATA[graph-structure]]></category>
+      <category><![CDATA[mcp]]></category>
+      <category><![CDATA[developer-tools]]></category>
+    </item>
     <item>
       <title><![CDATA[DSPy: The End of Prompt Engineering As We Know It]]></title>
       <description><![CDATA[Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready techniques]]></description>
@@ -599,18 +612,6 @@
       <category><![CDATA[early-stage-investing]]></category>
       <category><![CDATA[trust-building]]></category>
       <category><![CDATA[startup-etiquette]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Answer Is Obvious—You Just Don’t Like It]]></title>
-      <description><![CDATA[Why some problems remain "intractable" not because they’re unsolvable, but because the solution challenges a deeply held assumption.]]></description>
-      <link>https://www.haasonsaas.com/blog/you-just-dont-like-it</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/you-just-dont-like-it</guid>
-      <pubDate>Sat, 19 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[decision-making]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[mindset]]></category>
-      <category><![CDATA[problem-solving]]></category>
-      <category><![CDATA[organizational-dynamics]]></category>
     </item>
   </channel>
 </rss>

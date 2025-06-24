@@ -12,8 +12,6 @@ image:
   alt: "Code editor showing React and TypeScript code"
 ---
 
-# Building My Blog: A Modern React + TypeScript Journey
-
 In this post, I'll walk you through the process of building this blog using modern web technologies. From the initial setup to the final deployment, I'll share the key decisions and technologies that made this project possible.
 
 ## The Tech Stack

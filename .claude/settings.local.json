@@ -166,7 +166,10 @@
       "Bash(true)",
       "Bash(git log:*)",
       "Bash(-D \"A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.\" )",
-      "Bash(-t cloudflare -t typescript -t debugging -t serverless -t deployment)"
+      "Bash(-t cloudflare -t typescript -t debugging -t serverless -t deployment)",
+      "Bash(git stash:*)",
+      "Bash(python3:*)",
+      "Bash(timeout 10 bun run dev)"
     ],
     "deny": []
   }
