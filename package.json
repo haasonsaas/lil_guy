@@ -22,6 +22,7 @@
     "check:deploy": "bun run scripts/check-deploy.ts",
     "preview:cf": "bun run build && wrangler pages dev ./dist --compatibility-date=2024-01-01",
     "setup:secrets": "bun run scripts/setup-secrets.ts",
+    "new-interactive": "bun run scripts/new-interactive-component.ts",
     "lint": "eslint .",
     "lint:md": "markdownlint-cli2 src/posts/*.md",
     "spell": "cspell src/posts/*.md",

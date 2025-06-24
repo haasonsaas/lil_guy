@@ -181,6 +181,31 @@ Automated blog image generation runs on:
 - Uses SVG templates converted to PNG with Sharp
 
 ### Interactive Components & Demos
+
+#### Quick Start
+```bash
+# Generate a new interactive component with boilerplate
+bun run new-interactive ComponentName -n "Display Name" -d "Description"
+
+# Example:
+bun run new-interactive ROICalculator -n "ROI Calculator" -d "Calculate return on investment"
+```
+
+#### Component Structure Pattern
+All interactive components should follow this pattern:
+1. **Multiple Tabs**: Setup → Analysis → Insights/Results
+2. **Real-time Calculations**: Use `useMemo` for derived state
+3. **Visual Feedback**: Charts, progress bars, or metric cards
+4. **Educational Value**: Include insights, recommendations, or explanations
+5. **Business Context**: Connect to real-world scenarios
+
+#### VS Code Snippets Available
+- `icstate` - Interactive component state setup
+- `ictab` - Add a new tab section
+- `icmetric` - Create a metric display
+- `icslider` - Add a slider input
+- `icchart` - Add a chart visualization
+
 When creating blog posts, consider adding **interactive demos** to enhance engagement:
 
 **Types of Interactive Demos to Create:**
