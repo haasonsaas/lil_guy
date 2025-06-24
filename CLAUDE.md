@@ -39,6 +39,8 @@ bun run stats [-p 7d|30d|90d|365d|all] [-f table|json|markdown]         # Person
 bun run drafts [-s score|age|words|priority] [-f table|json|markdown]   # Analyze draft posts for completion
 bun run ideas [-n 10] [-t sequel|deep-dive|practical-guide] [-f table|json|markdown]  # Generate content ideas
 bun run momentum [-q] [-f table|minimal|json]                           # Writing momentum tracker with motivational nudges
+
+# Personal productivity utilities use shared libraries in scripts/lib/ for consistency
 ```
 
 ### Deployment & DevOps
