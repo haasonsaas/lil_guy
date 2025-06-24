@@ -1,5 +1,6 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect } from "react"
 import { ThemeProviderContext, type Theme, type ThemeProviderProps } from "./theme-context"
+import { useLocalStorage } from "@/hooks/useLocalStorage"
 
 export function ThemeProvider({
   children,
@@ -7,9 +8,8 @@ export function ThemeProvider({
   storageKey = "vite-ui-theme",
   ...props
 }: ThemeProviderProps) {
-  const [theme, setTheme] = useState<Theme>(
-    () => (localStorage.getItem(storageKey) as Theme) || defaultTheme
-  )
+  // Use our custom hook for localStorage with cross-tab sync
+  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, defaultTheme)
 
   useEffect(() => {
     const root = window.document.documentElement
@@ -31,10 +31,7 @@ export function ThemeProvider({
 
   const value = {
     theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme)
-      setTheme(theme)
-    },
+    setTheme,
   }
 
   return (
@@ -42,4 +39,4 @@ export function ThemeProvider({
       {children}
     </ThemeProviderContext.Provider>
   )
-} 
+}

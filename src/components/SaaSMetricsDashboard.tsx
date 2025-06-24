@@ -5,6 +5,8 @@ import { Label } from '@/components/ui/label';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { TrendingUp, TrendingDown, DollarSign, Users, Clock, Target } from 'lucide-react';
+import { useNumberFormatter } from '@/hooks/useNumberFormatter';
+import { useAnimatedCounter } from '@/hooks/useAnimatedCounter';
 
 interface SaaSMetrics {
   // Input metrics
@@ -27,18 +29,7 @@ interface SaaSMetrics {
   npsScore: number;
 }
 
-const formatCurrency = (value: number) => {
-  if (value >= 1000000) {
-    return `$${(value / 1000000).toFixed(1)}M`;
-  } else if (value >= 1000) {
-    return `$${(value / 1000).toFixed(0)}K`;
-  }
-  return `$${value.toLocaleString()}`;
-};
-
-const formatPercentage = (value: number) => {
-  return `${value.toFixed(1)}%`;
-};
+// Remove old formatting functions - now using hooks
 
 const getHealthScore = (metric: string, value: number): { score: 'excellent' | 'good' | 'warning' | 'danger', message: string } => {
   switch (metric) {
@@ -84,15 +75,12 @@ const MetricCard = ({
   format?: 'currency' | 'percentage' | 'number' | 'months';
   health?: { score: 'excellent' | 'good' | 'warning' | 'danger', message: string };
 }) => {
-  const formatValue = (val: number) => {
-    switch (format) {
-      case 'currency': return formatCurrency(val);
-      case 'percentage': return formatPercentage(val);
-      case 'months': return `${val.toFixed(1)} months`;
-      case 'number': return val.toFixed(1);
-      default: return val.toString();
-    }
-  };
+  const animatedValue = useAnimatedCounter(value, {
+    duration: 800,
+    format: format === 'percentage' ? 'percent' : format === 'currency' ? 'currency' : 'number',
+    decimals: format === 'months' ? 1 : format === 'number' ? 1 : 0,
+    suffix: format === 'months' ? ' months' : '',
+  });
 
   const getHealthColor = (score: string) => {
     switch (score) {
@@ -110,7 +98,7 @@ const MetricCard = ({
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm font-medium text-muted-foreground">{title}</p>
-            <p className="text-2xl font-bold">{formatValue(value)}</p>
+            <p className="text-2xl font-bold">{animatedValue}</p>
             {health && (
               <Badge className={`mt-1 text-xs ${getHealthColor(health.score)}`}>
                 {health.message}
@@ -125,6 +113,8 @@ const MetricCard = ({
 };
 
 export default function SaaSMetricsDashboard() {
+  const { formatCurrency } = useNumberFormatter();
+  
   const [metrics, setMetrics] = useState<SaaSMetrics>({
     // Input metrics
     mrr: 50000,
@@ -368,7 +358,7 @@ export default function SaaSMetricsDashboard() {
               <div className="p-3 bg-orange-50 dark:bg-orange-950 border border-orange-200 dark:border-orange-800 rounded-lg">
                 <p className="text-orange-800 dark:text-orange-300">
                   📉 Monthly churn rate of {metrics.churnRate.toFixed(1)}% is high. 
-                  Improving retention by just 1% would increase your LTV by ${((metrics.ltv * 0.2)).toLocaleString()}.
+                  Improving retention by just 1% would increase your LTV by {formatCurrency(metrics.ltv * 0.2)}.
                 </p>
               </div>
             )}

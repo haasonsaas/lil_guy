@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getAllPosts } from '@/utils/blog/postUtils';
 import { BlogPost } from '@/types/blog';
+import { useDebounce } from '@/hooks/useDebounce';
+import { useKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts';
 
 interface SearchResult {
   title: string;
@@ -122,6 +124,9 @@ export default function SmartSearch({ isOpen, onClose, onOpen }: SmartSearchProp
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
   const resultsRef = useRef<HTMLDivElement>(null);
+  
+  // Use debounced query for search
+  const debouncedQuery = useDebounce(query, 300);
 
   // Focus input when opened
   useEffect(() => {
@@ -130,17 +135,17 @@ export default function SmartSearch({ isOpen, onClose, onOpen }: SmartSearchProp
     }
   }, [isOpen]);
 
-  // Perform search
+  // Perform search with debounced query
   useEffect(() => {
     const performSearch = async () => {
-      if (!query.trim()) {
+      if (!debouncedQuery.trim()) {
         setResults([]);
         return;
       }
 
       setIsSearching(true);
       try {
-        const searchResults = await searchPosts(query);
+        const searchResults = await searchPosts(debouncedQuery);
         setResults(searchResults);
       } catch (error) {
         console.error('Search error:', error);
@@ -150,55 +155,39 @@ export default function SmartSearch({ isOpen, onClose, onOpen }: SmartSearchProp
       }
     };
 
-    const timeoutId = setTimeout(performSearch, 300);
-    return () => clearTimeout(timeoutId);
-  }, [query]);
+    performSearch();
+  }, [debouncedQuery]);
 
-  // Keyboard navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (!isOpen) return;
-
-      switch (e.key) {
-        case 'Escape':
-          onClose();
-          break;
-        case 'ArrowDown':
-          e.preventDefault();
-          setSelectedIndex(prev => 
-            prev < results.length - 1 ? prev + 1 : 0
-          );
-          break;
-        case 'ArrowUp':
-          e.preventDefault();
-          setSelectedIndex(prev => 
-            prev > 0 ? prev - 1 : results.length - 1
-          );
-          break;
-        case 'Enter':
-          if (selectedIndex >= 0 && results[selectedIndex]) {
-            window.location.href = `/blog/${results[selectedIndex].slug}`;
-          }
-          break;
+  // Use keyboard shortcuts hook for navigation
+  useKeyboardShortcuts({
+    'Escape': () => {
+      if (isOpen) onClose();
+    },
+    'ArrowDown': () => {
+      if (isOpen) {
+        setSelectedIndex(prev => 
+          prev < results.length - 1 ? prev + 1 : 0
+        );
       }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, results, selectedIndex, onClose]);
-
-  // Global keyboard shortcut
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
-        e.preventDefault();
-        onOpen();
+    },
+    'ArrowUp': () => {
+      if (isOpen) {
+        setSelectedIndex(prev => 
+          prev > 0 ? prev - 1 : results.length - 1
+        );
       }
-    };
-
-    document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
-  }, [onOpen]);
+    },
+    'Enter': () => {
+      if (isOpen && selectedIndex >= 0 && results[selectedIndex]) {
+        window.location.href = `/blog/${results[selectedIndex].slug}`;
+      }
+    },
+    'cmd+k': onOpen,
+    'ctrl+k': onOpen,
+  }, {
+    enableInInput: false,
+    preventDefault: true,
+  });
 
   const handleSuggestionClick = (suggestion: string) => {
     setQuery(suggestion);
