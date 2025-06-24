@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useMemo } from 'react';
 import { createRoot } from 'react-dom/client';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -29,8 +29,8 @@ import RetentionCohortAnalyzer from './RetentionCohortAnalyzer';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
 
-// Configure unified processor for markdown with math support
-const processor = unified()
+// Create unified processor for markdown with math support
+const createProcessor = () => unified()
   .use(remarkParse)
   .use(remarkMath, {
     singleDollarTextMath: true
@@ -81,6 +81,9 @@ export default function MarkdownRenderer({
   className = '' 
 }: MarkdownRendererProps) {
   const contentRef = useRef<HTMLDivElement>(null);
+  
+  // Memoize the processor to avoid recreating it on every render
+  const processor = useMemo(() => createProcessor(), []);
   
   // Add code block enhancement (copy buttons, language labels)
   useCodeBlockEnhancement(contentRef);
