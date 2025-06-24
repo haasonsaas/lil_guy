@@ -24,6 +24,8 @@
     "setup:secrets": "bun run scripts/setup-secrets.ts",
     "new-interactive": "bun run scripts/new-interactive-component.ts",
     "stats": "bun run scripts/writing-stats.ts",
+    "drafts": "bun run scripts/draft-analyzer.ts",
+    "ideas": "bun run scripts/content-ideas.ts",
     "lint": "eslint .",
     "lint:md": "markdownlint-cli2 src/posts/*.md",
     "spell": "cspell src/posts/*.md",

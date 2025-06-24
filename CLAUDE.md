@@ -36,6 +36,8 @@ bun run check:links      # Validate all links in markdown files
 bun scripts/agent-report.ts [-p 7d|14d|30d] [-f table|json|markdown]     # AI agent usage analytics
 bun scripts/seo-audit.ts [-u URL] [-f table|json|markdown] [-d basic|comprehensive]  # SEO health audit
 bun run stats [-p 7d|30d|90d|365d|all] [-f table|json|markdown]         # Personal writing statistics
+bun run drafts [-s score|age|words|priority] [-f table|json|markdown]   # Analyze draft posts for completion
+bun run ideas [-n 10] [-t sequel|deep-dive|practical-guide] [-f table|json|markdown]  # Generate content ideas
 ```
 
 ### Deployment & DevOps
