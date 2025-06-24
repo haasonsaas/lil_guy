@@ -635,6 +635,19 @@
       "meta"
     ]
   },
+  "25-posts-in-7-days-inside-an-ai-powered-writing-sprint": {
+    "title": "25 Posts in 7 Days: Inside an AI-Powered Writing Sprint",
+    "description": "What happens when you pair with AI for a week? 23,000 words, 25 posts, and insights into the future of creative work",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": [
+      "ai",
+      "productivity",
+      "writing",
+      "developer-experience",
+      "creativity"
+    ]
+  },
   "simulating-liquid-metal-building-t-1000-physics-with-web-technologies": {
     "title": "Simulating Liquid Metal: Building T-1000 Physics with Web Technologies",
     "description": "Deep dive into creating realistic liquid metal fluid dynamics using metaballs, surface tension, and real-time rendering",

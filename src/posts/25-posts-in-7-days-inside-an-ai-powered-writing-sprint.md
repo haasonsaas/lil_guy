@@ -196,5 +196,3 @@ And that's incredibly exciting.
 ---
 
 *Want to see the interactive components and posts from this sprint? Check out the [Engineering Velocity Tracker](/blog/visualizing-engineering-velocity-the-hidden-cost-of-technical-debt), [Customer Development Simulator](/blog/mastering-customer-development-interviews-an-interactive-guide), and [Retention Cohort Analyzer](/blog/the-compound-effect-of-retention-visualizing-saas-growth-dynamics) — all built during this 7-day burst.*
-
-*Curious about the technical details? I've open-sourced the [writing statistics tool](https://github.com/haasonsaas/haas-blog/blob/main/scripts/writing-stats.ts) that generated these insights.*

@@ -50,6 +50,18 @@
       <category><![CDATA[interactive]]></category>
     </item>
     <item>
+      <title><![CDATA[25 Posts in 7 Days: Inside an AI-Powered Writing Sprint]]></title>
+      <description><![CDATA[What happens when you pair with AI for a week? 23,000 words, 25 posts, and insights into the future of creative work]]></description>
+      <link>https://www.haasonsaas.com/blog/25-posts-in-7-days-inside-an-ai-powered-writing-sprint</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/25-posts-in-7-days-inside-an-ai-powered-writing-sprint</guid>
+      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[writing]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[creativity]]></category>
+    </item>
+    <item>
       <title><![CDATA[The Retention Equation: Why 1% Better Can Mean 10x More Revenue]]></title>
       <description><![CDATA[See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum impact.]]></description>
       <link>https://www.haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue</link>
@@ -591,19 +603,6 @@
       <category><![CDATA[team-structure]]></category>
       <category><![CDATA[startup-culture]]></category>
       <category><![CDATA[leadership]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Same Data, Same Dance: Why the Moat Isn't Technical Anymore]]></title>
-      <description><![CDATA[In an era where every security tool starts from the same place—your data—the technical playing field is flat. So where's the moat? It's not in the tech. It's in everything around it: execution speed, user experience, trust, and distribution.]]></description>
-      <link>https://www.haasonsaas.com/blog/same-data-same-dance</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/same-data-same-dance</guid>
-      <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[cybersecurity]]></category>
-      <category><![CDATA[product-strategy]]></category>
-      <category><![CDATA[user-experience]]></category>
-      <category><![CDATA[vendor-differentiation]]></category>
-      <category><![CDATA[cspm]]></category>
-      <category><![CDATA[security-tools]]></category>
     </item>
   </channel>
 </rss>

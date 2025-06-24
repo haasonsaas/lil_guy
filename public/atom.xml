@@ -59,6 +59,23 @@
     <category term="interactive" />
   </entry>
   <entry>
+    <title><![CDATA[25 Posts in 7 Days: Inside an AI-Powered Writing Sprint]]></title>
+    <link href="https://www.haasonsaas.com/blog/25-posts-in-7-days-inside-an-ai-powered-writing-sprint" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/25-posts-in-7-days-inside-an-ai-powered-writing-sprint</id>
+    <published>2025-06-24T00:00:00.000Z</published>
+    <updated>2025-06-24T00:00:00.000Z</updated>
+    <summary><![CDATA[What happens when you pair with AI for a week? 23,000 words, 25 posts, and insights into the future of creative work]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="productivity" />
+    <category term="writing" />
+    <category term="developer-experience" />
+    <category term="creativity" />
+  </entry>
+  <entry>
     <title><![CDATA[The Retention Equation: Why 1% Better Can Mean 10x More Revenue]]></title>
     <link href="https://www.haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue</id>
@@ -830,23 +847,5 @@
     <category term="team-structure" />
     <category term="startup-culture" />
     <category term="leadership" />
-  </entry>
-  <entry>
-    <title><![CDATA[Same Data, Same Dance: Why the Moat Isn't Technical Anymore]]></title>
-    <link href="https://www.haasonsaas.com/blog/same-data-same-dance" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/same-data-same-dance</id>
-    <published>2025-04-21T00:00:00.000Z</published>
-    <updated>2025-04-21T00:00:00.000Z</updated>
-    <summary><![CDATA[In an era where every security tool starts from the same place—your data—the technical playing field is flat. So where's the moat? It's not in the tech. It's in everything around it: execution speed, user experience, trust, and distribution.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="cybersecurity" />
-    <category term="product-strategy" />
-    <category term="user-experience" />
-    <category term="vendor-differentiation" />
-    <category term="cspm" />
-    <category term="security-tools" />
   </entry>
 </feed>
