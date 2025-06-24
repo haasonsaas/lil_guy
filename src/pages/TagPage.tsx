@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
+import { BlogCardSkeleton } from '@/components/BlogCardSkeleton';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft } from 'lucide-react';
 import { getPostsByTag } from '@/utils/blogUtils';
@@ -54,8 +55,10 @@ export default function TagPage() {
           </div>
           
           {isLoading ? (
-            <div className="text-center py-12">
-              <p className="text-muted-foreground">Loading articles...</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {Array.from({ length: 6 }).map((_, index) => (
+                <BlogCardSkeleton key={index} />
+              ))}
             </div>
           ) : error ? (
             <div className="text-center py-12">

@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
+import { BlogCardSkeleton } from '@/components/BlogCardSkeleton';
 import { getAllPosts, getAllTags, calculateReadingTime } from '@/utils/blogUtils';
 import { Input } from '@/components/ui/input';
 import { Search, ChevronLeft, ChevronRight, Filter, X, Sparkles } from 'lucide-react';
@@ -21,6 +22,7 @@ export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [allTags, setAllTags] = useState<Array<{tag: string; count: number}>>([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const [searchInput, setSearchInput] = useState(searchParams.get("search") || "");
@@ -38,12 +40,18 @@ export default function BlogPage() {
 
   useEffect(() => {
     const loadData = async () => {
-      const [allPosts, tags] = await Promise.all([
-        getAllPosts(),
-        getAllTags()
-      ]);
-      setPosts(allPosts);
-      setAllTags(tags);
+      try {
+        const [allPosts, tags] = await Promise.all([
+          getAllPosts(),
+          getAllTags()
+        ]);
+        setPosts(allPosts);
+        setAllTags(tags);
+      } catch (error) {
+        console.error('Error loading posts:', error);
+      } finally {
+        setLoading(false);
+      }
     };
     loadData();
   }, []);
@@ -401,17 +409,26 @@ export default function BlogPage() {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {paginatedPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
-            
-            {filteredPosts.length === 0 && (
-              <div className="col-span-full text-center py-12">
-                <h3 className="text-xl font-medium mb-2">No articles found</h3>
-                <p className="text-muted-foreground">
-                  Try adjusting your search query
-                </p>
-              </div>
+            {loading ? (
+              // Show skeleton cards while loading
+              Array.from({ length: 9 }).map((_, index) => (
+                <BlogCardSkeleton key={index} />
+              ))
+            ) : (
+              <>
+                {paginatedPosts.map((post) => (
+                  <BlogCard key={post.slug} post={post} />
+                ))}
+                
+                {filteredPosts.length === 0 && (
+                  <div className="col-span-full text-center py-12">
+                    <h3 className="text-xl font-medium mb-2">No articles found</h3>
+                    <p className="text-muted-foreground">
+                      Try adjusting your search query
+                    </p>
+                  </div>
+                )}
+              </>
             )}
           </div>
 

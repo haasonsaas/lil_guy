@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Layout from '@/components/Layout';
 import BlogCard from '@/components/BlogCard';
+import { BlogCardSkeleton } from '@/components/BlogCardSkeleton';
 import { getAllPosts, getPostBySlug } from '@/utils/blogUtils';
 import { generateOgImageUrl } from '../utils/ogImageUtils';
 
@@ -9,11 +10,18 @@ export default function Blog() {
   const { slug } = useParams<{ slug: string }>();
   const [posts, setPosts] = useState([]);
   const [currentPost, setCurrentPost] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const loadPosts = async () => {
-      const loadedPosts = await getAllPosts();
-      setPosts(loadedPosts);
+      try {
+        const loadedPosts = await getAllPosts();
+        setPosts(loadedPosts);
+      } catch (error) {
+        console.error('Error loading posts:', error);
+      } finally {
+        setLoading(false);
+      }
     };
     loadPosts();
   }, []);
@@ -81,9 +89,17 @@ export default function Blog() {
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-4xl font-bold mb-8">Blog</h1>
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post) => (
-            <BlogCard key={post.slug} post={post} />
-          ))}
+          {loading ? (
+            // Show skeleton cards while loading
+            Array.from({ length: 6 }).map((_, index) => (
+              <BlogCardSkeleton key={index} />
+            ))
+          ) : (
+            // Show actual blog cards
+            posts.map((post) => (
+              <BlogCard key={post.slug} post={post} />
+            ))
+          )}
         </div>
       </div>
     </Layout>

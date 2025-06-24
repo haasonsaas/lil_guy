@@ -3,54 +3,57 @@ import { Bug, Activity, Zap, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 // Only render in development
-if (process.env.NODE_ENV !== 'development') {
-  export function DevTools() {
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+interface RenderInfo {
+  count: number;
+  lastRender: number;
+  avgTime: number;
+}
+
+const renderMap = new Map<string, RenderInfo>();
+
+export function useRenderTracker(componentName: string) {
+  useEffect(() => {
+    if (!isDevelopment) return;
+    
+    const start = performance.now();
+    
+    return () => {
+      const duration = performance.now() - start;
+      const info = renderMap.get(componentName) || { count: 0, lastRender: 0, avgTime: 0 };
+      
+      info.count++;
+      info.avgTime = (info.avgTime * (info.count - 1) + duration) / info.count;
+      info.lastRender = Date.now();
+      
+      renderMap.set(componentName, info);
+    };
+  });
+}
+
+export function DevTools() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeTab, setActiveTab] = useState<'renders' | 'performance' | 'state'>('renders');
+  const [renderStats, setRenderStats] = useState<[string, RenderInfo][]>([]);
+
+  useEffect(() => {
+    if (!isDevelopment || !isOpen) return;
+
+    const interval = setInterval(() => {
+      setRenderStats(Array.from(renderMap.entries()));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [isOpen]);
+
+  if (!isDevelopment) {
     return null;
   }
-} else {
-  interface RenderInfo {
-    count: number;
-    lastRender: number;
-    avgTime: number;
-  }
 
-  const renderMap = new Map<string, RenderInfo>();
-
-  export function useRenderTracker(componentName: string) {
-    useEffect(() => {
-      const start = performance.now();
-      
-      return () => {
-        const duration = performance.now() - start;
-        const info = renderMap.get(componentName) || { count: 0, lastRender: 0, avgTime: 0 };
-        
-        info.count++;
-        info.avgTime = (info.avgTime * (info.count - 1) + duration) / info.count;
-        info.lastRender = Date.now();
-        
-        renderMap.set(componentName, info);
-      };
-    });
-  }
-
-  export function DevTools() {
-    const [isOpen, setIsOpen] = useState(false);
-    const [activeTab, setActiveTab] = useState<'renders' | 'performance' | 'state'>('renders');
-    const [renderStats, setRenderStats] = useState<[string, RenderInfo][]>([]);
-
-    useEffect(() => {
-      if (!isOpen) return;
-
-      const interval = setInterval(() => {
-        setRenderStats(Array.from(renderMap.entries()));
-      }, 1000);
-
-      return () => clearInterval(interval);
-    }, [isOpen]);
-
-    if (!isOpen) {
-      return (
-        <button
+  if (!isOpen) {
+    return (
+      <button
           onClick={() => setIsOpen(true)}
           className="fixed bottom-4 right-4 z-50 w-12 h-12 bg-primary text-primary-foreground rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform"
           title="Open DevTools"
@@ -178,30 +181,34 @@ if (process.env.NODE_ENV !== 'development') {
         </div>
       </div>
     );
-  }
-
-  // Performance monitor component
-  export function PerformanceMonitor({ children, name }: { children: React.ReactNode; name: string }) {
-    useRenderTracker(name);
-    return <>{children}</>;
-  }
-
-  // Debug logger
-  export const debug = {
-    log: (...args: unknown[]) => {
-      console.log(`[DEBUG ${new Date().toISOString()}]`, ...args);
-    },
-    warn: (...args: unknown[]) => {
-      console.warn(`[DEBUG ${new Date().toISOString()}]`, ...args);
-    },
-    error: (...args: unknown[]) => {
-      console.error(`[DEBUG ${new Date().toISOString()}]`, ...args);
-    },
-    time: (label: string) => {
-      console.time(`[PERF] ${label}`);
-    },
-    timeEnd: (label: string) => {
-      console.timeEnd(`[PERF] ${label}`);
-    },
-  };
 }
+
+// Performance monitor component
+export function PerformanceMonitor({ children, name }: { children: React.ReactNode; name: string }) {
+  useRenderTracker(name);
+  return <>{children}</>;
+}
+
+// Debug logger
+export const debug = {
+  log: (...args: unknown[]) => {
+    if (!isDevelopment) return;
+    console.log(`[DEBUG ${new Date().toISOString()}]`, ...args);
+  },
+  warn: (...args: unknown[]) => {
+    if (!isDevelopment) return;
+    console.warn(`[DEBUG ${new Date().toISOString()}]`, ...args);
+  },
+  error: (...args: unknown[]) => {
+    if (!isDevelopment) return;
+    console.error(`[DEBUG ${new Date().toISOString()}]`, ...args);
+  },
+  time: (label: string) => {
+    if (!isDevelopment) return;
+    console.time(`[PERF] ${label}`);
+  },
+  timeEnd: (label: string) => {
+    if (!isDevelopment) return;
+    console.timeEnd(`[PERF] ${label}`);
+  },
+};

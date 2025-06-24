@@ -4,6 +4,7 @@ import Layout from '@/components/Layout';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import TagCloud from '@/components/TagCloud';
 import BlogCard from '@/components/BlogCard';
+import { BlogCardSkeleton } from '@/components/BlogCardSkeleton';
 import AuthorBio from '@/components/AuthorBio';
 import SocialShare from '@/components/SocialShare';
 import { ReadingProgressBar } from '@/components/ReadingProgressBar';
@@ -47,6 +48,7 @@ export default function BlogPost() {
   const [searchParams] = useSearchParams();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [relatedPostsLoading, setRelatedPostsLoading] = useState(false);
   const [imageError, setImageError] = useState(false);
   const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([]);
   const [isPreview, setIsPreview] = useState(false);
@@ -91,9 +93,17 @@ export default function BlogPost() {
       
       setPost(loadedPost);
       
+      // Load related posts separately
       if (loadedPost.frontmatter.tags) {
-        const related = await getRelatedPosts(loadedPost);
-        setRelatedPosts(related);
+        setRelatedPostsLoading(true);
+        try {
+          const related = await getRelatedPosts(loadedPost);
+          setRelatedPosts(related);
+        } catch (error) {
+          console.error('Error loading related posts:', error);
+        } finally {
+          setRelatedPostsLoading(false);
+        }
       }
       
       // Load all tags
@@ -289,13 +299,21 @@ export default function BlogPost() {
             </div>
             
             <div className="border-t border-border mt-16 pt-8 no-print">
-              {relatedPosts.length > 0 && (
+              {(relatedPostsLoading || relatedPosts.length > 0) && (
                 <div>
                   <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {relatedPosts.map(relatedPost => (
-                      <BlogCard key={relatedPost.slug} post={relatedPost} hideAuthor={true} />
-                    ))}
+                    {relatedPostsLoading ? (
+                      // Show skeleton cards while loading related posts
+                      Array.from({ length: 3 }).map((_, index) => (
+                        <BlogCardSkeleton key={index} hideAuthor={true} />
+                      ))
+                    ) : (
+                      // Show actual related posts
+                      relatedPosts.map(relatedPost => (
+                        <BlogCard key={relatedPost.slug} post={relatedPost} hideAuthor={true} />
+                      ))
+                    )}
                   </div>
                 </div>
               )}

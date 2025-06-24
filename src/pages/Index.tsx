@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import BlogCard from "@/components/BlogCard";
+import { BlogCardSkeleton } from "@/components/BlogCardSkeleton";
 import Layout from "@/components/Layout";
 import { WebsiteMeta } from "@/components/SEO/MetaTags";
 import { generateWebsiteStructuredData } from "@/utils/seo/structuredData";
@@ -47,6 +48,7 @@ const topicIconMap: Record<string, LucideIcon> = {
 export default function Index() {
   const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
   const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null);
+  const [loading, setLoading] = useState(true);
   const [featuredTopics, setFeaturedTopics] = useState<Array<{name: string; icon: LucideIcon; count: number}>>([]);
   const [stats, setStats] = useState({
     totalPosts: 0,
@@ -91,6 +93,8 @@ export default function Index() {
         injectStructuredData(websiteSchema);
       } catch (error) {
         console.error("Error loading data:", error);
+      } finally {
+        setLoading(false);
       }
     };
     loadData();
@@ -209,23 +213,25 @@ export default function Index() {
         </section>
 
         {/* Featured Article */}
-        {featuredPost && (
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-          >
-            <div className="flex items-center justify-between mb-8">
-              <h2 className="text-2xl sm:text-3xl font-display font-semibold">Featured Article</h2>
-              <Badge variant="default" className="gap-1">
-                <Sparkles className="h-3 w-3" />
-                Latest
-              </Badge>
-            </div>
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl sm:text-3xl font-display font-semibold">Featured Article</h2>
+            <Badge variant="default" className="gap-1">
+              <Sparkles className="h-3 w-3" />
+              Latest
+            </Badge>
+          </div>
+          {loading ? (
+            <BlogCardSkeleton featured />
+          ) : featuredPost ? (
             <BlogCard post={featuredPost} featured />
-          </motion.section>
-        )}
+          ) : null}
+        </motion.section>
 
         {/* Value Props */}
         <motion.section
@@ -294,9 +300,17 @@ export default function Index() {
             </Link>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {recentPosts.map((post) => (
-              <BlogCard key={post.slug} post={post} />
-            ))}
+            {loading ? (
+              // Show skeleton cards while loading  
+              Array.from({ length: 3 }).map((_, index) => (
+                <BlogCardSkeleton key={index} />
+              ))
+            ) : (
+              // Show actual recent posts
+              recentPosts.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))
+            )}
           </div>
         </motion.section>
 
