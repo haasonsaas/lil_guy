@@ -173,7 +173,11 @@
       "WebFetch(domain:haasonsaas.com)",
       "Bash(deliberate-reasoning-engine:*)",
       "mcp__dre__log_thought",
-      "mcp__time__get_current_time"
+      "mcp__time__get_current_time",
+      "Bash(timeout:*)",
+      "Bash(wrangler whoami:*)",
+      "Bash(wrangler zone:*)",
+      "Bash(env)"
     ],
     "deny": []
   }
