@@ -28,6 +28,39 @@
       <category><![CDATA[interactive]]></category>
     </item>
     <item>
+      <title><![CDATA[Stop Guessing in Customer Interviews: A Simulator for Better Discovery]]></title>
+      <description><![CDATA[Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas.]]></description>
+      <link>https://www.haasonsaas.com/blog/stop-guessing-in-customer-interviews-a-simulator-for-better-discovery</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/stop-guessing-in-customer-interviews-a-simulator-for-better-discovery</guid>
+      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[customer-development]]></category>
+      <category><![CDATA[product-management]]></category>
+      <category><![CDATA[startup]]></category>
+      <category><![CDATA[interactive]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Technical Debt Isn't Just Slowing You Down—It's Accelerating]]></title>
+      <description><![CDATA[Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for your team.]]></description>
+      <link>https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</guid>
+      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[technical-debt]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[interactive]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Retention Equation: Why 1% Better Can Mean 10x More Revenue]]></title>
+      <description><![CDATA[See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum impact.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue</guid>
+      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[saas]]></category>
+      <category><![CDATA[metrics]]></category>
+      <category><![CDATA[retention]]></category>
+      <category><![CDATA[interactive]]></category>
+    </item>
+    <item>
       <title><![CDATA[Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine]]></title>
       <description><![CDATA[An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency.]]></description>
       <link>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</link>
@@ -571,43 +604,6 @@
       <category><![CDATA[vendor-differentiation]]></category>
       <category><![CDATA[cspm]]></category>
       <category><![CDATA[security-tools]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Confidence Cliff: Why Overcertainty Kills Good Decisions]]></title>
-      <description><![CDATA[How early confidence in ideas can feel like clarity—but often leads to blind spots, brittle strategy, and bad decisions. Here’s how to catch yourself before you go over the edge.]]></description>
-      <link>https://www.haasonsaas.com/blog/confidence-cliff</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/confidence-cliff</guid>
-      <pubDate>Mon, 21 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[decision-making]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[product-strategy]]></category>
-      <category><![CDATA[organizational-dynamics]]></category>
-      <category><![CDATA[mindset]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Prompt Improver: Structured Thinking for Better AI Prompts]]></title>
-      <description><![CDATA[An exploration of how the Prompt Improver platform transforms basic AI prompts into powerful, structured instructions that yield more reliable and consistent results]]></description>
-      <link>https://www.haasonsaas.com/blog/prompt-improver</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/prompt-improver</guid>
-      <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[artificial-intelligence]]></category>
-      <category><![CDATA[prompt-engineering]]></category>
-      <category><![CDATA[user-experience]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[technology]]></category>
-      <category><![CDATA[software-development]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Dehydrated Entity: Hire Only When You're Truly Underwater]]></title>
-      <description><![CDATA[Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to think about hiring pressure, prioritization, and company clarity]]></description>
-      <link>https://www.haasonsaas.com/blog/dehydrated-entity</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/dehydrated-entity</guid>
-      <pubDate>Sun, 20 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[management]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[startup]]></category>
-      <category><![CDATA[growth]]></category>
     </item>
   </channel>
 </rss>

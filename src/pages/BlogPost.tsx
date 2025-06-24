@@ -289,17 +289,8 @@ export default function BlogPost() {
             </div>
             
             <div className="border-t border-border mt-16 pt-8 no-print">
-              <div className="bg-gradient-to-r from-primary/10 to-background p-6 rounded-lg border border-primary/20 shadow-sm">
-                <h3 className="text-lg font-semibold mb-4">Related Topics</h3>
-                {frontmatter?.tags && Array.isArray(frontmatter.tags) && frontmatter.tags.length > 0 ? (
-                  <TagCloud tags={allTags.filter(({ tag }) => frontmatter.tags.includes(tag))} />
-                ) : (
-                  <p className="text-muted-foreground">No tags available</p>
-                )}
-              </div>
-              
               {relatedPosts.length > 0 && (
-                <div className="mt-12">
+                <div>
                   <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {relatedPosts.map(relatedPost => (
