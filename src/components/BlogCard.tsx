@@ -7,6 +7,7 @@ import { generateThumbnailUrl, getImageData } from '@/utils/blog/imageUtils';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { useBlogCardPreloading } from '@/hooks/useIntelligentPreloading';
 import {
   Tooltip,
   TooltipContent,
@@ -40,6 +41,7 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
   const [imageError, setImageError] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const { onMouseEnter, onTouchStart } = useBlogCardPreloading();
   
   const imageData = getImageData(frontmatter);
   const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url;
@@ -60,8 +62,12 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
     return (
       <div 
         className="group relative mb-10 animate-fade-up"
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => {
+          setIsHovered(true);
+          onMouseEnter(slug);
+        }}
         onMouseLeave={() => setIsHovered(false)}
+        onTouchStart={() => onTouchStart(slug)}
       >
         <Link to={`/blog/${slug}`} className="block">
           <div className="relative h-[400px] overflow-hidden rounded-lg shadow-md">
@@ -133,8 +139,12 @@ export default function BlogCard({ post, featured = false, hideAuthor = false }:
   return (
     <div 
       className="group relative mb-6 animate-fade-up"
-      onMouseEnter={() => setIsHovered(true)}
+      onMouseEnter={() => {
+        setIsHovered(true);
+        onMouseEnter(slug);
+      }}
       onMouseLeave={() => setIsHovered(false)}
+      onTouchStart={() => onTouchStart(slug)}
     >
       <Link to={`/blog/${slug}`} className="block">
         <div className={cn(

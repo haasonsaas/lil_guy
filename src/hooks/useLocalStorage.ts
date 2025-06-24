@@ -15,7 +15,15 @@ export function useLocalStorage<T>(
   }
 ): [T, SetValue<T>, () => void] {
   const serialize = options?.serialize || JSON.stringify;
-  const deserialize = options?.deserialize || JSON.parse;
+  const deserialize = options?.deserialize || ((value: string) => {
+    try {
+      return JSON.parse(value);
+    } catch (error) {
+      // If JSON.parse fails, it might be a plain string that was stored without JSON serialization
+      console.warn(`Failed to parse JSON for localStorage key "${key}", treating as plain string:`, error);
+      return value as unknown as T;
+    }
+  });
 
   // Get from localStorage or use default
   const getStoredValue = useCallback((): T => {
@@ -31,9 +39,9 @@ export function useLocalStorage<T>(
       try {
         return deserialize(item);
       } catch (deserializeError) {
-        // If deserialization fails and we're using JSON.parse,
+        // If deserialization fails and we don't have custom deserializer,
         // it might be a plain string that needs migration
-        if (deserialize === JSON.parse) {
+        if (!options?.deserialize) {
           console.warn(`Migrating non-JSON value for key "${key}"`);
           // Store it properly as JSON for next time
           window.localStorage.setItem(key, JSON.stringify(item));

@@ -11,6 +11,7 @@ import { ReadingProgressBar } from '@/components/ReadingProgressBar';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock, Eye } from 'lucide-react';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags, getAllPosts } from '@/utils/blogUtils';
+import { loadBlogPost, preloadBlogPost } from '@/utils/blog/dynamicLoader';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
 import { validatePreviewToken, getTokenExpiration } from '@/utils/previewUtils';
 import { generateBlogPostStructuredData, generateBreadcrumbStructuredData, calculateReadingTime as seoCalculateReadingTime } from '@/utils/seo/structuredData';

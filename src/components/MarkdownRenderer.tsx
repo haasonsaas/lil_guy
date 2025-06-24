@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo } from 'react';
+import { useEffect, useRef, useMemo, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -28,6 +28,7 @@ import EngineeringVelocityTracker from './EngineeringVelocityTracker';
 import RetentionCohortAnalyzer from './RetentionCohortAnalyzer';
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement';
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement';
+import { useMarkdownWorker } from '@/hooks/useMarkdownWorker';
 
 // Create unified processor for markdown with math support
 const createProcessor = () => unified()
@@ -81,8 +82,13 @@ export default function MarkdownRenderer({
   className = '' 
 }: MarkdownRendererProps) {
   const contentRef = useRef<HTMLDivElement>(null);
+  const [processedHTML, setProcessedHTML] = useState<string>('');
+  const [isProcessing, setIsProcessing] = useState(false);
+  const [useWorker, setUseWorker] = useState(true);
   
-  // Memoize the processor to avoid recreating it on every render
+  const { processMarkdown, isReady: workerReady, isSupported: workerSupported } = useMarkdownWorker();
+  
+  // Memoize the processor for fallback
   const processor = useMemo(() => createProcessor(), []);
   
   // Add code block enhancement (copy buttons, language labels)
@@ -91,21 +97,11 @@ export default function MarkdownRenderer({
   // Add lazy loading for images
   useLazyImageEnhancement(contentRef);
   
-  // No longer need manual highlight.js application since rehype-highlight handles it
-  
-  // Safely parse markdown to HTML with math support
-  const createMarkup = () => {
+  // Fallback markdown processing function (runs on main thread)
+  const processMarkdownMainThread = (contentString: string): string => {
     try {
-      if (!content) {
-        return { __html: '<p>No content available</p>' };
-      }
-      
-      // Make sure the content is a string
-      const contentString = typeof content === 'string' ? content : String(content);
-      
       // Only render the content, not the frontmatter
       const contentWithoutFrontmatter = contentString.replace(/^---[\s\S]*?---/, '').trim();
-      
       
       // Replace custom component tags with placeholders
       let processedContent = contentWithoutFrontmatter;
@@ -120,7 +116,6 @@ export default function MarkdownRenderer({
             return acc;
           }, {}) || {};
           
-          const Component = components[componentName];
           const placeholder = `<div data-component="${componentName}" data-props='${JSON.stringify(props)}'></div>`;
           processedContent = processedContent.replace(match, placeholder);
         }
@@ -131,7 +126,6 @@ export default function MarkdownRenderer({
       try {
         const result = processor.processSync(processedContent);
         rawMarkup = String(result);
-        
       } catch (mathError) {
         console.error('Math processing error:', mathError);
         // Fallback to basic processing without math
@@ -172,17 +166,62 @@ export default function MarkdownRenderer({
         });
       }
       
-      
-      return { __html: cleanHtml };
+      return cleanHtml;
     } catch (error) {
       console.error('Error parsing markdown:', error);
-      return { __html: `<p>Error rendering content: ${error instanceof Error ? error.message : 'Unknown error'}</p>` };
+      return `<p>Error rendering content: ${error instanceof Error ? error.message : 'Unknown error'}</p>`;
     }
   };
+
+  // Process markdown content
+  useEffect(() => {
+    if (!content) {
+      setProcessedHTML('<p>No content available</p>');
+      return;
+    }
+
+    const contentString = typeof content === 'string' ? content : String(content);
+    
+    // For short content, process on main thread
+    if (contentString.length < 5000) {
+      const result = processMarkdownMainThread(contentString);
+      setProcessedHTML(result);
+      return;
+    }
+    
+    // For long content, try to use worker
+    if (useWorker && workerSupported && workerReady) {
+      setIsProcessing(true);
+      
+      processMarkdown({
+        content: contentString,
+        onSuccess: (result) => {
+          // Apply DOMPurify to worker result
+          const cleanHtml = DOMPurify.sanitize(result, {
+            ADD_ATTR: ['target', 'rel', 'data-component', 'data-props', 'class', 'style'],
+            ADD_TAGS: ['iframe', 'div', 'span']
+          });
+          setProcessedHTML(cleanHtml);
+          setIsProcessing(false);
+        },
+        onError: (error) => {
+          console.warn('Worker processing failed, falling back to main thread:', error);
+          const result = processMarkdownMainThread(contentString);
+          setProcessedHTML(result);
+          setIsProcessing(false);
+          setUseWorker(false); // Disable worker for this session
+        }
+      });
+    } else {
+      // Fallback to main thread processing
+      const result = processMarkdownMainThread(contentString);
+      setProcessedHTML(result);
+    }
+  }, [content, processMarkdown, workerReady, workerSupported, useWorker, processor]);
   
   // Render custom components
   useEffect(() => {
-    if (contentRef.current) {
+    if (contentRef.current && processedHTML) {
       const componentElements = contentRef.current.querySelectorAll('[data-component]');
       componentElements.forEach(element => {
         const componentName = element.getAttribute('data-component');
@@ -197,13 +236,25 @@ export default function MarkdownRenderer({
         }
       });
     }
-  }, [content]);
+  }, [processedHTML]);
+  
+  // Show loading state for long content being processed
+  if (isProcessing) {
+    return (
+      <div className={`prose prose-slate dark:prose-invert max-w-none ${className}`}>
+        <div className="flex items-center justify-center py-8">
+          <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
+          <span className="ml-2 text-sm text-muted-foreground">Processing content...</span>
+        </div>
+      </div>
+    );
+  }
   
   return (
     <div 
       ref={contentRef}
       className={`prose prose-slate dark:prose-invert max-w-none ${className}`}
-      dangerouslySetInnerHTML={createMarkup()} 
+      dangerouslySetInnerHTML={{ __html: processedHTML }} 
     />
   );
 }

@@ -31,6 +31,17 @@
     <link rel="alternate" type="application/rss+xml" title="Haas on SaaS RSS Feed" href="/rss.xml" />
     <link rel="alternate" type="application/atom+xml" title="Haas on SaaS Atom Feed" href="/atom.xml" />
     
+    <!-- Resource Hints for Performance -->
+    <link rel="preload" href="/src/main.tsx" as="script" crossorigin="anonymous" />
+    <link rel="preload" href="/src/index.css" as="style" />
+    <link rel="preload" href="/markdown-worker.js" as="script" />
+    <link rel="dns-prefetch" href="https://static.cloudflareinsights.com" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://static.cloudflareinsights.com" crossorigin />
+    
     <title>Jonathan Haas | Haas on SaaS</title>
     <!-- Meta tags are dynamically managed by react-helmet-async -->
     
