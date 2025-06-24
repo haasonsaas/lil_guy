@@ -9,7 +9,11 @@ export function ThemeProvider({
   ...props
 }: ThemeProviderProps) {
   // Use our custom hook for localStorage with cross-tab sync
-  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, defaultTheme)
+  // Use string serialization since theme is already a string
+  const [theme, setTheme] = useLocalStorage<Theme>(storageKey, defaultTheme, {
+    serialize: (value) => value,
+    deserialize: (value) => value as Theme,
+  })
 
   useEffect(() => {
     const root = window.document.documentElement

@@ -25,7 +25,22 @@ export function useLocalStorage<T>(
 
     try {
       const item = window.localStorage.getItem(key);
-      return item ? deserialize(item) : defaultValue;
+      if (!item) return defaultValue;
+      
+      // Try to deserialize the value
+      try {
+        return deserialize(item);
+      } catch (deserializeError) {
+        // If deserialization fails and we're using JSON.parse,
+        // it might be a plain string that needs migration
+        if (deserialize === JSON.parse) {
+          console.warn(`Migrating non-JSON value for key "${key}"`);
+          // Store it properly as JSON for next time
+          window.localStorage.setItem(key, JSON.stringify(item));
+          return item as unknown as T;
+        }
+        throw deserializeError;
+      }
     } catch (error) {
       console.warn(`Error reading localStorage key "${key}":`, error);
       return defaultValue;

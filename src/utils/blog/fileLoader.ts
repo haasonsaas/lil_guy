@@ -30,7 +30,9 @@ export const readFilePosts = (): BlogPost[] => {
       import.meta.glob('../../posts/*.md', { eager: true }) as Record<string, { default: { frontmatter: RawFrontmatter, content: string } }>;
     
     totalFiles = Object.keys(markdownFiles).length;
-    console.log(`Found ${totalFiles} markdown files`);
+    if (import.meta.env.DEV) {
+      console.log(`Found ${totalFiles} markdown files`);
+    }
     
     Object.entries(markdownFiles).forEach(([filePath, moduleContent]) => {
       try {
@@ -158,7 +160,9 @@ export const readFilePosts = (): BlogPost[] => {
       }
     });
     
-    console.log(`Successfully loaded ${posts.length} posts (${skippedFiles} skipped)`);
+    if (import.meta.env.DEV) {
+      console.log(`Successfully loaded ${posts.length} posts (${skippedFiles} skipped)`);
+    }
     return posts;
     
   } catch (error) {
