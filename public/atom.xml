@@ -14,6 +14,19 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[The Hidden Costs of Technical Debt: A Visual Calculator]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator</id>
+    <published>2025-06-24T00:00:00.000Z</published>
+    <updated>2025-06-24T00:00:00.000Z</updated>
+    <summary><![CDATA[Visualize how technical debt compounds over time with this interactive velocity tracker. Model the real impact on your team's delivery speed and make data-driven decisions about when to pay it down.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="interactive" />
+  </entry>
+  <entry>
     <title><![CDATA[Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine]]></title>
     <link href="https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</id>
@@ -839,22 +852,5 @@
     <category term="culture" />
     <category term="startup" />
     <category term="growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Responsiveness Principle: How Small Signals Build Big Trust in Venture]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-responsiveness-principle" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-responsiveness-principle</id>
-    <published>2025-04-19T00:00:00.000Z</published>
-    <updated>2025-04-19T00:00:00.000Z</updated>
-    <summary><![CDATA[A practical field guide for early-stage investors and founders on why responsiveness—not just capital—sets the tone for trust, momentum, and long-term outcomes.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="venture-capital" />
-    <category term="founder-relations" />
-    <category term="early-stage-investing" />
-    <category term="trust-building" />
-    <category term="startup-etiquette" />
   </entry>
 </feed>

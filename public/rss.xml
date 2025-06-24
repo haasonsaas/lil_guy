@@ -20,6 +20,14 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[The Hidden Costs of Technical Debt: A Visual Calculator]]></title>
+      <description><![CDATA[Visualize how technical debt compounds over time with this interactive velocity tracker. Model the real impact on your team's delivery speed and make data-driven decisions about when to pay it down.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator</guid>
+      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[interactive]]></category>
+    </item>
+    <item>
       <title><![CDATA[Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine]]></title>
       <description><![CDATA[An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency.]]></description>
       <link>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</link>
@@ -600,18 +608,6 @@
       <category><![CDATA[culture]]></category>
       <category><![CDATA[startup]]></category>
       <category><![CDATA[growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Responsiveness Principle: How Small Signals Build Big Trust in Venture]]></title>
-      <description><![CDATA[A practical field guide for early-stage investors and founders on why responsiveness—not just capital—sets the tone for trust, momentum, and long-term outcomes.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-responsiveness-principle</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-responsiveness-principle</guid>
-      <pubDate>Sat, 19 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[venture-capital]]></category>
-      <category><![CDATA[founder-relations]]></category>
-      <category><![CDATA[early-stage-investing]]></category>
-      <category><![CDATA[trust-building]]></category>
-      <category><![CDATA[startup-etiquette]]></category>
     </item>
   </channel>
 </rss>

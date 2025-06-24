@@ -427,6 +427,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/stop-guessing-in-customer-interviews-a-simulator-for-better-discovery</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/supercharging-your-blog-development-experience</loc>
     <lastmod>2025-06-17</lastmod>
     <changefreq>monthly</changefreq>
@@ -435,6 +441,12 @@
   <url>
     <loc>https://haasonsaas.com/blog/tech-debt-velocity</loc>
     <lastmod>2024-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</loc>
+    <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -513,6 +525,12 @@
   <url>
     <loc>https://haasonsaas.com/blog/the-responsiveness-principle</loc>
     <lastmod>2025-04-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue</loc>
+    <lastmod>2024-11-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -835,6 +853,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/customer-development</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/customer-emotion</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1099,6 +1123,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/interactive</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/investment-analysis</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1285,6 +1315,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/product-management</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/product-market-fit</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1352,6 +1388,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/retail-investing</loc>
+    <lastmod>2025-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/retention</loc>
     <lastmod>2025-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -1,4 +1,13 @@
 {
+  "the-hidden-costs-of-technical-debt-a-visual-calculator": {
+    "title": "The Hidden Costs of Technical Debt: A Visual Calculator",
+    "description": "Visualize how technical debt compounds over time with this interactive velocity tracker. Model the real impact on your team's delivery speed and make data-driven decisions about when to pay it down.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": [
+      "interactive"
+    ]
+  },
   "work-life-meditation": {
     "title": "Work-Life Meditation: Finding Balance in Tech",
     "description": "Practical approaches to maintaining work-life balance in the tech industry",
@@ -463,6 +472,18 @@
       "framework"
     ]
   },
+  "stop-guessing-in-customer-interviews-a-simulator-for-better-discovery": {
+    "title": "Stop Guessing in Customer Interviews: A Simulator for Better Discovery",
+    "description": "Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-11-29",
+    "tags": [
+      "customer-development",
+      "product-management",
+      "startup",
+      "interactive"
+    ]
+  },
   "startup-advice": {
     "title": "The Three Types of Startup Advice (And Why They're All Wrong)",
     "description": "Breaking down why most startup advice falls flat, and what to do about it",
@@ -537,6 +558,18 @@
       "engineering",
       "technical",
       "personal-growth"
+    ]
+  },
+  "technical-debt-isn-t-just-slowing-you-down-it-s-accelerating": {
+    "title": "Technical Debt Isn't Just Slowing You Down—It's Accelerating",
+    "description": "Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for your team.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-11-29",
+    "tags": [
+      "engineering",
+      "technical-debt",
+      "productivity",
+      "interactive"
     ]
   },
   "the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic": {
@@ -662,6 +695,18 @@
       "self-awareness",
       "productivity",
       "behavior-change"
+    ]
+  },
+  "the-retention-equation-why-1-better-can-mean-10x-more-revenue": {
+    "title": "The Retention Equation: Why 1% Better Can Mean 10x More Revenue",
+    "description": "See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum impact.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-11-29",
+    "tags": [
+      "saas",
+      "metrics",
+      "retention",
+      "interactive"
     ]
   },
   "a-troubling-first": {

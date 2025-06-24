@@ -169,7 +169,11 @@
       "Bash(-t cloudflare -t typescript -t debugging -t serverless -t deployment)",
       "Bash(git stash:*)",
       "Bash(python3:*)",
-      "Bash(timeout 10 bun run dev)"
+      "Bash(timeout 10 bun run dev)",
+      "WebFetch(domain:haasonsaas.com)",
+      "Bash(deliberate-reasoning-engine:*)",
+      "mcp__dre__log_thought",
+      "mcp__time__get_current_time"
     ],
     "deny": []
   }
