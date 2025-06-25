@@ -85,7 +85,7 @@ export default function MarkdownRenderer({
   const contentRef = useRef<HTMLDivElement>(null);
   const [processedHTML, setProcessedHTML] = useState<string>('');
   const [isProcessing, setIsProcessing] = useState(false);
-  const [useWorker, setUseWorker] = useState(true);
+  const [useWorker, setUseWorker] = useState(false); // Disabled - worker has basic parser that breaks code blocks
   
   const { processMarkdown, isReady: workerReady, isSupported: workerSupported } = useMarkdownWorker();
   
@@ -183,14 +183,13 @@ export default function MarkdownRenderer({
 
     const contentString = typeof content === 'string' ? content : String(content);
     
-    // For short content, process on main thread
-    if (contentString.length < 5000) {
-      const result = processMarkdownMainThread(contentString);
-      setProcessedHTML(result);
-      return;
-    }
+    // Always use main thread processor for now (worker has issues with code blocks)
+    const result = processMarkdownMainThread(contentString);
+    setProcessedHTML(result);
+    return;
     
-    // For long content, try to use worker
+    // Worker code disabled due to code block parsing issues
+    /*
     if (useWorker && workerSupported && workerReady) {
       setIsProcessing(true);
       
@@ -218,6 +217,7 @@ export default function MarkdownRenderer({
       const result = processMarkdownMainThread(contentString);
       setProcessedHTML(result);
     }
+    */
   }, [content, processMarkdown, workerReady, workerSupported, useWorker, processor, processMarkdownMainThread]);
   
   // Render custom components
