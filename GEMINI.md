@@ -93,3 +93,9 @@ You can invoke the agent's capabilities by using the following commands in your 
     3.  Outputs the tags for you to review and use.
 
 *   **Example:** `gemini:suggest-tags "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent"`
+
+### Git Workflow
+
+When creating pull requests, use the `gh` CLI. For example:
+
+`gh pr create --title "feat: add new feature" --body "This PR adds a new feature that does x, y, and z."`

@@ -50,6 +50,12 @@ bun run preview:cf           # Preview build using Wrangler (matches CF Pages en
 bun run setup:secrets        # Manage GitHub secrets for CI/CD (--check, --interactive)
 ```
 
+### Git Workflow
+
+When creating pull requests, use the `gh` CLI. For example:
+
+`gh pr create --title "feat: add new feature" --body "This PR adds a new feature that does x, y, and z."`
+
 ## Architecture Overview
 
 ### Blog System
