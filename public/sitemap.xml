@@ -691,6 +691,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/[object Object]</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/ab-testing</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -938,12 +944,6 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/decision-making</loc>
-    <lastmod>2025-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://haasonsaas.com/tags/deployment</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1561,12 +1561,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/serverless</loc>
-    <lastmod>2025-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://haasonsaas.com/tags/shaders</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1735,12 +1729,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/typescript</loc>
-    <lastmod>2025-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://haasonsaas.com/tags/ui-design</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1760,12 +1748,6 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/ux</loc>
-    <lastmod>2025-06-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://haasonsaas.com/tags/ux-design</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

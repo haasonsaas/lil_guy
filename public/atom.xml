@@ -355,9 +355,9 @@
       <email>jonathan@haasonsaas.com</email>
     </author>
     <category term="ai" />
-    <category term="web-development" />
-    <category term="ux-design" />
     <category term="architecture" />
+    <category term="developer-experience" />
+    <category term="product" />
   </entry>
   <entry>
     <title><![CDATA[Testing Draft Preview Feature]]></title>
@@ -385,11 +385,7 @@
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="cloudflare" />
-    <category term="typescript" />
-    <category term="debugging" />
-    <category term="serverless" />
-    <category term="deployment" />
+    
   </entry>
   <entry>
     <title><![CDATA[The Hidden Costs of Technical Debt]]></title>

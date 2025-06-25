@@ -256,9 +256,9 @@
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</guid>
       <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
       <category><![CDATA[ai]]></category>
-      <category><![CDATA[web-development]]></category>
-      <category><![CDATA[ux-design]]></category>
       <category><![CDATA[architecture]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[product]]></category>
     </item>
     <item>
       <title><![CDATA[Testing Draft Preview Feature]]></title>
@@ -276,11 +276,7 @@
       <link>https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</guid>
       <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[cloudflare]]></category>
-      <category><![CDATA[typescript]]></category>
-      <category><![CDATA[debugging]]></category>
-      <category><![CDATA[serverless]]></category>
-      <category><![CDATA[deployment]]></category>
+      
     </item>
     <item>
       <title><![CDATA[The Hidden Costs of Technical Debt]]></title>

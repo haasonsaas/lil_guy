@@ -657,7 +657,7 @@
     "description": "How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-20",
-    "tags": ["ai", "web-development", "ux-design", "architecture"]
+    "tags": ["ai", "architecture", "developer-experience", "product"]
   },
   "pricing-psychology-what-vs-really-means": {
     "title": "Pricing Psychology: What $99 vs $100 Really Means",
@@ -896,13 +896,15 @@
     "description": "A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-20",
-    "tags": [
-      "cloudflare",
-      "typescript",
-      "debugging",
-      "serverless",
-      "deployment"
-    ]
+    "tags": {
+      "tags": [
+        "cloudflare",
+        "typescript",
+        "debugging",
+        "serverless",
+        "deployment"
+      ]
+    }
   },
   "product-manager-skills": {
     "title": "The Product Manager's Secret Superpower: Finding Signal in the Noise",
