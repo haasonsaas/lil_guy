@@ -1,11 +1,4 @@
 {
-  "the-hidden-costs-of-technical-debt-a-visual-calculator": {
-    "title": "The Hidden Costs of Technical Debt: A Visual Calculator",
-    "description": "Visualize how technical debt compounds over time with this interactive velocity tracker. Model the real impact on your team's delivery speed and make data-driven decisions about when to pay it down.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-24",
-    "tags": ["interactive"]
-  },
   "work-life-meditation": {
     "title": "Work-Life Meditation: Finding Balance in Tech",
     "description": "Practical approaches to maintaining work-life balance in the tech industry",
@@ -589,7 +582,7 @@
     "title": "When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT",
     "description": "The recent rollback of a sycophantic GPT-4o personality marks a major inflection point in human-AI dynamics. Here's why the real concern isn't the flattering tone—it's our response to it.",
     "author": "Jonathan Haas",
-    "pubDate": "2024-04-11T00:00:00.000Z",
+    "pubDate": "2024-04-11",
     "tags": ["ai", "product", "strategy", "leadership", "trust", "transparency"]
   },
   "building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration": {
