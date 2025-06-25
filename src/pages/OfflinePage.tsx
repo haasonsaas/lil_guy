@@ -10,6 +10,7 @@ import { Wifi, WifiOff, RefreshCw, BookOpen, Clock } from 'lucide-react';
 interface CacheStatus {
   totalCached: number;
   blogPostsCached: number;
+  blogPosts: { url: string; title: string }[];
   lastUpdated: number;
 }
 
@@ -166,6 +167,29 @@ export default function OfflinePage() {
                     </div>
                   </div>
                 </div>
+              </CardContent>
+            </Card>
+          )}
+
+          {/* Cached Blog Posts List */}
+          {cacheStatus && cacheStatus.blogPosts && cacheStatus.blogPosts.length > 0 && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Read Offline</CardTitle>
+                <CardDescription>
+                  The following articles are available for offline reading.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+                  {cacheStatus.blogPosts.map(post => (
+                    <li key={post.url} className="py-3">
+                      <Link to={new URL(post.url).pathname} className="hover:underline">
+                        {post.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </CardContent>
             </Card>
           )}

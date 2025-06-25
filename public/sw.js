@@ -282,13 +282,25 @@ async function getCacheStatus() {
   const cache = await caches.open(CACHE_NAME);
   const keys = await cache.keys();
   
-  const blogPosts = keys.filter(request => 
+  const blogPostRequests = keys.filter(request => 
     request.url.includes('/blog/') && !request.url.includes('.')
   );
-  
+
+  const blogPosts = await Promise.all(blogPostRequests.map(async (request) => {
+    const response = await cache.match(request);
+    if (response) {
+      const text = await response.text();
+      const titleMatch = text.match(/<title>(.*?)<\/title>/);
+      const title = titleMatch ? titleMatch[1] : 'Untitled';
+      return { url: request.url, title };
+    }
+    return null;
+  }));
+
   return {
     totalCached: keys.length,
     blogPostsCached: blogPosts.length,
+    blogPosts: blogPosts.filter(p => p),
     lastUpdated: Date.now()
   };
 }
