@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import { Loader2 } from 'lucide-react';
 import { ErrorBoundary } from './ErrorBoundary';
+import { useAsyncState } from '../hooks/useAsyncState';
 
 interface AsyncBoundaryProps {
   children: ReactNode;
@@ -59,41 +60,4 @@ export function AsyncBoundary({
       {children}
     </ErrorBoundary>
   );
-}
-
-// Hook for managing async state
-export function useAsyncState<T>() {
-  const [state, setState] = React.useState<{
-    data: T | null;
-    isLoading: boolean;
-    error: Error | null;
-  }>({
-    data: null,
-    isLoading: false,
-    error: null,
-  });
-
-  const execute = React.useCallback(async (asyncFunction: () => Promise<T>) => {
-    setState({ data: null, isLoading: true, error: null });
-    
-    try {
-      const data = await asyncFunction();
-      setState({ data, isLoading: false, error: null });
-      return data;
-    } catch (error) {
-      const errorObj = error instanceof Error ? error : new Error(String(error));
-      setState({ data: null, isLoading: false, error: errorObj });
-      throw errorObj;
-    }
-  }, []);
-
-  const reset = React.useCallback(() => {
-    setState({ data: null, isLoading: false, error: null });
-  }, []);
-
-  return {
-    ...state,
-    execute,
-    reset,
-  };
 }
