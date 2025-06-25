@@ -124,6 +124,29 @@ When merging a pull request, the agent should follow these steps:
 5.  **Pull Latest Changes:** Use `git pull` to update the local main branch.
 6.  **Delete Local Branch:** Use `git branch -d <branch-name>` to delete the local feature branch.
 
+### Autonomous Workflow
+
+This workflow outlines the process Gemini should follow to autonomously propose and implement new features or improvements.
+
+**Phase 1: Autonomous Goal Identification & Planning**
+
+- **Step 1: Propose High-Level Goal.** Based on its analysis of the project, Gemini should identify and propose a high-level strategic goal (e.g., "Improve Site Performance," "Enhance Content Discovery").
+- **Step 2: Analyze Current State.** Upon user approval of the goal, Gemini should conduct a thorough analysis of the relevant codebase to understand the current implementation and identify specific areas for improvement.
+- **Step 3: Formulate Detailed Plan.** Gemini should create a detailed, step-by-step plan outlining the specific changes, new components, and the expected outcome.
+- **Step 4: Present Plan for Approval.** Gemini should present this detailed plan to the user for feedback and final approval before writing any code.
+
+**Phase 2: Autonomous Implementation & Verification**
+
+- **Step 5: Implement Changes.** Once the plan is approved, Gemini should execute the plan by writing and modifying the necessary code and files.
+- **Step 6: Run Local Verification Suite.** After implementation, Gemini should run all relevant local checks, including linting, spell-checking, SEO validation, and any applicable tests. Gemini must autonomously fix any issues that arise until all checks pass.
+- **Step 7: Commit Changes.** Once all local checks pass, Gemini should commit the changes to the local `main` branch with a clear, conventional commit message.
+
+**Phase 3: Manual Review & Deployment**
+
+- **Step 8: Request Manual Review (CRITICAL STOP).** After committing the changes locally, Gemini must stop all further action. Gemini will notify the user that the work is complete and ready for their review. **Gemini will not proceed without explicit user approval.**
+- **Step 9: Await User Approval.** Gemini will wait for the user to manually review the local commit and provide their explicit approval to proceed.
+- **Step 10: Push to Main.** Once Gemini receives user approval, it will push the committed changes to the remote `main` branch.
+
 ### Blog Post Creation Workflow
 
 ### Autonomous Workflow
