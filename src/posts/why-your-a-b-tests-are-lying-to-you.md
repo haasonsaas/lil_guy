@@ -22,8 +22,9 @@ The problem isn't that A/B testing doesn't work. It's that most teams are runnin
 ## The Statistical Significance Theater
 
 Here's what happens at most companies:
+
 1. Run an A/B test for a week
-2. See p < 0.05 
+2. See p < 0.05
 3. Declare victory
 4. Ship the "winning" variant
 5. Watch conversion rates return to baseline
@@ -43,6 +44,7 @@ Surprised by those results? Most teams are. Let's break down what's really happe
 ### Lie #1: "p < 0.05 Means It's Real"
 
 Statistical significance only tells you that your result is unlikely to be due to random chance. It doesn't tell you:
+
 - If the effect is large enough to matter
 - If the effect will persist over time  
 - If the test had enough power to detect real differences
@@ -52,6 +54,7 @@ Statistical significance only tells you that your result is unlikely to be due t
 ### Lie #2: "Bigger Sample = Better Results"
 
 More data can actually make your tests worse if you're not careful. Large samples can:
+
 - Detect statistically significant but practically meaningless differences
 - Hide important segments where the effect is actually strong
 - Lead to false confidence in weak effects
@@ -85,6 +88,7 @@ The most ignored metric in A/B testing is statistical power—the probability th
 Every test has a minimum detectable effect (MDE)—the smallest change it can reliably detect. If your test can only detect a 25% improvement in conversion rate, but you're looking for 2% improvements, you're wasting everyone's time.
 
 **Before running any test, ask:**
+
 - What's the smallest improvement that would change our strategy?
 - Can our test actually detect that improvement?
 - If not, why are we running it?
@@ -94,6 +98,7 @@ Every test has a minimum detectable effect (MDE)—the smallest change it can re
 Confidence intervals tell you the range of plausible values for your effect. A "statistically significant" result with a confidence interval of [0.1%, 15%] is very different from one with [8%, 12%].
 
 **Red flags:**
+
 - Confidence intervals that include zero (even if p < 0.05)
 - Confidence intervals that are huge relative to your effect
 - Confidence intervals that include both trivial and massive effects
@@ -101,21 +106,25 @@ Confidence intervals tell you the range of plausible values for your effect. A "
 ## How to Run Tests That Actually Matter
 
 ### 1. Design for Power First
+
 - Calculate required sample size before starting
 - Aim for 80%+ power
 - Design tests to detect the minimum effect size you care about
 
 ### 2. Focus on Effect Size, Not Just Significance
+
 - Report confidence intervals, not just p-values
 - Consider practical significance alongside statistical significance
 - Ask: "Is this difference big enough to change our strategy?"
 
 ### 3. Plan for Segmentation
+
 - Different user segments often have different responses
 - Build tests that can detect segment-specific effects
 - Don't hide important variations behind overall averages
 
 ### 4. Embrace "Inconclusive" Results
+
 - Sometimes the honest answer is "we don't know"
 - It's better to collect more data than make decisions on weak evidence
 - Failed tests teach you as much as successful ones
@@ -123,6 +132,7 @@ Confidence intervals tell you the range of plausible values for your effect. A "
 ## The Business Impact Framework
 
 Instead of asking "Is it significant?", ask:
+
 1. **Is the effect large enough to matter to our business?**
 2. **Is our test powerful enough to detect that effect?**
 3. **What's the range of plausible outcomes?**

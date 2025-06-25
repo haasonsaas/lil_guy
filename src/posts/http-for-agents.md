@@ -62,11 +62,11 @@ Just like HTTP gave us a common language for web services, this stack gives us a
 
 Let's be brutally honest about where we are:
 
-1.  **Identity is an afterthought**: Most AI agents today run with static API keys or service account credentials with little-to-no fine-grained access control. Rotating credentials is a manual process that often gets neglected.
-2.  **Isolation is poor**: Agents often share environments, credentials, and execution contexts, making it nearly impossible to attribute actions to specific agents or contain blast radius during incidents.
-3.  **Permissions are binary**: Agents either have access to everything within a system or nothing at all. There's rarely any contextual authorization based on the task being performed or the data being accessed.
-4.  **Auditability is limited**: When something goes wrong, it's hard to trace exactly what happened, which agent took which action, and under what context.
-5.  **Onboarding is complex**: Setting up a new agent requires coordinating across multiple teams, manually configuring credentials, and documenting tribal knowledge.
+1. **Identity is an afterthought**: Most AI agents today run with static API keys or service account credentials with little-to-no fine-grained access control. Rotating credentials is a manual process that often gets neglected.
+2. **Isolation is poor**: Agents often share environments, credentials, and execution contexts, making it nearly impossible to attribute actions to specific agents or contain blast radius during incidents.
+3. **Permissions are binary**: Agents either have access to everything within a system or nothing at all. There's rarely any contextual authorization based on the task being performed or the data being accessed.
+4. **Auditability is limited**: When something goes wrong, it's hard to trace exactly what happened, which agent took which action, and under what context.
+5. **Onboarding is complex**: Setting up a new agent requires coordinating across multiple teams, manually configuring credentials, and documenting tribal knowledge.
 
 Without solving these problems systematically, we're setting ourselves up for security incidents, compliance nightmares, and scalability bottlenecks. The sooner we address this, the less technical debt we'll accumulate.
 
@@ -76,7 +76,7 @@ Before diving into the components, let's visualize the flow. An Agent interacts 
 
 ![High-level architecture: control plane and data plane with Auth0, OPA, Vault, Envoy, and Agent Application](/images/agent-architecture-diagram.png)
 
-*Figure 1: High-level architecture illustrating the request flow and interactions. (See image for details.)*
+### Figure 1: High-level architecture
 
 This sidecar pattern provides a clean separation of concerns: the agent focuses on its core logic, and the sidecar handles the cross-cutting infrastructure concerns of identity, policy, secrets, and observability.
 
@@ -90,8 +90,8 @@ Every agent needs to authenticate securely—ideally using short-lived tokens th
 
 You'll need:
 
--   An **Auth0 Resource Server** representing your control plane API audience.
--   A **Machine-to-Machine (M2M) Application** configured for each agent, using the Client Credentials flow.
+- An **Auth0 Resource Server** representing your control plane API audience.
+- A **Machine-to-Machine (M2M) Application** configured for each agent, using the Client Credentials flow.
 
 ```hcl
 # Define the audience for your agent control plane API
@@ -148,9 +148,9 @@ resource "auth0_client_grant" "agent_permissions" {
 
 #### Flow:
 
-1.  The Agent application, using its `client_id` and `client_secret`, makes an OAuth2 Client Credentials request to Auth0's `/oauth/token` endpoint.
-2.  Auth0 authenticates the agent and issues a short-lived JWT access token.
-3.  The agent includes this JWT in the `Authorization: Bearer <token>` header for all requests it makes to services via its sidecar.
+1. The Agent application, using its `client_id` and `client_secret`, makes an OAuth2 Client Credentials request to Auth0's `/oauth/token` endpoint.
+2. Auth0 authenticates the agent and issues a short-lived JWT access token.
+3. The agent includes this JWT in the `Authorization: Bearer <token>` header for all requests it makes to services via its sidecar.
 
 #### JWT Claims Structure:
 
@@ -177,9 +177,9 @@ The JWT issued by Auth0 contains critical metadata for your authorization system
 
 These claims provide rich context for policy decisions downstream (in OPA), enabling fine-grained access control based on:
 
--   Who the agent is (the `sub` claim identifies the agent)
--   What it's generally allowed to do (the `permissions` claim)
--   What context it's operating in (custom claims like `team`, `environment`, `agent_type`)
+- Who the agent is (the `sub` claim identifies the agent)
+- What it's generally allowed to do (the `permissions` claim)
+- What context it's operating in (custom claims like `team`, `environment`, `agent_type`)
 
 #### Alternative: SPIFFE for Zero Trust
 
@@ -607,12 +607,12 @@ You'll notice routes configured with `prefix: "/mcp://"`. The Python SDK also us
 
 **Crucially, `mcp://` is *not* a new global internet protocol.** It's a local **convention** used *within this specific sidecar architecture*.
 
-1.  The **Agent SDK** constructs URLs starting with `mcp://<service-name>/<path>` (e.g., `mcp://sentiment-analysis/analyze`).
-2.  The **Agent** sends this HTTP request (via the SDK) to its **local Envoy sidecar** (`http://127.0.0.1:15000`).
-3.  The **Envoy sidecar** receives the request. Its `route_config` contains a route matching the `/mcp://` prefix.
-4.  This route uses a `regex_rewrite` to remove the `/mcp://<service-name>` part from the path, leaving only the original path (`/analyze` in the example).
-5.  More importantly, the route configuration uses the `<service-name>` part from the original path (`sentiment-analysis`) to dynamically select the correct **upstream cluster**. The cluster name is typically derived directly from the service name (e.g., the `sentiment-analysis` cluster).
-6.  The request is then routed to the selected upstream cluster with the rewritten path (`/analyze`).
+1. The **Agent SDK** constructs URLs starting with `mcp://<service-name>/<path>` (e.g., `mcp://sentiment-analysis/analyze`).
+2. The **Agent** sends this HTTP request (via the SDK) to its **local Envoy sidecar** (`http://127.0.0.1:15000`).
+3. The **Envoy sidecar** receives the request. Its `route_config` contains a route matching the `/mcp://` prefix.
+4. This route uses a `regex_rewrite` to remove the `/mcp://<service-name>` part from the path, leaving only the original path (`/analyze` in the example).
+5. More importantly, the route configuration uses the `<service-name>` part from the original path (`sentiment-analysis`) to dynamically select the correct **upstream cluster**. The cluster name is typically derived directly from the service name (e.g., the `sentiment-analysis` cluster).
+6. The request is then routed to the selected upstream cluster with the rewritten path (`/analyze`).
 
 *(Note: The Envoy configuration snippet above shows the `http_filters` but **omits the `route_config` block for brevity**. A complete `envoy.yaml` would require a `route_config` section defining the virtual hosts, routes matching `/mcp://...`, the `regex_rewrite` logic, and the dynamic cluster selection based on the path.)*
 
@@ -861,11 +861,11 @@ resource "vault_database_secret_backend_role" "support_readonly" {
 
 #### Agent Access Flow:
 
-1.  The agent obtains a JWT from Auth0 (or has a SPIFFE identity).
-2.  The agent (or more commonly, a **Vault Agent sidecar/injector**) presents the JWT to Vault's `/auth/jwt/login` endpoint (or uses its SPIFFE ID for mTLS auth).
-3.  Vault validates the JWT (or SPIFFE ID), matches it to a Vault Identity Entity via an Alias, and issues a short-lived Vault token based on the configured Role (`agent`) and the Entity's policies (`agent-base`). The Vault token is bound to this specific agent's identity and metadata.
-4.  The agent (or Vault Agent) uses this Vault token to read static secrets (e.g., `secret/data/mcp/agents/common/api-keys`) or request dynamic credentials (e.g., `database/creds/support-readonly`).
-5.  Secrets/credentials obtained via Vault tokens are short-lived and automatically rotated by Vault when their lease expires.
+1. The agent obtains a JWT from Auth0 (or has a SPIFFE identity).
+2. The agent (or more commonly, a **Vault Agent sidecar/injector**) presents the JWT to Vault's `/auth/jwt/login` endpoint (or uses its SPIFFE ID for mTLS auth).
+3. Vault validates the JWT (or SPIFFE ID), matches it to a Vault Identity Entity via an Alias, and issues a short-lived Vault token based on the configured Role (`agent`) and the Entity's policies (`agent-base`). The Vault token is bound to this specific agent's identity and metadata.
+4. The agent (or Vault Agent) uses this Vault token to read static secrets (e.g., `secret/data/mcp/agents/common/api-keys`) or request dynamic credentials (e.g., `database/creds/support-readonly`).
+5. Secrets/credentials obtained via Vault tokens are short-lived and automatically rotated by Vault when their lease expires.
 
 ```python
 # Example Python snippets showing Vault interaction
@@ -915,11 +915,11 @@ def get_static_secret(vault_token, path, vault_addr="http://vault:8200"):
 
 Vault Agent is a lightweight process that can run alongside your application (as a sidecar container in Kubernetes). It's configured to:
 
-1.  Authenticate to Vault using various methods (like the JWT from your agent's service account or a projected volume).
-2.  Obtain and automatically renew Vault tokens.
-3.  Fetch secrets (static or dynamic) using the acquired token.
-4.  Render secrets into files using Consul-Template syntax, or inject them as environment variables.
-5.  Automatically rotate the rendered secrets when the lease expires, and optionally signal the application to reload.
+1. Authenticate to Vault using various methods (like the JWT from your agent's service account or a projected volume).
+2. Obtain and automatically renew Vault tokens.
+3. Fetch secrets (static or dynamic) using the acquired token.
+4. Render secrets into files using Consul-Template syntax, or inject them as environment variables.
+5. Automatically rotate the rendered secrets when the lease expires, and optionally signal the application to reload.
 
 This is the **most secure and developer-friendly** way to handle secrets, as the agent application doesn't need to know anything about fetching tokens or secrets from Vault directly.
 
@@ -1011,13 +1011,14 @@ template {
 }
 {{ `{{ end }}` }}
 ```
+
 *(Note: The double curly braces `{{` `}}` are escaped as `{{"{{"}}` `{{ "}}" }}` in the markdown block above because the outer markdown processor might interpret them. In the actual `.ctmpl` files, you would use single braces like `{{ with secret ... }}` and `{{ .Data.data.api_key }}`.)*
 
 This approach ensures:
 
--   Credentials are not hardcoded or passed directly to the application process.
--   Rotation happens automatically before expiry, managed by Vault Agent.
--   The application only needs to read from the rendered files (or environment variables if using `envtemplate`). Minimal changes are required for secret rotation if the app can reload configuration dynamically or is signaled.
+- Credentials are not hardcoded or passed directly to the application process.
+- Rotation happens automatically before expiry, managed by Vault Agent.
+- The application only needs to read from the rendered files (or environment variables if using `envtemplate`). Minimal changes are required for secret rotation if the app can reload configuration dynamically or is signaled.
 
 ## 4. Agent SDK (Python)
 
@@ -1836,6 +1837,7 @@ steps:
     output: # Example: Capture the status from the write operation
       save_status: $response.status
 ```
+
 *(Note: The standalone `run_workflow_sketch` function from the original has been removed to avoid redundancy with the SDK method. A real implementation would likely use a dedicated workflow library like `temporalio`, `prefect`, or `argo-workflows` which would invoke the `MCPAgent` SDK methods within its task definitions.)*
 
 ## 5. Hello World: End to End
@@ -2159,6 +2161,7 @@ Create these files:
 }
 
 ```
+
 *(Note: The `{{{jwt ...}}}` syntax is specific to WireMock's Handlebars JWT helper. Ensure your WireMock image includes necessary extensions if using complex helpers. Claims like `team`, `agent_type`, `env` are added directly here for the mock. The `aud` claim is correctly set as an array.)*
 
 `./wiremock/mappings/jwks.json`:
@@ -2185,6 +2188,7 @@ Create these files:
 Generate a public/private RSA key pair (e.g., using `openssl genrsa -out private.pem 2048` and `openssl rsa -in private.pem -pubout -out public.pem`). Use the **private key** to sign the JWT in the WireMock template (WireMock's helper *should* handle this if configured with the key) and place the corresponding **public key** in JWKS format here. Online tools or libraries (`python-jose`, `node-jose`) can help create the JWKS structure from the public key.
 
 **Example `jwks.json` (replace with your actual public key details):**
+
 ```json
 {
   "keys": [
@@ -2199,6 +2203,7 @@ Generate a public/private RSA key pair (e.g., using `openssl genrsa -out private
   ]
 }
 ```
+
 **Important:** Getting JWT signing and JWKS correct in a mock can be tricky. **For simpler local demos, consider configuring Envoy's JWT filter with `insecure_skip_signature_verification: true` for the `auth0_jwks` provider (as noted in the Envoy config). This bypasses signature checking but is insecure for production.**
 
 ### Vault Initialization Script (`./vault/scripts/setup.sh`)
@@ -2485,22 +2490,22 @@ resource "aws_apigatewayv2_stage" "default" {
 
 The registration Lambda function would:
 
-1.  Authenticate and authorize the developer making the request (via API Gateway authorizer).
-2.  Validate the requested agent configuration (name, type, team, environment, requested permissions/scopes).
-3.  Interact with the Auth0 Management API to create an M2M application.
-4.  Register the agent's metadata in a central Agent Registry (e.g., DynamoDB, RDS).
-5.  Interact with the Vault API (authenticating securely) to create Identity entities/aliases and potentially seed initial secrets or configure dynamic secret roles.
-6.  Optionally update OPA data sources if policy relies on external data about agents.
-7.  Generate and securely return the agent's initial credentials (Client ID, Client Secret) to the developer (e.g., via a secure channel or temporary secret store).
+1. Authenticate and authorize the developer making the request (via API Gateway authorizer).
+2. Validate the requested agent configuration (name, type, team, environment, requested permissions/scopes).
+3. Interact with the Auth0 Management API to create an M2M application.
+4. Register the agent's metadata in a central Agent Registry (e.g., DynamoDB, RDS).
+5. Interact with the Vault API (authenticating securely) to create Identity entities/aliases and potentially seed initial secrets or configure dynamic secret roles.
+6. Optionally update OPA data sources if policy relies on external data about agents.
+7. Generate and securely return the agent's initial credentials (Client ID, Client Secret) to the developer (e.g., via a secure channel or temporary secret store).
 
 ### 6.2 Layered Policy System
 
 As your agent fleet grows, managing policies can become complex. A layered policy model in OPA allows for better organization and reduces redundancy:
 
-1.  **Global policies:** Rules that apply to *all* agents (e.g., default deny, token validation, basic off-hours restrictions).
-2.  **Team policies:** Rules specific to agents belonging to a particular team (e.g., restricting access to certain services or data sources based on the team claim in the JWT).
-3.  **Agent type policies:** Rules specific to categories of agents (e.g., 'support' agents vs. 'analysis' agents have different default access).
-4.  **Agent-specific policies:** Overrides or specific grants/denials for individual agents (used sparingly).
+1. **Global policies:** Rules that apply to *all* agents (e.g., default deny, token validation, basic off-hours restrictions).
+2. **Team policies:** Rules specific to agents belonging to a particular team (e.g., restricting access to certain services or data sources based on the team claim in the JWT).
+3. **Agent type policies:** Rules specific to categories of agents (e.g., 'support' agents vs. 'analysis' agents have different default access).
+4. **Agent-specific policies:** Overrides or specific grants/denials for individual agents (used sparingly).
 
 This is achieved by structuring your Rego policies into different files (packages) and using the `import` keyword in the main policy entry point to load and evaluate rules from different layers.
 
@@ -2724,21 +2729,21 @@ Envoy sidecars expose a `/stats/prometheus` endpoint (or similar depending on co
 
 Grafana integrates with Prometheus to build dashboards visualizing key metrics such as:
 
--   Request volume per agent, per skill, per team.
--   Error rates (HTTP 4xx/5xx) per agent/skill/endpoint.
--   Latency percentiles (p95, p99) through the sidecar and to upstream services.
--   Authorization denial rate and breakdown by reason (if exposed by OPA/Envoy metrics).
--   Secret lookup/rotation rates from Vault Agent metrics.
--   Resource utilization (CPU/Memory) per agent/skill pod.
+- Request volume per agent, per skill, per team.
+- Error rates (HTTP 4xx/5xx) per agent/skill/endpoint.
+- Latency percentiles (p95, p99) through the sidecar and to upstream services.
+- Authorization denial rate and breakdown by reason (if exposed by OPA/Envoy metrics).
+- Secret lookup/rotation rates from Vault Agent metrics.
+- Resource utilization (CPU/Memory) per agent/skill pod.
 
 #### 6.4.2 Logging
 
 Centralize logs from all components for debugging and auditing:
 
--   **Envoy:** Access logs provide a record of every request processed by the sidecar, including source/destination, request method/path, response code, request duration, and crucial metadata like the `x-agent-id` header added by the Lua filter, and potentially OPA decision outcomes if configured. Filter logs capture errors or warnings from filters. Configure Envoy's access log format for JSON output.
--   **OPA:** Decision logs are critical for auditing. They record every policy evaluation, including the `input` document (containing agent identity, request details, resource context) and the `result` (allow/deny) with associated reasons. Policy errors are also logged. Configure OPA for JSON decision logging.
--   **Vault:** Audit logs provide an immutable record of all authenticated interactions with Vault (login attempts, secret read/write, policy changes), including the identity of the client (the agent's Vault identity). System logs capture operational issues. Ensure audit devices are enabled and configured for JSON output.
--   **Agents/Skills:** Application logs from your agent and skill services are essential. Implementing **structured logging** (e.g., JSON logs) and including correlation IDs (like the `x-request-id` header from Envoy) makes searching and analyzing logs across components much easier.
+- **Envoy:** Access logs provide a record of every request processed by the sidecar, including source/destination, request method/path, response code, request duration, and crucial metadata like the `x-agent-id` header added by the Lua filter, and potentially OPA decision outcomes if configured. Filter logs capture errors or warnings from filters. Configure Envoy's access log format for JSON output.
+- **OPA:** Decision logs are critical for auditing. They record every policy evaluation, including the `input` document (containing agent identity, request details, resource context) and the `result` (allow/deny) with associated reasons. Policy errors are also logged. Configure OPA for JSON decision logging.
+- **Vault:** Audit logs provide an immutable record of all authenticated interactions with Vault (login attempts, secret read/write, policy changes), including the identity of the client (the agent's Vault identity). System logs capture operational issues. Ensure audit devices are enabled and configured for JSON output.
+- **Agents/Skills:** Application logs from your agent and skill services are essential. Implementing **structured logging** (e.g., JSON logs) and including correlation IDs (like the `x-request-id` header from Envoy) makes searching and analyzing logs across components much easier.
 
 Logging agents like Promtail (used with Loki), Filebeat (with Elasticsearch/Logstash), or Fluentd can collect logs from container stdio or files and send them to a centralized logging backend like Loki, Elasticsearch, or a cloud provider's logging service. Grafana integrates with Loki via LogQL for powerful log querying.
 
@@ -2752,17 +2757,17 @@ Configure Envoy's tracing provider (e.g., Zipkin, Jaeger, OpenTelemetry) to send
 
 With identity, policy, and secrets managed centrally and observability data collected, creating a comprehensive audit trail becomes significantly more feasible and reliable compared to distributed, per-agent logging.
 
--   **Envoy Access Logs:** Provide a high-level record of agent activity (who called what service, when, with what result). Include `x-agent-id` and `x-request-id`.
--   **OPA Decision Logs:** Offer detailed proof of *why* a specific request was allowed or denied, linking the decision directly to the agent's identity and the policy input context. Correlate with `x-request-id`.
--   **Vault Audit Logs:** Verify when and by whom secrets were accessed, including the agent's Vault identity and associated metadata.
--   **Application Logs:** Provide context on what the agent or skill *did* internally after policy checks passed (e.g., "processed ticket TKT-1234", "updated customer record CUST-5678"). Include correlation IDs.
+- **Envoy Access Logs:** Provide a high-level record of agent activity (who called what service, when, with what result). Include `x-agent-id` and `x-request-id`.
+- **OPA Decision Logs:** Offer detailed proof of *why* a specific request was allowed or denied, linking the decision directly to the agent's identity and the policy input context. Correlate with `x-request-id`.
+- **Vault Audit Logs:** Verify when and by whom secrets were accessed, including the agent's Vault identity and associated metadata.
+- **Application Logs:** Provide context on what the agent or skill *did* internally after policy checks passed (e.g., "processed ticket TKT-1234", "updated customer record CUST-5678"). Include correlation IDs.
 
 By collecting and correlating logs from these sources (e.g., using request/trace IDs), you build a powerful audit trail. Feed these correlated logs into a Security Information and Event Management (SIEM) system or a data lake for long-term storage, analysis, alerting on suspicious activity, and generating compliance reports. This enables you to answer critical questions for security and compliance:
 
--   Which agents accessed sensitive skill X or data source Y?
--   Were there any attempts by unauthorized agents to access restricted resources?
--   Can we demonstrate that access to resource Z is restricted based on team/environment policies?
--   When did agent A fetch credentials for database B, and what did it do afterwards?
+- Which agents accessed sensitive skill X or data source Y?
+- Were there any attempts by unauthorized agents to access restricted resources?
+- Can we demonstrate that access to resource Z is restricted based on team/environment policies?
+- When did agent A fetch credentials for database B, and what did it do afterwards?
 
 ## 7. Deployment Considerations
 
@@ -2772,18 +2777,18 @@ Implementing this stack requires careful consideration of deployment topologies 
 
 Kubernetes is a natural fit for this architecture:
 
--   **Envoy:** Deploy as a **sidecar container** alongside each agent and skill pod. Service Meshes like Istio or Linkerd manage this injection and configuration automatically. If not using a full mesh, manually add the sidecar to Deployments or use tools like the Envoy Gateway project.
--   **OPA:** Can run as a **sidecar** (for lowest latency authz decisions) or as a **centralized Deployment/StatefulSet** scaled independently. Centralized deployment is simpler for managing policy bundles but adds network latency. Node-local deployment via DaemonSet is a hybrid option. OPA instances fetch policy bundles from a central source (e.g., S3, Git repo via CI/CD, OPA Management API).
--   **Vault:** Typically runs as a **StatefulSet** with a highly available storage backend (like Consul or integrated Raft storage) and automated unseal mechanisms (e.g., Auto-Unseal with Cloud KMS/HSM). The **Vault Agent Injector** (a Kubernetes Mutating Webhook Controller) automatically injects the Vault Agent sidecar and configures secret rendering/injection into application pods based on annotations.
--   **Auth0:** A managed cloud service; requires no self-hosting infrastructure beyond configuring necessary connections and rules.
--   **Agent Services/Skills:** Deploy as standard Kubernetes Deployments or StatefulSets. They interact with their local Envoy sidecar via `localhost:<port>`.
+- **Envoy:** Deploy as a **sidecar container** alongside each agent and skill pod. Service Meshes like Istio or Linkerd manage this injection and configuration automatically. If not using a full mesh, manually add the sidecar to Deployments or use tools like the Envoy Gateway project.
+- **OPA:** Can run as a **sidecar** (for lowest latency authz decisions) or as a **centralized Deployment/StatefulSet** scaled independently. Centralized deployment is simpler for managing policy bundles but adds network latency. Node-local deployment via DaemonSet is a hybrid option. OPA instances fetch policy bundles from a central source (e.g., S3, Git repo via CI/CD, OPA Management API).
+- **Vault:** Typically runs as a **StatefulSet** with a highly available storage backend (like Consul or integrated Raft storage) and automated unseal mechanisms (e.g., Auto-Unseal with Cloud KMS/HSM). The **Vault Agent Injector** (a Kubernetes Mutating Webhook Controller) automatically injects the Vault Agent sidecar and configures secret rendering/injection into application pods based on annotations.
+- **Auth0:** A managed cloud service; requires no self-hosting infrastructure beyond configuring necessary connections and rules.
+- **Agent Services/Skills:** Deploy as standard Kubernetes Deployments or StatefulSets. They interact with their local Envoy sidecar via `localhost:<port>`.
 
 ### 7.2 Scaling and Availability
 
--   **Envoy:** As a sidecar, scales horizontally with application pods. Monitor sidecar resource usage. If using a central Envoy gateway, scale it appropriately. Ensure the control plane providing Envoy configuration (e.g., Istio control plane, custom xDS server) is highly available.
--   **OPA:** Scale replicas based on authorization request load. Monitor query latency. Policy bundle updates should be efficient. Consider OPA's caching options. For very high load, explore sharding or advanced distribution.
--   **Vault:** Requires a robust **highly available cluster** setup (multiple replicas, reliable storage/HA backend). Monitor Vault performance and ensure Vault Agent caching is configured appropriately to reduce load on the Vault servers.
--   **Control Plane Services:** Custom registration or management APIs must be designed for scalability (stateless, load-balanced).
+- **Envoy:** As a sidecar, scales horizontally with application pods. Monitor sidecar resource usage. If using a central Envoy gateway, scale it appropriately. Ensure the control plane providing Envoy configuration (e.g., Istio control plane, custom xDS server) is highly available.
+- **OPA:** Scale replicas based on authorization request load. Monitor query latency. Policy bundle updates should be efficient. Consider OPA's caching options. For very high load, explore sharding or advanced distribution.
+- **Vault:** Requires a robust **highly available cluster** setup (multiple replicas, reliable storage/HA backend). Monitor Vault performance and ensure Vault Agent caching is configured appropriately to reduce load on the Vault servers.
+- **Control Plane Services:** Custom registration or management APIs must be designed for scalability (stateless, load-balanced).
 
 ### 7.3 Secrets Rotation Automation
 
@@ -2829,12 +2834,12 @@ By adopting battle-tested patterns from the world of microservices and API gatew
 
 This "HTTP for Agents" provides:
 
-*   **Strong, Verifiable Identity:** Every agent action is attributable to a specific, authenticated identity.
-*   **Fine-grained Authorization:** Control agent access to skills, data, and tools based on their identity, type, team, environment, and other contextual factors via externalized policies.
-*   **Secure Secrets Management:** Eliminate hardcoded or long-lived credentials using short-lived, dynamically injected secrets.
-*   **Unified Observability:** Gain deep visibility into agent behavior, interactions, and the security posture of the system through centralized metrics, logs, and traces.
-*   **Accelerated Development:** Abstract away infrastructure complexity for agent builders, allowing them to focus on the agent's core intelligence and task execution.
-*   **Enhanced Compliance:** Meet regulatory and internal auditing requirements with a comprehensive, centralized audit trail.
+- **Strong, Verifiable Identity:** Every agent action is attributable to a specific, authenticated identity.
+- **Fine-grained Authorization:** Control agent access to skills, data, and tools based on their identity, type, team, environment, and other contextual factors via externalized policies.
+- **Secure Secrets Management:** Eliminate hardcoded or long-lived credentials using short-lived, dynamically injected secrets.
+- **Unified Observability:** Gain deep visibility into agent behavior, interactions, and the security posture of the system through centralized metrics, logs, and traces.
+- **Accelerated Development:** Abstract away infrastructure complexity for agent builders, allowing them to focus on the agent's core intelligence and task execution.
+- **Enhanced Compliance:** Meet regulatory and internal auditing requirements with a comprehensive, centralized audit trail.
 
 Building this layer unlocks the true potential of autonomous agents, allowing teams to deploy them safely, scalably, and with confidence. It's time to give agents the solid, enterprise-grade infrastructure they deserve.
 

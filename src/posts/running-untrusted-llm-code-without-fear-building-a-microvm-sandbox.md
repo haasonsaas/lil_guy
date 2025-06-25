@@ -27,12 +27,14 @@ Here's how to run LLM code without losing sleep.
 LLMs are getting scary good at writing code. But they also hallucinate, make mistakes, and occasionally suggest `rm -rf /`. Even worse, malicious prompts can inject harmful code that looks innocent.
 
 Traditional solutions don't work:
+
 - **Docker**: Shared kernel, container escapes possible
 - **VMs**: Too slow, too heavy (2-3 second boot times)
 - **Language sandboxes**: Limited to one language, often bypassable
 - **Static analysis**: Can't catch runtime behavior
 
 I needed something that was:
+
 1. **Fast**: Sub-second execution for interactive use
 2. **Secure**: True isolation, not just namespace separation
 3. **Language-agnostic**: Python, Node, Go, whatever
@@ -43,6 +45,7 @@ Enter Firecracker.
 ## Firecracker: VMs at Container Speed
 
 Amazon built Firecracker to run Lambda functions. It creates microVMs with:
+
 - 125ms boot time
 - 5MB memory overhead
 - Hardware-level isolation
@@ -79,6 +82,7 @@ fission run --lang python "print('Hello from isolation!')"
 ```
 
 Behind the scenes:
+
 1. VM boots (125ms)
 2. Code executes in isolation
 3. Output captured
@@ -87,6 +91,7 @@ Behind the scenes:
 ### Complex Scenarios
 
 **Running untrusted data analysis:**
+
 ```bash
 fission run --lang python "
 import pandas as pd
@@ -97,6 +102,7 @@ print(df.groupby('category').sum())
 ```
 
 **Testing package combinations:**
+
 ```bash
 fission install --lang python \
   --packages numpy,scipy,matplotlib \
@@ -104,6 +110,7 @@ fission install --lang python \
 ```
 
 **Clone and test repositories:**
+
 ```bash
 fission repo https://github.com/untrusted/code \
   --command "pytest" \
@@ -117,6 +124,7 @@ Each execution is completely isolated. No cross-contamination possible.
 ### Layer 1: Hardware Isolation
 
 Firecracker uses KVM for hardware-level isolation:
+
 ```rust
 // Each VM gets its own virtualized hardware
 let vm_config = VmConfig {
@@ -130,6 +138,7 @@ let vm_config = VmConfig {
 ### Layer 2: Network Isolation
 
 By default, no network access:
+
 ```rust
 pub struct NetworkConfig {
     enabled: bool,
@@ -138,6 +147,7 @@ pub struct NetworkConfig {
 ```
 
 Can be selectively enabled:
+
 ```bash
 fission run --network --allow-host api.example.com \
   --lang python "requests.get('https://api.example.com')"
@@ -146,6 +156,7 @@ fission run --network --allow-host api.example.com \
 ### Layer 3: Resource Limits
 
 Hard limits prevent resource exhaustion:
+
 ```rust
 pub struct ResourceLimits {
     cpu_shares: u32,      // Default: 1024
@@ -158,6 +169,7 @@ pub struct ResourceLimits {
 ### Layer 4: Syscall Filtering
 
 Seccomp filters block dangerous syscalls:
+
 ```rust
 let seccomp_rules = vec![
     // Block kernel module operations
@@ -175,6 +187,7 @@ let seccomp_rules = vec![
 ### Pre-warmed VM Pool
 
 I maintain a pool of pre-booted VMs:
+
 ```rust
 struct VmPool {
     python_vms: Vec<PrewarmedVm>,
@@ -194,6 +207,7 @@ async fn get_vm(lang: Language) -> Vm {
 ### Copy-on-Write Rootfs
 
 Base filesystem shared via CoW:
+
 ```rust
 // Base image (read-only)
 let base_rootfs = "/var/lib/fission/base/python.ext4";
@@ -207,6 +221,7 @@ let overlay = create_overlay(base_rootfs, execution_id);
 ### Efficient Output Streaming
 
 Real-time output via virtio-serial:
+
 ```rust
 let (tx, rx) = channel();
 vm.attach_serial(move |data| {
@@ -234,6 +249,7 @@ RUN pip install --no-cache-dir numpy pandas requests
 ```
 
 Build process:
+
 ```bash
 cd images
 sudo make python  # Builds python rootfs
@@ -290,6 +306,7 @@ async def execute_cell(code: str) -> Result:
 ### 1. MicroVMs Are the Sweet Spot
 
 Not as light as containers, not as heavy as VMs. Perfect balance of:
+
 - Security (hardware isolation)
 - Performance (sub-second boot)
 - Flexibility (any language/runtime)
@@ -311,6 +328,7 @@ enum VmState {
 ### 3. Ephemeral by Design
 
 No cleanup needed. VM dies = everything gone:
+
 - No leaked processes
 - No orphaned files  
 - No network connections
@@ -323,6 +341,7 @@ That 125ms boot time? With pre-warming, execution starts in <50ms. Fast enough f
 ## What's Next
 
 I'm working on:
+
 - **GPU passthrough**: For ML workloads
 - **Distributed execution**: Spread across multiple hosts
 - **Persistent volumes**: Optional mounted directories

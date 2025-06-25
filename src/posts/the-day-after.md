@@ -103,7 +103,7 @@ A simple snapshot of weekend discussions. Over time, you start seeing patterns y
 - **Day-After Worker**: Parses, tags, reflects
 - **Monday Morning Email**: Digest shows up in your inbox
 
-It's a bit duct-taped together. But it's _my_ duct tape—and it works.
+It's a bit duct-taped together. But it's *my* duct tape—and it works.
 
 ---
 

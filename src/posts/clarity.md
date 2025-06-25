@@ -198,6 +198,7 @@ Consider MoviePass's spectacular flameout. Their $9.95 unlimited movie subscript
 Here's a lightweight clarity checklist I use with startups I advise:
 
 **1. Talk to 10 customers** — not surveys, not product analytics. Real conversations. Ask:
+
 - Why did you buy?
 - What almost stopped you?
 - What other options did you consider?

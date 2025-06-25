@@ -111,6 +111,7 @@ Attempting to short-circuit this process rarely succeeds and often damages relat
 "I can tell within five minutes whether a vendor understands security or is just reciting marketing talking points," one CISO told me.
 
 The vendors who earn respect:
+
 - Share substantive research without gating it behind forms
 - Acknowledge the limitations of their solutions
 - Offer genuine insights beyond their product boundaries
@@ -135,6 +136,7 @@ One CISO I work with created a simple public-facing page describing their securi
 "Vendors can't improve if they don't know what they're doing wrong," observed a financial services security leader.
 
 The most effective feedback I've seen security leaders provide:
+
 - Explains specifically why a solution isn't a fit
 - Identifies which requirements weren't met
 - Suggests improvements that would make reconsideration possible

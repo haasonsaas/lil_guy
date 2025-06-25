@@ -22,6 +22,7 @@ Today, I'm excited to share how I transformed my blog's developer experience wit
 ## The Problems I Faced
 
 Before these improvements, creating a new blog post involved:
+
 - Manually creating markdown files with specific naming conventions
 - Copy-pasting frontmatter from other posts (and forgetting fields)
 - Running separate commands to generate social media images
@@ -40,6 +41,7 @@ bun run new-post "Your Amazing Post Title" -D "A compelling description" -t tag1
 ```
 
 This single command:
+
 - Generates a URL-friendly slug automatically
 - Creates the markdown file with proper frontmatter
 - Sets up all required fields (author, date, etc.)
@@ -79,6 +81,7 @@ async handleHotUpdate({ file, server }) {
 ```
 
 Now when you save a markdown file:
+
 - The browser instantly refreshes
 - Your content appears immediately
 - Social images regenerate automatically
@@ -100,6 +103,7 @@ if (!frontmatter.author) {
 ```
 
 The validator provides:
+
 - Clear error messages with exact field names
 - Helpful suggestions for fixes
 - Warnings for SEO optimization (like description length)
@@ -124,6 +128,7 @@ bun run search "DevEx" -C
 ```
 
 The search tool features:
+
 - Colored output with highlighted matches
 - Relevance scoring (title matches score higher)  
 - Line numbers for content matches
@@ -148,9 +153,10 @@ Found 2 matching posts (showing top 3):
    📌 title: Building Better DevEx Tools for Modern Teams
 ```
 
-## 5. VS Code Integration 
+## 5. VS Code Integration
 
 I just added VS Code workspace settings and snippets:
+
 - Custom markdown snippets for common patterns
 - Workspace-specific settings for this blog
 - Integration with the validation tools
@@ -168,6 +174,7 @@ bun run preview:cf
 ```
 
 This command:
+
 - Builds with production optimizations
 - Serves using Wrangler's Pages dev server
 - Tests edge functions locally
@@ -178,6 +185,7 @@ This command:
 I've set up comprehensive GitHub Actions workflows:
 
 **Preview Deployments** (`deploy-preview.yml`):
+
 - Triggers on pull requests
 - Runs type checking and linting
 - Deploys to unique preview URL
@@ -185,12 +193,14 @@ I've set up comprehensive GitHub Actions workflows:
 - Automatic cleanup when PR is closed
 
 **Production Deployments** (`deploy-production.yml`):
+
 - Triggers on pushes to main
 - Full quality checks before deployment
 - Cache purging for instant updates
 - Deployment status tracking
 
 **Quality Checks** (`quality-checks.yml`):
+
 - TypeScript and ESLint validation
 - Frontmatter validation across all posts
 - Bundle size monitoring
@@ -233,6 +243,7 @@ bun run check:deploy
 These improvements have transformed how I work with my blog:
 
 **Before:**
+
 - 5-10 minutes to create a new post
 - Manual refreshing after every change
 - Errors discovered at build time
@@ -240,6 +251,7 @@ These improvements have transformed how I work with my blog:
 - Deploy anxiety (will it work in production?)
 
 **After:**
+
 - 30 seconds to create a new post
 - Instant feedback on every save
 - Errors caught immediately with helpful fixes
@@ -282,49 +294,59 @@ Want to implement similar tools for your blog? Here's the approach:
 The latest addition to the DevEx toolkit is comprehensive pre-commit automation that catches issues before they reach production:
 
 ### Markdown Linting
+
 ```bash
 # Automatic on commit, or manual check
 bun run lint:md
 ```
 
 Using `markdownlint-cli2`, the system now validates:
+
 - Heading hierarchy and structure
 - Consistent list formatting
 - Proper code block syntax
 - Blog-friendly rules (no strict line length limits)
 
 ### Spell Checking with Smart Dictionary
+
 ```bash
 # Check spelling across all posts
 bun run spell
 ```
 
 The `cspell` integration includes:
+
 - 100+ technical terms and proper names in custom dictionary
 - Blog-specific terminology (DevEx, CLI tools, framework names)
 - Context-aware suggestions for corrections
 - Warnings rather than blocking (maintains flow)
 
 ### Link Validation
+
 ```bash
 # Verify all links are working
 bun run check:links
 ```
 
 Background link checking with `markdown-link-check`:
+
 - Detects broken external links
 - Handles timeouts and retries gracefully
 - Ignores localhost and email links appropriately
 - Runs async to avoid blocking commits
 
 ### Image Optimization Alerts
+
 The pre-commit hook now warns about:
+
 - Images larger than 1MB (performance impact)
 - Suggestions for optimization before committing
 - Automated social media image regeneration
 
 ### Enhanced Security Scanning
+
 Improved secret detection that:
+
 - Avoids false positives on tool configurations
 - Uses precise regex patterns for actual secrets
 - Excludes lock files and configuration files

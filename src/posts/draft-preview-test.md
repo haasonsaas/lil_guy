@@ -29,6 +29,7 @@ This post is marked as a draft and should only be visible with a valid preview t
 ### How It Works
 
 When you generate a preview link:
+
 - A secure token is created with your chosen expiration time
 - The token includes the post slug and expiration timestamp
 - The token is validated on each request

@@ -30,6 +30,7 @@ Let's break down what’s actually happening.
 Not long ago, early-stage startups could show $300–500K ARR and raise a healthy Series A. Today? That number is often **$1M ARR or bust**.
 
 Investors want to see:
+
 - $80–100K MRR (monthly recurring revenue)
 - Sustained, verifiable **month-over-month growth**
 - A proven pipeline, not just potential
@@ -53,6 +54,7 @@ By the time many founders realize the need for an engine (not just demos), inves
 Good early metrics are no longer enough.
 
 Now investors are scrutinizing:
+
 - **70–80%+ gross margins**
 - **>100% net revenue retention (NRR)**
 - **<12-month CAC payback periods**
@@ -70,6 +72,7 @@ Scaling exposes everything.
 Every good startup idea now has three venture-backed clones.
 
 This means:
+
 - Customer acquisition costs (CAC) are rising
 - Sales cycles are longer
 - Paid channels are more saturated
@@ -85,6 +88,7 @@ To win, you often have to **outspend** or **outperform** entrenched competitors�
 It's no longer enough to "hustle and figure it out."
 
 Investors expect to see:
+
 - Full CAC/LTV models
 - Cohort retention analyses
 - Operational KPIs tightly tied to revenue outcomes
@@ -98,6 +102,7 @@ Most early-stage startups simply aren't built for this level of operational rigo
 In the frothy days, investors made "growth at all costs" bets.
 
 Now? It's about:
+
 - **Sustainability**
 - **Capital efficiency**
 - **Clear, credible paths to profitability**
@@ -113,6 +118,7 @@ The honest truth: the early-stage startup playbook from 2018–2021 is obsolete.
 You’re now expected to behave like a mini-growth company before you even get to Series A.
 
 And the math is brutal:
+
 - Most startups **aren’t structured** to get there organically.
 - **Most founders** don't realize this shift until they're already raising.
 - **Most seed rounds** don't buy enough time to build everything required.
@@ -130,6 +136,7 @@ Feeling overwhelmed yet? Good news—you’re not powerless. Here’s how to ada
 Treat the Series A bar as _your real finish line_ for the seed round. Know what metrics you'll be measured on **before** you start building.
 
 Examples:
+
 - $1M+ ARR
 - 10%+ MoM growth for 6+ months
 - CAC payback <12 months
@@ -140,6 +147,7 @@ If you don’t set these targets explicitly, you’ll drift—and drifting kills
 ### 2. Build the Sales Engine Sooner Than Feels Comfortable
 
 Even if you’re founder-led today, start investing in:
+
 - Clear sales playbooks
 - CRM hygiene
 - Early sales hires
@@ -157,7 +165,7 @@ Early signs of weak economics **compound** badly at scale. Fix them now, or they
 
 The old "12–18 month seed-to-A journey" is dead for most startups.
 
-Plan for 24+ months runway, especially if you’re pre-revenue or pre-product-market fit. 
+Plan for 24+ months runway, especially if you’re pre-revenue or pre-product-market fit.
 
 Speed is still an advantage—but sustainability is the cost of admission.
 

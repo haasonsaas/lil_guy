@@ -25,6 +25,7 @@ I built [deep-code-reasoning-mcp](https://github.com/haasonsaas/deep-code-reason
 ## The Problem: One Model Can't Do Everything
 
 Let me paint you a picture. You're hunting a Heisenbug that:
+
 - Only appears under load
 - Spans 5 microservices
 - Involves 2GB of distributed traces
@@ -102,6 +103,7 @@ This isn't just passing data between models. It's genuine collaborative reasonin
 **Claude's Attempt**: Identified suspicious retry logic, couldn't correlate with downstream effects.
 
 **Escalation to Gemini**:
+
 - Ingested 500MB of OpenTelemetry traces
 - Correlated payment events across all services
 - Found race condition in distributed lock implementation
@@ -116,6 +118,7 @@ This isn't just passing data between models. It's genuine collaborative reasonin
 **Claude's Attempt**: Found no obvious leaks in individual services.
 
 **Escalation to Gemini**:
+
 - Analyzed heap dumps from 5 services
 - Traced object references across service boundaries
 - Discovered circular dependency through message queues
@@ -130,6 +133,7 @@ This isn't just passing data between models. It's genuine collaborative reasonin
 **Claude's Attempt**: Profiled hot paths, found nothing significant.
 
 **Escalation to Gemini**:
+
 - Correlated deployment timeline with metrics
 - Analyzed 200 commits across 10 repositories
 - Traced data flow through the entire system
@@ -224,6 +228,7 @@ Single-shot analysis often misses nuances. The conversational approach lets mode
 ### 4. Measure Everything
 
 Every escalation logs:
+
 - Why it was triggered
 - What was found
 - Time saved vs manual debugging

@@ -35,6 +35,7 @@ Transforming performance reviews from dreaded rituals to powerful tools involves
 Performance reviews fail when they're disconnected from clear, specific goals. Employees shouldn't guess what success looks like—they should know exactly what's expected of them.
 
 Practical implementation:
+
 - Document explicit, measurable objectives at the start of every review period.
 - Ensure these objectives align with both individual aspirations and organizational priorities.
 - Regularly revisit goals—not just annually—to adapt to changing contexts.
@@ -44,6 +45,7 @@ Practical implementation:
 If employees are surprised during reviews, something is seriously wrong. Feedback should be continuous, regular, and structured—turning reviews into discussions that consolidate ongoing conversations rather than delivering unexpected critiques.
 
 Practical implementation:
+
 - Institute regular check-ins (monthly or quarterly) focused on progress towards set objectives.
 - Utilize structured feedback templates that guide discussions clearly and consistently.
 - Train managers on delivering constructive, actionable feedback to reduce ambiguity.
@@ -53,6 +55,7 @@ Practical implementation:
 Performance reviews should inspire action, not merely document past performance. Without clear steps for improvement, even insightful feedback becomes ineffective.
 
 Practical implementation:
+
 - Conclude every review with concrete, achievable steps.
 - Assign clear timelines and accountability mechanisms.
 - Provide resources or training to support the outlined growth plan.

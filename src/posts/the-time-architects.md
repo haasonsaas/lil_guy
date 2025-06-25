@@ -139,6 +139,7 @@ The truly exceptional ones pair this temporal intelligence with deep care for th
 Not everyone is building a venture-backed startup or aiming to transform an industry. Yet everyone can benefit from examining their relationship with time and possibility.
 
 Consider:
+
 - Which constraints in your work or life have you accepted without questioning?
 - Where are you approaching challenges sequentially that could be addressed concurrently?
 - How might your perception of reasonable timelines be limiting what you and your team can achieve?

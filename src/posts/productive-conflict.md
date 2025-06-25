@@ -46,6 +46,7 @@ Let’s break it down.
 ### 1. Challenge the Idea, Not the Person
 
 Here’s the difference between:
+
 - “That plan makes no sense.”
 - and “I think we’re missing something—can we stress-test this?”
 
@@ -56,6 +57,7 @@ In safe teams, people separate critique from identity. They know disagreement is
 ### 2. Speak Up *Before* the Train Wreck
 
 Low-safety teams often fall into retroactive honesty:
+
 - “Yeah, I had concerns, but I didn’t want to rock the boat.”
 - “I figured someone else would say something.”
 
@@ -80,6 +82,7 @@ Psychological safety can feel abstract, but the path to it is surprisingly tacti
 Ask for the uncomfortable takes—out loud, on purpose.
 
 Try these prompts in your next meeting:
+
 - “What’s the strongest argument *against* this plan?”
 - “If this fails, what do you think will be the reason?”
 - “What’s the part we’re not talking about yet?”
@@ -91,6 +94,7 @@ When dissent becomes expected, it becomes safe.
 Leaders set the tone. If you never admit when you're wrong or unsure, your team learns to armor up.
 
 Try saying:
+
 - “I’m not confident in this approach—can we poke holes in it?”
 - “Here’s where I think I missed the mark.”
 
@@ -101,6 +105,7 @@ That simple vulnerability opens the door for everyone else.
 You can fight for ideas without creating interpersonal tension. But only if the rules of engagement are clear.
 
 Set ground rules like:
+
 - Critique ideas, not intentions.
 - One voice at a time.
 - Assume competence—disagree with curiosity, not contempt.
@@ -126,6 +131,7 @@ Avoiding conflict might feel like harmony. But when people hold back, when teams
 Disagreement isn’t dangerous. Unspoken disagreement is.
 
 Build a team where people can safely say:
+
 - “I think we’re missing something.”
 - “I see it differently.”
 - “Here’s my honest take.”

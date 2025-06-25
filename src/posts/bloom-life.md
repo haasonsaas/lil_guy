@@ -61,6 +61,7 @@ The wellness technology paradox is that tools designed to enhance wellbeing ofte
 Bloom inverts this relationship through what I call "mindfulness by design." Every interaction is crafted to serve not just functional needs but psychological ones—respecting attention, reducing cognitive load, and creating moments of genuine presence.
 
 This approach manifests in subtle but meaningful ways:
+
 - Notifications that arrive at psychologically appropriate moments rather than on arbitrary schedules
 - Input methods that adapt to users' cognitive state (quick capture options when distracted, deeper reflection prompts when engaged)
 - Transitions between features that maintain context and minimize disorientation
@@ -77,6 +78,7 @@ Most platforms create a digital shadow of physical reality—you exercise in the
 Bloom dissolves this boundary through what I call "ambient integration"—design patterns that weave digital tracking so seamlessly into natural behaviors that the distinction between living and tracking begins to disappear.
 
 For example:
+
 - Journal entries that begin as voice memos captured during moments of inspiration, automatically transcribed and organized
 - Relationship insights derived not from explicit tracking but from patterns in communication, calendar events, and emotional check-ins
 - Nutrition logging that learns from behavioral patterns to minimize input requirements over time

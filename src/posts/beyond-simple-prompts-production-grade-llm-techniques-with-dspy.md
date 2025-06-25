@@ -53,6 +53,7 @@ config = ManagerStylePromptConfig(
 ```
 
 I implemented manager-style prompts that span 6+ pages, including:
+
 - Complete role definitions
 - Stakeholder relationships
 - Decision-making frameworks
@@ -71,6 +72,7 @@ result = escaper("What will Bitcoin's price be next month?")
 ```
 
 The implementation includes:
+
 - Confidence scoring (0-1 scale)
 - Domain-specific disclaimers
 - Graceful degradation patterns
@@ -169,6 +171,7 @@ This cuts costs by 90% while maintaining quality. The toolkit handles the entire
 ### Observability Is Non-Negotiable
 
 Every technique includes comprehensive logging and metrics:
+
 - Token usage tracking
 - Latency measurements
 - Confidence distributions
@@ -179,6 +182,7 @@ Because you can't improve what you can't measure.
 ## Getting Started
 
 I've packaged all 11 techniques into [dspy-advanced-prompting](https://github.com/haasonsaas/dspy-advanced-prompting) with:
+
 - Complete implementations
 - 200+ test cases
 - Interactive Jupyter notebooks

@@ -78,6 +78,7 @@ You’re essentially pair programming—with someone that never sleeps but somet
 Once the plan is clear, Shift+Tab to auto-apply suggestions.
 
 Things to keep in mind:
+
 - **Esc interrupts Claude mid-stream**—useful when it’s veering into irrelevant territory.
 - Don’t worry about “flow state” while Claude’s working. Watch and course-correct, but don’t treat it like a human pair—more like a GPT-powered macro that happens to talk back.
 
@@ -90,6 +91,7 @@ Things to keep in mind:
 Here’s the brutal truth: Claude cuts corners.
 
 It:
+
 - Overuses type coercion
 - Leans on `any` in TypeScript
 - Uses `ref` in React when it doesn’t need to
@@ -100,6 +102,7 @@ So test it.
 - Ask Claude to **write the manual test plan**.
 - Spin up a **second Claude instance** to code review its own output. It’s weirdly effective. Self-review? Meh. Clone-review? Surprisingly solid.
 - Repeat this phrase 2–3 times:  
+
 > “Can you double check this is as simple as it can be?”
 
 And most importantly: **read it yourself**. There’s no substitute.
@@ -131,6 +134,7 @@ Claude gets stuck. You’ll notice the pattern:
 Do not reward mediocrity with more prompts.
 
 Instead:
+
 - Refresh the context
 - Reframe the task
 - Start from scratch with a clearer goal

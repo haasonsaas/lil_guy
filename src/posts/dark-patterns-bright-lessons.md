@@ -99,14 +99,17 @@ If you're embarrassed by what you find—you already have your roadmap.
 Here's a baseline for sustainable, defensible subscription design:
 
 ### ✅ Transparent Enrollment
+
 - Clear pricing, billing frequency, and renewal details up front
 - CTA buttons that *mean what they say* ("Start $9.99/mo" > "Try Now")
 
 ### ✅ Real Free Trials
+
 - Tell users *exactly* when they'll be charged
 - Send reminders before billing
 
 ### ✅ Easy, Respectful Cancellation
+
 - One path. Few steps. No scavenger hunts.
 - Bonus: offer pause options for seasonal churn
 

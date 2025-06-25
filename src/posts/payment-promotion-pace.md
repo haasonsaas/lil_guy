@@ -39,6 +39,7 @@ Because **payment is the moment fiction meets friction**. It's when your elegant
 Cash doesn't lie.
 
 And more importantly, it drags hidden flaws into the light:
+
 - Is your positioning confusing?
 - Is your value prop weak?
 - Is your price off?
@@ -49,6 +50,7 @@ Until you're charging, you're guessing. And the longer you delay charging, the l
 I've seen too many founders who spend months in a bubble of self-affirmation, confusing enthusiasm with validation. They'll point to email signups, user feedback forms, and LinkedIn messages saying "looks cool!" as evidence they're on the right track. But these signals are deceptively easy to collect—and nearly worthless as predictors of success.
 
 Consider two scenarios:
+
 1. You have 500 people on a waitlist who haven't paid a cent
 2. You have 5 paying customers who opened their wallets after seeing your MVP
 
@@ -128,6 +130,7 @@ I've worked with dozens of early-stage companies, and I can identify the likely 
 This pattern—of perpetually postponed learning—is nearly always fatal. It creates a dangerous illusion of progress while avoiding the only progress that matters: colliding with market reality.
 
 **Shipping fast forces clarity**:
+
 - Does the core workflow make sense?
 - Do people bounce immediately?
 - Do users get stuck or ask dumb questions?
@@ -140,6 +143,7 @@ When you ship, you stop debating and start observing.
 The most successful founders I know have an almost uncomfortable relationship with shipping. They push things out the door when they still make the team cringe. Not because they don't care about quality, but because they understand a profound truth: your internal quality bar is largely irrelevant compared to market feedback.
 
 Consider the cautionary tale of two competing AI startups I advised. Company A spent six months perfecting their algorithm before releasing anything. Company B shipped five progressively better versions in the same timeframe. By the time Company A launched their "perfect" product, Company B had:
+
 - Discovered three unexpected use cases
 - Abandoned two planned features that no one actually wanted
 - Doubled their prices after finding users valued the product more than anticipated
@@ -198,6 +202,7 @@ A real-world example I love comes from a fintech founder I mentored. Instead of 
 Was it scalable? Of course not. Was it valuable? Absolutely—she had 30 paying customers within two weeks. And every interaction taught her something crucial about user expectations, pain points, and priorities.
 
 By the time she built the automated version three months later, she had:
+
 - A proven price point ($150/month, triple her initial guess)
 - A clear understanding of which features mattered most
 - A waitlist of 200 people eager to upgrade
@@ -207,6 +212,7 @@ By the time she built the automated version three months later, she had:
 Most importantly, she never wasted time building features her market didn't value—because every feature was validated by real customer interactions first.
 
 This approach—sometimes called "Wizard of Oz" or "concierge MVP"—exemplifies the trifecta:
+
 1. It demands payment upfront (validation)
 2. It forces clear marketing (who exactly needs this badly enough to pay for a manual service?)
 3. It enables rapid learning and iteration (shipping the "product" in days, not months)

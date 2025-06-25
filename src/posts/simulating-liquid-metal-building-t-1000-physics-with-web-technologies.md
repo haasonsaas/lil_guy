@@ -254,6 +254,7 @@ element.style.top = `${y}px`;
 The most challenging part wasn't the technical implementation—it was making the simulation *feel* right.
 
 Real liquid metal has subtle behaviors that are hard to quantify:
+
 - How quickly does surface tension pull droplets back together?
 - What's the right balance between viscosity and responsiveness?
 - How reflective should the surface be?

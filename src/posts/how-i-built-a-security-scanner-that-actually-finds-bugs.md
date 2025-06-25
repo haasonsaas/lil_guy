@@ -47,7 +47,7 @@ I combined two powerful technologies:
 
 Here's the architecture:
 
-```
+```text
 ┌─────────────────┐    ┌──────────────┐    ┌─────────────┐
 │   CVE Stream    │───▶│   Pattern    │───▶│ Detection   │
 │  (NVD Updates)  │    │  Generator   │    │   Rules     │
@@ -76,6 +76,7 @@ semantic-sast mine-cves --days 30 --output patterns.json
 ```
 
 The system:
+
 1. Monitors CVE disclosures in real-time
 2. Finds the fixing commits on GitHub
 3. Extracts the vulnerability pattern from the diff
@@ -89,11 +90,13 @@ The system:
 ### Example 1: XML External Entity (XXE)
 
 Traditional tools look for:
+
 ```python
 etree.parse(user_file)  # Basic pattern
 ```
 
 Semantic SAST understands the deeper pattern:
+
 ```python
 # Catches ALL of these variants:
 parser = etree.XMLParser(resolve_entities=True)  # Configuration-based
@@ -106,11 +109,13 @@ CustomXMLParser().parse(request.body)             # Custom wrapper
 ### Example 2: Deserialization Attacks
 
 Traditional pattern:
+
 ```python
 pickle.loads(user_data)  # Only direct calls
 ```
 
 Semantic understanding:
+
 ```python
 # Understands these are ALL dangerous:
 data = base64.b64decode(cookie)
@@ -211,6 +216,7 @@ async def analyze_with_reasoning(self, ast: AST, context: CodeContext):
 I tested against the OWASP Benchmark and real-world codebases:
 
 ### Detection Rates by Vulnerability Type:
+
 - **SQL Injection**: 71% (vs 48% traditional)
 - **XSS**: 68% (vs 41% traditional)
 - **XXE**: 89% (vs 52% traditional)
@@ -218,7 +224,9 @@ I tested against the OWASP Benchmark and real-world codebases:
 - **Path Traversal**: 64% (vs 43% traditional)
 
 ### False Positive Reduction:
+
 The semantic layer reduces false positives by 50%:
+
 - Understands sanitization context
 - Recognizes safe usage patterns
 - Adapts to framework-specific protections
@@ -260,6 +268,7 @@ Not for writing rules, but for understanding intent. When an LLM can reason "thi
 ## What's Next
 
 I'm working on:
+
 - **Real-time CVE integration**: Sub-hour pattern generation
 - **Cross-language vulnerability correlation**: Find the same bug across your polyglot codebase
 - **Proof-of-concept generation**: Don't just find bugs, prove they're exploitable

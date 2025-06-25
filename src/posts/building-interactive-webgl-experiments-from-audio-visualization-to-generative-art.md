@@ -56,6 +56,7 @@ function render() {
 ```
 
 **Key Challenges:**
+
 - **Cross-browser compatibility** - WebKit prefixes for older Safari versions
 - **Performance optimization** - Efficient vertex buffer updates for smooth animation
 - **Beat detection** - Implementing real-time beat detection for reactive visuals
@@ -99,6 +100,7 @@ float sdMenger(vec3 p) {
 ```
 
 **Technical Highlights:**
+
 - **PBR materials** - Implementing physically-based rendering in real-time
 - **Soft shadows** - Using ray marching for realistic shadow computation
 - **Infinite detail** - Fractal geometry with boundless zoom capabilities
@@ -137,6 +139,7 @@ body.y += body.vy * dt;
 ```
 
 **Physics Features:**
+
 - **Collision detection** - Bodies merge realistically when they collide
 - **Lagrange points** - Demonstrating stable gravitational equilibrium
 - **Trail visualization** - Orbital paths reveal the beauty of celestial mechanics
@@ -178,6 +181,7 @@ const updateAnt = (grid, antX, antY, direction) => {
 ```
 
 **Algorithmic Beauty:**
+
 - **Multiple rule sets** - Conway's Life, Seeds, Brian's Brain, and more
 - **Pattern library** - Pre-built gliders, oscillators, and spaceships
 - **Interactive editing** - Click and drag to create custom patterns
@@ -233,6 +237,7 @@ const generateLSystem = (axiom, rules, iterations) => {
 ```
 
 **Creative Algorithms:**
+
 - **Perlin noise** - Organic, cloud-like patterns with temporal evolution
 - **Flow fields** - Particle systems following mathematical vector fields
 - **L-systems** - Recursive plant growth with natural branching patterns
@@ -245,6 +250,7 @@ The export functionality became essential - users create stunning artwork and wa
 All experiments share a common technical foundation built for performance and maintainability:
 
 ### WebGL Optimization
+
 ```javascript
 // Efficient vertex buffer management
 const updateVertexBuffer = (gl, buffer, data) => {
@@ -260,12 +266,15 @@ const renderInstanced = (gl, program, instanceCount) => {
 ```
 
 ### Responsive Design
+
 Each experiment adapts to different screen sizes and input methods:
+
 - **Touch-friendly controls** on mobile devices
 - **Keyboard shortcuts** for power users
 - **Adaptive quality settings** based on device performance
 
 ### State Management
+
 ```javascript
 // Centralized parameter management
 const useExperimentState = (initialParams) => {
@@ -286,11 +295,13 @@ const useExperimentState = (initialParams) => {
 Building smooth 60fps experiences required careful optimization:
 
 ### GPU Memory Management
+
 - **Vertex buffer pooling** - Reuse buffers instead of creating new ones
 - **Texture atlasing** - Combine multiple textures into single GPU resources
 - **Level-of-detail** - Reduce geometry complexity based on distance/importance
 
 ### CPU-GPU Load Balancing
+
 ```javascript
 // Efficient compute-intensive operations
 const updatePhysics = (bodies, deltaTime) => {
@@ -305,6 +316,7 @@ const updatePhysics = (bodies, deltaTime) => {
 ```
 
 ### Memory Leak Prevention
+
 ```javascript
 // Cleanup pattern for WebGL resources
 useEffect(() => {
@@ -325,15 +337,19 @@ useEffect(() => {
 ## Lessons Learned
 
 ### 1. Start Simple, Iterate Fast
+
 My initial ray marching implementation was overly complex. Starting with basic sphere rendering and gradually adding features led to cleaner, more maintainable code.
 
 ### 2. User Testing is Essential
+
 The cellular automata controls felt intuitive to me but confused users. Adding visual feedback and tooltips dramatically improved the experience.
 
 ### 3. Performance Matters More Than Features
+
 A smooth 30fps experience beats a choppy 60fps one with more visual effects. Frame rate consistency trumps peak performance.
 
 ### 4. Documentation Drives Adoption
+
 The experiments with comprehensive explanations see 3x more engagement than those without. Users want to understand what they're experiencing.
 
 ## What's Next?

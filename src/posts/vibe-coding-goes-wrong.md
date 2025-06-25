@@ -175,7 +175,7 @@ Ship fast.
 But ship safe.
 
 Granola’s mistake is a flashing neon sign:  
-🚨 *The vibes are not enough.* 🚨
+🚨 _The vibes are not enough._ 🚨
 
 ---
 

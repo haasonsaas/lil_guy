@@ -70,7 +70,7 @@ The problem is pretending you can have it all.
 
 ---
 
-# Why the "Best Efforts" Hybrid Model Often Fails
+## Why the "Best Efforts" Hybrid Model Often Fails
 
 Here's where most companies stumble.
 
@@ -116,7 +116,7 @@ And eventually, you see it:
 
 ---
 
-# But Good Hybrid *Can* Work (If You Treat It Like a Product)
+## But Good Hybrid *Can* Work (If You Treat It Like a Product)
 
 There’s a way to make hybrid models actually function—and it starts with treating the model itself like a **deliberate design problem**, not a compromise.
 
@@ -141,6 +141,7 @@ Coming in feels *worth it*.
 ### 3. **Serious Remote Investment**
 
 Not an afterthought. Not "second-class citizen" treatment.  
+
 - Best-in-class video setups.
 - Asynchronous-friendly tooling.
 - Equal opportunity for career advancement, no matter where you log in from.
@@ -154,7 +155,7 @@ Model the norms you want to exist. Otherwise, they won't.
 
 ---
 
-# The Real Takeaway
+## The Real Takeaway
 
 There’s no perfect work model.  
 There’s only **clarity** and **intentionality**—or a slow drift into organizational mush.

@@ -102,6 +102,7 @@ The effect is so convincing that people reach out to touch the screen.
 ### Performance Optimization
 
 Real-time gradient generation is expensive. I optimized by:
+
 - Caching gradient calculations when mouse isn't moving
 - Using `transform` properties for hardware acceleration
 - Limiting animation frame rates based on user interaction
@@ -126,6 +127,7 @@ This isn't just about pretty effects. HDR displays represent a fundamental shift
 **We've been designing for artificial limitations**—the sRGB color space—for 30 years. HDR removes those constraints.
 
 Imagine:
+
 - **UI elements that feel genuinely metallic or glass-like**
 - **Photography portfolios that show true dynamic range**  
 - **Data visualizations with brightness encoding**

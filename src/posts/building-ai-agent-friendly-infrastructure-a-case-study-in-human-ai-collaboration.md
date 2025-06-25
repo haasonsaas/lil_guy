@@ -61,6 +61,7 @@ The first challenge: how does an agent know what's available? We built a compreh
 ### **Intelligent Content Search (`/api/search`)**
 
 Basic text search isn't enough. We built relevance scoring that weighs:
+
 - Title matches (heavily weighted)
 - Tag relevance (high weight)
 - Description matches (medium weight)  
@@ -76,6 +77,7 @@ curl "https://haasonsaas.com/api/search?q=technical+debt&limit=3"
 ### **Personalized Recommendations (`/api/recommendations`)**
 
 Context-aware content suggestions based on:
+
 - **Role**: founder, engineer, product-manager, investor
 - **Topic**: technical-leadership, startup-funding, product-development  
 - **Experience**: beginner, intermediate, advanced
@@ -100,6 +102,7 @@ Here's where it gets interesting. We built a step-by-step tutorial that agents c
 ### **Analytics & Feedback Loop (`/api/analytics`, `/api/feedback`)**
 
 Two-way communication is crucial. Agents can:
+
 - **Track usage patterns** (which endpoints are popular)
 - **Report bugs** with structured feedback
 - **Suggest improvements** with categorized requests
@@ -152,18 +155,21 @@ These aren't just demos—they're functional tools that provide real business va
 ## Technical Implementation: The Details That Matter
 
 ### **Rate Limiting That Works**
+
 - **Generous limits** (1000 requests/hour) for legitimate usage
 - **Sliding windows** to prevent abuse without blocking normal use
 - **Clear error messages** when limits are hit
 
 ### **Agent-Friendly Headers**
-```
+
+```json
 X-Agent-Friendly: true
 Access-Control-Allow-Origin: *
 Content-Type: application/json
 ```
 
 ### **Consistent Error Handling**
+
 ```json
 {
   "success": false,
@@ -173,6 +179,7 @@ Content-Type: application/json
 ```
 
 ### **Multiple Response Formats**
+
 - **JSON**: Structured data for processing
 - **Markdown**: Direct consumption and display
 - **Auto-detection**: Content-Type header handling
@@ -182,24 +189,28 @@ Content-Type: application/json
 Let me show you the system in action:
 
 **Capability Discovery:**
+
 ```bash
 curl https://haasonsaas.com/api/capabilities | jq '.capabilities[0].name'
 # "Blog Content Access"
 ```
 
 **Content Search:**
+
 ```bash
 curl "https://haasonsaas.com/api/search?q=startup+funding&format=markdown"
 # Returns formatted markdown with relevance scores
 ```
 
 **Personalized Recommendations:**
+
 ```bash
 curl "https://haasonsaas.com/api/recommendations?role=founder&topic=technical-leadership"
 # Returns role-specific content with reasoning
 ```
 
 **Analytics Tracking:**
+
 ```bash
 curl -X POST https://haasonsaas.com/api/analytics \
   -H "Content-Type: application/json" \
@@ -236,16 +247,19 @@ Personalized recommendations based on role and topic are more valuable than comp
 This isn't just about being helpful to AI agents—it's about creating fundamentally better digital infrastructure:
 
 ### **For Humans**
+
 - **Faster Discovery**: The same search and recommendation systems improve human browsing
 - **Interactive Tools**: Business calculators provide immediate value
 - **Better Organization**: Structured, tagged content is easier to navigate
 
 ### **For Agents**
+
 - **Efficient Access**: Programmatic APIs eliminate screen scraping
 - **Rich Context**: Relevance scoring and recommendations improve content selection
 - **Learning Opportunities**: Interactive tools provide hands-on business education
 
 ### **For Both**
+
 - **Continuous Improvement**: Feedback systems benefit all users
 - **Quality Assurance**: Structured data ensures consistency
 - **Future-Proofing**: Extensible architecture adapts to new capabilities
@@ -255,18 +269,23 @@ This isn't just about being helpful to AI agents—it's about creating fundament
 This experiment suggests several principles for agent-friendly web design:
 
 ### **1. Discovery-First Architecture**
+
 Every site should have a capability discovery endpoint. Agents need to understand what's possible.
 
 ### **2. Interactive Documentation**
+
 Replace static API docs with live, testable examples. Learning by doing beats reading specifications.
 
 ### **3. Context-Aware Responses**
+
 Personalization based on agent role, purpose, and experience level improves relevance dramatically.
 
 ### **4. Bidirectional Communication**
+
 Analytics and feedback systems create improvement loops that benefit everyone.
 
 ### **5. Human-Agent Parity**
+
 The same infrastructure that serves agents well also improves human experience.
 
 ## The Collaboration Credit: Why This Matters

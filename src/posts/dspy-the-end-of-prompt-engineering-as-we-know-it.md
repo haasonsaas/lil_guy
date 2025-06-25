@@ -32,6 +32,7 @@ DSPy isn't a prompt library. It's a compiler for language models. Instead of cra
 My `dspy-advanced-prompting` implementation isn't theoretical—it's production code that's been validated with real API calls. Here's what actually works:
 
 ### 1. Manager-Style Hyper-Specific Prompts
+
 ```python
 from src.prompts.manager_style import create_customer_support_manager
 
@@ -43,6 +44,7 @@ response = support_manager(
 ```
 
 This isn't your typical "You are a helpful assistant" nonsense. These prompts include:
+
 - Complete role definitions with departmental context
 - Specific responsibilities and KPIs
 - Performance metrics and success criteria
@@ -51,6 +53,7 @@ This isn't your typical "You are a helpful assistant" nonsense. These prompts in
 The prompts are literally structured like corporate onboarding documents. And they work *phenomenally* well.
 
 ### 2. Escape Hatches That Prevent Hallucination
+
 ```python
 from src.techniques.escape_hatches import EscapeHatchResponder
 
@@ -61,12 +64,14 @@ print(f"Confidence: {result['uncertainty_analysis'].confidence_level}")
 ```
 
 This is brilliant. Instead of confidently bullshitting, the model admits uncertainty. It includes:
+
 - Uncertainty detection algorithms
 - Graceful degradation strategies
 - Domain-specific disclaimers
 - Confidence scoring
 
 ### 3. Thinking Traces for Debugging
+
 ```python
 from src.techniques.thinking_traces import ThinkingTracer
 
@@ -80,13 +85,16 @@ Watch the AI think in real-time. Every decision, every hypothesis, every verific
 ## The Techniques That Changed My Mind
 
 ### Role Prompting with Clear Personas
+
 Not "act like an engineer" but full psychological profiles:
+
 - Veteran engineer with 20 years experience
 - Specific technology expertise
 - Communication style preferences
 - Problem-solving approaches
 
 ### Task Planning That Actually Plans
+
 ```python
 from src.techniques.task_planning import TaskPlanner
 
@@ -98,14 +106,18 @@ plan = planner("Build a real-time collaborative editor")
 The system doesn't just list steps—it builds execution graphs with dependencies, identifies parallelization opportunities, and manages complex workflows.
 
 ### Structured Output That Never Fails
+
 Forget regex parsing of AI responses. This enforces output structure at the generation level:
+
 - XML-style tags for different sections
 - JSON schema enforcement
 - Markdown formatting rules
 - Hybrid formats for complex data
 
 ### Meta-Prompting: AI That Improves Itself
+
 The framework analyzes its own outputs and iteratively improves prompts. It's like having a prompt engineer that never sleeps:
+
 ```python
 from src.techniques.meta_prompting import MetaPromptOptimizer
 
@@ -149,6 +161,7 @@ test_suite = EvaluationSuite(
 ```
 
 This isn't "does it sound good?" testing. It's:
+
 - Behavioral verification
 - Edge case coverage
 - Regression testing
@@ -162,17 +175,20 @@ The test suite is more valuable than any individual prompt because it ensures co
 After months of building and refining this system, here's what actually matters:
 
 ### The Good
+
 - **Immediate productivity boost**: Complex prompting patterns become one-liners
 - **Production-ready**: This isn't research code—it's battle-tested
 - **Composable**: Mix and match techniques for your use case
 - **Framework agnostic**: Works with OpenAI, Anthropic, local models
 
 ### The Reality Check
+
 - **Mindset shift required**: Stop thinking prompts, start thinking systems
 - **Initial setup complexity**: My validation script alone is 270 lines
 - **API costs during development**: Testing these techniques isn't free
 
 ### The Game-Changers
+
 1. **Few-shot learning** with intelligent example selection
 2. **Prompt folding** for recursive workflows
 3. **Thinking traces** that show the AI's work
@@ -186,6 +202,7 @@ We're at an inflection point. The companies winning with AI aren't the ones with
 DSPy represents a fundamental shift from crafting to compiling, from writing to optimizing, from hoping to measuring.
 
 I've implemented working systems for:
+
 - Customer support automation (6-page manager-style prompts)
 - Code review with veteran engineer personas
 - Bug analysis using Jazzberry-style few-shot learning

@@ -18,7 +18,7 @@ That's not a typo. In the past week, I've written more than I typically produce 
 
 Let me put this in perspective with some hard data:
 
-```
+```text
 📊 Writing Statistics Comparison
 
 Last 7 Days:
@@ -42,6 +42,7 @@ This wasn't me grinding away at a keyboard for 18 hours a day. This was somethin
 Here's what actually happened:
 
 ### 1. Instant Context Switching
+
 Traditional writing requires warming up your mental state, remembering where you left off, and rebuilding context. With AI assistance, I could jump between topics instantly:
 
 - WebGL visualizations
@@ -52,9 +53,10 @@ Traditional writing requires warming up your mental state, remembering where you
 Each context switch that would normally take 20-30 minutes of "getting back into it" became instantaneous.
 
 ### 2. Real-Time Research Integration
+
 Instead of the typical write → research → revise cycle, everything happened simultaneously:
 
-```
+```text
 Traditional: 
 Write draft → Realize I need data → Stop writing → Research → 
 Forget what I was saying → Re-read → Continue
@@ -64,6 +66,7 @@ Write + Research + Fact-check + Code examples = Simultaneous
 ```
 
 ### 3. Code and Content in Harmony
+
 Look at the topic distribution shift:
 
 - **Engineering**: 30% (up from 19% historically)
@@ -76,7 +79,7 @@ I wasn't just writing *about* code — I was writing code, creating interactive 
 
 The most fascinating pattern? **Wednesday and Thursday dominance**:
 
-```
+```bash
 Publishing by Day:
 Wednesday: ▓▓▓▓▓▓▓▓▓ 9 posts
 Thursday:  ▓▓▓▓▓▓▓▓ 8 posts
@@ -96,6 +99,7 @@ Not "productive fun" where you're proud of yourself afterward. Actually enjoyabl
 - Discovered a new pattern? Share it immediately.
 
 The feedback loop collapsed from days to minutes:
+
 1. Have idea
 2. Build prototype
 3. Write about insights
@@ -111,12 +115,14 @@ Fair question. Here's what I noticed:
 **Consistency improved**: Average word count stayed remarkably stable (943 vs 1,021 historical). No 5,000-word monsters or 200-word throwaway posts.
 
 **Topic coherence**: Posts naturally clustered around themes:
+
 - Interactive calculators for SaaS metrics
 - AI collaboration patterns
 - Developer experience improvements
 - Creative coding experiments
 
 **Practical value**: Every post included something actionable:
+
 - Working code
 - Interactive demos
 - Specific techniques
@@ -136,7 +142,9 @@ The real magic wasn't in any single post. It was in how they built on each other
 This experiment revealed several principles:
 
 ### 1. AI as Thought Partner, Not Ghostwriter
+
 I never asked AI to "write a post about X." Instead:
+
 - "Help me debug this WebGL shader"
 - "What's the math behind this business metric?"
 - "How can we visualize this concept interactively?"
@@ -144,7 +152,9 @@ I never asked AI to "write a post about X." Instead:
 The writing emerged from solving real problems together.
 
 ### 2. Maintain Your Voice
+
 Every post still sounds like me. AI helped with:
+
 - Research acceleration
 - Code generation
 - Technical accuracy
@@ -153,7 +163,9 @@ Every post still sounds like me. AI helped with:
 But the voice, opinions, and experiences? All human.
 
 ### 3. Embrace the Flow State
+
 Traditional writing advice says "block time for writing." This experiment proved the opposite:
+
 - Write when inspired
 - Build when curious
 - Document while building
@@ -166,6 +178,7 @@ No artificial boundaries.
 Can this pace continue? Probably not at 25 posts/week. But that's not the point.
 
 This experiment revealed a new working mode:
+
 - **10x faster context switching**
 - **Parallel research and writing**
 - **Immediate idea-to-publication pipeline**

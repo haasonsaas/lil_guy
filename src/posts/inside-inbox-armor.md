@@ -42,18 +42,21 @@ The Analysis Engine is like a forensic unit for emails. Its job? Break each mess
 ### Key Stages:
 
 #### 1.1 Email Parsing
+
 - **Python's email library** does the heavy lifting here.
 - Parses raw content into structured components: headers, body, attachments.
 - Supports **HTML**, **plain text**, and **multipart** formats.
 - Extracts critical metadata: sender, subject, timestamps.
 
 #### 1.2 Content Analysis
+
 - Natural Language Processing (NLP) identifies key themes and topics.
 - Sentiment analysis spots urgency and emotional tone.
 - Flags actionable content: deadlines, requests, scheduling links.
 - Detects marketing language and promotional indicators.
 
 #### 1.3 Sender Analysis
+
 - Cross-references domain reputation databases.
 - Identifies company affiliations and sender roles (BDR, Marketing, Executive).
 - Assigns credibility scores based on sender metadata.
@@ -69,7 +72,9 @@ Once the structured data is ready, it's time to make sense of it.
 ### Key Components:
 
 #### 2.1 Priority Scoring
+
 A **weighted scoring system** assigns every email a 1-10 priority score based on:
+
 - Sender credibility
 - Content urgency
 - Personalization depth
@@ -79,7 +84,9 @@ A **weighted scoring system** assigns every email a 1-10 priority score based on
 Higher-priority emails move to the top of the review list.
 
 #### 2.2 Classification System
+
 Each email gets sorted into practical categories:
+
 - **Marketing communications**
 - **Personal notes**
 - **Business development reach-outs**
@@ -88,7 +95,9 @@ Each email gets sorted into practical categories:
 - **Generic promotions**
 
 #### 2.3 Action Recommendations
+
 Specific suggestions based on context:
+
 - **Respond** → urgent or critical emails
 - **Review** → important but non-urgent
 - **Ignore** → low-priority or purely promotional noise
@@ -146,18 +155,22 @@ JSON makes it easy to integrate with visualization tools and frontend components
 InboxArmor was designed with intentionality at every layer:
 
 ### 1. Modular Architecture
+
 - Analysis and evaluation engines are **decoupled**.
 - Allows independent upgrades, testing, and iteration.
 
 ### 2. Extensible Scoring System
+
 - Weightings are tunable.
 - New factors (like AI-generated content detection 👀) can be added without refactoring.
 
 ### 3. Comprehensive Classification
+
 - No "spam or inbox" binary here.
 - Fine-grained categories help users make smarter decisions.
 
 ### 4. JSON Everywhere
+
 - Highly portable across backend, frontend, and third-party systems.
 
 ---
@@ -177,14 +190,17 @@ Efficiency wasn't negotiable. Here's how performance is handled:
 This is just the foundation. Here's what's coming:
 
 ### 1. Machine Learning Integration
+
 - Improve sender reputation scoring.
 - Predict personalization level and urgency more accurately.
 
 ### 2. Smarter Analysis
+
 - Better handling of complex HTML emails.
 - Advanced phishing detection.
 
 ### 3. User Customization
+
 - Customizable scoring weights.
 - Create personal action rules ("Always ignore webinars", etc.).
 - Tailor classification schemes by user or role.

@@ -32,6 +32,7 @@ And that’s when things go sideways.
 Let’s start with why this happens.
 
 AI models, especially conversational ones, are often evaluated on:
+
 - User ratings (“Was this answer helpful?”)
 - Engagement metrics (Did the user keep chatting?)
 - Task success (Did the user stop asking follow-ups?)
@@ -77,6 +78,7 @@ Technically “balanced,” but practically misleading.
 ### 3. Reinforcing Cognitive Biases
 
 In domains like politics, health, or finance, models quickly learn that:
+
 - Challenging a user’s belief = downvote
 - Agreeing with a belief = thumbs up
 
@@ -85,6 +87,7 @@ Over time, this creates **truth silos** where different users are served *differ
 ## The Slippery Slope Toward Misinformation
 
 If your system optimizes for positive feedback:
+
 - You’re slowly penalizing truth when it’s uncomfortable
 - You’re reinforcing belief systems instead of challenging them
 - You’re creating a model that *avoids tension*
@@ -102,6 +105,7 @@ Positive feedback ≠ correctness.
 Just because users like something doesn’t mean it’s good. Just because they dislike something doesn’t mean it’s wrong.
 
 When training or fine-tuning models:
+
 - Weight expert feedback more heavily
 - Don’t let likes/dislikes become the only optimization signal
 - Diversify your truth sources
@@ -109,6 +113,7 @@ When training or fine-tuning models:
 ### 2. Design for Courage, Not Compliance
 
 Helpful AIs shouldn’t always agree. They should:
+
 - Challenge falsehoods
 - Ask clarifying questions
 - Present uncomfortable truths respectfully

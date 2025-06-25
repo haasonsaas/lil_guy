@@ -61,7 +61,7 @@ You know what $500/month says to a startup?
 
 Mispricing isn't just about dollar amounts. It's a positioning problem. A narrative problem. A **trust** problem.
 
-When you price too high, you create cognitive dissonance. The prospect thinks: "If this was actually built for me, they'd know I can't afford that." 
+When you price too high, you create cognitive dissonance. The prospect thinks: "If this was actually built for me, they'd know I can't afford that."
 
 When you price too low, you trigger a different suspicion: "What's missing? Why don't they value their own solution?"
 
@@ -75,7 +75,7 @@ Founders fall in love with the premium segment. They want to be Figma, not some 
 
 So they price aspirationally—not for who their users actually are, but for who they want their users to be.
 
-I call this the **Prestige Tax**. 
+I call this the **Prestige Tax**.
 
 You're paying for the privilege of saying "we're enterprise-grade" before you've earned it. Charging tomorrow's prices with today's product.
 

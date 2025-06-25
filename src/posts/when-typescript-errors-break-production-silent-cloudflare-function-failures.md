@@ -164,11 +164,13 @@ const response = {
 This incident highlights a broader issue with serverless platforms. The abstraction that makes them powerful—automatic scaling, managed infrastructure, simplified deployment—also hides crucial feedback loops.
 
 Traditional deployment gives you:
+
 - Immediate compilation feedback
 - Clear error messages  
 - Obvious failure points
 
 Serverless deployment gives you:
+
 - Opaque build processes
 - Silent failures
 - Success indicators that don't guarantee functionality

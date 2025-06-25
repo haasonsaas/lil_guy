@@ -98,7 +98,7 @@ This is the most common pattern. Claude identifies what needs to be done, I impl
 
 **Me:** "Okay I made those changes. Let me deploy and test..."
 
-*5 minutes later*
+### 5 minutes later
 
 **Me:** "Still not updating. Let me check the routing table."
 
@@ -189,6 +189,7 @@ We don't try to fix everything at once:
 Through months of collaboration, we've developed natural specializations:
 
 ### What I'm Better At:
+
 - **Domain knowledge**: Understanding the business context and requirements
 - **Environmental factors**: Knowing the deployment pipeline, tools, and configuration
 - **Experiential pattern matching**: "I've seen this before in different contexts"
@@ -196,6 +197,7 @@ Through months of collaboration, we've developed natural specializations:
 - **User perspective**: Understanding how real users will encounter issues
 
 ### What Claude Excels At:
+
 - **Systematic analysis**: Breaking complex problems into testable components
 - **Pattern recognition**: Quickly identifying similarities across files and codebases
 - **Comprehensive consideration**: Thinking through edge cases and failure modes I might miss
@@ -203,6 +205,7 @@ Through months of collaboration, we've developed natural specializations:
 - **Objective debugging**: No emotional attachment to previous decisions or approaches
 
 ### What We're Both Good At:
+
 - **Rapid iteration**: Quick hypothesis → test → learn cycles
 - **Knowledge synthesis**: Combining insights from multiple sources
 - **Tool usage**: Leveraging the right tools for each part of the problem
@@ -212,34 +215,39 @@ Through months of collaboration, we've developed natural specializations:
 Here's the actual flow of our debugging conversation, showing how we really work together:
 
 **10:23 AM - Initial Problem Report**
-```
+
+```bash
 Me: "something's broken with our capabilities API"
 Claude: "Let me check the current code and compare with deployment"
 ```
 
 **10:24 AM - Data Gathering**
-```
+
+```bash
 Claude: "I see the code should return fresh timestamps. What's the actual response?"
 Me: [pastes curl output showing stale timestamp]
 Claude: "This suggests deployment or compilation issues"
 ```
 
 **10:25 AM - First Hypothesis**
-```
+
+```bash
 Claude: "Let's test TypeScript compilation directly"
 Me: "Why would that matter if deployment succeeded?"
 Claude: "Serverless platforms can fail silently"
 ```
 
 **10:26 AM - Breakthrough**
-```
+
+```bash
 Me: [runs tsc, sees compilation errors]
 Me: "okay so what the fuck is up with capabilities then"
 Claude: "Found it! Missing Env interface and undefined EventContext type"
 ```
 
 **10:27 AM - Solution Implementation**
-```
+
+```bash
 Claude: "Add this interface... fix the function signature..."
 Me: [implements changes]
 Claude: "Test compilation again"
@@ -247,13 +255,15 @@ Me: "Clean compilation now"
 ```
 
 **10:35 AM - Verification**
-```
+
+```bash
 Me: "Still not updating after deployment"
 Claude: "The old broken version is probably cached. Wait for propagation."
 ```
 
 **10:45 AM - Success**
-```
+
+```bash
 Me: [tests again] "Fresh timestamp! It's working."
 Claude: "Great. Let's add TypeScript checking to pre-commit hooks to prevent this."
 ```
@@ -269,11 +279,13 @@ When I'm frustrated ("what the fuck is up with capabilities"), Claude stays calm
 ### 2. Knowledge Cross-Pollination
 
 Claude introduces techniques I wouldn't have considered:
+
 - Testing compilation explicitly before deployment
 - Comparing working vs broken function structures  
 - Systematic evidence gathering
 
 I bring domain-specific knowledge Claude couldn't have:
+
 - Understanding of our specific deployment pipeline
 - Context about when the problem started
 - Knowledge of what "normal" looks like
@@ -281,6 +293,7 @@ I bring domain-specific knowledge Claude couldn't have:
 ### 3. Continuous Learning
 
 Each debugging session teaches both of us:
+
 - I learn systematic debugging approaches
 - Claude learns about our specific tech stack and failure modes
 - We both learn about the problem space
@@ -288,6 +301,7 @@ Each debugging session teaches both of us:
 ### 4. Documentation Generation
 
 Claude naturally creates great documentation of our solutions:
+
 - Clear problem descriptions
 - Step-by-step reproduction
 - Prevention strategies
@@ -298,12 +312,14 @@ Claude naturally creates great documentation of our solutions:
 ### 1. Clear Communication Protocols
 
 **Good:**
+
 ```
 Me: "API returning stale data, timestamp shows hour-old value"
 Claude: "Let me check the code for timestamp generation logic"
 ```
 
 **Bad:**
+
 ```
 Me: "Nothing's working"
 Claude: "What specifically isn't working?"
@@ -314,6 +330,7 @@ Be specific about symptoms, not just feelings.
 ### 2. Evidence-Based Progression
 
 Always gather evidence before jumping to solutions:
+
 - Reproduce the issue reliably
 - Identify what changed recently
 - Compare working vs broken states
@@ -328,11 +345,13 @@ This prevents random debugging and keeps us focused.
 ### 4. Role Clarity
 
 I handle:
+
 - Tool execution
 - Environmental investigation
 - Business context
 
 Claude handles:
+
 - Code analysis
 - Pattern recognition
 - Systematic problem breakdown
@@ -374,6 +393,7 @@ This parallel work speeds up debugging significantly.
 ### Shared Mental Models
 
 Over time, we develop shared understanding:
+
 - Common failure modes in our stack
 - Effective debugging strategies
 - Code patterns that cause problems
@@ -433,6 +453,7 @@ Claude analyzes the entire codebase context instantly and identifies patterns ac
 ### No Social Overhead
 
 No need to:
+
 - Explain your thought process constantly
 - Worry about interrupting or being interrupted
 - Manage personality differences or ego
@@ -441,6 +462,7 @@ No need to:
 ### Perfect Documentation
 
 Every debugging session automatically produces:
+
 - Complete problem description
 - Step-by-step solution
 - Prevention strategies
@@ -483,6 +505,7 @@ Based on our experience, I see several emerging patterns:
 ### 1. Specialized AI Debugging Agents
 
 AI systems optimized for specific types of problems:
+
 - Deployment and infrastructure issues
 - Performance and optimization
 - Security and vulnerability analysis
@@ -491,6 +514,7 @@ AI systems optimized for specific types of problems:
 ### 2. Integrated Development Environments
 
 IDEs that incorporate AI debugging partners directly into the development workflow:
+
 - Real-time error analysis
 - Automated debugging session documentation
 - Contextual suggestion systems
@@ -499,6 +523,7 @@ IDEs that incorporate AI debugging partners directly into the development workfl
 ### 3. Collaborative Debugging Protocols
 
 Standardized ways for humans and AI to work together:
+
 - Structured problem reporting formats
 - Evidence gathering templates
 - Solution verification procedures
@@ -507,6 +532,7 @@ Standardized ways for humans and AI to work together:
 ### 4. Continuous Learning Systems
 
 AI that learns from each debugging session to improve:
+
 - Project-specific failure patterns
 - Developer-specific communication styles
 - Codebase-specific debugging strategies

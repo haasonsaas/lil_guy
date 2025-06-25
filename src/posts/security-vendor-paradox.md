@@ -78,12 +78,14 @@ When every vendor claims their solution prevents the next catastrophic breach, s
 Vendors and CISOs operate with fundamentally misaligned success metrics:
 
 **Vendor Success Metrics:**
+
 - Meetings booked
 - Pipeline generated
 - Deals closed
 - YoY growth
 
 **CISO Success Metrics:**
+
 - Risk reduced
 - Program maturity increased
 - Incidents prevented

@@ -51,6 +51,7 @@ Start by configuring your actual team metrics. Be honest about meeting overhead 
 
 **Step 2: Audit Your Debt**
 The pre-configured scenarios (Startup MVP, Scale-up, Legacy) are starting points. Customize them with your actual technical debt items. The categorization matters:
+
 - **Architecture debt**: Highest velocity impact, hardest to fix
 - **Testing debt**: Moderate impact but compounds through quality issues
 - **Documentation debt**: Lower direct impact but multiplies onboarding time
@@ -66,15 +67,19 @@ Adjust the debt paydown percentage until you find where velocity stabilizes. Thi
 After modeling dozens of teams, clear patterns emerge:
 
 ### The 20% Rule
+
 Teams that allocate less than 20% of capacity to debt paydown inevitably see velocity degrade. It's not a question of if, but when.
 
 ### The Criticality Cliff
+
 When you have 2+ critical debt items, velocity impact isn't additive—it's multiplicative. Fix critical items first, always.
 
 ### The False Economy
+
 "We'll fix it after we ship this feature" is the most expensive sentence in software. Every sprint you delay increases the fix cost by 5-10%.
 
 ### The Acceleration Point
+
 There's a specific point (usually around 40% velocity degradation) where teams enter a death spiral. New features create more debt than the value they deliver.
 
 ## Real-World Strategies That Work

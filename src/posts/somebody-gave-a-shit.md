@@ -67,7 +67,7 @@ It's leverage. The kind you can't fake.
 
 ## The Neuropsychology of Product Detail
 
-There's actual science behind these emotional responses. When we encounter thoughtful details, our brains release dopamine—the same neurotransmitter activated when we experience something pleasurable or rewarding. 
+There's actual science behind these emotional responses. When we encounter thoughtful details, our brains release dopamine—the same neurotransmitter activated when we experience something pleasurable or rewarding.
 
 Researchers in consumer psychology have documented what they call the "peak-end rule": people judge experiences primarily based on how they felt at the most intense moments and at the end. A single thoughtful detail—like that perfectly wrapped cable—can become a "peak" moment that colors the entire perception of a brand.
 

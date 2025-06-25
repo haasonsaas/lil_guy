@@ -59,6 +59,7 @@ The dirty secret about most prompt tools: they create dependency rather than mas
 This pattern drives me crazy. Prompt Improver deliberately inverts this relationship by exposing the thinking behind improvements. Every enhancement comes with clear explanations of why certain structures work better than others, so you're not just getting better prompts—you're becoming better at creating prompts yourself.
 
 This philosophy manifests in several practical ways:
+
 - Explanations that connect specific improvements to general principles
 - Examples showing how and why enhanced prompts perform differently
 - Suggestions for iteration based on your specific goals
@@ -79,6 +80,7 @@ But technology choices matter less than the fundamental approach. The system nee
 I've watched numerous prompt engineering tools launch to initial excitement only to be abandoned weeks later. The pattern is almost always the same: they focus on improving prompts as isolated artifacts rather than as expressions of human thinking.
 
 This fundamental misalignment leads to tools that:
+
 - Offer superficial improvements that don't meaningfully impact results
 - Create dependency rather than developing user capability
 - Optimize for generic "best practices" rather than specific contexts

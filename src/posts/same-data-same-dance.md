@@ -18,7 +18,7 @@ image:
 ---
 
 > **Inspired by a post from [Ross Haleliuk](https://www.linkedin.com/in/rosshaleliuk/):**
-> 
+>
 > "In the world where many tools have similar architectures and implementations, the moat is no longer about technology. It is about user experience, brand perception, speed of execution, distribution, and continuous delivery of value... This replacability is both a feature AND a bug."
 
 
@@ -91,7 +91,7 @@ Security is a trust game. Users gravitate toward products they feel confident in
 
 In markets where features look identical, *who you are* matters more than *what you do*.
 
-This isn't just marketing fluff. When two products have identical features (and they increasingly do), buyers choose the one they trust more. 
+This isn't just marketing fluff. When two products have identical features (and they increasingly do), buyers choose the one they trust more.
 
 Why do financial institutions still buy from the "nobody got fired for buying IBM" vendors despite innovative startups offering better products at lower prices? Trust. Why do security teams stick with clunky tools from established brands rather than switching to slicker alternatives? Trust.
 
@@ -113,6 +113,7 @@ Smart security vendors aren't just building products—they're building distribu
 ### 5. Continuous Delivery of Value
 
 Every tool gets a honeymoon. The best ones keep delivering after the first 30 days. That means:
+
 - Automatically tuning false positives  
 - Surfacing unexpected correlations  
 - Aligning with user workflows  
@@ -135,6 +136,7 @@ But here's the double-edged sword: replaceability makes it very hard for vendors
 > If the only thing your product does is identify issues, you're just another list generator.
 
 A real moat starts where the finding ends:
+
 - How well do you prioritize?
 - How deeply do you integrate into remediation workflows?
 - How often do your recommendations get followed?
@@ -151,10 +153,10 @@ Here's the playbook I'd follow:
 
 - **Start with the standard architecture.** It's fine. Everyone does.
 - **Then immediately zoom out and ask: What's our unfair advantage?**  
-    - Is it speed?  
-    - Is it experience?  
-    - Is it trust?  
-    - Is it ecosystem?
+  - Is it speed?  
+  - Is it experience?  
+  - Is it trust?  
+  - Is it ecosystem?
 
 If the answer is "we parse logs better," keep digging. Because the next tool will parse them too.
 

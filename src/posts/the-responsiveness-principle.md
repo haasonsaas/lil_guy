@@ -45,4 +45,4 @@ Because here's the truth: founders don't just remember *who* invested. They reme
 
 You don't need to be poetic. You don't need to be brilliant. But if you can be clear, timely, and consistent, you'll stand out in a field where too many confuse "unavailable" with "important."
 
-The best early-stage investors build trust the same way great founders build companies: one deliberate, responsive action at a time. 
+The best early-stage investors build trust the same way great founders build companies: one deliberate, responsive action at a time.

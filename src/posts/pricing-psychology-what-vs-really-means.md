@@ -53,6 +53,7 @@ The first price your customer sees becomes the anchor for all subsequent price j
 **The psychological mechanism:** Once anchored, customers adjust from that reference point rather than evaluating absolute value. A $500 anchor makes $300 feel reasonable, while a $200 anchor makes $300 feel expensive.
 
 **Real-world application:**
+
 - Show crossed-out "regular" prices
 - Lead with your premium tier
 - Compare to competitor pricing
@@ -65,6 +66,7 @@ Precise prices ($47, $103, $297) feel more researched and justified than round n
 **The psychological trigger:** Precision implies deliberation. Round numbers feel arbitrary or like marketing tactics.
 
 **Best practices:**
+
 - Use odd numbers for credibility ($47, $103)
 - Avoid obviously made-up precision ($47.99)
 - Consider your market's sophistication level
@@ -76,6 +78,7 @@ In many categories, price serves as a quality indicator. Customers use price as 
 **The counterintuitive truth:** Higher prices can increase demand by signaling higher quality, exclusivity, or status.
 
 **When price signals quality:**
+
 - Complex or technical products
 - Status-conscious markets
 - Trust-dependent services
@@ -86,6 +89,7 @@ In many categories, price serves as a quality indicator. Customers use price as 
 Customers feel the pain of loss twice as strongly as the pleasure of gain. This means framing matters enormously—the same price can feel like a great deal or an expensive cost depending on presentation.
 
 **Powerful framings:**
+
 - "Save $50" instead of "Only costs $150"
 - "Included at no extra charge" instead of "Free"
 - "Cancel anytime" instead of "Monthly commitment"
@@ -123,20 +127,26 @@ The businesses that master pricing psychology don't just convert better—they b
 ## The Common Pricing Psychology Mistakes
 
 ### Mistake 1: One-Size-Fits-All Pricing
+
 Different customer segments respond to different psychological triggers. Enterprise buyers want round, "serious" pricing. Consumers respond to charm pricing. Freemium users need clear upgrade incentives.
 
 ### Mistake 2: Ignoring Context
+
 Pricing psychology varies by:
+
 - Industry and market maturity
 - Customer sophistication level
 - Purchase process complexity
 - Competitive landscape
 
 ### Mistake 3: Over-Optimizing on Conversion
+
 Higher conversion doesn't always mean better business outcomes. Sometimes lower conversion at higher prices yields better LTV and profit margins.
 
 ### Mistake 4: Forgetting the Long Term
+
 Pricing psychology affects not just initial conversion but also:
+
 - Customer expectations for future pricing
 - Perceived value of upgrades and add-ons
 - Referral and word-of-mouth patterns
@@ -145,16 +155,19 @@ Pricing psychology affects not just initial conversion but also:
 ## The Implementation Strategy
 
 ### Phase 1: Audit Your Current Pricing
+
 - Identify which psychological principles you're currently using (or missing)
 - Map your customer segments and their likely price sensitivity
 - Analyze your competitive pricing context
 
 ### Phase 2: Test Systematically
+
 - A/B testing different price points within segments
 - Testing different presentation formats (charm vs. round vs. precise)
 - Testing different anchoring strategies
 
 ### Phase 3: Optimize for Psychology + Economics
+
 - Balance conversion optimization with LTV maximization
 - Consider the downstream effects on upgrades and expansions
 - Monitor customer satisfaction and retention alongside conversion metrics

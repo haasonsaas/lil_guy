@@ -194,12 +194,14 @@ The entire process took about 30 minutes from concept to committed code.
 ## Why This Approach Works
 
 **For Users:**
+
 - Find content even with imperfect queries
 - See relevance scores at a glance
 - Navigate entirely with keyboard
 - Get contextual excerpts showing matches
 
 **For Developers:**
+
 - Simple algorithm that's easy to understand
 - No external dependencies or APIs
 - Works with existing blog infrastructure

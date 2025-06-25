@@ -33,6 +33,7 @@ Let’s dig into why this works—and what it looks like in practice.
 Startups love to hire. It feels like forward motion. Fundraise? Hire. Land a few customers? Hire. Can’t keep up with support tickets? Hire.
 
 But this reflex leads to a bloated, overhydrated organism. You get:
+
 - Tasks instead of outcomes.
 - Busyness instead of urgency.
 - Manufactured work instead of mission-critical execution.
@@ -46,6 +47,7 @@ The dehydrated entity model solves for this by imposing a healthy scarcity.
 Under the dehydrated entity model, **you only add people when it's undeniably clear that the team is breaking under pressure—and that what’s breaking is both important and unavoidable**.
 
 That means:
+
 - Not when things are merely hard.
 - Not when priorities are unclear.
 - Not when people feel “stretched.”
@@ -61,6 +63,7 @@ That’s the moment when a new hire becomes a force multiplier instead of an org
 Scarcity forces judgment. You can’t do everything, so you have to decide what matters.
 
 This pushes teams to say:
+
 - “What’s the highest leverage thing we *can* do this week?”
 - “What do we need to say no to?”
 - “If we do nothing else, what must ship?”
@@ -72,6 +75,7 @@ You trade breadth for focus. And at early-stage startups, that’s almost always
 One of the worst outcomes of overhiring is how quickly people invent tasks to justify their roles. It’s not malicious—it’s natural.
 
 But with spare bandwidth, teams tend to:
+
 - Start pet projects with no customer pull
 - Over-document processes
 - Obsess over internal tooling
@@ -83,6 +87,7 @@ The dehydrated entity model immunizes you against this. Every person must fight 
 When you hire reactively—out of necessity—the role writes itself.
 
 The team knows:
+
 - What’s breaking
 - Why it matters
 - What success looks like
@@ -143,6 +148,7 @@ This gives you a plan without a commitment—and lets you move quickly if the si
 ### 3. Audit Team Workload Transparently
 
 Once a month, ask:
+
 - What’s falling through the cracks?
 - What’s painful but worth it?
 - What are we doing that we could stop?

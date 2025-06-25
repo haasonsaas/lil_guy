@@ -19,6 +19,7 @@ The worst part? I didn't realize how bad I was until years later.
 Here's the uncomfortable truth: most founders are terrible at customer interviews. We're builders, not researchers. We fall in love with our solutions, then unconsciously steer conversations toward validating them.
 
 Classic mistakes I've made (and seen repeatedly):
+
 - "Would you use an AI-powered solution for this?" (Leading toward a specific solution)
 - "How much would you pay for this?" (Pricing before validating the problem exists)
 - "This would save you time, right?" (Seeking agreement, not insight)

@@ -24,6 +24,7 @@ Technical debt isn't just messy code. It's compound interest working against you
 Here's what most teams miss: technical debt doesn't grow linearly. It compounds. Every shortcut creates friction that makes the next feature harder to build, which creates pressure for more shortcuts, which creates more friction.
 
 The velocity death spiral looks like this:
+
 1. **Sprint 1:** Skip tests to hit deadline
 2. **Sprint 3:** Spend 30% of time fixing bugs from Sprint 1
 3. **Sprint 6:** New features take 2x longer due to fragile code
@@ -51,6 +52,7 @@ When your codebase is fragile, engineers become conservative. They avoid refacto
 ### 2. The Context Switching Penalty
 
 Technical debt doesn't just slow down feature development—it fragments it. Engineers constantly context-switch between:
+
 - Building new features
 - Fixing bugs from previous features  
 - Maintaining existing systems
@@ -75,18 +77,21 @@ Every hour spent on maintenance is an hour not spent on growth. As debt accumula
 Different types of debt compound at different rates:
 
 **Fast-Compounding Debt:**
+
 - Missing or inadequate tests
 - Inconsistent data models
 - Poorly designed APIs
 - Infrastructure that doesn't scale
 
 **Slow-Compounding Debt:**
+
 - Inconsistent naming conventions
 - Missing documentation
 - Minor code duplication
 - Suboptimal algorithms
 
 **Toxic Debt:**
+
 - Circular dependencies
 - Global state mutations
 - Database schema inconsistencies
@@ -99,22 +104,29 @@ The key insight: not all debt is created equal. Focus on the debt that compounds
 Here's the framework I use with engineering teams:
 
 ### 1. The 20% Rule
+
 Dedicate 20% of engineering capacity to debt reduction. This isn't overhead—it's investment in future velocity.
 
 ### 2. The Pain Point Ranking
+
 Rank technical debt by:
+
 - **Frequency of friction** (how often it slows you down)
 - **Severity of impact** (how much it slows you down)
 - **Growth trajectory** (how much worse it's getting)
 
 ### 3. The Compound Return Calculation
+
 Before tackling debt, estimate:
+
 - Time invested in fixing it
 - Velocity improvement per sprint
 - Break-even point (when investment pays off)
 
 ### 4. The Progressive Approach
+
 Don't try to fix everything at once. Target:
+
 - Month 1: Fix the highest-friction debt
 - Month 2: Improve testing infrastructure  
 - Month 3: Standardize development patterns
@@ -138,21 +150,25 @@ Getting buy-in for technical debt work requires translating engineering concerns
 Sustainable engineering teams follow these principles:
 
 ### 1. Debt Prevention Over Debt Cleanup
+
 - Code reviews focused on preventing debt
 - Clear standards for acceptable shortcuts
 - Automated checks for common debt patterns
 
 ### 2. Continuous Refactoring
+
 - Small improvements every sprint
 - Boy Scout Rule: leave code better than you found it
 - Refactoring is part of feature work, not separate
 
 ### 3. Velocity Metrics That Matter
+
 - Track debt accumulation, not just feature delivery
 - Measure time from idea to production
 - Monitor developer satisfaction and confidence
 
 ### 4. Technical Debt Budgeting
+
 - Explicit budgets for maintenance work
 - Debt paydown targets each quarter
 - Regular debt audits and prioritization
@@ -162,6 +178,7 @@ Sustainable engineering teams follow these principles:
 Teams that manage technical debt well don't just deliver faster—they deliver more consistently. While competitors get bogged down in maintenance, well-architected teams maintain high velocity for years.
 
 **The competitive advantages:**
+
 - Predictable delivery timelines
 - Ability to respond quickly to market changes
 - Higher developer retention and satisfaction

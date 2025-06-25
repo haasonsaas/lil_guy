@@ -38,6 +38,7 @@ Uncomfortable with those results? You're not alone. Let's break down what's actu
 ### 1. Time-Based LTV (Not Revenue-Based)
 
 Most founders calculate LTV as:
+
 ```
 LTV = Average Revenue ÷ Churn Rate
 ```
@@ -45,6 +46,7 @@ LTV = Average Revenue ÷ Churn Rate
 This assumes customers churn linearly forever. In reality, churn rates change over time. Early customers behave differently than late ones. Power users have different patterns than casual users.
 
 **What to track instead:**
+
 - 12-month LTV (actual revenue from cohorts)
 - Cohort-based retention curves
 - LTV by customer segment
@@ -54,6 +56,7 @@ This assumes customers churn linearly forever. In reality, churn rates change ov
 That \$200 CAC you calculated? It's probably wrong. Most founders use blended CAC across all channels, which hides the fact that their best channel has a \$50 CAC while their worst has a \$800 CAC.
 
 **What to track instead:**
+
 - CAC by acquisition channel
 - Fully-loaded CAC (including salaries, tools, overhead)
 - CAC payback period by channel
@@ -61,12 +64,14 @@ That \$200 CAC you calculated? It's probably wrong. Most founders use blended CA
 ### 3. Gross Margin Reality Check
 
 SaaS companies love to claim 80%+ gross margins by ignoring:
+
 - Support costs
 - Infrastructure scaling costs
 - Customer success overhead
 - Payment processing fees
 
 **What to track instead:**
+
 - Unit-level gross margins
 - Margin degradation as you scale
 - Support cost per customer
@@ -76,6 +81,7 @@ SaaS companies love to claim 80%+ gross margins by ignoring:
 A 3:1 LTV:CAC ratio sounds great until you realize it takes 18 months to pay back CAC. You'll run out of cash before you see returns.
 
 **The reality check:**
+
 - Payback period should be under 12 months
 - Shorter is better for cash flow
 - Factor in your burn rate and runway
@@ -90,6 +96,7 @@ Here's what kills most SaaS companies:
 4. **Margin erosion** - Costs that grow faster than revenue
 
 I've seen companies with "amazing" unit economics fail because they:
+
 - Couldn't sustain their best acquisition channels at scale
 - Didn't account for market saturation
 - Ignored the cash flow timing of their business model
@@ -97,12 +104,14 @@ I've seen companies with "amazing" unit economics fail because they:
 ## What Healthy Unit Economics Actually Look Like
 
 **For early-stage SaaS:**
+
 - LTV:CAC of 3:1 minimum (calculated conservatively)
 - Payback period under 12 months
 - Monthly churn under 5%
 - Gross margins above 70% (fully loaded)
 
 **For growth-stage SaaS:**
+
 - LTV:CAC of 4:1+ (with channel diversification)
 - Payback period under 9 months
 - Monthly churn under 3%

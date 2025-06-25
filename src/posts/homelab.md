@@ -40,7 +40,7 @@ environment.
 
 My current VLAN structure:
 
-```
+```text
 VLAN 10: Management (network devices, controllers)
 VLAN 20: Lab Environment (kubernetes, storage clusters)
 VLAN 30: IoT Devices

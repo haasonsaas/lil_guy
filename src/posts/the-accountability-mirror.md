@@ -99,6 +99,7 @@ Let’s make this practical. Here’s how to realign your behavior with your amb
 For one week, track your time brutally honestly. No rounding. No justification.
 
 Then compare:
+
 - What you _say_ your priorities are
 - What your schedule _says_ your priorities are
 
@@ -119,6 +120,7 @@ Shame is a terrible long-term motivator, but **social commitment?** That’s roc
 Don’t fit your goals around your life. Build your life around your goals.
 
 Examples:
+
 - Want to write a book? Block 90 minutes every morning, _before_ email.
 - Training for a marathon? Book your runs like meetings—non-negotiable.
 - Launching a business? Give it the first and best two hours of your weekend.

@@ -28,6 +28,7 @@ This dual-audience problem is reshaping how we think about web architecture, UX 
 Humans and AI agents want completely different things from your website:
 
 **Humans want:**
+
 - Beautiful, intuitive interfaces
 - Smooth animations and transitions  
 - Contextual navigation and discovery
@@ -35,6 +36,7 @@ Humans and AI agents want completely different things from your website:
 - Progressive disclosure of complexity
 
 **AI agents want:**
+
 - Structured, predictable data formats
 - Direct access to content without chrome
 - Explicit relationships and metadata
@@ -105,9 +107,10 @@ Now humans get the beautiful interface while agents get structured navigation da
 
 ## Content Strategy: The Information Architecture Challenge
 
-Content presents an even bigger challenge. Consider this blog post you're reading right now. 
+Content presents an even bigger challenge. Consider this blog post you're reading right now.
 
 **For humans**, I need to:
+
 - Hook attention with a compelling opening
 - Use varied sentence lengths and paragraph breaks
 - Include contextual asides and personality
@@ -115,6 +118,7 @@ Content presents an even bigger challenge. Consider this blog post you're readin
 - Guide attention with typography and white space
 
 **For AI agents**, I need to:
+
 - Provide structured metadata about topics and complexity
 - Offer content in machine-readable formats
 - Include explicit relationships to related content
@@ -238,12 +242,14 @@ export async function onRequest(context: { request: Request }): Promise<Response
 Here's where it gets really interesting. Human performance optimization often conflicts with AI agent needs.
 
 **Humans benefit from:**
+
 - Lazy loading and code splitting
 - Compressed images and assets
 - Minimal initial payloads
 - Progressive web app features
 
 **AI agents need:**
+
 - Complete content availability without JavaScript
 - Predictable resource locations
 - Minimal redirects and complex loading states
@@ -506,6 +512,7 @@ This isn't just a technical exercise. Building for dual audiences creates tangib
 ### 1. Over-Engineering for Edge Cases
 
 Don't try to solve every possible AI agent scenario upfront. Start with the basics:
+
 - Clean HTML structure
 - Basic JSON APIs
 - Standard Schema.org markup
@@ -527,16 +534,19 @@ Additional markup and API endpoints add complexity. Monitor performance and use 
 How do you know if your dual-audience approach is working? Key metrics include:
 
 **AI Agent Engagement:**
+
 - API endpoint usage and response times
 - Structured data validation scores
 - AI agent user-agent traffic patterns
 
 **Human Impact:**
+
 - Traditional UX metrics (bounce rate, time on site, conversions)
 - Page performance scores
 - User satisfaction surveys
 
 **Technical Health:**
+
 - API error rates and response times
 - Structured data markup validation
 - Search engine rich result appearance
@@ -570,16 +580,19 @@ This mindset shift is already reshaping my development process. Every component,
 If you're ready to start building for dual audiences:
 
 ### Week 1: Foundation
+
 - Audit your current site for machine-readable structure
 - Add basic Schema.org markup to key pages
 - Create simple JSON API endpoints for core content
 
 ### Week 2: Enhancement  
+
 - Implement progressive enhancement patterns
 - Add agent-specific meta tags and documentation
 - Set up analytics to track agent vs human usage
 
 ### Week 3: Optimization
+
 - Test your APIs with actual AI tools
 - Optimize performance for both consumption patterns
 - Gather feedback and iterate

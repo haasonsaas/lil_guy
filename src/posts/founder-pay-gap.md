@@ -29,11 +29,13 @@ Here’s the dirty little secret of startup finance: once you're past your origi
 Let’s break that down.
 
 If an outside CEO is hired at Series C or D, they’ll typically receive:
+
 - **4–6% equity** (new grant, fully unvested)
 - **Meaningful cash comp** (often $300K–$600K base, plus bonus)
 - **Board protections and golden parachutes**
 
 By contrast, here’s what a founder CEO gets:
+
 - The leftover vest from their original 4-year grant (which has mostly vested)
 - Maybe a small top-up—**1% or less** if you’re lucky
 - No bonus structure, no guaranteed cash incentive
@@ -72,6 +74,7 @@ It’s not just unfair—it’s structurally punitive.
 ### 3. Misaligned Incentives at the Board Level
 
 Once a company has a real board, you’ve got folks around the table who:
+
 - Represent funds that care about aggregate returns, not individual founder longevity
 - Think in terms of “replacing management” as a lever (which it sometimes is!)
 - View founder liquidity as a distraction or risk

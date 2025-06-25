@@ -80,6 +80,7 @@ That's not code completion. That's concept completion.
 Let me show you the math:
 
 **Traditional Development Time (based on similar projects):**
+
 - Liquid metal physics: 2-3 days
 - HDR holographic effects: 2-3 days  
 - Smart search with fuzzy matching: 2-3 days

@@ -31,7 +31,7 @@ The blog is built with a carefully selected stack of modern technologies:
 
 The project follows a clean and organized structure:
 
-```
+```bash
 src/
 ├── components/     # Reusable UI components
 ├── pages/         # Page components
@@ -133,4 +133,4 @@ If you're interested in building something similar, here are some helpful resour
 - [React Documentation](https://react.dev/)
 - [TypeScript Documentation](https://www.typescriptlang.org/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
-- [shadcn/ui Documentation](https://ui.shadcn.com/) 
+- [shadcn/ui Documentation](https://ui.shadcn.com/)

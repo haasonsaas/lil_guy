@@ -43,15 +43,19 @@ The result? AI agents either ignore your content entirely or extract it poorly, 
 After working with various AI systems, I've identified four key requirements:
 
 ### 1. Machine-Readable APIs
+
 Content should be available in structured formats—JSON, not just HTML. This lets agents grab exactly what they need without parsing markup.
 
 ### 2. Enhanced Structured Data  
+
 Beyond basic Schema.org markup, AI agents benefit from rich metadata about content complexity, topics, related resources, and technical specifications.
 
 ### 3. Clear Documentation
+
 AI agents need to understand how to interact with your site. What endpoints exist? What format do they return? How should they be used?
 
 ### 4. Proper Content Classification
+
 Tag content with difficulty levels, technical topics, content types, and relationships to other content. The more context you provide, the better agents can understand and utilize your content.
 
 ## Building the Infrastructure
@@ -125,6 +129,7 @@ The technical implementation involved several key components:
 ### 1. Cloudflare Functions for APIs
 
 Using Cloudflare Pages Functions, I created serverless endpoints that:
+
 - Parse markdown frontmatter at runtime
 - Implement search with fuzzy matching
 - Support CORS for cross-origin requests
@@ -133,6 +138,7 @@ Using Cloudflare Pages Functions, I created serverless endpoints that:
 ### 2. Enhanced SEO Components
 
 I built React components that inject both human-readable and machine-readable metadata:
+
 - `AgentStructuredData` for AI-specific markup
 - `AdvancedSEO` for comprehensive Schema.org data
 - Automatic extraction of content metrics and topics
@@ -140,6 +146,7 @@ I built React components that inject both human-readable and machine-readable me
 ### 3. Build-Time Processing
 
 My Vite build process now:
+
 - Extracts all post metadata into a searchable index
 - Generates social media images automatically
 - Validates structured data schemas
@@ -150,16 +157,19 @@ My Vite build process now:
 After implementing these changes:
 
 **Traffic Changes:**
+
 - 40% increase in automated/bot traffic (legitimate crawlers, not spam)
 - More targeted developer inquiries
 - Better search engine understanding of content
 
 **Technical Benefits:**
+
 - Faster content discovery for legitimate AI systems
 - Reduced server load from inefficient scraping
 - Better analytics on how content is being consumed
 
 **Content Quality:**
+
 - Forced me to better categorize and tag content
 - Improved internal linking through structured relationships
 - Enhanced content planning based on topic analysis
@@ -187,15 +197,19 @@ Most websites aren't optimized for AI consumption yet. Early movers will benefit
 You don't need to rebuild your entire site. Start with these high-impact changes:
 
 ### 1. Add Basic APIs (2-4 hours)
+
 Create simple JSON endpoints for your core content. Even a basic `/api/posts` endpoint makes a huge difference.
 
 ### 2. Enhance Meta Tags (1-2 hours)
+
 Add structured data and AI-friendly meta tags to your content pages. Focus on content classification and API endpoints.
 
 ### 3. Create Agent Documentation (2-3 hours)
+
 Build a simple page explaining how AI agents should interact with your site. Include API docs and usage guidelines.
 
 ### 4. Implement Content Classification (3-5 hours)  
+
 Add tags for difficulty level, content type, and technical topics. This helps agents understand context and relevance.
 
 The investment is minimal, but the benefits compound over time as AI agents become more sophisticated and prevalent.

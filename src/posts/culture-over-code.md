@@ -89,7 +89,7 @@ This doesn't mean you hire clones. It means you hire people who know how to **mo
 
 ## The Diversity Paradox in Cultural Fit
 
-There's a common misunderstanding that prioritizing cultural fit means sacrificing diversity. This couldn't be further from the truth. 
+There's a common misunderstanding that prioritizing cultural fit means sacrificing diversity. This couldn't be further from the truth.
 
 True cultural fit isn't about homogeneity—it's about creating an environment where diverse perspectives can thrive through shared operational values. The right cultural values actually enable diversity by creating psychological safety for different viewpoints.
 
@@ -209,14 +209,17 @@ So how do you screen for this?
 Here's what we do (and it's still evolving):
 
 ### ✅ Ask Behavioral Questions
+
 - "Tell me about a time you disagreed with a technical decision. What happened next?"
 - "What's something you had to learn quickly in your last role?"
 - "When was the last time you realized you were wrong about something?"
 
 ### ✅ Include the Team
+
 Let multiple team members interact with candidates—and *actually listen* to how the energy shifts. Does the candidate adapt to different communication styles? Do they invite others in?
 
 ### ✅ Simulate Real Collaboration
+
 Instead of pure whiteboard sessions, do pairing exercises. See how they think *with* someone. See how they respond to confusion, ambiguity, and friction.
 
 ### ✅ Assess Learning Transfer Ability
@@ -228,6 +231,7 @@ One of the most revealing interview techniques I've found is the "Learn and Teac
 3. Observe not just their understanding, but their empathy for the learner
 
 This reveals:
+
 - How they structure knowledge acquisition
 - Whether they focus on concepts or memorization
 - How they adapt to the listener's confusion
@@ -268,12 +272,14 @@ Teams that invest heavily in onboarding see dramatically better outcomes even fr
 Every team develops what I call an "organizational immunity system"—a set of unwritten rules and reactions that either reject or incorporate new members. This system often operates below conscious awareness but has enormous power.
 
 Signs of a healthy immunity system:
+
 - New ideas are welcomed but contextually examined
 - Mistakes are treated as learning opportunities
 - Differences in approach generate curiosity, not resistance
 - The team adapts to accommodate new strengths
 
 Signs of a dysfunctional immunity system:
+
 - New ideas are dismissed because "that's not how we do things"
 - Mistakes lead to blame rather than learning
 - Conformity is valued over contribution

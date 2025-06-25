@@ -15,11 +15,13 @@ Here's the thing: social media crawlers don't execute JavaScript. They grab your
 ## The Problem Nobody Warns You About
 
 When you build a single-page application, you're making a tradeoff. You get:
+
 - Lightning-fast client-side navigation
 - Rich interactivity
 - Simplified deployment (just static files!)
 
 But you lose:
+
 - SEO visibility (mostly)
 - Social media previews
 - Some accessibility features
@@ -31,11 +33,13 @@ The OpenGraph problem hits you right when you're ready to share your work with t
 I tried several approaches before finding the right one:
 
 **Attempt 1: React Helmet**
+
 ```javascript
 <Helmet>
   <meta property="og:image" content={imageUrl} />
 </Helmet>
 ```
+
 Nope. Crawlers don't run JavaScript, remember?
 
 **Attempt 2: Separate Static Pages**
@@ -114,11 +118,13 @@ export const onRequest: PagesFunction = async (context) => {
 ## The Critical Details
 
 **Bot Detection**: The regex needs to catch all the crawlers:
+
 ```javascript
 /bot|crawler|spider|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|Slack|Discord|telegram/i
 ```
 
 **Routing Configuration**: Your `_routes.json` needs to include HTML routes but exclude assets:
+
 ```json
 {
   "version": 1,

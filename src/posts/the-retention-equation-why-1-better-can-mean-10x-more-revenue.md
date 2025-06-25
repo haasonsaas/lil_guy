@@ -48,6 +48,7 @@ Don't use vanity metrics. Pull your actual cohort data. If you don't track cohor
 
 **Step 2: Model Your Current State**
 The default scenarios give you benchmarks, but your business is unique. Match your retention curve shape:
+
 - **Early churn**: Onboarding problems
 - **Gradual decline**: Value realization issues
 - **Late drops**: Pricing or competition problems
@@ -63,7 +64,9 @@ Not all retention improvements are equal. Improving month 1 retention from 80% t
 After analyzing hundreds of SaaS cohorts, the winners share traits:
 
 ### The 90/80/70 Rule
+
 Best-in-class SaaS companies hit these benchmarks:
+
 - Month 1: 90%+ retention
 - Month 3: 80%+ retention
 - Month 12: 70%+ retention
@@ -71,12 +74,15 @@ Best-in-class SaaS companies hit these benchmarks:
 Fall below these and you're building on sand.
 
 ### The First 90 Days
+
 80% of your lifetime churn happens in the first 90 days. Fix onboarding and you fix retention. Yet most companies spend 10x more on sales than onboarding.
 
 ### The Cohort Growth Signal
+
 When newer cohorts retain better than older ones, you're improving. When they retain worse, something's broken. This trend matters more than absolute numbers.
 
 ### The LTV/CAC Truth
+
 Everyone obsesses over LTV/CAC > 3. But at 80% monthly retention, you need ARPU to be 25% of CAC just to break even. At 90% retention, you only need 10%. Retention is the denominator that changes everything.
 
 ## Where Retention Improvements Hide
@@ -101,6 +107,7 @@ Here's the math that makes CFOs believers:
 **Reality**: Revenue = (New + Retained) × ARPU × Retention^Time
 
 That exponent is everything. At 90% retention:
+
 - Year 1: 100 customers
 - Year 2: 190 customers (90 retained + 100 new)
 - Year 3: 271 customers

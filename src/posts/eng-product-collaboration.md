@@ -45,7 +45,7 @@ failure.
 
 Here's what that process actually looks like in practice:
 
-```
+```text
 PM's Mental Model:
 Business Need → Research → Requirements → Perfect Specification
 

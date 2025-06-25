@@ -36,6 +36,7 @@ Three core principles emerged as the foundation of North, each addressing a crit
 Traditional comparison platforms rely on vendor-provided information or analyst reports. North takes a fundamentally different approach by building a community of security professionals who share their real-world experiences.
 
 This architecture allows for a rich tapestry of perspectives:
+
 - Detailed implementation experiences from security teams
 - Integration challenges and solutions
 - Performance metrics in production environments
@@ -61,6 +62,7 @@ This multidimensional approach helps organizations understand not just what a to
 The security technology paradox is that tools designed to enhance security often create new challenges—integration complexity, alert fatigue, or unexpected operational overhead. North addresses this by providing context-rich information that helps organizations anticipate and plan for these challenges.
 
 This approach manifests in several ways:
+
 - Implementation guides that highlight common pitfalls and best practices
 - Integration patterns that show how tools work together
 - Case studies that demonstrate real-world deployment scenarios
@@ -136,4 +138,4 @@ That's the promise of North: not another comparison site, but a comprehensive re
 
 This vision comes to life through my dedication to creating a resource I needed but couldn't find in the market. North leverages React, TypeScript, and Tailwind CSS, with careful attention to accessibility and performance. The platform builds upon the shadcn-ui component library while establishing its own distinctive visual and interaction language.
 
-Special thanks to the early users whose thoughtful feedback continues to shape North's evolution, and to the broader security community whose work inspires my own. The journey toward better security tool selection is just beginning, and I'm honored to be part of it. 
+Special thanks to the early users whose thoughtful feedback continues to shape North's evolution, and to the broader security community whose work inspires my own. The journey toward better security tool selection is just beginning, and I'm honored to be part of it.

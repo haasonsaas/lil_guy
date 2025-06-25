@@ -6,7 +6,7 @@ import { promisify } from "util";
 import { exec } from "child_process";
 import matter from 'gray-matter';
 import fs from 'fs/promises';
-import path from 'path';
+import { glob } from 'glob';
 
 const execAsync = promisify(exec);
 
@@ -227,10 +227,8 @@ async function audit() {
   console.log(chalk.blue('🔍 Auditing staged markdown files...\n'));
 
   try {
-    // Get staged markdown files
-    const { stdout: stagedFilesOutput } = await execAsync('git diff --name-only --cached');
-    const stagedFiles = stagedFilesOutput.trim().split('\n');
-    const markdownFiles = stagedFiles.filter(file => file.endsWith('.md') && file.startsWith('src/posts/'));
+    const { stdout: stagedFilesOutput } = await execAsync('git ls-files --cached');    const stagedFiles = stagedFilesOutput.trim().split('\n');    const markdownFiles = stagedFiles.filter(file => file.endsWith('.md') && file.startsWith('src/posts/'));
+
 
     if (markdownFiles.length === 0) {
       console.log(chalk.green('✅ No staged markdown posts to audit.'));
@@ -286,12 +284,12 @@ async function improve() {
   console.log(chalk.blue('📝 Improving staged markdown files...\n'));
 
   try {
-    // Get staged markdown files
-    const { stdout: stagedFilesOutput } = await execAsync('git diff --name-only --cached');
+    const { stdout: stagedFilesOutput } = await execAsync('git ls-files --cached');
     const stagedFiles = stagedFilesOutput.trim().split('\n');
     const markdownFiles = stagedFiles.filter(file => file.endsWith('.md') && file.startsWith('src/posts/'));
 
-    if (markdownFiles.length === 0) {
+
+    if (markdownFilesToImprove.length === 0) {
       console.log(chalk.green('✅ No staged markdown posts to improve.'));
       return;
     }
