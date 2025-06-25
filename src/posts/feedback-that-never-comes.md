@@ -102,7 +102,6 @@ You won’t always get a clear response, but the act of _asking_ serves a few pu
 Try:
 
 > “Is there anything specific I could’ve done better on this project?”
-
 > “Can we align on what success looks like moving forward?”
 
 You might still get vague replies, but now you’ve made the gap visible.
