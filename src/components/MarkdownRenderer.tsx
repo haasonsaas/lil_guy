@@ -9,8 +9,8 @@ import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeStringify from 'rehype-stringify';
 import DOMPurify from 'dompurify';
 import 'katex/dist/katex.min.css';
-// Import Prism themes
-import 'prismjs/themes/prism-tomorrow.css';
+// Import Prism themes - using Material Oceanic as base
+import 'prism-themes/themes/prism-material-oceanic.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
 import UnitEconomicsCalculator from './UnitEconomicsCalculator';
 import ABTestSimulator from './ABTestSimulator';
