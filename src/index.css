@@ -101,7 +101,7 @@
     prose-ul:text-foreground/90
     prose-ol:text-foreground/90
     prose-pre:bg-transparent prose-pre:p-0
-    prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-[''] prose-code:after:content-['']
+    prose-code:bg-muted prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-[13px] prose-code:font-mono prose-code:before:content-[''] prose-code:after:content-['']
     max-w-none;
   }
 }
@@ -170,17 +170,37 @@
 
 /* Ensure proper code block styling */
 pre {
-  @apply rounded-lg overflow-hidden my-6;
+  @apply rounded-lg overflow-hidden my-6 text-sm;
 }
 
 pre code.hljs {
-  @apply p-4 text-sm leading-relaxed;
+  @apply p-4 text-[13px] leading-6 font-mono;
 }
 
 /* Override any conflicting styles */
 .hljs {
   background: inherit !important;
   color: inherit !important;
+}
+
+/* Ensure consistent font family for code */
+code, pre, .hljs {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+}
+
+/* Adjust code block container width */
+.prose pre {
+  max-width: 100%;
+}
+
+/* Fine-tune code block appearance */
+.prose pre code {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
 }
 
 /* Custom Components */
