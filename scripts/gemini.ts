@@ -122,7 +122,7 @@ async function newDraft(topic: string) {
 
     // 2. Use the existing new-post.ts script
     console.log(chalk.yellow('\nCreating new post file...'));
-    const command = `bun run scripts/new-post.ts "${title}" --tags "${tags.join(',')}" --description "${description}"`;
+    const command = `bun run scripts/new-post.ts "${title}" --tags "${tags.join(',')}" --description "${description}" --content "${outline}"`;
     const { stdout, stderr } = await execAsync(command);
 
     if (stderr) {
@@ -132,13 +132,6 @@ async function newDraft(topic: string) {
     }
 
     console.log(stdout);
-
-    // 3. Append the outline to the new file
-    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-    const filePath = path.join(process.cwd(), 'src', 'posts', `${slug}.md`);
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    const newContent = fileContent.replace('# Your blog post content goes here...', outline);
-    await fs.writeFile(filePath, newContent);
 
     console.log(chalk.green('\n✅ New draft created successfully!'));
 

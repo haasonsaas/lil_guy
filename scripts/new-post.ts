@@ -37,6 +37,10 @@ const { values, positionals } = parseArgs({
       type: 'boolean',
       default: false,
     },
+    content: {
+      type: 'string',
+      default: ''
+    }
   },
   strict: true,
   allowPositionals: true,
@@ -117,9 +121,7 @@ async function createNewPost() {
 
   // Generate content
   const frontmatter = generateFrontmatter(title, values);
-  const content = `${frontmatter}
-
-# ${title}
+  const body = values.content || `# ${title}
 
 <!-- Start writing your post here -->
 
@@ -135,6 +137,9 @@ async function createNewPost() {
 
 [Your conclusion here]
 `;
+  const content = `${frontmatter}
+
+${body}`;
 
   try {
     // Create posts directory if it doesn't exist
