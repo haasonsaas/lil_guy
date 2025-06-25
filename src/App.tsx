@@ -1,3 +1,4 @@
+import { UpdateNotifier } from "@/components/UpdateNotifier";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -70,6 +71,7 @@ const App = () => (
           <ErrorBoundary>
             <Toaster />
             <Sonner />
+            <UpdateNotifier />
             <Router>
               <AnalyticsProvider />
               <ScrollToTop />
