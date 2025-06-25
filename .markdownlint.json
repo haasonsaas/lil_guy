@@ -2,7 +2,24 @@
   "default": true,
   "MD013": false,
   "MD033": {
-    "allowed_elements": ["details", "summary", "kbd", "br"]
+    "allowed_elements": [
+      "details",
+      "summary",
+      "kbd",
+      "br",
+      "soundcloud",
+      "technical-debt-simulator",
+      "saas-metrics-dashboard",
+      "growth-strategy-simulator",
+      "startup-runway-calculator",
+      "pricing-psychology-simulator",
+      "feature-prioritization-matrix",
+      "customer-development-simulator",
+      "engineering-velocity-tracker",
+      "product-market-fit-scorer",
+      "retention-cohort-analyzer",
+      "ab-test-simulator"
+    ]
   },
   "MD034": false,
   "MD041": false,

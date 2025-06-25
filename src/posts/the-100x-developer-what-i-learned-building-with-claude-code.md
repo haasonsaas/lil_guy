@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "The 100x Developer: What I Learned Building with Claude Code"
-description: "A meta-analysis of AI pair programming after shipping 4 features in 50 minutes - including physics simulations, smart search, and this very blog post"
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'The 100x Developer: What I Learned Building with Claude Code'
+description: 'A meta-analysis of AI pair programming after shipping 4 features in 50 minutes - including physics simulations, smart search, and this very blog post'
 featured: true
 draft: false
 tags:
@@ -19,7 +19,7 @@ The same morning, I shipped semantic search (30 minutes), created HDR holographi
 
 This isn't hyperbole. Here's the git log:
 
-```
+```bash
 16:24 - Started HDR holographic experiment
 16:32 - Shipped liquid metal physics
 16:48 - Created AI workflow documentation
@@ -38,11 +38,13 @@ Most coding isn't coding. It's translation.
 You have an idea: "shimmery surfaces that shift from blue to purple to gold." Then you spend hours translating that into:
 
 ```javascript
-const gradientAngle = time * 0.5 + (x / canvas.width) * Math.PI;
-const colorShift = Math.sin(gradientAngle) * 0.5 + 0.5;
-const r = Math.floor(255 * (0.5 + 0.5 * Math.sin(colorShift * Math.PI)));
-const g = Math.floor(255 * (0.3 + 0.7 * Math.cos(colorShift * Math.PI)));
-const b = Math.floor(255 * (0.8 + 0.2 * Math.sin(colorShift * Math.PI + Math.PI/2)));
+const gradientAngle = time * 0.5 + (x / canvas.width) * Math.PI
+const colorShift = Math.sin(gradientAngle) * 0.5 + 0.5
+const r = Math.floor(255 * (0.5 + 0.5 * Math.sin(colorShift * Math.PI)))
+const g = Math.floor(255 * (0.3 + 0.7 * Math.cos(colorShift * Math.PI)))
+const b = Math.floor(
+  255 * (0.8 + 0.2 * Math.sin(colorShift * Math.PI + Math.PI / 2))
+)
 ```
 
 With Claude Code, I said "holographic foil effect" and got a complete HDR implementation with dynamic gradients, 3D transforms, and mouse-reactive shimmer. No translation. Pure creation.
@@ -57,18 +59,18 @@ No specifications. No technical requirements. Just a movie reference.
 
 ```typescript
 // Metaball algorithm for organic fluid shapes
-points.forEach(point => {
-  const dx = x - point.x;
-  const dy = y - point.y;
-  const dist = Math.sqrt(dx * dx + dy * dy) + 0.1;
-  value += 100 / (dist * dist);
-});
+points.forEach((point) => {
+  const dx = x - point.x
+  const dy = y - point.y
+  const dist = Math.sqrt(dx * dx + dy * dy) + 0.1
+  value += 100 / (dist * dist)
+})
 
 // Surface tension and viscosity
-particle.vx += (targetX - particle.x) * viscosity;
-particle.vy += (targetY - particle.y) * viscosity;
-particle.vx *= damping;
-particle.vy *= damping;
+particle.vx += (targetX - particle.x) * viscosity
+particle.vy += (targetY - particle.y) * viscosity
+particle.vx *= damping
+particle.vy *= damping
 ```
 
 Metaballs. Surface tension. Viscosity simulation. Interactive response to mouse movement. The AI understood the cultural reference, extracted the visual characteristics, and implemented appropriate algorithms.
@@ -82,13 +84,13 @@ Let me show you the math:
 **Traditional Development Time (based on similar projects):**
 
 - Liquid metal physics: 2-3 days
-- HDR holographic effects: 2-3 days  
+- HDR holographic effects: 2-3 days
 - Smart search with fuzzy matching: 2-3 days
 - AI workflow documentation: 1-2 days
 
-**Total: 7-11 days**
+### Total: 7-11 days
 
-**With Claude Code: 50 minutes**
+### With Claude Code: 50 minutes
 
 That's not a 10x improvement. It's 100x.
 
@@ -111,16 +113,16 @@ Here's the smart search scoring algorithm it created:
 
 ```typescript
 // Title matches get highest weight (40%)
-score += titleMatches.length * 0.4;
+score += titleMatches.length * 0.4
 
-// Description matches (30%)  
-score += descMatches.length * 0.3;
+// Description matches (30%)
+score += descMatches.length * 0.3
 
 // Tag matches (20%)
-score += tagMatches.length * 0.2;
+score += tagMatches.length * 0.2
 
 // Content matches (10%)
-score += contentMatches.length * 0.1;
+score += contentMatches.length * 0.1
 ```
 
 I didn't specify these weights. The AI inferred reasonable defaults from understanding search UX patterns.
@@ -145,6 +147,7 @@ Earlier today, I asked Claude to analyze my writing style. It produced a 363-lin
 
 ```markdown
 ### Voice and Tone
+
 - **Direct and conversational**: Address the reader as "you" throughout
 - **Confident and authoritative**: Make bold statements backed by experience
 - **Slightly irreverent**: Challenge conventional wisdom when appropriate
@@ -206,4 +209,4 @@ The translation overhead is dead. Long live creation.
 
 ---
 
-*P.S. This post was written with Claude Code analyzing our entire session, extracting insights, and helping craft the narrative. It took 12 minutes. The future isn't coming—it's here, writing blog posts about itself.*
+_P.S. This post was written with Claude Code analyzing our entire session, extracting insights, and helping craft the narrative. It took 12 minutes. The future isn't coming—it's here, writing blog posts about itself._

@@ -12,7 +12,7 @@ tags:
 image:
   url: 'https://images.pexels.com/photos/1117452/pexels-photo-1117452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'The metallic framework of an unfinished building, with construction workers visible in the background'
-description: "Understanding why shipping early and often is the key to building better products and stronger customer relationships"
+description: 'Understanding why shipping early and often is the key to building better products and stronger customer relationships'
 ---
 
 The most valuable product development insight I've gained over my career isn't
@@ -40,7 +40,7 @@ The first version of anything you ship will be imperfect. It might even be
 embarrassing. But it serves a crucial purpose: it transforms abstract
 discussions into concrete learning opportunities. Consider two scenarios:
 
-**Scenario A: The Perfect Plan**
+### Scenario A: The Perfect Plan
 
 - Spend 6 months planning the perfect feature
 - Get stakeholder buy-in on comprehensive specifications
@@ -48,7 +48,7 @@ discussions into concrete learning opportunities. Consider two scenarios:
 - Ship and discover fundamental misunderstandings about user needs
 - Start over
 
-**Scenario B: The Quick Ship**
+### Scenario B: The Quick Ship
 
 - Spend 2 weeks building a basic version
 - Ship to a small user group

@@ -39,7 +39,7 @@ Uncomfortable with those results? You're not alone. Let's break down what's actu
 
 Most founders calculate LTV as:
 
-```
+```text
 LTV = Average Revenue ÷ Churn Rate
 ```
 

@@ -67,7 +67,7 @@ bun --bun tsc --noEmit functions/api/capabilities.ts
 
 Boom:
 
-```
+```text
 functions/api/capabilities.ts(43,42): error TS2304: Cannot find name 'EventContext'.
 functions/api/capabilities.ts(43,55): error TS2304: Cannot find name 'Env'.
 ```
@@ -112,7 +112,7 @@ You might not notice the issue until users report problems, especially if the br
 
 ## The Debugging Process That Actually Works
 
-**Step 1: Test TypeScript Compilation Locally**
+### Step 1: Test TypeScript Compilation Locally
 
 Don't trust your deployment pipeline. Test compilation explicitly:
 
@@ -124,7 +124,7 @@ bun --bun tsc --noEmit functions/api/problematic-function.ts
 bun --bun tsc --noEmit functions/**/*.ts
 ```
 
-**Step 2: Compare Working vs Broken Functions**
+### Step 2: Compare Working vs Broken Functions
 
 Look at functions that deploy successfully and compare their structure:
 
@@ -142,7 +142,7 @@ export async function onRequest(context: {
 }
 ```
 
-**Step 3: Check Your Function Signatures**
+### Step 3: Check Your Function Signatures
 
 Cloudflare Pages Functions expect specific signatures. Using the wrong types can cause silent failures:
 
@@ -157,7 +157,7 @@ context: {
 context: EventContext<Env, string, Record<string, unknown>>
 ```
 
-**Step 4: Validate with Fresh Timestamps**
+### Step 4: Validate with Fresh Timestamps
 
 Use timestamp checks to verify actual deployment:
 
@@ -185,7 +185,7 @@ Serverless deployment gives you:
 
 ## Prevention Strategies
 
-**1. Local TypeScript Validation**
+### 1. Local TypeScript Validation
 
 Add this to your pre-commit hooks:
 
@@ -194,7 +194,7 @@ Add this to your pre-commit hooks:
 bun --bun tsc --noEmit functions/**/*.ts
 ```
 
-**2. Deployment Health Checks**
+### 2. Deployment Health Checks
 
 Build verification into your deployment process:
 
@@ -203,7 +203,7 @@ Build verification into your deployment process:
 curl https://yoursite.com/api/health | jq '.timestamp'
 ```
 
-**3. Function Template Consistency**
+### 3. Function Template Consistency
 
 Standardize your function structure:
 
@@ -221,7 +221,7 @@ export async function onRequest(context: {
 }
 ```
 
-**4. Canary Testing**
+### 4. Canary Testing
 
 Test functions immediately after deployment:
 

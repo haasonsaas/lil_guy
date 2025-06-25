@@ -54,6 +54,18 @@
       <category><![CDATA[collaboration]]></category>
     </item>
     <item>
+      <title><![CDATA[The Orchestration Dance: Lessons from Working with Multiple AI Agents]]></title>
+      <description><![CDATA[A firsthand account of the challenges and rewards of a human-AI-AI collaboration, and what it teaches us about the future of work.]]></description>
+      <link>https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[collaboration]]></category>
+      <category><![CDATA[future-of-work]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[ai-agents]]></category>
+    </item>
+    <item>
       <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
       <description><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%]]></description>
       <link>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</link>
@@ -590,18 +602,6 @@
       <category><![CDATA[user-experience]]></category>
       <category><![CDATA[product-strategy]]></category>
       <category><![CDATA[trust]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Accountability Mirror: Would a Stranger Believe You?]]></title>
-      <description><![CDATA[A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-accountability-mirror</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-accountability-mirror</guid>
-      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[mindset]]></category>
-      <category><![CDATA[execution]]></category>
-      <category><![CDATA[self-awareness]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[behavior-change]]></category>
     </item>
   </channel>
 </rss>

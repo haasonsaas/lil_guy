@@ -63,6 +63,23 @@
     <category term="collaboration" />
   </entry>
   <entry>
+    <title><![CDATA[The Orchestration Dance: Lessons from Working with Multiple AI Agents]]></title>
+    <link href="https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[A firsthand account of the challenges and rewards of a human-AI-AI collaboration, and what it teaches us about the future of work.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="collaboration" />
+    <category term="future-of-work" />
+    <category term="developer-experience" />
+    <category term="ai-agents" />
+  </entry>
+  <entry>
     <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
     <link href="https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</id>
@@ -829,22 +846,5 @@
     <category term="user-experience" />
     <category term="product-strategy" />
     <category term="trust" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Accountability Mirror: Would a Stranger Believe You?]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-accountability-mirror" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-accountability-mirror</id>
-    <published>2025-04-30T00:00:00.000Z</published>
-    <updated>2025-04-30T00:00:00.000Z</updated>
-    <summary><![CDATA[A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="mindset" />
-    <category term="execution" />
-    <category term="self-awareness" />
-    <category term="productivity" />
-    <category term="behavior-change" />
   </entry>
 </feed>

@@ -42,7 +42,7 @@ if [ -n "$modified_posts" ]; then
     echo "⚠️  SEO validation issues found. Run 'bun run validate:seo' for details."
     # Don't exit - just warn for SEO issues
   fi
-}
+fi
 
 # Generate blog images for any new or modified markdown files
 if [ -n "$modified_posts" ]; then
@@ -51,7 +51,7 @@ if [ -n "$modified_posts" ]; then
   
   # Add any newly generated images to the commit
   git add public/generated/*.png 2>/dev/null || true
-}
+fi
 
 # Check for large files (>5MB)
 echo "📏 Checking file sizes..."
@@ -61,13 +61,13 @@ if [ -n "$large_files" ]; then
   echo "$large_files"
   echo "Consider optimizing or using Git LFS for these files."
   # Don't exit - just warn
-}
+fi
 
 # Verify CLAUDE.md is up to date if scripts were modified
 modified_scripts=$(git diff --cached --name-only | grep "scripts/\|package.json" || true)
 if [ -n "$modified_scripts" ]; then
   echo "📚 Scripts modified - consider updating CLAUDE.md if new commands were added"
-}
+fi
 
 # Check for console.log in TypeScript files (excluding tests and build files)
 echo "🧹 Checking for console.log statements..."
@@ -77,7 +77,7 @@ if [ -n "$console_logs" ]; then
   echo "$console_logs"
   echo "Consider removing or using proper logging before committing."
   # Don't exit - just warn
-}
+fi
 
 # Markdown linting for modified posts
 if [ -n "$modified_posts" ]; then
@@ -86,7 +86,7 @@ if [ -n "$modified_posts" ]; then
     echo "⚠️  Markdown linting issues found. Run 'npx markdownlint-cli2 src/posts/*.md' to see details."
     # Don't exit - just warn for markdown linting
   fi
-}
+fi
 
 # Spell checking for modified posts
 if [ -n "$modified_posts" ]; then
@@ -96,7 +96,7 @@ if [ -n "$modified_posts" ]; then
     echo "💡 Add technical terms to cspell.json words array if needed."
     # Don't exit - just warn for spelling
   fi
-}
+fi
 
 # Link validation for modified posts (async, don't block)
 if [ -n "$modified_posts" ]; then
@@ -107,7 +107,7 @@ if [ -n "$modified_posts" ]; then
       echo "⚠️  Broken links found in $file. Run 'npx markdown-link-check $file' to check manually."
     done
   ) &
-}
+fi
 
 # Image optimization check for any new images
 new_images=$(git diff --cached --name-only | grep -E "\.(png|jpg|jpeg|webp|svg)$" || true)
@@ -120,7 +120,7 @@ if [ -n "$new_images" ]; then
     echo "💡 Consider optimizing these images before committing."
     # Don't exit - just warn
   fi
-}
+fi
 
 # Generate RSS feed and sitemap if posts were modified
 if [ -n "$modified_posts" ]; then
@@ -131,6 +131,6 @@ if [ -n "$modified_posts" ]; then
   echo "🗺️  Regenerating sitemap..."
   bun run generate-sitemap >/dev/null 2>&1
   git add dist/sitemap.xml dist/robots.txt 2>/dev/null || true
-}
+fi
 
 echo "✅ All pre-commit checks passed!"

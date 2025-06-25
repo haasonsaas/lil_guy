@@ -12,7 +12,7 @@ image:
   alt: 'The Hidden Costs of Technical Debt: A Visual Calculator header image'
 ---
 
-# The Hidden Costs of Technical Debt: A Visual Calculator
+## The Hidden Costs of Technical Debt: A Visual Calculator
 
 <!-- Start writing your post here -->
 

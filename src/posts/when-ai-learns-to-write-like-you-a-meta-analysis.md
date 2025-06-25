@@ -1,11 +1,11 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "When AI Learns to Write Like You: A Meta-Analysis"
-description: "What happens when you teach Claude to analyze and replicate your writing style? A meta experiment in AI-assisted content creation."
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'When AI Learns to Write Like You: A Meta-Analysis'
+description: 'What happens when you teach Claude to analyze and replicate your writing style? A meta experiment in AI-assisted content creation.'
 featured: false
 draft: false
-tags: ["ai", "writing", "developer-experience", "meta"]
+tags: ['ai', 'writing', 'developer-experience', 'meta']
 ---
 
 I've just done something that felt weirdly like looking in a mirror—I asked Claude to analyze my writing style by reading through my own blog posts.
@@ -51,7 +51,7 @@ Sound familiar? You're reading it right now.
 
 Here's what's actually happening under the hood when Claude analyzes writing patterns.
 
-**Pattern Recognition at Scale**
+### Pattern Recognition at Scale
 
 Claude isn't just counting words or checking grammar. It's performing multi-dimensional analysis across several layers:
 
@@ -72,7 +72,7 @@ What's fascinating is watching Claude apply these patterns in real-time. This po
 - Concrete examples ✓
 - No unnecessary preamble ✓
 
-But here's where it gets interesting: Claude also identified what I *don't* do:
+But here's where it gets interesting: Claude also identified what I _don't_ do:
 
 - No academic paragraphs
 - No passive voice (unless absolutely necessary)
@@ -85,7 +85,7 @@ Claude extracted specific patterns with surgical precision. Here are actual exam
 
 **Opening Patterns:**
 
-```
+```text
 I've [personal experience that sets up the problem].
 [Bold statement that challenges conventional wisdom.]
 [What the reader will learn/gain from this post.]
@@ -101,14 +101,14 @@ The analysis even caught my tendency to use physics metaphors when explaining ab
 
 **Code Integration Philosophy:**
 
-```
+```typescript
 // Claude noticed I always explain WHY before HOW
 const pattern = {
   contextFirst: true,
   minimalExamples: true,
   practicalFocus: true,
-  beforeAfterStructure: "Instead of X, do Y"
-};
+  beforeAfterStructure: 'Instead of X, do Y',
+}
 ```
 
 ## The Practical Value
@@ -125,7 +125,7 @@ Why does this matter? Three reasons:
 
 Want to implement this in your own workflow? Here's the technical approach:
 
-**Step 1: Content Corpus**
+### Step 1: Content Corpus
 
 ```bash
 # Gather your writing samples
@@ -135,21 +135,21 @@ find ./posts -name "*.md" -type f | \
   head -20  # Top 20 posts by word count
 ```
 
-**Step 2: Prompt Engineering**
+### Step 2: Prompt Engineering
 
 The key is asking for structural analysis, not just surface-level observations:
 
-```
+```text
 Analyze these posts for:
 - Sentence structure patterns
-- Paragraph length distribution  
+- Paragraph length distribution
 - Transition mechanisms
 - Voice characteristics
 - Rhetorical devices
 - Content organization patterns
 ```
 
-**Step 3: Validation Loop**
+### Step 3: Validation Loop
 
 The real test? Generate content using the extracted guidelines and A/B test it against your original writing. Track:
 
@@ -184,15 +184,15 @@ But it also revealed the method behind what felt like instinct.
 
 ## What This Means for AI-Assisted Writing
 
-We're entering an era where AI doesn't just write *for* us—it can write *as* us. Not in a creepy, identity-theft way, but as a tool that understands and amplifies our unique voice.
+We're entering an era where AI doesn't just write _for_ us—it can write _as_ us. Not in a creepy, identity-theft way, but as a tool that understands and amplifies our unique voice.
 
-The key isn't teaching AI to write better. It's teaching it to write like *you* write.
+The key isn't teaching AI to write better. It's teaching it to write like _you_ write.
 
 ## The Future: Dynamic Style Adaptation
 
 Here's where this gets really interesting from a technical perspective.
 
-**Adaptive Style Models**
+### Adaptive Style Models
 
 Imagine a system that:
 
@@ -202,14 +202,14 @@ Imagine a system that:
 
 ```typescript
 interface StyleProfile {
-  baseline: WritingPattern[];
-  contextual: Map<ContentType, StyleVariation>;
-  temporal: StyleEvolution[];
-  confidence: number;
+  baseline: WritingPattern[]
+  contextual: Map<ContentType, StyleVariation>
+  temporal: StyleEvolution[]
+  confidence: number
 }
 ```
 
-**Multi-Modal Enhancement**
+### Multi-Modal Enhancement
 
 The next frontier? Combining writing style with:
 
@@ -219,7 +219,7 @@ The next frontier? Combining writing style with:
 
 Creating a complete professional voice profile.
 
-**Privacy-Preserving Implementation**
+### Privacy-Preserving Implementation
 
 The technical challenge is doing this while:
 
@@ -236,7 +236,7 @@ When an AI can perfectly replicate your writing style, what makes something "aut
 
 I'd argue it's the intentionality. The AI can mimic my patterns, but the decision to use those patterns—or break them—remains human.
 
-**The Augmentation Paradox**
+### The Augmentation Paradox
 
 The better AI gets at writing like us, the more important our unique perspectives become. It's not about AI replacing writers. It's about amplifying what makes each writer unique.
 
@@ -248,15 +248,15 @@ Want to try this experiment yourself? Here's a more sophisticated approach than 
 
 **Basic Prompt:**
 
-```
-"Analyze my blog posts for writing patterns and create 
-a comprehensive style guide covering voice, structure, 
+```text
+"Analyze my blog posts for writing patterns and create
+a comprehensive style guide covering voice, structure,
 and technical approaches."
 ```
 
 **Advanced Prompt Template:**
 
-```
+```text
 Analyze [X] recent blog posts focusing on:
 
 1. Structural patterns:
@@ -303,12 +303,12 @@ def calculate_style_score(original_posts, generated_post):
         'vocabulary_overlap': calc_vocabulary_similarity,
         'structure_similarity': calc_structure_match
     }
-    
+
     scores = []
     for metric, func in metrics.items():
         score = func(original_posts, generated_post)
         scores.append(score)
-    
+
     return sum(scores) / len(scores)
 ```
 
@@ -318,6 +318,6 @@ But that's the point. Self-awareness is the first step to intentional improvemen
 
 ---
 
-*This post was written following AI-extracted style guidelines from my own writing. If it sounds like me, we've succeeded. If it doesn't, well—I've learned something about the gap between how I think I write and how I actually write.*
+_This post was written following AI-extracted style guidelines from my own writing. If it sounds like me, we've succeeded. If it doesn't, well—I've learned something about the gap between how I think I write and how I actually write._
 
-*What patterns would AI find in your writing? I'd love to hear what you discover.*
+_What patterns would AI find in your writing? I'd love to hear what you discover._

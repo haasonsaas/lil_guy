@@ -407,7 +407,7 @@ Over time, we develop shared understanding:
 
 ### Silent Failure Detection
 
-```bash
+```bashbash
 # Always test compilation explicitly
 bun --bun tsc --noEmit functions/**/*.ts
 

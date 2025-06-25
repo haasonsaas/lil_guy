@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-05-16
-title: "The Optimization Trap: Why Technical Founders Self-Sabotage"
-description: 
-  A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's why doing less—at the right time—is often doing it right.
+title: 'The Optimization Trap: Why Technical Founders Self-Sabotage'
+description: A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's why doing less—at the right time—is often doing it right.
 featured: false
 draft: false
 tags:
@@ -13,11 +12,11 @@ tags:
   - founder-advice
   - execution
 image:
-  url: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  alt: "Engineer staring at performance metrics on a screen, symbolizing over-optimization in early product stages"
+  url: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'Engineer staring at performance metrics on a screen, symbolizing over-optimization in early product stages'
 ---
 
-# Premature Optimization Is the Founder’s Folly
+## Premature Optimization Is the Founder’s Folly
 
 There’s a special kind of gravity that pulls technical founders toward performance, scalability, and “doing it right.” It’s the same gravity that leads to beautiful infrastructure for a product no one’s using. And it’s why some of the smartest builders ship the least impactful things.
 
@@ -39,7 +38,7 @@ Here’s the play-by-play I see all the time:
 2. Founder spins up a repo, sets up CI/CD, containers, Terraform, event queues, and a layered architecture with domain-driven design.
 3. Six weeks later, still no users. But hey—the latency on cold start API calls is 🔥.
 
-When you're deep in the weeds of your own stack, this feels like progress. But unless your users are performance-sensitive *now*, you’re just optimizing for an imaginary future.
+When you're deep in the weeds of your own stack, this feels like progress. But unless your users are performance-sensitive _now_, you’re just optimizing for an imaginary future.
 
 ## The Myth of “We’ll Need This Later”
 
@@ -49,11 +48,11 @@ Ah yes—the battle cry of every over-engineered v1:
 
 No, you might not.
 
-You might need something *entirely different* later. Because odds are, the product you’re building today will change. Drastically. And all that optimization work? It won’t carry over.
+You might need something _entirely different_ later. Because odds are, the product you’re building today will change. Drastically. And all that optimization work? It won’t carry over.
 
 Here’s the dirty secret: good engineering is disposable. It’s supposed to be.
 
-Building with agility doesn’t mean writing bad code. It means writing code you’re *willing to throw away* when the product changes.
+Building with agility doesn’t mean writing bad code. It means writing code you’re _willing to throw away_ when the product changes.
 
 ## The Opportunity Cost of Optimizing the Wrong Thing
 
@@ -69,7 +68,7 @@ You’ve just traded a week that could’ve gone to:
 
 - Talking to users
 - Validating assumptions
-- Building scrappy features that *actually* get used
+- Building scrappy features that _actually_ get used
 - Testing pricing
 - Writing copy that converts
 
@@ -79,7 +78,7 @@ The result? Your startup is faster, but no closer to surviving.
 
 ## What Good Looks Like Early On
 
-So what *should* you optimize for?
+So what _should_ you optimize for?
 
 Here’s the real game in early-stage products:
 
@@ -87,7 +86,7 @@ Here’s the real game in early-stage products:
 
 Can you build → launch → get feedback → adjust in hours or days, not weeks?
 
-Your infrastructure should *enable* speed, not slow it down.
+Your infrastructure should _enable_ speed, not slow it down.
 
 ### 2. **Signal Over Polish**
 
@@ -113,7 +112,7 @@ Let’s get real.
 
 Premature optimization isn’t just a technical issue. It’s a psychological one.
 
-It feels *safe* to build. It feels *productive* to refactor. It feels *justified* to say, “but this is how we’d scale later.”
+It feels _safe_ to build. It feels _productive_ to refactor. It feels _justified_ to say, “but this is how we’d scale later.”
 
 What it really is? Avoidance.
 
@@ -150,9 +149,9 @@ You set up Kafka for event-driven processing.
 Turns out... the MVP only needs a cron job and a Postgres trigger.  
 Kafka is now your biggest source of downtime.
 
-## What You *Should* Over-Optimize
+## What You _Should_ Over-Optimize
 
-There are a few things that are worth doing *well* early:
+There are a few things that are worth doing _well_ early:
 
 - **Onboarding experience** – You only get one shot at a user’s first 5 minutes.
 - **Error handling** – Crashes kill trust faster than slow queries.

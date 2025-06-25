@@ -1,27 +1,26 @@
 ---
-author: Jonathan Haas  
-pubDate: 2024-04-22  
-title: "The Passive-Aggressive Manager: Navigating Feedback That Never Comes"  
-description:  
-  Why some of the most frustrating managers succeed without giving direct feedback, and how to work with them without losing your mind—or your momentum.  
-featured: false  
-draft: false  
-tags:  
+author: Jonathan Haas
+pubDate: 2024-04-22
+title: 'The Passive-Aggressive Manager: Navigating Feedback That Never Comes'
+description: Why some of the most frustrating managers succeed without giving direct feedback, and how to work with them without losing your mind—or your momentum.
+featured: false
+draft: false
+tags:
   - management
   - leadership
   - career
   - culture
-  - personal-growth  
-image:  
-  url: 'https://images.pexels.com/photos/3205566/pexels-photo-3205566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  
-  alt: "An employee waiting in an office, symbolizing ambiguity and lack of direct feedback from leadership"  
+  - personal-growth
+image:
+  url: 'https://images.pexels.com/photos/3205566/pexels-photo-3205566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'An employee waiting in an office, symbolizing ambiguity and lack of direct feedback from leadership'
 ---
 
 Let’s talk about a particular flavor of leadership dysfunction: the **passive-aggressive manager**. You’ve probably worked with one. Or maybe, if you’re really unlucky, you work for one right now.
 
 They don’t yell.  
 They don’t give clear direction.  
-They don’t offer constructive criticism.  
+They don’t offer constructive criticism.
 
 Instead, they nod politely in meetings, give vague affirmations, then quietly pull you off the next project or express “concerns” behind closed doors.
 
@@ -45,11 +44,11 @@ Let’s break it down.
 
 ### 1. They Avoid Messy Conflict (Which Looks Like “Stability”)
 
-Conflict-averse behavior is often misread as diplomacy or calm leadership. Passive-aggressive managers rarely raise their voice, challenge others directly, or cause overt tension. This makes them appear “steady” in organizations that conflate *quiet* with *competence*.
+Conflict-averse behavior is often misread as diplomacy or calm leadership. Passive-aggressive managers rarely raise their voice, challenge others directly, or cause overt tension. This makes them appear “steady” in organizations that conflate _quiet_ with _competence_.
 
 ### 2. They Play Politics Exceptionally Well
 
-These managers are often very careful about what they say and *who* they say it to. They air concerns indirectly—via dotted-line conversations, behind-the-scenes influence, or carefully worded emails.
+These managers are often very careful about what they say and _who_ they say it to. They air concerns indirectly—via dotted-line conversations, behind-the-scenes influence, or carefully worded emails.
 
 They know how to manage up.  
 They know how to whisper doubt without taking responsibility.  
@@ -73,7 +72,7 @@ Even when these managers hit their KPIs or get positive reviews from their own b
 
 - **Feedback deserts**: People don’t know where they stand, so they play it safe.
 - **Morale erosion**: A lack of direct communication breeds mistrust and whispers.
-- **Talent flight**: High performers—who *want* feedback—get frustrated and leave.
+- **Talent flight**: High performers—who _want_ feedback—get frustrated and leave.
 - **Culture decay**: The team learns to mimic the behavior, avoiding tough conversations and suppressing issues.
 
 And all of this happens quietly. Which means it often goes unaddressed until the damage is systemic.
@@ -94,9 +93,9 @@ Clarity forces clarity—eventually.
 
 ### 2. Ask Direct Questions (Even If You Don’t Get Direct Answers)
 
-You won’t always get a clear response, but the act of *asking* serves a few purposes:
+You won’t always get a clear response, but the act of _asking_ serves a few purposes:
 
-- It signals you *want* feedback.
+- It signals you _want_ feedback.
 - It puts the onus on them to say what they’re really thinking.
 - It creates a paper trail that can reveal patterns over time.
 
@@ -104,7 +103,7 @@ Try:
 
 > “Is there anything specific I could’ve done better on this project?”
 
-> “Can we align on what success looks like moving forward?”
+> > “Can we align on what success looks like moving forward?”
 
 You might still get vague replies, but now you’ve made the gap visible.
 
@@ -132,7 +131,7 @@ Staying under a passive-aggressive manager long-term is a recipe for burnout. Th
 
 Don’t let it happen.
 
-## If You *Are* That Manager (And You Just Realized It)
+## If You _Are_ That Manager (And You Just Realized It)
 
 Hey, it happens. Feedback avoidance can creep in slowly—especially for leaders promoted without support or training.
 

@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-20
-title: "The Alignment Gap: Bridging Strategy and Execution"
+title: 'The Alignment Gap: Bridging Strategy and Execution'
 description: "How to ensure your team's execution aligns with your strategic vision"
 featured: true
 draft: false
@@ -12,7 +12,7 @@ tags:
   - culture
 image:
   url: '/images/alignment-gap.png'
-  alt: "A diagram showing the alignment gap between leadership and product teams"
+  alt: 'A diagram showing the alignment gap between leadership and product teams'
 ---
 
 Every product leader has experienced that sinking feeling: you're confidently presenting to stakeholders about an "on-track" product launch when someone asks an innocent question that reveals a fundamental issue everyone on the ground floor knew about weeks ago. Why didn't this information reach you sooner? Welcome to what Phil Venables calls the "thermocline of truth" – but in product development, I call it the **alignment gap**.
@@ -38,7 +38,7 @@ This distortion happens because product teams naturally want to project confiden
 
 Product requirements often exist in multiple, conflicting states simultaneously:
 
-```
+```text
 Product specs state: "The system must support 10,000 concurrent users"
 Engineering understands: "We need to handle ~1,000 concurrent users comfortably"
 Sales is promising: "The system handles unlimited concurrent users"
@@ -50,7 +50,7 @@ This misalignment creates products that fail to meet expectations, not because t
 
 When a product initiative encounters fundamental issues, organizations often double down rather than pivot. Consider this timeline:
 
-```
+```text
 Month 1: "The new architecture will revolutionize our platform"
 Month 3: "Implementation is more complex than anticipated, but we're adapting"
 Month 6: "We've invested too much to change course now"
@@ -83,7 +83,7 @@ Effective product organizations don't just acknowledge the alignment gap – the
 
 Before major product initiatives, run structured pre-mortems where team members anonymously identify what might go wrong. Frame this as wisdom, not pessimism:
 
-```typescript
+```typescripttypescript
 // Sample Pre-Mortem Structure
 interface PreMortemItem {
   risk: string;
@@ -114,15 +114,15 @@ By ritualizing truth-telling, you make it a normal part of your product developm
 
 Most reporting structures inadvertently filter information as it moves up the chain. Combat this by creating direct visibility into real work:
 
-* Open sprint reviews where anyone can attend
-* Shared project management dashboards showing real metrics, not just status reports
-* Regular unstructured time for leadership to experience the product as it's being built
+- Open sprint reviews where anyone can attend
+- Shared project management dashboards showing real metrics, not just status reports
+- Regular unstructured time for leadership to experience the product as it's being built
 
 ### 4. Institute Milestone-Based Assumption Testing
 
 Every product roadmap contains assumptions. Rather than waiting until launch to test them, explicitly identify and test key assumptions at defined milestones:
 
-```
+```text
 Milestone 1: Validate user problem exists (user interviews)
 Milestone 2: Validate solution approach (prototype testing)
 Milestone 3: Validate technical feasibility (architecture review)
@@ -135,7 +135,7 @@ At each milestone, create a formal moment to evaluate whether assumptions still 
 
 Inspired by NASA's launch protocols, create explicit go/no-go decision points where specific individuals have autonomous authority to raise concerns:
 
-```
+```text
 User Experience Lead: "Go/No-Go on usability"
 Technical Lead: "Go/No-Go on technical reliability"
 Security Lead: "Go/No-Go on security readiness"
@@ -192,4 +192,4 @@ The question isn't whether you can afford to build these alignment structures. I
 
 ---
 
-*What alignment challenges have you encountered in your product organization? Share your experiences in the comments below.*
+_What alignment challenges have you encountered in your product organization? Share your experiences in the comments below._

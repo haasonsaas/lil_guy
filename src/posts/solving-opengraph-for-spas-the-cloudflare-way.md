@@ -1,11 +1,19 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "Solving OpenGraph for SPAs: The Cloudflare Way"
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'Solving OpenGraph for SPAs: The Cloudflare Way'
 description: "How to fix social media previews for React SPAs using Cloudflare's edge functions - no SSR required"
 featured: false
 draft: false
-tags: ["cloudflare", "react", "spa", "opengraph", "edge-computing", "developer-experience"]
+tags:
+  [
+    'cloudflare',
+    'react',
+    'spa',
+    'opengraph',
+    'edge-computing',
+    'developer-experience',
+  ]
 ---
 
 I just spent hours trying to get OpenGraph images working for my React SPA blog. If you've ever shared a React app link on Twitter only to see a blank preview, you know the pain.
@@ -32,7 +40,7 @@ The OpenGraph problem hits you right when you're ready to share your work with t
 
 I tried several approaches before finding the right one:
 
-**Attempt 1: React Helmet**
+### Attempt 1: React Helmet
 
 ```javascript
 <Helmet>
@@ -56,56 +64,59 @@ Here's the complete solution:
 
 ```typescript
 // functions/_middleware.ts
-import type { PagesFunction } from '@cloudflare/workers-types';
+import type { PagesFunction } from '@cloudflare/workers-types'
 
 export const onRequest: PagesFunction = async (context) => {
-  const { request, next, env } = context;
-  const response = await next();
-  
+  const { request, next, env } = context
+  const response = await next()
+
   // Only process HTML responses
   if (!response.headers.get('content-type')?.includes('text/html')) {
-    return response;
+    return response
   }
-  
+
   // Detect social media bots
-  const userAgent = request.headers.get('user-agent') || '';
-  const isBot = /facebookexternalhit|Twitterbot|LinkedInBot/i.test(userAgent);
-  
+  const userAgent = request.headers.get('user-agent') || ''
+  const isBot = /facebookexternalhit|Twitterbot|LinkedInBot/i.test(userAgent)
+
   if (!isBot) {
-    return response;
+    return response
   }
-  
+
   // Check if this is a blog post
-  const url = new URL(request.url);
-  const blogMatch = url.pathname.match(/^\/blog\/([^/]+)\/?$/);
-  
+  const url = new URL(request.url)
+  const blogMatch = url.pathname.match(/^\/blog\/([^/]+)\/?$/)
+
   if (!blogMatch) {
-    return response;
+    return response
   }
-  
-  const slug = blogMatch[1];
+
+  const slug = blogMatch[1]
   // Fetch your metadata (from KV, JSON, API, etc.)
-  const metadata = await getPostMetadata(slug);
-  
+  const metadata = await getPostMetadata(slug)
+
   if (!metadata) {
-    return response;
+    return response
   }
-  
+
   // Inject meta tags using HTMLRewriter
   return new HTMLRewriter()
     .on('head', {
       element(element) {
-        element.prepend(`
+        element.prepend(
+          `
     <meta property="og:title" content="${metadata.title}" />
     <meta property="og:description" content="${metadata.description}" />
     <meta property="og:image" content="${metadata.image}" />
     <meta property="og:url" content="${request.url}" />
     <meta name="twitter:card" content="summary_large_image" />
-        `, { html: true });
-      }
+        `,
+          { html: true }
+        )
+      },
     })
-    .transform(response);
-};
+    .transform(response)
+}
 ```
 
 ## Why This Works
@@ -120,7 +131,7 @@ export const onRequest: PagesFunction = async (context) => {
 **Bot Detection**: The regex needs to catch all the crawlers:
 
 ```javascript
-/bot|crawler|spider|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|Slack|Discord|telegram/i
+;/bot|crawler|spider|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|Slack|Discord|telegram/i
 ```
 
 **Routing Configuration**: Your `_routes.json` needs to include HTML routes but exclude assets:

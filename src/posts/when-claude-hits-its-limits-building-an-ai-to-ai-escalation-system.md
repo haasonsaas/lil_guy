@@ -51,7 +51,7 @@ The Model Context Protocol (MCP) made this possible. Here's the architecture:
 
 When Claude recognizes it needs help, it calls the escalation tool:
 
-```typescript
+```typescripttypescript
 await escalate_analysis({
   claude_context: {
     attempted_approaches: ['Checked mutex usage', 'Analyzed goroutines'],
