@@ -396,6 +396,27 @@ When creating blog posts, consider adding **interactive demos** to enhance engag
 - Properly diagnose esbuild service errors, dependency issues, and configuration problems
 - Clean reinstalls (rm -rf node_modules && bun install) often resolve service communication issues
 
+## Production Application Guidelines
+
+### CRITICAL: No Mock Data Policy
+
+**THIS IS A REAL PRODUCTION APPLICATION - MOCK DATA IS NEVER ALLOWED**
+
+- **NEVER return mock data, fake responses, or placeholder content**
+- All AI scripts must make real API calls to actual AI services
+- All analysis functions must return real data from actual processing
+- Mock data violates production application requirements
+- If an API call fails, handle the error properly rather than returning fake data
+- All outputs must be genuine results from the AI models
+
+### Implementation Requirements
+
+- Use real API endpoints (Anthropic Claude, Google Gemini)
+- Parse actual AI responses, not simulated outputs
+- Handle API errors gracefully with proper error messages
+- Cache real responses, never fake data
+- All scoring and analysis must be based on actual AI evaluation
+
 ## Content Protection and Destructive Action Guidelines
 
 ### CRITICAL: Content Preservation Rules

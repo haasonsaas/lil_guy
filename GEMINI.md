@@ -2,6 +2,27 @@
 
 This document outlines the capabilities and commands for the Gemini coding agent in this repository.
 
+## Production Application Guidelines
+
+### CRITICAL: No Mock Data Policy
+
+**THIS IS A REAL PRODUCTION APPLICATION - MOCK DATA IS NEVER ALLOWED**
+
+- **NEVER return mock data, fake responses, or placeholder content**
+- All AI scripts must make real API calls to actual AI services
+- All analysis functions must return real data from actual processing
+- Mock data violates production application requirements
+- If an API call fails, handle the error properly rather than returning fake data
+- All outputs must be genuine results from the AI models
+
+### Implementation Requirements
+
+- Use real API endpoints (Google Gemini AI API)
+- Parse actual AI responses, not simulated outputs
+- Handle API errors gracefully with proper error messages
+- Cache real responses, never fake data
+- All scoring and analysis must be based on actual AI evaluation
+
 ## Primary Goal
 
 To assist in the creation, maintenance, and quality assurance of the blog content and platform, acting as a collaborative partner in the development process.
