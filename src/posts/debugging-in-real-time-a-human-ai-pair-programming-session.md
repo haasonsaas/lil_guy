@@ -10,6 +10,9 @@ tags:
   - debugging
   - collaboration
   - pair-programming
+series:
+  name: 'Building Production-Ready Infrastructure'
+  part: 3
 image:
   url: '/images/debugging-in-real-time-a-human-ai-pair-programming-session.jpg'
   alt: 'Debugging in Real-Time: A Human-AI Pair Programming Session header image'

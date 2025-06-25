@@ -10,6 +10,7 @@ import SocialShare from '@/components/SocialShare'
 import { ReadingProgressBar } from '@/components/ReadingProgressBar'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Tag, Calendar, Clock, Eye } from 'lucide-react'
+import SeriesNavigation from '@/components/SeriesNavigation'
 import {
   getPostBySlug,
   formatDate,
@@ -57,6 +58,7 @@ export default function BlogPost() {
   const [searchParams] = useSearchParams()
   const [post, setPost] = useState<BlogPost | null>(null)
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([])
+  const [seriesPosts, setSeriesPosts] = useState<BlogPost[]>([])
   const [relatedPostsLoading, setRelatedPostsLoading] = useState(false)
 
   const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([])
@@ -118,6 +120,21 @@ export default function BlogPost() {
       // Load all tags
       const tags = await getAllTags()
       setAllTags(tags)
+
+      // Load series posts
+      if (loadedPost.frontmatter.series) {
+        const allPosts = await getAllPosts()
+        const series = allPosts.filter(
+          (p) =>
+            p.frontmatter.series?.name === loadedPost.frontmatter.series?.name
+        )
+        series.sort(
+          (a, b) =>
+            (a.frontmatter.series?.part || 0) -
+            (b.frontmatter.series?.part || 0)
+        )
+        setSeriesPosts(series)
+      }
     }
 
     loadPost()
@@ -222,6 +239,12 @@ export default function BlogPost() {
             )}
 
             <div className="mb-8 animate-fade-in">
+              {post.frontmatter.series && (
+                <SeriesNavigation
+                  currentPost={post}
+                  seriesPosts={seriesPosts}
+                />
+              )}
               <div className="flex flex-wrap gap-2 mb-4">
                 {frontmatter?.tags &&
                   Array.isArray(frontmatter.tags) &&

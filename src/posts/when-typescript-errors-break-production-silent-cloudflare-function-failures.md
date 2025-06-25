@@ -6,11 +6,15 @@ description: 'A deep dive into debugging serverless deployment failures, TypeScr
 featured: false
 draft: false
 tags:
-  - cloudflare
-  - typescript
-  - debugging
-  - serverless
-  - deployment
+  tags:
+    - cloudflare
+    - typescript
+    - debugging
+    - serverless
+    - deployment
+series:
+  name: 'Building Production-Ready Infrastructure'
+  part: 1
 image:
   url: '/images/when-typescript-errors-break-production-silent-cloudflare-function-failures.jpg'
   alt: 'When TypeScript Errors Break Production: Silent Cloudflare Function Failures header image'

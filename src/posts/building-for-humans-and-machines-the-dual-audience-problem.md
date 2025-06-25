@@ -7,9 +7,12 @@ featured: false
 draft: false
 tags:
   - ai
-  - web-development
-  - ux-design
   - architecture
+  - developer-experience
+  - product
+series:
+  name: 'Building Production-Ready Infrastructure'
+  part: 2
 image:
   url: '/images/building-for-humans-and-machines-the-dual-audience-problem.jpg'
   alt: 'Building for Humans AND Machines: The Dual-Audience Problem header image'
