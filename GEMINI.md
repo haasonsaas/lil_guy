@@ -112,3 +112,16 @@ You can invoke the agent's capabilities by using the following commands in your 
 When creating pull requests, use the `gh` CLI. For example:
 
 `gh pr create --title "feat: add new feature" --body "This PR adds a new feature that does x, y, and z."`
+
+### Blog Post Creation Workflow
+
+When asked to write a new blog post on a given topic, the agent should follow these steps:
+
+1.  **Create the Draft:** Use the `gemini:new-draft "topic"` command to generate a structured outline, title, and tags.
+2.  **Read the Draft:** Use the `read_file` tool to read the content of the newly created draft file.
+3.  **Write the Full Post:** Based on the outline and topic, write a complete blog post, adhering to the style guidelines.
+4.  **Save the Post:** Use the `write_file` tool to save the full content back to the markdown file.
+5.  **Create a Branch:** Use `git checkout -b feat/blog-post-<slug>` to create a new branch for the post.
+6.  **Commit the Changes:** Use `git add` and `git commit` to commit the new post with a conventional commit message (e.g., `feat: add blog post on 'topic'`).
+7.  **Push to Remote:** Use `git push` to push the new branch to the remote repository.
+8.  **Open a Pull Request:** Use the `gh pr create` command to open a new pull request for review.
