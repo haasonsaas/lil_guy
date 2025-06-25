@@ -50,6 +50,7 @@ const HDRHolographicFoilPage = lazy(
 const LiquidMetalPage = lazy(() => import('./pages/LiquidMetalPage'))
 const AIPage = lazy(() => import('./pages/AIPage'))
 const AgentsPage = lazy(() => import('./pages/AgentsPage'))
+const FavoritesPage = lazy(() => import('./pages/FavoritesPage'))
 
 // Loading component with better UX
 const PageLoading = () => (
@@ -97,6 +98,7 @@ const App = () => (
                   <Route path="/reading" element={<ReadingPage />} />
                   <Route path="/ai" element={<AIPage />} />
                   <Route path="/agents" element={<AgentsPage />} />
+                  <Route path="/favorites" element={<FavoritesPage />} />
 
                   <Route path="/newsletter" element={<NewsletterPage />} />
                   <Route path="/experiments" element={<ExperimentsPage />} />

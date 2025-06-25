@@ -9,7 +9,8 @@ import AuthorBio from '@/components/AuthorBio'
 import SocialShare from '@/components/SocialShare'
 import { ReadingProgressBar } from '@/components/ReadingProgressBar'
 import { Button } from '@/components/ui/button'
-import { ArrowLeft, Tag, Calendar, Clock, Eye } from 'lucide-react'
+import { ArrowLeft, Tag, Calendar, Clock, Eye, Bookmark } from 'lucide-react'
+import { useFavorites } from '@/hooks/useFavorites'
 import SeriesNavigation from '@/components/SeriesNavigation'
 import {
   getPostBySlug,
@@ -41,6 +42,8 @@ import {
   useExternalLinkTracking,
 } from '@/hooks/useAnalytics'
 import { useAutoCacheBlogPost } from '@/hooks/useServiceWorker'
+import { useFavorites } from '@/hooks/useFavorites'
+import { useFavorites } from '@/hooks/useFavorites'
 import type { BlogPost } from '@/types/blog'
 import WeeklyPlaybook from '@/components/WeeklyPlaybook'
 import { Subscribe } from '@/components/Subscribe'
@@ -68,6 +71,7 @@ export default function BlogPost() {
 
   // Analytics hooks
   const { trackPostView, trackTagClick } = useAnalytics()
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites()
   useReadingProgress(slug || '')
   useExternalLinkTracking()
 
@@ -308,6 +312,20 @@ export default function BlogPost() {
                   description={frontmatter.description}
                   slug={post.slug}
                 />
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() =>
+                    isFavorite(post.slug)
+                      ? removeFavorite(post.slug)
+                      : addFavorite(post.slug)
+                  }
+                >
+                  <Bookmark
+                    className={`mr-2 h-4 w-4 ${isFavorite(post.slug) ? 'fill-current' : ''}`}
+                  />
+                  {isFavorite(post.slug) ? 'Bookmarked' : 'Bookmark'}
+                </Button>
               </div>
             </div>
 
