@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
 import Layout from "@/components/Layout";
-import { useAsyncState } from "@/components/AsyncBoundary";
+import { useAsyncState } from "@/hooks/useAsyncState";
 import { Loader2 } from "lucide-react";
 
 const NewsletterPage = () => {
