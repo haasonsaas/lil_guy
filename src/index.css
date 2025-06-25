@@ -166,38 +166,32 @@ pre[class*="language-"] {
   white-space: normal !important;
 }
 
-/* Light mode colors */
+/* Light mode colors - High contrast theme */
 :root pre[class*="language-"] {
-  background: var(--ctp-latte-mantle) !important;
+  background: #f8f8f8 !important;
+  border: 1px solid #e0e0e0 !important;
 }
 
 :root :not(pre) > code[class*="language-"] {
-  background: var(--ctp-latte-surface0) !important;
-  color: var(--ctp-latte-text) !important;
+  background: #f0f0f0 !important;
+  color: #2d2d2d !important;
+  border: 1px solid #e0e0e0 !important;
 }
 
-/* Catppuccin Latte colors for light mode */
+/* High contrast colors for light mode */
 :root {
-  --ctp-latte-rosewater: #dc8a78;
-  --ctp-latte-flamingo: #dd7878;
-  --ctp-latte-pink: #ea76cb;
-  --ctp-latte-mauve: #8839ef;
-  --ctp-latte-red: #d20f39;
-  --ctp-latte-maroon: #e64553;
-  --ctp-latte-peach: #fe640b;
-  --ctp-latte-yellow: #df8e1d;
-  --ctp-latte-green: #40a02b;
-  --ctp-latte-teal: #179299;
-  --ctp-latte-sky: #04a5e5;
-  --ctp-latte-sapphire: #209fb5;
-  --ctp-latte-blue: #1e66f5;
-  --ctp-latte-lavender: #7287fd;
-  --ctp-latte-text: #4c4f69;
-  --ctp-latte-subtext1: #5c5f77;
-  --ctp-latte-overlay0: #9ca0b0;
-  --ctp-latte-surface0: #ccd0da;
-  --ctp-latte-base: #eff1f5;
-  --ctp-latte-mantle: #e6e9ef;
+  --light-red: #c41e3a;
+  --light-green: #2a7f3e;
+  --light-yellow: #b58900;
+  --light-blue: #0969da;
+  --light-purple: #6f42c1;
+  --light-cyan: #1a7f7f;
+  --light-orange: #d73a49;
+  --light-pink: #d1327f;
+  --light-comment: #6a737d;
+  --light-text: #24292e;
+  --light-bg: #f8f8f8;
+  --light-bg-inline: #f0f0f0;
 }
 
 /* Catppuccin Mocha colors for dark mode */
@@ -224,16 +218,17 @@ pre[class*="language-"] {
   --ctp-mocha-mantle: #181825;
 }
 
-/* Light mode token colors */
+/* Light mode token colors - High contrast */
 :root .token.comment,
 :root .token.prolog,
 :root .token.doctype,
 :root .token.cdata {
-  color: var(--ctp-latte-overlay0) !important;
+  color: var(--light-comment) !important;
+  font-style: italic;
 }
 
 :root .token.punctuation {
-  color: var(--ctp-latte-text) !important;
+  color: var(--light-text) !important;
 }
 
 :root .token.property,
@@ -243,7 +238,7 @@ pre[class*="language-"] {
 :root .token.constant,
 :root .token.symbol,
 :root .token.deleted {
-  color: var(--ctp-latte-red) !important;
+  color: var(--light-red) !important;
 }
 
 :root .token.selector,
@@ -252,7 +247,7 @@ pre[class*="language-"] {
 :root .token.char,
 :root .token.builtin,
 :root .token.inserted {
-  color: var(--ctp-latte-green) !important;
+  color: var(--light-green) !important;
 }
 
 :root .token.operator,
@@ -260,24 +255,26 @@ pre[class*="language-"] {
 :root .token.url,
 :root .language-css .token.string,
 :root .style .token.string {
-  color: var(--ctp-latte-peach) !important;
+  color: var(--light-orange) !important;
 }
 
 :root .token.atrule,
 :root .token.attr-value,
 :root .token.keyword {
-  color: var(--ctp-latte-mauve) !important;
+  color: var(--light-purple) !important;
+  font-weight: 500;
 }
 
 :root .token.function,
 :root .token.class-name {
-  color: var(--ctp-latte-blue) !important;
+  color: var(--light-blue) !important;
+  font-weight: 500;
 }
 
 :root .token.regex,
 :root .token.important,
 :root .token.variable {
-  color: var(--ctp-latte-yellow) !important;
+  color: var(--light-yellow) !important;
 }
 
 /* Dark mode colors */
@@ -365,7 +362,15 @@ pre[class*="language-"] {
 }
 
 .prose :not(pre) code {
-  @apply bg-muted px-1.5 py-0.5 rounded text-[13px] font-mono;
+  @apply px-1.5 py-0.5 rounded text-[13px] font-mono;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+}
+
+.dark .prose :not(pre) code {
+  @apply bg-muted border-0;
+  color: inherit;
 }
 
 .prose :not(pre) code::before,
