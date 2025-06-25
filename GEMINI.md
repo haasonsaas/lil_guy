@@ -70,3 +70,26 @@ You can invoke the agent's capabilities by using the following commands in your 
     5.  Updates the blog post's frontmatter to include the new image's URL.
 
 *   **Example:** `gemini:generate-image "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent"`
+
+### `gemini:propose-titles "topic"`
+
+**Action:** Generates a list of 5-10 alternative, SEO-friendly titles for a given blog post topic.
+
+*   **Workflow:**
+    1.  Takes a blog post topic as input.
+    2.  Uses the Google AI API to generate 5-10 alternative titles.
+    3.  The titles will be SEO-friendly and under 60 characters.
+    4.  Outputs the titles for you to review and use.
+
+*   **Example:** `gemini:propose-titles "The pros and cons of using WebAssembly in a React project"`
+
+### `gemini:suggest-tags "post-slug"`
+
+**Action:** Reads a published post and suggests relevant tags.
+
+*   **Workflow:**
+    1.  Reads the content of the specified blog post.
+    2.  Uses the Google AI API to generate 5-10 relevant tags.
+    3.  Outputs the tags for you to review and use.
+
+*   **Example:** `gemini:suggest-tags "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent"`

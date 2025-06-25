@@ -7,6 +7,7 @@ import { exec } from "child_process";
 import matter from 'gray-matter';
 import fs from 'fs/promises';
 import { glob } from 'glob';
+import path from 'path';
 
 const execAsync = promisify(exec);
 
@@ -109,6 +110,12 @@ async function main() {
       break;
     case 'generate-image':
       await generateImage(args.join(' '));
+      break;
+    case 'propose-titles':
+      await proposeTitles(args.join(' '));
+      break;
+    case 'suggest-tags':
+      await suggestTags(args.join(' '));
       break;
     default:
       console.error(chalk.red(`❌ Error: Unknown command "${command}"`));
@@ -396,3 +403,98 @@ async function generateImage(postSlug: string) {
 }
 
 main().catch(console.error);
+
+async function proposeTitles(topic: string) {
+  console.log(chalk.blue(`📝 Proposing titles for topic: "${topic}"\n`));
+
+  try {
+    // 1. Generate a list of titles using the Google AI API
+    console.log(chalk.yellow('🤖 Generating titles with Google AI...'));
+    const prompt = `
+      You are a world-class content strategist and writer for a top-tier technical blog.
+      Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
+
+      Your task is to generate a list of 5-10 compelling, SEO-friendly titles for the following topic.
+      Each title should be under 60 characters.
+
+      **Topic:** "${topic}"
+
+      Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
+
+      {
+        "titles": [
+          "A catchy, SEO-friendly title (under 60 characters).",
+          "Another catchy, SEO-friendly title (under 60 characters).",
+          "And so on..."
+        ]
+      }
+    `;
+    const generatedContent = await callGoogleAI(prompt);
+
+    // Parse the generated content
+    const parsedContent = extractJSON(generatedContent);
+
+    console.log(chalk.green('✨ Here are your title suggestions:\n'));
+    parsedContent.titles.forEach((title: string) => {
+      console.log(chalk.cyan(`- ${title}`));
+    });
+
+  } catch (error) {
+    console.error(chalk.red('❌ An error occurred while proposing titles:'), error);
+    process.exit(1);
+  }
+}
+
+async function suggestTags(postSlug: string) {
+  console.log(chalk.blue(`📝 Suggesting tags for post: "${postSlug}"\n`));
+
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`);
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    const { data: frontmatter, content } = matter(fileContent);
+
+    if (!frontmatter.title) {
+      console.error(chalk.red('❌ Error: Post does not have a title.'));
+      process.exit(1);
+    }
+
+    // Generate a list of tags using the Google AI API
+    console.log(chalk.yellow('🤖 Generating tags with Google AI...'));
+    const prompt = `
+      You are a world-class content strategist and writer for a top-tier technical blog.
+      Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
+
+      Your task is to generate a list of 5-10 relevant tags for the following blog post.
+
+      **Title:** "${frontmatter.title}"
+      **Description:** "${frontmatter.description}"
+      **Content Snippet:**
+      ${content.substring(0, 1500)}...
+
+      Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
+
+      {
+        "tags": [
+          "tag-one",
+          "tag-two",
+          "tag-three",
+          "tag-four",
+          "tag-five"
+        ]
+      }
+    `;
+    const generatedContent = await callGoogleAI(prompt);
+
+    // Parse the generated content
+    const parsedContent = extractJSON(generatedContent);
+
+    console.log(chalk.green('✨ Here are your tag suggestions:\n'));
+    parsedContent.tags.forEach((tag: string) => {
+      console.log(chalk.cyan(`- ${tag}`));
+    });
+
+  } catch (error) {
+    console.error(chalk.red('❌ An error occurred while suggesting tags:'), error);
+    process.exit(1);
+  }
+}
