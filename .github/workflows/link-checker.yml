@@ -1,0 +1,44 @@
+name: Broken Link Checker
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Runs every Sunday at midnight
+  workflow_dispatch: # Allows manual triggering
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Bun
+        uses: oven-sh/setup-bun@v1
+
+      - name: Install dependencies
+        run: bun install
+
+      - name: Check for broken links
+        id: link-check
+        run: |
+          bun run check:links > link-check-output.txt || true
+
+      - name: Create issue if broken links found
+        if: failure()
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Create GitHub issue
+        if: failure()
+        uses: dacbd/create-issue-action@main
+        with:
+          token: ${{ steps.create-token.outputs.token }}
+          title: "Broken Links Detected in Blog Posts"
+          body: |
+            The weekly link checker has detected one or more broken links in the blog posts.
+            Please review the following output and fix the links:
+            ```
+            ${{ steps.link-check.outputs.stdout }}
+            ```
