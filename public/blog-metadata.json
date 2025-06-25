@@ -6,6 +6,19 @@
     "pubDate": "2024-04-11T00:00:00.000Z",
     "tags": ["personal-growth", "productivity", "leadership", "culture"]
   },
+  "multi-agent-testing-a-practical-demo": {
+    "title": "Multi-Agent Testing: A Practical Demo",
+    "description": "Skip the theory. This post delivers a hands-on demo of multi-agent testing, showcasing its power in uncovering complex system flaws.  Learn how to implement it and see tangible results, saving your team time and headaches.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "Multi-Agent Testing",
+      "Software Testing",
+      "System Testing",
+      "Agent-Based Modeling",
+      "Software Engineering"
+    ]
+  },
   "debugging-in-real-time-a-human-ai-pair-programming-session": {
     "title": "Debugging in Real-Time: A Human-AI Pair Programming Session",
     "description": "An inside look at how Claude Code and I debug complex technical problems together, from TypeScript compilation errors to serverless deployment failures.",
@@ -71,6 +84,19 @@
       "automation"
     ]
   },
+  "mastering-multi-agent-testing-a-practical-guide": {
+    "title": "Mastering Multi-Agent Testing: A Practical Guide",
+    "description": "Elevate your software testing with multi-agent techniques. This guide provides actionable strategies for designing, implementing, and analyzing multi-agent tests, improving system robustness and uncovering hidden flaws. Learn how to avoid common pitfalls and achieve superior test coverage.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "Multi-Agent Systems",
+      "Software Testing",
+      "Test Automation",
+      "AI Testing",
+      "Quality Assurance"
+    ]
+  },
   "the-apple-ruling": {
     "title": "The Apple Ruling: A Win That Might Hurt More Than Help",
     "description": "Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.",
@@ -132,6 +158,32 @@
     "pubDate": "2025-06-19",
     "tags": ["technical-debt", "engineering", "product"]
   },
+  "quick-ai-test-is-your-idea-worth-building": {
+    "title": "Quick AI Test: Is Your Idea Worth Building?",
+    "description": "Stop wasting time on AI projects that won't deliver. This quick, practical test helps you assess the viability of your AI idea before committing resources.  Learn the key questions to ask and the critical factors to consider for a successful AI product.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "AI",
+      "Product Management",
+      "Software Engineering",
+      "Machine Learning",
+      "MVP"
+    ]
+  },
+  "the-ultimate-guide-to-testing-claude-s-content-capabilities": {
+    "title": "The Ultimate Guide to Testing Claude's Content Capabilities",
+    "description": "A comprehensive technical deep-dive into Claude's content generation abilities, with practical examples, performance benchmarks, and real-world implementation strategies.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "artificial-intelligence",
+      "content-generation",
+      "llm-testing",
+      "claude",
+      "ai-benchmarking"
+    ]
+  },
   "ocode": {
     "title": "OCode: Why I Built My Own Claude Code (and Why You Might Too)",
     "description": "After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by Ollama, running locally, and priced at $0 per token.",
@@ -185,6 +237,19 @@
       "go-to-market",
       "founder-advice",
       "validation"
+    ]
+  },
+  "multi-ai-testing-a-practical-guide": {
+    "title": "Multi-AI Testing: A Practical Guide",
+    "description": "Stop guessing! Learn proven strategies for effectively testing systems using multiple AI models. This guide provides actionable insights for product managers, engineers, and founders to optimize AI integration and avoid costly failures.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "AI Testing",
+      "Multi-Model Testing",
+      "Software Testing",
+      "AI Integration",
+      "Product Development"
     ]
   },
   "why-your-a-b-tests-are-lying-to-you": {
@@ -645,6 +710,19 @@
     "pubDate": "2025-04-30T00:00:00.000Z",
     "tags": ["startup", "founder", "culture", "transparency"]
   },
+  "testing-multi-ai-systems-a-practical-guide": {
+    "title": "Testing Multi-AI Systems: A Practical Guide",
+    "description": "Building reliable multi-AI systems?  This guide provides practical strategies for testing complex AI interactions, ensuring robust performance and mitigating risks. Learn how to navigate the challenges of integrated AI and achieve seamless functionality.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "AI Testing",
+      "Multi-AI Systems",
+      "Software Testing",
+      "AI Integration",
+      "System Reliability"
+    ]
+  },
   "building-for-humans-and-machines-the-dual-audience-problem": {
     "title": "Building for Humans AND Machines: The Dual-Audience Problem",
     "description": "How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.",
@@ -1002,6 +1080,19 @@
       "electron-apps"
     ]
   },
+  "ai-content-testing-a-data-driven-framework-for-2024": {
+    "title": "AI Content Testing: A Data-Driven Framework for 2024",
+    "description": "Learn how to implement robust testing methodologies for AI-generated content, from automated quality checks to measuring business impact. A practical guide for technical teams.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "ai-testing",
+      "content-quality",
+      "nlp",
+      "automation",
+      "quality-assurance"
+    ]
+  },
   "you-just-dont-like-it": {
     "title": "The Answer Is Obvious—You Just Don’t Like It",
     "description": "Why some problems remain \"intractable\" not because they’re unsolvable, but because the solution challenges a deeply held assumption.",
@@ -1013,6 +1104,19 @@
       "mindset",
       "problem-solving",
       "organizational-dynamics"
+    ]
+  },
+  "mastering-the-full-content-pipeline-test": {
+    "title": "Mastering the Full Content Pipeline Test",
+    "description": "Stop shipping broken content! Learn how to implement a robust full content pipeline test, catching issues before they reach your users.  This guide provides practical strategies and actionable steps for building a bulletproof content delivery system.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "content pipeline",
+      "testing",
+      "software engineering",
+      "product management",
+      "quality assurance"
     ]
   },
   "building-interactive-webgl-experiments-from-audio-visualization-to-generative-art": {

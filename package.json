@@ -31,6 +31,7 @@
     "claude": "bun --env-file=.env run scripts/claude.ts",
     "ai-orchestrator": "bun --env-file=.env run scripts/ai-orchestrator.ts",
     "enhanced-pipeline": "bun --env-file=.env run scripts/enhanced-pipeline.ts",
+    "jonathan-voice": "bun --env-file=.env run scripts/jonathan-voice.ts",
     "lint": "eslint .",
     "lint:md": "markdownlint-cli2 src/posts/*.md",
     "spell": "cspell src/posts/*.md",

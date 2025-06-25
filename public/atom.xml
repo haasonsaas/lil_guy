@@ -82,17 +82,21 @@
     <category term="MVP" />
   </entry>
   <entry>
-    <title><![CDATA[the ultimate guide to testing claude s content capabilities]]></title>
+    <title><![CDATA[The Ultimate Guide to Testing Claude's Content Capabilities]]></title>
     <link href="https://www.haasonsaas.com/blog/the-ultimate-guide-to-testing-claude-s-content-capabilities" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-ultimate-guide-to-testing-claude-s-content-capabilities</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[No description provided]]></summary>
+    <summary><![CDATA[A comprehensive technical deep-dive into Claude's content generation abilities, with practical examples, performance benchmarks, and real-world implementation strategies.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    
+    <category term="artificial-intelligence" />
+    <category term="content-generation" />
+    <category term="llm-testing" />
+    <category term="claude" />
+    <category term="ai-benchmarking" />
   </entry>
   <entry>
     <title><![CDATA[Multi-AI Testing: A Practical Guide]]></title>

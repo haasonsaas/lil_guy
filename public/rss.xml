@@ -68,6 +68,18 @@
       <category><![CDATA[MVP]]></category>
     </item>
     <item>
+      <title><![CDATA[The Ultimate Guide to Testing Claude's Content Capabilities]]></title>
+      <description><![CDATA[A comprehensive technical deep-dive into Claude's content generation abilities, with practical examples, performance benchmarks, and real-world implementation strategies.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-ultimate-guide-to-testing-claude-s-content-capabilities</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-ultimate-guide-to-testing-claude-s-content-capabilities</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[artificial-intelligence]]></category>
+      <category><![CDATA[content-generation]]></category>
+      <category><![CDATA[llm-testing]]></category>
+      <category><![CDATA[claude]]></category>
+      <category><![CDATA[ai-benchmarking]]></category>
+    </item>
+    <item>
       <title><![CDATA[Multi-AI Testing: A Practical Guide]]></title>
       <description><![CDATA[Stop guessing! Learn proven strategies for effectively testing systems using multiple AI models. This guide provides actionable insights for product managers, engineers, and founders to optimize AI integration and avoid costly failures.]]></description>
       <link>https://www.haasonsaas.com/blog/multi-ai-testing-a-practical-guide</link>
@@ -588,18 +600,6 @@
       <category><![CDATA[technical]]></category>
       <category><![CDATA[framework]]></category>
       <category><![CDATA[developer-tools]]></category>
-    </item>
-    <item>
-      <title><![CDATA[When Star Power Isn't Enough: The GTM Mistake We Keep Making]]></title>
-      <description><![CDATA[Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're solving the wrong problem for the wrong people.]]></description>
-      <link>https://www.haasonsaas.com/blog/star-power-isnt-enough</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/star-power-isnt-enough</guid>
-      <pubDate>Sat, 03 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[go-to-market]]></category>
-      <category><![CDATA[pricing-strategy]]></category>
-      <category><![CDATA[product-market-fit]]></category>
-      <category><![CDATA[saas]]></category>
-      <category><![CDATA[startup-lessons]]></category>
     </item>
   </channel>
 </rss>
