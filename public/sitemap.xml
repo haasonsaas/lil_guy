@@ -253,6 +253,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/http-for-agents</loc>
     <lastmod>2025-05-03</lastmod>
     <changefreq>monthly</changefreq>
@@ -357,6 +363,12 @@
   <url>
     <loc>https://haasonsaas.com/blog/root-cause</loc>
     <lastmod>2024-04-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</loc>
+    <lastmod>2025-06-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -613,6 +625,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/when-the-ask-feels-awkward</loc>
     <lastmod>2024-05-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -776,6 +794,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/CISO</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/claude</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1033,6 +1057,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/firecracker</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/fluid-dynamics</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1070,6 +1100,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/future-of-coding</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/gemini</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1232,6 +1268,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/metrics</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/microvm</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1441,6 +1483,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/sandbox</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/sast</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/search</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1633,6 +1687,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/tree-sitter</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/trust</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -1724,6 +1784,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/vscode</loc>
+    <lastmod>2025-06-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/vulnerability-detection</loc>
     <lastmod>2025-06-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

@@ -4,6 +4,7 @@
     "": {
       "name": "vite_react_shadcn_ts",
       "dependencies": {
+        "@catppuccin/highlightjs": "^1.0.1",
         "@hookform/resolvers": "^5.0.1",
         "@radix-ui/react-accordion": "1.2.11",
         "@radix-ui/react-alert-dialog": "^1.1.1",
@@ -134,6 +135,8 @@
     "@brillout/require-shim": ["@brillout/require-shim@0.1.2", "", {}, "sha512-3I4LRHnVZXoSAsEoni5mosq9l6eiJED58d9V954W4CIZ88AUfYBanWGBGbJG3NztaRTpFHEA6wB3Hn93BmmJdg=="],
 
     "@brillout/vite-plugin-import-build": ["@brillout/vite-plugin-import-build@0.2.22", "", { "dependencies": { "@brillout/import": "^0.2.3" } }, "sha512-n5sv0HdCB5WC2QJSnTN6iS/F+sJsF0AmtsCCaQ+5+dRjgsoGGsa3auinJV8tuEog5WsX+3MF8RIwn3A/u0e04w=="],
+
+    "@catppuccin/highlightjs": ["@catppuccin/highlightjs@1.0.1", "", {}, "sha512-wnagsNQbJroHQMalkprwRoapfGV1hHRx46d7GXp4kf6rlShImBlgpqPCt9OD471Gq4qpHdfFH/GJFIvY1CLqHA=="],
 
     "@cloudflare/kv-asset-handler": ["@cloudflare/kv-asset-handler@0.4.0", "", { "dependencies": { "mime": "^3.0.0" } }, "sha512-+tv3z+SPp+gqTIcImN9o0hqE9xyfQjI1XD9pL6NuKjua9B1y7mNYv0S9cP+QEbA4ppVgGZEmKOvHX5G5Ei1CVA=="],
 

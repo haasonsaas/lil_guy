@@ -177,7 +177,8 @@
       "Bash(timeout:*)",
       "Bash(wrangler whoami:*)",
       "Bash(wrangler zone:*)",
-      "Bash(env)"
+      "Bash(env)",
+      "Bash(npm search:*)"
     ],
     "deny": []
   }

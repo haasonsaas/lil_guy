@@ -9,7 +9,9 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
 import DOMPurify from 'dompurify';
 import 'katex/dist/katex.min.css';
-import 'highlight.js/styles/atom-one-dark.css';
+// Import Catppuccin themes
+import '@catppuccin/highlightjs/css/catppuccin-latte.css';
+import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
 import UnitEconomicsCalculator from './UnitEconomicsCalculator';
 import ABTestSimulator from './ABTestSimulator';
