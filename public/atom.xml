@@ -14,6 +14,23 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[Multi-Agent Testing: A Practical Demo]]></title>
+    <link href="https://www.haasonsaas.com/blog/multi-agent-testing-a-practical-demo" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/multi-agent-testing-a-practical-demo</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Skip the theory. This post delivers a hands-on demo of multi-agent testing, showcasing its power in uncovering complex system flaws.  Learn how to implement it and see tangible results, saving your team time and headaches.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="Multi-Agent Testing" />
+    <category term="Software Testing" />
+    <category term="System Testing" />
+    <category term="Agent-Based Modeling" />
+    <category term="Software Engineering" />
+  </entry>
+  <entry>
     <title><![CDATA[Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox]]></title>
     <link href="https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</id>
@@ -29,6 +46,70 @@
     <category term="firecracker" />
     <category term="microvm" />
     <category term="llm" />
+  </entry>
+  <entry>
+    <title><![CDATA[Mastering Multi-Agent Testing: A Practical Guide]]></title>
+    <link href="https://www.haasonsaas.com/blog/mastering-multi-agent-testing-a-practical-guide" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/mastering-multi-agent-testing-a-practical-guide</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Elevate your software testing with multi-agent techniques. This guide provides actionable strategies for designing, implementing, and analyzing multi-agent tests, improving system robustness and uncovering hidden flaws. Learn how to avoid common pitfalls and achieve superior test coverage.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="Multi-Agent Systems" />
+    <category term="Software Testing" />
+    <category term="Test Automation" />
+    <category term="AI Testing" />
+    <category term="Quality Assurance" />
+  </entry>
+  <entry>
+    <title><![CDATA[Quick AI Test: Is Your Idea Worth Building?]]></title>
+    <link href="https://www.haasonsaas.com/blog/quick-ai-test-is-your-idea-worth-building" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/quick-ai-test-is-your-idea-worth-building</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Stop wasting time on AI projects that won't deliver. This quick, practical test helps you assess the viability of your AI idea before committing resources.  Learn the key questions to ask and the critical factors to consider for a successful AI product.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI" />
+    <category term="Product Management" />
+    <category term="Software Engineering" />
+    <category term="Machine Learning" />
+    <category term="MVP" />
+  </entry>
+  <entry>
+    <title><![CDATA[the ultimate guide to testing claude s content capabilities]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-ultimate-guide-to-testing-claude-s-content-capabilities" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-ultimate-guide-to-testing-claude-s-content-capabilities</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[No description provided]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    
+  </entry>
+  <entry>
+    <title><![CDATA[Multi-AI Testing: A Practical Guide]]></title>
+    <link href="https://www.haasonsaas.com/blog/multi-ai-testing-a-practical-guide" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/multi-ai-testing-a-practical-guide</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Stop guessing! Learn proven strategies for effectively testing systems using multiple AI models. This guide provides actionable insights for product managers, engineers, and founders to optimize AI integration and avoid costly failures.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI Testing" />
+    <category term="Multi-Model Testing" />
+    <category term="Software Testing" />
+    <category term="AI Integration" />
+    <category term="Product Development" />
   </entry>
   <entry>
     <title><![CDATA[AI's Impact on Software Development]]></title>
@@ -80,6 +161,23 @@
     <category term="ai-agents" />
   </entry>
   <entry>
+    <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
+    <link href="https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Building reliable multi-AI systems?  This guide provides practical strategies for testing complex AI interactions, ensuring robust performance and mitigating risks. Learn how to navigate the challenges of integrated AI and achieve seamless functionality.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI Testing" />
+    <category term="Multi-AI Systems" />
+    <category term="Software Testing" />
+    <category term="AI Integration" />
+    <category term="System Reliability" />
+  </entry>
+  <entry>
     <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
     <link href="https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</id>
@@ -112,6 +210,40 @@
     <category term="claude" />
     <category term="gemini" />
     <category term="debugging" />
+  </entry>
+  <entry>
+    <title><![CDATA[AI Content Testing: A Data-Driven Framework for 2024]]></title>
+    <link href="https://www.haasonsaas.com/blog/ai-content-testing-a-data-driven-framework-for-2024" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/ai-content-testing-a-data-driven-framework-for-2024</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Learn how to implement robust testing methodologies for AI-generated content, from automated quality checks to measuring business impact. A practical guide for technical teams.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai-testing" />
+    <category term="content-quality" />
+    <category term="nlp" />
+    <category term="automation" />
+    <category term="quality-assurance" />
+  </entry>
+  <entry>
+    <title><![CDATA[Mastering the Full Content Pipeline Test]]></title>
+    <link href="https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Stop shipping broken content! Learn how to implement a robust full content pipeline test, catching issues before they reach your users.  This guide provides practical strategies and actionable steps for building a bulletproof content delivery system.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="content pipeline" />
+    <category term="testing" />
+    <category term="software engineering" />
+    <category term="product management" />
+    <category term="quality assurance" />
   </entry>
   <entry>
     <title><![CDATA[Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy]]></title>
@@ -708,139 +840,5 @@
     <category term="technical" />
     <category term="framework" />
     <category term="developer-tools" />
-  </entry>
-  <entry>
-    <title><![CDATA[When Star Power Isn't Enough: The GTM Mistake We Keep Making]]></title>
-    <link href="https://www.haasonsaas.com/blog/star-power-isnt-enough" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/star-power-isnt-enough</id>
-    <published>2025-05-03T00:00:00.000Z</published>
-    <updated>2025-05-03T00:00:00.000Z</updated>
-    <summary><![CDATA[Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're solving the wrong problem for the wrong people.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="go-to-market" />
-    <category term="pricing-strategy" />
-    <category term="product-market-fit" />
-    <category term="saas" />
-    <category term="startup-lessons" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Authenticity Rebellion: Resisting the AI Echo Chamber]]></title>
-    <link href="https://www.haasonsaas.com/blog/authenticity-rebellion" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/authenticity-rebellion</id>
-    <published>2025-05-02T00:00:00.000Z</published>
-    <updated>2025-05-02T00:00:00.000Z</updated>
-    <summary><![CDATA[The internet is drowning in AI-generated content, but connection and creativity are drowning with it. This post explores why scaling your voice doesn't mean outsourcing your soul—and how to reclaim meaning, resonance, and trust in an age of auto-everything.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="ai" />
-    <category term="product" />
-    <category term="culture" />
-    <category term="personal-growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Apple Ruling: A Win That Might Hurt More Than Help]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-apple-ruling" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-apple-ruling</id>
-    <published>2025-05-01T00:00:00.000Z</published>
-    <updated>2025-05-01T00:00:00.000Z</updated>
-    <summary><![CDATA[Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="app-store" />
-    <category term="product-strategy" />
-    <category term="conversion" />
-    <category term="user-experience" />
-    <category term="growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[Most Startups Don't Have a Growth Problem—They Have a Clarity Problem]]></title>
-    <link href="https://www.haasonsaas.com/blog/clarity" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/clarity</id>
-    <published>2025-05-01T00:00:00.000Z</published>
-    <updated>2025-05-01T00:00:00.000Z</updated>
-    <summary><![CDATA[Growth might be your dashboard's favorite metric, but it's not your startup's biggest obstacle. More often, the real issue is fuzziness—about your customer, your message, your purpose. This post breaks down why clarity, not velocity, is the foundation for real traction.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="product" />
-    <category term="strategy" />
-    <category term="founder" />
-    <category term="growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Startup Bargain Is Broken]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-startup-bargain" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-startup-bargain</id>
-    <published>2025-05-01T00:00:00.000Z</published>
-    <updated>2025-05-01T00:00:00.000Z</updated>
-    <summary><![CDATA[The startup ecosystem promised a tradeoff: take below-market pay, bet on equity, win big at IPO. That promise is unraveling—and it's time we reckon with what that means for talent, trust, and the future of innovation.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup-culture" />
-    <category term="equity-compensation" />
-    <category term="employee-experience" />
-    <category term="venture-capital" />
-    <category term="organizational-dynamics" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Startup Reality Check: Payment, Promotion, and Pace]]></title>
-    <link href="https://www.haasonsaas.com/blog/payment-promotion-pace" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/payment-promotion-pace</id>
-    <published>2025-04-30T00:00:00.000Z</published>
-    <updated>2025-04-30T00:00:00.000Z</updated>
-    <summary><![CDATA[A blunt field guide for early-stage founders: why cash is your only true validator, marketing matters more than code, and slow shipping is the fast lane to failure.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup-culture" />
-    <category term="product-strategy" />
-    <category term="go-to-market" />
-    <category term="founder-advice" />
-    <category term="validation" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-agreement-trap" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-agreement-trap</id>
-    <published>2025-04-30T00:00:00.000Z</published>
-    <updated>2025-04-30T00:00:00.000Z</updated>
-    <summary><![CDATA[What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust, truth, and long-term value.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="artificial-intelligence" />
-    <category term="feedback-loops" />
-    <category term="user-experience" />
-    <category term="product-strategy" />
-    <category term="trust" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Accountability Mirror: Would a Stranger Believe You?]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-accountability-mirror" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-accountability-mirror</id>
-    <published>2025-04-30T00:00:00.000Z</published>
-    <updated>2025-04-30T00:00:00.000Z</updated>
-    <summary><![CDATA[A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="mindset" />
-    <category term="execution" />
-    <category term="self-awareness" />
-    <category term="productivity" />
-    <category term="behavior-change" />
   </entry>
 </feed>

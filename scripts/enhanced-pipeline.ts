@@ -178,22 +178,38 @@ class EnhancedContentPipeline {
     agent: 'gemini' | 'claude'
   ): Promise<BlogPostContent> {
     try {
-      const command = `bun scripts/${agent}.ts new-draft "${topic}"`
-      const { stdout, stderr } = await execAsync(command)
+      // Step 1: Create draft outline
+      console.log(chalk.gray('  Creating draft outline...'))
+      const draftCommand = `bun scripts/${agent}.ts new-draft "${topic}"`
+      const { stdout: draftOutput, stderr: draftStderr } =
+        await execAsync(draftCommand)
 
-      if (stderr) {
-        console.warn(chalk.yellow('Warning:'), stderr)
+      if (draftStderr) {
+        console.warn(chalk.yellow('Draft Warning:'), draftStderr)
       }
 
       // Extract filename from output
-      const filenameMatch = stdout.match(/📁 Path: ([^\n]+)/)
+      const filenameMatch = draftOutput.match(/📁 Path: ([^\n]+)/)
       if (!filenameMatch) {
-        throw new Error('Could not extract filename from agent output')
+        throw new Error('Could not extract filename from draft output')
       }
 
       const filename = filenameMatch[1]
+      const slug = path.basename(filename, '.md')
 
-      // Read the generated file
+      // Step 2: Write full content (only Gemini supports this)
+      if (agent === 'gemini') {
+        console.log(chalk.gray('  Writing full content...'))
+        const contentCommand = `bun scripts/gemini.ts write-blog-post "${slug}"`
+        const { stdout: contentOutput, stderr: contentStderr } =
+          await execAsync(contentCommand)
+
+        if (contentStderr) {
+          console.warn(chalk.yellow('Content Warning:'), contentStderr)
+        }
+      }
+
+      // Read the final file
       const fileContent = await fs.readFile(filename, 'utf-8')
       const matter = await import('gray-matter')
       const { data: frontmatter, content } = matter.default(fileContent)

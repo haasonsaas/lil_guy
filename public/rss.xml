@@ -20,6 +20,18 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[Multi-Agent Testing: A Practical Demo]]></title>
+      <description><![CDATA[Skip the theory. This post delivers a hands-on demo of multi-agent testing, showcasing its power in uncovering complex system flaws.  Learn how to implement it and see tangible results, saving your team time and headaches.]]></description>
+      <link>https://www.haasonsaas.com/blog/multi-agent-testing-a-practical-demo</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/multi-agent-testing-a-practical-demo</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[Multi-Agent Testing]]></category>
+      <category><![CDATA[Software Testing]]></category>
+      <category><![CDATA[System Testing]]></category>
+      <category><![CDATA[Agent-Based Modeling]]></category>
+      <category><![CDATA[Software Engineering]]></category>
+    </item>
+    <item>
       <title><![CDATA[Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox]]></title>
       <description><![CDATA[How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code]]></description>
       <link>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</link>
@@ -30,6 +42,42 @@
       <category><![CDATA[firecracker]]></category>
       <category><![CDATA[microvm]]></category>
       <category><![CDATA[llm]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Mastering Multi-Agent Testing: A Practical Guide]]></title>
+      <description><![CDATA[Elevate your software testing with multi-agent techniques. This guide provides actionable strategies for designing, implementing, and analyzing multi-agent tests, improving system robustness and uncovering hidden flaws. Learn how to avoid common pitfalls and achieve superior test coverage.]]></description>
+      <link>https://www.haasonsaas.com/blog/mastering-multi-agent-testing-a-practical-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/mastering-multi-agent-testing-a-practical-guide</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[Multi-Agent Systems]]></category>
+      <category><![CDATA[Software Testing]]></category>
+      <category><![CDATA[Test Automation]]></category>
+      <category><![CDATA[AI Testing]]></category>
+      <category><![CDATA[Quality Assurance]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Quick AI Test: Is Your Idea Worth Building?]]></title>
+      <description><![CDATA[Stop wasting time on AI projects that won't deliver. This quick, practical test helps you assess the viability of your AI idea before committing resources.  Learn the key questions to ask and the critical factors to consider for a successful AI product.]]></description>
+      <link>https://www.haasonsaas.com/blog/quick-ai-test-is-your-idea-worth-building</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/quick-ai-test-is-your-idea-worth-building</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[AI]]></category>
+      <category><![CDATA[Product Management]]></category>
+      <category><![CDATA[Software Engineering]]></category>
+      <category><![CDATA[Machine Learning]]></category>
+      <category><![CDATA[MVP]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Multi-AI Testing: A Practical Guide]]></title>
+      <description><![CDATA[Stop guessing! Learn proven strategies for effectively testing systems using multiple AI models. This guide provides actionable insights for product managers, engineers, and founders to optimize AI integration and avoid costly failures.]]></description>
+      <link>https://www.haasonsaas.com/blog/multi-ai-testing-a-practical-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/multi-ai-testing-a-practical-guide</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[AI Testing]]></category>
+      <category><![CDATA[Multi-Model Testing]]></category>
+      <category><![CDATA[Software Testing]]></category>
+      <category><![CDATA[AI Integration]]></category>
+      <category><![CDATA[Product Development]]></category>
     </item>
     <item>
       <title><![CDATA[AI's Impact on Software Development]]></title>
@@ -66,6 +114,18 @@
       <category><![CDATA[ai-agents]]></category>
     </item>
     <item>
+      <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
+      <description><![CDATA[Building reliable multi-AI systems?  This guide provides practical strategies for testing complex AI interactions, ensuring robust performance and mitigating risks. Learn how to navigate the challenges of integrated AI and achieve seamless functionality.]]></description>
+      <link>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[AI Testing]]></category>
+      <category><![CDATA[Multi-AI Systems]]></category>
+      <category><![CDATA[Software Testing]]></category>
+      <category><![CDATA[AI Integration]]></category>
+      <category><![CDATA[System Reliability]]></category>
+    </item>
+    <item>
       <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
       <description><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%]]></description>
       <link>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</link>
@@ -88,6 +148,30 @@
       <category><![CDATA[claude]]></category>
       <category><![CDATA[gemini]]></category>
       <category><![CDATA[debugging]]></category>
+    </item>
+    <item>
+      <title><![CDATA[AI Content Testing: A Data-Driven Framework for 2024]]></title>
+      <description><![CDATA[Learn how to implement robust testing methodologies for AI-generated content, from automated quality checks to measuring business impact. A practical guide for technical teams.]]></description>
+      <link>https://www.haasonsaas.com/blog/ai-content-testing-a-data-driven-framework-for-2024</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-content-testing-a-data-driven-framework-for-2024</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-testing]]></category>
+      <category><![CDATA[content-quality]]></category>
+      <category><![CDATA[nlp]]></category>
+      <category><![CDATA[automation]]></category>
+      <category><![CDATA[quality-assurance]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Mastering the Full Content Pipeline Test]]></title>
+      <description><![CDATA[Stop shipping broken content! Learn how to implement a robust full content pipeline test, catching issues before they reach your users.  This guide provides practical strategies and actionable steps for building a bulletproof content delivery system.]]></description>
+      <link>https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[content pipeline]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[software engineering]]></category>
+      <category><![CDATA[product management]]></category>
+      <category><![CDATA[quality assurance]]></category>
     </item>
     <item>
       <title><![CDATA[Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy]]></title>
@@ -516,88 +600,6 @@
       <category><![CDATA[product-market-fit]]></category>
       <category><![CDATA[saas]]></category>
       <category><![CDATA[startup-lessons]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Authenticity Rebellion: Resisting the AI Echo Chamber]]></title>
-      <description><![CDATA[The internet is drowning in AI-generated content, but connection and creativity are drowning with it. This post explores why scaling your voice doesn't mean outsourcing your soul—and how to reclaim meaning, resonance, and trust in an age of auto-everything.]]></description>
-      <link>https://www.haasonsaas.com/blog/authenticity-rebellion</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/authenticity-rebellion</guid>
-      <pubDate>Fri, 02 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[personal-growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Apple Ruling: A Win That Might Hurt More Than Help]]></title>
-      <description><![CDATA[Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-apple-ruling</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-apple-ruling</guid>
-      <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[app-store]]></category>
-      <category><![CDATA[product-strategy]]></category>
-      <category><![CDATA[conversion]]></category>
-      <category><![CDATA[user-experience]]></category>
-      <category><![CDATA[growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Most Startups Don't Have a Growth Problem—They Have a Clarity Problem]]></title>
-      <description><![CDATA[Growth might be your dashboard's favorite metric, but it's not your startup's biggest obstacle. More often, the real issue is fuzziness—about your customer, your message, your purpose. This post breaks down why clarity, not velocity, is the foundation for real traction.]]></description>
-      <link>https://www.haasonsaas.com/blog/clarity</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/clarity</guid>
-      <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[founder]]></category>
-      <category><![CDATA[growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Startup Bargain Is Broken]]></title>
-      <description><![CDATA[The startup ecosystem promised a tradeoff: take below-market pay, bet on equity, win big at IPO. That promise is unraveling—and it's time we reckon with what that means for talent, trust, and the future of innovation.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-startup-bargain</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-startup-bargain</guid>
-      <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[equity-compensation]]></category>
-      <category><![CDATA[employee-experience]]></category>
-      <category><![CDATA[venture-capital]]></category>
-      <category><![CDATA[organizational-dynamics]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Startup Reality Check: Payment, Promotion, and Pace]]></title>
-      <description><![CDATA[A blunt field guide for early-stage founders: why cash is your only true validator, marketing matters more than code, and slow shipping is the fast lane to failure.]]></description>
-      <link>https://www.haasonsaas.com/blog/payment-promotion-pace</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/payment-promotion-pace</guid>
-      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[product-strategy]]></category>
-      <category><![CDATA[go-to-market]]></category>
-      <category><![CDATA[founder-advice]]></category>
-      <category><![CDATA[validation]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy]]></title>
-      <description><![CDATA[What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust, truth, and long-term value.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-agreement-trap</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-agreement-trap</guid>
-      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[artificial-intelligence]]></category>
-      <category><![CDATA[feedback-loops]]></category>
-      <category><![CDATA[user-experience]]></category>
-      <category><![CDATA[product-strategy]]></category>
-      <category><![CDATA[trust]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Accountability Mirror: Would a Stranger Believe You?]]></title>
-      <description><![CDATA[A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-accountability-mirror</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-accountability-mirror</guid>
-      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[mindset]]></category>
-      <category><![CDATA[execution]]></category>
-      <category><![CDATA[self-awareness]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[behavior-change]]></category>
     </item>
   </channel>
 </rss>

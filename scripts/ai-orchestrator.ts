@@ -105,30 +105,29 @@ class AIOrchestrator {
     const workflowId = this.generateWorkflowId()
     const tasks: WorkflowTask[] = []
 
-    // Task 1: Generate outline
-    const outlineTask: WorkflowTask = {
+    // Task 1: Generate draft outline
+    const draftTask: WorkflowTask = {
       id: this.generateTaskId(),
       type: 'content_generation',
       priority: 'high',
       status: 'pending',
       assigned_agent:
         options.preferredAgent || this.selectBestAgent('content_generation'),
-      input: { topic, type: 'outline' },
+      input: { topic, command: 'new-draft' },
       created_at: new Date(),
       updated_at: new Date(),
     }
-    tasks.push(outlineTask)
+    tasks.push(draftTask)
 
-    // Task 2: Generate full content
+    // Task 2: Write full content
     const contentTask: WorkflowTask = {
       id: this.generateTaskId(),
       type: 'content_generation',
       priority: 'high',
       status: 'pending',
-      assigned_agent:
-        options.preferredAgent || this.selectBestAgent('content_generation'),
-      input: { type: 'full_content' },
-      dependencies: [outlineTask.id],
+      assigned_agent: 'gemini', // Only Gemini has write-blog-post
+      input: { command: 'write-blog-post' },
+      dependencies: [draftTask.id],
       created_at: new Date(),
       updated_at: new Date(),
     }
@@ -349,18 +348,19 @@ class AIOrchestrator {
       throw new Error(`Unknown agent: ${agentId}`)
     }
 
-    // Map task types to script commands
-    const commandMap: Record<string, string> = {
-      content_generation:
-        input.type === 'outline' ? 'new-draft' : 'create-post',
-      seo_analysis: 'analyze-seo',
-      quality_check: 'analyze-quality',
-      social_media: 'social',
-    }
-
-    const command = commandMap[taskType]
-    if (!command) {
-      throw new Error(`Unknown task type: ${taskType}`)
+    // Get command from input or use default mapping
+    let command: string
+    if (typeof input === 'object' && input !== null && 'command' in input) {
+      command = (input as { command: string }).command
+    } else {
+      // Default command mapping
+      const commandMap: Record<string, string> = {
+        content_generation: 'new-draft',
+        seo_analysis: 'analyze-seo',
+        quality_check: 'analyze-quality',
+        social_media: 'social',
+      }
+      command = commandMap[taskType] || 'new-draft'
     }
 
     // Execute the actual script command
