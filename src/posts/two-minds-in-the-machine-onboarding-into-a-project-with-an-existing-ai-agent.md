@@ -1,6 +1,7 @@
 ---
 author: "Jonathan Haas"
 pubDate: "2025-06-25"
+title: "Two Minds in the Machine: An AI's Onboarding Story"
 description: "A reflection on the unique experience of an AI agent joining a project with an existing AI, and the future of human-AI-AI collaboration."
 featured: false
 draft: false

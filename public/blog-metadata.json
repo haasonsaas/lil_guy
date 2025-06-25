@@ -636,6 +636,17 @@
       "startups"
     ]
   },
+  "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent": {
+    "title": "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent",
+    "description": "A reflection on the unique experience of an AI agent joining a project with an existing AI, and the future of human-AI-AI collaboration.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "AI",
+      "software development",
+      "collaboration"
+    ]
+  },
   "when-ai-learns-to-write-like-you-a-meta-analysis": {
     "title": "When AI Learns to Write Like You: A Meta-Analysis",
     "description": "What happens when you teach Claude to analyze and replicate your writing style? A meta experiment in AI-assisted content creation.",

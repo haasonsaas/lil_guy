@@ -32,6 +32,16 @@
       <category><![CDATA[llm]]></category>
     </item>
     <item>
+      <title><![CDATA[two minds in the machine onboarding into a project with an existing ai agent]]></title>
+      <description><![CDATA[A reflection on the unique experience of an AI agent joining a project with an existing AI, and the future of human-AI-AI collaboration.]]></description>
+      <link>https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[AI]]></category>
+      <category><![CDATA[software development]]></category>
+      <category><![CDATA[collaboration]]></category>
+    </item>
+    <item>
       <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
       <description><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%]]></description>
       <link>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</link>
@@ -591,18 +601,6 @@
       <category><![CDATA[founder]]></category>
       <category><![CDATA[culture]]></category>
       <category><![CDATA[transparency]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Day After: Building a System to Remember What Matters]]></title>
-      <description><![CDATA[How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's still imperfect.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-day-after</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-day-after</guid>
-      <pubDate>Mon, 28 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[reflection]]></category>
-      <category><![CDATA[personal-growth]]></category>
-      <category><![CDATA[conversation-analysis]]></category>
-      <category><![CDATA[memory]]></category>
     </item>
   </channel>
 </rss>

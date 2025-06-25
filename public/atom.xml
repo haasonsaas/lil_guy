@@ -31,6 +31,21 @@
     <category term="llm" />
   </entry>
   <entry>
+    <title><![CDATA[two minds in the machine onboarding into a project with an existing ai agent]]></title>
+    <link href="https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[A reflection on the unique experience of an AI agent joining a project with an existing AI, and the future of human-AI-AI collaboration.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI" />
+    <category term="software development" />
+    <category term="collaboration" />
+  </entry>
+  <entry>
     <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
     <link href="https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</id>
@@ -830,22 +845,5 @@
     <category term="founder" />
     <category term="culture" />
     <category term="transparency" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Day After: Building a System to Remember What Matters]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-day-after" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-day-after</id>
-    <published>2025-04-28T00:00:00.000Z</published>
-    <updated>2025-04-28T00:00:00.000Z</updated>
-    <summary><![CDATA[How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's still imperfect.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="productivity" />
-    <category term="reflection" />
-    <category term="personal-growth" />
-    <category term="conversation-analysis" />
-    <category term="memory" />
   </entry>
 </feed>
