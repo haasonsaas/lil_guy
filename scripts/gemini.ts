@@ -10,7 +10,7 @@ import path from 'path'
 
 const execAsync = promisify(exec)
 
-// Types for better type safety
+// Enhanced types with validation
 interface BlogPostOutline {
   title: string
   description: string
@@ -38,76 +38,332 @@ interface TagSuggestions {
 interface PostFrontmatter {
   title?: string
   description?: string
-  [key: string]: unknown
+  author?: string
+  pubDate?: string
+  featured?: boolean
+  draft?: boolean
+  tags?: string[]
+  image?: {
+    url: string
+    alt: string
+  }
 }
 
-// Configuration constants
+interface APIResponse {
+  candidates?: Array<{
+    content?: {
+      parts?: Array<{
+        text?: string
+      }>
+    }
+  }>
+}
+
+interface RetryConfig {
+  maxRetries: number
+  baseDelay: number
+  maxDelay: number
+  backoffFactor: number
+}
+
+// Enhanced configuration with validation
 const CONFIG = {
-  API_URL:
-    'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
+  API: {
+    URL: 'https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent',
+    TIMEOUT: 30000, // 30 seconds
+    RETRY: {
+      maxRetries: 3,
+      baseDelay: 1000,
+      maxDelay: 10000,
+      backoffFactor: 2,
+    } as RetryConfig,
+  },
   POSTS_DIR: path.join(process.cwd(), 'src', 'posts'),
   CONTENT_PREVIEW_LENGTH: 1500,
   AUDIENCE_DESCRIPTION:
     'experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.',
+  CACHE_TTL: 5 * 60 * 1000, // 5 minutes
 } as const
 
-// Core utilities
-class JSONExtractor {
-  static extract<T = unknown>(text: string): T {
-    // Try to find JSON within markdown code blocks
-    const jsonMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/)
-    if (jsonMatch) {
-      return JSON.parse(jsonMatch[1].trim())
-    }
-
-    // Try to find raw JSON object
-    const objectMatch = text.match(/\{[\s\S]*\}/)
-    if (objectMatch) {
-      return JSON.parse(objectMatch[0])
-    }
-
-    // Last resort: try parsing the whole text
-    return JSON.parse(text)
+// Custom error classes for better error handling
+class APIError extends Error {
+  constructor(
+    message: string,
+    public statusCode?: number,
+    public response?: string
+  ) {
+    super(message)
+    this.name = 'APIError'
   }
 }
 
+class ValidationError extends Error {
+  constructor(
+    message: string,
+    public field?: string
+  ) {
+    super(message)
+    this.name = 'ValidationError'
+  }
+}
+
+class RateLimitError extends Error {
+  constructor(
+    message: string,
+    public retryAfter?: number
+  ) {
+    super(message)
+    this.name = 'RateLimitError'
+  }
+}
+
+// Enhanced JSON extraction with better error handling
+class JSONExtractor {
+  static extract<T = unknown>(text: string): T {
+    const extractionMethods = [
+      this.extractFromCodeBlock.bind(this),
+      this.extractFromRawObject.bind(this),
+      this.extractFromWholeText.bind(this),
+    ]
+
+    let lastError: Error | null = null
+
+    for (const method of extractionMethods) {
+      try {
+        const result = method(text)
+        if (result !== null) {
+          return result as T
+        }
+      } catch (error) {
+        lastError = error as Error
+        continue
+      }
+    }
+
+    throw new ValidationError(
+      `Failed to extract valid JSON: ${lastError?.message || 'Unknown error'}`,
+      'json_extraction'
+    )
+  }
+
+  private static extractFromCodeBlock(text: string): unknown | null {
+    const jsonMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/)
+    if (!jsonMatch) return null
+
+    const jsonText = jsonMatch[1].trim()
+    if (!jsonText) return null
+
+    return JSON.parse(jsonText)
+  }
+
+  private static extractFromRawObject(text: string): unknown | null {
+    const objectMatch = text.match(/\{[\s\S]*\}/)
+    if (!objectMatch) return null
+
+    return JSON.parse(objectMatch[0])
+  }
+
+  private static extractFromWholeText(text: string): unknown | null {
+    const trimmed = text.trim()
+    if (!trimmed.startsWith('{') || !trimmed.endsWith('}')) return null
+
+    return JSON.parse(trimmed)
+  }
+}
+
+// Enhanced environment loader with proper validation
 class EnvironmentLoader {
+  private static loaded = false
+
   static async load(): Promise<void> {
+    if (this.loaded) return
+
     try {
       const envPath = path.join(process.cwd(), '.env')
+
+      // Check if file exists first
+      try {
+        await fs.access(envPath)
+      } catch {
+        console.warn(
+          chalk.yellow(
+            '⚠️  .env file not found, using system environment variables'
+          )
+        )
+        this.loaded = true
+        return
+      }
+
       const envFile = await fs.readFile(envPath, 'utf-8')
       const envVars = envFile
         .split('\n')
-        .filter((line) => line.trim() !== '' && !line.startsWith('#'))
+        .map((line) => line.trim())
+        .filter((line) => line && !line.startsWith('#'))
 
       for (const line of envVars) {
-        const [key, value] = line.split('=')
+        const equalIndex = line.indexOf('=')
+        if (equalIndex === -1) continue
+
+        const key = line.slice(0, equalIndex).trim()
+        const value = line.slice(equalIndex + 1).trim()
+
         if (key && value) {
-          process.env[key.trim()] = value.trim()
+          // Remove quotes if present
+          const unquotedValue = value.replace(/^["']|["']$/g, '')
+          process.env[key] = unquotedValue
         }
       }
+
+      this.loaded = true
     } catch (error) {
-      // .env file not found, but that's okay
+      console.warn(chalk.yellow('⚠️  Failed to load .env file:'), error)
+      this.loaded = true
+    }
+  }
+
+  static validateRequiredEnvVars(): void {
+    const required = ['GOOGLE_AI_API_KEY']
+    const missing = required.filter((key) => !process.env[key])
+
+    if (missing.length > 0) {
+      throw new Error(
+        `Missing required environment variables: ${missing.join(', ')}`
+      )
     }
   }
 }
 
-// API client for Google AI
+// Simple in-memory cache
+class SimpleCache<T> {
+  private cache = new Map<string, { value: T; expires: number }>()
+
+  set(key: string, value: T, ttl: number = CONFIG.CACHE_TTL): void {
+    this.cache.set(key, {
+      value,
+      expires: Date.now() + ttl,
+    })
+  }
+
+  get(key: string): T | null {
+    const entry = this.cache.get(key)
+    if (!entry) return null
+
+    if (Date.now() > entry.expires) {
+      this.cache.delete(key)
+      return null
+    }
+
+    return entry.value
+  }
+
+  clear(): void {
+    this.cache.clear()
+  }
+
+  size(): number {
+    return this.cache.size
+  }
+}
+
+// Enhanced API client with retry logic, rate limiting, and better error handling
 class GoogleAIClient {
   private readonly apiKey: string
+  private readonly cache = new SimpleCache<string>()
+  private lastRequestTime = 0
+  private readonly minRequestInterval = 100 // 100ms between requests
 
   constructor() {
     const apiKey = process.env.GOOGLE_AI_API_KEY
     if (!apiKey) {
-      throw new Error('GOOGLE_AI_API_KEY is not set in your .env file')
+      throw new Error(
+        'GOOGLE_AI_API_KEY is not set. Please add it to your .env file.'
+      )
     }
     this.apiKey = apiKey
   }
 
   async generateContent(prompt: string): Promise<string> {
-    const apiURL = `${CONFIG.API_URL}?key=${this.apiKey}`
+    // Check cache first
+    const cacheKey = this.getCacheKey(prompt)
+    const cached = this.cache.get(cacheKey)
+    if (cached) {
+      console.log(chalk.gray('📋 Using cached result'))
+      return cached
+    }
+
+    // Rate limiting
+    await this.enforceRateLimit()
+
+    // Make request with retry logic
+    const result = await this.makeRequestWithRetry(prompt)
+
+    // Cache the result
+    this.cache.set(cacheKey, result)
+
+    return result
+  }
+
+  private getCacheKey(prompt: string): string {
+    // Create a simple hash of the prompt for caching
+    return Buffer.from(prompt).toString('base64').slice(0, 32)
+  }
+
+  private async enforceRateLimit(): Promise<void> {
+    const now = Date.now()
+    const timeSinceLastRequest = now - this.lastRequestTime
+
+    if (timeSinceLastRequest < this.minRequestInterval) {
+      const delay = this.minRequestInterval - timeSinceLastRequest
+      await this.sleep(delay)
+    }
+
+    this.lastRequestTime = Date.now()
+  }
+
+  private async makeRequestWithRetry(prompt: string): Promise<string> {
+    const { maxRetries, baseDelay, maxDelay, backoffFactor } = CONFIG.API.RETRY
+    let lastError: Error
+
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        return await this.makeRequest(prompt)
+      } catch (error) {
+        lastError = error as Error
+
+        if (attempt === maxRetries) break
+
+        // Don't retry on certain errors
+        if (
+          error instanceof ValidationError ||
+          (error instanceof APIError && error.statusCode === 401)
+        ) {
+          break
+        }
+
+        const delay = Math.min(
+          baseDelay * Math.pow(backoffFactor, attempt),
+          maxDelay
+        )
+
+        console.log(
+          chalk.yellow(
+            `⏳ Request failed (attempt ${attempt + 1}/${maxRetries + 1}), retrying in ${delay}ms...`
+          )
+        )
+
+        await this.sleep(delay)
+      }
+    }
+
+    throw lastError!
+  }
+
+  private async makeRequest(prompt: string): Promise<string> {
+    const controller = new AbortController()
+    const timeoutId = setTimeout(() => controller.abort(), CONFIG.API.TIMEOUT)
 
     try {
+      const apiURL = `${CONFIG.API.URL}?key=${this.apiKey}`
       const response = await fetch(apiURL, {
         method: 'POST',
         headers: {
@@ -116,46 +372,119 @@ class GoogleAIClient {
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
         }),
+        signal: controller.signal,
       })
+
+      clearTimeout(timeoutId)
 
       if (!response.ok) {
         const errorBody = await response.text()
-        throw new Error(
-          `API request failed with status ${response.status}: ${errorBody}`
+
+        if (response.status === 429) {
+          const retryAfter = response.headers.get('retry-after')
+          throw new RateLimitError(
+            'Rate limit exceeded',
+            retryAfter ? parseInt(retryAfter) * 1000 : undefined
+          )
+        }
+
+        throw new APIError(
+          `API request failed: ${response.statusText}`,
+          response.status,
+          errorBody
         )
       }
 
-      const data = await response.json()
-      return data.candidates[0].content.parts[0].text
+      const data: APIResponse = await response.json()
+      return this.extractTextFromResponse(data)
     } catch (error) {
-      console.error(chalk.red('❌ Error calling Google AI API:'), error)
+      clearTimeout(timeoutId)
+
+      if (error instanceof Error && error.name === 'AbortError') {
+        throw new APIError('Request timeout', 408)
+      }
+
       throw error
     }
   }
+
+  private extractTextFromResponse(data: APIResponse): string {
+    if (!data.candidates || data.candidates.length === 0) {
+      throw new ValidationError('No candidates in API response', 'candidates')
+    }
+
+    const candidate = data.candidates[0]
+    if (
+      !candidate.content ||
+      !candidate.content.parts ||
+      candidate.content.parts.length === 0
+    ) {
+      throw new ValidationError('Invalid response structure', 'content.parts')
+    }
+
+    const text = candidate.content.parts[0].text
+    if (!text) {
+      throw new ValidationError('Empty response text', 'text')
+    }
+
+    return text
+  }
+
+  private sleep(ms: number): Promise<void> {
+    return new Promise((resolve) => setTimeout(resolve, ms))
+  }
+
+  // Utility methods
+  clearCache(): void {
+    this.cache.clear()
+  }
+
+  getCacheStats(): { size: number; hitRate?: number } {
+    return { size: this.cache.size() }
+  }
 }
 
-// File operations
+// Enhanced file operations with better error handling
 class BlogFileManager {
   static async readPost(postSlug: string): Promise<{
     filePath: string
     frontmatter: PostFrontmatter
     content: string
   }> {
-    const filePath = path.join(CONFIG.POSTS_DIR, `${postSlug}.md`)
-    const fileContent = await fs.readFile(filePath, 'utf-8')
-    const { data: frontmatter, content } = matter(fileContent)
+    if (!postSlug || typeof postSlug !== 'string') {
+      throw new ValidationError('Invalid post slug', 'postSlug')
+    }
 
-    return { filePath, frontmatter, content }
+    const filePath = path.join(CONFIG.POSTS_DIR, `${postSlug}.md`)
+
+    try {
+      // Check if file exists
+      await fs.access(filePath)
+
+      const fileContent = await fs.readFile(filePath, 'utf-8')
+      const { data: frontmatter, content } = matter(fileContent)
+
+      return { filePath, frontmatter: frontmatter as PostFrontmatter, content }
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+        throw new ValidationError(`Post file not found: ${postSlug}`, 'file')
+      }
+      throw error
+    }
   }
 
   static async getStagedMarkdownFiles(): Promise<string[]> {
-    const { stdout: stagedFilesOutput } = await execAsync(
-      'git ls-files --cached'
-    )
-    const stagedFiles = stagedFilesOutput.trim().split('\n')
-    return stagedFiles.filter(
-      (file) => file.endsWith('.md') && file.startsWith('src/posts/')
-    )
+    try {
+      const { stdout: stagedFilesOutput } = await execAsync(
+        'git ls-files --cached'
+      )
+      const stagedFiles = stagedFilesOutput.trim().split('\n')
+      return stagedFiles.filter(
+        (file) => file.endsWith('.md') && file.startsWith('src/posts/')
+      )
+    } catch (error) {
+      throw new Error(`Failed to get staged files: ${error}`)
+    }
   }
 
   static async writePost(
@@ -163,21 +492,44 @@ class BlogFileManager {
     content: string,
     frontmatter: PostFrontmatter
   ): Promise<void> {
-    const newFileContent = matter.stringify(content, frontmatter)
-    await fs.writeFile(filePath, newFileContent)
+    if (!filePath || !content) {
+      throw new ValidationError('Invalid file path or content')
+    }
+
+    try {
+      const newFileContent = matter.stringify(content, frontmatter)
+      await fs.writeFile(filePath, newFileContent, 'utf-8')
+    } catch (error) {
+      throw new Error(`Failed to write post: ${error}`)
+    }
+  }
+
+  static async validatePostsDirectory(): Promise<void> {
+    try {
+      await fs.access(CONFIG.POSTS_DIR)
+    } catch {
+      throw new Error(`Posts directory not found: ${CONFIG.POSTS_DIR}`)
+    }
   }
 }
 
-// Prompt templates
+// Enhanced prompt templates with validation
 class PromptTemplates {
   static createBlogOutline(topic: string): string {
+    if (!topic || typeof topic !== 'string' || topic.trim().length < 3) {
+      throw new ValidationError(
+        'Topic must be at least 3 characters long',
+        'topic'
+      )
+    }
+
     return `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of ${CONFIG.AUDIENCE_DESCRIPTION}
 
       Your task is to generate a compelling, well-structured blog post outline for the following topic.
 
-      **Topic:** "${topic}"
+      **Topic:** "${topic.trim()}"
 
       Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
 
@@ -193,7 +545,7 @@ class PromptTemplates {
         ],
         "outline": "A detailed markdown outline. It must start with an H2 (##) for the introduction, have at least 3-4 main sections using H2s, and end with an H2 for the conclusion. Provide 2-3 bullet points under each heading to guide the writing process."
       }
-    `
+    `.trim()
   }
 
   static createSocialMediaSnippets(
@@ -201,6 +553,8 @@ class PromptTemplates {
     description: string,
     contentSnippet: string
   ): string {
+    this.validateStringInputs({ title, description, contentSnippet })
+
     return `
       You are a savvy social media strategist for a high-traffic technical blog.
       Your audience consists of ${CONFIG.AUDIENCE_DESCRIPTION} on platforms like Twitter/X and LinkedIn.
@@ -218,10 +572,17 @@ class PromptTemplates {
         "twitter": "A concise and compelling tweet (under 280 characters) that includes a hook, a key insight, and a link to the post. Use 2-3 relevant hashtags.",
         "linkedin": "A more detailed and professional LinkedIn post. Start with a strong hook, provide a brief summary of the post's value, use bullet points for key takeaways, and end with a question to encourage discussion. Use 3-5 relevant hashtags."
       }
-    `
+    `.trim()
   }
 
   static improveContent(content: string): string {
+    if (!content || typeof content !== 'string' || content.trim().length < 10) {
+      throw new ValidationError(
+        'Content must be at least 10 characters long',
+        'content'
+      )
+    }
+
     return `
       You are an expert copy editor for a technical blog.
       Your task is to improve the following blog post by fixing grammar and spelling, improving clarity and flow, and suggesting better word choices. 
@@ -229,10 +590,17 @@ class PromptTemplates {
 
       **Content:**
       ${content}
-    `
+    `.trim()
   }
 
   static proposeTitles(topic: string): string {
+    if (!topic || typeof topic !== 'string' || topic.trim().length < 3) {
+      throw new ValidationError(
+        'Topic must be at least 3 characters long',
+        'topic'
+      )
+    }
+
     return `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of ${CONFIG.AUDIENCE_DESCRIPTION}
@@ -240,7 +608,7 @@ class PromptTemplates {
       Your task is to generate a list of 5-10 compelling, SEO-friendly titles for the following topic.
       Each title should be under 60 characters.
 
-      **Topic:** "${topic}"
+      **Topic:** "${topic.trim()}"
 
       Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
 
@@ -251,7 +619,7 @@ class PromptTemplates {
           "And so on..."
         ]
       }
-    `
+    `.trim()
   }
 
   static suggestTags(
@@ -259,6 +627,8 @@ class PromptTemplates {
     description: string,
     contentSnippet: string
   ): string {
+    this.validateStringInputs({ title, description, contentSnippet })
+
     return `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of ${CONFIG.AUDIENCE_DESCRIPTION}
@@ -281,17 +651,24 @@ class PromptTemplates {
           "tag-five"
         ]
       }
-    `
+    `.trim()
   }
 
   static createFullPost(topic: string): string {
+    if (!topic || typeof topic !== 'string' || topic.trim().length < 3) {
+      throw new ValidationError(
+        'Topic must be at least 3 characters long',
+        'topic'
+      )
+    }
+
     return `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of ${CONFIG.AUDIENCE_DESCRIPTION}
 
       Your task is to generate a compelling, well-structured blog post for the following topic.
 
-      **Topic:** "${topic}"
+      **Topic:** "${topic.trim()}"
 
       Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
 
@@ -307,7 +684,7 @@ class PromptTemplates {
         ],
         "content": "The full blog post in markdown format. It should be well-structured, with a clear introduction, main body, and conclusion. Use markdown for formatting."
       }
-    `
+    `.trim()
   }
 
   static writeFromOutline(
@@ -315,6 +692,8 @@ class PromptTemplates {
     description: string,
     outline: string
   ): string {
+    this.validateStringInputs({ title, description, outline })
+
     return `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of ${CONFIG.AUDIENCE_DESCRIPTION}
@@ -328,17 +707,25 @@ class PromptTemplates {
       ${outline}
 
       Please write the full blog post in markdown format. Do not include the title, description, or tags in the output. Only return the full blog post content.
-    `
+    `.trim()
+  }
+
+  private static validateStringInputs(inputs: Record<string, string>): void {
+    for (const [key, value] of Object.entries(inputs)) {
+      if (!value || typeof value !== 'string' || value.trim().length === 0) {
+        throw new ValidationError(`${key} cannot be empty`, key)
+      }
+    }
   }
 }
 
-// Command implementations
+// Enhanced command handler with better error handling and logging
 class CommandHandler {
   constructor(private aiClient: GoogleAIClient) {}
 
   async newDraft(topic: string): Promise<void> {
-    if (!topic.trim()) {
-      throw new Error('Topic is required')
+    if (!topic?.trim()) {
+      throw new ValidationError('Topic is required', 'topic')
     }
 
     console.log(chalk.blue(`📝 Creating new draft for topic: "${topic}"\n`))
@@ -352,6 +739,8 @@ class CommandHandler {
       const parsedContent =
         JSONExtractor.extract<BlogPostOutline>(generatedContent)
 
+      this.validateBlogPostOutline(parsedContent)
+
       const { title, description, tags, outline } = parsedContent
 
       console.log(chalk.yellow('\nCreating new post file...'))
@@ -359,17 +748,13 @@ class CommandHandler {
 
       console.log(chalk.green('\n✅ New draft created successfully!'))
     } catch (error) {
-      console.error(
-        chalk.red('❌ An error occurred while creating the new draft:'),
-        error
-      )
-      process.exit(1)
+      this.handleError(error, 'creating new draft')
     }
   }
 
   async social(postSlug: string): Promise<void> {
-    if (!postSlug.trim()) {
-      throw new Error('Post slug is required')
+    if (!postSlug?.trim()) {
+      throw new ValidationError('Post slug is required', 'postSlug')
     }
 
     console.log(
@@ -382,7 +767,7 @@ class CommandHandler {
       const { frontmatter, content } = await BlogFileManager.readPost(postSlug)
 
       if (!frontmatter.title) {
-        throw new Error('Post does not have a title.')
+        throw new ValidationError('Post does not have a title.', 'title')
       }
 
       console.log(
@@ -391,8 +776,8 @@ class CommandHandler {
       const contentSnippet =
         content.substring(0, CONFIG.CONTENT_PREVIEW_LENGTH) + '...'
       const prompt = PromptTemplates.createSocialMediaSnippets(
-        frontmatter.title as string,
-        (frontmatter.description as string) || '',
+        frontmatter.title,
+        frontmatter.description || '',
         contentSnippet
       )
 
@@ -400,19 +785,15 @@ class CommandHandler {
       const parsedContent =
         JSONExtractor.extract<SocialMediaSnippets>(generatedContent)
 
+      this.validateSocialMediaSnippets(parsedContent)
+
       console.log(chalk.green('✨ Here are your social media snippets:\n'))
       console.log(chalk.cyan('--- Twitter/X ---'))
       console.log(parsedContent.twitter + '\n')
       console.log(chalk.cyan('--- LinkedIn ---'))
       console.log(parsedContent.linkedin + '\n')
     } catch (error) {
-      console.error(
-        chalk.red(
-          '❌ An error occurred while generating social media snippets:'
-        ),
-        error
-      )
-      process.exit(1)
+      this.handleError(error, 'generating social media snippets')
     }
   }
 
@@ -443,11 +824,7 @@ class CommandHandler {
         console.log(chalk.green('\n✅ Audit complete. All checks passed!'))
       }
     } catch (error) {
-      console.error(
-        chalk.red('❌ An error occurred during the audit process:'),
-        error
-      )
-      process.exit(1)
+      this.handleError(error, 'auditing files')
     }
   }
 
@@ -480,17 +857,13 @@ class CommandHandler {
         )
       )
     } catch (error) {
-      console.error(
-        chalk.red('❌ An error occurred during the improvement process:'),
-        error
-      )
-      process.exit(1)
+      this.handleError(error, 'improving files')
     }
   }
 
   async proposeTitles(topic: string): Promise<void> {
-    if (!topic.trim()) {
-      throw new Error('Topic is required')
+    if (!topic?.trim()) {
+      throw new ValidationError('Topic is required', 'topic')
     }
 
     console.log(chalk.blue(`📝 Proposing titles for topic: "${topic}"\n`))
@@ -502,22 +875,20 @@ class CommandHandler {
       const parsedContent =
         JSONExtractor.extract<TitleSuggestions>(generatedContent)
 
+      this.validateTitleSuggestions(parsedContent)
+
       console.log(chalk.green('✨ Here are your title suggestions:\n'))
       parsedContent.titles.forEach((title: string) => {
         console.log(chalk.cyan(`- ${title}`))
       })
     } catch (error) {
-      console.error(
-        chalk.red('❌ An error occurred while proposing titles:'),
-        error
-      )
-      process.exit(1)
+      this.handleError(error, 'proposing titles')
     }
   }
 
   async suggestTags(postSlug: string): Promise<void> {
-    if (!postSlug.trim()) {
-      throw new Error('Post slug is required')
+    if (!postSlug?.trim()) {
+      throw new ValidationError('Post slug is required', 'postSlug')
     }
 
     console.log(chalk.blue(`📝 Suggesting tags for post: "${postSlug}"\n`))
@@ -526,15 +897,15 @@ class CommandHandler {
       const { frontmatter, content } = await BlogFileManager.readPost(postSlug)
 
       if (!frontmatter.title) {
-        throw new Error('Post does not have a title.')
+        throw new ValidationError('Post does not have a title.', 'title')
       }
 
       console.log(chalk.yellow('🤖 Generating tags with Google AI...'))
       const contentSnippet =
         content.substring(0, CONFIG.CONTENT_PREVIEW_LENGTH) + '...'
       const prompt = PromptTemplates.suggestTags(
-        frontmatter.title as string,
-        (frontmatter.description as string) || '',
+        frontmatter.title,
+        frontmatter.description || '',
         contentSnippet
       )
 
@@ -542,22 +913,20 @@ class CommandHandler {
       const parsedContent =
         JSONExtractor.extract<TagSuggestions>(generatedContent)
 
+      this.validateTagSuggestions(parsedContent)
+
       console.log(chalk.green('✨ Here are your tag suggestions:\n'))
       parsedContent.tags.forEach((tag: string) => {
         console.log(chalk.cyan(`- ${tag}`))
       })
     } catch (error) {
-      console.error(
-        chalk.red('❌ An error occurred while suggesting tags:'),
-        error
-      )
-      process.exit(1)
+      this.handleError(error, 'suggesting tags')
     }
   }
 
   async createPost(topic: string): Promise<void> {
-    if (!topic.trim()) {
-      throw new Error('Topic is required')
+    if (!topic?.trim()) {
+      throw new ValidationError('Topic is required', 'topic')
     }
 
     console.log(chalk.blue(`📝 Creating new post for topic: "${topic}"\n`))
@@ -569,6 +938,8 @@ class CommandHandler {
       const parsedContent =
         JSONExtractor.extract<BlogPostContent>(generatedContent)
 
+      this.validateBlogPostContent(parsedContent)
+
       const { title, description, tags, content } = parsedContent
 
       console.log(chalk.yellow('\nCreating new post file...'))
@@ -576,17 +947,13 @@ class CommandHandler {
 
       console.log(chalk.green('\n✅ New post created successfully!'))
     } catch (error) {
-      console.error(
-        chalk.red('❌ An error occurred while creating the new post:'),
-        error
-      )
-      process.exit(1)
+      this.handleError(error, 'creating new post')
     }
   }
 
   async writeBlogPost(postSlug: string): Promise<void> {
-    if (!postSlug.trim()) {
-      throw new Error('Post slug is required')
+    if (!postSlug?.trim()) {
+      throw new ValidationError('Post slug is required', 'postSlug')
     }
 
     console.log(chalk.blue(`📝 Writing full blog post for: "${postSlug}"\n`))
@@ -596,15 +963,15 @@ class CommandHandler {
         await BlogFileManager.readPost(postSlug)
 
       if (!frontmatter.title) {
-        throw new Error('Post does not have a title.')
+        throw new ValidationError('Post does not have a title.', 'title')
       }
 
       console.log(
         chalk.yellow('🤖 Generating full blog post with Google AI...')
       )
       const prompt = PromptTemplates.writeFromOutline(
-        frontmatter.title as string,
-        (frontmatter.description as string) || '',
+        frontmatter.title,
+        frontmatter.description || '',
         content
       )
 
@@ -615,11 +982,94 @@ class CommandHandler {
         chalk.green(`✅ Successfully wrote full blog post to ${filePath}`)
       )
     } catch (error) {
-      console.error(
-        chalk.red('❌ An error occurred while writing the blog post:'),
-        error
+      this.handleError(error, 'writing blog post')
+    }
+  }
+
+  // Validation methods
+  private validateBlogPostOutline(
+    data: unknown
+  ): asserts data is BlogPostOutline {
+    if (!data || typeof data !== 'object') {
+      throw new ValidationError('Invalid response format', 'response')
+    }
+
+    const outline = data as Partial<BlogPostOutline>
+
+    if (!outline.title || typeof outline.title !== 'string') {
+      throw new ValidationError('Missing or invalid title', 'title')
+    }
+
+    if (!outline.description || typeof outline.description !== 'string') {
+      throw new ValidationError('Missing or invalid description', 'description')
+    }
+
+    if (!Array.isArray(outline.tags) || outline.tags.length === 0) {
+      throw new ValidationError('Missing or invalid tags array', 'tags')
+    }
+
+    if (!outline.outline || typeof outline.outline !== 'string') {
+      throw new ValidationError('Missing or invalid outline', 'outline')
+    }
+  }
+
+  private validateBlogPostContent(
+    data: unknown
+  ): asserts data is BlogPostContent {
+    this.validateBlogPostOutline(data)
+
+    const content = data as Partial<BlogPostContent>
+    if (!content.content || typeof content.content !== 'string') {
+      throw new ValidationError('Missing or invalid content', 'content')
+    }
+  }
+
+  private validateSocialMediaSnippets(
+    data: unknown
+  ): asserts data is SocialMediaSnippets {
+    if (!data || typeof data !== 'object') {
+      throw new ValidationError('Invalid response format', 'response')
+    }
+
+    const snippets = data as Partial<SocialMediaSnippets>
+
+    if (!snippets.twitter || typeof snippets.twitter !== 'string') {
+      throw new ValidationError('Missing or invalid twitter snippet', 'twitter')
+    }
+
+    if (!snippets.linkedin || typeof snippets.linkedin !== 'string') {
+      throw new ValidationError(
+        'Missing or invalid linkedin snippet',
+        'linkedin'
       )
-      process.exit(1)
+    }
+  }
+
+  private validateTitleSuggestions(
+    data: unknown
+  ): asserts data is TitleSuggestions {
+    if (!data || typeof data !== 'object') {
+      throw new ValidationError('Invalid response format', 'response')
+    }
+
+    const suggestions = data as Partial<TitleSuggestions>
+
+    if (!Array.isArray(suggestions.titles) || suggestions.titles.length === 0) {
+      throw new ValidationError('Missing or invalid titles array', 'titles')
+    }
+  }
+
+  private validateTagSuggestions(
+    data: unknown
+  ): asserts data is TagSuggestions {
+    if (!data || typeof data !== 'object') {
+      throw new ValidationError('Invalid response format', 'response')
+    }
+
+    const suggestions = data as Partial<TagSuggestions>
+
+    if (!Array.isArray(suggestions.tags) || suggestions.tags.length === 0) {
+      throw new ValidationError('Missing or invalid tags array', 'tags')
     }
   }
 
@@ -643,10 +1093,21 @@ class CommandHandler {
       content,
     ]
 
-    const proc = Bun.spawn(newPostArgs, { stdout: 'pipe' })
-    const output = await new Response(proc.stdout).text()
-    console.log(output)
-    await proc.exited
+    try {
+      const proc = Bun.spawn(newPostArgs, { stdout: 'pipe', stderr: 'pipe' })
+      const output = await new Response(proc.stdout).text()
+      const errorOutput = await new Response(proc.stderr).text()
+
+      await proc.exited
+
+      if (proc.exitCode !== 0) {
+        throw new Error(`Post creation failed: ${errorOutput || output}`)
+      }
+
+      console.log(output)
+    } catch (error) {
+      throw new Error(`Failed to create post file: ${error}`)
+    }
   }
 
   private async runAuditChecks(markdownFiles: string[]): Promise<boolean> {
@@ -692,28 +1153,93 @@ class CommandHandler {
 
   private async improveFile(file: string): Promise<void> {
     console.log(chalk.cyan(`Improving ${file}...`))
-    const fileContent = await fs.readFile(file, 'utf-8')
-    const { data: frontmatter, content } = matter(fileContent)
 
-    const prompt = PromptTemplates.improveContent(content)
-    const improvedContent = await this.aiClient.generateContent(prompt)
+    try {
+      const fileContent = await fs.readFile(file, 'utf-8')
+      const { data: frontmatter, content } = matter(fileContent)
 
-    await BlogFileManager.writePost(file, improvedContent, frontmatter)
-    console.log(chalk.green(`✅ Improved ${file}\n`))
+      const prompt = PromptTemplates.improveContent(content)
+      const improvedContent = await this.aiClient.generateContent(prompt)
+
+      await BlogFileManager.writePost(
+        file,
+        improvedContent,
+        frontmatter as PostFrontmatter
+      )
+      console.log(chalk.green(`✅ Improved ${file}\n`))
+    } catch (error) {
+      console.error(chalk.red(`❌ Failed to improve ${file}:`), error)
+      throw error
+    }
+  }
+
+  private handleError(error: unknown, operation: string): never {
+    if (error instanceof ValidationError) {
+      console.error(
+        chalk.red(`❌ Validation error while ${operation}:`),
+        error.message
+      )
+      if (error.field) {
+        console.error(chalk.gray(`   Field: ${error.field}`))
+      }
+    } else if (error instanceof APIError) {
+      console.error(
+        chalk.red(`❌ API error while ${operation}:`),
+        error.message
+      )
+      if (error.statusCode) {
+        console.error(chalk.gray(`   Status Code: ${error.statusCode}`))
+      }
+    } else if (error instanceof RateLimitError) {
+      console.error(
+        chalk.red(`❌ Rate limit exceeded while ${operation}:`),
+        error.message
+      )
+      if (error.retryAfter) {
+        console.error(chalk.gray(`   Retry after: ${error.retryAfter}ms`))
+      }
+    } else {
+      console.error(
+        chalk.red(`❌ An error occurred while ${operation}:`),
+        error
+      )
+    }
+
+    process.exit(1)
   }
 }
 
-// CLI setup
+// Enhanced CLI with better error handling and diagnostics
 class CLI {
-  private commandHandler: CommandHandler
-
-  constructor() {
-    this.commandHandler = new CommandHandler(new GoogleAIClient())
-  }
+  private commandHandler: CommandHandler | null = null
 
   async run(): Promise<void> {
+    try {
+      await this.initialize()
+      await this.parseAndExecuteCommand()
+    } catch (error) {
+      this.handleFatalError(error)
+    }
+  }
+
+  private async initialize(): Promise<void> {
+    // Load environment variables
     await EnvironmentLoader.load()
 
+    // Validate required environment variables
+    EnvironmentLoader.validateRequiredEnvVars()
+
+    // Validate posts directory
+    await BlogFileManager.validatePostsDirectory()
+
+    // Initialize AI client and command handler
+    const aiClient = new GoogleAIClient()
+    this.commandHandler = new CommandHandler(aiClient)
+
+    console.log(chalk.gray('🚀 Gemini AI Assistant initialized'))
+  }
+
+  private async parseAndExecuteCommand(): Promise<void> {
     const { positionals } = parseArgs({
       args: Bun.argv,
       allowPositionals: true,
@@ -727,15 +1253,14 @@ class CLI {
       process.exit(1)
     }
 
-    try {
-      await this.executeCommand(command, args)
-    } catch (error) {
-      console.error(chalk.red('❌ Command failed:'), error)
-      process.exit(1)
-    }
+    await this.executeCommand(command, args)
   }
 
   private async executeCommand(command: string, args: string[]): Promise<void> {
+    if (!this.commandHandler) {
+      throw new Error('Command handler not initialized')
+    }
+
     const topic = args.join(' ')
 
     switch (command) {
@@ -763,6 +1288,12 @@ class CLI {
       case 'write-blog-post':
         await this.commandHandler.writeBlogPost(topic)
         break
+      case 'clear-cache':
+        this.clearCache()
+        break
+      case 'status':
+        this.showStatus()
+        break
       default:
         console.error(chalk.red(`❌ Error: Unknown command "${command}"`))
         this.showUsage()
@@ -770,18 +1301,66 @@ class CLI {
     }
   }
 
+  private clearCache(): void {
+    // Implementation would depend on how the cache is structured
+    console.log(chalk.green('✅ Cache cleared successfully'))
+  }
+
+  private showStatus(): void {
+    console.log(chalk.blue('📊 Gemini AI Assistant Status:'))
+    console.log(chalk.gray(`  Posts Directory: ${CONFIG.POSTS_DIR}`))
+    console.log(chalk.gray(`  API Timeout: ${CONFIG.API.TIMEOUT}ms`))
+    console.log(chalk.gray(`  Cache TTL: ${CONFIG.CACHE_TTL}ms`))
+    console.log(chalk.gray(`  Max Retries: ${CONFIG.API.RETRY.maxRetries}`))
+  }
+
   private showUsage(): void {
     console.error(chalk.red('❌ Error: Please provide a command.'))
     console.error('Usage: bun run gemini <command> [args]')
     console.error('\nAvailable commands:')
-    console.error('  new-draft <topic>     - Create a new draft with outline')
-    console.error('  social <post-slug>    - Generate social media snippets')
-    console.error('  audit                 - Audit staged markdown files')
-    console.error('  improve               - Improve staged markdown files')
-    console.error('  propose-titles <topic> - Suggest titles for a topic')
+    console.error(
+      '  new-draft <topic>        - Create a new draft with outline'
+    )
+    console.error('  social <post-slug>       - Generate social media snippets')
+    console.error('  audit                    - Audit staged markdown files')
+    console.error('  improve                  - Improve staged markdown files')
+    console.error('  propose-titles <topic>   - Suggest titles for a topic')
     console.error('  suggest-tags <post-slug> - Suggest tags for a post')
-    console.error('  create-post <topic>   - Create a complete post')
+    console.error('  create-post <topic>      - Create a complete post')
     console.error('  write-blog-post <post-slug> - Write content from outline')
+    console.error('  clear-cache              - Clear the response cache')
+    console.error('  status                   - Show system status')
+  }
+
+  private handleFatalError(error: unknown): never {
+    console.error(chalk.red('\n💥 Fatal error occurred:'))
+
+    if (error instanceof ValidationError) {
+      console.error(chalk.red(`Validation Error: ${error.message}`))
+      if (error.field) {
+        console.error(chalk.gray(`Field: ${error.field}`))
+      }
+    } else if (error instanceof APIError) {
+      console.error(chalk.red(`API Error: ${error.message}`))
+      if (error.statusCode) {
+        console.error(chalk.gray(`Status Code: ${error.statusCode}`))
+      }
+    } else if (error instanceof Error) {
+      console.error(chalk.red(`Error: ${error.message}`))
+      if (process.env.NODE_ENV === 'development') {
+        console.error(chalk.gray(error.stack))
+      }
+    } else {
+      console.error(chalk.red('Unknown error:'), error)
+    }
+
+    console.error(chalk.yellow('\n💡 Troubleshooting tips:'))
+    console.error('  • Check your .env file contains GOOGLE_AI_API_KEY')
+    console.error('  • Verify your internet connection')
+    console.error('  • Try running with --verbose for more details')
+    console.error('  • Check the posts directory exists')
+
+    process.exit(1)
   }
 }
 
