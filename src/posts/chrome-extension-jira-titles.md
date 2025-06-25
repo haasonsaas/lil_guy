@@ -2,7 +2,7 @@
 title: "Chrome Extension for Jira Titles: A Developer's Journey"
 author: Jonathan Haas
 pubDate: 2024-04-11
-description: "Building a Chrome extension to improve Jira ticket management"
+description: 'Building a Chrome extension to improve Jira ticket management'
 tags:
   - engineering
   - product
@@ -59,10 +59,10 @@ makes a good ticket title from both a product and engineering perspective:
    titles. A bug title should highlight the issue and its impact. A feature
    request should emphasize the new capability.
 
-2. **Consistent Formatting**: Whether you prefer sentence case, title case, or
+1. **Consistent Formatting**: Whether you prefer sentence case, title case, or
    lowercase, consistency makes backlogs more scannable and professional.
 
-3. **Quick Access**: Right-click menu integration means no context switching -
+1. **Quick Access**: Right-click menu integration means no context switching -
    you can create well-titled tickets without interrupting your workflow.
 
 ## What I Learned
@@ -73,11 +73,11 @@ Building this extension taught me several valuable lessons:
    from solving small, everyday friction points. This wasn't about revolutionary
    feature development - it was about making our daily work slightly better.
 
-2. **AI as an Enhancer**: AI works best when it enhances human workflows rather
+1. **AI as an Enhancer**: AI works best when it enhances human workflows rather
    than replacing them. The extension doesn't decide what tickets to create; it
    helps make those tickets clearer and more consistent.
 
-3. **Product Managing Your Own Product**: Building something for your own use
+1. **Product Managing Your Own Product**: Building something for your own use
    case is incredibly enlightening. Every feature decision was based on real
    needs and immediate feedback.
 
@@ -108,10 +108,10 @@ The extension is straightforward to use:
 
 1. Download it from the GitHub
    [repo](https://github.com/haasonsaas/jira-title-generator)
-2. Load the unpacked folder in Chrome
-3. Add your OpenAI API key in the settings
-4. Select any text, right-click, and choose "Generate JIRA Title"
-5. Use the popup to adjust formats and templates as needed
+1. Load the unpacked folder in Chrome
+1. Add your OpenAI API key in the settings
+1. Select any text, right-click, and choose "Generate JIRA Title"
+1. Use the popup to adjust formats and templates as needed
 
 ## Final Thoughts
 

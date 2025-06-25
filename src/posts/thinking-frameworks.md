@@ -1,8 +1,8 @@
 ---
-title: "Thinking Frameworks: Tools for Better Decision Making"
+title: 'Thinking Frameworks: Tools for Better Decision Making'
 author: Jonathan Haas
 pubDate: 2024-04-20
-description: "A collection of mental models and frameworks for improving decision making in product and business"
+description: 'A collection of mental models and frameworks for improving decision making in product and business'
 tags:
   - product
   - strategy
@@ -179,10 +179,10 @@ In a world where execution is increasingly commoditized, your decision stack may
 If you're convinced that your organization would benefit from better framework infrastructure, here's a practical approach to getting started:
 
 1. **Begin with inventory**: Document the decision frameworks currently used across your organization, both formal and informal
-2. **Identify gaps**: Where are decisions being made without consistent frameworks? Where is reinvention happening regularly?
-3. **Prioritize implementation**: Focus first on high-leverage, frequent decision types
-4. **Start simple**: Even a well-organized document library is better than scattered frameworks
-5. **Build for evolution**: Whatever system you create, ensure it can adapt as you learn what works
+1. **Identify gaps**: Where are decisions being made without consistent frameworks? Where is reinvention happening regularly?
+1. **Prioritize implementation**: Focus first on high-leverage, frequent decision types
+1. **Start simple**: Even a well-organized document library is better than scattered frameworks
+1. **Build for evolution**: Whatever system you create, ensure it can adapt as you learn what works
 
 The technical implementation can be as simple or sophisticated as your needs demand. What matters most is the commitment to making good decision processes as accessible and consistent as your other critical infrastructure.
 

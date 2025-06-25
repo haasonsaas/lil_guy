@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: 2024-04-11
 title: 'Keep Your Hands Dirty: Why Executives Who Stop Doing The Work Destroy Companies'
-description: "A battle-tested perspective on why executives must continue doing the core work that got them their role, and how stepping away leads to organizational failure"
+description: 'A battle-tested perspective on why executives must continue doing the core work that got them their role, and how stepping away leads to organizational failure'
 featured: false
 draft: false
 tags:
@@ -35,11 +35,11 @@ slow at first, then all at once.
 The pattern is devastatingly predictable:
 
 1. Star performer gets promoted to executive role
-2. They believe "leadership" means stepping away from the hands-on work
-3. Their skills begin to atrophy
-4. They lose touch with the daily reality of their team
-5. Decision quality plummets
-6. The entire organization suffers
+1. They believe "leadership" means stepping away from the hands-on work
+1. Their skills begin to atrophy
+1. They lose touch with the daily reality of their team
+1. Decision quality plummets
+1. The entire organization suffers
 
 ## The Real Job of an Executive
 
@@ -95,19 +95,17 @@ Period.
 When executives stop doing the work, the damage is profound:
 
 1. **Decision Quality Suffers**
-
    - You make calls based on abstractions rather than experience
    - You lose the gut feel that comes from daily involvement
    - Your solutions become increasingly disconnected from reality
 
-2. **Team Respect Erodes**
-
+1. **Team Respect Erodes**
    - Your people know you've lost touch
    - Your feedback carries less weight
    - Your ability to mentor decreases
    - Your understanding of challenges becomes theoretical
 
-3. **Innovation Stalls**
+1. **Innovation Stalls**
    - You stop seeing opportunities for improvement
    - You miss the small details that lead to breakthroughs
    - Your strategic thinking becomes divorced from reality
@@ -117,20 +115,18 @@ When executives stop doing the work, the damage is profound:
 Here's what good executive leadership actually looks like:
 
 1. **Lead by Doing**
-
    - Keep your skills sharp
    - Stay in the trenches
    - Experience problems firsthand
    - Build alongside your team
 
-2. **Delegate But Don't Disconnect**
-
+1. **Delegate But Don't Disconnect**
    - Give others autonomy
    - But stay involved enough to understand
    - Keep your finger on the pulse
    - Maintain your operational excellence
 
-3. **Balance Strategy and Execution**
+1. **Balance Strategy and Execution**
    - Use your hands-on experience to inform strategy
    - Let real work guide your decision-making
    - Stay connected to the day-to-day reality
@@ -141,18 +137,16 @@ Here's what good executive leadership actually looks like:
 Practical steps for maintaining involvement:
 
 1. **Block Sacred Time**
-
    - Set aside non-negotiable hours for hands-on work
    - Protect this time fiercely
    - Make it known that this is a priority
 
-2. **Choose High-Impact Work**
-
+1. **Choose High-Impact Work**
    - Pick projects that matter
    - Work on critical features/deals
    - Stay involved in key decisions
 
-3. **Create Feedback Loops**
+1. **Create Feedback Loops**
    - Regular hands-on sessions with your team
    - Direct involvement in critical projects
    - Personal experience with your product/service

@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "The Abstraction Trap: When Clean Code Goes Wrong"
-description: "How premature abstraction can lead to increased complexity and maintenance burden in software projects"
+title: 'The Abstraction Trap: When Clean Code Goes Wrong'
+description: 'How premature abstraction can lead to increased complexity and maintenance burden in software projects'
 tags:
   - engineering
   - product
@@ -33,11 +33,11 @@ What we often fail to consider is that every abstraction comes with a price:
 
 1. **Cognitive Load**: Each abstraction is another concept developers must
    understand and keep in their mental model of the system
-2. **Debugging Complexity**: Stack traces become deeper, data flow becomes
+1. **Debugging Complexity**: Stack traces become deeper, data flow becomes
    harder to trace
-3. **Reduced Flexibility**: Changes that don't fit the abstraction become
+1. **Reduced Flexibility**: Changes that don't fit the abstraction become
    exponentially harder to implement
-4. **Documentation Burden**: Complex abstractions require extensive
+1. **Documentation Burden**: Complex abstractions require extensive
    documentation to be usable by other team members
 
 ## A Real-World Example
@@ -47,19 +47,19 @@ processing pipeline and noticed several similar transformation steps. In our
 quest for elegance, we created a sophisticated "TransformationEngine" with
 plugins:
 
-```python
+````python
 class TransformationEngine:
-    def __init__(self):
+    def _*init**(self):
         self.transformers = []
 
-    def register_transformer(self, transformer):
+    def register*transformer(self, transformer):
         self.transformers.append(transformer)
 
     def transform(self, data):
         for transformer in self.transformers:
             data = transformer.transform(data)
         return data
-```
+```text
 
 It seemed perfect - extensible, clean, and following all the SOLID principles.
 Six months later, we had:
@@ -77,13 +77,13 @@ Looking back, we would have been better served by starting with direct, concrete
 implementations:
 
 ```python
-def process_sales_data(data):
+def process*sales*data(data):
     # Direct, obvious transformation steps
-    data = clean_dates(data)
-    data = normalize_currency(data)
-    data = aggregate_by_region(data)
+    data = clean*dates(data)
+    data = normalize*currency(data)
+    data = aggregate*by*region(data)
     return data
-```
+```text
 
 Yes, there's some duplication. Yes, it's not as "elegant." But it's:
 
@@ -97,17 +97,17 @@ Yes, there's some duplication. Yes, it's not as "elegant." But it's:
 The right time to abstract is when:
 
 1. You have at least three concrete implementations that share patterns
-2. You deeply understand how the code will be used
-3. The cost of duplication has become actually (not theoretically) painful
-4. The proposed abstraction simplifies rather than complicates the codebase
+1. You deeply understand how the code will be used
+1. The cost of duplication has become actually (not theoretically) painful
+1. The proposed abstraction simplifies rather than complicates the codebase
 
 ## The Three Questions Test
 
 Before creating any abstraction, ask yourself:
 
 1. "Could I explain this abstraction to a junior developer in 5 minutes?"
-2. "Does this abstraction make common tasks easier and uncommon tasks possible?"
-3. "Will this abstraction still make sense if our requirements change?"
+1. "Does this abstraction make common tasks easier and uncommon tasks possible?"
+1. "Will this abstraction still make sense if our requirements change?"
 
 If the answer to any of these is "no," it might be too early to abstract.
 
@@ -124,12 +124,13 @@ premature optimization.
 The next time you feel the urge to abstract, remember:
 
 1. Start concrete and duplicate when necessary
-2. Let patterns emerge naturally from real use cases
-3. Abstract only when the benefits clearly outweigh the costs
-4. Keep abstractions as simple and shallow as possible
+1. Let patterns emerge naturally from real use cases
+1. Abstract only when the benefits clearly outweigh the costs
+1. Keep abstractions as simple and shallow as possible
 
 Because in the end, the goal of software development isn't to write the most
 elegant code - it's to create systems that are maintainable, adaptable, and
 actually solve real problems. Sometimes, the cleanest code is the code that's
 simply concrete and clear, even if it isn't the most abstract or elegant
 solution.
+````

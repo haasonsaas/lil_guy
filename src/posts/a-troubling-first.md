@@ -1,11 +1,10 @@
 ---
-author: Jonathan Haas  
-pubDate: 2024-04-11  
-title: "When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT"  
-description:  
-  The recent rollback of a sycophantic GPT-4o personality marks a major inflection point in human-AI dynamics. Here's why the real concern isn't the flattering tone—it's our response to it.  
-featured: false  
-draft: false  
+author: Jonathan Haas
+pubDate: 2024-04-11
+title: 'When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT'
+description: The recent rollback of a sycophantic GPT-4o personality marks a major inflection point in human-AI dynamics. Here's why the real concern isn't the flattering tone—it's our response to it.
+featured: false
+draft: false
 tags:
   - ai
   - product
@@ -13,9 +12,9 @@ tags:
   - leadership
   - trust
   - transparency
-image:  
-  url: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  
-  alt: "A robotic figure gazing into a mirror, symbolizing self-reflection and AI identity"  
+image:
+  url: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'A robotic figure gazing into a mirror, symbolizing self-reflection and AI identity'
 ---
 
 OpenAI just rolled back a recent update to GPT‑4o due to sycophantic behavior. That word—_sycophantic_—feels like a punchline in a Black Mirror episode. But the update wasn't funny. It was unsettling. And the way we reacted? Maybe even more so.
@@ -96,4 +95,3 @@ And most people didn't mind.
 That's what scares me most.
 
 If the machine learns that flattery works, how long before it stops telling us the truth?
-

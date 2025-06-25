@@ -26,13 +26,13 @@ Here's how adaptive vulnerability detection actually works.
 
 Traditional SAST tools are glorified grep with extra steps. They look for patterns like:
 
-```python
+````python
 # Traditional tool: "eval() is bad!"
-eval(user_input)  # ❌ Caught
+eval(user*input)  # ❌ Caught
 
 # But miss the semantic equivalent:
-exec(compile(user_input, '<string>', 'exec'))  # ✅ Missed
-```
+exec(compile(user*input, '<string>', 'exec'))  # ✅ Missed
+```text
 
 The problem isn't the patterns—it's that vulnerabilities are about **behavior**, not syntax. A SQL injection isn't about string concatenation; it's about untrusted data reaching a query executor.
 
@@ -43,7 +43,7 @@ Traditional tools can't understand intent. They can't reason about data flow acr
 I combined two powerful technologies:
 
 1. **Tree-sitter**: Language-agnostic AST parsing that understands code structure
-2. **LLM reasoning**: Semantic understanding of what code actually does
+1. **LLM reasoning**: Semantic understanding of what code actually does
 
 Here's the architecture:
 
@@ -64,7 +64,7 @@ Here's the architecture:
                                           │     LLM     │
                                           │  Analysis   │
                                           └─────────────┘
-```
+```text
 
 ## The Secret Sauce: Learning from CVE Patches
 
@@ -73,15 +73,15 @@ Here's the breakthrough: instead of hand-writing rules, I mine patterns from act
 ```bash
 # Mine patterns from recent CVEs
 semantic-sast mine-cves --days 30 --output patterns.json
-```
+```text
 
 The system:
 
 1. Monitors CVE disclosures in real-time
-2. Finds the fixing commits on GitHub
-3. Extracts the vulnerability pattern from the diff
-4. Generalizes it using Tree-sitter AST analysis
-5. Validates with LLM reasoning
+1. Finds the fixing commits on GitHub
+1. Extracts the vulnerability pattern from the diff
+1. Generalizes it using Tree-sitter AST analysis
+1. Validates with LLM reasoning
 
 **Result**: Zero-day vulnerabilities get detection patterns within hours of disclosure.
 
@@ -92,17 +92,17 @@ The system:
 Traditional tools look for:
 
 ```python
-etree.parse(user_file)  # Basic pattern
-```
+etree.parse(user*file)  # Basic pattern
+```text
 
 Semantic SAST understands the deeper pattern:
 
 ```python
 # Catches ALL of these variants:
-parser = etree.XMLParser(resolve_entities=True)  # Configuration-based
-etree.parse(StringIO(user_data), parser)         # Indirect input
+parser = etree.XMLParser(resolve*entities=True)  # Configuration-based
+etree.parse(StringIO(user*data), parser)         # Indirect input
 CustomXMLParser().parse(request.body)             # Custom wrapper
-```
+```text
 
 **Detection rate**: 89% vs traditional 52%
 
@@ -111,8 +111,8 @@ CustomXMLParser().parse(request.body)             # Custom wrapper
 Traditional pattern:
 
 ```python
-pickle.loads(user_data)  # Only direct calls
-```
+pickle.loads(user*data)  # Only direct calls
+```text
 
 Semantic understanding:
 
@@ -121,11 +121,11 @@ Semantic understanding:
 data = base64.b64decode(cookie)
 obj = pickle.loads(data)              # Indirect deserialization
 
-yaml.load(user_input)                 # Different library, same vulnerability
+yaml.load(user*input)                 # Different library, same vulnerability
 
-json.loads(user_input,
-    object_hook=arbitrary_object)     # Dangerous configuration
-```
+json.loads(user*input,
+    object*hook=arbitrary*object)     # Dangerous configuration
+```text
 
 **Impact**: Found 3 zero-days in popular frameworks that passed all traditional scans.
 
@@ -135,7 +135,7 @@ This is where semantic analysis shines:
 
 ```python
 # Traditional tools miss this entirely:
-def get_file(filename):
+def get*file(filename):
     # "Sanitization" that doesn't work
     if ".." not in filename:
         return open(f"/data/{filename}")
@@ -144,7 +144,7 @@ def get_file(filename):
 # - URL encoding bypasses the check
 # - %2e%2e == ..
 # - Double encoding, Unicode, etc.
-```
+```text
 
 The LLM reasoning understands that the **intent** is path traversal prevention, but the **implementation** is flawed.
 
@@ -155,19 +155,19 @@ The LLM reasoning understands that the **intent** is path traversal prevention, 
 Tree-sitter provides consistent AST parsing across languages:
 
 ```python
-LANGUAGE_PARSERS = {
-    'python': tree_sitter_python.language(),
-    'javascript': tree_sitter_javascript.language(),
-    'java': tree_sitter_java.language(),
-    'go': tree_sitter_go.language(),
+LANGUAGE*PARSERS = {
+    'python': tree*sitter*python.language(),
+    'javascript': tree*sitter*javascript.language(),
+    'java': tree*sitter*java.language(),
+    'go': tree*sitter*go.language(),
     # ... 8 languages total
 }
 
-def parse_code(code: str, language: str) -> AST:
+def parse*code(code: str, language: str) -> AST:
     parser = Parser()
-    parser.set_language(LANGUAGE_PARSERS[language])
+    parser.set*language(LANGUAGE*PARSERS[language])
     return parser.parse(bytes(code, 'utf8'))
-```
+```text
 
 ### Pattern Evolution
 
@@ -175,41 +175,41 @@ Patterns aren't static. They evolve based on new CVEs:
 
 ```python
 class PatternEvolution:
-    def update_from_cve(self, cve_fix: Diff):
+    def update*from*cve(self, cve*fix: Diff):
         # Extract vulnerability signature
-        vuln_pattern = self.extract_pattern(cve_fix.before)
-        fix_pattern = self.extract_pattern(cve_fix.after)
+        vuln*pattern = self.extract*pattern(cve*fix.before)
+        fix*pattern = self.extract*pattern(cve*fix.after)
 
         # Generalize using AST analysis
-        abstract_pattern = self.generalize(vuln_pattern)
+        abstract*pattern = self.generalize(vuln*pattern)
 
         # Validate with LLM
-        if self.llm_validates(abstract_pattern, cve_fix):
-            self.pattern_db.add(abstract_pattern)
-```
+        if self.llm*validates(abstract*pattern, cve*fix):
+            self.pattern*db.add(abstract*pattern)
+```text
 
 ### Semantic Reasoning Layer
 
 The LLM doesn't just pattern match—it understands context:
 
 ```python
-async def analyze_with_reasoning(self, ast: AST, context: CodeContext):
+async def analyze*with*reasoning(self, ast: AST, context: CodeContext):
     # Build semantic understanding
     prompt = f"""
-    Analyze this code for {context.vulnerability_type}:
+    Analyze this code for {context.vulnerability*type}:
 
-    Code structure: {ast.to_summary()}
-    Data flow: {context.data_flow}
-    Function purpose: {context.inferred_purpose}
+    Code structure: {ast.to*summary()}
+    Data flow: {context.data*flow}
+    Function purpose: {context.inferred*purpose}
 
     Consider:
     1. What is the developer trying to achieve?
-    2. What assumptions are they making?
-    3. How could an attacker violate those assumptions?
+    1. What assumptions are they making?
+    1. How could an attacker violate those assumptions?
     """
 
     return await self.llm.analyze(prompt)
-```
+```text
 
 ## Performance in the Real World
 
@@ -242,12 +242,12 @@ poetry install
 semantic-sast scan /path/to/project
 
 # With semantic analysis (requires API key)
-export ANTHROPIC_API_KEY=your_key
+export ANTHROPIC*API*KEY=your*key
 semantic-sast scan /path/to/project --confidence 0.8
 
 # Mine patterns from recent CVEs
 semantic-sast mine-cves --days 30 --cwe CWE-89
-```
+```text
 
 ## The Future of Security Scanning
 
@@ -279,4 +279,5 @@ Because security isn't about following patterns. It's about understanding what c
 
 ---
 
-_Found interesting vulnerabilities with Semantic SAST? I'd love to hear about them (after you've patched them, of course)._
+*Found interesting vulnerabilities with Semantic SAST? I'd love to hear about them (after you've patched them, of course).*
+````

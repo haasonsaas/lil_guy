@@ -2,8 +2,7 @@
 author: Jonathan Haas
 pubDate: 2025-04-16
 title: "The Secondary Celebration: A Founder's Perspective on VC Liquidity Events"
-description: 
-  Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy
+description: Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy
 featured: false
 draft: false
 tags:
@@ -16,7 +15,7 @@ tags:
   - entrepreneurship
 image:
   url: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "Entrepreneurs and investors sitting at a table with mixed expressions"
+  alt: 'Entrepreneurs and investors sitting at a table with mixed expressions'
 ---
 
 During my morning LinkedIn scroll, I came across yet another post from a venture firm celebrating a massive return multiple from a secondary transaction. The usual format: impressive return metrics, enthusiastic self-congratulation, and an almost afterthought mention of the founders who made it all possible.
@@ -30,8 +29,8 @@ Let's acknowledge an uncomfortable truth: what represents a victory lap for inve
 When a VC broadcasts that they've achieved "fund-returning" multiples through a secondary sale while the founders and employees remain fully locked in the fight, it creates a fundamental asymmetry that's worth examining:
 
 1. **The Timing Mismatch**: VCs realize gains years before founders can often access meaningful liquidity
-2. **The Risk Differential**: Investors have distributed their risk across a portfolio; founders have concentrated their entire professional risk in one venture
-3. **The Emotional Disconnect**: Celebrating financial returns while the company's ultimate success remains uncertain
+1. **The Risk Differential**: Investors have distributed their risk across a portfolio; founders have concentrated their entire professional risk in one venture
+1. **The Emotional Disconnect**: Celebrating financial returns while the company's ultimate success remains uncertain
 
 The post that inspired this reflection hit all these notes - celebrating extraordinary returns from a partial secondary sale while the founders presumably continue facing the daily existential pressure of building their company.
 
@@ -66,17 +65,17 @@ This isn't to suggest VCs shouldn't celebrate wins or share their success storie
 ### For Investors:
 
 1. **Center the Founders**: Make the entrepreneurial achievement the headline, not your returns
-2. **Acknowledge the Journey**: Recognize explicitly that your liquidity comes while founders remain committed for the long haul
-3. **Add Value Context**: Share how your returns will translate to supporting more entrepreneurs or strengthener your ability to help portfolio companies
-4. **Consider Private Celebrations**: Some wins are best shared with LPs rather than broadcast publicly
-5. **Offer Substantive Founder Credit**: Beyond the perfunctory "thanks to the amazing founders," detail specifically what made their execution remarkable
+1. **Acknowledge the Journey**: Recognize explicitly that your liquidity comes while founders remain committed for the long haul
+1. **Add Value Context**: Share how your returns will translate to supporting more entrepreneurs or strengthener your ability to help portfolio companies
+1. **Consider Private Celebrations**: Some wins are best shared with LPs rather than broadcast publicly
+1. **Offer Substantive Founder Credit**: Beyond the perfunctory "thanks to the amazing founders," detail specifically what made their execution remarkable
 
 ### For Founders:
 
 1. **Set Communication Expectations**: Have transparent conversations with investors about how exits and liquidity events will be publicly discussed
-2. **Build Relationships with Empathetic VCs**: The best investors innately understand these dynamics
-3. **Create Your Own Narrative**: Don't cede control of your company's story to financial stakeholders
-4. **Seek Balanced Perspectives**: Find advisors who understand both sides of the investor-founder relationship
+1. **Build Relationships with Empathetic VCs**: The best investors innately understand these dynamics
+1. **Create Your Own Narrative**: Don't cede control of your company's story to financial stakeholders
+1. **Seek Balanced Perspectives**: Find advisors who understand both sides of the investor-founder relationship
 
 ## The Emotional Economics of Venture
 

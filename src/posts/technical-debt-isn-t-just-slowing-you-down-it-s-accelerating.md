@@ -129,10 +129,10 @@ Technical excellence isn't just about engineering happiness. It's about business
 ## Your Action Items
 
 1. **Model your current state** in the tracker. Be brutally honest.
-2. **Run scenarios** for 0%, 10%, 20%, and 30% debt allocation.
-3. **Find your break-even point** where velocity stabilizes.
-4. **Share the visualization** with your PM/leadership.
-5. **Pick a strategy** and commit to it for 6 months.
+1. **Run scenarios** for 0%, 10%, 20%, and 30% debt allocation.
+1. **Find your break-even point** where velocity stabilizes.
+1. **Share the visualization** with your PM/leadership.
+1. **Pick a strategy** and commit to it for 6 months.
 
 Technical debt is a choice. Not paying it down is also a choice—one with compound consequences.
 

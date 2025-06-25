@@ -36,9 +36,9 @@ Traditional solutions don't work:
 I needed something that was:
 
 1. **Fast**: Sub-second execution for interactive use
-2. **Secure**: True isolation, not just namespace separation
-3. **Language-agnostic**: Python, Node, Go, whatever
-4. **Ephemeral**: No state persistence between runs
+1. **Secure**: True isolation, not just namespace separation
+1. **Language-agnostic**: Python, Node, Go, whatever
+1. **Ephemeral**: No state persistence between runs
 
 Enter Firecracker.
 
@@ -55,7 +55,7 @@ Perfect for sandboxing untrusted code.
 
 Here's the architecture I built:
 
-```text
+````text
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
 │  Management API │────▶│  VM Orchestrator │────▶│   Firecracker   │
 │    (gRPC)       │     │  (Rust Service)  │     │   MicroVMs      │
@@ -68,7 +68,7 @@ Here's the architecture I built:
 └─────────────────┘                              │ • Node.js env   │
                                                  │ • Isolated FS   │
                                                  └─────────────────┘
-```
+```text
 
 ## Real-World Usage
 
@@ -79,14 +79,14 @@ Here's the architecture I built:
 fission run --lang python "print('Hello from isolation!')"
 
 # Output appears, VM destroyed, no trace left
-```
+```text
 
 Behind the scenes:
 
 1. VM boots (125ms)
-2. Code executes in isolation
-3. Output captured
-4. VM destroyed completely
+1. Code executes in isolation
+1. Output captured
+1. VM destroyed completely
 
 ### Complex Scenarios
 
@@ -96,10 +96,10 @@ Behind the scenes:
 fission run --lang python "
 import pandas as pd
 # LLM-generated analysis code
-df = pd.read_csv('/data/input.csv')
+df = pd.read*csv('/data/input.csv')
 print(df.groupby('category').sum())
 "
-```
+```text
 
 **Testing package combinations:**
 
@@ -107,7 +107,7 @@ print(df.groupby('category').sum())
 fission install --lang python \
   --packages numpy,scipy,matplotlib \
   --command "python analysis.py"
-```
+```text
 
 **Clone and test repositories:**
 
@@ -115,7 +115,7 @@ fission install --lang python \
 fission repo https://github.com/untrusted/code \
   --command "pytest" \
   --lang python
-```
+```text
 
 Each execution is completely isolated. No cross-contamination possible.
 
@@ -127,13 +127,13 @@ Firecracker uses KVM for hardware-level isolation:
 
 ```rust
 // Each VM gets its own virtualized hardware
-let vm_config = VmConfig {
-    vcpu_count: 1,
-    mem_size_mib: 128,
+let vm*config = VmConfig {
+    vcpu*count: 1,
+    mem*size*mib: 128,
     kernel: "vmlinux-5.10",
     rootfs: "python-rootfs.ext4",
 };
-```
+```text
 
 ### Layer 2: Network Isolation
 
@@ -142,16 +142,16 @@ By default, no network access:
 ```rust
 pub struct NetworkConfig {
     enabled: bool,
-    allowed_hosts: Vec<String>,  // Empty by default
+    allowed*hosts: Vec<String>,  // Empty by default
 }
-```
+```text
 
 Can be selectively enabled:
 
 ```bash
 fission run --network --allow-host api.example.com \
   --lang python "requests.get('https://api.example.com')"
-```
+```text
 
 ### Layer 3: Resource Limits
 
@@ -159,28 +159,28 @@ Hard limits prevent resource exhaustion:
 
 ```rust
 pub struct ResourceLimits {
-    cpu_shares: u32,      // Default: 1024
-    memory_mb: u32,       // Default: 128
-    timeout_secs: u32,    // Default: 30
-    disk_mb: u32,         // Default: 512
+    cpu*shares: u32,      // Default: 1024
+    memory*mb: u32,       // Default: 128
+    timeout*secs: u32,    // Default: 30
+    disk*mb: u32,         // Default: 512
 }
-```
+```text
 
 ### Layer 4: Syscall Filtering
 
 Seccomp filters block dangerous syscalls:
 
 ```rust
-let seccomp_rules = vec![
+let seccomp*rules = vec![
     // Block kernel module operations
-    Rule::new(libc::SYS_init_module, Action::Errno(libc::EPERM)),
-    Rule::new(libc::SYS_delete_module, Action::Errno(libc::EPERM)),
+    Rule::new(libc::SYS*init*module, Action::Errno(libc::EPERM)),
+    Rule::new(libc::SYS*delete*module, Action::Errno(libc::EPERM)),
 
     // Block raw network access
-    Rule::new(libc::SYS_socket,
-        if domain != AF_INET { Action::Errno(libc::EPERM) }),
+    Rule::new(libc::SYS*socket,
+        if domain != AF*INET { Action::Errno(libc::EPERM) }),
 ];
-```
+```text
 
 ## Performance Optimization
 
@@ -190,17 +190,17 @@ I maintain a pool of pre-booted VMs:
 
 ```rust
 struct VmPool {
-    python_vms: Vec<PrewarmedVm>,
-    node_vms: Vec<PrewarmedVm>,
-    go_vms: Vec<PrewarmedVm>,
+    python*vms: Vec<PrewarmedVm>,
+    node*vms: Vec<PrewarmedVm>,
+    go*vms: Vec<PrewarmedVm>,
 }
 
-async fn get_vm(lang: Language) -> Vm {
+async fn get*vm(lang: Language) -> Vm {
     // Instant VM from pool, or boot new one
     pool.take(lang).await
-        .unwrap_or_else(|| boot_vm(lang).await)
+        .unwrap*or*else(|| boot*vm(lang).await)
 }
-```
+```text
 
 **Result**: <50ms from request to execution start.
 
@@ -210,11 +210,11 @@ Base filesystem shared via CoW:
 
 ```rust
 // Base image (read-only)
-let base_rootfs = "/var/lib/fission/base/python.ext4";
+let base*rootfs = "/var/lib/fission/base/python.ext4";
 
 // Create CoW overlay for this execution
-let overlay = create_overlay(base_rootfs, execution_id);
-```
+let overlay = create*overlay(base*rootfs, execution*id);
+```text
 
 **Impact**: 5MB per VM instead of 500MB.
 
@@ -224,10 +224,10 @@ Real-time output via virtio-serial:
 
 ```rust
 let (tx, rx) = channel();
-vm.attach_serial(move |data| {
+vm.attach*serial(move |data| {
     tx.send(Output::Stdout(data)).ok();
 });
-```
+```text
 
 No polling, no buffering, instant feedback.
 
@@ -246,7 +246,7 @@ COPY --from=alpine:latest /bin/sh /bin/sh
 RUN pip install --no-cache-dir numpy pandas requests
 
 # Total size: ~50MB
-```
+```text
 
 Build process:
 
@@ -254,7 +254,7 @@ Build process:
 cd images
 sudo make python  # Builds python rootfs
 sudo make all     # Builds all languages
-```
+```text
 
 ## Integration Patterns
 
@@ -269,13 +269,13 @@ result = fission.run(
     language="python",
     code=code,
     timeout=30,
-    memory_mb=256
+    memory*mb=256
 )
 
 # Use results with confidence
 if result.success:
     return result.output
-```
+```text
 
 ### CI/CD Pipeline Testing
 
@@ -284,22 +284,22 @@ if result.success:
 - name: Test LLM-generated solutions
   run: |
     fission run --lang python \
-      --file generated_solution.py \
+      --file generated*solution.py \
       --timeout 60
-```
+```text
 
 ### Interactive Development
 
 ```python
 # Real-time code execution for IDEs
-async def execute_cell(code: str) -> Result:
+async def execute*cell(code: str) -> Result:
     async with fission.connect() as client:
         return await client.run(
             language="python",
             code=code,
-            stream_output=True
+            stream*output=True
         )
-```
+```text
 
 ## Lessons Learned
 
@@ -323,7 +323,7 @@ enum VmState {
     Executing(ExecutionHandle),
     Terminated,
 }
-```
+```text
 
 ### 3. Ephemeral by Design
 
@@ -365,7 +365,7 @@ cd images && sudo make all
 ./target/release/fission run --lang python "
 # Your sketchy LLM code here
 "
-```
+```text
 
 The future of AI assistants is code generation. The future of code generation is secure execution.
 
@@ -373,4 +373,5 @@ Build with confidence. Execute without fear.
 
 ---
 
-_Using Fission in production? I'd love to hear about your use cases and security requirements._
+*Using Fission in production? I'd love to hear about your use cases and security requirements._
+````

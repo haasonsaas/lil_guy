@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "Engineering and Product Collaboration: Breaking Down Silos"
+title: 'Engineering and Product Collaboration: Breaking Down Silos'
 postSlug: engineering-product-alliance
 featured: false
 draft: false
@@ -45,7 +45,7 @@ failure.
 
 Here's what that process actually looks like in practice:
 
-```text
+````text
 PM's Mental Model:
 Business Need → Research → Requirements → Perfect Specification
 
@@ -54,7 +54,7 @@ Technical Constraints → Implementation Options → Architecture → Code
 
 Reality:
 Business Need ↔ Technical Constraints ↔ Research ↔ Architecture ↔ Requirements
-```
+```text
 
 Notice the difference? Real product development isn't linear. It's a complex web
 of interdependencies that requires constant collaboration.
@@ -144,3 +144,4 @@ just collaborators.
 
 The wall between engineering and product isn't real. We built it ourselves, and
 we can tear it down together.
+````

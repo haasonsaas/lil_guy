@@ -1,8 +1,8 @@
 ---
-title: "Quality: The Foundation of Sustainable Growth"
+title: 'Quality: The Foundation of Sustainable Growth'
 author: Jonathan Haas
 pubDate: 2024-04-11
-description: "How to build and maintain quality as a core value in your organization"
+description: 'How to build and maintain quality as a core value in your organization'
 tags:
   - engineering
   - product
@@ -29,9 +29,9 @@ teams take the "move fast" mantra too far, creating problems that would haunt
 them for years:
 
 1. Security vulnerabilities that remained hidden until a critical moment
-2. Data inconsistencies that took months to untangle
-3. Performance problems that drove away early adopters
-4. Architecture decisions that made future changes nearly impossible
+1. Data inconsistencies that took months to untangle
+1. Performance problems that drove away early adopters
+1. Architecture decisions that made future changes nearly impossible
 
 ## The Foundations That Matter
 
@@ -46,7 +46,7 @@ data needs to be reliable, consistent, and protected from the start. Refactoring
 data models after they're in production is exponentially more difficult than
 getting them right initially.
 
-```typescript
+````typescript
 // This isn't over-engineering, it's essential protection:
 interface AuditEvent {
   readonly id: string;
@@ -56,7 +56,7 @@ interface AuditEvent {
   readonly target: AuditTarget;
   readonly metadata: Readonly<Record<string, unknown>>;
 }
-```
+```text
 
 ### 2. Authentication and Authorization
 
@@ -101,18 +101,18 @@ in excellence and where to accept good enough. Here's my framework:
 
 1. **Core Business Logic**: The features that directly deliver your main value
    proposition
-2. **Data Management**: Anything touching customer data
-3. **Security Components**: Authentication, authorization, encryption
-4. **Public Interfaces**: APIs, integration points, data exports
-5. **Performance-Critical Paths**: High-traffic or resource-intensive operations
+1. **Data Management**: Anything touching customer data
+1. **Security Components**: Authentication, authorization, encryption
+1. **Public Interfaces**: APIs, integration points, data exports
+1. **Performance-Critical Paths**: High-traffic or resource-intensive operations
 
 ### Flexible Zones
 
 1. **Internal Tools**: Admin panels, debugging interfaces
-2. **Feature Experiments**: New capabilities being tested
-3. **Single-Customer Features**: Functionality built for specific use cases
-4. **Non-Critical Workflows**: Error-tolerant processes
-5. **Temporary Solutions**: Stopgap measures with clear replacement plans
+1. **Feature Experiments**: New capabilities being tested
+1. **Single-Customer Features**: Functionality built for specific use cases
+1. **Non-Critical Workflows**: Error-tolerant processes
+1. **Temporary Solutions**: Stopgap measures with clear replacement plans
 
 ## Building Quality Culture
 
@@ -120,11 +120,11 @@ Quality isn't just about code - it's about culture. Here's how we foster it:
 
 1. **Code Review Standards**: Clear guidelines about what constitutes acceptable
    quality
-2. **Testing Expectations**: Defined coverage requirements for different parts
+1. **Testing Expectations**: Defined coverage requirements for different parts
    of the system
-3. **Documentation Requirements**: Especially for core systems
-4. **Technical Design Reviews**: For significant architectural decisions
-5. **Post-Incident Learning**: Using failures as teaching moments
+1. **Documentation Requirements**: Especially for core systems
+1. **Technical Design Reviews**: For significant architectural decisions
+1. **Post-Incident Learning**: Using failures as teaching moments
 
 ## The ROI of Quality
 
@@ -141,11 +141,11 @@ Quality investments compound over time:
 Every team needs to find its own quality equilibrium. Here's how to start:
 
 1. **Map Your Quality Zones**: Identify where quality really matters
-2. **Set Clear Standards**: Define what "good enough" means in different
+1. **Set Clear Standards**: Define what "good enough" means in different
    contexts
-3. **Create Quality Feedback Loops**: Regular system health checks
-4. **Measure Quality Impact**: Track metrics that matter
-5. **Adjust Continuously**: Evolve standards as you learn
+1. **Create Quality Feedback Loops**: Regular system health checks
+1. **Measure Quality Impact**: Track metrics that matter
+1. **Adjust Continuously**: Evolve standards as you learn
 
 ## When It Matters
 
@@ -159,3 +159,4 @@ The next time someone says "we need to move faster," ask them what they're
 willing to sacrifice. And the next time someone insists on perfection, ask them
 what they're willing to delay. The answers to those questions will guide you to
 the right balance for your team and product.
+````

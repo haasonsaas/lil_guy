@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: 2024-04-11
 title: "Don't Build What They Ask For: The Art of Need-Finding"
-description: "Exploring the critical skill of discovering what customers truly need versus what they ask for, and how this shapes better product decisions"
+description: 'Exploring the critical skill of discovering what customers truly need versus what they ask for, and how this shapes better product decisions'
 tags:
   - product
   - strategy
@@ -108,9 +108,9 @@ Building what customers ask for might win you short-term praise, but building
 what customers truly need wins you long-term loyalty. The key is to:
 
 1. Make need-finding a continuous process, not a one-time event
-2. Build trust through demonstrated understanding of customer problems
-3. Educate customers about what's possible beyond their current context
-4. Share your product vision and help customers see how solving their true needs
+1. Build trust through demonstrated understanding of customer problems
+1. Educate customers about what's possible beyond their current context
+1. Share your product vision and help customers see how solving their true needs
    fits into it
 
 ## Closing Thoughts

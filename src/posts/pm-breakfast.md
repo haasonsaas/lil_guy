@@ -36,8 +36,8 @@ critical KPIs for measuring breakfast success:
 
 1. Protein-to-Meeting Ratio (PMR): Maintain a minimum of 12g protein per
    scheduled sync
-2. Time-to-First-Slack: Should not exceed 2 minutes (we're professionals here)
-3. Breakfast Net Promoter Score: Target is 8+ (as measured by your energy levels
+1. Time-to-First-Slack: Should not exceed 2 minutes (we're professionals here)
+1. Breakfast Net Promoter Score: Target is 8+ (as measured by your energy levels
    in your first morning meeting)
 
 ## Coffee Requirements Specification

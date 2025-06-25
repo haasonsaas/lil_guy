@@ -37,7 +37,7 @@ Working with Claude, I realized we needed to build something fundamentally diffe
 
 The first challenge: how does an agent know what's available? We built a comprehensive discovery endpoint that acts like a roadmap:
 
-```json
+````json
 {
   "site": {
     "name": "Jonathan Haas Blog",
@@ -54,7 +54,7 @@ The first challenge: how does an agent know what's available? We built a compreh
     }
   ]
 }
-```
+```text
 
 **What makes this special:** Every capability includes live examples, parameter documentation, and expected responses. An agent can literally copy-paste the examples to start working immediately.
 
@@ -70,7 +70,7 @@ Basic text search isn't enough. We built relevance scoring that weighs:
 
 ```bash
 curl "https://haasonsaas.com/api/search?q=technical+debt&limit=3"
-```
+```text
 
 **Response formats:** JSON for processing, Markdown for direct consumption. The same content, optimized for different use cases.
 
@@ -84,18 +84,18 @@ Context-aware content suggestions based on:
 
 ```bash
 curl "https://haasonsaas.com/api/recommendations?role=founder&topic=technical-leadership"
-```
+```text
 
-Each recommendation includes a relevance score and reasoning—agents understand _why_ something was suggested.
+Each recommendation includes a relevance score and reasoning—agents understand *why* something was suggested.
 
 ### **Interactive Onboarding System**
 
-Here's where it gets interesting. We built a step-by-step tutorial that agents can actually _experience_:
+Here's where it gets interesting. We built a step-by-step tutorial that agents can actually *experience*:
 
 1. **Discover capabilities** with live API calls
-2. **Test search functionality** with real queries
-3. **Try personalized recommendations** with role-based filtering
-4. **Access interactive tools** like business calculators
+1. **Test search functionality** with real queries
+1. **Try personalized recommendations** with role-based filtering
+1. **Access interactive tools** like business calculators
 
 **The key insight:** Instead of static documentation, agents learn by doing. They can test every API endpoint with copy-paste examples and see real responses.
 
@@ -166,7 +166,7 @@ These aren't just demos—they're functional tools that provide real business va
 X-Agent-Friendly: true
 Access-Control-Allow-Origin: *
 Content-Type: application/json
-```
+```text
 
 ### **Consistent Error Handling**
 
@@ -176,7 +176,7 @@ Content-Type: application/json
   "message": "Query parameter 'q' is required",
   "suggestions": ["Try: /api/search?q=your+search+terms"]
 }
-```
+```text
 
 ### **Multiple Response Formats**
 
@@ -193,30 +193,30 @@ Let me show you the system in action:
 ```bash
 curl https://haasonsaas.com/api/capabilities | jq '.capabilities[0].name'
 # "Blog Content Access"
-```
+```text
 
 **Content Search:**
 
 ```bash
 curl "https://haasonsaas.com/api/search?q=startup+funding&format=markdown"
 # Returns formatted markdown with relevance scores
-```
+```text
 
 **Personalized Recommendations:**
 
 ```bash
 curl "https://haasonsaas.com/api/recommendations?role=founder&topic=technical-leadership"
 # Returns role-specific content with reasoning
-```
+```text
 
 **Analytics Tracking:**
 
 ```bash
 curl -X POST https://haasonsaas.com/api/analytics \
   -H "Content-Type: application/json" \
-  -d '{"event": "content_access", "endpoint": "/api/search"}'
+  -d '{"event": "content*access", "endpoint": "/api/search"}'
 # Returns: {"success": true}
-```
+```text
 
 The system is live and functional. Agents can discover capabilities, search content, get recommendations, and provide feedback—all through clean, documented APIs.
 
@@ -307,9 +307,9 @@ The future of software development isn't human OR AI—it's human AND AI, workin
 The system is live at [haasonsaas.com/agents](https://haasonsaas.com/agents). Whether you're building your own agent or just curious about agent-friendly infrastructure, you can:
 
 1. **Explore the interactive onboarding** at `/agents`
-2. **Test the APIs** with the live examples
-3. **Submit feedback** about what works and what doesn't
-4. **Use the business calculators** for real planning scenarios
+1. **Test the APIs** with the live examples
+1. **Submit feedback** about what works and what doesn't
+1. **Use the business calculators** for real planning scenarios
 
 **For developers:** The entire codebase demonstrates practical patterns for agent-friendly web infrastructure. Feel free to adapt these approaches for your own projects.
 
@@ -321,4 +321,5 @@ Building truly agent-friendly infrastructure requires rethinking web architectur
 
 The collaboration between Claude and me demonstrates what's possible when you treat AI as a design partner rather than just an implementation tool. The result is infrastructure that's not just agent-friendly—it's better for everyone.
 
-_What would your website look like if it were designed for both human and AI users from the ground up?_
+*What would your website look like if it were designed for both human and AI users from the ground up?_
+````

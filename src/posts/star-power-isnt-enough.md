@@ -1,20 +1,19 @@
 ---
-author: Jonathan Haas  
-pubDate: 2025-05-03  
-title: "When Star Power Isn't Enough: The GTM Mistake We Keep Making"  
-description:  
-  Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're solving the wrong problem for the wrong people.  
-featured: false  
-draft: false  
-tags:  
-  - go-to-market  
-  - pricing-strategy  
-  - product-market-fit  
-  - saas  
-  - startup-lessons  
-image:  
-  url: 'https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  
-  alt: "An empty stadium with bright lights, symbolizing misaligned GTM strategy despite high expectations"  
+author: Jonathan Haas
+pubDate: 2025-05-03
+title: "When Star Power Isn't Enough: The GTM Mistake We Keep Making"
+description: Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're solving the wrong problem for the wrong people.
+featured: false
+draft: false
+tags:
+  - go-to-market
+  - pricing-strategy
+  - product-market-fit
+  - saas
+  - startup-lessons
+image:
+  url: 'https://images.pexels.com/photos/167491/pexels-photo-167491.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'An empty stadium with bright lights, symbolizing misaligned GTM strategy despite high expectations'
 ---
 
 You can have the voice.  
@@ -31,9 +30,9 @@ Let's talk about the real GTM failure mode: **misjudging the gap between perceiv
 
 Most teams treat go-to-market like a checklist:
 
-- Landing page? ✅  
-- Demo video? ✅  
-- Pricing page with a slider? ✅  
+- Landing page? ✅
+- Demo video? ✅
+- Pricing page with a slider? ✅
 - Announcement blog post? ✅
 - Social media blast? ✅
 - Product Hunt launch? ✅
@@ -85,10 +84,10 @@ And the market? It sees right through it.
 
 Here's a dead-simple litmus test:
 
-> **Are you solving a problem people *know* they have?**  
-> Or are you trying to educate them that they *should* care?
+> **Are you solving a problem people _know_ they have?**  
+> Or are you trying to educate them that they _should_ care?
 
-Because the latter is a *much* harder road.
+Because the latter is a _much_ harder road.
 
 If someone's never paid to fix the thing you solve, you're not just selling software—you're selling a worldview. That's fine if you're a category-defining startup. It's risky as hell if you're just trying to grow MRR next quarter.
 
@@ -141,11 +140,11 @@ They're buying outcomes.
 
 Here's a story I keep seeing on repeat:
 
-1. Team builds something ambitious.  
-2. They fall in love with the elegance of their solution.  
-3. They price it like it's enterprise-grade.  
-4. Their actual audience? Indie teams with Stripe cards and spreadsheet habits.  
-5. Crickets.
+1. Team builds something ambitious.
+1. They fall in love with the elegance of their solution.
+1. They price it like it's enterprise-grade.
+1. Their actual audience? Indie teams with Stripe cards and spreadsheet habits.
+1. Crickets.
 
 Why? Not because the product's bad.  
 Because **value < pain**.
@@ -215,10 +214,10 @@ They'll find something else.
 We've been conditioned by tech media to believe that success follows a predictable arc:
 
 1. Get into prestigious accelerator
-2. Secure seed funding
-3. Build beautiful product
-4. Launch on Product Hunt
-5. Growth takes care of itself
+1. Secure seed funding
+1. Build beautiful product
+1. Launch on Product Hunt
+1. Growth takes care of itself
 
 But the graveyard of startups is filled with beautiful products that had all the right logos on their "About" page.
 
@@ -228,15 +227,15 @@ It doesn't.
 
 ## The Real Work of GTM
 
-Here's what a good GTM strategy *actually* looks like:
+Here's what a good GTM strategy _actually_ looks like:
 
 ### 1. Price Testing With Real Money
 
 Stop guessing. Pre-launch surveys are great, but real-world pricing reactions are different. Try:
 
-- A/B testing plan tiers  
-- Running targeted paid campaigns with different pricing anchors  
-- Talking to people who *didn't* convert and asking: "Was it the price or the value?"
+- A/B testing plan tiers
+- Running targeted paid campaigns with different pricing anchors
+- Talking to people who _didn't_ convert and asking: "Was it the price or the value?"
 
 But don't just vary the numbers. Test radically different pricing models:
 
@@ -252,7 +251,7 @@ The ideal buyer isn't just "interested."
 They're already actively solving the problem—manually, painfully, with duct tape and willpower.
 
 You don't need to convince them they have a problem.  
-You need to convince them *you're the faster, easier, more confident fix.*
+You need to convince them _you're the faster, easier, more confident fix._
 
 Pain has a timeline. There's "someday pain" (I should really fix that) and "today pain" (I cannot function until this is solved).
 
@@ -263,8 +262,8 @@ Build for today pain. Market to today pain. Price for today pain.
 Your competition might not be another SaaS product.  
 It might be:
 
-- "Do nothing for now"  
-- "Keep using Google Sheets"  
+- "Do nothing for now"
+- "Keep using Google Sheets"
 - "Assign it to the new intern"
 - "We'll revisit next quarter"
 - "Let's wait for the enterprise-wide rollout"
@@ -277,7 +276,7 @@ Budget constraints aren't just financial—they're emotional, political, and org
 
 You can't guilt people into buying. You can't shame them into upgrading.
 
-But you *can* meet them where they are.  
+But you _can_ meet them where they are.  
 Speak their language. Respect their budget. Solve their real problems. Then grow with them.
 
 This isn't just about being nice. It's about recognizing the power dynamics in the buyer-seller relationship.
@@ -305,9 +304,9 @@ Don't try to shortcut this chain. Don't try to leap from awareness to purchase. 
 When I look at startups that got GTM right from day one, they aligned four critical elements:
 
 1. **Value Narrative**: What problem do we solve?
-2. **Audience Definition**: Who experiences this problem most acutely?
-3. **Price Structure**: How does our pricing reflect the value we create for this specific audience?
-4. **Acquisition Strategy**: Where does this audience already gather, learn, and buy?
+1. **Audience Definition**: Who experiences this problem most acutely?
+1. **Price Structure**: How does our pricing reflect the value we create for this specific audience?
+1. **Acquisition Strategy**: Where does this audience already gather, learn, and buy?
 
 When these four elements reinforce each other, magic happens.
 When they contradict each other, confusion reigns.
@@ -339,8 +338,8 @@ If your audience isn't buying, don't reach for a better pitch deck.
 
 Ask harder questions:
 
-- **Are we priced for the person we say this is for?**  
-- **Are we solving a now problem or a someday problem?**  
+- **Are we priced for the person we say this is for?**
+- **Are we solving a now problem or a someday problem?**
 - **Are we mistaking "love" for "purchase intent"?**
 - **Does our pricing align with the trust we've earned?**
 - **Are we asking for tomorrow's price with today's product?**

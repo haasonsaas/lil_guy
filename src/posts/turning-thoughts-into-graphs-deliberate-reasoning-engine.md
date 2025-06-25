@@ -1,14 +1,22 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-24"
-title: "Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine"
-description: "An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency."
+author: 'Jonathan Haas'
+pubDate: '2025-06-24'
+title: 'Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine'
+description: 'An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency.'
 featured: false
 draft: false
-tags: ["open-source", "ai", "reasoning", "graph-structure", "mcp", "developer-tools"]
+tags:
+  [
+    'open-source',
+    'ai',
+    'reasoning',
+    'graph-structure',
+    'mcp',
+    'developer-tools',
+  ]
 image:
-  url: "https://images.pexels.com/photos/8251000/pexels-photo-8251000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  alt: "A mind map drawn on glass, representing structured thought and graph-based reasoning"
+  url: 'https://images.pexels.com/photos/8251000/pexels-photo-8251000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'A mind map drawn on glass, representing structured thought and graph-based reasoning'
 ---
 
 One of the things that's always bugged me about LLMs is how opaque their thinking is.
@@ -31,13 +39,13 @@ This is fine for casual use.
 
 But it breaks down in more demanding settings:
 
-* Research planning
-* Root cause analysis
-* Strategy work
-* Legal reasoning
-* Complex coding tasks
+- Research planning
+- Root cause analysis
+- Strategy work
+- Legal reasoning
+- Complex coding tasks
 
-These are domains where the *structure* of thinking matters. Where assumptions, hypotheses, dependencies, and counterpoints need to be visible, not buried.
+These are domains where the _structure_ of thinking matters. Where assumptions, hypotheses, dependencies, and counterpoints need to be visible, not buried.
 
 DRE solves this by externalizing model reasoning as a **directed acyclic graph of thoughts**.
 
@@ -47,13 +55,13 @@ DRE solves this by externalizing model reasoning as a **directed acyclic graph o
 
 Each node in a DRE graph is a "thought." But not just any blob of text. Thoughts are typed:
 
-* **Objective**: What are we trying to figure out?
-* **Hypothesis**: What might be true?
-* **Assumption**: What are we temporarily believing?
-* **Evidence**: What supports or contradicts our claims?
-* **Action**: What should we do next?
-* **Synthesis**: What do we conclude?
-* **Critique**: What might be wrong with our logic?
+- **Objective**: What are we trying to figure out?
+- **Hypothesis**: What might be true?
+- **Assumption**: What are we temporarily believing?
+- **Evidence**: What supports or contradicts our claims?
+- **Action**: What should we do next?
+- **Synthesis**: What do we conclude?
+- **Critique**: What might be wrong with our logic?
 
 Each thought can depend on others. And if those upstream thoughts change—say, an assumption is invalidated—then downstream thoughts automatically go stale.
 
@@ -67,9 +75,9 @@ DRE is designed to work seamlessly with the [Claude Desktop](https://www.anthrop
 
 Once configured, you can:
 
-* Log structured thoughts using `log_thought`
-* Get the current reasoning graph via `get_thought_graph`
-* Invalidate assumptions with cascading impact via `invalidate_assumption`
+- Log structured thoughts using `log*thought`
+- Get the current reasoning graph via `get*thought*graph`
+- Invalidate assumptions with cascading impact via `invalidate*assumption`
 
 This lets Claude operate more like a deliberate thinker than a chatty assistant.
 
@@ -83,12 +91,12 @@ Linear chains (think LangChain, AutoGPT, or scratchpad-style prompts) work fine 
 
 By contrast, DRE gives you:
 
-* **Traceability**: Every conclusion has a provenance.
-* **Forkability**: Try alternative paths without losing history.
-* **Invalidation**: Kill flawed assumptions and see what breaks.
-* **Summarization**: Export just the current valid frontier.
+- **Traceability**: Every conclusion has a provenance.
+- **Forkability**: Try alternative paths without losing history.
+- **Invalidation**: Kill flawed assumptions and see what breaks.
+- **Summarization**: Export just the current valid frontier.
 
-It's not just more accurate. It's more *honest*. The model shows its work.
+It's not just more accurate. It's more _honest_. The model shows its work.
 
 ---
 
@@ -96,18 +104,18 @@ It's not just more accurate. It's more *honest*. The model shows its work.
 
 From the beginning, I wanted DRE to prioritize clarity over cleverness.
 
-* All state is visible and inspectable.
-* Thought types are enforced via schema.
-* Graph structure is validated for cycles and orphaned nodes.
-* Each tool is purposefully scoped (log, retrieve, invalidate).
+- All state is visible and inspectable.
+- Thought types are enforced via schema.
+- Graph structure is validated for cycles and orphaned nodes.
+- Each tool is purposefully scoped (log, retrieve, invalidate).
 
 There are no hidden agents. No spooky action at a distance. Just structured thoughts, wired together.
 
 This makes DRE a good fit for:
 
-* **Security and compliance contexts**
-* **Decision logs** for regulatory reviews
-* **AI-assisted planning** where trust and traceability matter
+- **Security and compliance contexts**
+- **Decision logs** for regulatory reviews
+- **AI-assisted planning** where trust and traceability matter
 
 ---
 
@@ -115,10 +123,10 @@ This makes DRE a good fit for:
 
 DRE started as a prototype. But with version 1.3, it's production-ready:
 
-* Full TypeScript refactor
-* Enterprise-grade CLI installation via `npm`
-* Better validation and status tracking
-* Clear integration docs for Claude and other MCP agents
+- Full TypeScript refactor
+- Enterprise-grade CLI installation via `npm`
+- Better validation and status tracking
+- Clear integration docs for Claude and other MCP agents
 
 It's open source, permissively licensed (MIT), and actively maintained.
 
@@ -129,10 +137,10 @@ It's open source, permissively licensed (MIT), and actively maintained.
 Here's a simplified flow:
 
 1. Log the **Objective**: "Should we acquire Company X?"
-2. Log a **Hypothesis**: "This will increase market share by 20%"
-3. Log an **Assumption**: "Their tech is compatible"
-4. Break that into a **Sub-problem**: "Verify compatibility"
-5. If due diligence fails, **Invalidate** the assumption
+1. Log a **Hypothesis**: "This will increase market share by 20%"
+1. Log an **Assumption**: "Their tech is compatible"
+1. Break that into a **Sub-problem**: "Verify compatibility"
+1. If due diligence fails, **Invalidate** the assumption
 
 DRE cascades that invalidation downstream. The subproblem and hypothesis go stale. The model sees the break and can re-plan from there.
 
@@ -142,19 +150,19 @@ DRE cascades that invalidation downstream. The subproblem and hypothesis go stal
 
 The roadmap is ambitious:
 
-* **Hypothesis scoring** via supporting/contradicting evidence
-* **Graph visualization** export for thought maps
-* **Multi-agent support** for collaborative reasoning
-* **Session save/load** for persistent state
-* **Conflict detection** across branches
+- **Hypothesis scoring** via supporting/contradicting evidence
+- **Graph visualization** export for thought maps
+- **Multi-agent support** for collaborative reasoning
+- **Session save/load** for persistent state
+- **Conflict detection** across branches
 
 But even today, DRE is useful for:
 
-* Strategic planning
-* Product development debates
-* Systematic debugging
-* Structured writing
-* Model interpretability
+- Strategic planning
+- Product development debates
+- Systematic debugging
+- Structured writing
+- Model interpretability
 
 Anywhere you need clear, structured, inspectable reasoning.
 
@@ -164,9 +172,9 @@ Anywhere you need clear, structured, inspectable reasoning.
 
 Install globally:
 
-```bash
+````bash
 npm install -g deliberate-reasoning-engine
-```
+```text
 
 Or use it inside Claude Desktop via MCP config. Full details in the [README](https://github.com/haasonsaas/deliberate-reasoning-engine).
 
@@ -183,3 +191,4 @@ It's not flashy. But it's solid. And in a world of opaque black boxes, that's th
 Come try it. Break it. Fork it.
 
 [https://github.com/haasonsaas/deliberate-reasoning-engine](https://github.com/haasonsaas/deliberate-reasoning-engine)
+````

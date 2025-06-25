@@ -42,11 +42,11 @@ we're creating organizational debt. Here's what actually happens:
 
 1. **Knowledge Decay**: The context and assumptions behind quick decisions fade
    from memory
-2. **Compound Complexity**: New features built on top of rushed code require
+1. **Compound Complexity**: New features built on top of rushed code require
    their own workarounds
-3. **Team Friction**: New team members struggle to understand the "temporary"
+1. **Team Friction**: New team members struggle to understand the "temporary"
    solutions that became permanent
-4. **Lost Opportunities**: The cost of not being able to quickly ship new
+1. **Lost Opportunities**: The cost of not being able to quickly ship new
    features compounds over time
 
 ## The Documentation Mirage
@@ -55,13 +55,13 @@ we're creating organizational debt. Here's what actually happens:
 rushed architectural decisions. I once found a comment in production code that
 read:
 
-```python
+````python
 # TODO: This is a temporary fix for the demo on 5/15/2021
 # Will be replaced with proper implementation after launch
 # Update 7/2/2021: Keeping this for now, works well enough
 # Update 3/10/2022: Don't touch this, multiple features depend on current behavior
 # Update 9/1/2023: Dear God why
-```
+```text
 
 Documentation doesn't fix architectural problems - it just helps us understand
 why we're stuck with them.
@@ -106,7 +106,7 @@ class CurrentProcessor implements PaymentProcessor {
 class LegacyAdapter implements PaymentProcessor {
   // Thin adapter around legacy code
 }
-```
+```text
 
 ## The Path to Sustainable Speed
 
@@ -115,9 +115,9 @@ consistently over time. This requires:
 
 1. **Investment in Architecture**: Spend time making changes easy, not just
    making changes
-2. **Clear Boundaries**: Define and enforce clean interfaces between systems
-3. **Continuous Refinement**: Regular investment in improving existing systems
-4. **Team Alignment**: Shared understanding of the cost of rushed decisions
+1. **Clear Boundaries**: Define and enforce clean interfaces between systems
+1. **Continuous Refinement**: Regular investment in improving existing systems
+1. **Team Alignment**: Shared understanding of the cost of rushed decisions
 
 ## A New Definition of Fast
 
@@ -135,3 +135,4 @@ constantly fighting against your own technical decisions.
 
 Speed isn't about writing code quickly - it's about being able to change
 direction safely.
+````

@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-05-04
-title: "Culture Over Code: Why Learning Ability Beats Raw Skill"
-description: 
-  Hiring great engineers isn't just about finding the smartest person in the room—it's about building a team that learns fast, adapts well, and plays the long game together. Here's why cultural fit and learning velocity matter more than technical perfection.
+title: 'Culture Over Code: Why Learning Ability Beats Raw Skill'
+description: Hiring great engineers isn't just about finding the smartest person in the room—it's about building a team that learns fast, adapts well, and plays the long game together. Here's why cultural fit and learning velocity matter more than technical perfection.
 featured: false
 draft: false
 tags:
@@ -14,7 +13,7 @@ tags:
   - team-dynamics
 image:
   url: 'https://images.pexels.com/photos/3182778/pexels-photo-3182778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "Interview panel having a thoughtful conversation with a candidate, symbolizing team fit evaluation"
+  alt: 'Interview panel having a thoughtful conversation with a candidate, symbolizing team fit evaluation'
 ---
 
 At some point, we all make the same mistake.
@@ -25,7 +24,7 @@ The resume dazzles. The take-home project is pristine. The live coding round? Na
 
 They don't ask questions. They resist feedback. They sit outside the team's rhythm.
 
-And suddenly you realize: this wasn't a skills problem. It was a *fit* problem.
+And suddenly you realize: this wasn't a skills problem. It was a _fit_ problem.
 
 Let's talk about why **learning ability and cultural alignment** beat raw technical horsepower almost every time.
 
@@ -40,7 +39,7 @@ Here's what happens in fast-growing teams:
 
 And sometimes that works.
 
-But more often, you get someone whose *tech skills outrun their team skills*. They're used to being the smartest person in the room. They haven't had to adapt much—because they've never had to.
+But more often, you get someone whose _tech skills outrun their team skills_. They're used to being the smartest person in the room. They haven't had to adapt much—because they've never had to.
 
 And that's dangerous. Especially in startups where adaptability is the job.
 
@@ -73,7 +72,7 @@ This is because technical skills follow a depreciation curve. What's cutting-edg
 
 ## What "Cultural Fit" Actually Means (and What It Doesn't)
 
-First, a disclaimer: *"Cultural fit" is not about hiring people you'd grab a beer with.* That's how you get homogeneity and blind spots.
+First, a disclaimer: _"Cultural fit" is not about hiring people you'd grab a beer with._ That's how you get homogeneity and blind spots.
 
 What we're really talking about is **values alignment and team behavior compatibility**.
 
@@ -113,18 +112,18 @@ After observing hundreds of engineering hires across dozens of companies, I've n
    - Often becomes a bottleneck
    - Typically high maintenance for managers
 
-2. **Low Technical Skill + Low Cultural Fit**: "The Misplaced Contributor"
+1. **Low Technical Skill + Low Cultural Fit**: "The Misplaced Contributor"
    - Struggles with both technical and team challenges
    - Usually a hiring mistake or poor role definition
    - Requires significant management attention with low return
 
-3. **Low Technical Skill + High Cultural Fit**: "The Growth Investment"
+1. **Low Technical Skill + High Cultural Fit**: "The Growth Investment"
    - Initial productivity may be lower
    - Absorbs team practices and values quickly
    - Often becomes a cultural anchor over time
    - Usually exceeds technical expectations within 12 months
 
-4. **High Technical Skill + High Cultural Fit**: "The Dream Candidate"
+1. **High Technical Skill + High Cultural Fit**: "The Dream Candidate"
    - Rare and highly sought after
    - Often internal promotions or referrals
    - Typically commands premium compensation
@@ -142,7 +141,7 @@ If the answer's no, then I don't care how brilliant they are today.
 
 You can teach most people a new stack. You can't teach curiosity. You can't teach humility. You can't teach someone to say "I don't know, but I'll figure it out."
 
-People who learn fast—and love learning—*compound*.
+People who learn fast—and love learning—_compound_.
 
 They don't just ship more features. They unlock more teammates. They become internal multipliers.
 
@@ -152,13 +151,13 @@ Recent research in cognitive neuroscience gives us clues about what makes some e
 
 1. **Comfort with uncertainty**: Engineers who can remain productive while feeling "lost" actually form stronger neural pathways during learning
 
-2. **Recovery from failure**: The ability to process setbacks as information rather than identity threats allows for faster iteration
+1. **Recovery from failure**: The ability to process setbacks as information rather than identity threats allows for faster iteration
 
-3. **Connection-making**: Engineers who excel at seeing patterns across domains can apply solutions from one area to completely different problems
+1. **Connection-making**: Engineers who excel at seeing patterns across domains can apply solutions from one area to completely different problems
 
-4. **Question formulation**: The skill of asking precise, information-rich questions accelerates learning curves dramatically
+1. **Question formulation**: The skill of asking precise, information-rich questions accelerates learning curves dramatically
 
-5. **Mental model flexibility**: The capacity to hold multiple conflicting models simultaneously before committing to one approach
+1. **Mental model flexibility**: The capacity to hold multiple conflicting models simultaneously before committing to one approach
 
 These cognitive traits aren't easily assessed in traditional interviews, but they're remarkably good predictors of long-term engineering success, especially in rapidly changing environments.
 
@@ -216,19 +215,19 @@ Here's what we do (and it's still evolving):
 
 ### ✅ Include the Team
 
-Let multiple team members interact with candidates—and *actually listen* to how the energy shifts. Does the candidate adapt to different communication styles? Do they invite others in?
+Let multiple team members interact with candidates—and _actually listen_ to how the energy shifts. Does the candidate adapt to different communication styles? Do they invite others in?
 
 ### ✅ Simulate Real Collaboration
 
-Instead of pure whiteboard sessions, do pairing exercises. See how they think *with* someone. See how they respond to confusion, ambiguity, and friction.
+Instead of pure whiteboard sessions, do pairing exercises. See how they think _with_ someone. See how they respond to confusion, ambiguity, and friction.
 
 ### ✅ Assess Learning Transfer Ability
 
 One of the most revealing interview techniques I've found is the "Learn and Teach" exercise:
 
 1. Give the candidate 20 minutes to learn something new (a small library, an API, etc.)
-2. Then ask them to teach it to an engineer who knows nothing about it
-3. Observe not just their understanding, but their empathy for the learner
+1. Then ask them to teach it to an engineer who knows nothing about it
+1. Observe not just their understanding, but their empathy for the learner
 
 This reveals:
 
@@ -257,13 +256,13 @@ A comprehensive onboarding program should include:
 
 1. **Explicit cultural translation**: Don't just explain what you do, but why you do it that way
 
-2. **Staged technical exposure**: Deliberately sequenced challenges that build confidence while revealing team patterns
+1. **Staged technical exposure**: Deliberately sequenced challenges that build confidence while revealing team patterns
 
-3. **Feedback calibration**: Early, frequent, low-stakes feedback that normalizes your team's communication style
+1. **Feedback calibration**: Early, frequent, low-stakes feedback that normalizes your team's communication style
 
-4. **Relationship scaffolding**: Structured interactions with key team members, not just managers
+1. **Relationship scaffolding**: Structured interactions with key team members, not just managers
 
-5. **Success definition clarity**: Explicit milestones that define what "good" looks like at 30, 60, and 90 days
+1. **Success definition clarity**: Explicit milestones that define what "good" looks like at 30, 60, and 90 days
 
 Teams that invest heavily in onboarding see dramatically better outcomes even from borderline hiring decisions. The right onboarding can turn a questionable hire into a strong contributor, while poor onboarding can derail even the most promising candidate.
 
@@ -303,15 +302,15 @@ Before concluding, I should acknowledge that there are genuine scenarios where d
 
 1. **Specialized domains**: In fields like cryptography, machine learning, or real-time systems, the pool of qualified candidates may be so small that some cultural compromise is necessary
 
-2. **Crisis situations**: When facing existential technical challenges, bringing in a specialist to solve a specific problem may justify a short-term cultural misalignment
+1. **Crisis situations**: When facing existential technical challenges, bringing in a specialist to solve a specific problem may justify a short-term cultural misalignment
 
-3. **Technical transformations**: Major architectural shifts sometimes require outside expertise to succeed
+1. **Technical transformations**: Major architectural shifts sometimes require outside expertise to succeed
 
 Even in these cases, the key is to structure the role appropriately—often as a temporary technical advisor rather than a permanent team member, or with clear expectations about knowledge transfer.
 
 ## Final Thought
 
-You're not just hiring *what someone can do today*. You're hiring the trajectory.
+You're not just hiring _what someone can do today_. You're hiring the trajectory.
 
 And trajectories are shaped by mindset, not just skill.
 

@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-28
-title: "The Day After: Building a System to Remember What Matters"
-description:
-  How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's still imperfect.
+title: 'The Day After: Building a System to Remember What Matters'
+description: How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's still imperfect.
 featured: false
 draft: false
 tags:
@@ -14,7 +13,7 @@ tags:
   - memory
 image:
   url: '/images/day-after-worker-screenshot.png'
-  alt: "Screenshot of the Day-After Worker email digest interface"
+  alt: 'Screenshot of the Day-After Worker email digest interface'
 ---
 
 Some weekend conversations feel important in the moment. Some personal decisions feel pivotal. But a week later? The details blur. The why gets fuzzy. The insight fades.
@@ -32,10 +31,10 @@ I only use the pendant on weekends for personal conversations (never for work!),
 Privacy and consent are absolutely fundamental to this system. Here's how I handle it:
 
 1. **Weekend Use Only**: The pendant only comes out on weekends for personal conversations. No work discussions, no professional meetings.
-2. **Explicit Permission**: Before any recording starts, I explain the system to everyone present and get their explicit consent.
-3. **Clear Opt-Out**: Anyone can ask to pause or stop recording at any time, no questions asked.
-4. **Data Control**: Participants can request to review or delete their conversation data.
-5. **No Sensitive Topics**: Some conversations should never be recorded, period.
+1. **Explicit Permission**: Before any recording starts, I explain the system to everyone present and get their explicit consent.
+1. **Clear Opt-Out**: Anyone can ask to pause or stop recording at any time, no questions asked.
+1. **Data Control**: Participants can request to review or delete their conversation data.
+1. **No Sensitive Topics**: Some conversations should never be recorded, period.
 
 This isn't just about legal compliance—it's about respect, trust, and using technology ethically.
 
@@ -57,7 +56,7 @@ I didn't want to carry a notebook everywhere. I didn't want clunky apps disrupti
 
 I wanted something ambient. Frictionless. Passive.
 
-Day-After Worker is the layer that sits *on top* of Limitless—taking the pendant's captured audio summaries and extracting the parts that matter most.
+Day-After Worker is the layer that sits _on top_ of Limitless—taking the pendant's captured audio summaries and extracting the parts that matter most.
 
 ---
 
@@ -103,7 +102,7 @@ A simple snapshot of weekend discussions. Over time, you start seeing patterns y
 - **Day-After Worker**: Parses, tags, reflects
 - **Monday Morning Email**: Digest shows up in your inbox
 
-It's a bit duct-taped together. But it's *my* duct tape—and it works.
+It's a bit duct-taped together. But it's _my_ duct tape—and it works.
 
 ---
 
@@ -141,7 +140,7 @@ This isn't a polished SaaS product. It's not real-time. It's not perfect.
 
 And that's okay.
 
-The goal isn't perfection. It's *momentum*. It's *continuity*. It's being 10% more reflective than yesterday.
+The goal isn't perfection. It's _momentum_. It's _continuity_. It's being 10% more reflective than yesterday.
 
 ---
 
@@ -166,9 +165,8 @@ Most people lose the threads that could have changed their path.
 
 Having a system—even an imperfect one—to remember what matters gives you an edge.
 
-> In a world obsessed with moving faster, maybe the real power move is learning how to *slow down just enough to reflect*.
+> In a world obsessed with moving faster, maybe the real power move is learning how to _slow down just enough to reflect_.
 
 That's what Day-After Worker—powered by Limitless—is giving me.
 
 And it's just the beginning.
-

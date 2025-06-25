@@ -39,9 +39,9 @@ Uncomfortable with those results? You're not alone. Let's break down what's actu
 
 Most founders calculate LTV as:
 
-```text
+````text
 LTV = Average Revenue ÷ Churn Rate
-```
+```text
 
 This assumes customers churn linearly forever. In reality, churn rates change over time. Early customers behave differently than late ones. Power users have different patterns than casual users.
 
@@ -91,9 +91,9 @@ A 3:1 LTV:CAC ratio sounds great until you realize it takes 18 months to pay bac
 Here's what kills most SaaS companies:
 
 1. **Growth at all costs** - "We'll fix unit economics at scale"
-2. **Channel mixing** - Blending good and bad acquisition channels
-3. **Retention blindness** - Focusing on new revenue, ignoring churn
-4. **Margin erosion** - Costs that grow faster than revenue
+1. **Channel mixing** - Blending good and bad acquisition channels
+1. **Retention blindness** - Focusing on new revenue, ignoring churn
+1. **Margin erosion** - Costs that grow faster than revenue
 
 I've seen companies with "amazing" unit economics fail because they:
 
@@ -120,10 +120,10 @@ I've seen companies with "amazing" unit economics fail because they:
 ## The Action Plan
 
 1. **Recalculate everything** using conservative assumptions
-2. **Segment by channel** and kill the worst performers
-3. **Track cohort retention** over time, not averages
-4. **Model cash flow** timing, not just ratios
-5. **Stress test** your assumptions with 20% worse performance
+1. **Segment by channel** and kill the worst performers
+1. **Track cohort retention** over time, not averages
+1. **Model cash flow** timing, not just ratios
+1. **Stress test** your assumptions with 20% worse performance
 
 The goal isn't perfect unit economics—it's sustainable, cash-flow-positive growth that you can actually achieve and maintain.
 
@@ -134,3 +134,4 @@ Unit economics matter, but only if you're measuring the right things. That beaut
 The companies that survive aren't the ones with the best unit economics on paper. They're the ones who understand their real economics and build around them.
 
 Stop lying to yourself about your numbers. Your bank account will thank you.
+````

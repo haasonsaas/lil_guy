@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "The Agentic Shift: How AI is Transforming Vertical SaaS"
-description: "How vertical SaaS companies are rapidly evolving from workflow automation to intelligent agents, and what it means for the future of industry-specific software"
+title: 'The Agentic Shift: How AI is Transforming Vertical SaaS'
+description: 'How vertical SaaS companies are rapidly evolving from workflow automation to intelligent agents, and what it means for the future of industry-specific software'
 tags:
   - ai
   - ai-agents
@@ -36,18 +36,16 @@ work, but actively participate in it.
 The evolution is happening in distinct waves:
 
 1. **Workflow Automation** (2010-2020): The classic vertical SaaS model
-
    - Digital versions of industry processes
    - Structured data collection
    - Basic automation of repetitive tasks
 
-2. **Intelligence Augmentation** (2020-2023): Adding AI as a feature
-
+1. **Intelligence Augmentation** (2020-2023): Adding AI as a feature
    - Predictive analytics
    - Natural language interfaces
    - Smart recommendations
 
-3. **Agentic Integration** (2024-): AI as a core participant
+1. **Agentic Integration** (2024-): AI as a core participant
    - Autonomous decision-making within defined parameters
    - Proactive problem identification and resolution
    - Dynamic adaptation to industry changes
@@ -59,18 +57,18 @@ trend - it's leveraging unique advantages:
 
 1. **Bounded Complexity**: Industry-specific platforms deal with well-defined
    domains, making it easier to create reliable AI agents
-2. **Rich Historical Data**: Years of accumulated industry-specific data provide
+1. **Rich Historical Data**: Years of accumulated industry-specific data provide
    excellent training foundations
-3. **Clear Success Metrics**: Industry-standard KPIs make it easier to measure
+1. **Clear Success Metrics**: Industry-standard KPIs make it easier to measure
    and improve AI performance
-4. **Established Trust**: Existing customer relationships make it easier to
+1. **Established Trust**: Existing customer relationships make it easier to
    introduce AI capabilities
 
 ## The New Architecture of Vertical SaaS
 
 The shift to agentic systems requires rethinking how these platforms are built:
 
-```typescript
+````typescript
 interface IndustryAgent {
   // Core capabilities
   analyzeContext(situation: Context): Analysis;
@@ -91,7 +89,7 @@ class HealthcareSchedulingAgent implements IndustryAgent {
   // Beyond scheduling - optimizes patient care paths
   // and predicts resource needs
 }
-```
+```text
 
 ## The Hidden Challenges
 
@@ -99,11 +97,11 @@ This evolution isn't without its pitfalls:
 
 1. **Responsibility Models**: When AI agents make decisions, who's accountable
    for the outcomes?
-2. **Knowledge Integration**: How do you combine human expertise with AI
+1. **Knowledge Integration**: How do you combine human expertise with AI
    capabilities?
-3. **Change Management**: How do you help traditional industries adapt to
+1. **Change Management**: How do you help traditional industries adapt to
    AI-first workflows?
-4. **Trust Boundaries**: Where should AI agents have autonomy, and where should
+1. **Trust Boundaries**: Where should AI agents have autonomy, and where should
    they defer to humans?
 
 ## Building for the Agentic Future
@@ -122,7 +120,7 @@ enum AgencyLevel {
   EXECUTE, // Act with approval
   AUTONOMOUS, // Act independently
 }
-```
+```text
 
 ### 2. Human-AI Collaboration Patterns
 
@@ -144,7 +142,7 @@ interface IndustryConstraints {
   ethicalGuidelines: Guideline[];
   riskThresholds: Risk[];
 }
-```
+```text
 
 ## The New Metrics of Success
 
@@ -152,10 +150,10 @@ The shift to agentic systems requires new ways of measuring success:
 
 1. **Agency Effectiveness**: How often do agents make decisions that humans
    accept?
-2. **Learning Velocity**: How quickly do agents improve from feedback?
-3. **Collaboration Quality**: How effectively do humans and agents work
+1. **Learning Velocity**: How quickly do agents improve from feedback?
+1. **Collaboration Quality**: How effectively do humans and agents work
    together?
-4. **Value Creation**: Are agents creating new opportunities, not just
+1. **Value Creation**: Are agents creating new opportunities, not just
    automating existing work?
 
 ## Looking Ahead
@@ -180,3 +178,4 @@ best of human expertise with AI capabilities.
 
 The future of vertical SaaS isn't just about better software - it's about
 creating true digital partners for industry professionals.
+````

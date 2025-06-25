@@ -35,8 +35,8 @@ They are also dangerous—when applied too early.
 Here’s the play-by-play I see all the time:
 
 1. Founder gets an idea.
-2. Founder spins up a repo, sets up CI/CD, containers, Terraform, event queues, and a layered architecture with domain-driven design.
-3. Six weeks later, still no users. But hey—the latency on cold start API calls is 🔥.
+1. Founder spins up a repo, sets up CI/CD, containers, Terraform, event queues, and a layered architecture with domain-driven design.
+1. Six weeks later, still no users. But hey—the latency on cold start API calls is 🔥.
 
 When you're deep in the weeds of your own stack, this feels like progress. But unless your users are performance-sensitive _now_, you’re just optimizing for an imaginary future.
 

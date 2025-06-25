@@ -32,7 +32,7 @@ We were building comprehensive AI agent infrastructure for this blog—a capabil
 
 But one critical endpoint was stuck in time.
 
-```bash
+````bash
 # This worked perfectly
 curl https://haasonsaas.com/api/health
 # Fresh timestamp, all features working
@@ -40,7 +40,7 @@ curl https://haasonsaas.com/api/health
 # This was frozen in the past
 curl https://haasonsaas.com/api/capabilities
 # Timestamp from an hour ago, missing new features
-```
+```text
 
 New functions deployed fine. Modified functions were silently failing.
 
@@ -55,7 +55,7 @@ The routing table showed our function was registered:
   "method": "",
   "module": ["api/capabilities.ts:onRequest"]
 }
-```
+```text
 
 GitHub Actions reported success. No error logs in Cloudflare. The function was there—it just wasn't updating.
 
@@ -67,14 +67,14 @@ Claude suggested something I should have tried immediately:
 
 ```bash
 bun --bun tsc --noEmit functions/api/capabilities.ts
-```
+```text
 
 Boom:
 
 ```text
 functions/api/capabilities.ts(43,42): error TS2304: Cannot find name 'EventContext'.
 functions/api/capabilities.ts(43,55): error TS2304: Cannot find name 'Env'.
-```
+```text
 
 **The function had TypeScript compilation errors that prevented deployment, but Cloudflare Pages was failing silently.**
 
@@ -94,7 +94,7 @@ export async function onRequest(
 ): Promise<Response> {
   // Function body...
 }
-```
+```text
 
 The working functions all had proper `Env` interfaces and correct type definitions. This one was missing both.
 
@@ -126,7 +126,7 @@ bun --bun tsc --noEmit functions/api/problematic-function.ts
 
 # Test entire functions directory
 bun --bun tsc --noEmit functions/**/*.ts
-```
+```text
 
 ### Step 2: Compare Working vs Broken Functions
 
@@ -144,7 +144,7 @@ export async function onRequest(context: {
 }): Promise<Response> {
   // Implementation
 }
-```
+```text
 
 ### Step 3: Check Your Function Signatures
 
@@ -159,7 +159,7 @@ context: {
 
 // This might cause issues depending on your setup
 context: EventContext<Env, string, Record<string, unknown>>
-```
+```text
 
 ### Step 4: Validate with Fresh Timestamps
 
@@ -169,7 +169,7 @@ Use timestamp checks to verify actual deployment:
 const response = {
   lastUpdated: new Date().toISOString(), // Should be fresh on every deploy
 }
-```
+```text
 
 ## The Deeper Problem: Serverless Abstraction Tax
 
@@ -196,7 +196,7 @@ Add this to your pre-commit hooks:
 ```bash
 # .husky/pre-commit
 bun --bun tsc --noEmit functions/**/*.ts
-```
+```text
 
 ### 2. Deployment Health Checks
 
@@ -205,7 +205,7 @@ Build verification into your deployment process:
 ```bash
 # Verify functions are actually updated
 curl https://yoursite.com/api/health | jq '.timestamp'
-```
+```text
 
 ### 3. Function Template Consistency
 
@@ -223,7 +223,7 @@ export async function onRequest(context: {
 }): Promise<Response> {
   // Your logic here
 }
-```
+```text
 
 ### 4. Canary Testing
 
@@ -235,7 +235,7 @@ for endpoint in /api/capabilities /api/health /api/search; do
   echo "Testing $endpoint..."
   curl -f "https://yoursite.com$endpoint" || echo "FAILED"
 done
-```
+```text
 
 ## What This Teaches Us About Modern Development
 
@@ -247,11 +247,11 @@ The solution isn't to avoid serverless platforms—they're incredibly powerful. 
 
 1. **Silent failures are the worst failures.** They give you false confidence while breaking user experience.
 
-2. **Local validation saves production pain.** TypeScript compilation should be tested locally, not discovered in production.
+1. **Local validation saves production pain.** TypeScript compilation should be tested locally, not discovered in production.
 
-3. **Serverless platforms need different debugging approaches.** Traditional server debugging techniques don't always apply.
+1. **Serverless platforms need different debugging approaches.** Traditional server debugging techniques don't always apply.
 
-4. **Human-AI collaboration excels at systematic debugging.** Claude's suggestion to test TypeScript compilation directly led to the breakthrough.
+1. **Human-AI collaboration excels at systematic debugging.** Claude's suggestion to test TypeScript compilation directly led to the breakthrough.
 
 ## The Fix and Moving Forward
 
@@ -270,7 +270,7 @@ export async function onRequest(context: {
 }): Promise<Response> {
   // Function implementation
 }
-```
+```text
 
 But the debugging process took over an hour because we were looking in the wrong places. The failure was silent, the symptoms were confusing, and the root cause was hidden behind serverless abstractions.
 
@@ -278,6 +278,7 @@ This is part of a larger trend I'm seeing: as our development tools become more 
 
 ---
 
-_Next in this series: "[Building for Humans AND Machines: The Dual-Audience Problem](/blog/building-for-humans-and-machines-the-dual-audience-problem)" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges._
+*Next in this series: "[Building for Humans AND Machines: The Dual-Audience Problem](/blog/building-for-humans-and-machines-the-dual-audience-problem)" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges.*
 
-_This post was written in collaboration with Claude Code, whose systematic debugging approach helped solve the very problem we're analyzing. Human-AI collaboration isn't just useful for building features—it's transforming how we approach complex technical problems._
+*This post was written in collaboration with Claude Code, whose systematic debugging approach helped solve the very problem we're analyzing. Human-AI collaboration isn't just useful for building features—it's transforming how we approach complex technical problems.*
+````

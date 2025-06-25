@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "Building My UniFi Homelab: A Technical Deep Dive"
-description: "A technical deep-dive into my homelab network built on UniFi enterprise equipment"
+title: 'Building My UniFi Homelab: A Technical Deep Dive'
+description: 'A technical deep-dive into my homelab network built on UniFi enterprise equipment'
 tags:
   - engineering
   - technical
@@ -40,14 +40,14 @@ environment.
 
 My current VLAN structure:
 
-```text
+````text
 VLAN 10: Management (network devices, controllers)
 VLAN 20: Lab Environment (kubernetes, storage clusters)
 VLAN 30: IoT Devices
 VLAN 40: Media Streaming
 VLAN 50: Guest Network
 VLAN 60: Security Systems
-```
+```text
 
 Each VLAN has specific firewall rules and traffic policies to maintain security
 while allowing necessary inter-VLAN routing.
@@ -94,13 +94,13 @@ Currently running these core services:
    - Grafana for visualization
    - Custom alerting via webhook integration
 
-2. Security:
+1. Security:
 
    - IPS/IDS with custom rulesets
    - Network flow analysis
    - Automated threat detection
 
-3. Lab Environment:
+1. Lab Environment:
    - Kubernetes cluster for container orchestration
    - CI/CD pipeline for testing
    - Development environments
@@ -133,7 +133,7 @@ Currently running these core services:
    - Adding redundant internet connections
    - Expanding kubernetes cluster
 
-2. Infrastructure Expansion:
+1. Infrastructure Expansion:
    - Additional compute nodes for lab environment
    - Enhanced monitoring and logging
    - Automated failover systems
@@ -146,13 +146,13 @@ Currently running these core services:
    - Plan your IP space carefully
    - Document all custom firewall rules
 
-2. Storage Planning:
+1. Storage Planning:
 
    - Calculate IOPS requirements beforehand
    - Plan for backup storage
    - Consider future expansion
 
-3. Infrastructure Management:
+1. Infrastructure Management:
    - Implement configuration management
    - Set up automated monitoring
    - Maintain thorough documentation
@@ -162,3 +162,4 @@ use. While it may be more complex than a typical home network, it provides an
 excellent environment for experimenting with enterprise-grade networking
 concepts and running a productive homelab, all while maintaining a high level of
 security and performance -- making it well worth the investment.
+````

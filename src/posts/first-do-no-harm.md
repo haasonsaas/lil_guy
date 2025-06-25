@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "First, Do No Harm: When Not to Ship Features"
+title: 'First, Do No Harm: When Not to Ship Features'
 description: "Exploring the delicate balance between customer requests and product integrity through the lens of 'first, do no harm'"
 tags:
   - product
@@ -42,13 +42,13 @@ in several ways:
    features are particularly toxic because they deliver negative value while
    still requiring maintenance.
 
-2. **Cognitive Load**: Users must navigate around features they don't need,
+1. **Cognitive Load**: Users must navigate around features they don't need,
    making your product harder to understand and use effectively.
 
-3. **Support Burden**: Even unused features generate support tickets and require
+1. **Support Burden**: Even unused features generate support tickets and require
    documentation, training, and maintenance.
 
-4. **Opportunity Cost**: Every hour spent building the wrong feature is an hour
+1. **Opportunity Cost**: Every hour spent building the wrong feature is an hour
    not spent building the right one.
 
 ## Making the Hard Choice

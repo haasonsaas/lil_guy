@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "The Perfection Paralysis: Why Moving Too Carefully Kills Startups"
-description: "How an obsession with perfect architecture and clean code can prevent startups from finding product-market fit"
+title: 'The Perfection Paralysis: Why Moving Too Carefully Kills Startups'
+description: 'How an obsession with perfect architecture and clean code can prevent startups from finding product-market fit'
 tags:
   - engineering
   - product
@@ -39,11 +39,11 @@ product-market fit:
 
 1. **Lost Learning Opportunities**: Every week spent perfecting an architecture
    is a week without customer feedback
-2. **Missed Market Windows**: While we're designing the perfect system,
+1. **Missed Market Windows**: While we're designing the perfect system,
    competitors are shipping and learning
-3. **Wasted Engineering Effort**: Perfect architecture for the wrong feature is
+1. **Wasted Engineering Effort**: Perfect architecture for the wrong feature is
    worse than quick-and-dirty code for the right one
-4. **Team Morale**: Nothing kills motivation like spending months on a feature
+1. **Team Morale**: Nothing kills motivation like spending months on a feature
    only to learn customers don't want it
 
 ## A Tale of Two Features at ThreatKey
@@ -55,7 +55,7 @@ I remember two distinct approaches we took to feature development:
    the code was testable, and the interfaces were elegant. After launch, we
    learned that customers mostly wanted simple "if this, then that" rules.
 
-2. **The Quick Response**: A customer mentioned they needed basic Slack
+1. **The Quick Response**: A customer mentioned they needed basic Slack
    notifications for critical alerts. We hacked together a simple integration in
    two days - literally hardcoding some webhook URLs. That "temporary" solution
    revealed exactly how customers wanted to interact with alerts, and the
@@ -83,7 +83,7 @@ answers yet.
 Instead of imagining future use cases, wait for customers to tell you what they
 need:
 
-```typescript
+````typescript
 // Instead of building the perfect abstraction first:
 interface NotificationRouter {
   route(alert: Alert): Promise<DeliveryResult[]>;
@@ -94,7 +94,7 @@ interface NotificationRouter {
 async function sendSlackNotification(alert: Alert, webhookUrl: string) {
   // 10 lines of code that solve the immediate need
 }
-```
+```text
 
 ## Finding the Balance
 
@@ -103,9 +103,9 @@ is knowing when to apply each approach:
 
 1. **Core Infrastructure**: Yes, build it right. Your authentication system,
    data storage, and core security features need to be solid.
-2. **Customer-Facing Features**: Move fast, learn fast. You can always refactor
+1. **Customer-Facing Features**: Move fast, learn fast. You can always refactor
    once you know what customers actually need.
-3. **New Markets**: When exploring new territory, quick experiments beat perfect
+1. **New Markets**: When exploring new territory, quick experiments beat perfect
    architecture every time.
 
 ## A Startup-Appropriate Definition of Technical Excellence
@@ -131,3 +131,4 @@ educated guessing.
 
 The real skill in startup engineering isn't writing perfect code - it's knowing
 when good enough is better than perfect.
+````

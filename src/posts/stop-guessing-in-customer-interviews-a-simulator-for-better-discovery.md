@@ -1,11 +1,11 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-24"
-title: "Stop Guessing in Customer Interviews: A Simulator for Better Discovery"
-description: "Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas."
+author: 'Jonathan Haas'
+pubDate: '2025-06-24'
+title: 'Stop Guessing in Customer Interviews: A Simulator for Better Discovery'
+description: 'Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas.'
 featured: false
 draft: false
-tags: ["customer-development", "product-management", "startup", "interactive"]
+tags: ['customer-development', 'product-management', 'startup', 'interactive']
 ---
 
 I've conducted hundreds of customer interviews. Most of them were terrible.
@@ -86,15 +86,15 @@ Gets them dreaming without you suggesting the dream.
    - Understand their role, responsibilities, and environment
    - No agenda pushing, just learning
 
-2. **Problem Discovery (Next 50%)**
+1. **Problem Discovery (Next 50%)**
    - Deep dive into workflows and friction points
    - Specific examples, not generalizations
 
-3. **Priority Understanding (Next 20%)**
+1. **Priority Understanding (Next 20%)**
    - Which problems actually matter?
    - What would they pay (time/money/effort) to solve?
 
-4. **Solution Exploration (Final 5%)**
+1. **Solution Exploration (Final 5%)**
    - Only after understanding everything else
    - Their ideas, not yours
 
@@ -130,19 +130,19 @@ The patterns you practice here translate directly:
 Better customer interviews create compound advantages:
 
 1. **Product-Market Fit**: You build what people actually need
-2. **Faster Iteration**: Clear signal vs. noise in feedback
-3. **Better Positioning**: You speak their language, not yours
-4. **Stronger Conviction**: Real evidence beats hopeful assumptions
+1. **Faster Iteration**: Clear signal vs. noise in feedback
+1. **Better Positioning**: You speak their language, not yours
+1. **Stronger Conviction**: Real evidence beats hopeful assumptions
 
 Every percentage point improvement in interview quality translates to weeks saved in wrong directions.
 
 ## Your Next Steps
 
 1. **Run 10 simulated interviews** across different personas
-2. **Track your scores** and identify weak areas
-3. **Practice specific question types** that score poorly
-4. **Record one real interview** and compare techniques
-5. **Share what you learn** with your team
+1. **Track your scores** and identify weak areas
+1. **Practice specific question types** that score poorly
+1. **Record one real interview** and compare techniques
+1. **Share what you learn** with your team
 
 The best product teams are learning machines. Customer development is the input that feeds everything else.
 
@@ -150,4 +150,4 @@ Stop guessing. Start discovering.
 
 ---
 
-*How do you approach customer interviews? What questions have revealed the most surprising insights? I'd love to hear your techniques and horror stories in the comments.*
+_How do you approach customer interviews? What questions have revealed the most surprising insights? I'd love to hear your techniques and horror stories in the comments._

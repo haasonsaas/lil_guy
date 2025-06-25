@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-05-26
-title: "OCode: Why I Built My Own Claude Code (and Why You Might Too)"
+title: 'OCode: Why I Built My Own Claude Code (and Why You Might Too)'
 description: "After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by Ollama, running locally, and priced at $0 per token."
 featured: false
 draft: false
@@ -14,13 +14,13 @@ tags:
   - developer-tools
   - ai
 image:
-  url: "https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  alt: "A developer in a terminal session working late at night with a cat nearby"
+  url: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'A developer in a terminal session working late at night with a cat nearby'
 ---
 
 A few nights ago, I opened my Anthropic invoice. $602.14.
 
-For *coding assistance*.
+For _coding assistance_.
 
 And not even during work hours—I’m talking about an AI that times out at 2 a.m. with “something went wrong” while I’m mid-refactor.
 
@@ -28,7 +28,7 @@ So yeah, I snapped.
 
 ## When SaaS Becomes a Tax
 
-I’m a big believer in paying for good tools. But something’s broken when a month of occasional code suggestions costs more than your GitHub Copilot *and* electricity bill combined.
+I’m a big believer in paying for good tools. But something’s broken when a month of occasional code suggestions costs more than your GitHub Copilot _and_ electricity bill combined.
 
 Especially when all you’re doing is asking it to “run tests” and “rename this function.”
 
@@ -44,9 +44,9 @@ Same multi-file reasoning. No timeouts. Zero per-token billing.
 
 And you can install it with one line:
 
-```bash
+````bash
 curl -fsSL [https://raw.githubusercontent.com/haasonsaas/ocode/main/scripts/install.sh](https://raw.githubusercontent.com/haasonsaas/ocode/main/scripts/install.sh) | bash
-```
+```text
 
 Because “run tests & commit” shouldn’t cost $600.
 
@@ -59,7 +59,7 @@ Let’s break down what OCode actually is, why I built it, and what it can do th
 Most AI code tools are two things:
 
 1. **Remote-first** (expensive, latency-prone, privacy-invasive)
-2. **Opinionated black boxes** (you can’t tweak or inspect behavior)
+1. **Opinionated black boxes** (you can’t tweak or inspect behavior)
 
 OCode flips both.
 
@@ -70,7 +70,7 @@ It’s:
 * **Speaks to Ollama models like Llama 3 or CodeLlama**
 * **Fully inspectable and extendable**
 
-Think of it as an open-source dev agent that actually understands your repo—and doesn’t leave you guessing why it renamed your files “final_final_rewrite_v2.py”.
+Think of it as an open-source dev agent that actually understands your repo—and doesn’t leave you guessing why it renamed your files “final*final*rewrite*v2.py”.
 
 ---
 
@@ -80,7 +80,7 @@ Think of it as an open-source dev agent that actually understands your repo—an
 
 ```bash
 ollama pull llama3
-```
+```text
 
 Turns out, these models can already handle multi-file prompts surprisingly well. The key is the scaffolding around them—something most “AI tools” either overcomplicate or completely ignore.
 
@@ -97,10 +97,10 @@ I wired up a CLI wrapper using Python and Typer. The hard part wasn’t the CLI.
 
 OCode’s architecture is simple but powerful. Every command goes through a query router that determines which “tools” to activate. Think:
 
-* `grep_todos`
-* `test_runner`
-* `git_commit_summarizer`
-* `refactor_engine`
+* `grep*todos`
+* `test*runner`
+* `git*commit*summarizer`
+* `refactor*engine`
 
 The logic? Declarative YAML + some Python glue.
 
@@ -150,10 +150,11 @@ Well, now you’ve got a one-liner.
 
 ```bash
 curl -fsSL [https://raw.githubusercontent.com/haasonsaas/ocode/main/scripts/install.sh](https://raw.githubusercontent.com/haasonsaas/ocode/main/scripts/install.sh) | bash
-```
+```text
 
 And if you build something cool on top of it? Let me know. I built OCode to escape SaaS rent. But it might just be a better way to code.
 
 ---
 
 **Made with a terminal window, two coffees, and two very confused cats.** 🐈
+````

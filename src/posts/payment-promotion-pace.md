@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-30
-title: "The Startup Reality Check: Payment, Promotion, and Pace"
-description: "A blunt field guide for early-stage founders: why cash is your only true validator, marketing matters more than code, and slow shipping is the fast lane to failure."
+title: 'The Startup Reality Check: Payment, Promotion, and Pace'
+description: 'A blunt field guide for early-stage founders: why cash is your only true validator, marketing matters more than code, and slow shipping is the fast lane to failure.'
 featured: false
 draft: false
 tags:
@@ -12,8 +12,8 @@ tags:
   - founder-advice
   - validation
 image:
-  url: "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  alt: "Founders working around a laptop, representing early-stage product execution"
+  url: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'Founders working around a laptop, representing early-stage product execution'
 ---
 
 Most startup advice gets softened for comfort. This isn't that.
@@ -52,7 +52,7 @@ I've seen too many founders who spend months in a bubble of self-affirmation, co
 Consider two scenarios:
 
 1. You have 500 people on a waitlist who haven't paid a cent
-2. You have 5 paying customers who opened their wallets after seeing your MVP
+1. You have 5 paying customers who opened their wallets after seeing your MVP
 
 The second scenario is infinitely more valuable. Those five customers have voted with their money—the only vote that ultimately counts. They've demonstrated not just interest, but enough conviction to overcome the natural human resistance to parting with cash.
 
@@ -214,8 +214,8 @@ Most importantly, she never wasted time building features her market didn't valu
 This approach—sometimes called "Wizard of Oz" or "concierge MVP"—exemplifies the trifecta:
 
 1. It demands payment upfront (validation)
-2. It forces clear marketing (who exactly needs this badly enough to pay for a manual service?)
-3. It enables rapid learning and iteration (shipping the "product" in days, not months)
+1. It forces clear marketing (who exactly needs this badly enough to pay for a manual service?)
+1. It enables rapid learning and iteration (shipping the "product" in days, not months)
 
 ---
 
@@ -252,13 +252,13 @@ Recognizing these psychological barriers in yourself is the first step toward ov
 You're likely veering off course if:
 
 1. You can't explain in one sentence what problem you solve and for whom
-2. You haven't talked to a potential customer in the past week
-3. Your launch date keeps moving because "just one more feature" needs completion
-4. You spend more time debating internal priorities than talking to users
-5. You're more excited about your technology than your first sale
-6. You're afraid to charge money because "we need more users first"
-7. You're building based on competitive analysis rather than direct user feedback
-8. Your roadmap extends months into the future without validation checkpoints
+1. You haven't talked to a potential customer in the past week
+1. Your launch date keeps moving because "just one more feature" needs completion
+1. You spend more time debating internal priorities than talking to users
+1. You're more excited about your technology than your first sale
+1. You're afraid to charge money because "we need more users first"
+1. You're building based on competitive analysis rather than direct user feedback
+1. Your roadmap extends months into the future without validation checkpoints
 
 Any three of these warning signs should trigger immediate corrective action. Return to first principles: simplify, ship, sell.
 
@@ -266,7 +266,7 @@ Any three of these warning signs should trigger immediate corrective action. Ret
 
 ## Final Thought: Data Over Dreams
 
-The startup graveyard is full of products that *should* have worked.
+The startup graveyard is full of products that _should_ have worked.
 
 They had clean UI. Slick demos. Smart teams. But they lacked the only three things that matter:
 

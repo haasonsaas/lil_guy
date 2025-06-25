@@ -108,7 +108,7 @@ Specific suggestions based on context:
 
 Emails in InboxArmor are represented in a **hierarchical JSON** format:
 
-```json
+````json
 {
   "priority": {
     "score": 1-10,
@@ -144,7 +144,7 @@ Emails in InboxArmor are represented in a **hierarchical JSON** format:
     "isMarketingEmail": false
   }
 }
-```
+```text
 
 JSON makes it easy to integrate with visualization tools and frontend components.
 
@@ -216,3 +216,4 @@ Instead of fighting your inbox or drowning in newsletters, InboxArmor lets you f
 Thanks for reading.
 
 ---
+````

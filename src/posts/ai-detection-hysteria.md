@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-17
-title: "AI Detection Hysteria: When Human Creativity Gets Mislabeled"
-description: 
-  An examination of the growing trend of falsely attributing human-created content to AI generation, and why this luddite perspective is problematic for creative communities and technological progress
+title: 'AI Detection Hysteria: When Human Creativity Gets Mislabeled'
+description: An examination of the growing trend of falsely attributing human-created content to AI generation, and why this luddite perspective is problematic for creative communities and technological progress
 featured: false
 draft: false
 tags:
@@ -29,11 +28,11 @@ Several factors are driving this phenomenon:
 
 1. **Pattern recognition overdrive**: Humans excel at pattern recognition, but we're prone to seeing patterns that aren't there. Once familiar with certain AI aesthetics or writing patterns, we begin seeing them everywhere—even in fully human works.
 
-2. **The novelty effect**: AI generation is new and notable, making its perceived presence more attention-grabbing than the alternative explanation of human creativity.
+1. **The novelty effect**: AI generation is new and notable, making its perceived presence more attention-grabbing than the alternative explanation of human creativity.
 
-3. **Validation through skepticism**: Identifying something as "obviously AI" signals technical knowledge and critical thinking, providing social currency in communities that value these traits.
+1. **Validation through skepticism**: Identifying something as "obviously AI" signals technical knowledge and critical thinking, providing social currency in communities that value these traits.
 
-4. **Legitimate concerns finding illegitimate targets**: Concerns about AI misuse, attribution, and displacement are valid, but they're increasingly misdirected toward genuine human creations.
+1. **Legitimate concerns finding illegitimate targets**: Concerns about AI misuse, attribution, and displacement are valid, but they're increasingly misdirected toward genuine human creations.
 
 ## The Technical Challenge of Detection
 
@@ -57,11 +56,11 @@ The consequences of this trend extend beyond mere annoyance:
 
 1. **Undermining legitimate creators**: Artists, writers, and developers find their work devalued through baseless accusations, particularly affecting newcomers who lack established reputations.
 
-2. **Eroding trust in digital spaces**: When genuine human communication is dismissed as artificial, meaningful connection becomes harder to establish.
+1. **Eroding trust in digital spaces**: When genuine human communication is dismissed as artificial, meaningful connection becomes harder to establish.
 
-3. **Creating unnecessary barriers**: Creative communities increasingly require "proof of humanity," demanding process documentation that disadvantages creators with limited time or resources.
+1. **Creating unnecessary barriers**: Creative communities increasingly require "proof of humanity," demanding process documentation that disadvantages creators with limited time or resources.
 
-4. **Reinforcing existing biases**: Non-native English speakers and those with unconventional styles are disproportionately accused of posting AI-generated content.
+1. **Reinforcing existing biases**: Non-native English speakers and those with unconventional styles are disproportionately accused of posting AI-generated content.
 
 ## The Neo-Luddite Problem
 
@@ -75,13 +74,13 @@ Rather than developing an allergic reaction to perceived AI content, we would be
 
 1. **Embracing epistemological humility**: Unless we have definitive proof, we should avoid making absolute claims about the origins of creative work.
 
-2. **Focusing on value, not source**: The quality, insight, and impact of content matter more than its origin in many contexts.
+1. **Focusing on value, not source**: The quality, insight, and impact of content matter more than its origin in many contexts.
 
-3. **Developing better attribution norms**: Clear disclosure expectations for AI-assisted work would reduce anxiety about "hidden" AI.
+1. **Developing better attribution norms**: Clear disclosure expectations for AI-assisted work would reduce anxiety about "hidden" AI.
 
-4. **Supporting verification infrastructure**: Cryptographic signatures and provenance systems could provide optional verification for creators who choose to use them.
+1. **Supporting verification infrastructure**: Cryptographic signatures and provenance systems could provide optional verification for creators who choose to use them.
 
-5. **Addressing legitimate concerns directly**: Focusing energy on actual instances of misrepresentation, intellectual property concerns, and economic displacement would be more productive than widespread accusation.
+1. **Addressing legitimate concerns directly**: Focusing energy on actual instances of misrepresentation, intellectual property concerns, and economic displacement would be more productive than widespread accusation.
 
 ## Technical Understanding Over Technical Rejection
 

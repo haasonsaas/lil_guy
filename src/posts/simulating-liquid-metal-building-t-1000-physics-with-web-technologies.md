@@ -41,10 +41,10 @@ The secret to convincing liquid metal simulation is **metaballs**—a technique 
 
 Each "ball" in the simulation isn't actually a sphere. It's an **influence field** that affects nearby space:
 
-```javascript
+````javascript
 // Calculate influence at any point (x,y)
-const influence = radius² / (distance² + small_offset)
-```
+const influence = radius² / (distance² + small*offset)
+```text
 
 When you sample the entire canvas and add up all influences, areas with high values become "inside" the surface, creating smooth, organic shapes.
 
@@ -69,13 +69,13 @@ for (let x = 0; x < canvas.width; x += 2) {
     }
   }
 }
-```
+```text
 
 The magic happens in that threshold check. By testing `totalInfluence > 1`, we create smooth boundaries between adjacent metaballs.
 
 ## Adding Real Physics
 
-Metaballs give us the visual, but liquid metal needs to _behave_ like liquid metal. That means implementing real fluid dynamics.
+Metaballs give us the visual, but liquid metal needs to *behave* like liquid metal. That means implementing real fluid dynamics.
 
 ### Surface Tension
 
@@ -90,7 +90,7 @@ const restY = Math.floor(pointIndex / gridColumns) * spacing
 const tension = surfaceTension * 0.01
 point.vx += (restX - point.x) * tension * deltaTime
 point.vy += (restY - point.y) * tension * deltaTime
-```
+```text
 
 This creates the characteristic "rubber sheet" behavior where disturbed liquid wants to return to its original shape.
 
@@ -102,7 +102,7 @@ Liquid metal flows slower than water. I simulate viscosity by damping velocity e
 // Higher viscosity = more damping
 point.vx *= 1 - viscosity * 0.02
 point.vy *= 1 - viscosity * 0.02
-```
+```text
 
 Simple but effective. High viscosity values make the metal feel thick and sluggish, low values make it feel thin and runny.
 
@@ -125,7 +125,7 @@ if (mouse.isDown) {
     }
   })
 }
-```
+```text
 
 Each point within 100 pixels of the mouse gets pushed away, creating realistic ripple patterns.
 
@@ -150,7 +150,7 @@ const b = baseColor * (0.9 + metallic * 0.1)
 const hueShift = Math.sin(x * 0.01 + time * 0.001) * 20
 const finalR = Math.min(255, r + hueShift)
 const finalB = Math.min(255, b - hueShift * 0.5)
-```
+```text
 
 This gives the metal a subtle color temperature shift across its surface, like real metal reflecting different light sources.
 
@@ -171,7 +171,7 @@ for (let i = 0; i < 3; i++) {
   ctx.fillStyle = gradient
   ctx.fillRect(x - 100, y - 100, 200, 200)
 }
-```
+```text
 
 These moving highlights create the illusion that the metal is reflecting a complex environment.
 
@@ -200,7 +200,7 @@ ripples.forEach((ripple) => {
   ctx.strokeStyle = `rgba(255, 255, 255, ${ripple.life * 0.3})`
   ctx.stroke()
 })
-```
+```text
 
 ## Performance Optimization
 
@@ -226,7 +226,7 @@ for (let x = 0; x < canvas.width; x += 2) {
     }
   }
 }
-```
+```text
 
 This cuts rendering time by 75% with minimal visual impact.
 
@@ -237,7 +237,7 @@ When the user isn't interacting, I can reduce the simulation frequency:
 ```javascript
 const targetFPS = isInteracting ? 60 : 30
 const deltaTime = (currentTime - lastTime) * (targetFPS / 60)
-```
+```text
 
 ### Hardware Acceleration
 
@@ -250,11 +250,11 @@ element.style.transform = `translate(${x}px, ${y}px)`
 // Slow: Forces repaint
 element.style.left = `${x}px`
 element.style.top = `${y}px`
-```
+```text
 
 ## The Uncanny Valley of Physics
 
-The most challenging part wasn't the technical implementation—it was making the simulation _feel_ right.
+The most challenging part wasn't the technical implementation—it was making the simulation *feel* right.
 
 Real liquid metal has subtle behaviors that are hard to quantify:
 
@@ -262,14 +262,14 @@ Real liquid metal has subtle behaviors that are hard to quantify:
 - What's the right balance between viscosity and responsiveness?
 - How reflective should the surface be?
 
-I spent hours tweaking parameters, watching reference footage, and getting feedback from users. The goal wasn't physical accuracy—it was **emotional accuracy**. Does it _feel_ like liquid metal?
+I spent hours tweaking parameters, watching reference footage, and getting feedback from users. The goal wasn't physical accuracy—it was **emotional accuracy**. Does it *feel_ like liquid metal?
 
 ## Beyond the T-1000
 
 This technique isn't just for sci-fi effects. Metaball fluid simulation has practical applications:
 
 **Data visualization**: Flowing connections between data points
-**Interface design**: Organic morphing between UI states  
+**Interface design**: Organic morphing between UI states
 **Generative art**: Evolving, breathing visual compositions
 **Gaming**: Realistic water, lava, or magical effects
 
@@ -284,3 +284,4 @@ Try the [liquid metal experiment](/experiments/liquid-metal) yourself. Click and
 **The most interesting interfaces aren't bound by physical laws—they're inspired by them.**
 
 What impossible thing will you make feel real?
+````

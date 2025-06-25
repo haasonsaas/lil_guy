@@ -12,7 +12,7 @@ tags:
   - sales
 image:
   url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "Security professionals in a meeting discussing cybersecurity challenges"
+  alt: 'Security professionals in a meeting discussing cybersecurity challenges'
 ---
 
 In my role leading cloud security integrations, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security operations and architecture roles. This unique vantage point—having stood on both sides of the fence—has given me uncommon insight into the growing disconnect between security vendors and the leaders they aim to serve.
@@ -170,16 +170,16 @@ Based on hundreds of conversations with security leaders, I believe several chan
 ### For Vendors:
 
 1. **Invest in understanding before selling**: Spend time truly comprehending the operational realities security teams face
-2. **Quality over quantity**: Focus on finding the right fit rather than maximizing meeting counts
-3. **Consolidate, don't complicate**: Seek integration and simplification opportunities, not feature expansion
-4. **Respect time boundaries**: Recognize that every minute spent with you is a minute not spent on security operations
+1. **Quality over quantity**: Focus on finding the right fit rather than maximizing meeting counts
+1. **Consolidate, don't complicate**: Seek integration and simplification opportunities, not feature expansion
+1. **Respect time boundaries**: Recognize that every minute spent with you is a minute not spent on security operations
 
 ### For Security Leaders:
 
 1. **Communicate your needs clearly**: Help the market understand your actual challenges
-2. **Establish structured processes**: Create systems that channel vendor engagement productively
-3. **Share your feedback**: Help improve solutions by explaining what works and what doesn't
-4. **Make time for innovation**: Set aside specific periods to explore emerging approaches
+1. **Establish structured processes**: Create systems that channel vendor engagement productively
+1. **Share your feedback**: Help improve solutions by explaining what works and what doesn't
+1. **Make time for innovation**: Set aside specific periods to explore emerging approaches
 
 ## The Ecosystem We Need
 
@@ -195,4 +195,4 @@ It's time we fixed this broken system, together.
 
 ---
 
-*Jonathan Haas is a product leader focused on cloud and security integrations. Previously, Jonathan spent seven years in security operations and architecture roles at financial services and consumer tech companies. This perspective is based on over 400 CISO interviews conducted for product discovery and customer research over the past two years.*
+_Jonathan Haas is a product leader focused on cloud and security integrations. Previously, Jonathan spent seven years in security operations and architecture roles at financial services and consumer tech companies. This perspective is based on over 400 CISO interviews conducted for product discovery and customer research over the past two years._

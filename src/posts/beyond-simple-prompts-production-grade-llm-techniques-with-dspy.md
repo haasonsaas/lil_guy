@@ -36,21 +36,21 @@ That's where DSpy comes in. Instead of crafting prompts by hand, you define what
 
 Remember your first day at a job? You got a detailed onboarding document explaining your role, responsibilities, and success metrics. That's exactly what top startups are doing with LLMs.
 
-```python
+````python
 config = ManagerStylePromptConfig(
-    role_title="Senior Support Engineer",
+    role*title="Senior Support Engineer",
     department="Customer Success",
-    key_responsibilities=[
+    key*responsibilities=[
         "Diagnose technical issues with empathy",
         "Provide actionable solutions",
         "Escalate when appropriate"
     ],
-    performance_metrics={
-        "resolution_rate": 0.95,
-        "satisfaction_score": 4.8
+    performance*metrics={
+        "resolution*rate": 0.95,
+        "satisfaction*score": 4.8
     }
 )
-```
+```text
 
 I implemented manager-style prompts that span 6+ pages, including:
 
@@ -69,7 +69,7 @@ Hallucination isn't a bug—it's what happens when you don't give the model an e
 escaper = EscapeHatchResponder()
 result = escaper("What will Bitcoin's price be next month?")
 # Returns confidence: 0.15 with proper uncertainty markers
-```
+```text
 
 The implementation includes:
 
@@ -87,7 +87,7 @@ When Anthropic released Claude's thinking feature, everyone got excited. But sta
 tracer = ThinkingTracer(verbose=True)
 solution = tracer("How many weighings to find the odd ball among 12?")
 # Output includes [THOUGHT], [HYPOTHESIS], [VALIDATION] markers
-```
+```text
 
 This isn't just about transparency—it's about debuggability. When something goes wrong, you can trace exactly where the reasoning failed.
 
@@ -97,11 +97,11 @@ Everyone knows about few-shot prompting. What they don't know is that the best c
 
 ```python
 analyzer = FewShotLearner(
-    examples=bug_analysis_database,  # 500+ real bug scenarios
-    selection_strategy="semantic_similarity",
+    examples=bug*analysis*database,  # 500+ real bug scenarios
+    selection*strategy="semantic*similarity",
     k=5
 )
-```
+```text
 
 The key insight: examples are more valuable than prompts. Invest in building comprehensive example sets.
 
@@ -111,12 +111,12 @@ Here's where it gets wild. Instead of you optimizing prompts, the LLM optimizes 
 
 ```python
 optimizer = MetaPromptOptimizer()
-evolved_prompt = await optimizer.evolve(
-    initial_prompt="Analyze this code",
-    test_cases=evaluation_suite,
+evolved*prompt = await optimizer.evolve(
+    initial*prompt="Analyze this code",
+    test*cases=evaluation*suite,
     generations=10
 )
-```
+```text
 
 Using genetic algorithms and performance metrics, prompts literally evolve to become better. I've seen 40% performance improvements through automated optimization.
 
@@ -128,7 +128,7 @@ Complex workflows need orchestration. Prompt folding lets one high-level prompt 
 folder = PromptFolder(strategy="recursive")
 workflow = folder.unfold("Build a web scraper for e-commerce sites")
 # Generates 15+ specialized subtask prompts
-```
+```text
 
 Think of it as prompt recursion—each level handles more specific tasks.
 
@@ -140,16 +140,16 @@ After implementing all these techniques, here's the biggest lesson: **your test 
 
 ```python
 suite = EvaluationSuite(
-    test_cases=[
+    test*cases=[
         TestCase(
             input="Debug this memory leak",
-            expected_behavior="identifies gc roots",
-            must_include=["heap analysis", "reference counting"]
+            expected*behavior="identifies gc roots",
+            must*include=["heap analysis", "reference counting"]
         )
         # ... 200+ more cases
     ]
 )
-```
+```text
 
 Every technique in the toolkit includes comprehensive evaluation. Because in production, "it seems to work" isn't good enough.
 
@@ -159,12 +159,12 @@ Another production secret: use GPT-4 to develop prompts, then deploy on smaller 
 
 ```python
 pipeline = DistillationPipeline()
-production_ready = await pipeline.distill_and_deploy(
-    development_model="gpt-4",
-    production_model="gpt-3.5-turbo",
-    accuracy_threshold=0.9
+production*ready = await pipeline.distill*and*deploy(
+    development*model="gpt-4",
+    production*model="gpt-3.5-turbo",
+    accuracy*threshold=0.9
 )
-```
+```text
 
 This cuts costs by 90% while maintaining quality. The toolkit handles the entire pipeline.
 
@@ -190,8 +190,8 @@ I've packaged all 11 techniques into [dspy-advanced-prompting](https://github.co
 
 ```bash
 pip install -r requirements.txt
-python validate_with_real_api.py
-```
+python validate*with*real*api.py
+```text
 
 The validation shows exactly what each technique does with real API calls.
 
@@ -205,4 +205,5 @@ Start treating your prompts like production software. Your results will thank yo
 
 ---
 
-_Check out the [full implementation on GitHub](https://github.com/haasonsaas/dspy-advanced-prompting). I'd love to hear what techniques you've discovered in your own work._
+*Check out the [full implementation on GitHub](https://github.com/haasonsaas/dspy-advanced-prompting). I'd love to hear what techniques you've discovered in your own work._
+````

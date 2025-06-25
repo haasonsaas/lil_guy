@@ -66,7 +66,7 @@ Here's what I implemented on my blog to support AI agents:
 
 I created four core endpoints:
 
-```typescript
+````typescript
 // Get all posts with metadata
 GET /api/posts
 // Response includes: title, description, tags, reading time, URLs
@@ -82,7 +82,7 @@ GET /api/search?q=typescript&tags=tutorial
 // Get all available tags
 GET /api/tags
 // Returns: tag names + post counts
-```
+```text
 
 Each endpoint returns CORS-enabled JSON with proper caching headers. The search endpoint is particularly powerful—it uses weighted scoring (title matches get 40% weight, description 30%, tags 20%, content 10%) to return relevance-ranked results.
 
@@ -99,7 +99,7 @@ Beyond standard OpenGraph tags, I added agent-specific metadata:
 <meta name="content-complexity" content="Intermediate" />
 <meta name="word-count" content="1247" />
 <meta name="reading-time" content="6" />
-```
+```text
 
 I also implemented comprehensive JSON-LD structured data using Schema.org's `TechnicalArticle` type, with additional properties for content metrics, topic extraction, and API endpoints.
 
@@ -223,3 +223,4 @@ This isn't about gaming algorithms or tricking bots. It's about being a good cit
 Start small, iterate quickly, and remember: the best time to plant a tree was 20 years ago. The second-best time is now.
 
 How are you preparing your website for the AI-agent future? I'd love to hear about your experiments and implementations.
+````

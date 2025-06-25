@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-14
-title: "Reading Between the Lines: How to Decode Community Investment Rounds"
+title: 'Reading Between the Lines: How to Decode Community Investment Rounds'
 description: A practical guide to interpreting startup metrics in community investment rounds and identifying potential red flags before investing
 featured: false
 draft: false
@@ -16,7 +16,7 @@ tags:
   - financial-literacy
 image:
   url: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg'
-  alt: "Person examining financial documents with a magnifying glass"
+  alt: 'Person examining financial documents with a magnifying glass'
 ---
 
 The democratization of startup investing through community rounds has opened exciting opportunities for retail investors. However, it's created a new challenge: interpreting the carefully curated metrics these companies share in their pitch materials.
@@ -147,23 +147,23 @@ While specific examples would name companies I won't identify, these composite s
 When evaluating community investment rounds, be particularly cautious if you spot multiple items from this checklist:
 
 1. **Emphasis on lifetime metrics rather than recent performance**
-2. **Capital raised approaching or exceeding annual revenue**
-3. **High stated retention rates but low average purchases per customer**
-4. **Significant funding from prestigious VCs, but those VCs aren't participating in this round**
-5. **Heavy reliance on limited-time collaborations or partnerships**
-6. **Products that benefited from pandemic-driven demand**
-7. **High gross margins but no mention of contribution margins**
-8. **Emphasis on early-period repeat purchases (within 30 days) rather than long-term retention**
+1. **Capital raised approaching or exceeding annual revenue**
+1. **High stated retention rates but low average purchases per customer**
+1. **Significant funding from prestigious VCs, but those VCs aren't participating in this round**
+1. **Heavy reliance on limited-time collaborations or partnerships**
+1. **Products that benefited from pandemic-driven demand**
+1. **High gross margins but no mention of contribution margins**
+1. **Emphasis on early-period repeat purchases (within 30 days) rather than long-term retention**
 
 ## Doing Your Own Due Diligence
 
 Before investing in any community round, I recommend taking these additional steps:
 
 1. **Calculate the metrics they don't provide:** Average revenue per customer, revenue-to-capital ratio, etc.
-2. **Request time-series data:** Breaking metrics down by year or quarter reveals trends that lifetime figures obscure
-3. **Ask about current unit economics:** What does it cost to acquire a customer today, and what is that customer worth?
-4. **Understand the funding context:** Why is the company raising from retail investors now? Have they tried raising from institutions?
-5. **Look beyond the numbers:** Try the product yourself, talk to current customers, read reviews
+1. **Request time-series data:** Breaking metrics down by year or quarter reveals trends that lifetime figures obscure
+1. **Ask about current unit economics:** What does it cost to acquire a customer today, and what is that customer worth?
+1. **Understand the funding context:** Why is the company raising from retail investors now? Have they tried raising from institutions?
+1. **Look beyond the numbers:** Try the product yourself, talk to current customers, read reviews
 
 ## The Bottom Line
 
@@ -175,4 +175,4 @@ By developing this analytical skillset, you can better distinguish between genui
 
 ---
 
-*The author is an experienced investor who has evaluated numerous community investment rounds across consumer, DTC, and technology sectors. This guide reflects pattern recognition across many examples and should not be considered investment advice for any specific opportunity.*
+_The author is an experienced investor who has evaluated numerous community investment rounds across consumer, DTC, and technology sectors. This guide reflects pattern recognition across many examples and should not be considered investment advice for any specific opportunity._

@@ -1,7 +1,7 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-17"
-title: "Supercharging Your Blog Development Experience"
+author: 'Jonathan Haas'
+pubDate: '2025-06-17'
+title: 'Supercharging Your Blog Development Experience'
 description: "Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation workflow."
 featured: false
 draft: false
@@ -36,9 +36,9 @@ Sound familiar? Let's fix that.
 
 The first tool I built (with Claude's help designing the interface) was a CLI for creating new posts. No more manual file creation or frontmatter copy-paste:
 
-```bash
+````bash
 bun run new-post "Your Amazing Post Title" -D "A compelling description" -t tag1 -t tag2
-```
+```text
 
 This single command:
 
@@ -58,7 +58,7 @@ const generateSlug = (title: string): string => {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
 };
-```
+```text
 
 The tool uses Bun's native `parseArgs` for a clean CLI interface and automatically fills in smart defaults like today's date.
 
@@ -78,7 +78,7 @@ async handleHotUpdate({ file, server }) {
     }
   }
 }
-```
+```text
 
 Now when you save a markdown file:
 
@@ -100,7 +100,7 @@ if (!frontmatter.author) {
     suggestion: 'Add: author: "Jonathan Haas"'
   });
 }
-```
+```text
 
 The validator provides:
 
@@ -125,12 +125,12 @@ bun run search "validation" -c
 
 # Case-sensitive search
 bun run search "DevEx" -C
-```
+```text
 
 The search tool features:
 
 - Colored output with highlighted matches
-- Relevance scoring (title matches score higher)  
+- Relevance scoring (title matches score higher)
 - Line numbers for content matches
 - Configurable result limits
 
@@ -148,10 +148,10 @@ Found 2 matching posts (showing top 3):
    📝 Line 23: Learn how I transformed my blog's devex with custom tools
    🏷️  tags: developer-experience
 
-2. Building Better Developer Tools
-   📄 building-better-developer-tools.md  
+1. Building Better Developer Tools
+   📄 building-better-developer-tools.md
    📌 title: Building Better DevEx Tools for Modern Teams
-```
+```text
 
 ## 5. VS Code Integration
 
@@ -171,7 +171,7 @@ Since my blog deploys on Cloudflare Pages, I've added specific tooling for a smo
 ```bash
 # Preview exactly how your blog will look on Cloudflare Pages
 bun run preview:cf
-```
+```text
 
 This command:
 
@@ -221,7 +221,7 @@ if (isCloudflarePages) {
     include: ['react', 'react-dom']
   };
 }
-```
+```text
 
 ### Monitoring Deploy Health
 
@@ -236,7 +236,7 @@ bun run check:deploy
 ✅ All environment variables present
 ✅ Headers file valid
 ✅ Redirects file valid
-```
+```text
 
 ## The Impact
 
@@ -266,15 +266,15 @@ These improvements have transformed how I work with my blog:
 All these tools leverage modern JavaScript tooling:
 
 1. **Bun Runtime**: Fast execution and built-in TypeScript support
-2. **Vite Plugin System**: Deep integration with the build process
-3. **Chalk**: Beautiful terminal output with colors
-4. **Sharp**: Lightning-fast image generation
-5. **Wrangler**: Local Cloudflare Pages development
-6. **Gray Matter**: Reliable YAML frontmatter parsing
-7. **Markdownlint-cli2**: Consistent markdown formatting
-8. **CSpell**: Intelligent spell checking with custom dictionaries
-9. **Markdown-link-check**: Automated link validation
-10. **Husky**: Git hooks for automated quality checks
+1. **Vite Plugin System**: Deep integration with the build process
+1. **Chalk**: Beautiful terminal output with colors
+1. **Sharp**: Lightning-fast image generation
+1. **Wrangler**: Local Cloudflare Pages development
+1. **Gray Matter**: Reliable YAML frontmatter parsing
+1. **Markdownlint-cli2**: Consistent markdown formatting
+1. **CSpell**: Intelligent spell checking with custom dictionaries
+1. **Markdown-link-check**: Automated link validation
+1. **Husky**: Git hooks for automated quality checks
 
 The best part? These tools are tailored specifically for this blog's needs, not generic solutions that almost fit.
 
@@ -283,11 +283,11 @@ The best part? These tools are tailored specifically for this blog's needs, not 
 Want to implement similar tools for your blog? Here's the approach:
 
 1. **Start with the biggest pain point** - For us, it was post creation
-2. **Build incrementally** - Each tool can be independent
-3. **Focus on developer joy** - Make the happy path effortless
-4. **Provide helpful errors** - When things go wrong, explain how to fix them
-5. **Integrate deeply** - Use your build system's plugin architecture
-6. **Match production locally** - Especially important with edge platforms
+1. **Build incrementally** - Each tool can be independent
+1. **Focus on developer joy** - Make the happy path effortless
+1. **Provide helpful errors** - When things go wrong, explain how to fix them
+1. **Integrate deeply** - Use your build system's plugin architecture
+1. **Match production locally** - Especially important with edge platforms
 
 ## 7. Automated Quality Assurance: Pre-commit Excellence
 
@@ -298,7 +298,7 @@ The latest addition to the DevEx toolkit is comprehensive pre-commit automation 
 ```bash
 # Automatic on commit, or manual check
 bun run lint:md
-```
+```text
 
 Using `markdownlint-cli2`, the system now validates:
 
@@ -312,7 +312,7 @@ Using `markdownlint-cli2`, the system now validates:
 ```bash
 # Check spelling across all posts
 bun run spell
-```
+```text
 
 The `cspell` integration includes:
 
@@ -326,7 +326,7 @@ The `cspell` integration includes:
 ```bash
 # Verify all links are working
 bun run check:links
-```
+```text
 
 Background link checking with `markdown-link-check`:
 
@@ -376,3 +376,4 @@ The key insight? Your content creation tools should work the way you think. When
 *This post was written using the very tools it describes. From creation with `bun run new-post` to live preview with hot reload, every feature mentioned made writing this post smoother. That's the ultimate test of good developer experience: using your own tools and loving them.*
 
 Co-authored-by: Claude <noreply@anthropic.com>
+````

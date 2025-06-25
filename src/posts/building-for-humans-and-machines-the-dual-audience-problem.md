@@ -52,7 +52,7 @@ The tension isn't just philosophical—it's architectural. Every technical decis
 
 Take something as simple as navigation. For humans, you might use:
 
-```jsx
+````jsx
 // Human-friendly navigation
 <nav className="hidden md:flex space-x-8">
   <Link
@@ -66,7 +66,7 @@ Take something as simple as navigation. For humans, you might use:
     <DropdownItem>Training</DropdownItem>
   </Dropdown>
 </nav>
-```
+```text
 
 This is perfect for humans—discoverable, responsive, with pleasant hover states. For AI agents, it's a nightmare. They need to parse JavaScript, understand CSS selectors, and infer relationships from DOM structure.
 
@@ -109,7 +109,7 @@ The solution isn't to abandon good UX. It's to **layer machine-readable structur
   /* AI agent sitemap endpoint */
 }
 ;<link rel="sitemap" type="application/json" href="/api/sitemap" />
-```
+```text
 
 Now humans get the beautiful interface while agents get structured navigation data via the API endpoint.
 
@@ -170,7 +170,7 @@ Here's how I solve this dual requirement:
     "machineReadableEndpoint": "/api/posts/building-for-humans-and-machines-the-dual-audience-problem"
   }
 </script>
-```
+```text
 
 The content serves both audiences without compromising either experience.
 
@@ -189,7 +189,7 @@ Accept: application / json // Returns structured data
 Accept: text / markdown // Returns raw markdown
 Accept: application / ld + json // Returns rich structured data
 Accept: text / html // Returns semantic HTML
-```
+```text
 
 ### 2. Progressive Enhancement
 
@@ -219,7 +219,7 @@ GET /api/posts?format=enhanced
     }
   ]
 }
-```
+```text
 
 ### 3. Context-Aware Responses
 
@@ -245,7 +245,7 @@ export async function onRequest(context: {
 
   return Response.json(standardResponse)
 }
-```
+```text
 
 ## Performance: When Optimization Conflicts
 
@@ -273,7 +273,7 @@ const HumanRoute = lazy(() => import('./HumanOptimizedComponent'));
 
 // Agent path: Server-rendered, complete content
 const AgentRoute = ({ content }: { content: string }) => (
-  <div dangerouslySetInnerHTML={{ __html: content }} />
+  <div dangerouslySetInnerHTML={{ _*html: content }} />
 );
 
 function App() {
@@ -288,7 +288,7 @@ function App() {
     </Routes>
   );
 }
-```
+```text
 
 The same URL serves different implementations optimized for each audience.
 
@@ -319,7 +319,7 @@ export async function onRequest({ params }: { params: { slug: string } }) {
   const data = await getPostData(params.slug);
   return Response.json(data);
 }
-```
+```text
 
 ### 2. Semantic-First Markup
 
@@ -354,7 +354,7 @@ HTML structure becomes a first-class architectural concern, not just a presentat
     <p>Article content...</p>
   </div>
 </article>
-```
+```text
 
 ### 3. Documentation as Infrastructure
 
@@ -385,7 +385,7 @@ export const agentCapabilities = {
     }
   ]
 };
-```
+```text
 
 ## Implementation Patterns That Work
 
@@ -417,7 +417,7 @@ const EnhancedPost = ({ data }: { data: typeof coreData }) => (
 
 // 3. Both audiences served
 return isAgent ? <PlainPost data={coreData} /> : <EnhancedPost data={coreData} />;
-```
+```text
 
 ### 2. Embedded Structured Data
 
@@ -430,14 +430,14 @@ function BlogPost({ post }: { post: Post }) {
       {/* Human-optimized content */}
       <article className="prose">
         <h1>{post.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <div dangerouslySetInnerHTML={{ **html: post.html }} />
       </article>
 
       {/* Machine-readable structured data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
+          **html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BlogPosting",
             headline: post.title,
@@ -456,7 +456,7 @@ function BlogPost({ post }: { post: Post }) {
     </>
   );
 }
-```
+```text
 
 ### 3. Smart Content Adaptation
 
@@ -501,7 +501,7 @@ const AgentRenderer = ({ blocks }: { blocks: ContentBlock[] }) => (
     ))}
   </div>
 );
-```
+```text
 
 ## The Business Case for Dual-Audience Design
 
@@ -611,6 +611,7 @@ The dual-audience problem isn't going away—it's the new reality of web develop
 
 ---
 
-_Next in this series: "[Debugging in Real-Time: A Human-AI Pair Programming Session](/blog/debugging-in-real-time-a-human-ai-pair-programming-session)" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough._
+*Next in this series: "[Debugging in Real-Time: A Human-AI Pair Programming Session](/blog/debugging-in-real-time-a-human-ai-pair-programming-session)" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough.*
 
-_This post was written in collaboration with Claude Code, whose systematic approach to dual-audience thinking helped shape many of these architectural patterns. The future of web development is collaborative—and that includes collaboration with AI._
+*This post was written in collaboration with Claude Code, whose systematic approach to dual-audience thinking helped shape many of these architectural patterns. The future of web development is collaborative—and that includes collaboration with AI._
+````

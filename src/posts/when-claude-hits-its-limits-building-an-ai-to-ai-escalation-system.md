@@ -41,31 +41,31 @@ The insight: **treat LLMs like heterogeneous compute resources**. Route tasks to
 
 The Model Context Protocol (MCP) made this possible. Here's the architecture:
 
-```
+````text
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
 │  Claude Code    │────▶│  MCP Server      │────▶│  Gemini API    │
 │  (Fast, Local, │     │  (Router &       │     │  (1M Context,   │
 │   CLI-Native)  │◀────│   Orchestrator)  │◀────│   Code Exec)    │
 └─────────────────┘     └──────────────────┘     └─────────────────┘
-```
+```text
 
 When Claude recognizes it needs help, it calls the escalation tool:
 
 ```typescript
-await escalate_analysis({
-  claude_context: {
-    attempted_approaches: ['Checked mutex usage', 'Analyzed goroutines'],
-    partial_findings: [{ type: 'race', location: 'user_service.go:142' }],
-    stuck_description: "Can't trace execution across service boundaries",
-    code_scope: {
-      files: ['user_service.go', 'order_service.go'],
-      service_names: ['user-api', 'order-processor'],
+await escalate*analysis({
+  claude*context: {
+    attempted*approaches: ['Checked mutex usage', 'Analyzed goroutines'],
+    partial*findings: [{ type: 'race', location: 'user*service.go:142' }],
+    stuck*description: "Can't trace execution across service boundaries",
+    code*scope: {
+      files: ['user*service.go', 'order*service.go'],
+      service*names: ['user-api', 'order-processor'],
     },
   },
-  analysis_type: 'cross_system',
-  depth_level: 5,
+  analysis*type: 'cross*system',
+  depth*level: 5,
 })
-```
+```text
 
 ## The Power of AI-to-AI Conversations
 
@@ -73,27 +73,27 @@ Here's where it gets interesting. Instead of one-shot analysis, I implemented co
 
 ```javascript
 // Start a conversation
-const session = await start_conversation({
-  claude_context: {
+const session = await start*conversation({
+  claude*context: {
     /* ... */
   },
-  analysis_type: 'execution_trace',
-  initial_question: 'Where does the race window open?',
+  analysis*type: 'execution*trace',
+  initial*question: 'Where does the race window open?',
 })
 
 // Claude asks follow-ups
-await continue_conversation({
-  session_id: session.id,
+await continue*conversation({
+  session*id: session.id,
   message:
     'The mutex is released at line 142. What happens between release and the next acquire?',
 })
 
 // Get structured results
-const analysis = await finalize_conversation({
-  session_id: session.id,
-  summary_format: 'actionable',
+const analysis = await finalize*conversation({
+  session*id: session.id,
+  summary*format: 'actionable',
 })
-```
+```text
 
 This isn't just passing data between models. It's genuine collaborative reasoning where each model's strengths complement the other.
 
@@ -154,13 +154,13 @@ Not every problem needs Gemini. The MCP server uses heuristics to determine when
 function shouldEscalate(context: AnalysisContext): boolean {
   return (
     context.files.length > 50 ||
-    context.traceSize > 100_000_000 || // 100MB
+    context.traceSize > 100*000*000 || // 100MB
     context.services.length > 3 ||
     context.timeSpan > 3600 || // 1 hour
     context.attemptedApproaches.length > 5
   )
 }
-```
+```text
 
 ### Context Preparation
 
@@ -168,24 +168,24 @@ Gemini's strength is its massive context window. The server intelligently packag
 
 ```typescript
 const geminiContext = {
-  code: await loadRelevantFiles(claudeContext.code_scope),
+  code: await loadRelevantFiles(claudeContext.code*scope),
   traces: await extractRelevantTraces(timeWindow),
   logs: await aggregateLogs(services),
   metadata: {
-    service_dependencies: await mapServiceGraph(),
-    deployment_timeline: await getRecentDeploys(),
+    service*dependencies: await mapServiceGraph(),
+    deployment*timeline: await getRecentDeploys(),
   },
 }
-```
+```text
 
 ### Intelligent Routing
 
 Different analysis types route to different Gemini capabilities:
 
-- **execution_trace**: Uses code execution to simulate program flow
-- **cross_system**: Leverages massive context for correlation
+- **execution*trace**: Uses code execution to simulate program flow
+- **cross*system**: Leverages massive context for correlation
 - **performance**: Models algorithmic complexity
-- **hypothesis_test**: Runs synthetic test scenarios
+- **hypothesis*test**: Runs synthetic test scenarios
 
 ## Setting It Up
 
@@ -207,12 +207,12 @@ cp .env.example .env
       "command": "node",
       "args": ["/path/to/deep-code-reasoning-mcp/dist/index.js"],
       "env": {
-        "GEMINI_API_KEY": "your-key"
+        "GEMINI*API*KEY": "your-key"
       }
     }
   }
 }
-```
+```text
 
 ## Lessons from Building Multi-Model Systems
 
@@ -258,4 +258,5 @@ Because the future of AI isn't one model to rule them all. It's the right model 
 
 ---
 
-_Have you built multi-model systems? I'd love to hear about your approach to AI orchestration._
+*Have you built multi-model systems? I'd love to hear about your approach to AI orchestration._
+````

@@ -27,10 +27,10 @@ In product development, misalignment manifests in distinctive patterns. Let's ex
 
 Status reports show green across the board. Release dates remain unchanged. Requirements appear achievable. Yet teams are silently accumulating technical debt, cutting corners, or working weekends to maintain the illusion of perfect execution.
 
-```text
+````text
 Leadership sees: "Feature X is 90% complete, on track for release"
 Reality: Core functionality works in demo environments only, with major performance issues under real user conditions
-```
+```text
 
 This distortion happens because product teams naturally want to project confidence, avoid disappointing stakeholders, and maintain momentum. But each "everything's fine" report that masks genuine obstacles widens the alignment gap.
 
@@ -42,7 +42,7 @@ Product requirements often exist in multiple, conflicting states simultaneously:
 Product specs state: "The system must support 10,000 concurrent users"
 Engineering understands: "We need to handle ~1,000 concurrent users comfortably"
 Sales is promising: "The system handles unlimited concurrent users"
-```
+```text
 
 This misalignment creates products that fail to meet expectations, not because teams lack competence, but because they're building against inconsistent targets.
 
@@ -55,7 +55,7 @@ Month 1: "The new architecture will revolutionize our platform"
 Month 3: "Implementation is more complex than anticipated, but we're adapting"
 Month 6: "We've invested too much to change course now"
 Month 12: "We're launching despite known limitations"
-```
+```text
 
 Each investment makes it psychologically harder to acknowledge misalignment, creating a spiral that ends with launching products everyone knows are flawed.
 
@@ -94,7 +94,7 @@ interface PreMortemItem {
 }
 
 // Collect these anonymously and review as a team
-```
+```text
 
 This normalizes discussing potential failures before they occur, reducing the stigma of raising issues later.
 
@@ -105,8 +105,8 @@ Create structured moments where teams can safely update expectations without jud
 One approach: The "Three Truths" exercise in sprint reviews:
 
 1. One truth about what's going better than expected
-2. One truth about what's going exactly as expected
-3. One truth about what's going worse than expected
+1. One truth about what's going exactly as expected
+1. One truth about what's going worse than expected
 
 By ritualizing truth-telling, you make it a normal part of your product development process.
 
@@ -127,7 +127,7 @@ Milestone 1: Validate user problem exists (user interviews)
 Milestone 2: Validate solution approach (prototype testing)
 Milestone 3: Validate technical feasibility (architecture review)
 Milestone 4: Validate market fit (beta testing)
-```
+```text
 
 At each milestone, create a formal moment to evaluate whether assumptions still hold, with a clear process for changing course if needed.
 
@@ -140,7 +140,7 @@ User Experience Lead: "Go/No-Go on usability"
 Technical Lead: "Go/No-Go on technical reliability"
 Security Lead: "Go/No-Go on security readiness"
 Support Lead: "Go/No-Go on supportability"
-```
+```text
 
 Critically, a "No-Go" from any authorized individual pauses progress until concerns are addressed, regardless of seniority.
 
@@ -149,14 +149,14 @@ Critically, a "No-Go" from any authorized individual pauses progress until conce
 Many leaders fear that encouraging transparent surfacing of issues will:
 
 1. Demoralize teams
-2. Create the impression of poor management
-3. Reduce stakeholder confidence
+1. Create the impression of poor management
+1. Reduce stakeholder confidence
 
 In reality, the opposite occurs. When organizations normalize discussing challenges openly:
 
 1. Teams become energized by the collaborative problem-solving
-2. Management is perceived as more competent for facing reality
-3. Stakeholder confidence increases due to more accurate expectations
+1. Management is perceived as more competent for facing reality
+1. Stakeholder confidence increases due to more accurate expectations
 
 The most successful product organizations I've worked with don't just tolerate transparency – they actively measure and reward it.
 
@@ -173,10 +173,10 @@ The result? A two-week delay but a successful launch. The counterfactual – rel
 How aligned is your product organization? Here's a simple diagnostic:
 
 1. **Surprise Frequency**: How often do major surprises emerge late in development?
-2. **Information Flow**: How many layers must information traverse before reaching decision-makers?
-3. **Course Correction Speed**: How quickly does your organization adjust when new information emerges?
-4. **Psychological Safety**: Do team members report feeling safe raising concerns?
-5. **Pivot History**: How many times has your organization successfully changed direction based on new information?
+1. **Information Flow**: How many layers must information traverse before reaching decision-makers?
+1. **Course Correction Speed**: How quickly does your organization adjust when new information emerges?
+1. **Psychological Safety**: Do team members report feeling safe raising concerns?
+1. **Pivot History**: How many times has your organization successfully changed direction based on new information?
 
 The most aligned organizations score well across all five dimensions, creating environments where information flows freely and reality – not wishful thinking – drives decisions.
 
@@ -192,4 +192,5 @@ The question isn't whether you can afford to build these alignment structures. I
 
 ---
 
-_What alignment challenges have you encountered in your product organization? Share your experiences in the comments below._
+*What alignment challenges have you encountered in your product organization? Share your experiences in the comments below.*
+````

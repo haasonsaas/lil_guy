@@ -28,10 +28,10 @@ Here's what most teams miss: technical debt doesn't grow linearly. It compounds.
 The velocity death spiral looks like this:
 
 1. **Sprint 1:** Skip tests to hit deadline
-2. **Sprint 3:** Spend 30% of time fixing bugs from Sprint 1
-3. **Sprint 6:** New features take 2x longer due to fragile code
-4. **Sprint 12:** Team spends more time maintaining than building
-5. **Sprint 18:** Engineering manager gets fired for "low productivity"
+1. **Sprint 3:** Spend 30% of time fixing bugs from Sprint 1
+1. **Sprint 6:** New features take 2x longer due to fragile code
+1. **Sprint 12:** Team spends more time maintaining than building
+1. **Sprint 18:** Engineering manager gets fired for "low productivity"
 
 Sound familiar? You're not alone.
 
@@ -189,10 +189,10 @@ Teams that manage technical debt well don't just deliver faster—they deliver m
 ## The Action Plan
 
 1. **Audit your current debt** using the simulator above
-2. **Calculate real costs** in terms of velocity and developer time
-3. **Implement the 20% rule** for continuous debt reduction
-4. **Track progress** with velocity and quality metrics
-5. **Make it visible** to leadership with business impact language
+1. **Calculate real costs** in terms of velocity and developer time
+1. **Implement the 20% rule** for continuous debt reduction
+1. **Track progress** with velocity and quality metrics
+1. **Make it visible** to leadership with business impact language
 
 ## The Bottom Line
 

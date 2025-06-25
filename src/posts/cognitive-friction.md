@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "Cognitive Friction: The Hidden Cost of Bad UX"
-description: "Understanding and reducing cognitive friction in user interfaces"
+title: 'Cognitive Friction: The Hidden Cost of Bad UX'
+description: 'Understanding and reducing cognitive friction in user interfaces'
 featured: false
 draft: false
 tags:
@@ -38,9 +38,9 @@ This resistance manifests in three key ways:
 
 1. **Pattern Lock-In**: We see what we expect to see, even when reality shows us
    something different
-2. **Emotional Anchoring**: Our feelings about an idea become fused with the
+1. **Emotional Anchoring**: Our feelings about an idea become fused with the
    idea itself
-3. **Memory Reinforcement**: We selectively remember information that confirms
+1. **Memory Reinforcement**: We selectively remember information that confirms
    our existing views
 
 ### Second Law: Social Acceleration
@@ -66,9 +66,9 @@ We often don't recognize the price we pay for smooth thinking:
 
 1. **Lost Opportunities**: When we filter out information that doesn't fit our
    worldview
-2. **Relationship Damage**: When we project our thought patterns onto others
-3. **Decision Quality**: When we force complex situations into simple frameworks
-4. **Innovation Barriers**: When we reject new ideas because they feel
+1. **Relationship Damage**: When we project our thought patterns onto others
+1. **Decision Quality**: When we force complex situations into simple frameworks
+1. **Innovation Barriers**: When we reject new ideas because they feel
    uncomfortable
 
 ## Breaking Through Mental Friction
@@ -105,9 +105,9 @@ Develop systems to check your thinking:
 Pay special attention to these high-impact areas:
 
 1. **Identity Friction**: Where new information challenges who you think you are
-2. **Value Friction**: Where different principles come into conflict
-3. **Reality Friction**: Where your expectations don't match your experiences
-4. **Social Friction**: Where your views clash with your community
+1. **Value Friction**: Where different principles come into conflict
+1. **Reality Friction**: Where your expectations don't match your experiences
+1. **Social Friction**: Where your views clash with your community
 
 ## Moving Forward
 
@@ -115,10 +115,10 @@ The goal isn't to eliminate mental friction—some resistance is necessary and
 healthy. Instead, aim to:
 
 1. **Recognize Resistance**: Notice when you're experiencing mental friction
-2. **Calibrate Response**: Adjust your thinking based on the situation
-3. **Harness Energy**: Use resistance as a signal for where growth might be
+1. **Calibrate Response**: Adjust your thinking based on the situation
+1. **Harness Energy**: Use resistance as a signal for where growth might be
    needed
-4. **Build Resilience**: Develop comfort with cognitive discomfort
+1. **Build Resilience**: Develop comfort with cognitive discomfort
 
 ## A Different Kind of Progress
 

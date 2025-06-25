@@ -1,15 +1,15 @@
 ---
-title: "Building My Blog: A Modern React + TypeScript Journey"
+title: 'Building My Blog: A Modern React + TypeScript Journey'
 pubDate: 2024-04-11
 author: Jonathan Haas
-description: "A deep dive into building a modern blog using React, TypeScript, Vite, and other cutting-edge technologies"
+description: 'A deep dive into building a modern blog using React, TypeScript, Vite, and other cutting-edge technologies'
 tags:
   - engineering
   - technical
   - personal-growth
 image:
-  src: "/images/blog-building.jpg"
-  alt: "Code editor showing React and TypeScript code"
+  src: '/images/blog-building.jpg'
+  alt: 'Code editor showing React and TypeScript code'
 ---
 
 In this post, I'll walk you through the process of building this blog using modern web technologies. From the initial setup to the final deployment, I'll share the key decisions and technologies that made this project possible.
@@ -31,7 +31,7 @@ The blog is built with a carefully selected stack of modern technologies:
 
 The project follows a clean and organized structure:
 
-```bash
+````bash
 src/
 ├── components/     # Reusable UI components
 ├── pages/         # Page components
@@ -40,7 +40,7 @@ src/
 ├── hooks/         # Custom React hooks
 ├── types/         # TypeScript type definitions
 └── lib/           # Core functionality
-```
+```text
 
 ## Key Features
 
@@ -95,19 +95,19 @@ The development process is streamlined with:
 The build process includes:
 
 1. Processing all markdown files
-2. Optimizing images
-3. Bundling and minifying code
-4. Generating static assets
+1. Optimizing images
+1. Bundling and minifying code
+1. Generating static assets
 
 ## Lessons Learned
 
 Building this blog taught me several valuable lessons:
 
 1. The importance of a well-structured project
-2. How to effectively use TypeScript in a React project
-3. The benefits of modern build tools like Vite
-4. Best practices for markdown processing
-5. The value of component libraries like shadcn/ui
+1. How to effectively use TypeScript in a React project
+1. The benefits of modern build tools like Vite
+1. Best practices for markdown processing
+1. The value of component libraries like shadcn/ui
 
 ## Future Improvements
 
@@ -134,3 +134,4 @@ If you're interested in building something similar, here are some helpful resour
 - [TypeScript Documentation](https://www.typescriptlang.org/)
 - [Tailwind CSS Documentation](https://tailwindcss.com/)
 - [shadcn/ui Documentation](https://ui.shadcn.com/)
+````

@@ -12,7 +12,7 @@ tags:
   - growth
 image:
   url: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A foggy glass window with someone drawing a line through it, symbolizing cutting through lack of clarity"
+  alt: 'A foggy glass window with someone drawing a line through it, symbolizing cutting through lack of clarity'
 ---
 
 Here's a pattern I keep seeing:

@@ -1,21 +1,19 @@
 ---
-
 author: Jonathan Haas
 pubDate: 2025-06-18
-title: "Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)"
+title: 'Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)'
 description: Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you think.
 featured: false
 draft: false
 tags:
-- developer-experience
-- ui-design
-- ai-tooling
-- prompt-engineering
-- product-strategy
+  - developer-experience
+  - ui-design
+  - ai-tooling
+  - prompt-engineering
+  - product-strategy
 image:
   url: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "Code editor and UI layout side by side, symbolizing the disconnect between generation and usability"
-
+  alt: 'Code editor and UI layout side by side, symbolizing the disconnect between generation and usability'
 ---
 
 Let’s just say it up front: coding models are really fucking bad at UI.
@@ -28,29 +26,29 @@ It’s not a lack of horsepower—it’s a mismatch of **context**. And it tells
 
 Ask Claude or GPT-4 to build a CLI tool, and you’ll get something shockingly good. Ask it to generate a dropdown with dynamic filters, error states, and accessibility considerations, and... good luck.
 
-The UI might compile. It might even render. But it won’t *work*. Not the way a human expects.
+The UI might compile. It might even render. But it won’t _work_. Not the way a human expects.
 
-That’s because UI is less about "components" and more about *consequences*. What happens when I click this? Where should my eye go? Is this input enough to make a confident decision? LLMs don’t ask these questions.
+That’s because UI is less about "components" and more about _consequences_. What happens when I click this? Where should my eye go? Is this input enough to make a confident decision? LLMs don’t ask these questions.
 
 Instead, they pattern-match.
 
-They see "dashboard" and think: sidebar, cards, table, chart. But they don’t *think*—they regurgitate. Which means they rarely get the invisible UX details right:
+They see "dashboard" and think: sidebar, cards, table, chart. But they don’t _think_—they regurgitate. Which means they rarely get the invisible UX details right:
 
-* Microcopy that explains the action
-* Keyboard navigation
-* Focus state transitions
-* Responsive behavior across screen sizes
-* Hierarchical clarity
+- Microcopy that explains the action
+- Keyboard navigation
+- Focus state transitions
+- Responsive behavior across screen sizes
+- Hierarchical clarity
 
 These aren’t "bugs." They’re **design intent**—and LLMs don’t have any.
 
 ## UI Is the Last Frontier
 
-You’d think models that can write entire functions would also be good at user interfaces. But UI isn’t just about code. It’s about *human psychology*.
+You’d think models that can write entire functions would also be good at user interfaces. But UI isn’t just about code. It’s about _human psychology_.
 
-* Should that confirmation live in a modal or inline toast?
-* Should a destructive action require typing a keyword?
-* Should we show results immediately or wait for filters to be applied?
+- Should that confirmation live in a modal or inline toast?
+- Should a destructive action require typing a keyword?
+- Should we show results immediately or wait for filters to be applied?
 
 Each of these is a UX decision that **impacts cognition, emotion, and flow**. And that’s where current models break down: they don’t simulate humans, they simulate syntax.
 
@@ -61,14 +59,14 @@ That’s why most AI-generated UI is dead on arrival. It “works” the way a d
 Let’s get specific. Coding models over-index on three things:
 
 1. **Completeness** — They try to handle all edge cases up front
-2. **Reusability** — Everything becomes a prop-driven component
-3. **Visual Nesting** — Hierarchy is expressed in markup, not meaning
+1. **Reusability** — Everything becomes a prop-driven component
+1. **Visual Nesting** — Hierarchy is expressed in markup, not meaning
 
 But what users care about is:
 
-* Is this clear?
-* Is this fast?
-* Is this forgiving?
+- Is this clear?
+- Is this fast?
+- Is this forgiving?
 
 Here’s a real example I tried last week:
 
@@ -76,7 +74,7 @@ Here’s a real example I tried last week:
 
 The model gave me:
 
-```tsx
+````tsx
 <Tabs>
   <Tab label="Notifications">
     <Form>
@@ -97,7 +95,7 @@ The model gave me:
     </Form>
   </Tab>
 </Tabs>
-```
+```text
 
 Visually? Passable.
 
@@ -168,3 +166,4 @@ It’ll come from tools that help you think like a designer, write like a develo
 We’re not there yet. But we can prompt smarter.
 
 And in the meantime—keep your hand on the mouse.
+````

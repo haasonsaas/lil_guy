@@ -38,10 +38,10 @@ I built an [HDR holographic foil experiment](/experiments/hdr-holographic-foil) 
 
 Instead of capping colors at RGB(255, 255, 255), HDR-aware CSS lets us multiply beyond the standard range:
 
-```css
+````css
 background: hsl(240, 100%, 150%); /* 150% brightness exceeds standard range */
 filter: brightness(2.5); /* Multiplier pushes into HDR territory */
-```
+```text
 
 The key insight: **HDR isn't just about new color spaces—it's about brightness multipliers that exceed 1.0.**
 
@@ -63,7 +63,7 @@ const generateHolographicGradient = () => {
 
   return `linear-gradient(${angle}deg, ${colors.join(', ')})`
 }
-```
+```text
 
 ### 3. Layered Effects for Depth
 
@@ -87,7 +87,7 @@ const transform = `
   rotateY(${(mousePosition.x - 0.5) * 20}deg)
   scale(1.05)
 `
-```
+```text
 
 This makes the surface feel like a physical object you're manipulating.
 
@@ -117,7 +117,7 @@ Not all displays support HDR. The experience gracefully degrades:
 ```javascript
 const supportsHDR = window.matchMedia('(dynamic-range: high)').matches
 const intensity = supportsHDR ? 2.5 : 1.0
-```
+```text
 
 ### Cross-Platform Compatibility
 
@@ -149,3 +149,4 @@ Try the [HDR holographic experiment](/experiments/hdr-holographic-foil) if you h
 The future of interfaces isn't just about new interaction patterns or faster performance. It's about breaking through the visual barriers we've accepted for decades.
 
 **Your display finally caught up to your imagination. Time to use it.**
+````

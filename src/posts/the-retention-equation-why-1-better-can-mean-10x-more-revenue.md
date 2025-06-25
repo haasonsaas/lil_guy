@@ -1,11 +1,11 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-24"
-title: "The Retention Equation: Why 1% Better Can Mean 10x More Revenue"
-description: "See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum impact."
+author: 'Jonathan Haas'
+pubDate: '2025-06-24'
+title: 'The Retention Equation: Why 1% Better Can Mean 10x More Revenue'
+description: 'See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum impact.'
 featured: false
 draft: false
-tags: ["saas", "metrics", "retention", "interactive"]
+tags: ['saas', 'metrics', 'retention', 'interactive']
 ---
 
 I once watched a board meeting where the CEO proudly announced: "We improved retention from 89% to 90%!"
@@ -122,23 +122,23 @@ At 85% retention, Year 5 has only 297 customers. That 5% difference compounds to
    - Identify curve shape (early/gradual/late churn)
    - Compare cohorts month-over-month
 
-2. **Find Your Activation Metric**
+1. **Find Your Activation Metric**
    - What action predicts retention?
    - How quickly do users reach it?
    - What prevents them from reaching it?
 
-3. **Measure Revenue Retention, Not Just Logo**
+1. **Measure Revenue Retention, Not Just Logo**
    - Logo retention: % of customers retained
    - Revenue retention: % of revenue retained
    - If revenue retention > logo retention, you have expansion revenue 💰
 
-4. **Fix Your Leaky Buckets First**
+1. **Fix Your Leaky Buckets First**
    - Payment failures
    - Support response times
    - Bugs in critical workflows
    - Confusing cancellation flows (yes, really)
 
-5. **Build Retention Into Product**
+1. **Build Retention Into Product**
    - Progress indicators
    - Achievement systems
    - Network effects
@@ -160,10 +160,10 @@ When you present retention improvements, frame them in compound terms:
 ## Start Tomorrow
 
 1. **Export your cohort data** and model it in the analyzer
-2. **Find your worst retention period** (usually month 1-3)
-3. **List 10 ways to improve** that specific period
-4. **Test the highest-impact, lowest-effort** improvement
-5. **Measure cohort-over-cohort improvement**
+1. **Find your worst retention period** (usually month 1-3)
+1. **List 10 ways to improve** that specific period
+1. **Test the highest-impact, lowest-effort** improvement
+1. **Measure cohort-over-cohort improvement**
 
 The best time to focus on retention was when you started.
 The second best time is now.
@@ -172,4 +172,4 @@ Small improvements compound. Start compounding.
 
 ---
 
-*What's your retention story? Have you found tactics that moved the needle? I'm especially curious about unusual retention drivers you've discovered. Share your wins (and horror stories) below.*
+_What's your retention story? Have you found tactics that moved the needle? I'm especially curious about unusual retention drivers you've discovered. Share your wins (and horror stories) below._

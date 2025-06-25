@@ -1,9 +1,9 @@
 ---
-title: "25 Posts in 7 Days: Inside an AI-Powered Writing Sprint"
-pubDate: "2025-06-24"
-description: "What happens when you pair with AI for a week? 23,000 words, 25 posts, and insights into the future of creative work"
-author: "Jonathan Haas"
-tags: ["ai", "productivity", "writing", "developer-experience", "creativity"]
+title: '25 Posts in 7 Days: Inside an AI-Powered Writing Sprint'
+pubDate: '2025-06-24'
+description: 'What happens when you pair with AI for a week? 23,000 words, 25 posts, and insights into the future of creative work'
+author: 'Jonathan Haas'
+tags: ['ai', 'productivity', 'writing', 'developer-experience', 'creativity']
 featured: false
 draft: false
 ---
@@ -18,7 +18,7 @@ That's not a typo. In the past week, I've written more than I typically produce 
 
 Let me put this in perspective with some hard data:
 
-```text
+````text
 📊 Writing Statistics Comparison
 
 Last 7 Days:
@@ -31,7 +31,7 @@ Historical Average:
 - Posts/week: 1.6
 - Words/post: 1,021
 - Typical monthly output: ~6-7 posts
-```
+```text
 
 That's a **14x increase** in publishing frequency. But the real story isn't in the numbers — it's in what enabled this burst of creativity.
 
@@ -46,7 +46,7 @@ Here's what actually happened:
 Traditional writing requires warming up your mental state, remembering where you left off, and rebuilding context. With AI assistance, I could jump between topics instantly:
 
 - WebGL visualizations
-- Interactive business calculators  
+- Interactive business calculators
 - Technical architecture posts
 - Developer experience improvements
 
@@ -57,13 +57,13 @@ Each context switch that would normally take 20-30 minutes of "getting back into
 Instead of the typical write → research → revise cycle, everything happened simultaneously:
 
 ```text
-Traditional: 
-Write draft → Realize I need data → Stop writing → Research → 
+Traditional:
+Write draft → Realize I need data → Stop writing → Research →
 Forget what I was saying → Re-read → Continue
 
 AI-Powered:
 Write + Research + Fact-check + Code examples = Simultaneous
-```
+```text
 
 ### 3. Code and Content in Harmony
 
@@ -84,7 +84,7 @@ Publishing by Day:
 Wednesday: ▓▓▓▓▓▓▓▓▓ 9 posts
 Thursday:  ▓▓▓▓▓▓▓▓ 8 posts
 Monday:    ▓▓▓▓ 4 posts
-```
+```text
 
 This wasn't planned. It emerged naturally from the workflow. Mid-week became a creative explosion zone where ideas fed into more ideas.
 
@@ -101,10 +101,10 @@ Not "productive fun" where you're proud of yourself afterward. Actually enjoyabl
 The feedback loop collapsed from days to minutes:
 
 1. Have idea
-2. Build prototype
-3. Write about insights
-4. Publish
-5. Move to next idea
+1. Build prototype
+1. Write about insights
+1. Publish
+1. Move to next idea
 
 ## The Quality Question
 
@@ -133,9 +133,9 @@ Fair question. Here's what I noticed:
 The real magic wasn't in any single post. It was in how they built on each other:
 
 1. **Cross-pollination**: WebGL techniques from creative coding posts improved data visualizations
-2. **Component reuse**: Built 16+ interactive components that work across posts
-3. **Theme emergence**: AI collaboration patterns became clearer with each example
-4. **Skill compounding**: Each post made the next one easier
+1. **Component reuse**: Built 16+ interactive components that work across posts
+1. **Theme emergence**: AI collaboration patterns became clearer with each example
+1. **Skill compounding**: Each post made the next one easier
 
 ## What I Learned About AI Collaboration
 
@@ -191,10 +191,10 @@ Even at 25% of this pace, that's still a 3-4x improvement over my historical out
 Want to experiment with AI-powered writing? Here's my tactical advice:
 
 1. **Start with problems, not posts**: Solve something real, then document it
-2. **Build in public**: Create demos and prototypes as you write
-3. **Batch similar topics**: Ride momentum when you're in a specific headspace
-4. **Ship immediately**: Perfect is the enemy of published
-5. **Track your patterns**: Data reveals your optimal creative conditions
+1. **Build in public**: Create demos and prototypes as you write
+1. **Batch similar topics**: Ride momentum when you're in a specific headspace
+1. **Ship immediately**: Perfect is the enemy of published
+1. **Track your patterns**: Data reveals your optimal creative conditions
 
 ## The Future of Creative Work
 
@@ -209,3 +209,4 @@ And that's incredibly exciting.
 ---
 
 *Want to see the interactive components and posts from this sprint? Check out the [Engineering Velocity Tracker](/blog/visualizing-engineering-velocity-the-hidden-cost-of-technical-debt), [Customer Development Simulator](/blog/mastering-customer-development-interviews-an-interactive-guide), and [Retention Cohort Analyzer](/blog/the-compound-effect-of-retention-visualizing-saas-growth-dynamics) — all built during this 7-day burst.*
+````

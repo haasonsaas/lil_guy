@@ -24,10 +24,10 @@ The problem isn't that A/B testing doesn't work. It's that most teams are runnin
 Here's what happens at most companies:
 
 1. Run an A/B test for a week
-2. See p < 0.05
-3. Declare victory
-4. Ship the "winning" variant
-5. Watch conversion rates return to baseline
+1. See p < 0.05
+1. Declare victory
+1. Ship the "winning" variant
+1. Watch conversion rates return to baseline
 
 Sound familiar? You're not alone. Most teams confuse statistical significance with practical significance, and it's costing them dearly.
 
@@ -134,17 +134,17 @@ Confidence intervals tell you the range of plausible values for your effect. A "
 Instead of asking "Is it significant?", ask:
 
 1. **Is the effect large enough to matter to our business?**
-2. **Is our test powerful enough to detect that effect?**
-3. **What's the range of plausible outcomes?**
-4. **What would we do differently based on these results?**
+1. **Is our test powerful enough to detect that effect?**
+1. **What's the range of plausible outcomes?**
+1. **What would we do differently based on these results?**
 
 ## The Action Plan
 
 1. **Audit your current tests** using power analysis
-2. **Calculate effect sizes** you actually care about
-3. **Design tests** with adequate power for those effects
-4. **Report confidence intervals** alongside p-values
-5. **Make decisions** based on business impact, not just statistics
+1. **Calculate effect sizes** you actually care about
+1. **Design tests** with adequate power for those effects
+1. **Report confidence intervals** alongside p-values
+1. **Make decisions** based on business impact, not just statistics
 
 ## The Bottom Line
 

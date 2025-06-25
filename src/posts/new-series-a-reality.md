@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-05-12
-title: "The New Series A Reality: Why It Feels Harder (Because It Is)"
-description: 
-  If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher, and what early-stage founders need to know to survive the new bar.
+title: 'The New Series A Reality: Why It Feels Harder (Because It Is)'
+description: If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher, and what early-stage founders need to know to survive the new bar.
 featured: false
 draft: false
 tags:
@@ -14,7 +13,7 @@ tags:
   - growth-strategy
 image:
   url: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A founder looking at shifting landscape charts, symbolizing the changing Series A funding environment"
+  alt: 'A founder looking at shifting landscape charts, symbolizing the changing Series A funding environment'
 ---
 
 If you're feeling like the ground is shifting under you when it comes to raising a Series A—you're right.

@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "Engineering Recognition Through Evals: My Technical Journey Building Shout"
-description: "A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way"
+title: 'Engineering Recognition Through Evals: My Technical Journey Building Shout'
+description: 'A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way'
 featured: false
 draft: false
 tags:
@@ -12,7 +12,7 @@ tags:
   - framework
 image:
   url: '/images/shout-screenshot.png'
-  alt: "Screenshot of the Shout application interface showing the recognition evaluation system"
+  alt: 'Screenshot of the Shout application interface showing the recognition evaluation system'
 ---
 
 When I set out to build [Shout](https://shout.haasonsaas.com), my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. After learning about evaluation frameworks from an AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
@@ -24,13 +24,13 @@ When I set out to build [Shout](https://shout.haasonsaas.com), my side project f
 Powering Shout is a TypeScript evaluation engine that employs LLMs to quantify recognition accuracy. I'll detail how I engineered this system entirely in my free time (completely independent from my Vanta work), which means you can build it too!
 
 ![Screenshot of the Shout application interface showing the recognition evaluation system](/images/shout-screenshot.png)
-*An early version of the Shout application*
+_An early version of the Shout application_
 
 ### The Core Architecture
 
 I started by defining clear interfaces for my evaluation system:
 
-```typescript
+````typescript
 export interface EvalResult {
   score: number;
   explanation: string;
@@ -48,7 +48,7 @@ export interface EvalContext {
   output: string;
   metadata?: Record<string, any>;
 }
-```
+```text
 
 These interfaces provided the foundation for a flexible evaluation framework. The `EvalContext` holds the input (the engineering work being recognized) and output (the recognition message), while `EvalCriteria` defines the standards for quality recognition.
 
@@ -70,13 +70,13 @@ async evaluateHallucination(
     minScore: 0.8
   }
 ): Promise<EvalResult> {
-```
+```text
 
 I adapted this to evaluate recognition specificity by modifying the prompt to focus on whether recognition messages contained specific, verifiable details about engineering contributions:
 
 ```typescript
 const prompt = `
-You are an expert evaluator of recognition messages. Your task is to evaluate whether 
+You are an expert evaluator of recognition messages. Your task is to evaluate whether
 the recognition contains specific, verifiable details about the engineering contribution.
 
 Engineering work context:
@@ -87,8 +87,8 @@ ${context.output}
 
 Please evaluate based on the following criteria:
 1. Does the recognition include specific technical details from the work?
-2. Are the accomplishments described with concrete metrics or outcomes?
-3. Does the recognition avoid generic praise in favor of specific accomplishments?
+1. Are the accomplishments described with concrete metrics or outcomes?
+1. Does the recognition avoid generic praise in favor of specific accomplishments?
 
 Provide a score from 0 to 1, where:
 - 1 means highly specific recognition with concrete details
@@ -96,7 +96,7 @@ Provide a score from 0 to 1, where:
 
 Also provide a brief explanation of your evaluation.
 `;
-```
+```text
 
 #### 2. Implementation Challenges
 
@@ -106,7 +106,7 @@ One of the trickiest implementation challenges was parsing the evaluation respon
 try {
   const [scoreStr, explanation] = response.split('\n\n');
   const score = parseFloat(scoreStr);
-  
+
   if (isNaN(score) || score < 0 || score > 1) {
     throw new EvalError('Invalid score format in evaluation response');
   }
@@ -119,7 +119,7 @@ try {
 } catch (error) {
   throw new EvalError('Failed to parse evaluation response');
 }
-```
+```text
 
 I learned that even with structured prompts, LLM outputs can be unpredictable. I had to implement robust error handling and response parsing to ensure reliable scoring.
 
@@ -131,7 +131,7 @@ My first implementations produced inconsistent results because my prompts weren'
 
 ```typescript
 const prompt = `
-You are an expert evaluator of recognition messages. Your task is to evaluate whether 
+You are an expert evaluator of recognition messages. Your task is to evaluate whether
 the output correctly connects technical work to broader impact.
 
 Engineering work:
@@ -142,8 +142,8 @@ ${context.output}
 
 Please evaluate based on the following criteria:
 1. Does the recognition explicitly connect technical details to user or business outcomes?
-2. Is the impact of the work quantified where possible?
-3. Does the recognition help others understand why this work matters?
+1. Is the impact of the work quantified where possible?
+1. Does the recognition help others understand why this work matters?
 
 Provide a score from 0 to 1, where:
 - 1 means the recognition clearly connects work to meaningful impact
@@ -151,7 +151,7 @@ Provide a score from 0 to 1, where:
 
 Also provide a brief explanation of your evaluation.
 `;
-```
+```text
 
 The more specific my evaluation criteria, the more consistent the results became.
 
@@ -170,7 +170,7 @@ const results = await Promise.all([
 const weakestDimension = results.reduce(
   (prev, current) => (current.score < prev.score ? current : prev)
 );
-```
+```text
 
 This approach helped me understand that I might write recognition that was specific and accurate but failed to connect to broader impact—a critical insight for improvement.
 
@@ -184,7 +184,7 @@ return {
   explanation: explanation.trim(),
   passed: score >= criteria.minScore
 };
-```
+```text
 
 Setting `minScore` too high resulted in constant negative feedback; too low and the system missed obvious issues. I settled on different thresholds for each evaluation dimension based on extensive testing:
 
@@ -197,17 +197,17 @@ Setting `minScore` too high resulted in constant negative feedback; too low and 
 A fascinating technical challenge emerged when tracking evaluation consistency over time. I implemented a simple database schema to track this:
 
 ```sql
-CREATE TABLE IF NOT EXISTS recognition_evaluations (
-  id uuid DEFAULT uuid_generate_v4() PRIMARY KEY,
-  eval_type text NOT NULL,
-  context_hash text NOT NULL,
-  recognition_text text NOT NULL,
+CREATE TABLE IF NOT EXISTS recognition*evaluations (
+  id uuid DEFAULT uuid*generate*v4() PRIMARY KEY,
+  eval*type text NOT NULL,
+  context*hash text NOT NULL,
+  recognition*text text NOT NULL,
   score float NOT NULL,
   passed boolean NOT NULL,
   explanation text,
   created_at timestamp with time zone DEFAULT timezone('utc'::text, now()) NOT NULL
 );
-```
+```text
 
 This allowed me to analyze how similar recognition messages were evaluated over time, revealing occasional inconsistencies in the underlying LLM evaluations.
 
@@ -217,7 +217,7 @@ Building Shout's evaluation system gave me several technical insights:
 
 1. **LLMs as Evaluators**: LLMs can provide remarkably consistent evaluations when properly prompted, but they aren't deterministic. Designing for this variability was a key challenge.
 
-2. **Feedback Loops**: The most valuable part of the system wasn't the scores themselves but the explanations that accompanied them:
+1. **Feedback Loops**: The most valuable part of the system wasn't the scores themselves but the explanations that accompanied them:
 
 ```typescript
 return {
@@ -225,13 +225,13 @@ return {
   explanation: explanation.trim(),  // This became the most valuable output
   passed: score >= criteria.minScore
 };
-```
+```text
 
 These explanations helped me understand specific ways to improve recognition quality.
 
-3. **Context Matters**: Recognition evaluation is highly context-dependent. The same message might be excellent for one engineering contribution but inadequate for another. Building this contextual awareness into the system was particularly challenging.
+1. **Context Matters**: Recognition evaluation is highly context-dependent. The same message might be excellent for one engineering contribution but inadequate for another. Building this contextual awareness into the system was particularly challenging.
 
-4. **Scale and Performance**: While I initially used OpenAI's GPT-4 for evaluations, I found that for certain evaluation types, smaller models were both faster and sufficient:
+1. **Scale and Performance**: While I initially used OpenAI's GPT-4 for evaluations, I found that for certain evaluation types, smaller models were both faster and sufficient:
 
 ```typescript
 // Configuration to use different models for different evaluation types
@@ -239,7 +239,7 @@ const evalConfig = {
   ...baseConfig,
   model: criteria.name === 'toxicity' ? 'gpt-3.5-turbo' : 'gpt-4'
 };
-```
+```text
 
 ## Where the Technical Journey Continues
 
@@ -256,23 +256,24 @@ const fewShotExamples = [
   },
   // More examples...
 ];
-```
+```text
 
-2. **Custom Embeddings**: Building embeddings for engineering contexts to better match recognition messages with technical work.
+1. **Custom Embeddings**: Building embeddings for engineering contexts to better match recognition messages with technical work.
 
-3. **Techniques for Reducing Evaluation Latency**: Exploring batched evaluations and caching strategies to make the feedback loop faster.
+1. **Techniques for Reducing Evaluation Latency**: Exploring batched evaluations and caching strategies to make the feedback loop faster.
 
 ## Conclusion: Technical Takeaways for Evaluation Systems
 
 Building Shout has been a fascinating technical journey into evaluation frameworks. The most important technical lessons I've learned are:
 
 1. **Clear Interface Definitions**: Starting with well-defined interfaces made the system flexible and extensible
-2. **Multi-dimensional Evaluation**: Breaking complex assessments into specific dimensions yields more actionable insights
-3. **Robust Error Handling**: LLM outputs require careful parsing and error handling
-4. **Prompt Engineering**: The quality of evaluation is directly tied to the quality of the prompts
+1. **Multi-dimensional Evaluation**: Breaking complex assessments into specific dimensions yields more actionable insights
+1. **Robust Error Handling**: LLM outputs require careful parsing and error handling
+1. **Prompt Engineering**: The quality of evaluation is directly tied to the quality of the prompts
 
 While Shout remains my personal side project, the technical knowledge I've gained about building evaluation systems has been invaluable. I'm grateful to the AI team that introduced me to evaluation frameworks, which sparked this technical exploration.
 
 If you're interested in working on advanced evaluation systems professionally, I'd recommend checking out Vanta's AI team—they're doing some truly impressive work in this space.
 
 For fellow developers interested in building your own evaluation systems, I hope sharing these technical details provides a useful starting point. While recognition may seem like a soft skill, creating systems to help improve it poses fascinating technical challenges worth exploring.
+````

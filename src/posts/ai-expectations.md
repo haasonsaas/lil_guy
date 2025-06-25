@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "AI Expectations: Managing the Hype Cycle"
-description: "How to set realistic expectations for AI implementation and avoid common pitfalls in enterprise adoption"
+title: 'AI Expectations: Managing the Hype Cycle'
+description: 'How to set realistic expectations for AI implementation and avoid common pitfalls in enterprise adoption'
 featured: false
 draft: false
 tags:
@@ -34,9 +34,9 @@ Our expectations for AI interactions don't emerge from a vacuum. They're
 inherited from:
 
 1. Science fiction and popular media
-2. Traditional software experiences
-3. Human-to-human interactions
-4. Marketing promises and tech hype
+1. Traditional software experiences
+1. Human-to-human interactions
+1. Marketing promises and tech hype
 
 This inheritance creates a mental model where AI systems should be:
 
@@ -85,11 +85,11 @@ Advancing model capabilities will naturally close some of these gaps. We can
 expect improvements in:
 
 1. **Reliability**: Reduced hallucination and more consistent performance
-2. **Context Understanding**: Better grasp of nuanced instructions and
+1. **Context Understanding**: Better grasp of nuanced instructions and
    situational awareness
-3. **Knowledge Integration**: More accurate and up-to-date information
+1. **Knowledge Integration**: More accurate and up-to-date information
    processing
-4. **Output Quality**: Higher fidelity and more precise results
+1. **Output Quality**: Higher fidelity and more precise results
 
 But better models alone won't bridge the fundamental experience gap.
 

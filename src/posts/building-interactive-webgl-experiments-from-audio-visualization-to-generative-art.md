@@ -38,7 +38,7 @@ The goal was simple yet ambitious: create immersive, educational experiences tha
 
 The audio visualizer transforms music into immersive 3D graphics using the Web Audio API and WebGL. It supports multiple input sources (file upload, microphone) and offers four distinct visualization modes.
 
-```javascript
+````javascript
 // Core audio analysis loop
 const analyser = audioContext.createAnalyser()
 analyser.fftSize = 256
@@ -55,7 +55,7 @@ function render() {
     positions.push(x, frequency * height, z)
   }
 }
-```
+```text
 
 **Key Challenges:**
 
@@ -76,11 +76,11 @@ Ray marching enables rendering complex 3D scenes entirely in fragment shaders us
 float rayMarch(vec3 ro, vec3 rd) {
   float dO = 0.0;
 
-  for(int i = 0; i < MAX_STEPS; i++) {
+  for(int i = 0; i < MAX*STEPS; i++) {
     vec3 p = ro + rd * dO;
     float dS = getSceneDist(p);  // SDF evaluation
     dO += dS;
-    if(dO > MAX_DIST || dS < SURF_DIST) break;
+    if(dO > MAX*DIST || dS < SURF*DIST) break;
   }
 
   return dO;
@@ -99,7 +99,7 @@ float sdMenger(vec3 p) {
   }
   return d;
 }
-```
+```text
 
 **Technical Highlights:**
 
@@ -138,7 +138,7 @@ body.vx += (fx / body.mass) * dt
 body.vy += (fy / body.mass) * dt
 body.x += body.vx * dt
 body.y += body.vy * dt
-```
+```text
 
 **Physics Features:**
 
@@ -180,7 +180,7 @@ const updateAnt = (grid, antX, antY, direction) => {
   // Move forward
   return moveAnt(antX, antY, direction)
 }
-```
+```text
 
 **Algorithmic Beauty:**
 
@@ -237,7 +237,7 @@ const generateLSystem = (axiom, rules, iterations) => {
 
   return result // "F[+F]F[-F]F[+F[+F]F[-F]F]F[-F[+F]F[-F]F]F[+F]F[-F]F"
 }
-```
+```text
 
 **Creative Algorithms:**
 
@@ -257,8 +257,8 @@ All experiments share a common technical foundation built for performance and ma
 ```javascript
 // Efficient vertex buffer management
 const updateVertexBuffer = (gl, buffer, data) => {
-  gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
-  gl.bufferSubData(gl.ARRAY_BUFFER, 0, data) // Update, don't recreate
+  gl.bindBuffer(gl.ARRAY*BUFFER, buffer)
+  gl.bufferSubData(gl.ARRAY*BUFFER, 0, data) // Update, don't recreate
 }
 
 // Batch rendering for performance
@@ -266,7 +266,7 @@ const renderInstanced = (gl, program, instanceCount) => {
   gl.useProgram(program)
   gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, instanceCount)
 }
-```
+```text
 
 ### Responsive Design
 
@@ -291,7 +291,7 @@ const useExperimentState = (initialParams) => {
 
   return [params, updateParam]
 }
-```
+```text
 
 ## Performance Optimizations
 
@@ -316,7 +316,7 @@ const updatePhysics = (bodies, deltaTime) => {
   // Simple calculations on main thread
   return updateBodiesSync(bodies, deltaTime)
 }
-```
+```text
 
 ### Memory Leak Prevention
 
@@ -335,7 +335,7 @@ useEffect(() => {
     cancelAnimationFrame(animationId)
   }
 }, [])
-```
+```text
 
 ## Lessons Learned
 
@@ -384,4 +384,5 @@ The web browser has become an incredibly powerful platform for interactive exper
 
 Whether you're a developer curious about graphics programming, an artist interested in algorithmic creativity, or someone who simply enjoys beautiful interactive experiences, these experiments offer something to explore.
 
-_What will you create with the infinite canvas of mathematics and code?_
+*What will you create with the infinite canvas of mathematics and code?_
+````

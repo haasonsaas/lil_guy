@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-05-01
-title: "The Apple Ruling: A Win That Might Hurt More Than Help"
+title: 'The Apple Ruling: A Win That Might Hurt More Than Help'
 description: Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.
 featured: false
 draft: false
@@ -32,9 +32,9 @@ This friction is not minor. Data from multiple ecommerce studies consistently sh
 You intuitively know how this scenario plays out:
 
 1. You're engrossed in a streaming app.
-2. A subscription prompt emerges.
-3. Clicking “subscribe” throws you into a sluggish browser window.
-4. You now navigate through an unfriendly form, hunt for your credit card details, and hope the transaction doesn't fail.
+1. A subscription prompt emerges.
+1. Clicking “subscribe” throws you into a sluggish browser window.
+1. You now navigate through an unfriendly form, hunt for your credit card details, and hope the transaction doesn't fail.
 
 How many users abandon the process right here? **Far too many**.
 
@@ -55,9 +55,9 @@ Realistically, most developers are ill-prepared to handle mobile-optimized check
 Here's a probable scenario playing out soon:
 
 1. Developers enthusiastically shift to third-party payment systems, excited about fee savings.
-2. Users struggle with confusing payment processes, leading to substantial revenue declines (often 20–40%).
-3. App ratings suffer from negative user feedback about the poor payment experience.
-4. Frustrated, developers gradually revert to Apple's IAP system, with diminished confidence.
+1. Users struggle with confusing payment processes, leading to substantial revenue declines (often 20–40%).
+1. App ratings suffer from negative user feedback about the poor payment experience.
+1. Frustrated, developers gradually revert to Apple's IAP system, with diminished confidence.
 
 Of course, some brands—those already excelling in customer trust and user experience, like Spotify or Netflix—will succeed in navigating this shift. But small to medium-sized apps, without strong existing brand trust and optimized payment flows, face a painful learning curve.
 

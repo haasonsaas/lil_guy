@@ -23,8 +23,8 @@ This post is marked as a draft and should only be visible with a valid preview t
 ### Testing Preview Features
 
 1. **Token Generation**: Secure tokens with expiration
-2. **Preview Mode**: Visual indicators when viewing drafts
-3. **Access Control**: Only accessible with valid tokens
+1. **Preview Mode**: Visual indicators when viewing drafts
+1. **Access Control**: Only accessible with valid tokens
 
 ### How It Works
 

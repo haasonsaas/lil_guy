@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-05-09
-title: "Somebody Gave a Shit: The Quiet Power of Product Detail"
-description: 
-  Why the smallest details in product design—like a cable wrap—matter more than you think, and how they transmit care, conviction, and identity at scale.
+title: 'Somebody Gave a Shit: The Quiet Power of Product Detail'
+description: Why the smallest details in product design—like a cable wrap—matter more than you think, and how they transmit care, conviction, and identity at scale.
 featured: false
 draft: false
 tags:
@@ -14,7 +13,7 @@ tags:
   - customer-emotion
 image:
   url: 'https://images.pexels.com/photos/7479814/pexels-photo-7479814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A beautifully wrapped charging cable in a minimalistic box, symbolizing attention to detail in product experience"
+  alt: 'A beautifully wrapped charging cable in a minimalistic box, symbolizing attention to detail in product experience'
 ---
 
 "When they unwrap that cable and they think 'somebody gave a shit about me'—I think that's a spiritual thing."
@@ -40,9 +39,9 @@ And the answer isn't in your vision doc or pitch deck. It's in the details.
 It's in how the welcome email reads.  
 It's in the way a plug fits.  
 It's in the softness of a UI animation.  
-It's in whether the thing *feels* like it was made for humans—or shipped because the sprint ended.
+It's in whether the thing _feels_ like it was made for humans—or shipped because the sprint ended.
 
-That moment of recognition—Ive calls it spiritual—isn't about luxury. It's about *empathy encoded into atoms.*
+That moment of recognition—Ive calls it spiritual—isn't about luxury. It's about _empathy encoded into atoms._
 
 ## Why Small Things Aren't Small
 
@@ -58,7 +57,7 @@ And in that flash of insight, a thousand inferences are made:
 
 - This company sweats the details.
 - This team had pride in their work.
-- If they cared about *this*, maybe they care about *me*.
+- If they cared about _this_, maybe they care about _me_.
 - I trust this more.
 
 That's an absurd amount of cognitive and emotional trust bought for the price of a better cable wrap.
@@ -86,13 +85,13 @@ Real ones whisper.
 
 And whispering takes confidence.
 
-You have to believe your users will notice. You have to trust that quality is cumulative. That no single detail changes everything—but together, they change *everything.*
+You have to believe your users will notice. You have to trust that quality is cumulative. That no single detail changes everything—but together, they change _everything._
 
 ## The Cultural Anthropology of Craft
 
 Craft isn't universal—it's cultural. What signals quality in Silicon Valley (minimalism, restraint, white space) might read as empty or unfinished in other cultures where ornamentation signifies care.
 
-Japanese design philosophy embraces *wabi-sabi*—finding beauty in imperfection and transience. German engineering culture prizes mechanical precision. Scandinavian design values utility with warmth.
+Japanese design philosophy embraces _wabi-sabi_—finding beauty in imperfection and transience. German engineering culture prizes mechanical precision. Scandinavian design values utility with warmth.
 
 A fascinating study from Stanford examined how cultural interpretations of "care" manifest in product design across different countries. In some regions, obvious handmade elements signal care. In others, mechanical perfection does.
 
@@ -110,7 +109,7 @@ When a team spends an extra sprint on onboarding copy so users don't feel dumb: 
 
 These aren't features. They're values in motion.
 
-And here's the kicker: users can *feel* it. Even if they can't describe it. Even if they never say anything.
+And here's the kicker: users can _feel_ it. Even if they can't describe it. Even if they never say anything.
 
 The physics of product experience are emotional, not just functional.
 
@@ -138,7 +137,7 @@ Great teams use detail strategically. Not just to delight, but to differentiate.
 - Notion made its UI feel like a paper notebook while competitors optimized for raw power.
 - Apple made cable management emotional. Emotional!
 
-And in every case, the product's *feel*—not just its features—became the moat.
+And in every case, the product's _feel_—not just its features—became the moat.
 
 When you prioritize craftsmanship, you create a trust loop. Users assume that if you cared this much about the small stuff, you probably nailed the big stuff too.
 
@@ -181,10 +180,10 @@ Pixar's attention to background details most viewers never consciously notice is
 Organizations that deliver craftsmanship at scale have found ways to:
 
 1. **Hire for it**: Screening for people who naturally obsess over details
-2. **Reward it**: Celebrating microscopic improvements others might ignore
-3. **Protect it**: Creating space in timelines for refinement
-4. **Ritualize it**: Building review processes specifically for craft
-5. **Lead it**: Having leadership model the behavior
+1. **Reward it**: Celebrating microscopic improvements others might ignore
+1. **Protect it**: Creating space in timelines for refinement
+1. **Ritualize it**: Building review processes specifically for craft
+1. **Lead it**: Having leadership model the behavior
 
 Without these structural elements, detail-orientation remains the quirk of an individual rather than the signature of a company.
 
@@ -203,8 +202,8 @@ True craftsmanship isn't perfectionism. It's not about satisfying your own stand
 Three questions help distinguish healthy craft from unhealthy obsession:
 
 1. **Will the user benefit?** (Not just notice, but genuinely benefit)
-2. **Is this detail in service of the core experience?** (Or is it decoration?)
-3. **Is the cost proportional to the impact?** (Not just financial cost, but time and focus)
+1. **Is this detail in service of the core experience?** (Or is it decoration?)
+1. **Is the cost proportional to the impact?** (Not just financial cost, but time and focus)
 
 If you can honestly answer "yes" to all three, proceed with your obsession. If not, it might be time to ship and move on.
 
@@ -217,14 +216,14 @@ If you're building something, here's a principle worth taping to your wall:
 > Make it so that when someone touches this, they think:  
 > "Somebody gave a shit."
 
-It's vague. It's emotional. It's unmeasurable. And it's *everything.*
+It's vague. It's emotional. It's unmeasurable. And it's _everything._
 
 Because if they think that, they'll give a shit back.  
 They'll keep using it.  
 They'll talk about it.  
 They'll trust you.
 
-In an age of metrics, it's easy to forget that loyalty is emotional. That delight doesn't come from hitting feature parity—it comes from being *felt*.
+In an age of metrics, it's easy to forget that loyalty is emotional. That delight doesn't come from hitting feature parity—it comes from being _felt_.
 
 ## Cultivating a Detail-Oriented Mind
 
@@ -232,13 +231,13 @@ Can you learn to notice and create meaningful details? Absolutely. Like any skil
 
 1. **Practice noticing**: Spend time with products you love and ask: "What tiny thing made me smile?" Document these moments.
 
-2. **Track emotional responses**: When using any product, note when you feel frustrated, delighted, confused, or impressed. These are clues to detail opportunities.
+1. **Track emotional responses**: When using any product, note when you feel frustrated, delighted, confused, or impressed. These are clues to detail opportunities.
 
-3. **Study disciplines of detail**: Some fields—watchmaking, typography, Japanese tea ceremony—have centuries of wisdom about meaningful minutiae. Cross-pollinate.
+1. **Study disciplines of detail**: Some fields—watchmaking, typography, Japanese tea ceremony—have centuries of wisdom about meaningful minutiae. Cross-pollinate.
 
-4. **Prototype the mundane**: Instead of just mocking up the happy path, prototype error states, empty states, and transitions—the forgotten corners where detail thrives.
+1. **Prototype the mundane**: Instead of just mocking up the happy path, prototype error states, empty states, and transitions—the forgotten corners where detail thrives.
 
-5. **Get feedback on feeling**: Don't just ask users "Can you complete this task?" Ask "How did this make you feel?"
+1. **Get feedback on feeling**: Don't just ask users "Can you complete this task?" Ask "How did this make you feel?"
 
 The ability to spot and create meaningful details isn't mystical. It's a muscle you can develop through deliberate practice and genuine curiosity about how others experience your work.
 

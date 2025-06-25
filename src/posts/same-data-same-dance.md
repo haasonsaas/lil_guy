@@ -14,13 +14,12 @@ tags:
   - security-tools
 image:
   url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "Security dashboard interface showing overlapping data from different tools"
+  alt: 'Security dashboard interface showing overlapping data from different tools'
 ---
 
 > **Inspired by a post from [Ross Haleliuk](https://www.linkedin.com/in/rosshaleliuk/):**
 >
 > "In the world where many tools have similar architectures and implementations, the moat is no longer about technology. It is about user experience, brand perception, speed of execution, distribution, and continuous delivery of value... This replacability is both a feature AND a bug."
-
 
 Nearly every modern security tool starts the same way: it asks for access to your cloud account, connects to your SaaS platforms, ingests posture metadata or logs, and then—surprise—it "shows you things."
 
@@ -32,11 +31,11 @@ Let's break it down.
 
 If you've seen one CSPM, you've kind of seen them all. That might sound unfair—but it's not wrong. They follow a nearly identical onboarding playbook:
 
-1. **Plug in your cloud environment** (IAM role or access token)  
-2. **Ingest some posture data** (misconfigured buckets, open ports, unused permissions)  
-3. **Surface findings** ("Here's what's wrong")  
-4. **Push tickets** to Jira or ServiceNow  
-5. **Claim success** because findings equal value  
+1. **Plug in your cloud environment** (IAM role or access token)
+1. **Ingest some posture data** (misconfigured buckets, open ports, unused permissions)
+1. **Surface findings** ("Here's what's wrong")
+1. **Push tickets** to Jira or ServiceNow
+1. **Claim success** because findings equal value
 
 Now apply that to detection tools, identity governance tools, SaaS posture tools, or even cloud-native firewalls. They all follow the same general formula:
 
@@ -46,13 +45,13 @@ This pattern is so pervasive it's practically security tool Mad Libs. Just fill 
 
 ## When Everyone Pulls From the Same Data Lake
 
-The harsh truth is this: when every tool starts with the same data, your *only* real moat is what you do *after* that.
+The harsh truth is this: when every tool starts with the same data, your _only_ real moat is what you do _after_ that.
 
 Think about it:
 
-- You're not the only one with access to AWS Config or Okta logs.  
-- You're not the only one parsing audit trails from Google Workspace.  
-- You're not the only one scanning your customer's Terraform files.  
+- You're not the only one with access to AWS Config or Okta logs.
+- You're not the only one parsing audit trails from Google Workspace.
+- You're not the only one scanning your customer's Terraform files.
 
 The core tech is shared. The API endpoints are public. The permissions models are similar. The techniques are Googleable.
 
@@ -67,7 +66,7 @@ If you're building or buying in this environment, here's where real differentiat
 ### 1. Speed of Execution
 
 If a security vendor gives you value in the first 10 minutes, that's a moat.  
-Not because the insights are unique, but because *most vendors are still fumbling through setup* while this one is already producing results.
+Not because the insights are unique, but because _most vendors are still fumbling through setup_ while this one is already producing results.
 
 **Execution is its own feature.**
 
@@ -77,7 +76,7 @@ Security teams are drowning in tools and drowning in alerts. A product that resp
 
 ### 2. User Experience
 
-Design in security tools is historically an afterthought. When someone builds a tool that *feels great to use*—fast, intuitive, helpful—they stand out in a sea of clunky dashboards and misaligned filters.
+Design in security tools is historically an afterthought. When someone builds a tool that _feels great to use_—fast, intuitive, helpful—they stand out in a sea of clunky dashboards and misaligned filters.
 
 When UX is bad, people find workarounds. When UX is great, they invite others to use it.
 
@@ -89,7 +88,7 @@ The tools that break this mold—that actually invest in design thinking—creat
 
 Security is a trust game. Users gravitate toward products they feel confident in—because of the team, the transparency, or the reputation.
 
-In markets where features look identical, *who you are* matters more than *what you do*.
+In markets where features look identical, _who you are_ matters more than _what you do_.
 
 This isn't just marketing fluff. When two products have identical features (and they increasingly do), buyers choose the one they trust more.
 
@@ -106,7 +105,7 @@ Being the default beats being the best—especially when switching costs are low
 
 This is the cold reality of the market. The path to the customer often matters more than the product itself. The tool that comes bundled with AWS Enterprise Support, or included in your Palo Alto Networks license, or shows up as a one-click install in your cloud console—that's the tool that wins massive adoption.
 
-Not because it's better. Because it's *there*.
+Not because it's better. Because it's _there_.
 
 Smart security vendors aren't just building products—they're building distribution channels. They're partnering with clouds, embedding in platforms, and creating ecosystems that make their adoption the path of least resistance.
 
@@ -114,12 +113,12 @@ Smart security vendors aren't just building products—they're building distribu
 
 Every tool gets a honeymoon. The best ones keep delivering after the first 30 days. That means:
 
-- Automatically tuning false positives  
-- Surfacing unexpected correlations  
-- Aligning with user workflows  
-- Staying up-to-date with cloud changes  
+- Automatically tuning false positives
+- Surfacing unexpected correlations
+- Aligning with user workflows
+- Staying up-to-date with cloud changes
 
-When a tool gets smarter *with you*, it earns its keep.
+When a tool gets smarter _with you_, it earns its keep.
 
 Most security tools follow a predictable pattern after deployment: initial excitement, growing annoyance with false positives, then increasing neglect as the signal-to-noise ratio deteriorates. Eventually, they become shelfware—still running, still billing, still generating alerts that no one reads.
 
@@ -129,9 +128,9 @@ Tools that break this cycle—that actually improve over time—create stickines
 
 Let's talk CSPMs again.
 
-Yes, it's easy to switch. And yes, that *should* make buyers happy.
+Yes, it's easy to switch. And yes, that _should_ make buyers happy.
 
-But here's the double-edged sword: replaceability makes it very hard for vendors to retain customers long-term *unless* they deliver value in ways that go beyond "finding stuff."
+But here's the double-edged sword: replaceability makes it very hard for vendors to retain customers long-term _unless_ they deliver value in ways that go beyond "finding stuff."
 
 > If the only thing your product does is identify issues, you're just another list generator.
 
@@ -152,10 +151,10 @@ The answer isn't building more detection rules or parsing more log types. It's i
 Here's the playbook I'd follow:
 
 - **Start with the standard architecture.** It's fine. Everyone does.
-- **Then immediately zoom out and ask: What's our unfair advantage?**  
-  - Is it speed?  
-  - Is it experience?  
-  - Is it trust?  
+- **Then immediately zoom out and ask: What's our unfair advantage?**
+  - Is it speed?
+  - Is it experience?
+  - Is it trust?
   - Is it ecosystem?
 
 If the answer is "we parse logs better," keep digging. Because the next tool will parse them too.
@@ -178,9 +177,9 @@ This isn't to say technical excellence doesn't matter. It absolutely does—as t
 
 ## TL;DR
 
-- **APIs are table stakes.**  
-- **Ingesting logs is not a moat.**  
-- **Findings aren't enough.**  
+- **APIs are table stakes.**
+- **Ingesting logs is not a moat.**
+- **Findings aren't enough.**
 - **Moats are built on experience, velocity, integration, and trust.**
 
 Same data. Same pipeline. Same surface area. The difference isn't in what you collect—it's in what you deliver.

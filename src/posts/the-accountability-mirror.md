@@ -56,8 +56,8 @@ If you say you're committed to something, but your week looks no different than 
 This is one of my favorite self-checks. I call it the **External Observer Test**:
 
 1. Pick one of your “big goals.”
-2. Watch your past 7 days like a documentary.
-3. Ask: _Would a neutral observer—no context, no bias—come away thinking that goal mattered to you?_
+1. Watch your past 7 days like a documentary.
+1. Ask: _Would a neutral observer—no context, no bias—come away thinking that goal mattered to you?_
 
 If the answer is no, you don’t need more productivity hacks. You need an alignment adjustment.
 

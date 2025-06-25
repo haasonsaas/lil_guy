@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "The Integration Tax: What Nobody Tells You About Building Modern Software"
-description: "Why integrations are the hidden cost of modern software development, and what we can do about it"
+title: 'The Integration Tax: What Nobody Tells You About Building Modern Software'
+description: 'Why integrations are the hidden cost of modern software development, and what we can do about it'
 tags:
   - engineering
   - product
@@ -47,12 +47,12 @@ implementation is often the easiest part. The real costs come from:
    commitment. It's not just about building it—it's about maintaining it,
    monitoring it, and eventually replacing it.
 
-2. **Dependency Cascades**: When one integration updates their API, it can
+1. **Dependency Cascades**: When one integration updates their API, it can
    trigger a chain reaction of updates across your entire system. We once spent
    three weeks updating our codebase because a critical authentication provider
    decided to deprecate their v1 API.
 
-3. **Knowledge Debt**: Each integration comes with its own quirks, edge cases,
+1. **Knowledge Debt**: Each integration comes with its own quirks, edge cases,
    and institutional knowledge. As teams change and systems evolve, this
    knowledge becomes increasingly expensive to maintain.
 
@@ -62,7 +62,7 @@ Look at any codebase more than a few years old and you'll find what I call the
 "integration graveyard"—layers of abandoned or semi-maintained integration code
 that nobody wants to touch. It usually looks something like this:
 
-```typescript
+````typescript
 class PaymentProcessor {
   // Added in 2020
   async processBraintreePayment() {
@@ -84,7 +84,7 @@ class PaymentProcessor {
     // What we actually use now
   }
 }
-```
+```text
 
 Each layer represents a moment in time when someone said, "We need to update
 this," but couldn't quite justify removing the old code. It's technical debt
@@ -107,7 +107,7 @@ await stripe.charges.create({...})
 
 // Do this
 await paymentProvider.processPayment({...})
-```
+```text
 
 ### 2. The Single Source Pattern
 
@@ -142,10 +142,10 @@ think about them:
 1. **Treat Integrations as Products**: Each integration should have an owner, a
    roadmap, and clear success metrics.
 
-2. **Build for Replacement**: Design your integration points with the assumption
+1. **Build for Replacement**: Design your integration points with the assumption
    that everything will change.
 
-3. **Invest in Tooling**: Build tools that make it easy to do the right thing:
+1. **Invest in Tooling**: Build tools that make it easy to do the right thing:
    - Automatic API client generation
    - Comprehensive integration testing
    - Real-time monitoring and alerts
@@ -164,3 +164,4 @@ In the end, the quality of your software isn't just about what it can do—it's
 about how well it can adapt when everything around it changes.
 
 And in modern software development, change is the only constant.
+````

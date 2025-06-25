@@ -41,9 +41,9 @@ The analysis revealed patterns I'd been following without thinking:
 **The Formula I Didn't Know I Had:**
 
 1. Hook with controversy or experience
-2. Identify the problem
-3. Promise value upfront
-4. Build tension between conventional wisdom and reality
+1. Identify the problem
+1. Promise value upfront
+1. Build tension between conventional wisdom and reality
 
 Sound familiar? You're reading it right now.
 
@@ -56,9 +56,9 @@ Here's what's actually happening under the hood when Claude analyzes writing pat
 Claude isn't just counting words or checking grammar. It's performing multi-dimensional analysis across several layers:
 
 1. **Lexical patterns**: Word choice, phrase frequency, vocabulary complexity
-2. **Syntactic structures**: Sentence construction, punctuation patterns, paragraph rhythm
-3. **Semantic coherence**: How ideas connect, transition patterns, argument flow
-4. **Pragmatic elements**: Tone, register, audience awareness
+1. **Syntactic structures**: Sentence construction, punctuation patterns, paragraph rhythm
+1. **Semantic coherence**: How ideas connect, transition patterns, argument flow
+1. **Pragmatic elements**: Tone, register, audience awareness
 
 Think of it like a compiler parsing code, but for human language. Each blog post becomes a training sample, and the model builds a statistical representation of your writing fingerprint.
 
@@ -85,11 +85,11 @@ Claude extracted specific patterns with surgical precision. Here are actual exam
 
 **Opening Patterns:**
 
-```text
+````text
 I've [personal experience that sets up the problem].
 [Bold statement that challenges conventional wisdom.]
 [What the reader will learn/gain from this post.]
-```
+```text
 
 **Transition Techniques:**
 
@@ -109,7 +109,7 @@ const pattern = {
   practicalFocus: true,
   beforeAfterStructure: 'Instead of X, do Y',
 }
-```
+```text
 
 ## The Practical Value
 
@@ -117,9 +117,9 @@ Why does this matter? Three reasons:
 
 1. **Consistency at scale**: When you're creating content regularly, maintaining a consistent voice is hard. Having your patterns documented helps.
 
-2. **Delegation without dilution**: Whether working with AI or human writers, you can share these guidelines to maintain your voice.
+1. **Delegation without dilution**: Whether working with AI or human writers, you can share these guidelines to maintain your voice.
 
-3. **Self-awareness**: Understanding your own patterns helps you break them when necessary—or lean into them when they work.
+1. **Self-awareness**: Understanding your own patterns helps you break them when necessary—or lean into them when they work.
 
 ## Technical Implementation: Building Your Own Style Guide
 
@@ -133,7 +133,7 @@ find ./posts -name "*.md" -type f | \
   xargs wc -w | \
   sort -rn | \
   head -20  # Top 20 posts by word count
-```
+```text
 
 ### Step 2: Prompt Engineering
 
@@ -147,7 +147,7 @@ Analyze these posts for:
 - Voice characteristics
 - Rhetorical devices
 - Content organization patterns
-```
+```text
 
 ### Step 3: Validation Loop
 
@@ -184,9 +184,9 @@ But it also revealed the method behind what felt like instinct.
 
 ## What This Means for AI-Assisted Writing
 
-We're entering an era where AI doesn't just write _for_ us—it can write _as_ us. Not in a creepy, identity-theft way, but as a tool that understands and amplifies our unique voice.
+We're entering an era where AI doesn't just write *for* us—it can write *as* us. Not in a creepy, identity-theft way, but as a tool that understands and amplifies our unique voice.
 
-The key isn't teaching AI to write better. It's teaching it to write like _you_ write.
+The key isn't teaching AI to write better. It's teaching it to write like *you* write.
 
 ## The Future: Dynamic Style Adaptation
 
@@ -197,8 +197,8 @@ Here's where this gets really interesting from a technical perspective.
 Imagine a system that:
 
 1. Continuously learns from your new writing
-2. Adapts to different contexts (technical docs vs blog posts)
-3. Maintains consistency while allowing evolution
+1. Adapts to different contexts (technical docs vs blog posts)
+1. Maintains consistency while allowing evolution
 
 ```typescript
 interface StyleProfile {
@@ -207,7 +207,7 @@ interface StyleProfile {
   temporal: StyleEvolution[]
   confidence: number
 }
-```
+```text
 
 ### Multi-Modal Enhancement
 
@@ -252,7 +252,7 @@ Want to try this experiment yourself? Here's a more sophisticated approach than 
 "Analyze my blog posts for writing patterns and create
 a comprehensive style guide covering voice, structure,
 and technical approaches."
-```
+```text
 
 **Advanced Prompt Template:**
 
@@ -265,22 +265,22 @@ Analyze [X] recent blog posts focusing on:
    - Section transitions
    - Closing patterns
 
-2. Voice characteristics:
+1. Voice characteristics:
    - Pronoun usage (I/you/we ratios)
    - Tense preferences
    - Sentence complexity distribution
    - Rhetorical devices
 
-3. Content patterns:
+1. Content patterns:
    - Example types and frequency
    - Code integration style
    - Data/evidence presentation
    - Storytelling techniques
 
-4. What I explicitly avoid
+1. What I explicitly avoid
 
 Output as actionable guidelines with examples.
-```
+```text
 
 **Measuring Success:**
 
@@ -288,29 +288,29 @@ How do you know if the style extraction worked? Run these tests:
 
 1. **The Turing Test**: Mix AI-generated content using the guidelines with your original posts. Can readers tell the difference?
 
-2. **Style Similarity Score**: Use tools like `style-similarity` or custom BERT embeddings to quantify consistency.
+1. **Style Similarity Score**: Use tools like `style-similarity` or custom BERT embeddings to quantify consistency.
 
-3. **Performance Metrics**: Do posts written with the guidelines match your typical engagement patterns?
+1. **Performance Metrics**: Do posts written with the guidelines match your typical engagement patterns?
 
 **Implementation Tips:**
 
 ```python
 # Simple style consistency checker
-def calculate_style_score(original_posts, generated_post):
+def calculate*style*score(original*posts, generated*post):
     metrics = {
-        'avg_sentence_length': calc_sentence_stats,
-        'paragraph_distribution': calc_paragraph_stats,
-        'vocabulary_overlap': calc_vocabulary_similarity,
-        'structure_similarity': calc_structure_match
+        'avg*sentence*length': calc*sentence*stats,
+        'paragraph*distribution': calc*paragraph*stats,
+        'vocabulary*overlap': calc*vocabulary*similarity,
+        'structure*similarity': calc*structure*match
     }
 
     scores = []
     for metric, func in metrics.items():
-        score = func(original_posts, generated_post)
+        score = func(original*posts, generated*post)
         scores.append(score)
 
     return sum(scores) / len(scores)
-```
+```text
 
 Fair warning: You might learn things about your writing you didn't know. You might discover patterns you want to keep—or ones you want to break.
 
@@ -318,6 +318,7 @@ But that's the point. Self-awareness is the first step to intentional improvemen
 
 ---
 
-_This post was written following AI-extracted style guidelines from my own writing. If it sounds like me, we've succeeded. If it doesn't, well—I've learned something about the gap between how I think I write and how I actually write._
+*This post was written following AI-extracted style guidelines from my own writing. If it sounds like me, we've succeeded. If it doesn't, well—I've learned something about the gap between how I think I write and how I actually write.*
 
-_What patterns would AI find in your writing? I'd love to hear what you discover._
+*What patterns would AI find in your writing? I'd love to hear what you discover._
+````

@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "Work-Life Meditation: Finding Balance in Tech"
-description: "Practical approaches to maintaining work-life balance in the tech industry"
+title: 'Work-Life Meditation: Finding Balance in Tech'
+description: 'Practical approaches to maintaining work-life balance in the tech industry'
 featured: false
 draft: false
 tags:
@@ -12,8 +12,7 @@ tags:
   - culture
 image:
   url: 'https://images.pexels.com/photos/1051449/pexels-photo-1051449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt:
-    'A number of smooth rocks stacked upon one another with a beach in the
+  alt: 'A number of smooth rocks stacked upon one another with a beach in the
     background'
 ---
 
@@ -76,9 +75,9 @@ The very metaphor of "balance" does violence to the complexity of human
 experience. It suggests:
 
 1. That work and life are opposing forces
-2. That equilibrium is both possible and desirable
-3. That imbalance is a personal failure
-4. That the goal is stasis rather than flow
+1. That equilibrium is both possible and desirable
+1. That imbalance is a personal failure
+1. That the goal is stasis rather than flow
 
 What if instead of balance, we sought integration? What if instead of division,
 we sought wholeness?

@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-05-04
-title: "When the Ask Feels Awkward, It’s Already Too Late"
+title: 'When the Ask Feels Awkward, It’s Already Too Late'
 description: "If you're hesitating to ask someone to do their job—or just doing it yourself to avoid conflict—it’s not a performance problem. It’s a role problem. Here's why discomfort delegating is the clearest signal a team reset is overdue."
 featured: false
 draft: false
@@ -13,7 +13,7 @@ tags:
   - management
 image:
   url: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A person hesitating at their desk, symbolizing unspoken team tension"
+  alt: 'A person hesitating at their desk, symbolizing unspoken team tension'
 ---
 
 You know the feeling.
@@ -24,7 +24,7 @@ You second-guess whether it’s “worth pushing on.” You think about how they
 
 That’s not just a communication breakdown.
 
-It’s a *structural* one.
+It’s a _structural_ one.
 
 ## The Soft Signals We Ignore
 
@@ -65,8 +65,8 @@ But let’s break that down.
 When you avoid asking someone to do their job because it’s “easier” to just do it yourself, you're admitting three things:
 
 1. You don't trust it will get done right.
-2. You’re willing to absorb the cost of poor role execution.
-3. You’ve accepted a version of the org where titles don't map to contribution.
+1. You’re willing to absorb the cost of poor role execution.
+1. You’ve accepted a version of the org where titles don't map to contribution.
 
 That’s not efficiency. That’s slow-motion collapse.
 
@@ -78,7 +78,7 @@ This one stings.
 
 Because it means you’ve already internalized that accountability will be met with defensiveness, not ownership.
 
-If asking someone to do their job consistently leads to friction, you don’t have a performance problem. You have a *fit* problem.
+If asking someone to do their job consistently leads to friction, you don’t have a performance problem. You have a _fit_ problem.
 
 A healthy team culture isn’t one where everyone agrees all the time. But it is one where the right kind of disagreement happens:
 
@@ -98,7 +98,7 @@ Pushback on execution is normal. Pushback on responsibility is a red flag.
 
 Let’s be clear: you’re not being unreasonable.
 
-You’re not asking for heroics. You’re asking for the thing *the role exists to do*.
+You’re not asking for heroics. You’re asking for the thing _the role exists to do_.
 
 And if you’re hesitating, that’s data.
 

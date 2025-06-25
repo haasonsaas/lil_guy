@@ -1,8 +1,8 @@
 ---
-title: "Security Perspective: Building Trust Through Design"
+title: 'Security Perspective: Building Trust Through Design'
 author: Jonathan Haas
 pubDate: 2024-04-11
-description: "How to integrate security considerations into product design and development"
+description: 'How to integrate security considerations into product design and development'
 tags:
   - engineering
   - product
@@ -30,9 +30,9 @@ Traditional security models weren't built for AI systems. They were designed
 around:
 
 1. Deterministic systems with predictable outputs
-2. Clear data lineage and access patterns
-3. Static deployment models
-4. Well-defined perimeter security
+1. Clear data lineage and access patterns
+1. Static deployment models
+1. Well-defined perimeter security
 
 AI systems challenge every one of these assumptions, forcing us to rethink our
 fundamental approach to security.

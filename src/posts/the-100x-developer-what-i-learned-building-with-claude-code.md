@@ -19,13 +19,13 @@ The same morning, I shipped semantic search (30 minutes), created HDR holographi
 
 This isn't hyperbole. Here's the git log:
 
-```bash
+````bash
 16:24 - Started HDR holographic experiment
 16:32 - Shipped liquid metal physics
 16:48 - Created AI workflow documentation
 17:04 - Implemented smart search
 17:13 - Published blog posts
-```
+```text
 
 50 minutes. 4 major features. 1,538 lines of production code. And yes, I'm using AI to write this post about using AI.
 
@@ -45,7 +45,7 @@ const g = Math.floor(255 * (0.3 + 0.7 * Math.cos(colorShift * Math.PI)))
 const b = Math.floor(
   255 * (0.8 + 0.2 * Math.sin(colorShift * Math.PI + Math.PI / 2))
 )
-```
+```text
 
 With Claude Code, I said "holographic foil effect" and got a complete HDR implementation with dynamic gradients, 3D transforms, and mouse-reactive shimmer. No translation. Pure creation.
 
@@ -71,7 +71,7 @@ particle.vx += (targetX - particle.x) * viscosity
 particle.vy += (targetY - particle.y) * viscosity
 particle.vx *= damping
 particle.vy *= damping
-```
+```text
 
 Metaballs. Surface tension. Viscosity simulation. Interactive response to mouse movement. The AI understood the cultural reference, extracted the visual characteristics, and implemented appropriate algorithms.
 
@@ -103,9 +103,9 @@ AI doesn't just make us faster. It makes us more ambitious.
 Every successful interaction followed the same pattern:
 
 1. **Conceptual Description**: "I want semantic search that understands intent"
-2. **AI Implementation**: Weighted scoring algorithm across multiple fields
-3. **Human Refinement**: "Add keyboard shortcuts and visual similarity scores"
-4. **AI Enhancement**: Complete Cmd+K integration with proper event handling
+1. **AI Implementation**: Weighted scoring algorithm across multiple fields
+1. **Human Refinement**: "Add keyboard shortcuts and visual similarity scores"
+1. **AI Enhancement**: Complete Cmd+K integration with proper event handling
 
 I stayed at the product level. The AI handled the implementation level. The result was better than either of us could achieve alone.
 
@@ -123,7 +123,7 @@ score += tagMatches.length * 0.2
 
 // Content matches (10%)
 score += contentMatches.length * 0.1
-```
+```text
 
 I didn't specify these weights. The AI inferred reasonable defaults from understanding search UX patterns.
 
@@ -133,11 +133,11 @@ Let's be honest about limitations:
 
 1. **Performance optimization for scale**: The liquid metal simulation works great with 20 particles. At 200, it would struggle. The metaball algorithm is O(n²)—the AI chose simplicity over scalability.
 
-2. **Creative vision**: I decided to build liquid metal. The AI didn't suggest it. I wanted holographic effects. The AI didn't conceptualize the feature.
+1. **Creative vision**: I decided to build liquid metal. The AI didn't suggest it. I wanted holographic effects. The AI didn't conceptualize the feature.
 
-3. **Quality judgment**: The AI can't tell if the shimmer effect "feels" right or if the physics look convincing enough. That's still deeply human.
+1. **Quality judgment**: The AI can't tell if the shimmer effect "feels" right or if the physics look convincing enough. That's still deeply human.
 
-4. **Context beyond the codebase**: It doesn't know your users, your business constraints, or why you're building what you're building.
+1. **Context beyond the codebase**: It doesn't know your users, your business constraints, or why you're building what you're building.
 
 ## The Meta Moment
 
@@ -151,7 +151,7 @@ Earlier today, I asked Claude to analyze my writing style. It produced a 363-lin
 - **Direct and conversational**: Address the reader as "you" throughout
 - **Confident and authoritative**: Make bold statements backed by experience
 - **Slightly irreverent**: Challenge conventional wisdom when appropriate
-```
+```text
 
 Now it's using that analysis to help write this post. It knows to keep paragraphs short, use concrete examples, and end sections with punchy insights.
 
@@ -161,7 +161,7 @@ The AI is modeling me modeling it modeling me.
 
 We're watching the emergence of a new development paradigm:
 
-**Before**: Learn syntax → Write code → Debug → Ship  
+**Before**: Learn syntax → Write code → Debug → Ship
 **Now**: Imagine → Describe → Refine → Ship
 
 The bottleneck has shifted from implementation to imagination. The question isn't "How do I build this?" but "What should I build?"
@@ -169,18 +169,18 @@ The bottleneck has shifted from implementation to imagination. The question isn'
 This changes everything:
 
 1. **Experimentation explodes**: When features take minutes instead of days, you try more ideas
-2. **Quality through iteration**: Ship fast, refine faster
-3. **Focus shifts to product**: Less time in implementation details, more time on user experience
-4. **Learning accelerates**: See working implementations of complex concepts immediately
+1. **Quality through iteration**: Ship fast, refine faster
+1. **Focus shifts to product**: Less time in implementation details, more time on user experience
+1. **Learning accelerates**: See working implementations of complex concepts immediately
 
 ## The New Developer Skillset
 
 The most valuable developers won't be the ones who write the best code. They'll be the ones who:
 
 1. **Communicate intent clearly**: Can you describe what you want?
-2. **Recognize quality**: Can you judge if the implementation is good?
-3. **Think in systems**: Can you see how pieces fit together?
-4. **Iterate rapidly**: Can you refine without attachment?
+1. **Recognize quality**: Can you judge if the implementation is good?
+1. **Think in systems**: Can you see how pieces fit together?
+1. **Iterate rapidly**: Can you refine without attachment?
 
 Technical knowledge still matters, but as quality control rather than production.
 
@@ -189,9 +189,9 @@ Technical knowledge still matters, but as quality control rather than production
 Want to experience this yourself? Here's how:
 
 1. **Start with descriptions, not specifications**: "T-1000 physics" not "metaball algorithm with viscosity"
-2. **Build tools for your tools**: We created CLI tools that made us even faster
-3. **Document while building**: Writing about features clarifies thinking
-4. **Push your ambitions**: Try things that seemed too complex before
+1. **Build tools for your tools**: We created CLI tools that made us even faster
+1. **Document while building**: Writing about features clarifies thinking
+1. **Push your ambitions**: Try things that seemed too complex before
 
 The tools are ready. Claude Code, Cursor, GitHub Copilot—pick your partner.
 
@@ -209,4 +209,5 @@ The translation overhead is dead. Long live creation.
 
 ---
 
-_P.S. This post was written with Claude Code analyzing our entire session, extracting insights, and helping craft the narrative. It took 12 minutes. The future isn't coming—it's here, writing blog posts about itself._
+*P.S. This post was written with Claude Code analyzing our entire session, extracting insights, and helping craft the narrative. It took 12 minutes. The future isn't coming—it's here, writing blog posts about itself.*
+````

@@ -42,11 +42,11 @@ I tried several approaches before finding the right one:
 
 ### Attempt 1: React Helmet
 
-```javascript
+````javascript
 <Helmet>
   <meta property="og:image" content={imageUrl} />
 </Helmet>
-```
+```text
 
 Nope. Crawlers don't run JavaScript, remember?
 
@@ -63,7 +63,7 @@ After researching how others solve this, I discovered Cloudflare's HTMLRewriter.
 Here's the complete solution:
 
 ```typescript
-// functions/_middleware.ts
+// functions/*middleware.ts
 import type { PagesFunction } from '@cloudflare/workers-types'
 
 export const onRequest: PagesFunction = async (context) => {
@@ -109,7 +109,7 @@ export const onRequest: PagesFunction = async (context) => {
     <meta property="og:description" content="${metadata.description}" />
     <meta property="og:image" content="${metadata.image}" />
     <meta property="og:url" content="${request.url}" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary*large*image" />
         `,
           { html: true }
         )
@@ -117,14 +117,14 @@ export const onRequest: PagesFunction = async (context) => {
     })
     .transform(response)
 }
-```
+```text
 
 ## Why This Works
 
 1. **Edge Computing**: The function runs at Cloudflare's edge, close to users
-2. **Selective Processing**: Only runs for social media bots, not regular users
-3. **No Architecture Changes**: Your React app stays exactly the same
-4. **Automatic**: Works with your normal URLs - no special sharing links
+1. **Selective Processing**: Only runs for social media bots, not regular users
+1. **No Architecture Changes**: Your React app stays exactly the same
+1. **Automatic**: Works with your normal URLs - no special sharing links
 
 ## The Critical Details
 
@@ -132,9 +132,9 @@ export const onRequest: PagesFunction = async (context) => {
 
 ```javascript
 ;/bot|crawler|spider|facebookexternalhit|Twitterbot|LinkedInBot|WhatsApp|Slack|Discord|telegram/i
-```
+```text
 
-**Routing Configuration**: Your `_routes.json` needs to include HTML routes but exclude assets:
+**Routing Configuration**: Your `*routes.json` needs to include HTML routes but exclude assets:
 
 ```json
 {
@@ -142,7 +142,7 @@ export const onRequest: PagesFunction = async (context) => {
   "include": ["/*"],
   "exclude": ["/assets/*", "*.js", "*.css", "*.webp", "*.png"]
 }
-```
+```text
 
 **Image URL Generation**: Make sure your image URLs are absolute and match what's actually deployed.
 
@@ -153,10 +153,11 @@ Now when someone shares my blog posts, they see beautiful preview cards with ima
 ## Lessons Learned
 
 1. **Research First**: I wasted hours on complex solutions when the standard approach was simpler
-2. **Understand Your Platform**: Cloudflare Pages has powerful features - use them
-3. **Don't Fight the Framework**: SPAs have tradeoffs. Accept them and work around them
-4. **Edge Functions Are Powerful**: This is just one example of what you can do at the edge
+1. **Understand Your Platform**: Cloudflare Pages has powerful features - use them
+1. **Don't Fight the Framework**: SPAs have tradeoffs. Accept them and work around them
+1. **Edge Functions Are Powerful**: This is just one example of what you can do at the edge
 
 If you're struggling with OpenGraph on your SPA, don't overcomplicate it. Use your platform's edge computing features to inject what crawlers need while keeping your app fast for real users.
 
 The web platform keeps evolving. What seems like a fundamental limitation today might have an elegant solution tomorrow. Sometimes you just need to know where to look.
+````

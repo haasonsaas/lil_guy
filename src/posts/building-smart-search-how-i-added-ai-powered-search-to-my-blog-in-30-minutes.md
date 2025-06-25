@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes"
-description: "A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword matching"
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes'
+description: 'A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword matching'
 featured: false
 draft: false
 tags:
@@ -37,38 +37,38 @@ Here's how I implemented semantic search that actually understands intent:
 
 Instead of simple keyword matching, I implemented weighted scoring across multiple fields:
 
-```typescript
+````typescript
 const searchPosts = async (query: string): Promise<SearchResult[]> => {
   const posts = await getAllPosts();
   const keywords = query.toLowerCase().split(' ').filter(k => k.length > 1);
-  
+
   const results = posts.map(post => {
     let score = 0;
-    
+
     // Title matches get highest weight (40%)
-    const titleMatches = keywords.filter(keyword => 
+    const titleMatches = keywords.filter(keyword =>
       post.frontmatter.title.toLowerCase().includes(keyword)
     );
     score += titleMatches.length * 0.4;
-    
+
     // Description matches (30%)
-    const descMatches = keywords.filter(keyword => 
+    const descMatches = keywords.filter(keyword =>
       post.frontmatter.description?.toLowerCase().includes(keyword)
     );
     score += descMatches.length * 0.3;
-    
+
     // Tag matches (20%)
-    const tagMatches = keywords.filter(keyword => 
+    const tagMatches = keywords.filter(keyword =>
       post.frontmatter.tags.some(tag => tag.toLowerCase().includes(keyword))
     );
     score += tagMatches.length * 0.2;
-    
+
     // Content matches (10%)
-    const contentMatches = keywords.filter(keyword => 
+    const contentMatches = keywords.filter(keyword =>
       post.content.toLowerCase().includes(keyword)
     );
     score += contentMatches.length * 0.1;
-    
+
     return {
       ...post,
       similarity: Math.min(score, 1.0),
@@ -78,7 +78,7 @@ const searchPosts = async (query: string): Promise<SearchResult[]> => {
   .filter(result => result.similarity > 0)
   .sort((a, b) => b.similarity - a.similarity);
 };
-```
+```text
 
 ### Context-Aware Excerpts
 
@@ -86,20 +86,20 @@ When a match is found in the content, I extract the surrounding context:
 
 ```typescript
 const generateContextualExcerpt = (post: BlogPost, keywords: string[]) => {
-  const firstMatch = keywords.find(k => 
+  const firstMatch = keywords.find(k =>
     post.content.toLowerCase().includes(k)
   );
-  
+
   if (firstMatch) {
     const index = post.content.toLowerCase().indexOf(firstMatch);
     const start = Math.max(0, index - 50);
     const end = Math.min(post.content.length, index + 100);
     return post.content.slice(start, end) + '...';
   }
-  
+
   return post.frontmatter.description || post.content.slice(0, 150) + '...';
 };
-```
+```text
 
 This shows users exactly where their search terms appear in context, making it easier to identify relevant content.
 
@@ -121,7 +121,7 @@ useEffect(() => {
   document.addEventListener('keydown', handleKeyDown);
   return () => document.removeEventListener('keydown', handleKeyDown);
 }, [onOpen]);
-```
+```text
 
 ### Keyboard Navigation
 
@@ -143,7 +143,7 @@ switch (e.key) {
     }
     break;
 }
-```
+```text
 
 ### Visual Similarity Scores
 
@@ -155,7 +155,7 @@ const getSimilarityBadge = (similarity: number) => {
   if (similarity >= 0.8) return { variant: "secondary", text: "Good match" };
   return { variant: "outline", text: "Related" };
 };
-```
+```text
 
 Users immediately see which results are most relevant.
 
@@ -170,7 +170,7 @@ useEffect(() => {
   const timeoutId = setTimeout(performSearch, 200);
   return () => clearTimeout(timeoutId);
 }, [query]);
-```
+```text
 
 ### Efficient Scoring
 
@@ -185,9 +185,9 @@ While I didn't implement caching in this version, the architecture supports it. 
 Here's where it gets interesting. I built this entire feature using Claude Code as my pair programmer:
 
 1. **Design Discussion**: I described the desired UX, Claude suggested the weighted scoring approach
-2. **Component Architecture**: Claude created the SmartSearch component with proper TypeScript types
-3. **Integration**: We added it to Navigation and BlogPage components seamlessly
-4. **Refinement**: Claude helped tune the scoring weights based on my feedback
+1. **Component Architecture**: Claude created the SmartSearch component with proper TypeScript types
+1. **Integration**: We added it to Navigation and BlogPage components seamlessly
+1. **Refinement**: Claude helped tune the scoring weights based on my feedback
 
 The entire process took about 30 minutes from concept to committed code.
 
@@ -212,10 +212,10 @@ The entire process took about 30 minutes from concept to committed code.
 While this implementation is already powerful, there's room for growth:
 
 1. **True Semantic Understanding**: Integrate with embedding models for concept-based search
-2. **Search Analytics**: Track what people search for to improve content
-3. **Fuzzy Matching**: Handle typos and near-matches
-4. **Search Suggestions**: Auto-complete based on popular searches
-5. **Filter Integration**: Combine with existing tag and date filters
+1. **Search Analytics**: Track what people search for to improve content
+1. **Fuzzy Matching**: Handle typos and near-matches
+1. **Search Suggestions**: Auto-complete based on popular searches
+1. **Filter Integration**: Combine with existing tag and date filters
 
 ## The Bigger Picture
 
@@ -228,9 +228,10 @@ We're entering an era where the speed of implementation matches the speed of ide
 The code is open source. Here's what you need:
 
 1. A React blog with markdown posts
-2. Basic TypeScript knowledge
-3. 30 minutes
+1. Basic TypeScript knowledge
+1. 30 minutes
 
 Start with the search algorithm, add keyboard shortcuts, then polish the UI. Or better yet, pair with Claude Code and build something even better.
 
 Search should understand intent, not just match strings. Now mine does.
+````
