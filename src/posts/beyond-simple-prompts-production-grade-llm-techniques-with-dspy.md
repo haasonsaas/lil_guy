@@ -4,7 +4,7 @@ pubDate: "2025-06-25"
 title: "Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy"
 description: "How I built a comprehensive toolkit of advanced prompting strategies that top AI startups use, going far beyond basic prompt engineering"
 featured: false
-draft: true
+draft: false
 tags:
   - ai
   - llm
