@@ -35,8 +35,70 @@ async function main() {
 }
 
 async function newDraft(topic: string) {
-  console.log(chalk.blue(`📝 Creating new draft for topic: "${topic}"`));
-  // TODO: Implement new draft logic
+  console.log(chalk.blue(`📝 Creating new draft for topic: "${topic}"\n`));
+
+  try {
+    // 1. Perform a brief web search (placeholder)
+    console.log(chalk.yellow('🔍 Performing web search...'));
+    const searchResults = `Based on a search for "${topic}", here are some key points...`;
+    console.log(chalk.gray(searchResults));
+
+    // 2. Analyze recent posts (placeholder)
+    console.log(chalk.yellow('\nAnalysing recent posts for structure...'));
+    const structure = 'The typical post structure includes an introduction, 3-4 main sections, and a conclusion.';
+    console.log(chalk.gray(structure));
+
+    // 3. Generate new post content (placeholder)
+    console.log(chalk.yellow('\nGenerating new post content...'));
+    const title = topic;
+    const description = `A deep dive into ${topic}.`;
+    const tags = ['new-post', 'draft'];
+    const outline = `
+# ${title}
+
+## Introduction
+
+[Brief introduction to ${topic}]
+
+## Section 1
+
+[Content for section 1]
+
+## Section 2
+
+[Content for section 2]
+
+## Conclusion
+
+[Summary and conclusion]
+`;
+
+    // 4. Use the existing new-post.ts script
+    console.log(chalk.yellow('\nCreating new post file...'));
+    const command = `bun run scripts/new-post.ts "${title}" --tags "${tags.join(',')}" --description "${description}"`;
+    const { stdout, stderr } = await execAsync(command);
+
+    if (stderr) {
+      console.error(chalk.red('❌ Error creating new post:'));
+      console.error(stderr);
+      return;
+    }
+
+    console.log(stdout);
+
+    // Append the outline to the new file
+    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${slug}.md`);
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    const newContent = fileContent.replace('# Your blog post content goes here...', outline);
+    await fs.writeFile(filePath, newContent);
+
+    console.log(chalk.green('\n✅ New draft created successfully!'));
+
+  } catch (error) {
+    console.error(chalk.red('❌ An error occurred while creating the new draft:'), error);
+    process.exit(1);
+  }
 }
 
 import matter from 'gray-matter';
