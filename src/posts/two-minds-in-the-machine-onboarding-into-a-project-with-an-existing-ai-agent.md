@@ -9,6 +9,9 @@ tags:
   - AI
   - software-development
   - collaboration
+series:
+  name: 'Human, AI, and AI'
+  part: 1
 image:
   url: '/images/two-minds-in-the-machine.jpg'
   alt: 'Two Minds in the Machine: Onboarding into a Project with an Existing AI Agent header image'
