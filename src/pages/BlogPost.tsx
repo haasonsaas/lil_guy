@@ -10,6 +10,7 @@ import SocialShare from '@/components/SocialShare';
 import { ReadingProgressBar } from '@/components/ReadingProgressBar';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, Tag, Calendar, Clock, Eye } from 'lucide-react';
+import LazyImage from '@/components/LazyImage';
 import { getPostBySlug, formatDate, calculateReadingTime, getRelatedPosts, getAllTags, getAllPosts } from '@/utils/blogUtils';
 import { loadBlogPost, preloadBlogPost } from '@/utils/blog/dynamicLoader';
 import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils';
@@ -32,16 +33,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
-const optimizeImage = (url: string) => {
-  if (!url) {
-    return generateDynamicImageUrl('Fallback Image', 1200, 630);
-  }
 
-  // Add a timestamp to force refresh
-  const timestamp = new Date().getTime();
-  const separator = url.includes('?') ? '&' : '?';
-  return `${url}${separator}_t=${timestamp}`;
-};
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
@@ -50,7 +42,7 @@ export default function BlogPost() {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
   const [relatedPostsLoading, setRelatedPostsLoading] = useState(false);
-  const [imageError, setImageError] = useState(false);
+  
   const [allTags, setAllTags] = useState<{ tag: string; count: number }[]>([]);
   const [isPreview, setIsPreview] = useState(false);
   const [previewExpiration, setPreviewExpiration] = useState<Date | null>(null);
@@ -140,8 +132,7 @@ export default function BlogPost() {
   
   // Get image data with proper fallbacks
   const imageData = getImageData(frontmatter);
-  const imageUrl = imageError ? generateDynamicImageUrl(frontmatter.title, 1200, 630) : imageData.url;
-  const imageAlt = imageData.alt;
+  
   
   // Generate structured data
   const readingTime = seoCalculateReadingTime(content);
@@ -261,6 +252,15 @@ export default function BlogPost() {
                 {/* Main content */}
                 <div className="lg:col-span-9">
                   <div ref={contentRef}>
+                    <LazyImage
+                      src={imageData.url}
+                      alt={imageData.alt}
+                      width={1200}
+                      height={630}
+                      className="w-full h-auto object-cover rounded-lg mb-8 shadow-lg"
+                      loading="eager"
+                      preferWebP={true}
+                    />
                     <MarkdownRenderer 
                       content={content} 
                       className="prose-headings:font-serif prose-headings:font-bold prose-h2:text-2xl prose-h3:text-xl prose-h4:text-lg prose-p:text-base prose-p:leading-7 prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-slate-800 prose-pre:rounded-lg prose-pre:shadow-sm prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none prose-img:rounded-md prose-img:shadow-sm"
