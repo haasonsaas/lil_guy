@@ -1,4 +1,4 @@
-import { useEffect, useRef, useMemo, useState } from 'react';
+import { useEffect, useRef, useMemo, useState, useCallback } from 'react';
 import { createRoot } from 'react-dom/client';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
@@ -98,7 +98,7 @@ export default function MarkdownRenderer({
   useLazyImageEnhancement(contentRef);
   
   // Fallback markdown processing function (runs on main thread)
-  const processMarkdownMainThread = (contentString: string): string => {
+  const processMarkdownMainThread = useCallback((contentString: string): string => {
     try {
       // Only render the content, not the frontmatter
       const contentWithoutFrontmatter = contentString.replace(/^---[\s\S]*?---/, '').trim();
@@ -171,7 +171,7 @@ export default function MarkdownRenderer({
       console.error('Error parsing markdown:', error);
       return `<p>Error rendering content: ${error instanceof Error ? error.message : 'Unknown error'}</p>`;
     }
-  };
+  }, [processor]);
 
   // Process markdown content
   useEffect(() => {
@@ -217,7 +217,7 @@ export default function MarkdownRenderer({
       const result = processMarkdownMainThread(contentString);
       setProcessedHTML(result);
     }
-  }, [content, processMarkdown, workerReady, workerSupported, useWorker, processor]);
+  }, [content, processMarkdown, workerReady, workerSupported, useWorker, processor, processMarkdownMainThread]);
   
   // Render custom components
   useEffect(() => {

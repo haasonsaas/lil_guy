@@ -74,6 +74,19 @@
       "productivity"
     ]
   },
+  "running-untrusted-llm-code-without-fear-building-a-microvm-sandbox": {
+    "title": "Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox",
+    "description": "How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "security",
+      "sandbox",
+      "firecracker",
+      "microvm",
+      "llm"
+    ]
+  },
   "autonomous-security-operations": {
     "title": "Autonomous Security Operations: The Future of Enterprise Security",
     "description": "Exploring the role of automation and AI in modern security operations",
@@ -977,6 +990,19 @@
       "career"
     ]
   },
+  "how-i-built-a-security-scanner-that-actually-finds-bugs": {
+    "title": "How I Built a Security Scanner That Actually Finds Bugs",
+    "description": "Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "security",
+      "ai",
+      "sast",
+      "tree-sitter",
+      "vulnerability-detection"
+    ]
+  },
   "the-phantom-projects": {
     "title": "The Phantom Projects of Overhiring",
     "description": "When companies overhire, it’s not laziness or malice that creeps in—it’s the quiet invention of work. Here’s why idle bandwidth leads to dangerous distractions, and how to spot the signs before your team builds a palace of process.",
@@ -1219,6 +1245,19 @@
       "culture"
     ]
   },
+  "when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system": {
+    "title": "When Claude Hits Its Limits: Building an AI-to-AI Escalation System",
+    "description": "How I built an MCP server that pairs Claude with Gemini for complex code analysis, creating a multi-model debugging workflow",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "ai",
+      "mcp",
+      "claude",
+      "gemini",
+      "debugging"
+    ]
+  },
   "vibe-coding-goes-wrong": {
     "title": "When Vibe Coding Goes Wrong: Security Lessons from Granola",
     "description": "Vibe coding shifts software creation from careful engineering to casual AI generation. When startups skip security fundamentals, the consequences aren't just bugs—they're breaches. Here's what the Granola incident teaches us.",
@@ -1256,6 +1295,19 @@
       "graphics",
       "experiments",
       "creative-coding"
+    ]
+  },
+  "beyond-simple-prompts-production-grade-llm-techniques-with-dspy": {
+    "title": "Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy",
+    "description": "How I built a comprehensive toolkit of advanced prompting strategies that top AI startups use, going far beyond basic prompt engineering",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "ai",
+      "llm",
+      "dspy",
+      "prompting",
+      "open-source"
     ]
   },
   "productive-conflict": {

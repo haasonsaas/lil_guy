@@ -56,7 +56,7 @@ export function useIntelligentPreloading() {
   const shouldSkipPreload = (): boolean => {
     // Check for data saver mode
     if ('connection' in navigator) {
-      const connection = (navigator as any).connection;
+      const connection = (navigator as { connection?: { saveData?: boolean; effectiveType?: string } }).connection;
       if (connection?.saveData) {
         return true;
       }

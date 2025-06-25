@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Tue, 24 Jun 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Wed, 25 Jun 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,54 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox]]></title>
+      <description><![CDATA[How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code]]></description>
+      <link>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[security]]></category>
+      <category><![CDATA[sandbox]]></category>
+      <category><![CDATA[firecracker]]></category>
+      <category><![CDATA[microvm]]></category>
+      <category><![CDATA[llm]]></category>
+    </item>
+    <item>
+      <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
+      <description><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%]]></description>
+      <link>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[security]]></category>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[sast]]></category>
+      <category><![CDATA[tree-sitter]]></category>
+      <category><![CDATA[vulnerability-detection]]></category>
+    </item>
+    <item>
+      <title><![CDATA[When Claude Hits Its Limits: Building an AI-to-AI Escalation System]]></title>
+      <description><![CDATA[How I built an MCP server that pairs Claude with Gemini for complex code analysis, creating a multi-model debugging workflow]]></description>
+      <link>https://www.haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[mcp]]></category>
+      <category><![CDATA[claude]]></category>
+      <category><![CDATA[gemini]]></category>
+      <category><![CDATA[debugging]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy]]></title>
+      <description><![CDATA[How I built a comprehensive toolkit of advanced prompting strategies that top AI startups use, going far beyond basic prompt engineering]]></description>
+      <link>https://www.haasonsaas.com/blog/beyond-simple-prompts-production-grade-llm-techniques-with-dspy</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/beyond-simple-prompts-production-grade-llm-techniques-with-dspy</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[llm]]></category>
+      <category><![CDATA[dspy]]></category>
+      <category><![CDATA[prompting]]></category>
+      <category><![CDATA[open-source]]></category>
+    </item>
     <item>
       <title><![CDATA[The Hidden Costs of Technical Debt: A Visual Calculator]]></title>
       <description><![CDATA[Visualize how technical debt compounds over time with this interactive velocity tracker. Model the real impact on your team's delivery speed and make data-driven decisions about when to pay it down.]]></description>
@@ -555,54 +603,6 @@
       <category><![CDATA[personal-growth]]></category>
       <category><![CDATA[conversation-analysis]]></category>
       <category><![CDATA[memory]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Clarity Over Compromise: Making the Right Call on Work Models]]></title>
-      <description><![CDATA[Why thriving companies pick a lane—remote or in-office—and build everything around it, instead of wobbling in the messy middle.]]></description>
-      <link>https://www.haasonsaas.com/blog/clarity-over-compromise</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/clarity-over-compromise</guid>
-      <pubDate>Sat, 26 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[organizational-culture]]></category>
-      <category><![CDATA[remote-work]]></category>
-      <category><![CDATA[work-strategy]]></category>
-      <category><![CDATA[decision-making]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Rise of Single-Serving Software]]></title>
-      <description><![CDATA[Why small, purposeful, disposable apps are becoming the future of creativity—and how AI and vibe-coding are accelerating the trend]]></description>
-      <link>https://www.haasonsaas.com/blog/single-serving-software</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/single-serving-software</guid>
-      <pubDate>Fri, 25 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[software-development]]></category>
-      <category><![CDATA[technology]]></category>
-      <category><![CDATA[product-strategy]]></category>
-      <category><![CDATA[startups]]></category>
-      <category><![CDATA[creativity]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Psychological Safety and Productive Conflict: The Hidden Link Driving High-Performing Teams]]></title>
-      <description><![CDATA[Exploring why the best teams don't avoid disagreement—they lean into it with trust, clarity, and safety. Here's how psychological safety turns conflict into collaboration.]]></description>
-      <link>https://www.haasonsaas.com/blog/productive-conflict</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/productive-conflict</guid>
-      <pubDate>Fri, 25 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[team-dynamics]]></category>
-      <category><![CDATA[psychological-safety]]></category>
-      <category><![CDATA[organizational-culture]]></category>
-      <category><![CDATA[productivity]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Phantom Projects of Overhiring]]></title>
-      <description><![CDATA[When companies overhire, it’s not laziness or malice that creeps in—it’s the quiet invention of work. Here’s why idle bandwidth leads to dangerous distractions, and how to spot the signs before your team builds a palace of process.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-phantom-projects</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-phantom-projects</guid>
-      <pubDate>Tue, 22 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[organizational-dynamics]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[team-structure]]></category>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[leadership]]></category>
     </item>
   </channel>
 </rss>

@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useMemo } from 'react';
 
 type SetValue<T> = (value: T | ((prev: T) => T)) => void;
 
@@ -15,7 +15,7 @@ export function useLocalStorage<T>(
   }
 ): [T, SetValue<T>, () => void] {
   const serialize = options?.serialize || JSON.stringify;
-  const deserialize = options?.deserialize || ((value: string) => {
+  const deserialize = useMemo(() => options?.deserialize || ((value: string) => {
     try {
       return JSON.parse(value);
     } catch (error) {
@@ -23,7 +23,7 @@ export function useLocalStorage<T>(
       console.warn(`Failed to parse JSON for localStorage key "${key}", treating as plain string:`, error);
       return value as unknown as T;
     }
-  });
+  }), [key, options?.deserialize]);
 
   // Get from localStorage or use default
   const getStoredValue = useCallback((): T => {
@@ -41,7 +41,7 @@ export function useLocalStorage<T>(
       } catch (deserializeError) {
         // If deserialization fails and we don't have custom deserializer,
         // it might be a plain string that needs migration
-        if (!options?.deserialize) {
+        if (deserialize === JSON.parse) {
           console.warn(`Migrating non-JSON value for key "${key}"`);
           // Store it properly as JSON for next time
           window.localStorage.setItem(key, JSON.stringify(item));

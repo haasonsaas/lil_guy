@@ -66,7 +66,8 @@ export function useMarkdownWorker() {
         workerRef.current.terminate();
         workerRef.current = null;
       }
-      pendingRequests.current.clear();
+      const requests = pendingRequests.current;
+      requests.clear();
     };
   }, []);
 

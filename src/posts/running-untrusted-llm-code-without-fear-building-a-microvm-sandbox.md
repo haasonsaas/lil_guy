@@ -4,7 +4,7 @@ pubDate: "2025-06-25"
 title: "Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox"
 description: "How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code"
 featured: false
-draft: true
+draft: false
 tags:
   - security
   - sandbox

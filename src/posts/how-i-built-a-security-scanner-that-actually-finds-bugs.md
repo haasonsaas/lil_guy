@@ -4,7 +4,7 @@ pubDate: "2025-06-25"
 title: "How I Built a Security Scanner That Actually Finds Bugs"
 description: "Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%"
 featured: false
-draft: true
+draft: false
 tags:
   - security
   - ai
