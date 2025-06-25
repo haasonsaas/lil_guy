@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-25"
-title: "Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy"
-description: "How I built a comprehensive toolkit of advanced prompting strategies that top AI startups use, going far beyond basic prompt engineering"
+author: 'Jonathan Haas'
+pubDate: '2025-06-25'
+title: 'Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy'
+description: 'How I built a comprehensive toolkit of advanced prompting strategies that top AI startups use, going far beyond basic prompt engineering'
 featured: false
 draft: false
 tags:
@@ -12,7 +12,7 @@ tags:
   - prompting
   - open-source
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/beyond-simple-prompts-production-grade-llm-techniques-with-dspy.jpg'
   alt: 'Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy header image'
 ---
 
@@ -205,4 +205,4 @@ Start treating your prompts like production software. Your results will thank yo
 
 ---
 
-*Check out the [full implementation on GitHub](https://github.com/haasonsaas/dspy-advanced-prompting). I'd love to hear what techniques you've discovered in your own work.*
+_Check out the [full implementation on GitHub](https://github.com/haasonsaas/dspy-advanced-prompting). I'd love to hear what techniques you've discovered in your own work._

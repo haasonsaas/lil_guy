@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration"
-description: "How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform."
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration'
+description: 'How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform.'
 featured: false
 draft: false
 tags:
@@ -11,7 +11,7 @@ tags:
   - apis
   - developer-experience
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration.jpg'
   alt: 'Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration header image'
 ---
 
@@ -64,7 +64,7 @@ Basic text search isn't enough. We built relevance scoring that weighs:
 
 - Title matches (heavily weighted)
 - Tag relevance (high weight)
-- Description matches (medium weight)  
+- Description matches (medium weight)
 - Content frequency (light weight)
 - Exact phrase bonuses
 
@@ -79,18 +79,18 @@ curl "https://haasonsaas.com/api/search?q=technical+debt&limit=3"
 Context-aware content suggestions based on:
 
 - **Role**: founder, engineer, product-manager, investor
-- **Topic**: technical-leadership, startup-funding, product-development  
+- **Topic**: technical-leadership, startup-funding, product-development
 - **Experience**: beginner, intermediate, advanced
 
 ```bash
 curl "https://haasonsaas.com/api/recommendations?role=founder&topic=technical-leadership"
 ```
 
-Each recommendation includes a relevance score and reasoning—agents understand *why* something was suggested.
+Each recommendation includes a relevance score and reasoning—agents understand _why_ something was suggested.
 
 ### **Interactive Onboarding System**
 
-Here's where it gets interesting. We built a step-by-step tutorial that agents can actually *experience*:
+Here's where it gets interesting. We built a step-by-step tutorial that agents can actually _experience_:
 
 1. **Discover capabilities** with live API calls
 2. **Test search functionality** with real queries
@@ -293,7 +293,7 @@ The same infrastructure that serves agents well also improves human experience.
 I want to be clear about Claude's contributions to this project. This wasn't human-directs-AI-implements. Claude:
 
 - **Designed the interactive onboarding system** with step-by-step tutorials and progress tracking
-- **Architected the comprehensive error handling** with helpful suggestions and recovery paths  
+- **Architected the comprehensive error handling** with helpful suggestions and recovery paths
 - **Created the agent detection system** that automatically identifies different AI frameworks
 - **Implemented the feedback categorization** with intelligent suggestions for improvement
 - **Designed the multi-format response system** supporting both JSON and Markdown outputs
@@ -321,4 +321,4 @@ Building truly agent-friendly infrastructure requires rethinking web architectur
 
 The collaboration between Claude and me demonstrates what's possible when you treat AI as a design partner rather than just an implementation tool. The result is infrastructure that's not just agent-friendly—it's better for everyone.
 
-*What would your website look like if it were designed for both human and AI users from the ground up?*
+_What would your website look like if it were designed for both human and AI users from the ground up?_

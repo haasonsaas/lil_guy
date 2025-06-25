@@ -608,6 +608,6 @@ The dual-audience problem isn't going away—it's the new reality of web develop
 
 ---
 
-_Next in this series: "Debugging in Real-Time: A Human-AI Pair Programming Session" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough._
+_Next in this series: "[Debugging in Real-Time: A Human-AI Pair Programming Session](/blog/debugging-in-real-time-a-human-ai-pair-programming-session)" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough._
 
 _This post was written in collaboration with Claude Code, whose systematic approach to dual-audience thinking helped shape many of these architectural patterns. The future of web development is collaborative—and that includes collaboration with AI._

@@ -274,6 +274,6 @@ This is part of a larger trend I'm seeing: as our development tools become more 
 
 ---
 
-_Next in this series: "Building for Humans AND Machines: The Dual-Audience Problem" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges._
+_Next in this series: "[Building for Humans AND Machines: The Dual-Audience Problem](/blog/building-for-humans-and-machines-the-dual-audience-problem)" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges._
 
 _This post was written in collaboration with Claude Code, whose systematic debugging approach helped solve the very problem we're analyzing. Human-AI collaboration isn't just useful for building features—it's transforming how we approach complex technical problems._
