@@ -94,6 +94,19 @@ You can invoke the agent's capabilities by using the following commands in your 
 
 *   **Example:** `gemini:suggest-tags "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent"`
 
+### `gemini:write-blog-post "topic"`
+
+**Action:** Researches a given topic, creates a new, well-structured blog post draft, and then writes the blog post.
+
+*   **Workflow:**
+    1.  Uses the `gemini:new-draft` command to create a new blog post draft.
+    2.  Reads the content of the newly created draft.
+    3.  Uses the Google AI API to write the blog post based on the draft's outline.
+    4.  Writes the generated content back to the file.
+    5.  Creates a new branch, commits the changes, and creates a pull request.
+
+*   **Example:** `gemini:write-blog-post "The Orchestration Dance: Lessons from Working with Multiple AI Agents"`
+
 ### Git Workflow
 
 When creating pull requests, use the `gh` CLI. For example:
