@@ -7,10 +7,11 @@ featured: true
 draft: false
 tags:
   - webgl
-  - javascript
   - graphics
-  - experiments
   - creative-coding
+series:
+  name: 'WebGL & Graphics'
+  part: 1
 image:
   url: '/images/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art.jpg'
   alt: 'Building Interactive WebGL Experiments: From Audio Visualization to Generative Art header image'

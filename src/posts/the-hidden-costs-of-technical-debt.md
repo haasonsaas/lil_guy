@@ -8,8 +8,10 @@ draft: false
 tags:
   - technical-debt
   - engineering
-  - velocity
-  - management
+  - product
+series:
+  name: 'Technical Debt'
+  part: 1
 image:
   url: '/images/the-hidden-costs-of-technical-debt.jpg'
   alt: 'The Hidden Costs of Technical Debt header image'

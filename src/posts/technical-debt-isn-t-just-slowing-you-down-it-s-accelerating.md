@@ -1,11 +1,17 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-24"
+author: 'Jonathan Haas'
+pubDate: '2025-06-24'
 title: "Technical Debt Isn't Just Slowing You Down—It's Accelerating"
-description: "Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for your team."
+description: 'Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for your team.'
 featured: false
 draft: false
-tags: ["engineering", "technical-debt", "productivity", "interactive"]
+tags:
+  - technical-debt
+  - engineering
+  - product
+series:
+  name: 'Technical Debt'
+  part: 3
 ---
 
 Your team shipped 12 features last quarter. This quarter, with the same people and same effort, you shipped 8.
@@ -134,4 +140,4 @@ The question isn't whether you can afford to pay down technical debt. It's wheth
 
 ---
 
-*What's your team's approach to technical debt? Have you found strategies that work? Share your experiences—I'd love to hear what's worked (or spectacularly failed) for you.*
+_What's your team's approach to technical debt? Have you found strategies that work? Share your experiences—I'd love to hear what's worked (or spectacularly failed) for you._

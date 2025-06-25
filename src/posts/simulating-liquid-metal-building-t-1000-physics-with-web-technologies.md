@@ -6,10 +6,13 @@ description: 'Deep dive into creating realistic liquid metal fluid dynamics usin
 featured: false
 draft: false
 tags:
-  - fluid-dynamics
   - webgl
-  - physics
+  - graphics
   - creative-coding
+  - physics
+series:
+  name: 'WebGL & Graphics'
+  part: 3
 image:
   url: '/images/simulating-liquid-metal-building-t-1000-physics-with-web-technologies.jpg'
   alt: 'Simulating Liquid Metal: Building T-1000 Physics with Web Technologies header image'

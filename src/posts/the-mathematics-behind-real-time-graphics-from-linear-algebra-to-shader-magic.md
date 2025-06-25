@@ -11,6 +11,9 @@ tags:
   - linear-algebra
   - shaders
   - webgl
+series:
+  name: 'WebGL & Graphics'
+  part: 4
 image:
   url: '/images/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic.jpg'
   alt: 'Mathematical equations and 3D graphics visualization'

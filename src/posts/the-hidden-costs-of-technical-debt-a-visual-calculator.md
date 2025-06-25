@@ -7,6 +7,9 @@ featured: false
 draft: true
 tags:
   - interactive
+series:
+  name: 'Technical Debt'
+  part: 2
 image:
   url: '/images/the-hidden-costs-of-technical-debt-a-visual-calculator.jpg'
   alt: 'The Hidden Costs of Technical Debt: A Visual Calculator header image'

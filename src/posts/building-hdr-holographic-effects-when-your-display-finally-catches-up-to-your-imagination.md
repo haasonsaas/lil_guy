@@ -7,9 +7,12 @@ featured: false
 draft: false
 tags:
   - webgl
-  - hdr
+  - graphics
   - creative-coding
-  - experiments
+  - hdr
+series:
+  name: 'WebGL & Graphics'
+  part: 2
 image:
   url: '/images/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination.jpg'
   alt: 'Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination header image'
