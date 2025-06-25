@@ -61,12 +61,13 @@ export function useMarkdownWorker() {
       }
     }
     
+    const requests = pendingRequests.current;
     return () => {
       if (workerRef.current) {
         workerRef.current.terminate();
         workerRef.current = null;
       }
-      pendingRequests.current.clear();
+      requests.clear();
     };
   }, [workerRef, pendingRequests]);
 
