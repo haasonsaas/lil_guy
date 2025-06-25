@@ -66,10 +66,9 @@ export function useMarkdownWorker() {
         workerRef.current.terminate();
         workerRef.current = null;
       }
-      const requests = pendingRequests.current;
-      requests.clear();
+      pendingRequests.current.clear();
     };
-  }, []);
+  }, [workerRef, pendingRequests]);
 
   const processMarkdown = useCallback((options: ProcessMarkdownOptions) => {
     if (!workerRef.current || !isReady) {
