@@ -81,44 +81,34 @@ async function newDraft(topic: string) {
     // 1. Generate a blog post outline using the Google AI API
     console.log(chalk.yellow('🤖 Generating blog post outline with Google AI...'));
     const prompt = `
-      You are a world-class content creator for a technical blog.
-      Your audience is product managers, software engineers, and technical founders.
-      Your task is to generate a compelling, well-structured blog post outline for the following topic:
+      You are a world-class content strategist and writer for a top-tier technical blog.
+      Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
+
+      Your task is to generate a compelling, well-structured blog post outline for the following topic.
 
       **Topic:** "${topic}"
 
-      Please provide the following in a clear, structured format:
-      - **Title:** A catchy, SEO-friendly title.
-      - **Description:** A meta description (120-160 characters) that summarizes the post.
-      - **Tags:** An array of 3-5 relevant, lowercase, hyphenated tags.
-      - **Outline:** A detailed markdown outline with an introduction, at least 3-4 main sections (using H2s), and a conclusion.
+      Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
 
-      Example Output Format:
-      **Title:** Your Awesome Title
-      **Description:** A brief but engaging description of the post.
-      **Tags:** ["tag-one", "tag-two", "tag-three"]
-      **Outline:**
-      ## Introduction
-      ...
-      ## Section 1
-      ...
+      {
+        "title": "A catchy, SEO-friendly title (under 60 characters).",
+        "description": "A meta description (120-160 characters) that summarizes the post and entices readers.",
+        "tags": [
+          "tag-one",
+          "tag-two",
+          "tag-three",
+          "tag-four",
+          "tag-five"
+        ],
+        "outline": "A detailed markdown outline. It must start with an H2 (##) for the introduction, have at least 3-4 main sections using H2s, and end with an H2 for the conclusion. Provide 2-3 bullet points under each heading to guide the writing process."
+      }
     `;
     const generatedContent = await callGoogleAI(prompt);
 
     // Parse the generated content
-    const titleMatch = generatedContent.match(/\*\*Title:\*\*\s*(.*)/);
-    const descriptionMatch = generatedContent.match(/\*\*Description:\*\*\s*(.*)/);
-    const tagsMatch = generatedContent.match(/\*\*Tags:\*\*\s*(\[.*\])/);
-    const outlineMatch = generatedContent.match(/\*\*Outline:\*\*\s*([\s\S]*)/);
+    const parsedContent = JSON.parse(generatedContent);
 
-    const title = titleMatch ? titleMatch[1].trim() : topic;
-    const description = descriptionMatch ? descriptionMatch[1].trim() : `A deep dive into ${topic}.`;
-    const tags = tagsMatch ? JSON.parse(tagsMatch[1]) : ['new-post', 'draft'];
-    const outline = outlineMatch ? outlineMatch[1].trim() : `
-# ${title}
-
-[Outline could not be generated]
-`;
+    const { title, description, tags, outline } = parsedContent;
 
     // 2. Use the existing new-post.ts script
     console.log(chalk.yellow('\nCreating new post file...'));
@@ -161,28 +151,33 @@ async function social(postSlug: string) {
     // Generate social media snippets using the Google AI API
     console.log(chalk.yellow('🤖 Generating social media snippets with Google AI...'));
     const prompt = `
-      You are a social media expert for a technical blog.
-      Your audience is product managers, software engineers, and technical founders.
-      Your task is to generate 2-3 distinct, engaging social media snippets for the following blog post:
+      You are a savvy social media strategist for a high-traffic technical blog.
+      Your audience consists of experienced product managers, senior software engineers, and technical founders on platforms like Twitter/X and LinkedIn.
+
+      Your task is to generate a set of distinct, engaging social media snippets for the following blog post. The tone should be professional yet attention-grabbing.
 
       **Title:** "${frontmatter.title}"
       **Description:** "${frontmatter.description}"
-      **Content:**
-      ${content.substring(0, 1000)}...
+      **Content Snippet:**
+      ${content.substring(0, 1500)}...
 
-      Please provide snippets for Twitter/X and LinkedIn. Use relevant hashtags.
+      Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
 
-      Example Output Format:
-      **Twitter/X:**
-      Your engaging tweet...
-
-      **LinkedIn:**
-      Your professional LinkedIn post...
+      {
+        "twitter": "A concise and compelling tweet (under 280 characters) that includes a hook, a key insight, and a link to the post. Use 2-3 relevant hashtags.",
+        "linkedin": "A more detailed and professional LinkedIn post. Start with a strong hook, provide a brief summary of the post's value, use bullet points for key takeaways, and end with a question to encourage discussion. Use 3-5 relevant hashtags."
+      }
     `;
     const generatedContent = await callGoogleAI(prompt);
 
+    // Parse the generated content
+    const parsedContent = JSON.parse(generatedContent);
+
     console.log(chalk.green('✨ Here are your social media snippets:\n'));
-    console.log(generatedContent);
+    console.log(chalk.cyan('--- Twitter/X ---'));
+    console.log(parsedContent.twitter + '\n');
+    console.log(chalk.cyan('--- LinkedIn ---'));
+    console.log(parsedContent.linkedin + '\n');
 
   } catch (error) {
     console.error(chalk.red('❌ An error occurred while generating social media snippets:'), error);
