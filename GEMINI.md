@@ -57,3 +57,16 @@ You can invoke the agent's capabilities by using the following commands in your 
     4.  The improved content will be written back to the file.
 
 *   **Example:** `gemini:improve`
+
+### `gemini:generate-image`
+
+**Action:** Generates a new OpenGraph image for a blog post.
+
+*   **Workflow:**
+    1.  Reads the blog post's title and description.
+    2.  Uses the Google AI API to generate a descriptive prompt for a text-to-image model.
+    3.  Calls a text-to-image API to generate the image.
+    4.  Saves the generated image to the `public/generated` directory.
+    5.  Updates the blog post's frontmatter to include the new image's URL.
+
+*   **Example:** `gemini:generate-image "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent"`

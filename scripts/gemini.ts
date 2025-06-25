@@ -71,6 +71,9 @@ async function main() {
     case 'improve':
       await improve();
       break;
+    case 'generate-image':
+      await generateImage(args.join(' '));
+      break;
     default:
       console.error(chalk.red(`❌ Error: Unknown command "${command}"`));
       process.exit(1);
@@ -333,6 +336,73 @@ async function improve() {
 
   } catch (error) {
     console.error(chalk.red('❌ An error occurred during the improvement process:'), error);
+    process.exit(1);
+  }
+}
+
+async function generateImage(postSlug: string) {
+  console.log(chalk.blue(`🎨 Generating image for post: "${postSlug}"\n`));
+
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`);
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    const { data: frontmatter } = matter(fileContent);
+
+    if (!frontmatter.title) {
+      console.error(chalk.red('❌ Error: Post does not have a title.'));
+      process.exit(1);
+    }
+
+    // 1. Generate a prompt for the text-to-image model
+    console.log(chalk.yellow('🤖 Generating image prompt with Google AI...'));
+    const prompt = `
+      You are a creative director for a technical blog.
+      Your task is to generate a short, descriptive prompt for a text-to-image model.
+      The prompt should be based on the following blog post title and description:
+
+      **Title:** "${frontmatter.title}"
+      **Description:** "${frontmatter.description}"
+
+      The prompt should be abstract and visually interesting. Do not include any text in the prompt.
+      The output should be a single line of text.
+    `;
+    const imagePrompt = await callGoogleAI(prompt);
+    console.log(chalk.gray(`Image prompt: ${imagePrompt}`));
+
+    // 2. Call the text-to-image API (placeholder)
+    console.log(chalk.yellow('\n🎨 Calling text-to-image API...'));
+    const imageUrl = `https://source.unsplash.com/1200x630/?${encodeURIComponent(imagePrompt)}`;
+    console.log(chalk.gray(`Image URL: ${imageUrl}`));
+
+    // 3. Download the image and save it to the public/generated directory
+    console.log(chalk.yellow('\n💾 Downloading and saving image...'));
+    const response = await fetch(imageUrl);
+    if (!response.body) {
+      throw new Error('Failed to download image');
+    }
+    const imageBuffer = Buffer.from(await response.arrayBuffer());
+    const imageName = `${postSlug}.png`;
+    const imagePath = path.join(process.cwd(), 'public', 'generated', imageName);
+    await fs.writeFile(imagePath, imageBuffer);
+    console.log(chalk.green(`✅ Image saved to ${imagePath}`));
+
+    // 4. Update the blog post's frontmatter
+    console.log(chalk.yellow('\n📝 Updating frontmatter...'));
+    const newFrontmatter = {
+      ...frontmatter,
+      image: {
+        url: `/generated/${imageName}`,
+        alt: frontmatter.title,
+      },
+    };
+    const newFileContent = `---\n${Object.entries(newFrontmatter).map(([key, value]) => `${key}: ${JSON.stringify(value)}`).join('\n')}---\n\n${matter(fileContent).content}`;
+    await fs.writeFile(filePath, newFileContent);
+    console.log(chalk.green('✅ Frontmatter updated successfully!'));
+
+    console.log(chalk.green('\n Image generation complete!'));
+
+  } catch (error) {
+    console.error(chalk.red('❌ An error occurred during image generation:'), error);
     process.exit(1);
   }
 }
