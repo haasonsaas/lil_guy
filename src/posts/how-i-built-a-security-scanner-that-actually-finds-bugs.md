@@ -1,7 +1,7 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-25"
-title: "How I Built a Security Scanner That Actually Finds Bugs"
+author: 'Jonathan Haas'
+pubDate: '2025-06-25'
+title: 'How I Built a Security Scanner That Actually Finds Bugs'
 description: "Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%"
 featured: false
 draft: false
@@ -12,7 +12,7 @@ tags:
   - tree-sitter
   - vulnerability-detection
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/how-i-built-a-security-scanner-that-actually-finds-bugs.jpg'
   alt: 'How I Built a Security Scanner That Actually Finds Bugs header image'
 ---
 
@@ -123,7 +123,7 @@ obj = pickle.loads(data)              # Indirect deserialization
 
 yaml.load(user_input)                 # Different library, same vulnerability
 
-json.loads(user_input, 
+json.loads(user_input,
     object_hook=arbitrary_object)     # Dangerous configuration
 ```
 
@@ -139,7 +139,7 @@ def get_file(filename):
     # "Sanitization" that doesn't work
     if ".." not in filename:
         return open(f"/data/{filename}")
-    
+
 # Semantic SAST understands:
 # - URL encoding bypasses the check
 # - %2e%2e == ..
@@ -179,10 +179,10 @@ class PatternEvolution:
         # Extract vulnerability signature
         vuln_pattern = self.extract_pattern(cve_fix.before)
         fix_pattern = self.extract_pattern(cve_fix.after)
-        
+
         # Generalize using AST analysis
         abstract_pattern = self.generalize(vuln_pattern)
-        
+
         # Validate with LLM
         if self.llm_validates(abstract_pattern, cve_fix):
             self.pattern_db.add(abstract_pattern)
@@ -197,17 +197,17 @@ async def analyze_with_reasoning(self, ast: AST, context: CodeContext):
     # Build semantic understanding
     prompt = f"""
     Analyze this code for {context.vulnerability_type}:
-    
+
     Code structure: {ast.to_summary()}
     Data flow: {context.data_flow}
     Function purpose: {context.inferred_purpose}
-    
+
     Consider:
     1. What is the developer trying to achieve?
     2. What assumptions are they making?
     3. How could an attacker violate those assumptions?
     """
-    
+
     return await self.llm.analyze(prompt)
 ```
 
@@ -279,4 +279,4 @@ Because security isn't about following patterns. It's about understanding what c
 
 ---
 
-*Found interesting vulnerabilities with Semantic SAST? I'd love to hear about them (after you've patched them, of course).*
+_Found interesting vulnerabilities with Semantic SAST? I'd love to hear about them (after you've patched them, of course)._

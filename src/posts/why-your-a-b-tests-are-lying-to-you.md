@@ -1,7 +1,7 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "Why Your A/B Tests Are Lying to You"
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'Why Your A/B Tests Are Lying to You'
 description: "Statistical significance doesn't mean what you think it means. Here's why 95% of A/B tests are misleading and what to track instead."
 featured: false
 draft: false
@@ -11,7 +11,7 @@ tags:
   - data
   - product
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/why-your-a-b-tests-are-lying-to-you.jpg'
   alt: 'Why Your A/B Tests Are Lying to You header image'
 ---
 
@@ -46,7 +46,7 @@ Surprised by those results? Most teams are. Let's break down what's really happe
 Statistical significance only tells you that your result is unlikely to be due to random chance. It doesn't tell you:
 
 - If the effect is large enough to matter
-- If the effect will persist over time  
+- If the effect will persist over time
 - If the test had enough power to detect real differences
 
 **The reality:** A test with 10,000 users can detect tiny, meaningless differences as "statistically significant." Meanwhile, a test with 200 users might miss huge improvements because it's underpowered.
@@ -59,7 +59,7 @@ More data can actually make your tests worse if you're not careful. Large sample
 - Hide important segments where the effect is actually strong
 - Lead to false confidence in weak effects
 
-**The reality:** You need the *right* sample size, not the biggest sample size.
+**The reality:** You need the _right_ sample size, not the biggest sample size.
 
 ### Lie #3: "95% Confident Means 95% Right"
 

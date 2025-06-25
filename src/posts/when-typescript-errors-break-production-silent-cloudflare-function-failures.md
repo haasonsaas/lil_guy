@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "When TypeScript Errors Break Production: Silent Cloudflare Function Failures"
-description: "A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions."
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'When TypeScript Errors Break Production: Silent Cloudflare Function Failures'
+description: 'A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.'
 featured: false
 draft: false
 tags:
@@ -12,11 +12,11 @@ tags:
   - serverless
   - deployment
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/when-typescript-errors-break-production-silent-cloudflare-function-failures.jpg'
   alt: 'When TypeScript Errors Break Production: Silent Cloudflare Function Failures header image'
 ---
 
-*This is part 1 of a series on building production-ready infrastructure. Written in collaboration with Claude Code, who helped debug the very issue we're dissecting here.*
+_This is part 1 of a series on building production-ready infrastructure. Written in collaboration with Claude Code, who helped debug the very issue we're dissecting here._
 
 I've been building serverless applications long enough to know that deployment failures come in many flavors. But last week, Claude and I encountered one of the most insidious types: **the silent TypeScript compilation failure that breaks production while reporting success**.
 
@@ -33,7 +33,7 @@ But one critical endpoint was stuck in time.
 curl https://haasonsaas.com/api/health
 # Fresh timestamp, all features working
 
-# This was frozen in the past  
+# This was frozen in the past
 curl https://haasonsaas.com/api/capabilities
 # Timestamp from an hour ago, missing new features
 ```
@@ -81,11 +81,13 @@ Looking at the problematic code:
 ```typescript
 // This was missing entirely
 interface Env {
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 
 // This was using an undefined type
-export async function onRequest(context: EventContext<Env, string, Record<string, unknown>>): Promise<Response> {
+export async function onRequest(
+  context: EventContext<Env, string, Record<string, unknown>>
+): Promise<Response> {
   // Function body...
 }
 ```
@@ -129,10 +131,13 @@ Look at functions that deploy successfully and compare their structure:
 ```typescript
 // Working function structure
 interface Env {
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 
-export async function onRequest(context: { request: Request; env: Env }): Promise<Response> {
+export async function onRequest(context: {
+  request: Request
+  env: Env
+}): Promise<Response> {
   // Implementation
 }
 ```
@@ -143,7 +148,10 @@ Cloudflare Pages Functions expect specific signatures. Using the wrong types can
 
 ```typescript
 // This works
-context: { request: Request; env: Env }
+context: {
+  request: Request
+  env: Env
+}
 
 // This might cause issues depending on your setup
 context: EventContext<Env, string, Record<string, unknown>>
@@ -155,8 +163,8 @@ Use timestamp checks to verify actual deployment:
 
 ```typescript
 const response = {
-  lastUpdated: new Date().toISOString() // Should be fresh on every deploy
-};
+  lastUpdated: new Date().toISOString(), // Should be fresh on every deploy
+}
 ```
 
 ## The Deeper Problem: Serverless Abstraction Tax
@@ -166,7 +174,7 @@ This incident highlights a broader issue with serverless platforms. The abstract
 Traditional deployment gives you:
 
 - Immediate compilation feedback
-- Clear error messages  
+- Clear error messages
 - Obvious failure points
 
 Serverless deployment gives you:
@@ -202,10 +210,13 @@ Standardize your function structure:
 ```typescript
 // Standard template
 interface Env {
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 
-export async function onRequest(context: { request: Request; env: Env }): Promise<Response> {
+export async function onRequest(context: {
+  request: Request
+  env: Env
+}): Promise<Response> {
   // Your logic here
 }
 ```
@@ -245,11 +256,14 @@ The actual fix was straightforward once we identified the root cause:
 ```typescript
 // Add missing interface
 interface Env {
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 
-// Fix function signature  
-export async function onRequest(context: { request: Request; env: Env }): Promise<Response> {
+// Fix function signature
+export async function onRequest(context: {
+  request: Request
+  env: Env
+}): Promise<Response> {
   // Function implementation
 }
 ```
@@ -260,6 +274,6 @@ This is part of a larger trend I'm seeing: as our development tools become more 
 
 ---
 
-*Next in this series: "Building for Humans AND Machines: The Dual-Audience Problem" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges.*
+_Next in this series: "Building for Humans AND Machines: The Dual-Audience Problem" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges._
 
-*This post was written in collaboration with Claude Code, whose systematic debugging approach helped solve the very problem we're analyzing. Human-AI collaboration isn't just useful for building features—it's transforming how we approach complex technical problems.*
+_This post was written in collaboration with Claude Code, whose systematic debugging approach helped solve the very problem we're analyzing. Human-AI collaboration isn't just useful for building features—it's transforming how we approach complex technical problems._

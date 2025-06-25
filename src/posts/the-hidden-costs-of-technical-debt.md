@@ -1,7 +1,7 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "The Hidden Costs of Technical Debt"
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'The Hidden Costs of Technical Debt'
 description: "Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate."
 featured: false
 draft: false
@@ -11,7 +11,7 @@ tags:
   - velocity
   - management
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/the-hidden-costs-of-technical-debt.jpg'
   alt: 'The Hidden Costs of Technical Debt header image'
 ---
 
@@ -54,7 +54,7 @@ When your codebase is fragile, engineers become conservative. They avoid refacto
 Technical debt doesn't just slow down feature development—it fragments it. Engineers constantly context-switch between:
 
 - Building new features
-- Fixing bugs from previous features  
+- Fixing bugs from previous features
 - Maintaining existing systems
 - Fighting fires from fragile infrastructure
 
@@ -128,7 +128,7 @@ Before tackling debt, estimate:
 Don't try to fix everything at once. Target:
 
 - Month 1: Fix the highest-friction debt
-- Month 2: Improve testing infrastructure  
+- Month 2: Improve testing infrastructure
 - Month 3: Standardize development patterns
 - Month 4: Optimize common workflows
 

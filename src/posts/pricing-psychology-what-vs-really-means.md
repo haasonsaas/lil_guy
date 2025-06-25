@@ -1,7 +1,7 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "Pricing Psychology: What $99 vs $100 Really Means"
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'Pricing Psychology: What $99 vs $100 Really Means'
 description: "The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value."
 featured: false
 draft: false
@@ -11,7 +11,7 @@ tags:
   - saas
   - conversion
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/pricing-psychology-what-vs-really-means.jpg'
   alt: 'Pricing Psychology: What $99 vs $100 Really Means header image'
 ---
 

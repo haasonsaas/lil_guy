@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "Building for Humans AND Machines: The Dual-Audience Problem"
-description: "How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development."
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'Building for Humans AND Machines: The Dual-Audience Problem'
+description: 'How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.'
 featured: false
 draft: false
 tags:
@@ -11,11 +11,11 @@ tags:
   - ux-design
   - architecture
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/building-for-humans-and-machines-the-dual-audience-problem.jpg'
   alt: 'Building for Humans AND Machines: The Dual-Audience Problem header image'
 ---
 
-*This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code.*
+_This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code._
 
 Building a website used to be straightforward: design for humans, optimize for search engines, ship it. Now we have a third audience that's rapidly becoming just as important: **AI agents**.
 
@@ -30,7 +30,7 @@ Humans and AI agents want completely different things from your website:
 **Humans want:**
 
 - Beautiful, intuitive interfaces
-- Smooth animations and transitions  
+- Smooth animations and transitions
 - Contextual navigation and discovery
 - Emotional connection and storytelling
 - Progressive disclosure of complexity
@@ -52,7 +52,10 @@ Take something as simple as navigation. For humans, you might use:
 ```jsx
 // Human-friendly navigation
 <nav className="hidden md:flex space-x-8">
-  <Link to="/about" className="text-gray-600 hover:text-blue-600 transition-colors">
+  <Link
+    to="/about"
+    className="text-gray-600 hover:text-blue-600 transition-colors"
+  >
     About
   </Link>
   <Dropdown trigger="Services">
@@ -68,28 +71,28 @@ The solution isn't to abandon good UX. It's to **layer machine-readable structur
 
 ```jsx
 // Dual-audience navigation
-<nav 
+;<nav
   className="hidden md:flex space-x-8"
   role="navigation"
   aria-label="Main navigation"
   data-agent-nav="primary"
 >
-  <Link 
-    to="/about" 
+  <Link
+    to="/about"
     className="text-gray-600 hover:text-blue-600 transition-colors"
     data-agent-link="about"
     itemProp="url"
   >
     <span itemProp="name">About</span>
   </Link>
-  
-  <Dropdown 
+
+  <Dropdown
     trigger="Services"
     data-agent-category="services"
-    itemScope 
+    itemScope
     itemType="https://schema.org/SiteNavigationElement"
   >
-    <DropdownItem 
+    <DropdownItem
       href="/consulting"
       data-agent-service="consulting"
       itemProp="url"
@@ -99,8 +102,10 @@ The solution isn't to abandon good UX. It's to **layer machine-readable structur
   </Dropdown>
 </nav>
 
-{/* AI agent sitemap endpoint */}
-<link rel="sitemap" type="application/json" href="/api/sitemap" />
+{
+  /* AI agent sitemap endpoint */
+}
+;<link rel="sitemap" type="application/json" href="/api/sitemap" />
 ```
 
 Now humans get the beautiful interface while agents get structured navigation data via the API endpoint.
@@ -134,7 +139,7 @@ Here's how I solve this dual requirement:
     <h1>Building for Humans AND Machines</h1>
     <p className="lead">How designing websites for both human users...</p>
   </header>
-  
+
   <section>
     <p>Building a website used to be straightforward...</p>
   </section>
@@ -142,25 +147,25 @@ Here's how I solve this dual requirement:
 
 <!-- Machine-readable metadata -->
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "TechnicalArticle",
-  "headline": "Building for Humans AND Machines: The Dual-Audience Problem",
-  "author": {
-    "@type": "Person",
-    "name": "Jonathan Haas"
-  },
-  "datePublished": "2025-06-20",
-  "topics": ["AI agents", "Web development", "UX design", "Architecture"],
-  "complexity": "Intermediate",
-  "readingTime": "8 minutes",
-  "wordCount": 2143,
-  "codeBlocks": 7,
-  "relatedArticles": [
-    "/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures"
-  ],
-  "machineReadableEndpoint": "/api/posts/building-for-humans-and-machines-the-dual-audience-problem"
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "TechnicalArticle",
+    "headline": "Building for Humans AND Machines: The Dual-Audience Problem",
+    "author": {
+      "@type": "Person",
+      "name": "Jonathan Haas"
+    },
+    "datePublished": "2025-06-20",
+    "topics": ["AI agents", "Web development", "UX design", "Architecture"],
+    "complexity": "Intermediate",
+    "readingTime": "8 minutes",
+    "wordCount": 2143,
+    "codeBlocks": 7,
+    "relatedArticles": [
+      "/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures"
+    ],
+    "machineReadableEndpoint": "/api/posts/building-for-humans-and-machines-the-dual-audience-problem"
+  }
 </script>
 ```
 
@@ -176,11 +181,11 @@ Here's how I redesigned my blog's API architecture:
 
 ```typescript
 // Single endpoint, multiple formats
-GET /api/posts/my-post-slug
-Accept: application/json          // Returns structured data
-Accept: text/markdown             // Returns raw markdown
-Accept: application/ld+json       // Returns rich structured data
-Accept: text/html                 // Returns semantic HTML
+GET / api / posts / my - post - slug
+Accept: application / json // Returns structured data
+Accept: text / markdown // Returns raw markdown
+Accept: application / ld + json // Returns rich structured data
+Accept: text / html // Returns semantic HTML
 ```
 
 ### 2. Progressive Enhancement
@@ -194,7 +199,7 @@ GET /api/posts?format=simple
   ]
 }
 
-// Rich data for sophisticated agents  
+// Rich data for sophisticated agents
 GET /api/posts?format=enhanced
 {
   "posts": [
@@ -216,10 +221,12 @@ GET /api/posts?format=enhanced
 ### 3. Context-Aware Responses
 
 ```typescript
-export async function onRequest(context: { request: Request }): Promise<Response> {
-  const userAgent = context.request.headers.get('User-Agent') || '';
-  const isAIAgent = /claude|gpt|anthropic|openai|bot/i.test(userAgent);
-  
+export async function onRequest(context: {
+  request: Request
+}): Promise<Response> {
+  const userAgent = context.request.headers.get('User-Agent') || ''
+  const isAIAgent = /claude|gpt|anthropic|openai|bot/i.test(userAgent)
+
   if (isAIAgent) {
     // Enhanced response for AI agents
     return Response.json({
@@ -228,12 +235,12 @@ export async function onRequest(context: { request: Request }): Promise<Response
         apiDocumentation: '/agents',
         structuredData: true,
         lastUpdated: new Date().toISOString(),
-        agentFriendly: true
-      }
-    });
+        agentFriendly: true,
+      },
+    })
   }
-  
-  return Response.json(standardResponse);
+
+  return Response.json(standardResponse)
 }
 ```
 
@@ -268,12 +275,12 @@ const AgentRoute = ({ content }: { content: string }) => (
 
 function App() {
   const isAgent = useIsAgent(); // Detect via user agent
-  
+
   return (
     <Routes>
-      <Route 
-        path="/posts/:slug" 
-        element={isAgent ? <AgentRoute /> : <HumanRoute />} 
+      <Route
+        path="/posts/:slug"
+        element={isAgent ? <AgentRoute /> : <HumanRoute />}
       />
     </Routes>
   );
@@ -293,7 +300,7 @@ Every feature now starts with the API. The human interface becomes a client of t
 ```typescript
 // Shared data layer
 export const usePostData = (slug: string) => {
-  return useQuery(['post', slug], () => 
+  return useQuery(['post', slug], () =>
     fetch(`/api/posts/${slug}`).then(r => r.json())
   );
 };
@@ -327,8 +334,8 @@ HTML structure becomes a first-class architectural concern, not just a presentat
 </div>
 
 // Good: Semantic-first with presentation
-<article 
-  itemScope 
+<article
+  itemScope
   itemType="https://schema.org/BlogPosting"
   className="card"
   data-agent-content="blog-post"
@@ -339,7 +346,7 @@ HTML structure becomes a first-class architectural concern, not just a presentat
       June 20, 2025
     </time>
   </header>
-  
+
   <div itemProp="articleBody" className="card-body prose">
     <p>Article content...</p>
   </div>
@@ -422,9 +429,9 @@ function BlogPost({ post }: { post: Post }) {
         <h1>{post.title}</h1>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </article>
-      
+
       {/* Machine-readable structured data */}
-      <script 
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -436,12 +443,12 @@ function BlogPost({ post }: { post: Post }) {
           })
         }}
       />
-      
+
       {/* Direct API access hint */}
-      <link 
-        rel="alternate" 
-        type="application/json" 
-        href={`/api/posts/${post.slug}`} 
+      <link
+        rel="alternate"
+        type="application/json"
+        href={`/api/posts/${post.slug}`}
       />
     </>
   );
@@ -482,7 +489,7 @@ const HumanRenderer = ({ blocks }: { blocks: ContentBlock[] }) => (
 const AgentRenderer = ({ blocks }: { blocks: ContentBlock[] }) => (
   <div data-agent-content="structured">
     {blocks.map(block => (
-      <div 
+      <div
         data-content-type={block.type}
         data-metadata={JSON.stringify(block.metadata)}
       >
@@ -585,7 +592,7 @@ If you're ready to start building for dual audiences:
 - Add basic Schema.org markup to key pages
 - Create simple JSON API endpoints for core content
 
-### Week 2: Enhancement  
+### Week 2: Enhancement
 
 - Implement progressive enhancement patterns
 - Add agent-specific meta tags and documentation
@@ -601,6 +608,6 @@ The dual-audience problem isn't going away—it's the new reality of web develop
 
 ---
 
-*Next in this series: "Debugging in Real-Time: A Human-AI Pair Programming Session" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough.*
+_Next in this series: "Debugging in Real-Time: A Human-AI Pair Programming Session" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough._
 
-*This post was written in collaboration with Claude Code, whose systematic approach to dual-audience thinking helped shape many of these architectural patterns. The future of web development is collaborative—and that includes collaboration with AI.*
+_This post was written in collaboration with Claude Code, whose systematic approach to dual-audience thinking helped shape many of these architectural patterns. The future of web development is collaborative—and that includes collaboration with AI._

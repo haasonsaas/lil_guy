@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-25"
-title: "Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox"
-description: "How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code"
+author: 'Jonathan Haas'
+pubDate: '2025-06-25'
+title: 'Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox'
+description: 'How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code'
 featured: false
 draft: false
 tags:
@@ -12,7 +12,7 @@ tags:
   - microvm
   - llm
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox.jpg'
   alt: 'Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox header image'
 ---
 
@@ -175,9 +175,9 @@ let seccomp_rules = vec![
     // Block kernel module operations
     Rule::new(libc::SYS_init_module, Action::Errno(libc::EPERM)),
     Rule::new(libc::SYS_delete_module, Action::Errno(libc::EPERM)),
-    
+
     // Block raw network access
-    Rule::new(libc::SYS_socket, 
+    Rule::new(libc::SYS_socket,
         if domain != AF_INET { Action::Errno(libc::EPERM) }),
 ];
 ```
@@ -330,7 +330,7 @@ enum VmState {
 No cleanup needed. VM dies = everything gone:
 
 - No leaked processes
-- No orphaned files  
+- No orphaned files
 - No network connections
 - No memory artifacts
 
@@ -373,4 +373,4 @@ Build with confidence. Execute without fear.
 
 ---
 
-*Using Fission in production? I'd love to hear about your use cases and security requirements.*
+_Using Fission in production? I'd love to hear about your use cases and security requirements._

@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-25"
-title: "When Claude Hits Its Limits: Building an AI-to-AI Escalation System"
-description: "How I built an MCP server that pairs Claude with Gemini for complex code analysis, creating a multi-model debugging workflow"
+author: 'Jonathan Haas'
+pubDate: '2025-06-25'
+title: 'When Claude Hits Its Limits: Building an AI-to-AI Escalation System'
+description: 'How I built an MCP server that pairs Claude with Gemini for complex code analysis, creating a multi-model debugging workflow'
 featured: false
 draft: false
 tags:
@@ -12,7 +12,7 @@ tags:
   - gemini
   - debugging
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system.jpg'
   alt: 'When Claude Hits Its Limits: Building an AI-to-AI Escalation System header image'
 ---
 
@@ -54,17 +54,17 @@ When Claude recognizes it needs help, it calls the escalation tool:
 ```typescript
 await escalate_analysis({
   claude_context: {
-    attempted_approaches: ["Checked mutex usage", "Analyzed goroutines"],
-    partial_findings: [{type: "race", location: "user_service.go:142"}],
+    attempted_approaches: ['Checked mutex usage', 'Analyzed goroutines'],
+    partial_findings: [{ type: 'race', location: 'user_service.go:142' }],
     stuck_description: "Can't trace execution across service boundaries",
     code_scope: {
-      files: ["user_service.go", "order_service.go"],
-      service_names: ["user-api", "order-processor"]
-    }
+      files: ['user_service.go', 'order_service.go'],
+      service_names: ['user-api', 'order-processor'],
+    },
   },
-  analysis_type: "cross_system",
-  depth_level: 5
-});
+  analysis_type: 'cross_system',
+  depth_level: 5,
+})
 ```
 
 ## The Power of AI-to-AI Conversations
@@ -74,22 +74,25 @@ Here's where it gets interesting. Instead of one-shot analysis, I implemented co
 ```javascript
 // Start a conversation
 const session = await start_conversation({
-  claude_context: { /* ... */ },
-  analysis_type: "execution_trace",
-  initial_question: "Where does the race window open?"
-});
+  claude_context: {
+    /* ... */
+  },
+  analysis_type: 'execution_trace',
+  initial_question: 'Where does the race window open?',
+})
 
 // Claude asks follow-ups
 await continue_conversation({
   session_id: session.id,
-  message: "The mutex is released at line 142. What happens between release and the next acquire?"
-});
+  message:
+    'The mutex is released at line 142. What happens between release and the next acquire?',
+})
 
 // Get structured results
 const analysis = await finalize_conversation({
   session_id: session.id,
-  summary_format: "actionable"
-});
+  summary_format: 'actionable',
+})
 ```
 
 This isn't just passing data between models. It's genuine collaborative reasoning where each model's strengths complement the other.
@@ -155,7 +158,7 @@ function shouldEscalate(context: AnalysisContext): boolean {
     context.services.length > 3 ||
     context.timeSpan > 3600 || // 1 hour
     context.attemptedApproaches.length > 5
-  );
+  )
 }
 ```
 
@@ -170,9 +173,9 @@ const geminiContext = {
   logs: await aggregateLogs(services),
   metadata: {
     service_dependencies: await mapServiceGraph(),
-    deployment_timeline: await getRecentDeploys()
-  }
-};
+    deployment_timeline: await getRecentDeploys(),
+  },
+}
 ```
 
 ### Intelligent Routing
@@ -255,4 +258,4 @@ Because the future of AI isn't one model to rule them all. It's the right model 
 
 ---
 
-*Have you built multi-model systems? I'd love to hear about your approach to AI orchestration.*
+_Have you built multi-model systems? I'd love to hear about your approach to AI orchestration._

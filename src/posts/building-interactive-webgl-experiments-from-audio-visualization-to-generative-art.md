@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "Building Interactive WebGL Experiments: From Audio Visualization to Generative Art"
-description: "How I built 5 immersive WebGL experiments showcasing real-time graphics, physics simulations, and algorithmic creativity"
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'Building Interactive WebGL Experiments: From Audio Visualization to Generative Art'
+description: 'How I built 5 immersive WebGL experiments showcasing real-time graphics, physics simulations, and algorithmic creativity'
 featured: true
 draft: false
 tags:
@@ -12,7 +12,7 @@ tags:
   - experiments
   - creative-coding
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art.jpg'
   alt: 'Building Interactive WebGL Experiments: From Audio Visualization to Generative Art header image'
 ---
 
@@ -25,7 +25,7 @@ From real-time audio visualization to gravitational physics simulations, each ex
 The goal was simple yet ambitious: create immersive, educational experiences that make complex mathematical and physical concepts accessible through interaction. Each experiment needed to be:
 
 - **Performant** - Running smoothly at 60fps on modern devices
-- **Educational** - Teaching concepts through hands-on exploration  
+- **Educational** - Teaching concepts through hands-on exploration
 - **Beautiful** - Visually stunning enough to captivate users
 - **Accessible** - Intuitive controls with comprehensive documentation
 
@@ -39,18 +39,19 @@ The audio visualizer transforms music into immersive 3D graphics using the Web A
 
 ```javascript
 // Core audio analysis loop
-const analyser = audioContext.createAnalyser();
-analyser.fftSize = 256;
-const dataArray = new Uint8Array(analyser.frequencyBinCount);
+const analyser = audioContext.createAnalyser()
+analyser.fftSize = 256
+const dataArray = new Uint8Array(analyser.frequencyBinCount)
 
 function render() {
-  analyser.getByteFrequencyData(dataArray);
-  
+  analyser.getByteFrequencyData(dataArray)
+
   // Transform frequency data into 3D geometry
   for (let i = 0; i < barCount; i++) {
-    const frequency = dataArray[Math.floor(i * dataArray.length / barCount)] / 255;
+    const frequency =
+      dataArray[Math.floor((i * dataArray.length) / barCount)] / 255
     // Create vertex data for 3D bars
-    positions.push(x, frequency * height, z);
+    positions.push(x, frequency * height, z)
   }
 }
 ```
@@ -73,14 +74,14 @@ Ray marching enables rendering complex 3D scenes entirely in fragment shaders us
 // Ray marching core loop
 float rayMarch(vec3 ro, vec3 rd) {
   float dO = 0.0;
-  
+
   for(int i = 0; i < MAX_STEPS; i++) {
     vec3 p = ro + rd * dO;
     float dS = getSceneDist(p);  // SDF evaluation
     dO += dS;
     if(dO > MAX_DIST || dS < SURF_DIST) break;
   }
-  
+
   return dO;
 }
 
@@ -116,26 +117,26 @@ This gravitational physics simulation demonstrates Newton's laws through interac
 ```javascript
 // Gravitational force calculation
 const calculateForce = (body1, body2) => {
-  const dx = body2.x - body1.x;
-  const dy = body2.y - body1.y;
-  const distSq = dx * dx + dy * dy;
-  const dist = Math.sqrt(distSq);
-  
+  const dx = body2.x - body1.x
+  const dy = body2.y - body1.y
+  const distSq = dx * dx + dy * dy
+  const dist = Math.sqrt(distSq)
+
   // Prevent singularities at close distances
-  const effectiveDist = Math.max(dist, body1.radius + body2.radius);
-  const force = G * body1.mass * body2.mass / (effectiveDist * effectiveDist);
-  
+  const effectiveDist = Math.max(dist, body1.radius + body2.radius)
+  const force = (G * body1.mass * body2.mass) / (effectiveDist * effectiveDist)
+
   return {
-    fx: force * dx / effectiveDist,
-    fy: force * dy / effectiveDist
-  };
-};
+    fx: (force * dx) / effectiveDist,
+    fy: (force * dy) / effectiveDist,
+  }
+}
 
 // Verlet integration for stable orbits
-body.vx += (fx / body.mass) * dt;
-body.vy += (fy / body.mass) * dt;
-body.x += body.vx * dt;
-body.y += body.vy * dt;
+body.vx += (fx / body.mass) * dt
+body.vy += (fy / body.mass) * dt
+body.x += body.vx * dt
+body.y += body.vy * dt
 ```
 
 **Physics Features:**
@@ -155,29 +156,29 @@ From Conway's Game of Life to elementary cellular automata, this experiment expl
 ```javascript
 // Conway's Game of Life rules
 const updateLife = (grid, x, y) => {
-  const neighbors = countNeighbors(grid, x, y);
-  const alive = grid[y][x] === 1;
-  
+  const neighbors = countNeighbors(grid, x, y)
+  const alive = grid[y][x] === 1
+
   if (alive) {
-    return neighbors === 2 || neighbors === 3 ? 1 : 0; // Survive
+    return neighbors === 2 || neighbors === 3 ? 1 : 0 // Survive
   } else {
-    return neighbors === 3 ? 1 : 0; // Birth
+    return neighbors === 3 ? 1 : 0 // Birth
   }
-};
+}
 
 // Langton's Ant - complex behavior from simple rules
 const updateAnt = (grid, antX, antY, direction) => {
-  const isBlack = grid[antY][antX] === 1;
-  
+  const isBlack = grid[antY][antX] === 1
+
   // Flip current cell color
-  grid[antY][antX] = isBlack ? 0 : 1;
-  
+  grid[antY][antX] = isBlack ? 0 : 1
+
   // Turn based on cell color
-  direction = isBlack ? (direction + 1) % 4 : (direction + 3) % 4;
-  
+  direction = isBlack ? (direction + 1) % 4 : (direction + 3) % 4
+
   // Move forward
-  return moveAnt(antX, antY, direction);
-};
+  return moveAnt(antX, antY, direction)
+}
 ```
 
 **Algorithmic Beauty:**
@@ -199,41 +200,42 @@ The generative art studio combines multiple algorithmic techniques to create uni
 const generatePerlinArt = (ctx, canvas, time) => {
   for (let x = 0; x < canvas.width; x++) {
     for (let y = 0; y < canvas.height; y++) {
-      let noiseValue = 0;
-      let amplitude = 1;
-      let frequency = 1;
-      
+      let noiseValue = 0
+      let amplitude = 1
+      let frequency = 1
+
       // Fractal Brownian Motion
       for (let i = 0; i < octaves; i++) {
-        noiseValue += perlin.noise(
-          (x + time * speed) * frequency / scale,
-          (y + time * speed) * frequency / scale
-        ) * amplitude;
-        amplitude *= 0.5;
-        frequency *= 2;
+        noiseValue +=
+          perlin.noise(
+            ((x + time * speed) * frequency) / scale,
+            ((y + time * speed) * frequency) / scale
+          ) * amplitude
+        amplitude *= 0.5
+        frequency *= 2
       }
-      
+
       // Map noise to color
-      const colorIndex = Math.floor(noiseValue * colors.length);
-      setPixelColor(x, y, colors[colorIndex]);
+      const colorIndex = Math.floor(noiseValue * colors.length)
+      setPixelColor(x, y, colors[colorIndex])
     }
   }
-};
+}
 
 // L-System plant growth
 const generateLSystem = (axiom, rules, iterations) => {
-  let result = axiom;
-  
+  let result = axiom
+
   for (let i = 0; i < iterations; i++) {
-    let newResult = '';
+    let newResult = ''
     for (const char of result) {
-      newResult += rules[char] || char;
+      newResult += rules[char] || char
     }
-    result = newResult;
+    result = newResult
   }
-  
-  return result; // "F[+F]F[-F]F[+F[+F]F[-F]F]F[-F[+F]F[-F]F]F[+F]F[-F]F"
-};
+
+  return result // "F[+F]F[-F]F[+F[+F]F[-F]F]F[-F[+F]F[-F]F]F[+F]F[-F]F"
+}
 ```
 
 **Creative Algorithms:**
@@ -254,15 +256,15 @@ All experiments share a common technical foundation built for performance and ma
 ```javascript
 // Efficient vertex buffer management
 const updateVertexBuffer = (gl, buffer, data) => {
-  gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-  gl.bufferSubData(gl.ARRAY_BUFFER, 0, data); // Update, don't recreate
-};
+  gl.bindBuffer(gl.ARRAY_BUFFER, buffer)
+  gl.bufferSubData(gl.ARRAY_BUFFER, 0, data) // Update, don't recreate
+}
 
 // Batch rendering for performance
 const renderInstanced = (gl, program, instanceCount) => {
-  gl.useProgram(program);
-  gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, instanceCount);
-};
+  gl.useProgram(program)
+  gl.drawArraysInstanced(gl.TRIANGLES, 0, 6, instanceCount)
+}
 ```
 
 ### Responsive Design
@@ -278,16 +280,16 @@ Each experiment adapts to different screen sizes and input methods:
 ```javascript
 // Centralized parameter management
 const useExperimentState = (initialParams) => {
-  const [params, setParams] = useState(initialParams);
-  
+  const [params, setParams] = useState(initialParams)
+
   const updateParam = useCallback((key, value) => {
-    setParams(prev => ({ ...prev, [key]: value }));
+    setParams((prev) => ({ ...prev, [key]: value }))
     // Trigger re-render with new parameters
-    scheduleRender();
-  }, []);
-  
-  return [params, updateParam];
-};
+    scheduleRender()
+  }, [])
+
+  return [params, updateParam]
+}
 ```
 
 ## Performance Optimizations
@@ -307,12 +309,12 @@ Building smooth 60fps experiences required careful optimization:
 const updatePhysics = (bodies, deltaTime) => {
   // Use Web Workers for complex calculations
   if (bodies.length > 1000) {
-    return physicsWorker.postMessage({ bodies, deltaTime });
+    return physicsWorker.postMessage({ bodies, deltaTime })
   }
-  
+
   // Simple calculations on main thread
-  return updateBodiesSync(bodies, deltaTime);
-};
+  return updateBodiesSync(bodies, deltaTime)
+}
 ```
 
 ### Memory Leak Prevention
@@ -320,18 +322,18 @@ const updatePhysics = (bodies, deltaTime) => {
 ```javascript
 // Cleanup pattern for WebGL resources
 useEffect(() => {
-  const cleanup = initWebGL();
-  
+  const cleanup = initWebGL()
+
   return () => {
     // Critical: clean up GPU resources
-    gl.deleteBuffer(vertexBuffer);
-    gl.deleteProgram(shaderProgram);
-    gl.deleteTexture(texture);
-    
+    gl.deleteBuffer(vertexBuffer)
+    gl.deleteProgram(shaderProgram)
+    gl.deleteTexture(texture)
+
     // Stop animation loops
-    cancelAnimationFrame(animationId);
-  };
-}, []);
+    cancelAnimationFrame(animationId)
+  }
+}, [])
 ```
 
 ## Lessons Learned
@@ -357,7 +359,7 @@ The experiments with comprehensive explanations see 3x more engagement than thos
 These five experiments are just the beginning. I'm already planning:
 
 - **Fluid dynamics simulation** - Real-time fluid flow with interactive obstacles
-- **L-system 3D trees** - Extending plant growth algorithms into three dimensions  
+- **L-system 3D trees** - Extending plant growth algorithms into three dimensions
 - **Shader art tools** - A visual programming interface for fragment shaders
 - **VR compatibility** - Adapting experiments for WebXR immersive experiences
 
@@ -381,4 +383,4 @@ The web browser has become an incredibly powerful platform for interactive exper
 
 Whether you're a developer curious about graphics programming, an artist interested in algorithmic creativity, or someone who simply enjoys beautiful interactive experiences, these experiments offer something to explore.
 
-*What will you create with the infinite canvas of mathematics and code?*
+_What will you create with the infinite canvas of mathematics and code?_

@@ -1,17 +1,17 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "The Unit Economics That Actually Matter"
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'The Unit Economics That Actually Matter'
 description: "Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter."
 featured: false
 draft: false
 tags:
   - saas
-  - metrics  
+  - metrics
   - unit-economics
   - growth
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/the-unit-economics-that-actually-matter.jpg'
   alt: 'The Unit Economics That Actually Matter header image'
 ---
 

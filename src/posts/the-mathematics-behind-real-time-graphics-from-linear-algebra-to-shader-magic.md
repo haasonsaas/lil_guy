@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic"
-description: "Exploring the mathematical foundations that power modern graphics programming, from transformation matrices to lighting equations"
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic'
+description: 'Exploring the mathematical foundations that power modern graphics programming, from transformation matrices to lighting equations'
 featured: true
 draft: false
 tags:
@@ -12,7 +12,7 @@ tags:
   - shaders
   - webgl
 image:
-  url: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb'
+  url: '/images/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic.jpg'
   alt: 'Mathematical equations and 3D graphics visualization'
 ---
 
@@ -182,17 +182,17 @@ The algorithm marches a ray through space, using the SDF to determine safe step 
 ```glsl
 float rayMarch(vec3 origin, vec3 direction) {
     float distance = 0.0;
-    
+
     for(int i = 0; i < MAX_STEPS; i++) {
         vec3 point = origin + direction * distance;
         float sdf = sceneSDF(point);
-        
+
         if(sdf < SURFACE_THRESHOLD) return distance; // Hit!
         if(distance > MAX_DISTANCE) break;           // Miss
-        
+
         distance += sdf; // Safe to step this far
     }
-    
+
     return -1.0; // No intersection
 }
 ```
@@ -214,12 +214,12 @@ In a fragment shader, each pixel represents a complex number c, and we iterate t
 ```glsl
 vec2 mandelbrot(vec2 c) {
     vec2 z = vec2(0.0);
-    
+
     for(int i = 0; i < MAX_ITERATIONS; i++) {
         if(dot(z, z) > 4.0) return vec2(float(i), 0.0);
         z = vec2(z.x*z.x - z.y*z.y, 2.0*z.x*z.y) + c;
     }
-    
+
     return vec2(MAX_ITERATIONS, 0.0);
 }
 ```
@@ -232,7 +232,7 @@ We can create fractal geometry by repeatedly folding space. The Menger sponge SD
 float mengerSDF(vec3 p) {
     float d = boxSDF(p, vec3(1.0));
     float scale = 1.0;
-    
+
     for(int i = 0; i < 4; i++) {
         vec3 a = mod(p * scale, 2.0) - 1.0;
         scale *= 3.0;
@@ -240,7 +240,7 @@ float mengerSDF(vec3 p) {
         float c = (min(min(max(r.x,r.y), max(r.y,r.z)), max(r.z,r.x)) - 1.0) / scale;
         d = max(d, c);
     }
-    
+
     return d;
 }
 ```
@@ -383,7 +383,7 @@ r = a × φ^(θ/90°)
 
 ### Fibonacci Spirals
 
-The Fibonacci sequence (where F_n = F_(n-1) + F_(n-2)) creates beautiful spiral arrangements:
+The Fibonacci sequence (where F*n = F*(n-1) + F\_(n-2)) creates beautiful spiral arrangements:
 
 ```
 θ_n = n × 137.5°
@@ -477,6 +477,6 @@ Want to experiment with mathematical graphics? Check out my [experiments section
 
 Each experiment lets you manipulate the mathematical parameters in real-time, providing immediate feedback on how mathematical changes affect visual output.
 
-*Mathematics is the language in which God has written the universe. In computer graphics, we get to be translators, converting mathematical poetry into visual symphonies that anyone can experience.*
+_Mathematics is the language in which God has written the universe. In computer graphics, we get to be translators, converting mathematical poetry into visual symphonies that anyone can experience._
 
 Whether you're a developer looking to understand graphics programming better, a mathematician curious about practical applications, or an artist interested in algorithmic creativity, remember: every pixel tells a mathematical story. What story will your equations tell?

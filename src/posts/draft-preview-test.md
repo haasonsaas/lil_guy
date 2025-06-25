@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-06-20
-title: "Testing Draft Preview Feature"
-description: "This is a draft post to test the new preview link generation feature"
+title: 'Testing Draft Preview Feature'
+description: 'This is a draft post to test the new preview link generation feature'
 featured: false
 draft: true
 tags:
@@ -10,7 +10,7 @@ tags:
   - features
   - development
 image:
-  url: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3'
+  url: '/images/draft-preview-test.jpg'
   alt: 'A laptop showing code on the screen'
 ---
 

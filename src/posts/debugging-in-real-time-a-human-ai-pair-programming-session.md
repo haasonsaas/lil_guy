@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "Debugging in Real-Time: A Human-AI Pair Programming Session"
-description: "An inside look at how Claude Code and I debug complex technical problems together, from TypeScript compilation errors to serverless deployment failures."
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'Debugging in Real-Time: A Human-AI Pair Programming Session'
+description: 'An inside look at how Claude Code and I debug complex technical problems together, from TypeScript compilation errors to serverless deployment failures.'
 featured: false
 draft: false
 tags:
@@ -11,11 +11,11 @@ tags:
   - collaboration
   - pair-programming
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/debugging-in-real-time-a-human-ai-pair-programming-session.jpg'
   alt: 'Debugging in Real-Time: A Human-AI Pair Programming Session header image'
 ---
 
-*This is part 3 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures), and part 2 explored [building for both human and AI audiences](/posts/building-for-humans-and-machines-the-dual-audience-problem). Written in collaboration with Claude Code.*
+_This is part 3 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures), and part 2 explored [building for both human and AI audiences](/posts/building-for-humans-and-machines-the-dual-audience-problem). Written in collaboration with Claude Code._
 
 What does it actually look like when a human and AI debug complex technical problems together?
 
@@ -78,19 +78,22 @@ This is a perfect example of what makes human-AI collaboration powerful. I was f
 
 ```typescript
 interface Env {
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 ```
 
-**Me:** *Makes the change*
+**Me:** _Makes the change_
 
 **Claude:** "Now update the function signature to match the working functions:"
 
 ```typescript
-export async function onRequest(context: { request: Request; env: Env }): Promise<Response>
+export async function onRequest(context: {
+  request: Request
+  env: Env
+}): Promise<Response>
 ```
 
-**Me:** *Updates the code*
+**Me:** _Updates the code_
 
 This is the most common pattern. Claude identifies what needs to be done, I implement it. No micromanagement, just clear direction.
 
@@ -107,7 +110,7 @@ I paste the Cloudflare routing configuration:
 ```json
 {
   "routePath": "/api/capabilities",
-  "mountPath": "/api", 
+  "mountPath": "/api",
   "method": "",
   "module": ["api/capabilities.ts:onRequest"]
 }
@@ -115,7 +118,7 @@ I paste the Cloudflare routing configuration:
 
 **Claude:** "The route is registered, which means Cloudflare thinks the function exists. But since we know it had compilation errors, the old version is probably still running. Try testing the compilation again after your changes."
 
-**Me:** *Runs tsc again* "Clean compilation now."
+**Me:** _Runs tsc again_ "Clean compilation now."
 
 **Claude:** "Good. The issue is that the old broken version is cached. Wait a few minutes for the deployment to propagate, then test again."
 
@@ -131,7 +134,7 @@ Here I provide raw data, Claude provides interpretation and next steps.
 
 **Claude:** "Add a comment or change something visible in the response, redeploy, and see if that shows up."
 
-**Me:** *Adds a comment to the response*
+**Me:** _Adds a comment to the response_
 
 **Claude:** "Also try force-refreshing any CDN cache and test from different locations."
 
@@ -180,7 +183,7 @@ Instead of guessing, we gather evidence:
 We don't try to fix everything at once:
 
 1. **First:** Confirm the root cause (compilation errors)
-2. **Then:** Fix the immediate issue (missing interfaces)  
+2. **Then:** Fix the immediate issue (missing interfaces)
 3. **Next:** Verify the fix works (test compilation)
 4. **Finally:** Implement prevention (add to pre-commit hooks)
 
@@ -281,7 +284,7 @@ When I'm frustrated ("what the fuck is up with capabilities"), Claude stays calm
 Claude introduces techniques I wouldn't have considered:
 
 - Testing compilation explicitly before deployment
-- Comparing working vs broken function structures  
+- Comparing working vs broken function structures
 - Systematic evidence gathering
 
 I bring domain-specific knowledge Claude couldn't have:
@@ -598,6 +601,6 @@ That's the real power of human-AI pair programming: not replacing human expertis
 
 ---
 
-*This completes our series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures), part 2 explored [dual-audience web architecture](/posts/building-for-humans-and-machines-the-dual-audience-problem), and this final part examined the collaborative debugging process itself.*
+_This completes our series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures), part 2 explored [dual-audience web architecture](/posts/building-for-humans-and-machines-the-dual-audience-problem), and this final part examined the collaborative debugging process itself._
 
-*Written in collaboration with Claude Code, whose systematic debugging approach and pattern recognition capabilities made solving our Cloudflare deployment issue possible. The future of development is collaborative—and this is what it looks like in practice.*
+_Written in collaboration with Claude Code, whose systematic debugging approach and pattern recognition capabilities made solving our Cloudflare deployment issue possible. The future of development is collaborative—and this is what it looks like in practice._

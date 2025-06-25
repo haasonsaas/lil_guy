@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-20"
-title: "Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content"
-description: "How to make your website accessible to AI agents with proper APIs, enhanced structured data, and machine-readable content formats"
+author: 'Jonathan Haas'
+pubDate: '2025-06-20'
+title: 'Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content'
+description: 'How to make your website accessible to AI agents with proper APIs, enhanced structured data, and machine-readable content formats'
 featured: false
 draft: false
 tags:
@@ -11,7 +11,7 @@ tags:
   - api-design
   - structured-data
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content.jpg'
   alt: 'Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content header image'
 ---
 
@@ -46,7 +46,7 @@ After working with various AI systems, I've identified four key requirements:
 
 Content should be available in structured formats—JSON, not just HTML. This lets agents grab exactly what they need without parsing markup.
 
-### 2. Enhanced Structured Data  
+### 2. Enhanced Structured Data
 
 Beyond basic Schema.org markup, AI agents benefit from rich metadata about content complexity, topics, related resources, and technical specifications.
 
@@ -71,7 +71,7 @@ I created four core endpoints:
 GET /api/posts
 // Response includes: title, description, tags, reading time, URLs
 
-// Get specific post content  
+// Get specific post content
 GET /api/posts/[slug]
 // Returns: full content + structured metadata
 
@@ -108,7 +108,7 @@ I also implemented comprehensive JSON-LD structured data using Schema.org's `Tec
 I created a dedicated `/agents` page that serves as a guide for AI systems:
 
 - Complete API documentation with examples
-- Response schemas and error codes  
+- Response schemas and error codes
 - Usage guidelines and rate limits
 - Links to structured data specifications
 - Content classification explanations
@@ -208,7 +208,7 @@ Add structured data and AI-friendly meta tags to your content pages. Focus on co
 
 Build a simple page explaining how AI agents should interact with your site. Include API docs and usage guidelines.
 
-### 4. Implement Content Classification (3-5 hours)  
+### 4. Implement Content Classification (3-5 hours)
 
 Add tags for difficulty level, content type, and technical topics. This helps agents understand context and relevance.
 

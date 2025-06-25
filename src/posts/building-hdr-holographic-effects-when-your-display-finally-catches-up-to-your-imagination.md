@@ -1,8 +1,8 @@
 ---
-author: "Jonathan Haas"
-pubDate: "2025-06-19"
-title: "Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination"
-description: "How to create true HDR holographic foil effects that push beyond standard RGB limits on modern displays"
+author: 'Jonathan Haas'
+pubDate: '2025-06-19'
+title: 'Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination'
+description: 'How to create true HDR holographic foil effects that push beyond standard RGB limits on modern displays'
 featured: false
 draft: false
 tags:
@@ -11,7 +11,7 @@ tags:
   - creative-coding
   - experiments
 image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
+  url: '/images/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination.jpg'
   alt: 'Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination header image'
 ---
 
@@ -48,18 +48,18 @@ Real holographic foil shifts colors based on viewing angle. I simulate this with
 
 ```javascript
 const generateHolographicGradient = () => {
-  const angle = mousePosition.x * 360;
-  const hdrIntensity = 2.0; // Exceeds standard range
-  
+  const angle = mousePosition.x * 360
+  const hdrIntensity = 2.0 // Exceeds standard range
+
   const colors = [
     `hsl(0, 100%, ${50 * hdrIntensity}%)`,
     `hsl(60, 100%, ${60 * hdrIntensity}%)`,
     `hsl(180, 100%, ${55 * hdrIntensity}%)`,
     // ... more colors with HDR multipliers
-  ];
-  
-  return `linear-gradient(${angle}deg, ${colors.join(', ')})`;
-};
+  ]
+
+  return `linear-gradient(${angle}deg, ${colors.join(', ')})`
+}
 ```
 
 ### 3. Layered Effects for Depth
@@ -67,7 +67,7 @@ const generateHolographicGradient = () => {
 Real holographic materials have multiple interference layers. I recreate this with stacked visual effects:
 
 - **Base gradient**: Primary color shifts
-- **Diffraction overlay**: Fine line patterns using repeating gradients  
+- **Diffraction overlay**: Fine line patterns using repeating gradients
 - **Shimmer layer**: Radial highlights that follow the mouse
 - **Sparkle particles**: Animated points with HDR glow
 
@@ -83,7 +83,7 @@ const transform = `
   rotateX(${(mousePosition.y - 0.5) * 20}deg)
   rotateY(${(mousePosition.x - 0.5) * 20}deg)
   scale(1.05)
-`;
+`
 ```
 
 This makes the surface feel like a physical object you're manipulating.
@@ -112,8 +112,8 @@ Real-time gradient generation is expensive. I optimized by:
 Not all displays support HDR. The experience gracefully degrades:
 
 ```javascript
-const supportsHDR = window.matchMedia('(dynamic-range: high)').matches;
-const intensity = supportsHDR ? 2.5 : 1.0;
+const supportsHDR = window.matchMedia('(dynamic-range: high)').matches
+const intensity = supportsHDR ? 2.5 : 1.0
 ```
 
 ### Cross-Platform Compatibility
@@ -129,7 +129,7 @@ This isn't just about pretty effects. HDR displays represent a fundamental shift
 Imagine:
 
 - **UI elements that feel genuinely metallic or glass-like**
-- **Photography portfolios that show true dynamic range**  
+- **Photography portfolios that show true dynamic range**
 - **Data visualizations with brightness encoding**
 - **Games with realistic lighting that actually hurts your eyes**
 
