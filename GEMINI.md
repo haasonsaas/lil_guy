@@ -45,3 +45,15 @@ You can invoke the agent's capabilities by using the following commands in your 
     4.  If possible, suggests and applies fixes for any issues found.
 
 *   **Example:** `gemini:audit`
+
+### `gemini:improve`
+
+**Action:** Reads a staged markdown file and improves its content.
+
+*   **Workflow:**
+    1.  Identifies all staged `.md` files.
+    2.  For each file, it reads the content and sends it to the Google AI API with a prompt to improve the writing.
+    3.  The prompt will ask the AI to fix grammar and spelling, improve clarity and flow, and suggest better word choices.
+    4.  The improved content will be written back to the file.
+
+*   **Example:** `gemini:improve`

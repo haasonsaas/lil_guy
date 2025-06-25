@@ -68,6 +68,9 @@ async function main() {
     case 'audit':
       await audit();
       break;
+    case 'improve':
+      await improve();
+      break;
     default:
       console.error(chalk.red(`❌ Error: Unknown command "${command}"`));
       process.exit(1);
@@ -282,6 +285,54 @@ async function audit() {
 
   } catch (error) {
     console.error(chalk.red('❌ An error occurred during the audit process:'), error);
+    process.exit(1);
+  }
+}
+
+async function improve() {
+  console.log(chalk.blue('📝 Improving staged markdown files...\n'));
+
+  try {
+    // Get staged markdown files
+    const { stdout: stagedFilesOutput } = await execAsync('git diff --name-only --cached');
+    const stagedFiles = stagedFilesOutput.trim().split('\n');
+    const markdownFiles = stagedFiles.filter(file => file.endsWith('.md') && file.startsWith('src/posts/'));
+
+    if (markdownFiles.length === 0) {
+      console.log(chalk.green('✅ No staged markdown posts to improve.'));
+      return;
+    }
+
+    console.log(chalk.yellow(`Found ${markdownFiles.length} staged markdown posts to improve:`));
+    markdownFiles.forEach(file => console.log(chalk.gray(`  - ${file}`)));
+    console.log('\n');
+
+    for (const file of markdownFiles) {
+      console.log(chalk.cyan(`Improving ${file}...`));
+      const fileContent = await fs.readFile(file, 'utf-8');
+      const { data: frontmatter, content } = matter(fileContent);
+
+      const prompt = `
+        You are an expert copy editor for a technical blog.
+        Your task is to improve the following blog post by fixing grammar and spelling, improving clarity and flow, and suggesting better word choices. 
+        Do not change the markdown formatting. Only return the improved content.
+
+        **Content:**
+        ${content}
+      `;
+
+      const improvedContent = await callGoogleAI(prompt);
+
+      const newFileContent = `---\n${Object.entries(frontmatter).map(([key, value]) => `${key}: ${JSON.stringify(value)}`).join('\n')}---\n\n${improvedContent}`;
+
+      await fs.writeFile(file, newFileContent);
+      console.log(chalk.green(`✅ Improved ${file}\n`));
+    }
+
+    console.log(chalk.green('\n Improvement complete. All staged files have been improved!'));
+
+  } catch (error) {
+    console.error(chalk.red('❌ An error occurred during the improvement process:'), error);
     process.exit(1);
   }
 }
