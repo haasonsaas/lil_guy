@@ -137,70 +137,136 @@
   transition-duration: 150ms;
 }
 
-/* Theme-aware syntax highlighting with Catppuccin */
-/* Light mode: Catppuccin Latte */
-:root {
-  --ctp-latte-base: #eff1f5;
-  --ctp-latte-mantle: #e6e9ef;
-  --ctp-latte-crust: #dce0e8;
-  --ctp-latte-text: #4c4f69;
+/* Prism.js syntax highlighting customization */
+/* Override Prism Tomorrow theme for consistent sizing */
+pre[class*="language-"],
+code[class*="language-"] {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace !important;
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+  -moz-tab-size: 2 !important;
+  -o-tab-size: 2 !important;
+  tab-size: 2 !important;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
 }
 
-/* Dark mode: Catppuccin Mocha */
-.dark {
-  --ctp-mocha-base: #1e1e2e;
-  --ctp-mocha-mantle: #181825;
-  --ctp-mocha-crust: #11111b;
-  --ctp-mocha-text: #cdd6f4;
+/* Code blocks */
+pre[class*="language-"] {
+  @apply rounded-lg my-6 overflow-hidden;
+  padding: 1rem !important;
+  margin: 1.5rem 0 !important;
 }
 
-/* Apply Catppuccin Latte in light mode */
-:root pre code.hljs,
-:root pre code[class*="language-"] {
-  background: var(--ctp-latte-mantle) !important;
-  color: var(--ctp-latte-text) !important;
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  @apply px-1.5 py-0.5 rounded text-[13px];
+  white-space: normal !important;
 }
 
-/* Apply Catppuccin Mocha in dark mode */
-.dark pre code.hljs,
-.dark pre code[class*="language-"] {
-  background: var(--ctp-mocha-mantle) !important;
-  color: var(--ctp-mocha-text) !important;
+/* Light mode colors */
+:root pre[class*="language-"] {
+  background: #f6f8fa !important;
 }
 
-/* Ensure proper code block styling */
-pre {
-  @apply rounded-lg overflow-hidden my-6 text-sm;
+:root :not(pre) > code[class*="language-"] {
+  background: #f6f8fa !important;
+  color: #24292e !important;
 }
 
-pre code.hljs {
-  @apply p-4 text-[13px] leading-6 font-mono;
+/* Dark mode colors */
+.dark pre[class*="language-"] {
+  background: #1e1e2e !important;
 }
 
-/* Override any conflicting styles */
-.hljs {
-  background: inherit !important;
-  color: inherit !important;
+.dark :not(pre) > code[class*="language-"] {
+  background: #2d2d3d !important;
+  color: #cdd6f4 !important;
 }
 
-/* Ensure consistent font family for code */
-code, pre, .hljs {
-  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+/* Token colors for dark mode */
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.doctype,
+.dark .token.cdata {
+  color: #6c7086 !important;
 }
 
-/* Adjust code block container width */
+.dark .token.punctuation {
+  color: #cdd6f4 !important;
+}
+
+.dark .token.property,
+.dark .token.tag,
+.dark .token.boolean,
+.dark .token.number,
+.dark .token.constant,
+.dark .token.symbol,
+.dark .token.deleted {
+  color: #f38ba8 !important;
+}
+
+.dark .token.selector,
+.dark .token.attr-name,
+.dark .token.string,
+.dark .token.char,
+.dark .token.builtin,
+.dark .token.inserted {
+  color: #a6e3a1 !important;
+}
+
+.dark .token.operator,
+.dark .token.entity,
+.dark .token.url,
+.dark .language-css .token.string,
+.dark .style .token.string {
+  color: #fab387 !important;
+}
+
+.dark .token.atrule,
+.dark .token.attr-value,
+.dark .token.keyword {
+  color: #cba6f7 !important;
+}
+
+.dark .token.function,
+.dark .token.class-name {
+  color: #89b4fa !important;
+}
+
+.dark .token.regex,
+.dark .token.important,
+.dark .token.variable {
+  color: #f9e2af !important;
+}
+
+/* Ensure scrollbars are styled */
+pre[class*="language-"] {
+  overflow: auto !important;
+}
+
+/* Prose overrides */
 .prose pre {
-  max-width: 100%;
+  background-color: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
-/* Fine-tune code block appearance */
 .prose pre code {
-  display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  word-break: normal;
-  word-wrap: normal;
-  white-space: pre;
+  background-color: transparent !important;
+  padding: 0 !important;
+  font-size: inherit !important;
+}
+
+.prose :not(pre) code {
+  @apply bg-muted px-1.5 py-0.5 rounded text-[13px] font-mono;
+}
+
+.prose :not(pre) code::before,
+.prose :not(pre) code::after {
+  content: '' !important;
 }
 
 /* Custom Components */

@@ -5,13 +5,12 @@ import remarkParse from 'remark-parse';
 import remarkMath from 'remark-math';
 import remarkRehype from 'remark-rehype';
 import rehypeKatex from 'rehype-katex';
-import rehypeHighlight from 'rehype-highlight';
+import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeStringify from 'rehype-stringify';
 import DOMPurify from 'dompurify';
 import 'katex/dist/katex.min.css';
-// Import Catppuccin themes
-import '@catppuccin/highlightjs/css/catppuccin-latte.css';
-import '@catppuccin/highlightjs/css/catppuccin-mocha.css';
+// Import Prism themes
+import 'prismjs/themes/prism-tomorrow.css';
 import SoundCloudEmbed from './SoundCloudEmbed';
 import UnitEconomicsCalculator from './UnitEconomicsCalculator';
 import ABTestSimulator from './ABTestSimulator';
@@ -48,9 +47,9 @@ const createProcessor = () => unified()
     errorColor: 'transparent',
     macros: {}
   })
-  .use(rehypeHighlight, {
-    detect: true,
-    ignoreMissing: true
+  .use(rehypePrismPlus, {
+    ignoreMissing: true,
+    showLineNumbers: false
   })
   .use(rehypeStringify, { allowDangerousHtml: true });
 
