@@ -55,7 +55,7 @@ Perfect for sandboxing untrusted code.
 
 Here's the architecture I built:
 
-```
+```text
 ┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
 │  Management API │────▶│  VM Orchestrator │────▶│   Firecracker   │
 │    (gRPC)       │     │  (Rust Service)  │     │   MicroVMs      │

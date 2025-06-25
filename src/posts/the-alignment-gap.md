@@ -27,7 +27,7 @@ In product development, misalignment manifests in distinctive patterns. Let's ex
 
 Status reports show green across the board. Release dates remain unchanged. Requirements appear achievable. Yet teams are silently accumulating technical debt, cutting corners, or working weekends to maintain the illusion of perfect execution.
 
-```
+```text
 Leadership sees: "Feature X is 90% complete, on track for release"
 Reality: Core functionality works in demo environments only, with major performance issues under real user conditions
 ```

@@ -103,7 +103,7 @@ Try:
 
 > “Is there anything specific I could’ve done better on this project?”
 
-> > “Can we align on what success looks like moving forward?”
+> “Can we align on what success looks like moving forward?”
 
 You might still get vague replies, but now you’ve made the gap visible.
 

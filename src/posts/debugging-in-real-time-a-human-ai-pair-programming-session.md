@@ -323,7 +323,7 @@ Claude: "Let me check the code for timestamp generation logic"
 
 **Bad:**
 
-```
+```text
 Me: "Nothing's working"
 Claude: "What specifically isn't working?"
 ```
@@ -369,7 +369,7 @@ Change → Test → Evaluate → Next Change
 
 Not:
 
-```
+```text
 Change 1 + Change 2 + Change 3 → Test → ??? Which one worked?
 ```
 
@@ -407,7 +407,7 @@ Over time, we develop shared understanding:
 
 ### Silent Failure Detection
 
-```bashbash
+```bash
 # Always test compilation explicitly
 bun --bun tsc --noEmit functions/**/*.ts
 
