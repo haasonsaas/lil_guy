@@ -485,6 +485,19 @@
       "framework"
     ]
   },
+  "ai-s-impact-on-software-development": {
+    "title": "AI's Impact on Software Development",
+    "description": "Explore the transformative power of AI in software development.  Discover how AI is revolutionizing coding, testing, and deployment, boosting efficiency and productivity. Learn about the challenges and opportunities ahead for tech leaders.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "AI",
+      "Software Development",
+      "Artificial Intelligence",
+      "DevOps",
+      "Productivity"
+    ]
+  },
   "stop-guessing-in-customer-interviews-a-simulator-for-better-discovery": {
     "title": "Stop Guessing in Customer Interviews: A Simulator for Better Discovery",
     "description": "Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas.",

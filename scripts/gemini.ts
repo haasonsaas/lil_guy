@@ -10,6 +10,41 @@ import path from 'path';
 
 const execAsync = promisify(exec);
 
+// Helper to extract JSON from AI response
+function extractJSON(text: string): unknown {
+  // Try to find JSON within markdown code blocks
+  const jsonMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
+  if (jsonMatch) {
+    return JSON.parse(jsonMatch[1].trim());
+  }
+  
+  // Try to find raw JSON object
+  const objectMatch = text.match(/\{[\s\S]*\}/);
+  if (objectMatch) {
+    return JSON.parse(objectMatch[0]);
+  }
+  
+  // Last resort: try parsing the whole text
+  return JSON.parse(text);
+}
+
+// Manually load .env file
+async function loadEnv() {
+  try {
+    const envPath = path.join(process.cwd(), '.env');
+    const envFile = await fs.readFile(envPath, 'utf-8');
+    const envVars = envFile.split('\n').filter(line => line.trim() !== '' && !line.startsWith('#'));
+    for (const line of envVars) {
+      const [key, value] = line.split('=');
+      if (key && value) {
+        process.env[key.trim()] = value.trim();
+      }
+    }
+  } catch (error) {
+    // .env file not found, but that's okay
+  }
+}
+
 // Helper to call the Google AI API
 async function callGoogleAI(prompt: string): Promise<string> {
   const apiKey = process.env.GOOGLE_AI_API_KEY;
@@ -17,7 +52,7 @@ async function callGoogleAI(prompt: string): Promise<string> {
     throw new Error('GOOGLE_AI_API_KEY is not set in your .env file');
   }
 
-  const apiURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+  const apiURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
   try {
     const response = await fetch(apiURL, {
@@ -44,6 +79,7 @@ async function callGoogleAI(prompt: string): Promise<string> {
 }
 
 async function main() {
+  await loadEnv();
   const { positionals } = parseArgs({
     args: Bun.argv,
     allowPositionals: true,
@@ -112,7 +148,7 @@ async function newDraft(topic: string) {
     const generatedContent = await callGoogleAI(prompt);
 
     // Parse the generated content
-    const parsedContent = JSON.parse(generatedContent);
+    const parsedContent = extractJSON(generatedContent);
 
     const { title, description, tags, outline } = parsedContent;
 
@@ -136,10 +172,6 @@ async function newDraft(topic: string) {
     process.exit(1);
   }
 }
-
-import matter from 'gray-matter';
-import fs from 'fs/promises';
-import path from 'path';
 
 async function social(postSlug: string) {
   console.log(chalk.blue(`🐦 Generating social media snippets for post: "${postSlug}"\n`));
@@ -177,7 +209,7 @@ async function social(postSlug: string) {
     const generatedContent = await callGoogleAI(prompt);
 
     // Parse the generated content
-    const parsedContent = JSON.parse(generatedContent);
+    const parsedContent = extractJSON(generatedContent);
 
     console.log(chalk.green('✨ Here are your social media snippets:\n'));
     console.log(chalk.cyan('--- Twitter/X ---'));
@@ -190,48 +222,6 @@ async function social(postSlug: string) {
     process.exit(1);
   }
 }
-
-import { promisify } from "util";
-import { exec } from "child_process";
-import matter from 'gray-matter';
-import fs from 'fs/promises';
-import path from 'path';
-
-const execAsync = promisify(exec);
-
-// Helper to call the Google AI API
-async function callGoogleAI(prompt: string): Promise<string> {
-  const apiKey = process.env.GOOGLE_AI_API_KEY;
-  if (!apiKey) {
-    throw new Error('GOOGLE_AI_API_KEY is not set in your .env file');
-  }
-
-  const apiURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
-
-  try {
-    const response = await fetch(apiURL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        contents: [{ parts: [{ text: prompt }] }],
-      }),
-    });
-
-    if (!response.ok) {
-      const errorBody = await response.text();
-      throw new Error(`API request failed with status ${response.status}: ${errorBody}`);
-    }
-
-    const data = await response.json();
-    return data.candidates[0].content.parts[0].text;
-  } catch (error) {
-    console.error(chalk.red('❌ Error calling Google AI API:'), error);
-    throw error;
-  }
-}
-
 
 async function audit() {
   console.log(chalk.blue('🔍 Auditing staged markdown files...\n'));

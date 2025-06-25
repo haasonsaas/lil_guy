@@ -180,7 +180,8 @@
       "Bash(env)",
       "Bash(npm search:*)",
       "Bash(gcloud config get-value:*)",
-      "Bash(gcloud services enable:*)"
+      "Bash(gcloud services enable:*)",
+      "mcp__everything__printEnv"
     ],
     "deny": []
   }

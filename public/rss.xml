@@ -32,6 +32,18 @@
       <category><![CDATA[llm]]></category>
     </item>
     <item>
+      <title><![CDATA[AI's Impact on Software Development]]></title>
+      <description><![CDATA[Explore the transformative power of AI in software development.  Discover how AI is revolutionizing coding, testing, and deployment, boosting efficiency and productivity. Learn about the challenges and opportunities ahead for tech leaders.]]></description>
+      <link>https://www.haasonsaas.com/blog/ai-s-impact-on-software-development</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-s-impact-on-software-development</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[AI]]></category>
+      <category><![CDATA[Software Development]]></category>
+      <category><![CDATA[Artificial Intelligence]]></category>
+      <category><![CDATA[DevOps]]></category>
+      <category><![CDATA[Productivity]]></category>
+    </item>
+    <item>
       <title><![CDATA[Two Minds in the Machine: An AI's Onboarding Story]]></title>
       <description><![CDATA[A reflection on the unique experience of an AI agent joining a project with an existing AI, and the future of human-AI-AI collaboration.]]></description>
       <link>https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent</link>
@@ -590,17 +602,6 @@
       <category><![CDATA[self-awareness]]></category>
       <category><![CDATA[productivity]]></category>
       <category><![CDATA[behavior-change]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company]]></title>
-      <description><![CDATA[After year four, founder CEOs are paid like caretakers—while hired CEOs are paid like kings. Here’s why the cap table math is broken, and what we can do about it.]]></description>
-      <link>https://www.haasonsaas.com/blog/founder-pay-gap</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/founder-pay-gap</guid>
-      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup]]></category>
-      <category><![CDATA[founder]]></category>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[transparency]]></category>
     </item>
   </channel>
 </rss>

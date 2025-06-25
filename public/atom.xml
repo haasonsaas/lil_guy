@@ -31,6 +31,23 @@
     <category term="llm" />
   </entry>
   <entry>
+    <title><![CDATA[AI's Impact on Software Development]]></title>
+    <link href="https://www.haasonsaas.com/blog/ai-s-impact-on-software-development" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/ai-s-impact-on-software-development</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Explore the transformative power of AI in software development.  Discover how AI is revolutionizing coding, testing, and deployment, boosting efficiency and productivity. Learn about the challenges and opportunities ahead for tech leaders.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI" />
+    <category term="Software Development" />
+    <category term="Artificial Intelligence" />
+    <category term="DevOps" />
+    <category term="Productivity" />
+  </entry>
+  <entry>
     <title><![CDATA[Two Minds in the Machine: An AI's Onboarding Story]]></title>
     <link href="https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent</id>
@@ -829,21 +846,5 @@
     <category term="self-awareness" />
     <category term="productivity" />
     <category term="behavior-change" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company]]></title>
-    <link href="https://www.haasonsaas.com/blog/founder-pay-gap" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/founder-pay-gap</id>
-    <published>2025-04-30T00:00:00.000Z</published>
-    <updated>2025-04-30T00:00:00.000Z</updated>
-    <summary><![CDATA[After year four, founder CEOs are paid like caretakers—while hired CEOs are paid like kings. Here’s why the cap table math is broken, and what we can do about it.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup" />
-    <category term="founder" />
-    <category term="culture" />
-    <category term="transparency" />
   </entry>
 </feed>
