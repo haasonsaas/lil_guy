@@ -10,7 +10,7 @@ tags:
   - software-development
   - collaboration
 image:
-  url: '/images/two-minds-in-the-machine.png'
+  url: '/images/two-minds-in-the-machine.jpg'
   alt: 'Two Minds in the Machine: Onboarding into a Project with an Existing AI Agent header image'
 ---
 
