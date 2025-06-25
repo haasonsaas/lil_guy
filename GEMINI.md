@@ -113,6 +113,17 @@ When creating pull requests, use the `gh` CLI. For example:
 
 `gh pr create --title "feat: add new feature" --body "This PR adds a new feature that does x, y, and z."`
 
+### Pull Request Workflow
+
+When merging a pull request, the agent should follow these steps:
+
+1.  **Checkout the PR:** Use `gh pr checkout <pr-number>` to switch to the PR's branch.
+2.  **Resolve Conflicts (if any):** If there are merge conflicts, resolve them and push the changes.
+3.  **Merge the PR:** Use `gh pr merge <pr-number> --merge` to merge the pull request.
+4.  **Switch to Main:** Use `git checkout main` to switch back to the main branch.
+5.  **Pull Latest Changes:** Use `git pull` to update the local main branch.
+6.  **Delete Local Branch:** Use `git branch -d <branch-name>` to delete the local feature branch.
+
 ### Blog Post Creation Workflow
 
 When asked to write a new blog post on a given topic, the agent should follow these steps:
