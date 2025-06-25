@@ -27,6 +27,7 @@
     "drafts": "bun run scripts/draft-analyzer.ts",
     "ideas": "bun run scripts/content-ideas.ts",
     "momentum": "bun run scripts/momentum.ts",
+    "gemini": "bun run scripts/gemini.ts",
     "lint": "eslint .",
     "lint:md": "markdownlint-cli2 src/posts/*.md",
     "spell": "cspell src/posts/*.md",
