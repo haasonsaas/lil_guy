@@ -39,9 +39,42 @@ async function newDraft(topic: string) {
   // TODO: Implement new draft logic
 }
 
+import matter from 'gray-matter';
+import fs from 'fs/promises';
+import path from 'path';
+
 async function social(postSlug: string) {
-  console.log(chalk.blue(`🐦 Generating social media snippets for post: "${postSlug}"`));
-  // TODO: Implement social media snippet generation
+  console.log(chalk.blue(`🐦 Generating social media snippets for post: "${postSlug}"\n`));
+
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`);
+    const fileContent = await fs.readFile(filePath, 'utf-8');
+    const { data: frontmatter, content } = matter(fileContent);
+
+    if (!frontmatter.title) {
+      console.error(chalk.red('❌ Error: Post does not have a title.'));
+      process.exit(1);
+    }
+
+    // This is where the magic happens. In a real-world scenario, you'd use a powerful
+    // language model to generate these snippets. For this example, we'll use a template.
+    const summary = frontmatter.description || content.substring(0, 150) + '...';
+    const hashtags = frontmatter.tags ? frontmatter.tags.map((tag: string) => `#${tag.replace(/-/g, '')}`).join(' ') : '#blogging #tech';
+
+    console.log(chalk.green('✨ Here are your social media snippets:\n'));
+
+    // Twitter/X Snippet
+    console.log(chalk.cyan('--- Twitter/X ---'));
+    console.log(`Just published: "${frontmatter.title}"\n\n${summary}\n\nRead more: [LINK_TO_POST]\n\n${hashtags}\n`);
+
+    // LinkedIn Snippet
+    console.log(chalk.cyan('--- LinkedIn ---'));
+    console.log(`New article is live: "${frontmatter.title}"\n\nI'm excited to share my latest post where I explore ${frontmatter.description ? 'the topic of ' + frontmatter.description.toLowerCase() : 'a new topic'}.\n\nKey takeaways:\n- [Key Takeaway 1]\n- [Key Takeaway 2]\n- [Key Takeaway 3]\n\nRead the full post here: [LINK_TO_POST]\n\nWhat are your thoughts?\n\n${hashtags}\n`);
+
+  } catch (error) {
+    console.error(chalk.red('❌ An error occurred while generating social media snippets:'), error);
+    process.exit(1);
+  }
 }
 
 import { promisify } from "util";
