@@ -31,6 +31,19 @@
     <category term="llm" />
   </entry>
   <entry>
+    <title><![CDATA[ai detection hysteria]]></title>
+    <link href="https://www.haasonsaas.com/blog/ai-detection-hysteria" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/ai-detection-hysteria</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[No description provided]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    
+  </entry>
+  <entry>
     <title><![CDATA[AI's Impact on Software Development]]></title>
     <link href="https://www.haasonsaas.com/blog/ai-s-impact-on-software-development" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/ai-s-impact-on-software-development</id>
@@ -129,19 +142,6 @@
     <category term="dspy" />
     <category term="prompting" />
     <category term="open-source" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Hidden Costs of Technical Debt: A Visual Calculator]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator</id>
-    <published>2025-06-24T00:00:00.000Z</published>
-    <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[Visualize how technical debt compounds over time with this interactive velocity tracker. Model the real impact on your team's delivery speed and make data-driven decisions about when to pay it down.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="interactive" />
   </entry>
   <entry>
     <title><![CDATA[Stop Guessing in Customer Interviews: A Simulator for Better Discovery]]></title>

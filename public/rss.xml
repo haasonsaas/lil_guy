@@ -102,14 +102,6 @@
       <category><![CDATA[open-source]]></category>
     </item>
     <item>
-      <title><![CDATA[The Hidden Costs of Technical Debt: A Visual Calculator]]></title>
-      <description><![CDATA[Visualize how technical debt compounds over time with this interactive velocity tracker. Model the real impact on your team's delivery speed and make data-driven decisions about when to pay it down.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt-a-visual-calculator</guid>
-      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[interactive]]></category>
-    </item>
-    <item>
       <title><![CDATA[Stop Guessing in Customer Interviews: A Simulator for Better Discovery]]></title>
       <description><![CDATA[Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas.]]></description>
       <link>https://www.haasonsaas.com/blog/stop-guessing-in-customer-interviews-a-simulator-for-better-discovery</link>
@@ -594,6 +586,18 @@
       <category><![CDATA[user-experience]]></category>
       <category><![CDATA[product-strategy]]></category>
       <category><![CDATA[trust]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Accountability Mirror: Would a Stranger Believe You?]]></title>
+      <description><![CDATA[A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-accountability-mirror</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-accountability-mirror</guid>
+      <pubDate>Wed, 30 Apr 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[mindset]]></category>
+      <category><![CDATA[execution]]></category>
+      <category><![CDATA[self-awareness]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[behavior-change]]></category>
     </item>
   </channel>
 </rss>

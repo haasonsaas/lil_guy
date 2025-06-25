@@ -1,44 +1,46 @@
 #!/usr/bin/env bun
 
-import { parseArgs } from "util";
-import chalk from "chalk";
-import { promisify } from "util";
-import { exec } from "child_process";
-import matter from 'gray-matter';
-import fs from 'fs/promises';
-import { glob } from 'glob';
-import path from 'path';
+import { parseArgs } from 'util'
+import chalk from 'chalk'
+import { promisify } from 'util'
+import { exec } from 'child_process'
+import matter from 'gray-matter'
+import fs from 'fs/promises'
+import { glob } from 'glob'
+import path from 'path'
 
-const execAsync = promisify(exec);
+const execAsync = promisify(exec)
 
 // Helper to extract JSON from AI response
 function extractJSON(text: string): unknown {
   // Try to find JSON within markdown code blocks
-  const jsonMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/);
+  const jsonMatch = text.match(/```(?:json)?\s*\n?([\s\S]*?)\n?```/)
   if (jsonMatch) {
-    return JSON.parse(jsonMatch[1].trim());
+    return JSON.parse(jsonMatch[1].trim())
   }
-  
+
   // Try to find raw JSON object
-  const objectMatch = text.match(/\{[\s\S]*\}/);
+  const objectMatch = text.match(/\{[\s\S]*\}/)
   if (objectMatch) {
-    return JSON.parse(objectMatch[0]);
+    return JSON.parse(objectMatch[0])
   }
-  
+
   // Last resort: try parsing the whole text
-  return JSON.parse(text);
+  return JSON.parse(text)
 }
 
 // Manually load .env file
 async function loadEnv() {
   try {
-    const envPath = path.join(process.cwd(), '.env');
-    const envFile = await fs.readFile(envPath, 'utf-8');
-    const envVars = envFile.split('\n').filter(line => line.trim() !== '' && !line.startsWith('#'));
+    const envPath = path.join(process.cwd(), '.env')
+    const envFile = await fs.readFile(envPath, 'utf-8')
+    const envVars = envFile
+      .split('\n')
+      .filter((line) => line.trim() !== '' && !line.startsWith('#'))
     for (const line of envVars) {
-      const [key, value] = line.split('=');
+      const [key, value] = line.split('=')
       if (key && value) {
-        process.env[key.trim()] = value.trim();
+        process.env[key.trim()] = value.trim()
       }
     }
   } catch (error) {
@@ -48,12 +50,12 @@ async function loadEnv() {
 
 // Helper to call the Google AI API
 async function callGoogleAI(prompt: string): Promise<string> {
-  const apiKey = process.env.GOOGLE_AI_API_KEY;
+  const apiKey = process.env.GOOGLE_AI_API_KEY
   if (!apiKey) {
-    throw new Error('GOOGLE_AI_API_KEY is not set in your .env file');
+    throw new Error('GOOGLE_AI_API_KEY is not set in your .env file')
   }
 
-  const apiURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+  const apiURL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`
 
   try {
     const response = await fetch(apiURL, {
@@ -64,71 +66,81 @@ async function callGoogleAI(prompt: string): Promise<string> {
       body: JSON.stringify({
         contents: [{ parts: [{ text: prompt }] }],
       }),
-    });
+    })
 
     if (!response.ok) {
-      const errorBody = await response.text();
-      throw new Error(`API request failed with status ${response.status}: ${errorBody}`);
+      const errorBody = await response.text()
+      throw new Error(
+        `API request failed with status ${response.status}: ${errorBody}`
+      )
     }
 
-    const data = await response.json();
-    return data.candidates[0].content.parts[0].text;
+    const data = await response.json()
+    return data.candidates[0].content.parts[0].text
   } catch (error) {
-    console.error(chalk.red('❌ Error calling Google AI API:'), error);
-    throw error;
+    console.error(chalk.red('❌ Error calling Google AI API:'), error)
+    throw error
   }
 }
 
 async function main() {
-  await loadEnv();
+  await loadEnv()
   const { positionals } = parseArgs({
     args: Bun.argv,
     allowPositionals: true,
-  });
+  })
 
-  const command = positionals[2];
-  const args = positionals.slice(3);
+  const command = positionals[2]
+  const args = positionals.slice(3)
 
   if (!command) {
-    console.error(chalk.red('❌ Error: Please provide a command.'));
-    console.error('Usage: bun run gemini <command> [args]');
-    process.exit(1);
+    console.error(chalk.red('❌ Error: Please provide a command.'))
+    console.error('Usage: bun run gemini <command> [args]')
+    process.exit(1)
   }
 
   switch (command) {
     case 'new-draft':
-      await newDraft(args.join(' '));
-      break;
+      await newDraft(args.join(' '))
+      break
     case 'social':
-      await social(args.join(' '));
-      break;
+      await social(args.join(' '))
+      break
     case 'audit':
-      await audit();
-      break;
+      await audit()
+      break
     case 'improve':
-      await improve();
-      break;
+      await improve()
+      break
     case 'generate-image':
-      await generateImage(args.join(' '));
-      break;
+      await generateImage(args.join(' '))
+      break
     case 'propose-titles':
-      await proposeTitles(args.join(' '));
-      break;
+      await proposeTitles(args.join(' '))
+      break
     case 'suggest-tags':
-      await suggestTags(args.join(' '));
-      break;
+      await suggestTags(args.join(' '))
+      break
+    case 'create-post':
+      await createPost(args.join(' '))
+      break
+    case 'write-blog-post':
+      await writeBlogPost(args.join(' '))
+      break
     default:
-      console.error(chalk.red(`❌ Error: Unknown command "${command}"`));
-      process.exit(1);
+      console.error(chalk.red(`❌ Error: Unknown command "${command}"`))
+      process.exit(1)
   }
 }
 
 async function newDraft(topic: string) {
-  console.log(chalk.blue(`📝 Creating new draft for topic: "${topic}"\n`));
+  console.log(chalk.blue(`📝 Creating new draft for topic: "${topic}"\n`))
 
   try {
     // 1. Generate a blog post outline using the Google AI API
-    console.log(chalk.yellow('🤖 Generating blog post outline with Google AI...'));
+    console.log(
+      chalk.yellow('🤖 Generating blog post outline with Google AI...')
+    )
     const prompt = `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
@@ -151,50 +163,64 @@ async function newDraft(topic: string) {
         ],
         "outline": "A detailed markdown outline. It must start with an H2 (##) for the introduction, have at least 3-4 main sections using H2s, and end with an H2 for the conclusion. Provide 2-3 bullet points under each heading to guide the writing process."
       }
-    `;
-    const generatedContent = await callGoogleAI(prompt);
+    `
+    const generatedContent = await callGoogleAI(prompt)
 
     // Parse the generated content
-    const parsedContent = extractJSON(generatedContent);
+    const parsedContent = extractJSON(generatedContent)
 
-    const { title, description, tags, outline } = parsedContent;
+    const { title, description, tags, outline } = parsedContent
 
     // 2. Use the existing new-post.ts script
-    console.log(chalk.yellow('\nCreating new post file...'));
-    const command = `bun run scripts/new-post.ts "${title}" --tags "${tags.join(',')}" --description "${description}" --content "${outline}"`;
-    const { stdout, stderr } = await execAsync(command);
+    console.log(chalk.yellow('\nCreating new post file...'))
+    const newPostArgs = [
+      'bun',
+      'run',
+      'scripts/new-post.ts',
+      title,
+      '--tags',
+      tags.join(','),
+      '--description',
+      description,
+      '--content',
+      outline,
+    ]
 
-    if (stderr) {
-      console.error(chalk.red('❌ Error creating new post:'));
-      console.error(stderr);
-      return;
-    }
+    const proc = Bun.spawn(newPostArgs, { stdout: 'pipe' })
+    const output = await new Response(proc.stdout).text()
+    console.log(output)
 
-    console.log(stdout);
+    await proc.exited
 
-    console.log(chalk.green('\n✅ New draft created successfully!'));
-
+    console.log(chalk.green('\n✅ New draft created successfully!'))
   } catch (error) {
-    console.error(chalk.red('❌ An error occurred while creating the new draft:'), error);
-    process.exit(1);
+    console.error(
+      chalk.red('❌ An error occurred while creating the new draft:'),
+      error
+    )
+    process.exit(1)
   }
 }
 
 async function social(postSlug: string) {
-  console.log(chalk.blue(`🐦 Generating social media snippets for post: "${postSlug}"\n`));
+  console.log(
+    chalk.blue(`🐦 Generating social media snippets for post: "${postSlug}"\n`)
+  )
 
   try {
-    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`);
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    const { data: frontmatter, content } = matter(fileContent);
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`)
+    const fileContent = await fs.readFile(filePath, 'utf-8')
+    const { data: frontmatter, content } = matter(fileContent)
 
     if (!frontmatter.title) {
-      console.error(chalk.red('❌ Error: Post does not have a title.'));
-      process.exit(1);
+      console.error(chalk.red('❌ Error: Post does not have a title.'))
+      process.exit(1)
     }
 
     // Generate social media snippets using the Google AI API
-    console.log(chalk.yellow('🤖 Generating social media snippets with Google AI...'));
+    console.log(
+      chalk.yellow('🤖 Generating social media snippets with Google AI...')
+    )
     const prompt = `
       You are a savvy social media strategist for a high-traffic technical blog.
       Your audience consists of experienced product managers, senior software engineers, and technical founders on platforms like Twitter/X and LinkedIn.
@@ -212,103 +238,130 @@ async function social(postSlug: string) {
         "twitter": "A concise and compelling tweet (under 280 characters) that includes a hook, a key insight, and a link to the post. Use 2-3 relevant hashtags.",
         "linkedin": "A more detailed and professional LinkedIn post. Start with a strong hook, provide a brief summary of the post's value, use bullet points for key takeaways, and end with a question to encourage discussion. Use 3-5 relevant hashtags."
       }
-    `;
-    const generatedContent = await callGoogleAI(prompt);
+    `
+    const generatedContent = await callGoogleAI(prompt)
 
     // Parse the generated content
-    const parsedContent = extractJSON(generatedContent);
+    const parsedContent = extractJSON(generatedContent)
 
-    console.log(chalk.green('✨ Here are your social media snippets:\n'));
-    console.log(chalk.cyan('--- Twitter/X ---'));
-    console.log(parsedContent.twitter + '\n');
-    console.log(chalk.cyan('--- LinkedIn ---'));
-    console.log(parsedContent.linkedin + '\n');
-
+    console.log(chalk.green('✨ Here are your social media snippets:\n'))
+    console.log(chalk.cyan('--- Twitter/X ---'))
+    console.log(parsedContent.twitter + '\n')
+    console.log(chalk.cyan('--- LinkedIn ---'))
+    console.log(parsedContent.linkedin + '\n')
   } catch (error) {
-    console.error(chalk.red('❌ An error occurred while generating social media snippets:'), error);
-    process.exit(1);
+    console.error(
+      chalk.red('❌ An error occurred while generating social media snippets:'),
+      error
+    )
+    process.exit(1)
   }
 }
 
 async function audit() {
-  console.log(chalk.blue('🔍 Auditing staged markdown files...\n'));
+  console.log(chalk.blue('🔍 Auditing staged markdown files...\n'))
 
   try {
-    const { stdout: stagedFilesOutput } = await execAsync('git ls-files --cached');    const stagedFiles = stagedFilesOutput.trim().split('\n');    const markdownFiles = stagedFiles.filter(file => file.endsWith('.md') && file.startsWith('src/posts/'));
-
+    const { stdout: stagedFilesOutput } = await execAsync(
+      'git ls-files --cached'
+    )
+    const stagedFiles = stagedFilesOutput.trim().split('\n')
+    const markdownFiles = stagedFiles.filter(
+      (file) => file.endsWith('.md') && file.startsWith('src/posts/')
+    )
 
     if (markdownFiles.length === 0) {
-      console.log(chalk.green('✅ No staged markdown posts to audit.'));
-      return;
+      console.log(chalk.green('✅ No staged markdown posts to audit.'))
+      return
     }
 
-    console.log(chalk.yellow(`Found ${markdownFiles.length} staged markdown posts to audit:`));
-    markdownFiles.forEach(file => console.log(chalk.gray(`  - ${file}`)));
-    console.log('\n');
+    console.log(
+      chalk.yellow(
+        `Found ${markdownFiles.length} staged markdown posts to audit:`
+      )
+    )
+    markdownFiles.forEach((file) => console.log(chalk.gray(`  - ${file}`)))
+    console.log('\n')
 
-    let hasIssues = false;
+    let hasIssues = false
 
     // Run checks
     const checks = [
-      { name: 'Markdown Lint', command: `npx markdownlint-cli2 ${markdownFiles.join(' ')}` },
+      {
+        name: 'Markdown Lint',
+        command: `npx markdownlint-cli2 ${markdownFiles.join(' ')}`,
+      },
       { name: 'Spell Check', command: `npx cspell ${markdownFiles.join(' ')}` },
-      { name: 'SEO Validation', command: `bun run scripts/validateSEO.ts ${markdownFiles.join(' ')}` },
-    ];
+      {
+        name: 'SEO Validation',
+        command: `bun run scripts/validateSEO.ts ${markdownFiles.join(' ')}`,
+      },
+    ]
 
     for (const check of checks) {
-      console.log(chalk.cyan(`Running ${check.name}...`));
+      console.log(chalk.cyan(`Running ${check.name}...`))
       try {
-        const { stdout, stderr } = await execAsync(check.command);
-        if (stdout) console.log(stdout);
+        const { stdout, stderr } = await execAsync(check.command)
+        if (stdout) console.log(stdout)
         if (stderr) {
-          console.error(stderr);
-          hasIssues = true;
+          console.error(stderr)
+          hasIssues = true
         }
-        console.log(chalk.green(`✅ ${check.name} passed.\n`));
+        console.log(chalk.green(`✅ ${check.name} passed.\n`))
       } catch (error) {
-        console.error(chalk.red(`❌ ${check.name} failed:`));
-        const execError = error as { stdout?: string; stderr?: string };
-        if (execError.stdout) console.error(execError.stdout);
-        if (execError.stderr) console.error(execError.stderr);
-        console.log('\n');
-        hasIssues = true;
+        console.error(chalk.red(`❌ ${check.name} failed:`))
+        const execError = error as { stdout?: string; stderr?: string }
+        if (execError.stdout) console.error(execError.stdout)
+        if (execError.stderr) console.error(execError.stderr)
+        console.log('\n')
+        hasIssues = true
       }
     }
 
     if (hasIssues) {
-      console.log(chalk.red('\n Audit complete. Issues found.'));
+      console.log(chalk.red('\n Audit complete. Issues found.'))
     } else {
-      console.log(chalk.green('\n Audit complete. All checks passed!'));
+      console.log(chalk.green('\n Audit complete. All checks passed!'))
     }
-
   } catch (error) {
-    console.error(chalk.red('❌ An error occurred during the audit process:'), error);
-    process.exit(1);
+    console.error(
+      chalk.red('❌ An error occurred during the audit process:'),
+      error
+    )
+    process.exit(1)
   }
 }
 
 async function improve() {
-  console.log(chalk.blue('📝 Improving staged markdown files...\n'));
+  console.log(chalk.blue('📝 Improving staged markdown files...\n'))
 
   try {
-    const { stdout: stagedFilesOutput } = await execAsync('git ls-files --cached');
-    const stagedFiles = stagedFilesOutput.trim().split('\n');
-    const markdownFiles = stagedFiles.filter(file => file.endsWith('.md') && file.startsWith('src/posts/'));
-
+    const { stdout: stagedFilesOutput } = await execAsync(
+      'git ls-files --cached'
+    )
+    const stagedFiles = stagedFilesOutput.trim().split('\n')
+    const markdownFilesToImprove = stagedFiles.filter(
+      (file) => file.endsWith('.md') && file.startsWith('src/posts/')
+    )
 
     if (markdownFilesToImprove.length === 0) {
-      console.log(chalk.green('✅ No staged markdown posts to improve.'));
-      return;
+      console.log(chalk.green('✅ No staged markdown posts to improve.'))
+      return
     }
 
-    console.log(chalk.yellow(`Found ${markdownFiles.length} staged markdown posts to improve:`));
-    markdownFiles.forEach(file => console.log(chalk.gray(`  - ${file}`)));
-    console.log('\n');
-
-    for (const file of markdownFiles) {
-      console.log(chalk.cyan(`Improving ${file}...`));
-      const fileContent = await fs.readFile(file, 'utf-8');
-      const { data: frontmatter, content } = matter(fileContent);
+    console.log(
+      chalk.yellow(
+        `Found ${markdownFilesToImprove.length} staged markdown posts to improve:`
+      )
+    )
+    markdownFilesToImprove.forEach((file) =>
+      console.log(chalk.gray(`  - ${file}`))
+    )
+    console.log('\n')
+    for (const file of markdownFilesToImprove) {
+      console.log(chalk.cyan(`Improving ${file}...`))
+      const fileContent = await fs.readFile(file, 'utf-8')
+      const { data: frontmatter, content } = matter(fileContent)
 
       const prompt = `
         You are an expert copy editor for a technical blog.
@@ -317,39 +370,45 @@ async function improve() {
 
         **Content:**
         ${content}
-      `;
+      `
 
-      const improvedContent = await callGoogleAI(prompt);
+      const improvedContent = await callGoogleAI(prompt)
 
-      const newFileContent = `---\n${Object.entries(frontmatter).map(([key, value]) => `${key}: ${JSON.stringify(value)}`).join('\n')}---\n\n${improvedContent}`;
+      const newFileContent = matter.stringify(improvedContent, frontmatter)
 
-      await fs.writeFile(file, newFileContent);
-      console.log(chalk.green(`✅ Improved ${file}\n`));
+      await fs.writeFile(file, newFileContent)
+      console.log(chalk.green(`✅ Improved ${file}\n`))
     }
 
-    console.log(chalk.green('\n Improvement complete. All staged files have been improved!'));
-
+    console.log(
+      chalk.green(
+        '\n Improvement complete. All staged files have been improved!'
+      )
+    )
   } catch (error) {
-    console.error(chalk.red('❌ An error occurred during the improvement process:'), error);
-    process.exit(1);
+    console.error(
+      chalk.red('❌ An error occurred during the improvement process:'),
+      error
+    )
+    process.exit(1)
   }
 }
 
 async function generateImage(postSlug: string) {
-  console.log(chalk.blue(`🎨 Generating image for post: "${postSlug}"\n`));
+  console.log(chalk.blue(`🎨 Generating image for post: "${postSlug}"\n`))
 
   try {
-    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`);
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    const { data: frontmatter } = matter(fileContent);
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`)
+    const fileContent = await fs.readFile(filePath, 'utf-8')
+    const { data: frontmatter } = matter(fileContent)
 
     if (!frontmatter.title) {
-      console.error(chalk.red('❌ Error: Post does not have a title.'));
-      process.exit(1);
+      console.error(chalk.red('❌ Error: Post does not have a title.'))
+      process.exit(1)
     }
 
     // 1. Generate a prompt for the text-to-image model
-    console.log(chalk.yellow('🤖 Generating image prompt with Google AI...'));
+    console.log(chalk.yellow('🤖 Generating image prompt with Google AI...'))
     const prompt = `
       You are a creative director for a technical blog.
       Your task is to generate a short, descriptive prompt for a text-to-image model.
@@ -360,56 +419,61 @@ async function generateImage(postSlug: string) {
 
       The prompt should be abstract and visually interesting. Do not include any text in the prompt.
       The output should be a single line of text.
-    `;
-    const imagePrompt = await callGoogleAI(prompt);
-    console.log(chalk.gray(`Image prompt: ${imagePrompt}`));
+    `
+    const imagePrompt = await callGoogleAI(prompt)
+    console.log(chalk.gray(`Image prompt: ${imagePrompt}`))
 
     // 2. Call the text-to-image API (placeholder)
-    console.log(chalk.yellow('\n🎨 Calling text-to-image API...'));
-    const imageUrl = `https://source.unsplash.com/1200x630/?${encodeURIComponent(imagePrompt)}`;
-    console.log(chalk.gray(`Image URL: ${imageUrl}`));
+    console.log(chalk.yellow('\n🎨 Calling text-to-image API...'))
+    const imageUrl = `https://source.unsplash.com/1200x630/?${encodeURIComponent(imagePrompt)}`
+    console.log(chalk.gray(`Image URL: ${imageUrl}`))
 
     // 3. Download the image and save it to the public/generated directory
-    console.log(chalk.yellow('\n💾 Downloading and saving image...'));
-    const response = await fetch(imageUrl);
+    console.log(chalk.yellow('\n💾 Downloading and saving image...'))
+    const response = await fetch(imageUrl)
     if (!response.body) {
-      throw new Error('Failed to download image');
+      throw new Error('Failed to download image')
     }
-    const imageBuffer = Buffer.from(await response.arrayBuffer());
-    const imageName = `${postSlug}.png`;
-    const imagePath = path.join(process.cwd(), 'public', 'generated', imageName);
-    await fs.writeFile(imagePath, imageBuffer);
-    console.log(chalk.green(`✅ Image saved to ${imagePath}`));
+    const imageBuffer = Buffer.from(await response.arrayBuffer())
+    const imageName = `${postSlug}.png`
+    const imagePath = path.join(process.cwd(), 'public', 'generated', imageName)
+    await fs.writeFile(imagePath, imageBuffer)
+    console.log(chalk.green(`✅ Image saved to ${imagePath}`))
 
     // 4. Update the blog post's frontmatter
-    console.log(chalk.yellow('\n📝 Updating frontmatter...'));
+    console.log(chalk.yellow('\n📝 Updating frontmatter...'))
     const newFrontmatter = {
       ...frontmatter,
       image: {
         url: `/generated/${imageName}`,
         alt: frontmatter.title,
       },
-    };
-    const newFileContent = `---\n${Object.entries(newFrontmatter).map(([key, value]) => `${key}: ${JSON.stringify(value)}`).join('\n')}---\n\n${matter(fileContent).content}`;
-    await fs.writeFile(filePath, newFileContent);
-    console.log(chalk.green('✅ Frontmatter updated successfully!'));
+    }
+    const newFileContent = matter.stringify(
+      matter(fileContent).content,
+      newFrontmatter
+    )
+    await fs.writeFile(filePath, newFileContent)
+    console.log(chalk.green('✅ Frontmatter updated successfully!'))
 
-    console.log(chalk.green('\n Image generation complete!'));
-
+    console.log(chalk.green('\n Image generation complete!'))
   } catch (error) {
-    console.error(chalk.red('❌ An error occurred during image generation:'), error);
-    process.exit(1);
+    console.error(
+      chalk.red('❌ An error occurred during image generation:'),
+      error
+    )
+    process.exit(1)
   }
 }
 
-main().catch(console.error);
+main().catch(console.error)
 
 async function proposeTitles(topic: string) {
-  console.log(chalk.blue(`📝 Proposing titles for topic: "${topic}"\n`));
+  console.log(chalk.blue(`📝 Proposing titles for topic: "${topic}"\n`))
 
   try {
     // 1. Generate a list of titles using the Google AI API
-    console.log(chalk.yellow('🤖 Generating titles with Google AI...'));
+    console.log(chalk.yellow('🤖 Generating titles with Google AI...'))
     const prompt = `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
@@ -428,38 +492,40 @@ async function proposeTitles(topic: string) {
           "And so on..."
         ]
       }
-    `;
-    const generatedContent = await callGoogleAI(prompt);
+    `
+    const generatedContent = await callGoogleAI(prompt)
 
     // Parse the generated content
-    const parsedContent = extractJSON(generatedContent);
+    const parsedContent = extractJSON(generatedContent)
 
-    console.log(chalk.green('✨ Here are your title suggestions:\n'));
+    console.log(chalk.green('✨ Here are your title suggestions:\n'))
     parsedContent.titles.forEach((title: string) => {
-      console.log(chalk.cyan(`- ${title}`));
-    });
-
+      console.log(chalk.cyan(`- ${title}`))
+    })
   } catch (error) {
-    console.error(chalk.red('❌ An error occurred while proposing titles:'), error);
-    process.exit(1);
+    console.error(
+      chalk.red('❌ An error occurred while proposing titles:'),
+      error
+    )
+    process.exit(1)
   }
 }
 
 async function suggestTags(postSlug: string) {
-  console.log(chalk.blue(`📝 Suggesting tags for post: "${postSlug}"\n`));
+  console.log(chalk.blue(`📝 Suggesting tags for post: "${postSlug}"\n`))
 
   try {
-    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`);
-    const fileContent = await fs.readFile(filePath, 'utf-8');
-    const { data: frontmatter, content } = matter(fileContent);
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`)
+    const fileContent = await fs.readFile(filePath, 'utf-8')
+    const { data: frontmatter, content } = matter(fileContent)
 
     if (!frontmatter.title) {
-      console.error(chalk.red('❌ Error: Post does not have a title.'));
-      process.exit(1);
+      console.error(chalk.red('❌ Error: Post does not have a title.'))
+      process.exit(1)
     }
 
     // Generate a list of tags using the Google AI API
-    console.log(chalk.yellow('🤖 Generating tags with Google AI...'));
+    console.log(chalk.yellow('🤖 Generating tags with Google AI...'))
     const prompt = `
       You are a world-class content strategist and writer for a top-tier technical blog.
       Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
@@ -482,19 +548,134 @@ async function suggestTags(postSlug: string) {
           "tag-five"
         ]
       }
-    `;
-    const generatedContent = await callGoogleAI(prompt);
+    `
+    const generatedContent = await callGoogleAI(prompt)
 
     // Parse the generated content
-    const parsedContent = extractJSON(generatedContent);
+    const parsedContent = extractJSON(generatedContent)
 
-    console.log(chalk.green('✨ Here are your tag suggestions:\n'));
+    console.log(chalk.green('✨ Here are your tag suggestions:\n'))
     parsedContent.tags.forEach((tag: string) => {
-      console.log(chalk.cyan(`- ${tag}`));
-    });
-
+      console.log(chalk.cyan(`- ${tag}`))
+    })
   } catch (error) {
-    console.error(chalk.red('❌ An error occurred while suggesting tags:'), error);
-    process.exit(1);
+    console.error(
+      chalk.red('❌ An error occurred while suggesting tags:'),
+      error
+    )
+    process.exit(1)
+  }
+}
+
+async function createPost(topic: string) {
+  console.log(chalk.blue(`📝 Creating new post for topic: "${topic}"\n`))
+
+  try {
+    // 1. Generate a blog post outline using the Google AI API
+    console.log(chalk.yellow('🤖 Generating blog post with Google AI...'))
+    const prompt = `
+      You are a world-class content strategist and writer for a top-tier technical blog.
+      Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
+
+      Your task is to generate a compelling, well-structured blog post for the following topic.
+
+      **Topic:** "${topic}"
+
+      Please provide the following in a clear, structured JSON format. Do not include any text outside of the JSON object.
+
+      {
+        "title": "A catchy, SEO-friendly title (under 60 characters).",
+        "description": "A meta description (120-160 characters) that summarizes the post and entices readers.",
+        "tags": [
+          "tag-one",
+          "tag-two",
+          "tag-three",
+          "tag-four",
+          "tag-five"
+        ],
+        "content": "The full blog post in markdown format. It should be well-structured, with a clear introduction, main body, and conclusion. Use markdown for formatting."
+      }
+    `
+    const generatedContent = await callGoogleAI(prompt)
+
+    // Parse the generated content
+    const parsedContent = extractJSON(generatedContent)
+
+    const { title, description, tags, content } = parsedContent
+
+    // 2. Use the existing new-post.ts script
+    console.log(chalk.yellow('\nCreating new post file...'))
+    const newPostArgs = [
+      'bun',
+      'run',
+      'scripts/new-post.ts',
+      title,
+      '--tags',
+      tags.join(','),
+      '--description',
+      description,
+      '--content',
+      content,
+    ]
+
+    const proc = Bun.spawn(newPostArgs, { stdout: 'pipe' })
+    const output = await new Response(proc.stdout).text()
+    console.log(output)
+
+    await proc.exited
+
+    console.log(chalk.green('\n✅ New post created successfully!'))
+  } catch (error) {
+    console.error(
+      chalk.red('❌ An error occurred while creating the new post:'),
+      error
+    )
+    process.exit(1)
+  }
+}
+
+async function writeBlogPost(postSlug: string) {
+  console.log(chalk.blue(`📝 Writing full blog post for: "${postSlug}"\n`))
+
+  try {
+    const filePath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`)
+    const fileContent = await fs.readFile(filePath, 'utf-8')
+    const { data: frontmatter, content } = matter(fileContent)
+
+    if (!frontmatter.title) {
+      console.error(chalk.red('❌ Error: Post does not have a title.'))
+      process.exit(1)
+    }
+
+    // Generate the full blog post using the Google AI API
+    console.log(chalk.yellow('🤖 Generating full blog post with Google AI...'))
+    const prompt = `
+      You are a world-class content strategist and writer for a top-tier technical blog.
+      Your audience consists of experienced product managers, senior software engineers, and technical founders. They are busy, skeptical, and value practical, actionable insights over fluff.
+
+      Your task is to write a complete, high-quality blog post based on the following outline.
+      The tone should be professional yet engaging, and the content should be detailed and insightful.
+
+      **Title:** "${frontmatter.title}"
+      **Description:** "${frontmatter.description}"
+      **Outline:**
+      ${content}
+
+      Please write the full blog post in markdown format. Do not include the title, description, or tags in the output. Only return the full blog post content.
+    `
+    const generatedContent = await callGoogleAI(prompt)
+
+    const newFileContent = matter.stringify(generatedContent, frontmatter)
+
+    await fs.writeFile(filePath, newFileContent)
+    console.log(
+      chalk.green(`✅ Successfully wrote full blog post to ${filePath}`)
+    )
+  } catch (error) {
+    console.error(
+      chalk.red('❌ An error occurred while writing the blog post:'),
+      error
+    )
+    process.exit(1)
   }
 }
