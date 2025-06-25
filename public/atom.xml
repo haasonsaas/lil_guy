@@ -170,10 +170,9 @@
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="engineering" />
     <category term="technical-debt" />
-    <category term="productivity" />
-    <category term="interactive" />
+    <category term="engineering" />
+    <category term="product" />
   </entry>
   <entry>
     <title><![CDATA[25 Posts in 7 Days: Inside an AI-Powered Writing Sprint]]></title>
@@ -400,8 +399,7 @@
     </author>
     <category term="technical-debt" />
     <category term="engineering" />
-    <category term="velocity" />
-    <category term="management" />
+    <category term="product" />
   </entry>
   <entry>
     <title><![CDATA[Why Your A/B Tests Are Lying to You]]></title>
@@ -463,10 +461,10 @@
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="fluid-dynamics" />
     <category term="webgl" />
-    <category term="physics" />
+    <category term="graphics" />
     <category term="creative-coding" />
+    <category term="physics" />
   </entry>
   <entry>
     <title><![CDATA[The Unit Economics That Actually Matter]]></title>
@@ -512,9 +510,9 @@
       <email>jonathan@haasonsaas.com</email>
     </author>
     <category term="webgl" />
-    <category term="hdr" />
+    <category term="graphics" />
     <category term="creative-coding" />
-    <category term="experiments" />
+    <category term="hdr" />
   </entry>
   <entry>
     <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
@@ -528,9 +526,7 @@
       <email>jonathan@haasonsaas.com</email>
     </author>
     <category term="webgl" />
-    <category term="javascript" />
     <category term="graphics" />
-    <category term="experiments" />
     <category term="creative-coding" />
   </entry>
   <entry>

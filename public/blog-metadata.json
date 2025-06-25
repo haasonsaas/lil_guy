@@ -137,7 +137,7 @@
     "description": "Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-19",
-    "tags": ["technical-debt", "engineering", "velocity", "management"]
+    "tags": ["technical-debt", "engineering", "product"]
   },
   "ocode": {
     "title": "OCode: Why I Built My Own Claude Code (and Why You Might Too)",
@@ -448,7 +448,7 @@
     "description": "Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for your team.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-24",
-    "tags": ["engineering", "technical-debt", "productivity", "interactive"]
+    "tags": ["technical-debt", "engineering", "product"]
   },
   "the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic": {
     "title": "The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic",
@@ -536,7 +536,7 @@
     "description": "Deep dive into creating realistic liquid metal fluid dynamics using metaballs, surface tension, and real-time rendering",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-19",
-    "tags": ["fluid-dynamics", "webgl", "physics", "creative-coding"]
+    "tags": ["webgl", "graphics", "creative-coding", "physics"]
   },
   "premature-abstraction": {
     "title": "The Abstraction Trap: When Clean Code Goes Wrong",
@@ -853,7 +853,7 @@
     "description": "How to create true HDR holographic foil effects that push beyond standard RGB limits on modern displays",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-19",
-    "tags": ["webgl", "hdr", "creative-coding", "experiments"]
+    "tags": ["webgl", "graphics", "creative-coding", "hdr"]
   },
   "confidence-cliff": {
     "title": "The Confidence Cliff: Why Overcertainty Kills Good Decisions",
@@ -1027,13 +1027,7 @@
     "description": "How I built 5 immersive WebGL experiments showcasing real-time graphics, physics simulations, and algorithmic creativity",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-19",
-    "tags": [
-      "webgl",
-      "javascript",
-      "graphics",
-      "experiments",
-      "creative-coding"
-    ]
+    "tags": ["webgl", "graphics", "creative-coding"]
   },
   "beyond-simple-prompts-production-grade-llm-techniques-with-dspy": {
     "title": "Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy",
@@ -1073,7 +1067,7 @@
     "description": "A framework for understanding and measuring the real impact of technical debt on engineering velocity and product development",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11T00:00:00.000Z",
-    "tags": ["engineering", "product", "strategy", "management"]
+    "tags": ["technical-debt", "engineering", "product"]
   },
   "thinking-frameworks": {
     "title": "Thinking Frameworks: Tools for Better Decision Making",

@@ -372,9 +372,14 @@ Change → Test → Evaluate → Next Change
 
 Not:
 
+````text
+Not:
+
 ```text
 Change 1 + Change 2 + Change 3 → Test → ??? Which one worked?
-```
+````
+
+````
 
 ## Advanced Collaboration Techniques
 
@@ -419,7 +424,7 @@ curl -H "Cache-Control: no-cache" https://site.com/api/endpoint
 
 # Compare expected vs actual structure
 diff <(cat local-function.ts) <(curl api-source-map)
-```
+````
 
 ### Systematic Debugging Checklist
 

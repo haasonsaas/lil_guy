@@ -126,10 +126,9 @@
       <link>https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</guid>
       <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[engineering]]></category>
       <category><![CDATA[technical-debt]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[interactive]]></category>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[product]]></category>
     </item>
     <item>
       <title><![CDATA[25 Posts in 7 Days: Inside an AI-Powered Writing Sprint]]></title>
@@ -286,8 +285,7 @@
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
       <category><![CDATA[technical-debt]]></category>
       <category><![CDATA[engineering]]></category>
-      <category><![CDATA[velocity]]></category>
-      <category><![CDATA[management]]></category>
+      <category><![CDATA[product]]></category>
     </item>
     <item>
       <title><![CDATA[Why Your A/B Tests Are Lying to You]]></title>
@@ -329,10 +327,10 @@
       <link>https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[fluid-dynamics]]></category>
       <category><![CDATA[webgl]]></category>
-      <category><![CDATA[physics]]></category>
+      <category><![CDATA[graphics]]></category>
       <category><![CDATA[creative-coding]]></category>
+      <category><![CDATA[physics]]></category>
     </item>
     <item>
       <title><![CDATA[The Unit Economics That Actually Matter]]></title>
@@ -363,9 +361,9 @@
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
       <category><![CDATA[webgl]]></category>
-      <category><![CDATA[hdr]]></category>
+      <category><![CDATA[graphics]]></category>
       <category><![CDATA[creative-coding]]></category>
-      <category><![CDATA[experiments]]></category>
+      <category><![CDATA[hdr]]></category>
     </item>
     <item>
       <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
@@ -374,9 +372,7 @@
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
       <category><![CDATA[webgl]]></category>
-      <category><![CDATA[javascript]]></category>
       <category><![CDATA[graphics]]></category>
-      <category><![CDATA[experiments]]></category>
       <category><![CDATA[creative-coding]]></category>
     </item>
     <item>
