@@ -156,31 +156,15 @@ function validatePostSEO(frontmatter: Record<string, unknown>, content: string, 
   }
 
   // Heading structure validation
-  const headings = content.match(/^#{1,6}\s+.+$/gm) || [];
+  const headings = content.match(/^#{2,6}\s+.+$/gm) || [];
   const h1Count = (content.match(/^#\s+.+$/gm) || []).length;
   
-  if (h1Count === 0) {
+  if (h1Count > 0) {
     issues.push({
       type: 'warning',
       field: 'content',
-      message: 'No H1 heading found',
-      suggestion: 'Add a main heading (# Title) to improve structure'
-    });
-  } else if (h1Count > 1) {
-    issues.push({
-      type: 'warning',
-      field: 'content',
-      message: 'Multiple H1 headings found',
-      suggestion: 'Use only one H1 heading per post'
-    });
-  }
-
-  if (headings.length < 2) {
-    issues.push({
-      type: 'warning',
-      field: 'content',
-      message: 'Limited heading structure',
-      suggestion: 'Add more headings to improve readability and SEO'
+      message: 'H1 heading found in content body',
+      suggestion: 'The post title from the frontmatter is automatically used as the H1. Use H2 (##) and below for content headings.'
     });
   }
 
