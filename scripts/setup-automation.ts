@@ -134,8 +134,9 @@ class AutomationSetup {
     console.log()
 
     console.log(chalk.bold.green('🎯 Automation Schedule:'))
-    console.log(chalk.gray('   • Tuesdays at 9:00 AM PST (17:00 UTC)'))
-    console.log(chalk.gray('   • Fridays at 9:00 AM PST (17:00 UTC)'))
+    console.log(chalk.gray('   • Daily at 9:00 AM PST (17:00 UTC)'))
+    console.log(chalk.gray('   • Daily at 1:00 PM PST (21:00 UTC)'))
+    console.log(chalk.gray('   • Daily at 6:00 PM PST (02:00 UTC next day)'))
     console.log(
       chalk.gray('   • Manual runs available anytime via GitHub Actions UI')
     )

@@ -10,7 +10,7 @@ The automated blogging pipeline:
 - **Creates full blog posts** using your refined AI prompts
 - **Validates quality** with word count, structure, and content checks
 - **Publishes automatically** 70% of the time (30% go to draft for review)
-- **Runs twice weekly** (Tuesday and Friday at 9 AM PST)
+- **Runs 3 times daily** (9 AM, 1 PM, and 6 PM PST)
 - **Fails gracefully** with issue creation and notifications
 
 ## 📋 Setup Instructions
@@ -27,7 +27,7 @@ GOOGLE_AI_API_KEY=your_google_ai_api_key_here
 
 The workflow is located at `.github/workflows/auto-blog-generation.yml` and runs:
 
-- **Scheduled**: Tuesdays and Fridays at 9 AM PST (17:00 UTC)
+- **Scheduled**: 3 times daily at 9 AM, 1 PM, and 6 PM PST
 - **Manual**: Via GitHub Actions UI with optional topic override
 
 ### 3. Test Locally
@@ -78,11 +78,13 @@ The system uses several intelligent strategies:
 ### Scheduling
 
 ```yaml
-# Current schedule (twice weekly)
-- cron: '0 17 * * 2,5' # Tue/Fri at 9 AM PST
+# Current schedule (3 times daily)
+- cron: '0 17 * * *' # 9 AM PST
+- cron: '0 21 * * *' # 1 PM PST
+- cron: '0 2 * * *' # 6 PM PST
 
 # Alternative schedules:
-# Daily: '0 17 * * *'
+# Daily once: '0 17 * * *'
 # Weekly: '0 17 * * 1'
 # Twice weekly: '0 17 * * 2,5'
 ```

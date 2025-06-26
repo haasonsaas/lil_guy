@@ -201,7 +201,7 @@ class AutoBlogTester {
       console.log(chalk.green(`  ✅ Draft created: ${slug}`))
 
       // Write full content
-      await execAsync(`bun scripts/gemini.ts write-post "${slug}"`)
+      await execAsync(`bun scripts/gemini.ts write-blog-post "${slug}"`)
       console.log(chalk.green(`  ✅ Full post written`))
 
       return slug
