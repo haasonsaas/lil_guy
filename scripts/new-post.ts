@@ -117,7 +117,7 @@ const generateFrontmatter = (
   // Add image placeholder
   yamlContent += `image:
   url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: '${title} header image'
+  alt: "${title.replace(/"/g, '\\"')} header image"
 ---`
 
   return yamlContent
