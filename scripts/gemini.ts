@@ -282,7 +282,10 @@ class GoogleAIClient {
     this.apiKey = apiKey
   }
 
-  async generateContent(prompt: string): Promise<string> {
+  async generateContent(
+    prompt: string,
+    useStructuredOutput: boolean = false
+  ): Promise<string> {
     // Check cache first
     const cacheKey = this.getCacheKey(prompt)
     const cached = this.cache.get(cacheKey)
@@ -295,7 +298,7 @@ class GoogleAIClient {
     await this.enforceRateLimit()
 
     // Make request with retry logic
-    const result = await this.makeRequestWithRetry(prompt)
+    const result = await this.makeRequestWithRetry(prompt, useStructuredOutput)
 
     // Cache the result
     this.cache.set(cacheKey, result)
@@ -320,13 +323,16 @@ class GoogleAIClient {
     this.lastRequestTime = Date.now()
   }
 
-  private async makeRequestWithRetry(prompt: string): Promise<string> {
+  private async makeRequestWithRetry(
+    prompt: string,
+    useStructuredOutput: boolean = false
+  ): Promise<string> {
     const { maxRetries, baseDelay, maxDelay, backoffFactor } = CONFIG.API.RETRY
     let lastError: Error
 
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
       try {
-        return await this.makeRequest(prompt)
+        return await this.makeRequest(prompt, useStructuredOutput)
       } catch (error) {
         lastError = error as Error
 
@@ -358,20 +364,56 @@ class GoogleAIClient {
     throw lastError!
   }
 
-  private async makeRequest(prompt: string): Promise<string> {
+  private async makeRequest(
+    prompt: string,
+    useStructuredOutput: boolean = false
+  ): Promise<string> {
     const controller = new AbortController()
     const timeoutId = setTimeout(() => controller.abort(), CONFIG.API.TIMEOUT)
 
     try {
       const apiURL = `${CONFIG.API.URL}?key=${this.apiKey}`
+
+      const requestBody: {
+        contents: { parts: { text: string }[] }[]
+        generationConfig?: {
+          responseMimeType: string
+          responseSchema: {
+            type: string
+            properties: Record<string, unknown>
+            required: string[]
+          }
+        }
+      } = {
+        contents: [{ parts: [{ text: prompt }] }],
+      }
+
+      // Add structured output configuration for JSON responses
+      if (useStructuredOutput) {
+        requestBody.generationConfig = {
+          responseMimeType: 'application/json',
+          responseSchema: {
+            type: 'object',
+            properties: {
+              title: { type: 'string' },
+              description: { type: 'string' },
+              tags: {
+                type: 'array',
+                items: { type: 'string' },
+              },
+              outline: { type: 'string' },
+            },
+            required: ['title', 'description', 'tags', 'outline'],
+          },
+        }
+      }
+
       const response = await fetch(apiURL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-        }),
+        body: JSON.stringify(requestBody),
         signal: controller.signal,
       })
 
@@ -572,22 +614,17 @@ Create a compelling blog post outline for the topic: "${topic.trim()}"
 - End with a thought-provoking question
 </outline_structure>
 
-<output_format>
-{
-  "title": "A contrarian title under 60 characters",
-  "description": "120-160 character description promising practical insights",
-  "tags": ["tag-one", "tag-two", "tag-three", "tag-four", "tag-five"],
-  "outline": "Detailed markdown outline following the structure above"
-}
-</output_format>
-
 Think step by step:
 1. What's the conventional wisdom about ${topic.trim()}?
 2. What's wrong with that conventional wisdom?
 3. What examples from advisory work support this?
 4. What's the practical alternative?
 
-Generate the outline now.`.trim()
+Create a JSON response with:
+- title: A contrarian title under 60 characters
+- description: 120-160 character description promising practical insights  
+- tags: 5 relevant tags for the topic
+- outline: Detailed markdown outline following the structure above`.trim()
   }
 
   static createSocialMediaSnippets(
@@ -926,7 +963,7 @@ class CommandHandler {
         chalk.yellow('🤖 Generating blog post outline with Google AI...')
       )
       const prompt = PromptTemplates.createBlogOutline(topic)
-      const generatedContent = await this.aiClient.generateContent(prompt)
+      const generatedContent = await this.aiClient.generateContent(prompt, true)
       const parsedContent =
         JSONExtractor.extract<BlogPostOutline>(generatedContent)
 
