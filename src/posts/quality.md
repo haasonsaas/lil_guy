@@ -1,7 +1,7 @@
 ---
 title: 'Quality: The Foundation of Sustainable Growth'
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: '2024-04-11'
 description: 'How to build and maintain quality as a core value in your organization'
 tags:
   - engineering
@@ -35,9 +35,9 @@ them for years:
 
 ## The Foundations That Matter
 
-At ThreatKey, we learned that certain areas of our system demanded
-uncompromising quality from day one. These weren't always obvious at first, but
-they became clear as we scaled:
+Working with security startups, I've learned that certain areas of the system demand
+uncompromising quality from day one. These aren't always obvious at first, but
+they become clear as teams scale:
 
 ### 1. Data Integrity
 
@@ -81,7 +81,7 @@ to treat API design with the respect it deserves:
 ## Quality as a Competitive Advantage
 
 In certain markets, quality itself becomes a key differentiator. For security
-tools like ThreatKey, customers actively evaluate:
+tools, customers actively evaluate:
 
 - System reliability
 - Performance under load

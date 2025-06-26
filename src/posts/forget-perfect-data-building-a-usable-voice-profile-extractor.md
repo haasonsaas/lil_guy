@@ -63,7 +63,7 @@ My system looks for:
 - Contrarian indicators ("conventional wisdom is wrong")
 - Specific framework references (startup bargain, strategic quality)
 - Industry context markers (security, startups, AI)
-- Experience-based examples ("At ThreatKey we...")
+- Experience-based examples ("At one startup I advised...", "In my experience...")
 
 These domain markers are 10x more valuable than generic linguistic features.
 

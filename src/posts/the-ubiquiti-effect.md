@@ -1,8 +1,7 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-23
-title:
-  'The Ubiquiti Effect: Why Enterprise Software Needs a Consumer Revolution'
+pubDate: '2024-11-23'
+title: 'The Ubiquiti Effect: Why Enterprise Software Needs a Consumer Revolution'
 postSlug: the-ubiquiti-effect
 featured: true
 draft: false
@@ -47,7 +46,7 @@ organized and accessible when needed.
 
 ## The Power of Intelligent Progression
 
-At ThreatKey, we discovered that the key to serving both small startups and
+At a security startup I helped scale, we discovered that the key to serving both small startups and
 large enterprises wasn't building different products or even different
 interfaces - it was building an experience that naturally evolved with the
 customer. The security monitoring engine running underneath was equally
@@ -95,7 +94,7 @@ interactions.
 
 Progressive disclosure in enterprise software isn't just about hiding advanced
 features behind "Advanced" tabs. It requires a deep understanding of user
-workflows and maturity models. At ThreatKey, we mapped out common security team
+workflows and maturity models. In my experience advising security companies, I've mapped out common security team
 evolution patterns: from a single developer handling security part-time, to a
 dedicated security engineer, to a full security team with specialized roles.
 
@@ -141,9 +140,9 @@ with their full complexity but carefully manage how that complexity is revealed.
 The initial release might expose only basic functionality, but the underlying
 architecture supports the full feature set from day one.
 
-At ThreatKey, this meant our detection engine was always enterprise-grade, even
-when serving small companies. The difference was in how we presented the alerts
-and configuration options. This approach proved more efficient than trying to
+In practice, this means the detection engine should always be enterprise-grade, even
+when serving small companies. The difference lies in how you present the alerts
+and configuration options. This approach proves more efficient than trying to
 gradually add power to a simplified initial version.
 
 ## A New Framework for Enterprise Software

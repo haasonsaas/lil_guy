@@ -20,7 +20,7 @@ image:
 
 Let's be honest, you've seen the hype. AI content generation is going to revolutionize everything! Bullshit. I saw a startup recently fail, not because their AI sucked – it was actually pretty decent – but because they built the wrong thing. They were so focused on perfect AI-generated marketing copy that they missed the glaring lack of market demand. The reality is, execution trumps perfection every single time.
 
-Forget about chasing the perfect AI-generated blog post. You're building a business, not a robot poetry slam. Lean Startup methodology, people! Focus on a Minimum Viable Product (MVP), get it out there, and iterate based on real-world feedback. This isn't just about AI – it's about building something people actually want. At ThreatKey, we adopted this approach to integrate AI into our threat detection systems. We didn't wait for the "perfect" AI model; we launched with a good-enough solution and improved it based on real threat data. The result? Faster time to market and a product that actually worked.
+Forget about chasing the perfect AI-generated blog post. You're building a business, not a robot poetry slam. Lean Startup methodology, people! Focus on a Minimum Viable Product (MVP), get it out there, and iterate based on real-world feedback. This isn't just about AI – it's about building something people actually want. I recently advised a security startup that adopted this approach to integrate AI into their threat detection systems. They didn't wait for the "perfect" AI model; they launched with a good-enough solution and improved it based on real threat data. The result? Faster time to market and a product that actually worked.
 
 ## Stop Obsessing Over 'Best Practices' (They're Often Wrong)
 
@@ -32,7 +32,7 @@ Instead of blindly following "best practices," embrace iterative development and
 
 You've got this shiny new AI content generation tool, but it doesn't integrate with your existing workflow? That's a problem. This isn't just about AI – it's about improving your overall business processes. I've seen startups waste months wrestling with clunky integrations, killing their momentum. They're so focused on the AI features that they forget the user experience.
 
-Remember, successful integration is about making AI work seamlessly within your existing systems. Prioritize user experience and business process improvements. Start with low-hanging fruit, using agile methodologies. A phased approach lets you focus on areas with the highest impact. We did this at ThreatKey, and it saved us time and money. We didn't try to overhaul everything at once; we started with small, manageable integrations.
+Remember, successful integration is about making AI work seamlessly within your existing systems. Prioritize user experience and business process improvements. Start with low-hanging fruit, using agile methodologies. A phased approach lets you focus on areas with the highest impact. I've seen this pattern work across multiple startups I advise—it saves time and money. Don't try to overhaul everything at once; start with small, manageable integrations.
 
 ## Build a Business, Not a Bot: Human-in-the-Loop is Key
 
