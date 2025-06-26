@@ -208,7 +208,11 @@ jobs:
             private async validateQuality(postSlug: string): Promise<boolean> {
               try {
                 const postPath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`)
-                const content = await fs.readFile(postPath, 'utf-8')
+                let content = await fs.readFile(postPath, 'utf-8')
+                
+                // Fix common markdown linting issues
+                content = await this.fixMarkdownLinting(content)
+                await fs.writeFile(postPath, content, 'utf-8')
                 
                 // Word count check
                 const wordCount = content.split(/\s+/).length
@@ -252,6 +256,20 @@ jobs:
               }
             }
             
+            private async fixMarkdownLinting(content: string): Promise<string> {
+              // Fix MD025 - ensure only one H1 (title in frontmatter counts)
+              content = content.replace(/^# /gm, '## ')
+              
+              // Fix MD037 - remove spaces inside emphasis markers
+              content = content.replace(/\* ([^*]+) \*/g, '*$1*')
+              content = content.replace(/_ ([^_]+) _/g, '_$1_')
+              
+              // Fix MD049 - use underscore for emphasis consistently
+              content = content.replace(/\*([^*]+)\*/g, '_$1_')
+              
+              return content
+            }
+            
           }
 
           const generator = new AutoBlogGenerator()
@@ -271,7 +289,11 @@ jobs:
 
       - name: Create Pull Request with generated content
         run: |
-          git add .
+          # Clean up the script file to avoid linting issues
+          rm -f scripts/auto-blog-generator.ts
+          
+          # Only add the generated blog post and images
+          git add src/posts/*.md public/generated/ || true
 
           # Check if there are changes to commit
           if git diff --staged --quiet; then
