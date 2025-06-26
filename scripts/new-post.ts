@@ -85,6 +85,21 @@ const generateFrontmatter = (
     .replace(/\s+/g, ' ')
     .trim()
 
+  // Helper function to properly escape YAML strings
+  const escapeYamlString = (str: string): string => {
+    // If string contains quotes, apostrophes, or other special chars, use literal block scalar
+    if (
+      str.includes('"') ||
+      str.includes("'") ||
+      str.includes('\n') ||
+      str.length > 80
+    ) {
+      return `|\n    ${str.replace(/\n/g, '\n    ')}`
+    }
+    // For simple strings, use quoted format with escaped quotes
+    return `"${str.replace(/"/g, '\\"')}"`
+  }
+
   const frontmatter: Record<string, string | boolean> = {
     author: 'Jonathan Haas',
     pubDate: today,
@@ -100,7 +115,7 @@ const generateFrontmatter = (
     if (typeof value === 'boolean') {
       yamlContent += `${key}: ${value}\n`
     } else {
-      yamlContent += `${key}: "${value}"\n`
+      yamlContent += `${key}: ${escapeYamlString(value)}\n`
     }
   }
 

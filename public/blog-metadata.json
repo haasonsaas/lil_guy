@@ -437,6 +437,19 @@
     "pubDate": "2025-06-19",
     "tags": ["mathematics", "graphics", "linear-algebra", "shaders", "webgl"]
   },
+  "the-myth-of-fast-growth": {
+    "title": "The Myth of Fast Growth",
+    "description": "Forget the hype! This post challenges conventional startup wisdom with practical, experience-based advice. Learn how to avoid common pitfalls and unlock real growth from a contrarian startup advisor who's seen it all. Discover actionable strategies and surprising truths that will transform your approach.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-26",
+    "tags": [
+      "startup advice",
+      "contrarian",
+      "business strategy",
+      "profitability",
+      "growth hacking"
+    ]
+  },
   "star-power-isnt-enough": {
     "title": "When Star Power Isn't Enough: The GTM Mistake We Keep Making",
     "description": "Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're solving the wrong problem for the wrong people.",

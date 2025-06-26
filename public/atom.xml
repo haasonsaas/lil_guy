@@ -14,6 +14,23 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[The Myth of Fast Growth]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-myth-of-fast-growth" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</id>
+    <published>2025-06-26T00:00:00.000Z</published>
+    <updated>2025-06-26T00:00:00.000Z</updated>
+    <summary><![CDATA[Forget the hype! This post challenges conventional startup wisdom with practical, experience-based advice. Learn how to avoid common pitfalls and unlock real growth from a contrarian startup advisor who's seen it all. Discover actionable strategies and surprising truths that will transform your approach.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="startup advice" />
+    <category term="contrarian" />
+    <category term="business strategy" />
+    <category term="profitability" />
+    <category term="growth hacking" />
+  </entry>
+  <entry>
     <title><![CDATA[Forget Perfect Data: Building a Usable Voice Profile Extractor]]></title>
     <link href="https://www.haasonsaas.com/blog/forget-perfect-data-building-a-usable-voice-profile-extractor" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/forget-perfect-data-building-a-usable-voice-profile-extractor</id>
@@ -827,22 +844,6 @@
     <category term="product-strategy" />
     <category term="conversion" />
     <category term="user-experience" />
-    <category term="growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[Most Startups Don't Have a Growth Problem—They Have a Clarity Problem]]></title>
-    <link href="https://www.haasonsaas.com/blog/clarity" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/clarity</id>
-    <published>2025-05-01T00:00:00.000Z</published>
-    <updated>2025-05-01T00:00:00.000Z</updated>
-    <summary><![CDATA[Growth might be your dashboard's favorite metric, but it's not your startup's biggest obstacle. More often, the real issue is fuzziness—about your customer, your message, your purpose. This post breaks down why clarity, not velocity, is the foundation for real traction.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="product" />
-    <category term="strategy" />
-    <category term="founder" />
     <category term="growth" />
   </entry>
 </feed>
