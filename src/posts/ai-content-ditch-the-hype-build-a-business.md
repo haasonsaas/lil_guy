@@ -2,11 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'AI Content: Ditch the Hype, Build a Business'
-description: >-
-  Forget the AI content generation hype.  Seasoned startup advisor Jonathan Haas
-  reveals why most advice is wrong, sharing battle-tested strategies from years
-  in security and AI.  Get practical steps to integrate AI effectively, not
-  perfectly.
+description: 'Forget the AI content generation hype. Seasoned startup advisor Jonathan Haas reveals why most advice is wrong, sharing battle-tested strategies from years in security and AI. Get practical steps to integrate AI effectively, not perfectly.'
 featured: false
 draft: false
 tags:
