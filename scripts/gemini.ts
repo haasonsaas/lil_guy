@@ -624,7 +624,7 @@ Create a JSON response with:
 - title: A contrarian title under 60 characters
 - description: 120-160 character description promising practical insights  
 - tags: 5 relevant tags for the topic
-- outline: Detailed markdown outline following the structure above`.trim()
+- outline: VERY DETAILED markdown outline with 6-8 main sections, each with 3-4 subsections, designed to result in 1500+ words of final content. Include specific examples, frameworks, and step-by-step processes in the outline.`.trim()
   }
 
   static createSocialMediaSnippets(
@@ -937,7 +937,14 @@ Think through the post structure first:
 3. What actionable insights can readers implement?
 4. How does each section build on the previous one?
 
-Now write the full blog post in markdown format. Do not include the title, description, or tags.
+CRITICAL: This must be a COMPREHENSIVE, IN-DEPTH article of 1500+ words. Each section should be fully developed with:
+- Multiple detailed examples and case studies
+- Step-by-step processes and frameworks
+- Thorough explanations of concepts
+- Specific implementation details
+- Real-world scenarios and outcomes
+
+Write the complete blog post in markdown format. Do not include the title, description, or tags. Expand every point thoroughly - this should be a definitive guide on the topic.
 </task>`.trim()
   }
 

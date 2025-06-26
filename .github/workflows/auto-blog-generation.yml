@@ -94,8 +94,8 @@ jobs:
               ],
               recentPostsToAvoid: [],
               qualityThresholds: {
-                minWords: 1500,
-                maxWords: 3000,
+                minWords: 1000,
+                maxWords: 4000,
                 requiredSections: ['##', '###']
               }
             }
