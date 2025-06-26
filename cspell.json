@@ -316,7 +316,11 @@
     "hotspot",
     "Unrequested",
     "digsite",
-    "touchpoints"
+    "touchpoints",
+    "Projectify",
+    "barebones",
+    "Procfile",
+    "Overengineering"
   ],
   "ignorePaths": [
     "node_modules/**",
