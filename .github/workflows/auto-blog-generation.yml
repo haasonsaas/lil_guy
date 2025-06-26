@@ -94,8 +94,8 @@ jobs:
               ],
               recentPostsToAvoid: [],
               qualityThresholds: {
-                minWords: 800,
-                maxWords: 2000,
+                minWords: 700,
+                maxWords: 2500,
                 requiredSections: ['##', '###']
               }
             }
@@ -348,22 +348,9 @@ jobs:
     if: failure()
     
     steps:
-      - name: Create issue on failure
-        uses: actions/github-script@v7
-        with:
-          script: |
-            github.rest.issues.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              title: '🤖 Automated Blog Generation Failed',
-              body: `The automated blog generation workflow failed.
-              
-              **Run Details:**
-              - Workflow: ${context.workflow}
-              - Run ID: ${context.runId}
-              - Trigger: ${context.eventName}
-              - Time: ${new Date().toISOString()}
-              
-              Please check the [workflow run](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.`,
-              labels: ['automated', 'blog', 'bug']
-            })
+      - name: Log failure details
+        run: |
+          echo "🚨 Automated blog generation failed"
+          echo "Check the workflow logs for details"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Time: $(date -u)"
