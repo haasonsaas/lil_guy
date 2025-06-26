@@ -172,7 +172,7 @@ jobs:
               const ideas = JSON.parse(stdout.trim())
               
               // Pick a topic that hasn't been covered recently
-              const freshIdeas = ideas.filter((idea: any) => 
+              const freshIdeas = ideas.filter((idea: { title: string }) => 
                 !this.config.recentPostsToAvoid.some(recent => 
                   idea.title.toLowerCase().includes(recent.toLowerCase().replace(/-/g, ' '))
                 )
