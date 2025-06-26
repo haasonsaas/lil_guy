@@ -29,6 +29,12 @@ fi
 echo "📝 Validating blog post frontmatter..."
 modified_posts=$(git diff --cached --name-only | grep "src/posts/.*\.md$" || true)
 if [ -n "$modified_posts" ]; then
+  # Run custom frontmatter validation
+  if ! echo "$modified_posts" | tr '\n' ' ' | xargs bun scripts/validate-frontmatter.ts; then
+    echo "❌ Frontmatter validation failed. Please fix the issues before committing."
+    exit 1
+  fi
+  
   # Build to trigger validation (suppress output unless there are errors)
   if ! bun run build >/dev/null 2>&1; then
     echo "❌ Build failed, likely due to frontmatter validation errors."

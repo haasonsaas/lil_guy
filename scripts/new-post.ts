@@ -76,13 +76,20 @@ const generateFrontmatter = (
     ? options.tags.split(',').map((t: string) => t.trim())
     : []
 
+  // Ensure description is single-line (no multi-line YAML)
+  const description = (
+    options.description ||
+    `${title} - exploring key insights and practical approaches`
+  )
+    .replace(/\n/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+
   const frontmatter: Record<string, string | boolean> = {
     author: 'Jonathan Haas',
     pubDate: today,
     title: title,
-    description:
-      options.description ||
-      `${title} - exploring key insights and practical approaches`,
+    description: description,
     featured: false,
     draft: options.draft,
   }

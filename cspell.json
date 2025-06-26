@@ -292,7 +292,10 @@
     "détailler",
     "Mispricing",
     "Jony",
-    "Collison"
+    "Collison",
+    "WCAG",
+    "didn",
+    "explainability"
   ],
   "ignorePaths": [
     "node_modules/**",
