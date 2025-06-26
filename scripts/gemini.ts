@@ -536,6 +536,8 @@ class PromptTemplates {
       - Emphasize execution over perfection
       - Call out when "best practices" don't apply
       - Use specific examples from ThreatKey, security industry, or startup work
+      
+      IMPORTANT: Every section and point must directly relate to the topic. Do not include tangential observations or unrelated beliefs.
 
       TITLE GUIDELINES:
       - Direct and confident (no hedge words)
@@ -724,13 +726,15 @@ class PromptTemplates {
       - Practical over theoretical - always include specific examples
       - Empathetic to founder/developer struggles without being soft
 
-      CORE BELIEFS TO WEAVE IN:
+      CORE BELIEFS TO WEAVE IN (ONLY when relevant to the topic):
       - Execution over perfection ("Ship ugly, learn fast")
       - Context matters more than best practices
       - Speed of learning > speed of building
       - Transparency builds trust
       - AI amplifies humans, doesn't replace them
-      - Current startup equity system is often broken
+      - Practical experience trumps academic theory
+      - Most "best practices" are context-dependent
+      - Focus on business value, not technical perfection
 
       SIGNATURE PHRASES TO USE NATURALLY:
       - "Here's the thing most people miss..."
@@ -764,6 +768,13 @@ class PromptTemplates {
       - Use Jonathan's signature phrases naturally
       - Keep paragraphs short (2-4 sentences)
       - Use contractions and active voice
+      
+      CRITICAL: 
+      - Stay strictly on topic throughout the post
+      - Only include beliefs/perspectives that directly relate to the topic
+      - Ensure every paragraph flows logically from the previous one
+      - Never insert random observations or unrelated beliefs
+      - The conclusion should summarize the post's main points, not introduce new topics
 
       Please write the full blog post in markdown format. Do not include the title, description, or tags in the output. Only return the full blog post content that authentically sounds like Jonathan Haas.
     `.trim()
