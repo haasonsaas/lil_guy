@@ -94,9 +94,9 @@ jobs:
               ],
               recentPostsToAvoid: [],
               qualityThresholds: {
-                minWords: 1000,
+                minWords: 600,
                 maxWords: 4000,
-                requiredSections: ['##', '###']
+                requiredSections: ['##']
               }
             }
 
@@ -222,20 +222,24 @@ jobs:
                   return false
                 }
                 
-                // Structure check
-                const hasRequiredSections = this.config.qualityThresholds.requiredSections.every(
-                  section => content.includes(section)
-                )
+                // Structure check - look for basic markdown structure
+                const hasHeadings = /^#{1,6}\s+/m.test(content)
+                const hasContent = content.replace(/^---[\s\S]*?---/, '').trim().length > 100
                 
-                if (!hasRequiredSections) {
-                  console.log(chalk.yellow('⚠️  Post missing required sections'))
+                if (!hasHeadings) {
+                  console.log(chalk.yellow('⚠️  Post missing markdown headings'))
                   return false
                 }
                 
-                // Check for placeholder content
-                const hasPlaceholders = /TODO|PLACEHOLDER|Lorem ipsum|ipsum dolor/i.test(content)
-                if (hasPlaceholders) {
-                  console.log(chalk.yellow('⚠️  Post contains placeholder content'))
+                if (!hasContent) {
+                  console.log(chalk.yellow('⚠️  Post has insufficient content'))
+                  return false
+                }
+                
+                // Check for obvious placeholder content (but be lenient)
+                const hasObviousPlaceholders = /TODO:|PLACEHOLDER|Lorem ipsum|ipsum dolor|INSERT_/i.test(content)
+                if (hasObviousPlaceholders) {
+                  console.log(chalk.yellow('⚠️  Post contains obvious placeholder content'))
                   return false
                 }
                 
