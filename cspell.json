@@ -321,7 +321,8 @@
     "barebones",
     "Procfile",
     "Overengineering",
-    "Dynatrace"
+    "Dynatrace",
+    "MVDS"
   ],
   "ignorePaths": [
     "node_modules/**",
