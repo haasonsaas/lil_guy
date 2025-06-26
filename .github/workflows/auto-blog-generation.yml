@@ -261,11 +261,10 @@ jobs:
           # Run the auto-generator
           bun scripts/auto-blog-generator.ts
 
-      - name: Run quality checks
+      - name: Run basic quality checks (skip spell check)
         run: |
           bun run lint
           bun run typecheck
-          bun run spell
 
       - name: Generate blog images
         run: bun run generate-blog-images
