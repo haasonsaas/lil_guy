@@ -616,6 +616,19 @@
       "trust"
     ]
   },
+  "multi-ai-content-orchestration-lessons": {
+    "title": "The Orchestration Dance: What I Learned Building a Multi-AI Content System",
+    "description": "I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here's what actually worked, what didn't, and why most teams are overcomplicating AI orchestration.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "AI",
+      "multi-ai",
+      "content-orchestration",
+      "ai-agents",
+      "developer-experience"
+    ]
+  },
   "bloom-life": {
     "title": "Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness",
     "description": "An in-depth exploration of how the Bloom platform transcends traditional wellness tracking to create a holistic system that adapts to users' lives rather than demanding adaptation from them",
@@ -845,6 +858,19 @@
       "organizational-dynamics"
     ]
   },
+  "ai-content-ditch-the-hype-build-a-business": {
+    "title": "AI Content: Ditch the Hype, Build a Business",
+    "description": "Forget the AI content generation hype.  Seasoned startup advisor Jonathan Haas reveals why most advice is wrong, sharing battle-tested strategies from years in security and AI.  Get practical steps to integrate AI effectively, not perfectly.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "AI",
+      "Content Generation",
+      "Startup Advice",
+      "Product Management",
+      "Software Engineering"
+    ]
+  },
   "performance-reviews": {
     "title": "Performance Reviews: A Guide for Modern Leaders",
     "description": "How to conduct effective performance reviews that drive growth and development while maintaining team morale and engagement",
@@ -989,6 +1015,13 @@
       "systems-thinking"
     ]
   },
+  "my-ai-my-mind-scaling-personalized-ai": {
+    "title": "Scaling the Me Component: How I Built an AI That Thinks Like Me",
+    "description": "I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog posts and created an authenticity validation system that keeps responses true to my contrarian, pragmatic worldview.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": ["AI", "voice-replication", "personalization", "meta", "ai-agents"]
+  },
   "the-time-architects": {
     "title": "The Time Architects: How Visionary Founders Reimagine What's Possible",
     "description": "An introspective exploration of how exceptional founders reshape our understanding of time, innovation, and the boundaries of what organizations can achieve",
@@ -1078,6 +1111,19 @@
       "AI-development",
       "product-security",
       "electron-apps"
+    ]
+  },
+  "forget-perfect-data-building-a-usable-voice-profile-extractor": {
+    "title": "Forget Perfect Data: Building a Usable Voice Profile Extractor",
+    "description": "Stop chasing the mythical 'perfect' dataset. I built a working voice profile extractor with 50 markdown files and regex. Here's why your obsession with data quality is killing your AI project—and what to do instead.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-26",
+    "tags": [
+      "AI",
+      "Voice AI",
+      "Personality Replication",
+      "Startup Engineering",
+      "Data Science"
     ]
   },
   "ai-content-testing-a-data-driven-framework-for-2024": {

@@ -29,25 +29,25 @@ The goal was simple: input a topic, get a complete 780+ word blog post that soun
 
 Here's the actual architecture I built:
 
-**Step 1: Draft Generation (Gemini)**
+### Step 1: Draft Generation (Gemini)
 
 - Generate structured outline with title, description, tags
 - Create 3-4 main sections with key points
 - Output structured YAML frontmatter + outline
 
-**Step 2: Content Generation (Gemini)**
+### Step 2: Content Generation (Gemini)
 
 - Take the outline and write full content
 - Target 780+ words with real substance
 - Maintain consistent voice and perspective
 
-**Step 3: Quality Validation (Claude)**
+### Step 3: Quality Validation (Claude)
 
 - Analyze content for voice consistency
 - Check against Jonathan's writing patterns
 - Provide improvement suggestions
 
-**Step 4: Orchestration Engine**
+### Step 4: Orchestration Engine
 
 - Manage task distribution between AI agents
 - Handle retries and error recovery
@@ -61,13 +61,13 @@ bun scripts/enhanced-pipeline.ts create "Your Topic Here"
 
 ## What Actually Worked (And Why)
 
-**1. Two-Step Content Creation**
+### 1. Two-Step Content Creation
 
 The breakthrough wasn't using multiple models—it was breaking content creation into logical steps. Gemini creates better outlines when that's all it's focused on. Then it writes better content when given its own outline to work from.
 
 Most teams try to do everything in one massive prompt. That's backwards. Break the work down, let each model do what it's best at.
 
-**2. Dead-Simple Task Distribution**
+### 2. Dead-Simple Task Distribution
 
 My orchestration engine is embarrassingly simple:
 
@@ -95,7 +95,7 @@ const contentTask: WorkflowTask = {
 
 No fancy model-switching logic. No dynamic optimization. Just: "Do this, then do that."
 
-**3. Specific Model Strengths**
+### 3. Specific Model Strengths
 
 Through testing, I learned where each model actually excels:
 
@@ -117,19 +117,19 @@ The key insight: don't use both models for the same task. Use them for complemen
 
 ## What Failed Spectacularly
 
-**1. Dynamic Model Selection**
+### 1. Dynamic Model Selection
 
 I initially built logic to choose the "best" model for each task based on topic, length, complexity, etc. Complete waste of time.
 
 The switching overhead killed performance, the decision logic was arbitrary, and I ended up with inconsistent outputs. Fixed model assignment for specific tasks works better.
 
-**2. Complex Prompt Chains**
+### 2. Complex Prompt Chains
 
 I tried building sophisticated prompt templates that would "optimize" based on the topic domain, audience, and desired tone. The prompts became unmaintainable novels.
 
 Simple, clear prompts that tell each model exactly what to do work better than "smart" prompts that try to be clever.
 
-**3. Real-Time Quality Scoring**
+### 3. Real-Time Quality Scoring
 
 I built a complex system to score content quality in real-time and retry with different models if the score was low. It was slow, inconsistent, and mostly useless.
 
@@ -137,7 +137,7 @@ Better approach: define clear success criteria upfront, validate with simple che
 
 ## The Non-Obvious Lessons
 
-**1. Input Quality Beats Model Sophistication**
+### 1. Input Quality Beats Model Sophistication
 
 The single biggest factor in output quality? The topic you give it.
 
@@ -145,7 +145,7 @@ The single biggest factor in output quality? The topic you give it.
 
 Your prompting strategy matters way more than your model selection strategy.
 
-**2. Human-in-the-Loop Is the Secret Sauce**
+### 2. Human-in-the-Loop Is the Secret Sauce
 
 My best content comes from this workflow:
 
@@ -156,7 +156,7 @@ My best content comes from this workflow:
 
 Pure automation produces mediocre content. Pure human writing is slow. The combination is powerful.
 
-**3. Error Handling Is Where You Live**
+### 3. Error Handling Is Where You Live
 
 AI models fail constantly. Rate limits, timeouts, malformed outputs, service outages. If your orchestration system doesn't handle failures gracefully, it's useless.
 

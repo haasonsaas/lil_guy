@@ -1,6 +1,6 @@
 ---
 author: 'Jonathan Haas'
-pubDate: '2025-04-17T00:00:00.000Z'
+pubDate: '2025-04-17'
 title: 'AI Detection Hysteria: When Human Creativity Gets Mislabeled'
 description: 'An examination of the growing trend of falsely attributing human-created content to AI generation, and why this luddite perspective is problematic for creative communities and technological progress'
 featured: false

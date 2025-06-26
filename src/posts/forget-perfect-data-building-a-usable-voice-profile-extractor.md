@@ -43,7 +43,7 @@ Here's the thing most people miss: Your users don't give a shit about your F1 sc
 
 Everyone thinks voice profile extraction is about sophisticated NLP models and transformer architectures. That's academic thinking. Here's what actually matters:
 
-**1. Consistent Patterns Beat Perfect Accuracy**
+### 1. Consistent Patterns Beat Perfect Accuracy
 
 My voice profiler tracks simple patterns:
 
@@ -55,7 +55,7 @@ My voice profiler tracks simple patterns:
 
 That's it. No BERT. No transformers. Just pattern matching that works.
 
-**2. Domain-Specific Markers Trump Generic Features**
+### 2. Domain-Specific Markers Trump Generic Features
 
 Generic voice analysis looks for things like "formality level" and "sentiment." Useless.
 
@@ -68,7 +68,7 @@ My system looks for:
 
 These domain markers are 10x more valuable than generic linguistic features.
 
-**3. Fast Iteration Beats Slow Perfection**
+### 3. Fast Iteration Beats Slow Perfection
 
 My development cycle:
 
@@ -117,11 +117,11 @@ It's just measuring what's already there.
 
 Want to build your own voice profiler? Here's what actually works:
 
-**Step 1: Start With Your Worst Data**
+### Step 1: Start With Your Worst Data
 
 Don't clean your data. Don't normalize it. Use it raw. Why? Because production data will be messy too. If your system can't handle your worst data, it's useless.
 
-**Step 2: Extract Observable Patterns First**
+### Step 2: Extract Observable Patterns First
 
 Before you think about AI:
 
@@ -131,7 +131,7 @@ Before you think about AI:
 
 You'll be shocked how far basic counting gets you.
 
-**Step 3: Build Validation Before Accuracy**
+### Step 3: Build Validation Before Accuracy
 
 Most people build a model then try to validate it. Backwards.
 
@@ -142,7 +142,7 @@ Build your validation system first:
 - Test manually on 10-20 examples
 - THEN build the extraction system to hit those targets
 
-**Step 4: Ship at 60% Accuracy**
+### Step 4: Ship at 60% Accuracy
 
 My voice engine shipped at 60% accuracy. Now it's at 80%.
 
@@ -172,7 +172,7 @@ My AI doesn't write exactly like me. It writes like me on a good day, when I'm f
 
 After building this system, here's what I learned:
 
-**1. Authenticity Scoring > Similarity Scoring**
+### 1. Authenticity Scoring > Similarity Scoring
 
 Don't measure how similar the output is to training data. Measure whether it feels authentic. My scoring system penalizes:
 
@@ -183,7 +183,7 @@ Don't measure how similar the output is to training data. Measure whether it fee
 
 These penalties matter more than matching exact phrases.
 
-**2. Context Injection > Model Training**
+### 2. Context Injection > Model Training
 
 Instead of training models, inject context at generation time:
 
@@ -194,7 +194,7 @@ Instead of training models, inject context at generation time:
 
 This approach is 100x faster than model training and surprisingly effective.
 
-**3. Human Validation > Automated Metrics**
+### 3. Human Validation > Automated Metrics
 
 My best accuracy improvements came from:
 

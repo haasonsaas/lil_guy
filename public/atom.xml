@@ -5,7 +5,7 @@
   <link href="https://www.haasonsaas.com/atom.xml" rel="self" type="application/atom+xml" />
   <link href="https://www.haasonsaas.com" rel="alternate" type="text/html" />
   <id>https://www.haasonsaas.com/</id>
-  <updated>2025-06-25T00:00:00.000Z</updated>
+  <updated>2025-06-26T00:00:00.000Z</updated>
   <author>
     <name>Jonathan Haas</name>
     <email>jonathan@haasonsaas.com</email>
@@ -13,6 +13,23 @@
   </author>
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
+  <entry>
+    <title><![CDATA[Forget Perfect Data: Building a Usable Voice Profile Extractor]]></title>
+    <link href="https://www.haasonsaas.com/blog/forget-perfect-data-building-a-usable-voice-profile-extractor" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/forget-perfect-data-building-a-usable-voice-profile-extractor</id>
+    <published>2025-06-26T00:00:00.000Z</published>
+    <updated>2025-06-26T00:00:00.000Z</updated>
+    <summary><![CDATA[Stop chasing the mythical 'perfect' dataset. I built a working voice profile extractor with 50 markdown files and regex. Here's why your obsession with data quality is killing your AI project—and what to do instead.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI" />
+    <category term="Voice AI" />
+    <category term="Personality Replication" />
+    <category term="Startup Engineering" />
+    <category term="Data Science" />
+  </entry>
   <entry>
     <title><![CDATA[Multi-Agent Testing: A Practical Demo]]></title>
     <link href="https://www.haasonsaas.com/blog/multi-agent-testing-a-practical-demo" rel="alternate" type="text/html" />
@@ -165,6 +182,23 @@
     <category term="ai-agents" />
   </entry>
   <entry>
+    <title><![CDATA[The Orchestration Dance: What I Learned Building a Multi-AI Content System]]></title>
+    <link href="https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here's what actually worked, what didn't, and why most teams are overcomplicating AI orchestration.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI" />
+    <category term="multi-ai" />
+    <category term="content-orchestration" />
+    <category term="ai-agents" />
+    <category term="developer-experience" />
+  </entry>
+  <entry>
     <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
     <link href="https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</id>
@@ -182,6 +216,23 @@
     <category term="System Reliability" />
   </entry>
   <entry>
+    <title><![CDATA[AI Content: Ditch the Hype, Build a Business]]></title>
+    <link href="https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[Forget the AI content generation hype.  Seasoned startup advisor Jonathan Haas reveals why most advice is wrong, sharing battle-tested strategies from years in security and AI.  Get practical steps to integrate AI effectively, not perfectly.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI" />
+    <category term="Content Generation" />
+    <category term="Startup Advice" />
+    <category term="Product Management" />
+    <category term="Software Engineering" />
+  </entry>
+  <entry>
     <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
     <link href="https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</id>
@@ -197,6 +248,23 @@
     <category term="sast" />
     <category term="tree-sitter" />
     <category term="vulnerability-detection" />
+  </entry>
+  <entry>
+    <title><![CDATA[Scaling the Me Component: How I Built an AI That Thinks Like Me]]></title>
+    <link href="https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</id>
+    <published>2025-06-25T00:00:00.000Z</published>
+    <updated>2025-06-25T00:00:00.000Z</updated>
+    <summary><![CDATA[I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog posts and created an authenticity validation system that keeps responses true to my contrarian, pragmatic worldview.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="AI" />
+    <category term="voice-replication" />
+    <category term="personalization" />
+    <category term="meta" />
+    <category term="ai-agents" />
   </entry>
   <entry>
     <title><![CDATA[When Claude Hits Its Limits: Building an AI-to-AI Escalation System]]></title>
@@ -774,75 +842,5 @@
     <category term="AI-development" />
     <category term="product-security" />
     <category term="electron-apps" />
-  </entry>
-  <entry>
-    <title><![CDATA[Somebody Gave a Shit: The Quiet Power of Product Detail]]></title>
-    <link href="https://www.haasonsaas.com/blog/somebody-gave-a-shit" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/somebody-gave-a-shit</id>
-    <published>2025-05-09T00:00:00.000Z</published>
-    <updated>2025-05-09T00:00:00.000Z</updated>
-    <summary><![CDATA[Why the smallest details in product design—like a cable wrap—matter more than you think, and how they transmit care, conviction, and identity at scale.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="product-design" />
-    <category term="user-experience" />
-    <category term="craftsmanship" />
-    <category term="startup-culture" />
-    <category term="customer-emotion" />
-  </entry>
-  <entry>
-    <title><![CDATA[From Gimmick to Game-Changer: Six Years of Living With Tesla FSD]]></title>
-    <link href="https://www.haasonsaas.com/blog/six-years-with-fsd" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/six-years-with-fsd</id>
-    <published>2025-05-05T00:00:00.000Z</published>
-    <updated>2025-05-05T00:00:00.000Z</updated>
-    <summary><![CDATA[Reflections on how Tesla’s Full Self-Driving went from laughably limited to astonishingly capable, and what it teaches us about compounding software and trust in autonomous systems.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="autonomous-driving" />
-    <category term="product-evolution" />
-    <category term="user-experience" />
-    <category term="software-development" />
-    <category term="machine-learning" />
-  </entry>
-  <entry>
-    <title><![CDATA[Culture Over Code: Why Learning Ability Beats Raw Skill]]></title>
-    <link href="https://www.haasonsaas.com/blog/culture-over-code" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/culture-over-code</id>
-    <published>2025-05-04T00:00:00.000Z</published>
-    <updated>2025-05-04T00:00:00.000Z</updated>
-    <summary><![CDATA[Hiring great engineers isn't just about finding the smartest person in the room—it's about building a team that learns fast, adapts well, and plays the long game together. Here's why cultural fit and learning velocity matter more than technical perfection.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="hiring" />
-    <category term="engineering" />
-    <category term="leadership" />
-    <category term="startup-culture" />
-    <category term="team-dynamics" />
-  </entry>
-  <entry>
-    <title><![CDATA[Building the HTTP for Agents: A Complete Guide to Agent Infrastructure]]></title>
-    <link href="https://www.haasonsaas.com/blog/http-for-agents" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/http-for-agents</id>
-    <published>2025-05-03T00:00:00.000Z</published>
-    <updated>2025-05-03T00:00:00.000Z</updated>
-    <summary><![CDATA[As AI agents grow from niche experiments to core infrastructure, we need a new control plane—identity, policy, and secrets—standardized and scalable. Here's how to build the HTTP layer for autonomous agents, from Envoy sidecars to Vault-backed secrets and a Python SDK.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="ai" />
-    <category term="ai-agents" />
-    <category term="infrastructure" />
-    <category term="engineering" />
-    <category term="technical" />
-    <category term="framework" />
-    <category term="developer-tools" />
   </entry>
 </feed>
