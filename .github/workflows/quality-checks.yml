@@ -14,7 +14,7 @@ jobs:
   quality-checks:
     runs-on: ubuntu-latest
     name: Run Quality Checks
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,7 +46,7 @@ jobs:
           echo "🔍 Checking frontmatter validation..."
           # Run a build to trigger validation
           bun run build > build.log 2>&1 || true
-          
+
           # Check if there are validation errors (not just warnings)
           if grep -q "❌ Frontmatter validation failed" build.log; then
             echo "❌ Frontmatter validation errors found:"
@@ -64,7 +64,7 @@ jobs:
         run: |
           echo "🖼️ Checking for missing blog images..."
           bun run generate-blog-images > images.log 2>&1
-          
+
           if grep -q "Generating image for:" images.log; then
             echo "ℹ️ Some images were generated:"
             grep "Generating image for:" images.log
@@ -76,7 +76,7 @@ jobs:
         run: |
           echo "📡 Verifying RSS feed generation..."
           bun run generate-rss
-          
+
           if [ -f "dist/rss.xml" ]; then
             echo "✅ RSS feed generated successfully"
             echo "📊 RSS feed stats:"
@@ -107,11 +107,11 @@ jobs:
       - name: Security scan
         run: |
           echo "🔒 Running security checks..."
-          
+
           # Check for potential security issues in dependencies
           # Note: Development-only vulnerabilities are acceptable
           bun audit || echo "⚠️ Some vulnerabilities found (likely dev dependencies)"
-          
+
           # Check for common secrets patterns (excluding blog posts which may have examples)
           if grep -r "sk_" src/ --exclude-dir=posts | grep -v "sk_test" | grep -v "example"; then
             echo "❌ Potential API keys found in source code"
@@ -123,7 +123,7 @@ jobs:
       - name: Performance checks
         run: |
           echo "⚡ Running performance checks..."
-          
+
           # Check for large images in public/generated
           if [ -d "public/generated" ]; then
             LARGE_IMAGES=$(find public/generated -name "*.png" -size +500k 2>/dev/null | head -5)

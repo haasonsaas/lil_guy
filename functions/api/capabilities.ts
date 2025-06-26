@@ -1,48 +1,54 @@
 interface Env {
   // Environment variables can be added here if needed
-  [key: string]: unknown;
+  [key: string]: unknown
 }
 
 interface Capability {
-  name: string;
-  description: string;
-  endpoint: string;
-  method: string;
-  parameters?: Record<string, {
-    type: string;
-    description: string;
-    required: boolean;
-    examples?: string[];
-  }>;
+  name: string
+  description: string
+  endpoint: string
+  method: string
+  parameters?: Record<
+    string,
+    {
+      type: string
+      description: string
+      required: boolean
+      examples?: string[]
+    }
+  >
   examples?: Array<{
-    description: string;
-    request: string;
-    response: Record<string, unknown>;
-  }>;
+    description: string
+    request: string
+    response: Record<string, unknown>
+  }>
 }
 
 interface CapabilitiesResponse {
   site: {
-    name: string;
-    description: string;
-    baseUrl: string;
-    lastUpdated: string;
-  };
-  capabilities: Capability[];
+    name: string
+    description: string
+    baseUrl: string
+    lastUpdated: string
+  }
+  capabilities: Capability[]
   usage: {
-    rateLimit: string;
-    authentication: string;
-    supportedFormats: string[];
-  };
+    rateLimit: string
+    authentication: string
+    supportedFormats: string[]
+  }
   examples: {
-    quickStart: string;
-    commonPatterns: string[];
-  };
+    quickStart: string
+    commonPatterns: string[]
+  }
 }
 
-export async function onRequest(context: { request: Request; env: Env }): Promise<Response> {
-  const { request } = context;
-  const baseUrl = 'https://haasonsaas.com';
+export async function onRequest(context: {
+  request: Request
+  env: Env
+}): Promise<Response> {
+  const { request } = context
+  const baseUrl = 'https://haasonsaas.com'
 
   // CORS headers
   const corsHeaders = {
@@ -50,44 +56,47 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
     'Access-Control-Allow-Methods': 'GET, OPTIONS',
     'Access-Control-Allow-Headers': 'Content-Type, User-Agent',
     'Access-Control-Max-Age': '86400',
-  };
+  }
 
   if (request.method === 'OPTIONS') {
-    return new Response(null, { status: 204, headers: corsHeaders });
+    return new Response(null, { status: 204, headers: corsHeaders })
   }
 
   if (request.method !== 'GET') {
     return new Response(JSON.stringify({ error: 'Method not allowed' }), {
       status: 405,
-      headers: { ...corsHeaders, 'Content-Type': 'application/json' }
-    });
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    })
   }
 
   const capabilities: Capability[] = [
     {
       name: 'Blog Content Access',
-      description: 'Search and retrieve blog posts about startups, technical leadership, and product development',
+      description:
+        'Search and retrieve blog posts about startups, technical leadership, and product development',
       endpoint: `${baseUrl}/api/search`,
       method: 'GET',
       parameters: {
         q: {
           type: 'string',
-          description: 'Search query - supports full-text search across titles, descriptions, and content',
+          description:
+            'Search query - supports full-text search across titles, descriptions, and content',
           required: true,
-          examples: ['technical debt', 'product market fit', 'startup funding']
+          examples: ['technical debt', 'product market fit', 'startup funding'],
         },
         format: {
           type: 'string',
           description: 'Response format - json (default) or markdown',
           required: false,
-          examples: ['json', 'markdown']
+          examples: ['json', 'markdown'],
         },
         limit: {
           type: 'number',
-          description: 'Maximum number of results to return (default: 10, max: 50)',
+          description:
+            'Maximum number of results to return (default: 10, max: 50)',
           required: false,
-          examples: ['5', '20']
-        }
+          examples: ['5', '20'],
+        },
       },
       examples: [
         {
@@ -99,20 +108,21 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
               {
                 title: 'The Hidden Costs of Technical Debt',
                 slug: 'the-hidden-costs-of-technical-debt',
-                description: 'Technical debt isn\'t just messy code...',
+                description: "Technical debt isn't just messy code...",
                 url: `${baseUrl}/posts/the-hidden-costs-of-technical-debt`,
                 tags: ['technical-debt', 'engineering', 'velocity'],
-                relevance: 0.95
-              }
+                relevance: 0.95,
+              },
             ],
-            totalResults: 1
-          }
-        }
-      ]
+            totalResults: 1,
+          },
+        },
+      ],
     },
     {
       name: 'Interactive Calculators',
-      description: 'Access to startup and business calculators for unit economics, growth modeling, and strategic planning',
+      description:
+        'Access to startup and business calculators for unit economics, growth modeling, and strategic planning',
       endpoint: `${baseUrl}/calculators`,
       method: 'GET',
       examples: [
@@ -123,22 +133,25 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
             calculators: [
               {
                 name: 'SaaS Metrics Dashboard',
-                description: 'Calculate LTV, CAC, churn, and other key SaaS metrics',
-                url: `${baseUrl}/posts/the-unit-economics-that-actually-matter#saas-metrics-dashboard`
+                description:
+                  'Calculate LTV, CAC, churn, and other key SaaS metrics',
+                url: `${baseUrl}/posts/the-unit-economics-that-actually-matter#saas-metrics-dashboard`,
               },
               {
                 name: 'Startup Runway Calculator',
-                description: 'Model cash runway with growth scenarios and burn rates',
-                url: `${baseUrl}/posts/new-series-a-reality#startup-runway-calculator`
-              }
-            ]
-          }
-        }
-      ]
+                description:
+                  'Model cash runway with growth scenarios and burn rates',
+                url: `${baseUrl}/posts/new-series-a-reality#startup-runway-calculator`,
+              },
+            ],
+          },
+        },
+      ],
     },
     {
       name: 'Content Recommendations',
-      description: 'Get personalized content recommendations based on topics or user interests',
+      description:
+        'Get personalized content recommendations based on topics or user interests',
       endpoint: `${baseUrl}/api/recommendations`,
       method: 'GET',
       parameters: {
@@ -146,20 +159,24 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
           type: 'string',
           description: 'Topic area for recommendations',
           required: false,
-          examples: ['startup-funding', 'technical-leadership', 'product-development']
+          examples: [
+            'startup-funding',
+            'technical-leadership',
+            'product-development',
+          ],
         },
         role: {
           type: 'string',
           description: 'User role to tailor recommendations',
           required: false,
-          examples: ['founder', 'engineer', 'product-manager', 'investor']
+          examples: ['founder', 'engineer', 'product-manager', 'investor'],
         },
         experience: {
           type: 'string',
           description: 'Experience level',
           required: false,
-          examples: ['beginner', 'intermediate', 'advanced']
-        }
+          examples: ['beginner', 'intermediate', 'advanced'],
+        },
       },
       examples: [
         {
@@ -168,18 +185,21 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
           response: {
             recommendations: [
               {
-                title: 'The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit',
-                reason: 'Highly relevant for technical founders building products',
-                priority: 'high'
-              }
-            ]
-          }
-        }
-      ]
+                title:
+                  'The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit',
+                reason:
+                  'Highly relevant for technical founders building products',
+                priority: 'high',
+              },
+            ],
+          },
+        },
+      ],
     },
     {
       name: 'Usage Analytics',
-      description: 'Track API usage and get insights into agent activity (optional)',
+      description:
+        'Track API usage and get insights into agent activity (optional)',
       endpoint: `${baseUrl}/api/analytics`,
       method: 'GET, POST',
       parameters: {
@@ -187,14 +207,14 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
           type: 'string',
           description: 'Event type to track (for POST requests)',
           required: false,
-          examples: ['api_access', 'search_query', 'content_retrieval']
+          examples: ['api_access', 'search_query', 'content_retrieval'],
         },
         endpoint: {
           type: 'string',
           description: 'Endpoint being accessed',
           required: false,
-          examples: ['/api/search', '/api/recommendations']
-        }
+          examples: ['/api/search', '/api/recommendations'],
+        },
       },
       examples: [
         {
@@ -205,11 +225,11 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
             stats: {
               totalEvents: 1247,
               topEndpoints: [{ endpoint: '/api/search', count: 523 }],
-              topAgents: [{ agent: 'Claude', count: 342 }]
-            }
-          }
-        }
-      ]
+              topAgents: [{ agent: 'Claude', count: 342 }],
+            },
+          },
+        },
+      ],
     },
     {
       name: 'Feedback System',
@@ -221,20 +241,20 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
           type: 'string',
           description: 'Type of feedback',
           required: true,
-          examples: ['bug', 'suggestion', 'compliment', 'question']
+          examples: ['bug', 'suggestion', 'compliment', 'question'],
         },
         category: {
           type: 'string',
           description: 'Feedback category',
           required: true,
-          examples: ['api', 'documentation', 'performance', 'features']
+          examples: ['api', 'documentation', 'performance', 'features'],
         },
         message: {
           type: 'string',
           description: 'Detailed feedback message (10-2000 characters)',
           required: true,
-          examples: ['The search API could use date filtering']
-        }
+          examples: ['The search API could use date filtering'],
+        },
       },
       examples: [
         {
@@ -244,14 +264,18 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
             success: true,
             message: 'Feedback submitted successfully',
             feedbackId: 'fb_1234567890_abc123',
-            suggestions: ['Include specific use cases', 'Consider backward compatibility']
-          }
-        }
-      ]
+            suggestions: [
+              'Include specific use cases',
+              'Consider backward compatibility',
+            ],
+          },
+        },
+      ],
     },
     {
       name: 'Health Monitoring',
-      description: 'Check API health status and service availability for monitoring and reliability',
+      description:
+        'Check API health status and service availability for monitoring and reliability',
       endpoint: `${baseUrl}/api/health`,
       method: 'GET',
       parameters: {},
@@ -266,36 +290,46 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
             uptime: 3600000,
             services: {
               database: 'operational',
-              search: 'operational', 
+              search: 'operational',
               analytics: 'operational',
-              cdn: 'operational'
+              cdn: 'operational',
             },
             performance: {
-              responseTimeMs: 45
+              responseTimeMs: 45,
             },
             endpoints: [
-              { name: 'Search API', url: `${baseUrl}/api/search`, status: 'operational' },
-              { name: 'Capabilities API', url: `${baseUrl}/api/capabilities`, status: 'operational' }
+              {
+                name: 'Search API',
+                url: `${baseUrl}/api/search`,
+                status: 'operational',
+              },
+              {
+                name: 'Capabilities API',
+                url: `${baseUrl}/api/capabilities`,
+                status: 'operational',
+              },
             ],
-            message: 'All systems operational. AI agents can access all endpoints normally.'
-          }
-        }
-      ]
-    }
-  ];
+            message:
+              'All systems operational. AI agents can access all endpoints normally.',
+          },
+        },
+      ],
+    },
+  ]
 
   const response: CapabilitiesResponse = {
     site: {
       name: 'Haas on SaaS',
-      description: 'Startup advice, technical leadership insights, and interactive business tools for AI agents',
+      description:
+        'Startup advice, technical leadership insights, and interactive business tools for AI agents',
       baseUrl,
-      lastUpdated: new Date().toISOString() // Force deployment update
+      lastUpdated: new Date().toISOString(), // Force deployment update
     },
     capabilities,
     usage: {
       rateLimit: '1000 requests per hour per IP',
       authentication: 'None required for read operations',
-      supportedFormats: ['application/json', 'text/markdown']
+      supportedFormats: ['application/json', 'text/markdown'],
     },
     examples: {
       quickStart: `curl "${baseUrl}/api/search?q=product+market+fit&limit=5"`,
@@ -303,10 +337,10 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
         'Search for relevant content by topic',
         'Get recommendations based on user role',
         'Access interactive calculators and tools',
-        'Navigate site structure programmatically'
-      ]
-    }
-  };
+        'Navigate site structure programmatically',
+      ],
+    },
+  }
 
   return new Response(JSON.stringify(response, null, 2), {
     status: 200,
@@ -314,7 +348,7 @@ export async function onRequest(context: { request: Request; env: Env }): Promis
       ...corsHeaders,
       'Content-Type': 'application/json',
       'Cache-Control': 'public, max-age=3600',
-      'X-Agent-Friendly': 'true'
-    }
-  });
+      'X-Agent-Friendly': 'true',
+    },
+  })
 }

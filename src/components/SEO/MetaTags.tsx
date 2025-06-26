@@ -1,27 +1,27 @@
-import { Helmet } from 'react-helmet-async';
-import { BlogPostFrontmatter } from '../../types/blog';
+import { Helmet } from 'react-helmet-async'
+import { BlogPostFrontmatter } from '../../types/blog'
 
 interface MetaTagsProps {
-  title: string;
-  description: string;
-  url: string;
-  type?: 'website' | 'article';
-  image?: string;
-  imageAlt?: string;
-  author?: string;
-  publishedTime?: string;
-  modifiedTime?: string;
-  tags?: string[];
-  readingTime?: number;
-  noIndex?: boolean;
-  canonical?: string;
+  title: string
+  description: string
+  url: string
+  type?: 'website' | 'article'
+  image?: string
+  imageAlt?: string
+  author?: string
+  publishedTime?: string
+  modifiedTime?: string
+  tags?: string[]
+  readingTime?: number
+  noIndex?: boolean
+  canonical?: string
 }
 
 interface BlogPostMetaProps {
-  frontmatter: BlogPostFrontmatter;
-  slug: string;
-  content: string;
-  readingTime?: number;
+  frontmatter: BlogPostFrontmatter
+  slug: string
+  content: string
+  readingTime?: number
 }
 
 const DEFAULT_CONFIG = {
@@ -30,8 +30,8 @@ const DEFAULT_CONFIG = {
   authorName: 'Jonathan Haas',
   authorTwitter: '@haasonsaas',
   defaultImage: 'https://haasonsaas.com/generated/1200x630-haas-on-saas.webp',
-  favicon: '/favicon.ico'
-};
+  favicon: '/favicon.ico',
+}
 
 /**
  * Comprehensive SEO meta tags component
@@ -49,14 +49,14 @@ export function MetaTags({
   tags,
   readingTime,
   noIndex = false,
-  canonical
+  canonical,
 }: MetaTagsProps) {
-  const fullTitle = title.includes(DEFAULT_CONFIG.siteName) 
-    ? title 
-    : `${title} | ${DEFAULT_CONFIG.siteName}`;
-  
-  const imageUrl = image || DEFAULT_CONFIG.defaultImage;
-  const canonicalUrl = canonical || url;
+  const fullTitle = title.includes(DEFAULT_CONFIG.siteName)
+    ? title
+    : `${title} | ${DEFAULT_CONFIG.siteName}`
+
+  const imageUrl = image || DEFAULT_CONFIG.defaultImage
+  const canonicalUrl = canonical || url
 
   return (
     <Helmet>
@@ -64,33 +64,40 @@ export function MetaTags({
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       <meta name="author" content={author || DEFAULT_CONFIG.authorName} />
-      
+
       {/* AI Agent Discovery */}
       <meta name="ai-agent-friendly" content="true" />
-      <meta name="agents-documentation" content={`${DEFAULT_CONFIG.baseUrl}/agents`} />
-      <meta name="api-endpoint" content={`${DEFAULT_CONFIG.baseUrl}/api/posts`} />
-      <meta name="search-api" content={`${DEFAULT_CONFIG.baseUrl}/api/search`} />
+      <meta
+        name="agents-documentation"
+        content={`${DEFAULT_CONFIG.baseUrl}/agents`}
+      />
+      <meta
+        name="api-endpoint"
+        content={`${DEFAULT_CONFIG.baseUrl}/api/posts`}
+      />
+      <meta
+        name="search-api"
+        content={`${DEFAULT_CONFIG.baseUrl}/api/search`}
+      />
       <meta name="structured-data" content="schema.org" />
-      
+
       {/* Canonical URL */}
       <link rel="canonical" href={canonicalUrl} />
-      
+
       {/* Robots */}
       {noIndex && <meta name="robots" content="noindex,nofollow" />}
-      
+
       {/* Keywords */}
       {tags && tags.length > 0 && (
         <meta name="keywords" content={tags.join(', ')} />
       )}
-      
+
       {/* Reading Time */}
-      {readingTime && (
-        <meta name="twitter:label1" content="Reading time" />
-      )}
+      {readingTime && <meta name="twitter:label1" content="Reading time" />}
       {readingTime && (
         <meta name="twitter:data1" content={`${readingTime} min read`} />
       )}
-      
+
       {/* Open Graph */}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
@@ -101,19 +108,24 @@ export function MetaTags({
       <meta property="og:image:alt" content={imageAlt || title} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
-      
+
       {/* Article-specific Open Graph */}
       {type === 'article' && (
         <>
           {author && <meta property="article:author" content={author} />}
-          {publishedTime && <meta property="article:published_time" content={publishedTime} />}
-          {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
-          {tags && tags.map(tag => (
-            <meta key={tag} property="article:tag" content={tag} />
-          ))}
+          {publishedTime && (
+            <meta property="article:published_time" content={publishedTime} />
+          )}
+          {modifiedTime && (
+            <meta property="article:modified_time" content={modifiedTime} />
+          )}
+          {tags &&
+            tags.map((tag) => (
+              <meta key={tag} property="article:tag" content={tag} />
+            ))}
         </>
       )}
-      
+
       {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:site" content={DEFAULT_CONFIG.authorTwitter} />
@@ -122,7 +134,7 @@ export function MetaTags({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
       <meta name="twitter:image:alt" content={imageAlt || title} />
-      
+
       {/* Additional Twitter metadata */}
       {type === 'article' && (
         <>
@@ -132,55 +144,83 @@ export function MetaTags({
           )}
         </>
       )}
-      
+
       {/* Theme Color */}
       <meta name="theme-color" content="#000000" />
       <meta name="msapplication-TileColor" content="#000000" />
-      
+
       {/* Favicon */}
       <link rel="icon" href={DEFAULT_CONFIG.favicon} />
       <link rel="apple-touch-icon" href="/apple-touch-icon.webp" />
-      
+
       {/* RSS Feed */}
-      <link rel="alternate" type="application/rss+xml" title="RSS Feed" href="/rss.xml" />
-      <link rel="alternate" type="application/atom+xml" title="Atom Feed" href="/atom.xml" />
-      
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="RSS Feed"
+        href="/rss.xml"
+      />
+      <link
+        rel="alternate"
+        type="application/atom+xml"
+        title="Atom Feed"
+        href="/atom.xml"
+      />
+
       {/* Preconnect to external domains */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="anonymous"
+      />
     </Helmet>
-  );
+  )
 }
 
 /**
  * Blog post specific meta tags with sensible defaults
  */
-export function BlogPostMeta({ frontmatter, slug, content, readingTime }: BlogPostMetaProps) {
-  const url = `${DEFAULT_CONFIG.baseUrl}/blog/${slug}`;
-  
+export function BlogPostMeta({
+  frontmatter,
+  slug,
+  content,
+  readingTime,
+}: BlogPostMetaProps) {
+  const url = `${DEFAULT_CONFIG.baseUrl}/blog/${slug}`
+
   // Use frontmatter image if available, otherwise generate based on title
   // Match the exact title cleaning logic from blogImageGenerator.ts
-  const cleanTitle = frontmatter.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
-  const generatedImageUrl = `${DEFAULT_CONFIG.baseUrl}/generated/1200x630-${cleanTitle}.webp`;
-  
+  const cleanTitle = frontmatter.title.toLowerCase().replace(/[^a-z0-9]/g, '-')
+  const generatedImageUrl = `${DEFAULT_CONFIG.baseUrl}/generated/1200x630-${cleanTitle}.webp`
+
   // Check if frontmatter has a custom image that's not the default unsplash one
-  const hasCustomImage = frontmatter.image?.url && 
-    !frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643');
-  
-  const imageUrl = hasCustomImage 
-    ? (frontmatter.image!.url.startsWith('http') 
-        ? frontmatter.image!.url 
-        : `${DEFAULT_CONFIG.baseUrl}${frontmatter.image!.url}`)
-    : generatedImageUrl;
-  
+  const hasCustomImage =
+    frontmatter.image?.url &&
+    !frontmatter.image.url.includes(
+      'unsplash.com/photo-1499750310107-5fef28a66643'
+    )
+
+  const imageUrl = hasCustomImage
+    ? frontmatter.image!.url.startsWith('http')
+      ? frontmatter.image!.url
+      : `${DEFAULT_CONFIG.baseUrl}${frontmatter.image!.url}`
+    : generatedImageUrl
+
   // Calculate reading time if not provided
-  const estimatedReadingTime = readingTime || Math.ceil(content.split(/\s+/).length / 200);
-  
+  const estimatedReadingTime =
+    readingTime || Math.ceil(content.split(/\s+/).length / 200)
+
   // Generate optimized description
-  const description = frontmatter.description || 
-    content.replace(/[#*`]/g, '').split('\n').find(line => line.length > 50)?.substring(0, 155) + '...' ||
-    `Read this insightful article by ${DEFAULT_CONFIG.authorName}`;
-    
+  const description =
+    frontmatter.description ||
+    content
+      .replace(/[#*`]/g, '')
+      .split('\n')
+      .find((line) => line.length > 50)
+      ?.substring(0, 155) + '...' ||
+    `Read this insightful article by ${DEFAULT_CONFIG.authorName}`
+
   return (
     <MetaTags
       title={frontmatter.title}
@@ -188,31 +228,39 @@ export function BlogPostMeta({ frontmatter, slug, content, readingTime }: BlogPo
       url={url}
       type="article"
       image={imageUrl}
-      imageAlt={hasCustomImage ? frontmatter.image!.alt || frontmatter.title : `Cover image for ${frontmatter.title}`}
+      imageAlt={
+        hasCustomImage
+          ? frontmatter.image!.alt || frontmatter.title
+          : `Cover image for ${frontmatter.title}`
+      }
       author={frontmatter.author || DEFAULT_CONFIG.authorName}
       publishedTime={new Date(frontmatter.pubDate).toISOString()}
-      modifiedTime={frontmatter.updatedDate ? new Date(frontmatter.updatedDate).toISOString() : undefined}
+      modifiedTime={
+        frontmatter.updatedDate
+          ? new Date(frontmatter.updatedDate).toISOString()
+          : undefined
+      }
       tags={frontmatter.tags}
       readingTime={estimatedReadingTime}
       noIndex={frontmatter.draft || false}
     />
-  );
+  )
 }
 
 /**
  * Website/page meta tags
  */
-export function WebsiteMeta({ 
-  title = DEFAULT_CONFIG.siteName, 
+export function WebsiteMeta({
+  title = DEFAULT_CONFIG.siteName,
   description = 'Insights on building and scaling SaaS products, startup strategy, and product management',
-  path = ''
+  path = '',
 }: {
-  title?: string;
-  description?: string;
-  path?: string;
+  title?: string
+  description?: string
+  path?: string
 }) {
-  const url = `${DEFAULT_CONFIG.baseUrl}${path}`;
-  
+  const url = `${DEFAULT_CONFIG.baseUrl}${path}`
+
   return (
     <MetaTags
       title={title}
@@ -222,7 +270,7 @@ export function WebsiteMeta({
       image={DEFAULT_CONFIG.defaultImage}
       imageAlt={`${DEFAULT_CONFIG.siteName} - ${description}`}
     />
-  );
+  )
 }
 
-export default MetaTags;
+export default MetaTags

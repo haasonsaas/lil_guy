@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-05-01
-title: "The Startup Bargain Is Broken"
+title: 'The Startup Bargain Is Broken'
 description: "The startup ecosystem promised a tradeoff: take below-market pay, bet on equity, win big at IPO. That promise is unraveling—and it's time we reckon with what that means for talent, trust, and the future of innovation."
 featured: false
 draft: false
@@ -13,7 +13,7 @@ tags:
   - organizational-dynamics
 image:
   url: 'https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "Disillusioned employees staring at stock option grant paperwork"
+  alt: 'Disillusioned employees staring at stock option grant paperwork'
 ---
 
 For decades, the startup ecosystem operated on a simple promise:
@@ -124,13 +124,13 @@ If founders and investors can sell early, employees should have some path too.
 - Managed secondary platforms
 - Policy shifts to extend option windows and reduce tax traps
 
-Give people a way to *realize* value—not just wait for it.
+Give people a way to _realize_ value—not just wait for it.
 
 ### 2. Rethink Compensation Ratios
 
 If equity is illiquid and uncertain, cash needs to come up.
 
-Some startups are already shifting to 80–90% of market cash comp, with equity as *true* upside—not deferred pay.
+Some startups are already shifting to 80–90% of market cash comp, with equity as _true_ upside—not deferred pay.
 
 That’s healthy. That’s fair. That’s realistic.
 

@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react';
-import Layout from '@/components/Layout';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Slider } from '@/components/ui/slider';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Palette, 
-  Play, 
-  Pause, 
-  RotateCcw, 
+import React, { useEffect, useRef, useState } from 'react'
+import Layout from '@/components/Layout'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { Slider } from '@/components/ui/slider'
+import { Badge } from '@/components/ui/badge'
+import {
+  Palette,
+  Play,
+  Pause,
+  RotateCcw,
   Settings,
   Zap,
   Eye,
@@ -16,9 +16,9 @@ import {
   Sparkles,
   Infinity as InfinityIcon,
   ChevronLeft,
-  ChevronRight
-} from 'lucide-react';
-import { motion } from 'framer-motion';
+  ChevronRight,
+} from 'lucide-react'
+import { motion } from 'framer-motion'
 
 // Vertex shader source
 const vertexShaderSource = `
@@ -30,7 +30,7 @@ const vertexShaderSource = `
     gl_Position = vec4(a_position, 0.0, 1.0);
     v_texCoord = a_texCoord;
   }
-`;
+`
 
 // Fragment shader supporting multiple experiments
 const fragmentShaderSource = `
@@ -192,267 +192,311 @@ const fragmentShaderSource = `
     
     gl_FragColor = vec4(color, 1.0);
   }
-`;
+`
 
 export default function WebGLPage() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
-  const glRef = useRef<WebGLRenderingContext | null>(null);
-  const programRef = useRef<WebGLProgram | null>(null);
-  const startTimeRef = useRef<number>(Date.now());
-  const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 });
-  
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [intensity, setIntensity] = useState([0.8]);
-  const [speed, setSpeed] = useState([1.0]);
-  const [colorScheme, setColorScheme] = useState(0);
-  const [showControls, setShowControls] = useState(false);
-  const [currentExperiment, setCurrentExperiment] = useState(0);
-  const [zoom, setZoom] = useState([2.0]);
-  const [center, setCenter] = useState({ x: -0.5, y: 0.0 });
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const animationRef = useRef<number>()
+  const glRef = useRef<WebGLRenderingContext | null>(null)
+  const programRef = useRef<WebGLProgram | null>(null)
+  const startTimeRef = useRef<number>(Date.now())
+  const mouseRef = useRef<{ x: number; y: number }>({ x: 0, y: 0 })
+
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [intensity, setIntensity] = useState([0.8])
+  const [speed, setSpeed] = useState([1.0])
+  const [colorScheme, setColorScheme] = useState(0)
+  const [showControls, setShowControls] = useState(false)
+  const [currentExperiment, setCurrentExperiment] = useState(0)
+  const [zoom, setZoom] = useState([2.0])
+  const [center, setCenter] = useState({ x: -0.5, y: 0.0 })
 
   const experiments = [
     {
-      name: "Fluid Simulation",
-      description: "Interactive fluid dynamics with mouse distortion",
-      icon: Zap
+      name: 'Fluid Simulation',
+      description: 'Interactive fluid dynamics with mouse distortion',
+      icon: Zap,
     },
     {
-      name: "Particle System",
-      description: "Animated particles with mouse attraction",
-      icon: Sparkles
+      name: 'Particle System',
+      description: 'Animated particles with mouse attraction',
+      icon: Sparkles,
     },
     {
-      name: "Mandelbrot Fractal",
-      description: "Zoomable fractal with mouse navigation",
-      icon: InfinityIcon
-    }
-  ];
+      name: 'Mandelbrot Fractal',
+      description: 'Zoomable fractal with mouse navigation',
+      icon: InfinityIcon,
+    },
+  ]
 
   const colorSchemes = [
     {
-      name: "Ocean",
-      colors: [[0.1, 0.3, 0.8], [0.0, 0.8, 0.9], [0.3, 0.9, 1.0]]
+      name: 'Ocean',
+      colors: [
+        [0.1, 0.3, 0.8],
+        [0.0, 0.8, 0.9],
+        [0.3, 0.9, 1.0],
+      ],
     },
     {
-      name: "Sunset",
-      colors: [[0.9, 0.3, 0.1], [0.9, 0.6, 0.1], [1.0, 0.8, 0.3]]
+      name: 'Sunset',
+      colors: [
+        [0.9, 0.3, 0.1],
+        [0.9, 0.6, 0.1],
+        [1.0, 0.8, 0.3],
+      ],
     },
     {
-      name: "Forest",
-      colors: [[0.1, 0.4, 0.2], [0.3, 0.7, 0.2], [0.6, 0.9, 0.4]]
+      name: 'Forest',
+      colors: [
+        [0.1, 0.4, 0.2],
+        [0.3, 0.7, 0.2],
+        [0.6, 0.9, 0.4],
+      ],
     },
     {
-      name: "Purple Haze",
-      colors: [[0.4, 0.1, 0.8], [0.7, 0.2, 0.9], [0.9, 0.5, 1.0]]
+      name: 'Purple Haze',
+      colors: [
+        [0.4, 0.1, 0.8],
+        [0.7, 0.2, 0.9],
+        [0.9, 0.5, 1.0],
+      ],
     },
     {
-      name: "Fire",
-      colors: [[0.8, 0.1, 0.0], [1.0, 0.4, 0.0], [1.0, 0.8, 0.2]]
-    }
-  ];
+      name: 'Fire',
+      colors: [
+        [0.8, 0.1, 0.0],
+        [1.0, 0.4, 0.0],
+        [1.0, 0.8, 0.2],
+      ],
+    },
+  ]
 
   // Initialize WebGL
   const initWebGL = () => {
-    const canvas = canvasRef.current;
-    if (!canvas) return false;
+    const canvas = canvasRef.current
+    if (!canvas) return false
 
-    const gl = canvas.getContext('webgl');
+    const gl = canvas.getContext('webgl')
     if (!gl) {
-      console.error('WebGL not supported');
-      return false;
+      console.error('WebGL not supported')
+      return false
     }
 
-    glRef.current = gl;
+    glRef.current = gl
 
     // Create shaders
-    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-    
-    if (!vertexShader || !fragmentShader) return false;
+    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
+    const fragmentShader = createShader(
+      gl,
+      gl.FRAGMENT_SHADER,
+      fragmentShaderSource
+    )
+
+    if (!vertexShader || !fragmentShader) return false
 
     // Create program
-    const program = createProgram(gl, vertexShader, fragmentShader);
-    if (!program) return false;
+    const program = createProgram(gl, vertexShader, fragmentShader)
+    if (!program) return false
 
-    programRef.current = program;
+    programRef.current = program
 
     // Set up geometry (full screen quad)
     const positions = new Float32Array([
-      -1, -1,  0, 0,
-       1, -1,  1, 0,
-      -1,  1,  0, 1,
-       1,  1,  1, 1
-    ]);
+      -1, -1, 0, 0, 1, -1, 1, 0, -1, 1, 0, 1, 1, 1, 1, 1,
+    ])
 
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+    const positionBuffer = gl.createBuffer()
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
+    gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW)
 
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
-    const texCoordLocation = gl.getAttribLocation(program, 'a_texCoord');
+    const positionLocation = gl.getAttribLocation(program, 'a_position')
+    const texCoordLocation = gl.getAttribLocation(program, 'a_texCoord')
 
-    gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 16, 0);
-    
-    gl.enableVertexAttribArray(texCoordLocation);
-    gl.vertexAttribPointer(texCoordLocation, 2, gl.FLOAT, false, 16, 8);
+    gl.enableVertexAttribArray(positionLocation)
+    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 16, 0)
 
-    return true;
-  };
+    gl.enableVertexAttribArray(texCoordLocation)
+    gl.vertexAttribPointer(texCoordLocation, 2, gl.FLOAT, false, 16, 8)
 
-  const createShader = (gl: WebGLRenderingContext, type: number, source: string) => {
-    const shader = gl.createShader(type);
-    if (!shader) return null;
+    return true
+  }
 
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
+  const createShader = (
+    gl: WebGLRenderingContext,
+    type: number,
+    source: string
+  ) => {
+    const shader = gl.createShader(type)
+    if (!shader) return null
+
+    gl.shaderSource(shader, source)
+    gl.compileShader(shader)
 
     if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-      console.error('Shader compilation error:', gl.getShaderInfoLog(shader));
-      gl.deleteShader(shader);
-      return null;
+      console.error('Shader compilation error:', gl.getShaderInfoLog(shader))
+      gl.deleteShader(shader)
+      return null
     }
 
-    return shader;
-  };
+    return shader
+  }
 
-  const createProgram = (gl: WebGLRenderingContext, vertexShader: WebGLShader, fragmentShader: WebGLShader) => {
-    const program = gl.createProgram();
-    if (!program) return null;
+  const createProgram = (
+    gl: WebGLRenderingContext,
+    vertexShader: WebGLShader,
+    fragmentShader: WebGLShader
+  ) => {
+    const program = gl.createProgram()
+    if (!program) return null
 
-    gl.attachShader(program, vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.linkProgram(program);
+    gl.attachShader(program, vertexShader)
+    gl.attachShader(program, fragmentShader)
+    gl.linkProgram(program)
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error('Program linking error:', gl.getProgramInfoLog(program));
-      gl.deleteProgram(program);
-      return null;
+      console.error('Program linking error:', gl.getProgramInfoLog(program))
+      gl.deleteProgram(program)
+      return null
     }
 
-    return program;
-  };
+    return program
+  }
 
   const render = () => {
-    const gl = glRef.current;
-    const program = programRef.current;
-    const canvas = canvasRef.current;
-    
-    if (!gl || !program || !canvas) return;
+    const gl = glRef.current
+    const program = programRef.current
+    const canvas = canvasRef.current
+
+    if (!gl || !program || !canvas) return
 
     // Resize canvas to match display size
-    const displayWidth = canvas.clientWidth;
-    const displayHeight = canvas.clientHeight;
+    const displayWidth = canvas.clientWidth
+    const displayHeight = canvas.clientHeight
 
     if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
-      canvas.width = displayWidth;
-      canvas.height = displayHeight;
-      gl.viewport(0, 0, displayWidth, displayHeight);
+      canvas.width = displayWidth
+      canvas.height = displayHeight
+      gl.viewport(0, 0, displayWidth, displayHeight)
     }
 
-    gl.useProgram(program);
+    gl.useProgram(program)
 
     // Set uniforms
-    const timeLocation = gl.getUniformLocation(program, 'u_time');
-    const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
-    const mouseLocation = gl.getUniformLocation(program, 'u_mouse');
-    const intensityLocation = gl.getUniformLocation(program, 'u_intensity');
-    const speedLocation = gl.getUniformLocation(program, 'u_speed');
-    const color1Location = gl.getUniformLocation(program, 'u_color1');
-    const color2Location = gl.getUniformLocation(program, 'u_color2');
-    const color3Location = gl.getUniformLocation(program, 'u_color3');
-    const experimentLocation = gl.getUniformLocation(program, 'u_experiment');
-    const zoomLocation = gl.getUniformLocation(program, 'u_zoom');
-    const centerLocation = gl.getUniformLocation(program, 'u_center');
+    const timeLocation = gl.getUniformLocation(program, 'u_time')
+    const resolutionLocation = gl.getUniformLocation(program, 'u_resolution')
+    const mouseLocation = gl.getUniformLocation(program, 'u_mouse')
+    const intensityLocation = gl.getUniformLocation(program, 'u_intensity')
+    const speedLocation = gl.getUniformLocation(program, 'u_speed')
+    const color1Location = gl.getUniformLocation(program, 'u_color1')
+    const color2Location = gl.getUniformLocation(program, 'u_color2')
+    const color3Location = gl.getUniformLocation(program, 'u_color3')
+    const experimentLocation = gl.getUniformLocation(program, 'u_experiment')
+    const zoomLocation = gl.getUniformLocation(program, 'u_zoom')
+    const centerLocation = gl.getUniformLocation(program, 'u_center')
 
-    const currentTime = (Date.now() - startTimeRef.current) / 1000;
-    const currentColors = colorSchemes[colorScheme].colors;
+    const currentTime = (Date.now() - startTimeRef.current) / 1000
+    const currentColors = colorSchemes[colorScheme].colors
 
-    gl.uniform1f(timeLocation, isPlaying ? currentTime : 0);
-    gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
-    gl.uniform2f(mouseLocation, mouseRef.current.x, mouseRef.current.y);
-    gl.uniform1f(intensityLocation, intensity[0]);
-    gl.uniform1f(speedLocation, speed[0]);
-    gl.uniform3fv(color1Location, currentColors[0]);
-    gl.uniform3fv(color2Location, currentColors[1]);
-    gl.uniform3fv(color3Location, currentColors[2]);
-    gl.uniform1i(experimentLocation, currentExperiment);
-    gl.uniform1f(zoomLocation, zoom[0]);
-    gl.uniform2f(centerLocation, center.x, center.y);
+    gl.uniform1f(timeLocation, isPlaying ? currentTime : 0)
+    gl.uniform2f(resolutionLocation, canvas.width, canvas.height)
+    gl.uniform2f(mouseLocation, mouseRef.current.x, mouseRef.current.y)
+    gl.uniform1f(intensityLocation, intensity[0])
+    gl.uniform1f(speedLocation, speed[0])
+    gl.uniform3fv(color1Location, currentColors[0])
+    gl.uniform3fv(color2Location, currentColors[1])
+    gl.uniform3fv(color3Location, currentColors[2])
+    gl.uniform1i(experimentLocation, currentExperiment)
+    gl.uniform1f(zoomLocation, zoom[0])
+    gl.uniform2f(centerLocation, center.x, center.y)
 
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 
     if (isPlaying) {
-      animationRef.current = requestAnimationFrame(render);
+      animationRef.current = requestAnimationFrame(render)
     }
-  };
+  }
 
   const handleMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    const canvas = canvasRef.current
+    if (!canvas) return
 
-    const rect = canvas.getBoundingClientRect();
+    const rect = canvas.getBoundingClientRect()
     mouseRef.current = {
       x: event.clientX - rect.left,
-      y: canvas.height - (event.clientY - rect.top) // Flip Y coordinate
-    };
-  };
+      y: canvas.height - (event.clientY - rect.top), // Flip Y coordinate
+    }
+  }
 
   const togglePlayPause = () => {
-    setIsPlaying(!isPlaying);
+    setIsPlaying(!isPlaying)
     if (!isPlaying) {
-      startTimeRef.current = Date.now();
-      render();
+      startTimeRef.current = Date.now()
+      render()
     }
-  };
+  }
 
   const reset = () => {
-    startTimeRef.current = Date.now();
-    mouseRef.current = { x: 0, y: 0 };
-  };
+    startTimeRef.current = Date.now()
+    mouseRef.current = { x: 0, y: 0 }
+  }
 
   const nextColorScheme = () => {
-    setColorScheme((prev) => (prev + 1) % colorSchemes.length);
-  };
+    setColorScheme((prev) => (prev + 1) % colorSchemes.length)
+  }
 
   const nextExperiment = () => {
-    setCurrentExperiment((prev) => (prev + 1) % experiments.length);
+    setCurrentExperiment((prev) => (prev + 1) % experiments.length)
     // Reset specific settings for each experiment
-    if (currentExperiment === 1) { // Going to Mandelbrot
-      setZoom([2.0]);
-      setCenter({ x: -0.5, y: 0.0 });
+    if (currentExperiment === 1) {
+      // Going to Mandelbrot
+      setZoom([2.0])
+      setCenter({ x: -0.5, y: 0.0 })
     }
-  };
+  }
 
   const prevExperiment = () => {
-    setCurrentExperiment((prev) => (prev - 1 + experiments.length) % experiments.length);
+    setCurrentExperiment(
+      (prev) => (prev - 1 + experiments.length) % experiments.length
+    )
     // Reset specific settings for each experiment
-    if ((currentExperiment - 1 + experiments.length) % experiments.length === 2) { // Going to Mandelbrot
-      setZoom([2.0]);
-      setCenter({ x: -0.5, y: 0.0 });
+    if (
+      (currentExperiment - 1 + experiments.length) % experiments.length ===
+      2
+    ) {
+      // Going to Mandelbrot
+      setZoom([2.0])
+      setCenter({ x: -0.5, y: 0.0 })
     }
-  };
+  }
 
   useEffect(() => {
     if (initWebGL()) {
-      render();
+      render()
     }
 
     return () => {
       if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+        cancelAnimationFrame(animationRef.current)
       }
-    };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   useEffect(() => {
     if (isPlaying) {
-      render();
+      render()
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isPlaying, intensity, speed, colorScheme, currentExperiment, zoom, center]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [
+    isPlaying,
+    intensity,
+    speed,
+    colorScheme,
+    currentExperiment,
+    zoom,
+    center,
+  ])
 
   return (
     <Layout>
@@ -467,35 +511,44 @@ export default function WebGLPage() {
           >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Zap className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-display font-semibold">WebGL Playground</h1>
+              <h1 className="text-4xl font-display font-semibold">
+                WebGL Playground
+              </h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-              Interactive WebGL experiments powered by fragment shaders. Move your mouse to interact with each visualization.
+              Interactive WebGL experiments powered by fragment shaders. Move
+              your mouse to interact with each visualization.
             </p>
-            
+
             {/* Experiment Navigation */}
             <div className="flex items-center justify-center gap-4 mb-2">
-              <Button 
-                variant="outline" 
-                size="sm" 
+              <Button
+                variant="outline"
+                size="sm"
                 onClick={prevExperiment}
                 className="gap-2"
               >
                 <ChevronLeft className="h-4 w-4" />
                 Previous
               </Button>
-              
+
               <div className="flex items-center gap-3 px-4 py-2 bg-muted rounded-lg">
-                {React.createElement(experiments[currentExperiment].icon, { className: "h-5 w-5 text-primary" })}
+                {React.createElement(experiments[currentExperiment].icon, {
+                  className: 'h-5 w-5 text-primary',
+                })}
                 <div className="text-center">
-                  <div className="font-semibold">{experiments[currentExperiment].name}</div>
-                  <div className="text-sm text-muted-foreground">{experiments[currentExperiment].description}</div>
+                  <div className="font-semibold">
+                    {experiments[currentExperiment].name}
+                  </div>
+                  <div className="text-sm text-muted-foreground">
+                    {experiments[currentExperiment].description}
+                  </div>
                 </div>
               </div>
-              
-              <Button 
-                variant="outline" 
-                size="sm" 
+
+              <Button
+                variant="outline"
+                size="sm"
                 onClick={nextExperiment}
                 className="gap-2"
               >
@@ -518,7 +571,7 @@ export default function WebGLPage() {
                 className="w-full h-[70vh] cursor-crosshair"
                 onMouseMove={handleMouseMove}
               />
-              
+
               {/* Overlay Controls */}
               <div className="absolute top-4 left-4 flex gap-2">
                 <Button
@@ -526,7 +579,11 @@ export default function WebGLPage() {
                   onClick={togglePlayPause}
                   className="bg-black/20 backdrop-blur-sm hover:bg-black/30"
                 >
-                  {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                  {isPlaying ? (
+                    <Pause className="h-4 w-4" />
+                  ) : (
+                    <Play className="h-4 w-4" />
+                  )}
                 </Button>
                 <Button
                   size="sm"
@@ -573,10 +630,12 @@ export default function WebGLPage() {
                   <Settings className="h-5 w-5" />
                   Controls
                 </h3>
-                
+
                 <div className="grid md:grid-cols-4 gap-6">
                   <div>
-                    <label className="block text-sm font-medium mb-2">Intensity</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Intensity
+                    </label>
                     <Slider
                       value={intensity}
                       onValueChange={setIntensity}
@@ -585,11 +644,15 @@ export default function WebGLPage() {
                       step={0.1}
                       className="mb-2"
                     />
-                    <span className="text-xs text-muted-foreground">{intensity[0].toFixed(1)}</span>
+                    <span className="text-xs text-muted-foreground">
+                      {intensity[0].toFixed(1)}
+                    </span>
                   </div>
-                  
+
                   <div>
-                    <label className="block text-sm font-medium mb-2">Speed</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Speed
+                    </label>
                     <Slider
                       value={speed}
                       onValueChange={setSpeed}
@@ -598,12 +661,16 @@ export default function WebGLPage() {
                       step={0.1}
                       className="mb-2"
                     />
-                    <span className="text-xs text-muted-foreground">{speed[0].toFixed(1)}</span>
+                    <span className="text-xs text-muted-foreground">
+                      {speed[0].toFixed(1)}
+                    </span>
                   </div>
-                  
+
                   {currentExperiment === 2 && (
                     <div>
-                      <label className="block text-sm font-medium mb-2">Zoom</label>
+                      <label className="block text-sm font-medium mb-2">
+                        Zoom
+                      </label>
                       <Slider
                         value={zoom}
                         onValueChange={setZoom}
@@ -612,12 +679,16 @@ export default function WebGLPage() {
                         step={0.1}
                         className="mb-2"
                       />
-                      <span className="text-xs text-muted-foreground">{zoom[0].toFixed(1)}x</span>
+                      <span className="text-xs text-muted-foreground">
+                        {zoom[0].toFixed(1)}x
+                      </span>
                     </div>
                   )}
-                  
+
                   <div>
-                    <label className="block text-sm font-medium mb-2">Color Scheme</label>
+                    <label className="block text-sm font-medium mb-2">
+                      Color Scheme
+                    </label>
                     <Button
                       onClick={nextColorScheme}
                       className="w-full gap-2"
@@ -645,10 +716,22 @@ export default function WebGLPage() {
                 Fluid Simulation
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• <strong>Fractal Noise:</strong> Multiple octaves create organic patterns</li>
-                <li>• <strong>Mouse Distortion:</strong> Real-time fluid interaction</li>
-                <li>• <strong>Vignette Effects:</strong> Depth and atmospheric lighting</li>
-                <li>• <strong>Color Flow:</strong> Smooth transitions between layers</li>
+                <li>
+                  • <strong>Fractal Noise:</strong> Multiple octaves create
+                  organic patterns
+                </li>
+                <li>
+                  • <strong>Mouse Distortion:</strong> Real-time fluid
+                  interaction
+                </li>
+                <li>
+                  • <strong>Vignette Effects:</strong> Depth and atmospheric
+                  lighting
+                </li>
+                <li>
+                  • <strong>Color Flow:</strong> Smooth transitions between
+                  layers
+                </li>
               </ul>
             </Card>
 
@@ -658,10 +741,19 @@ export default function WebGLPage() {
                 Particle System
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• <strong>20 Particles:</strong> Individual animated entities</li>
-                <li>• <strong>Mouse Attraction:</strong> Particles follow cursor movement</li>
-                <li>• <strong>Dynamic Colors:</strong> Time-based color cycling</li>
-                <li>• <strong>Trail Effects:</strong> Glowing mouse trails</li>
+                <li>
+                  • <strong>20 Particles:</strong> Individual animated entities
+                </li>
+                <li>
+                  • <strong>Mouse Attraction:</strong> Particles follow cursor
+                  movement
+                </li>
+                <li>
+                  • <strong>Dynamic Colors:</strong> Time-based color cycling
+                </li>
+                <li>
+                  • <strong>Trail Effects:</strong> Glowing mouse trails
+                </li>
               </ul>
             </Card>
 
@@ -671,15 +763,24 @@ export default function WebGLPage() {
                 Mandelbrot Fractal
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• <strong>100 Iterations:</strong> High-precision fractal calculation</li>
-                <li>• <strong>Smooth Coloring:</strong> Continuous iteration count</li>
-                <li>• <strong>Zoom Control:</strong> Explore infinite detail</li>
-                <li>• <strong>Mouse Navigation:</strong> Interactive exploration</li>
+                <li>
+                  • <strong>100 Iterations:</strong> High-precision fractal
+                  calculation
+                </li>
+                <li>
+                  • <strong>Smooth Coloring:</strong> Continuous iteration count
+                </li>
+                <li>
+                  • <strong>Zoom Control:</strong> Explore infinite detail
+                </li>
+                <li>
+                  • <strong>Mouse Navigation:</strong> Interactive exploration
+                </li>
               </ul>
             </Card>
           </motion.div>
         </div>
       </section>
     </Layout>
-  );
+  )
 }

@@ -5,17 +5,18 @@
 // Environment configuration
 const config = {
   // Replace with your actual Cloudflare Web Analytics token
-  cfAnalyticsToken: import.meta.env.VITE_CF_ANALYTICS_TOKEN || 'YOUR_TOKEN_HERE',
+  cfAnalyticsToken:
+    import.meta.env.VITE_CF_ANALYTICS_TOKEN || 'YOUR_TOKEN_HERE',
   isDevelopment: import.meta.env.DEV,
   isProduction: import.meta.env.PROD,
-};
+}
 
 /**
  * Analytics event types for type safety
  */
 export interface AnalyticsEvent {
-  name: string;
-  properties?: Record<string, string | number | boolean>;
+  name: string
+  properties?: Record<string, string | number | boolean>
 }
 
 /**
@@ -30,7 +31,7 @@ export const BlogEvents = {
   EXTERNAL_LINK_CLICK: 'external_link_click',
   SEARCH_USED: 'search_used',
   THEME_CHANGE: 'theme_change',
-} as const;
+} as const
 
 /**
  * Initialize Cloudflare Web Analytics
@@ -38,13 +39,13 @@ export const BlogEvents = {
  */
 export function initializeAnalytics(): void {
   if (config.isDevelopment) {
-    console.log('📊 Analytics initialized (development mode)');
-    return;
+    console.log('📊 Analytics initialized (development mode)')
+    return
   }
 
   // Cloudflare Web Analytics is loaded via script tag in index.html
   // No additional initialization needed
-  console.log('📊 Cloudflare Web Analytics active');
+  console.log('📊 Cloudflare Web Analytics active')
 }
 
 /**
@@ -53,34 +54,38 @@ export function initializeAnalytics(): void {
  */
 export function trackEvent(event: AnalyticsEvent): void {
   if (config.isDevelopment) {
-    console.log('📊 Analytics Event:', event);
-    return;
+    console.log('📊 Analytics Event:', event)
+    return
   }
 
   // Store events in localStorage for potential batch sending
   try {
-    const events = JSON.parse(localStorage.getItem('pending_analytics') || '[]');
+    const events = JSON.parse(localStorage.getItem('pending_analytics') || '[]')
     events.push({
       ...event,
       timestamp: new Date().toISOString(),
       url: window.location.href,
-    });
-    
+    })
+
     // Keep only last 50 events
     if (events.length > 50) {
-      events.splice(0, events.length - 50);
+      events.splice(0, events.length - 50)
     }
-    
-    localStorage.setItem('pending_analytics', JSON.stringify(events));
+
+    localStorage.setItem('pending_analytics', JSON.stringify(events))
   } catch (error) {
-    console.error('Failed to store analytics event:', error);
+    console.error('Failed to store analytics event:', error)
   }
 }
 
 /**
  * Track blog post view with metadata
  */
-export function trackPostView(slug: string, title: string, tags: string[] = []): void {
+export function trackPostView(
+  slug: string,
+  title: string,
+  tags: string[] = []
+): void {
   trackEvent({
     name: BlogEvents.POST_VIEW,
     properties: {
@@ -88,8 +93,8 @@ export function trackPostView(slug: string, title: string, tags: string[] = []):
       title,
       tags: tags.join(','),
       reading_time: calculateReadingTime(document.body.innerText),
-    }
-  });
+    },
+  })
 }
 
 /**
@@ -101,8 +106,8 @@ export function trackPostReadComplete(slug: string, timeSpent: number): void {
     properties: {
       slug,
       time_spent_seconds: timeSpent,
-    }
-  });
+    },
+  })
 }
 
 /**
@@ -114,21 +119,24 @@ export function trackPostShare(slug: string, platform: string): void {
     properties: {
       slug,
       platform,
-    }
-  });
+    },
+  })
 }
 
 /**
  * Track tag clicks for content discovery insights
  */
-export function trackTagClick(tag: string, context: 'post' | 'sidebar' | 'page'): void {
+export function trackTagClick(
+  tag: string,
+  context: 'post' | 'sidebar' | 'page'
+): void {
   trackEvent({
     name: BlogEvents.TAG_CLICK,
     properties: {
       tag,
       context,
-    }
-  });
+    },
+  })
 }
 
 /**
@@ -139,8 +147,8 @@ export function trackNewsletterSubscribe(source: string): void {
     name: BlogEvents.NEWSLETTER_SUBSCRIBE,
     properties: {
       source,
-    }
-  });
+    },
+  })
 }
 
 /**
@@ -152,8 +160,8 @@ export function trackExternalLinkClick(url: string, text: string): void {
     properties: {
       url,
       link_text: text,
-    }
-  });
+    },
+  })
 }
 
 /**
@@ -164,27 +172,29 @@ export function trackThemeChange(theme: string): void {
     name: BlogEvents.THEME_CHANGE,
     properties: {
       theme,
-    }
-  });
+    },
+  })
 }
 
 /**
  * Calculate reading time from text content
  */
 function calculateReadingTime(text: string): number {
-  const wordsPerMinute = 200;
-  const words = text.trim().split(/\s+/).length;
-  return Math.ceil(words / wordsPerMinute);
+  const wordsPerMinute = 200
+  const words = text.trim().split(/\s+/).length
+  return Math.ceil(words / wordsPerMinute)
 }
 
 /**
  * Get stored analytics events (for debugging or potential API sending)
  */
-export function getStoredEvents(): Array<AnalyticsEvent & { timestamp: string; url: string }> {
+export function getStoredEvents(): Array<
+  AnalyticsEvent & { timestamp: string; url: string }
+> {
   try {
-    return JSON.parse(localStorage.getItem('pending_analytics') || '[]');
+    return JSON.parse(localStorage.getItem('pending_analytics') || '[]')
   } catch {
-    return [];
+    return []
   }
 }
 
@@ -192,7 +202,7 @@ export function getStoredEvents(): Array<AnalyticsEvent & { timestamp: string; u
  * Clear stored analytics events
  */
 export function clearStoredEvents(): void {
-  localStorage.removeItem('pending_analytics');
+  localStorage.removeItem('pending_analytics')
 }
 
 export default {
@@ -207,4 +217,4 @@ export default {
   trackThemeChange,
   getStoredEvents,
   clearStoredEvents,
-};
+}

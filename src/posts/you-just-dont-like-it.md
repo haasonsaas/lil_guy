@@ -1,20 +1,19 @@
 ---
-author: Jonathan Haas  
-pubDate: 2025-04-19  
-title: "The Answer Is Obvious—You Just Don’t Like It"  
-description:  
-  Why some problems remain "intractable" not because they’re unsolvable, but because the solution challenges a deeply held assumption.  
-featured: false  
-draft: false  
-tags:  
-  - decision-making  
-  - leadership  
-  - mindset  
-  - problem-solving  
-  - organizational-dynamics  
-image:  
-  url: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'  
-  alt: "A person staring at a whiteboard filled with ideas, representing mental resistance to an obvious but uncomfortable solution"  
+author: Jonathan Haas
+pubDate: 2025-04-19
+title: 'The Answer Is Obvious—You Just Don’t Like It'
+description: Why some problems remain "intractable" not because they’re unsolvable, but because the solution challenges a deeply held assumption.
+featured: false
+draft: false
+tags:
+  - decision-making
+  - leadership
+  - mindset
+  - problem-solving
+  - organizational-dynamics
+image:
+  url: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'A person staring at a whiteboard filled with ideas, representing mental resistance to an obvious but uncomfortable solution'
 ---
 
 You’ve probably seen this happen.
@@ -31,11 +30,11 @@ Most problems we label “intractable” aren’t actually unsolvable. They just
 
 A core assumption.  
 A beloved strategy.  
-A sense of identity.  
+A sense of identity.
 
 The moment a solution requires abandoning one of these things, our brain doesn’t just ignore it—it actively resists it.
 
-It doesn’t *feel* like resistance. It feels like logic. “That wouldn’t work because…” “We tried that before…” “That’s not who we are.”
+It doesn’t _feel_ like resistance. It feels like logic. “That wouldn’t work because…” “We tried that before…” “That’s not who we are.”
 
 But under the hood, there’s something deeper going on: the cost of being wrong about a core belief is just too high.
 
@@ -47,10 +46,10 @@ You’re building a company. The numbers aren’t adding up. Growth is stalling.
 
 Everyone on your team is gently suggesting the same thing: your pricing model doesn’t make sense. Or maybe your target market is misaligned. Or the product is solving the wrong problem.
 
-You’ve heard it before. But you’re holding onto the original vision. Because you *know* it can work. Because you’ve poured months—years—into building around that assumption.
+You’ve heard it before. But you’re holding onto the original vision. Because you _know_ it can work. Because you’ve poured months—years—into building around that assumption.
 
 And so, the real problem isn’t the problem.  
-The real problem is what solving it would *cost you*.  
+The real problem is what solving it would _cost you_.
 
 ## The Mental Model: Problem vs. Premise
 
@@ -75,7 +74,7 @@ You’ve already invested so much time and energy into this path. Letting go now
 
 ### 2. **Identity Attachment**
 
-You don’t just *do* this thing—you *are* this thing. “I’m a technical founder.” “I’m a premium brand.” “We’re a freemium company.” Shifting strategies feels like abandoning your identity, not just a tactic.
+You don’t just _do_ this thing—you _are_ this thing. “I’m a technical founder.” “I’m a premium brand.” “We’re a freemium company.” Shifting strategies feels like abandoning your identity, not just a tactic.
 
 ### 3. **Fear of Uncertainty**
 
@@ -100,6 +99,7 @@ This bypasses your attachment to what already exists and lets you explore the mo
 ### 2. Write the Opposite of Your Core Assumption
 
 For example:
+
 > Assumption: “Our enterprise pricing model is what makes us different.”  
 > Inversion: “Our pricing model is actually repelling our best customers.”
 
@@ -111,7 +111,7 @@ You need at least one person in your life who’s not emotionally invested in yo
 
 ### 4. Build an Anti-Roadmap
 
-List out the things you *refuse* to change. Now ask: What if those are *exactly* the things holding us back?
+List out the things you _refuse_ to change. Now ask: What if those are _exactly_ the things holding us back?
 
 Often, the constraints we think are “strategic” are just self-imposed cages.
 

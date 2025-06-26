@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-30
-title: "The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company"
-description: 
-  After year four, founder CEOs are paid like caretakers—while hired CEOs are paid like kings. Here’s why the cap table math is broken, and what we can do about it.
+title: 'The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company'
+description: After year four, founder CEOs are paid like caretakers—while hired CEOs are paid like kings. Here’s why the cap table math is broken, and what we can do about it.
 featured: false
 draft: false
 tags:
@@ -13,14 +12,14 @@ tags:
   - transparency
 image:
   url: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "Two professionals reviewing equity compensation documents, symbolizing the disparity between founder and CEO pay"
+  alt: 'Two professionals reviewing equity compensation documents, symbolizing the disparity between founder and CEO pay'
 ---
 
-Let’s say you’re a founder CEO. You took the risk. You raised the money. You hired the team. You lived the volatility—every 2 a.m. existential spiral, every almost-fired executive, every late-stage Hail Mary. You *are* the reason the company exists.
+Let’s say you’re a founder CEO. You took the risk. You raised the money. You hired the team. You lived the volatility—every 2 a.m. existential spiral, every almost-fired executive, every late-stage Hail Mary. You _are_ the reason the company exists.
 
 Now it’s year four. You’re scaling. You’ve got product-market fit. You’ve got revenue. And you’re thinking, “Hey, maybe I should refresh my equity or get a comp package that reflects this next phase.”
 
-And that’s when it hits you: the market doesn’t actually value your *ongoing role*.
+And that’s when it hits you: the market doesn’t actually value your _ongoing role_.
 
 ## The Founder-CEO Discount
 
@@ -39,11 +38,11 @@ By contrast, here’s what a founder CEO gets:
 - The leftover vest from their original 4-year grant (which has mostly vested)
 - Maybe a small top-up—**1% or less** if you’re lucky
 - No bonus structure, no guaranteed cash incentive
-- And a narrative from the board that sounds like: *“You’re already well-compensated.”*
+- And a narrative from the board that sounds like: _“You’re already well-compensated.”_
 
-But here’s the kicker: that “well-compensated” equity? It was all earned in years 0–4. It’s not compensating you for the *next* four.
+But here’s the kicker: that “well-compensated” equity? It was all earned in years 0–4. It’s not compensating you for the _next_ four.
 
-## Why This Happens (And Why It’s Bullsh*t)
+## Why This Happens (And Why It’s Bullsh\*t)
 
 VCs aren’t evil. But the system they’ve built subtly (and sometimes overtly) devalues the continued contribution of founder CEOs.
 
@@ -65,7 +64,7 @@ The skills are different. The stakes are higher. And the time horizon is longer.
 
 Founders are often told they "already own a big chunk." But let’s talk dilution.
 
-If you started with 20%, raised multiple rounds, and issued multiple employee pools, you might be down to **5–7%** by Series C. And that’s *before* secondary markets, M&A, or public overhang.
+If you started with 20%, raised multiple rounds, and issued multiple employee pools, you might be down to **5–7%** by Series C. And that’s _before_ secondary markets, M&A, or public overhang.
 
 Meanwhile, a new CEO walks in with a fresh 4% unvested grant and no past dilution baggage.
 
@@ -79,7 +78,7 @@ Once a company has a real board, you’ve got folks around the table who:
 - Think in terms of “replacing management” as a lever (which it sometimes is!)
 - View founder liquidity as a distraction or risk
 
-So when a founder asks for a comp refresh, it triggers a subconscious response: *“Are they still hungry?”*
+So when a founder asks for a comp refresh, it triggers a subconscious response: _“Are they still hungry?”_
 
 No one questions if an outside CEO is “hungry” when they’re offered 5% equity.
 
@@ -99,13 +98,14 @@ If a comp refresh keeps the founder CEO engaged and scaling the company another 
 
 Founders move fast. They’ve seen every version of the company. They have intuition you can’t teach and context you can’t replicate.
 
-Boards often underestimate this. But investors love momentum—and founders *are* the momentum engine.
+Boards often underestimate this. But investors love momentum—and founders _are_ the momentum engine.
 
 ### 3. Re-leveling Signals Maturity
 
 In a weird twist, **equity refreshes can signal to the market that you’re building a serious company**.
 
 It says:
+
 > “We have a professional board. We compensate executives based on forward value creation. We treat founder roles like we treat any other senior operator.”
 
 That’s a mark of discipline—not indulgence.
@@ -123,9 +123,9 @@ Here’s what I’ve seen in healthy cap tables:
 
 This isn’t about greed. It’s about alignment.
 
-If you’re the CEO in year 5, managing a 200-person team, hitting revenue targets, and fundraising like it’s your full-time job—you should be compensated for that *future* value, not just the equity you earned when you were sleeping on a mattress in the office.
+If you’re the CEO in year 5, managing a 200-person team, hitting revenue targets, and fundraising like it’s your full-time job—you should be compensated for that _future_ value, not just the equity you earned when you were sleeping on a mattress in the office.
 
 Don’t let legacy equity blind you to your market value.
 
 And if your board doesn’t see that?  
-Maybe it’s time for *them* to refresh.
+Maybe it’s time for _them_ to refresh.

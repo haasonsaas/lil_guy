@@ -30,6 +30,7 @@ EMAIL_SCHEDULE (new KV namespace)
 ## Cloudflare Setup
 
 1. **Create KV Namespace**:
+
    ```bash
    # In Cloudflare Dashboard or CLI
    wrangler kv:namespace create "EMAIL_SCHEDULE"
@@ -81,7 +82,7 @@ curl -X POST https://your-domain.com/resend-automation/process-scheduled
 ## Welcome Series Timeline
 
 - **Email 1**: Immediate (via Resend API)
-- **Email 2**: +24 hours (scheduled in KV)  
+- **Email 2**: +24 hours (scheduled in KV)
 - **Email 3**: +72 hours (scheduled in KV)
 
 ## Next Steps

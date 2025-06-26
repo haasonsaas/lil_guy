@@ -1,9 +1,13 @@
-import type { PagesFunction, ExecutionContext, KVNamespace } from '@cloudflare/workers-types';
+import type {
+  PagesFunction,
+  ExecutionContext,
+  KVNamespace,
+} from '@cloudflare/workers-types'
 
 interface Env {
-  RESEND_API_KEY: string;
+  RESEND_API_KEY: string
   // Note: EMAIL_SCHEDULE KV will be created automatically when accessed
-  EMAIL_SCHEDULE?: KVNamespace;
+  EMAIL_SCHEDULE?: KVNamespace
 }
 
 const corsHeaders = {
@@ -11,12 +15,16 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Credentials': 'true',
-};
+}
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
     if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: corsHeaders });
+      return new Response(null, { headers: corsHeaders })
     }
 
     if (request.method === 'POST') {
@@ -25,57 +33,61 @@ export default {
         const testResponse = await fetch('https://api.resend.com/audiences', {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+            Authorization: `Bearer ${env.RESEND_API_KEY}`,
             'Content-Type': 'application/json',
           },
-        });
+        })
 
-        let audienceStatus = 'Unknown';
-        let audienceId = null;
+        let audienceStatus = 'Unknown'
+        let audienceId = null
 
         if (testResponse.ok) {
-          const audiences = await testResponse.json();
-          const existingAudience = audiences.data?.find((aud: { name: string; id: string }) => 
-            aud.name === 'Haas on SaaS Subscribers'
-          );
+          const audiences = await testResponse.json()
+          const existingAudience = audiences.data?.find(
+            (aud: { name: string; id: string }) =>
+              aud.name === 'Haas on SaaS Subscribers'
+          )
 
           if (existingAudience) {
-            audienceStatus = 'Exists';
-            audienceId = existingAudience.id;
+            audienceStatus = 'Exists'
+            audienceId = existingAudience.id
           } else {
             // Create audience
-            const createResponse = await fetch('https://api.resend.com/audiences', {
-              method: 'POST',
-              headers: {
-                'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-                'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                name: 'Haas on SaaS Subscribers'
-              }),
-            });
+            const createResponse = await fetch(
+              'https://api.resend.com/audiences',
+              {
+                method: 'POST',
+                headers: {
+                  Authorization: `Bearer ${env.RESEND_API_KEY}`,
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                  name: 'Haas on SaaS Subscribers',
+                }),
+              }
+            )
 
             if (createResponse.ok) {
-              const newAudience = await createResponse.json();
-              audienceStatus = 'Created';
-              audienceId = newAudience.id;
+              const newAudience = await createResponse.json()
+              audienceStatus = 'Created'
+              audienceId = newAudience.id
             } else {
-              audienceStatus = 'Failed to create';
+              audienceStatus = 'Failed to create'
             }
           }
         } else {
-          audienceStatus = 'API Error';
+          audienceStatus = 'API Error'
         }
 
         // Test KV access (will auto-create if it doesn't exist)
-        let kvStatus = 'Not Available';
+        let kvStatus = 'Not Available'
         if (env.EMAIL_SCHEDULE) {
           try {
-            await env.EMAIL_SCHEDULE.put('test', 'test', { expirationTtl: 60 });
-            await env.EMAIL_SCHEDULE.delete('test');
-            kvStatus = 'Working';
+            await env.EMAIL_SCHEDULE.put('test', 'test', { expirationTtl: 60 })
+            await env.EMAIL_SCHEDULE.delete('test')
+            kvStatus = 'Working'
           } catch (error) {
-            kvStatus = 'Error: ' + error;
+            kvStatus = 'Error: ' + error
           }
         }
 
@@ -84,34 +96,38 @@ export default {
           audience_status: audienceStatus,
           audience_id: audienceId,
           kv_status: kvStatus,
-          automation_ready: testResponse.ok && audienceId && env.EMAIL_SCHEDULE ? true : false,
+          automation_ready:
+            testResponse.ok && audienceId && env.EMAIL_SCHEDULE ? true : false,
           timestamp: new Date().toISOString(),
-        };
+        }
 
         return new Response(JSON.stringify(setupStatus, null, 2), {
           headers: {
             ...corsHeaders,
             'Content-Type': 'application/json',
           },
-        });
-
+        })
       } catch (error) {
-        return new Response(JSON.stringify({ 
-          error: 'Setup failed', 
-          details: error instanceof Error ? error.message : 'Unknown error',
-          timestamp: new Date().toISOString(),
-        }), {
-          status: 500,
-          headers: {
-            ...corsHeaders,
-            'Content-Type': 'application/json',
-          },
-        });
+        return new Response(
+          JSON.stringify({
+            error: 'Setup failed',
+            details: error instanceof Error ? error.message : 'Unknown error',
+            timestamp: new Date().toISOString(),
+          }),
+          {
+            status: 500,
+            headers: {
+              ...corsHeaders,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
       }
     }
 
     // GET request returns setup instructions
-    return new Response(`
+    return new Response(
+      `
 <!DOCTYPE html>
 <html>
 <head>
@@ -201,11 +217,13 @@ export default {
         }
     </script>
 </body>
-</html>`, {
-      headers: {
-        ...corsHeaders,
-        'Content-Type': 'text/html',
-      },
-    });
+</html>`,
+      {
+        headers: {
+          ...corsHeaders,
+          'Content-Type': 'text/html',
+        },
+      }
+    )
   },
-};
+}

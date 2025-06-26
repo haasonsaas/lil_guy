@@ -20,6 +20,18 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[Stop "Simple" Testing: A Contrarian's Guide]]></title>
+      <description><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share real-world examples from my advisory experience, actionable frameworks, and the hidden costs of oversimplifying quality assurance. Stop wasting resources—start building better products.]]></description>
+      <link>https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide</guid>
+      <pubDate>Thu, 26 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup testing]]></category>
+      <category><![CDATA[software testing]]></category>
+      <category><![CDATA[quality assurance]]></category>
+      <category><![CDATA[agile testing]]></category>
+      <category><![CDATA[contrarian advice]]></category>
+    </item>
+    <item>
       <title><![CDATA[The Myth of Fast Growth]]></title>
       <description><![CDATA[Forget the hype! This post challenges conventional startup wisdom with practical, experience-based advice. Learn how to avoid common pitfalls and unlock real growth from a contrarian startup advisor who's seen it all. Discover actionable strategies and surprising truths that will transform your approach.]]></description>
       <link>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</link>
@@ -589,18 +601,6 @@
       <category><![CDATA[product]]></category>
       <category><![CDATA[culture]]></category>
       <category><![CDATA[personal-growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Apple Ruling: A Win That Might Hurt More Than Help]]></title>
-      <description><![CDATA[Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-apple-ruling</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-apple-ruling</guid>
-      <pubDate>Thu, 01 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[app-store]]></category>
-      <category><![CDATA[product-strategy]]></category>
-      <category><![CDATA[conversion]]></category>
-      <category><![CDATA[user-experience]]></category>
-      <category><![CDATA[growth]]></category>
     </item>
   </channel>
 </rss>

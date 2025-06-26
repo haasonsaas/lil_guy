@@ -1,28 +1,29 @@
-import { BlogPost, BlogPostFrontmatter } from '@/types/blog';
+import { BlogPost, BlogPostFrontmatter } from '@/types/blog'
 
 // Sample blog post with frontmatter and content
 export const sampleBlogPost: BlogPost = {
   slug: 'ai-experience-gap',
   frontmatter: {
-    author: "Jonathan Haas",
-    pubDate: "2024-11-29",
+    author: 'Jonathan Haas',
+    pubDate: '2024-11-29',
     title: "The AI Experience Gap: Why Better Models Aren't Enough",
-    description: "Exploring the disconnect between AI product expectations and reality, and how to bridge it through AI-native design",
+    description:
+      'Exploring the disconnect between AI product expectations and reality, and how to bridge it through AI-native design',
     featured: true,
     draft: false,
     tags: [
-      "artificial-intelligence",
-      "product-design",
-      "user-experience",
-      "technology",
-      "software-development",
-      "future-of-work",
-      "human-computer-interaction"
+      'artificial-intelligence',
+      'product-design',
+      'user-experience',
+      'technology',
+      'software-development',
+      'future-of-work',
+      'human-computer-interaction',
     ],
     image: {
       url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-      alt: "A robot's hand touching a holographic interface displaying various digital elements, symbolizing the intersection of human interaction and artificial intelligence"
-    }
+      alt: "A robot's hand touching a holographic interface displaying various digital elements, symbolizing the intersection of human interaction and artificial intelligence",
+    },
   },
   content: `
 # The AI Experience Gap: Why Better Models Aren't Enough
@@ -78,31 +79,32 @@ To create truly effective AI products, we need a fundamental rethinking of inter
 As AI capabilities continue to advance at an astounding pace, the quality of AI product experiences will increasingly depend not on the raw power of models, but on thoughtful, AI-native design that bridges the gap between technical capability and human needs.
 
 The most successful AI products won't necessarily be those with the most advanced models, but those that most effectively translate model capabilities into intuitive, reliable tools that meaningfully enhance human work and creativity.
-`
-};
+`,
+}
 
 // Additional sample blog posts
 export const additionalBlogPosts: BlogPost[] = [
   {
     slug: 'future-of-development-tools',
     frontmatter: {
-      author: "Jonathan Haas",
-      pubDate: "2024-11-15",
-      title: "The Future of Development Tools: AI as a Pair Programmer",
-      description: "How AI is transforming the way we write code and what it means for the future of software development",
+      author: 'Jonathan Haas',
+      pubDate: '2024-11-15',
+      title: 'The Future of Development Tools: AI as a Pair Programmer',
+      description:
+        'How AI is transforming the way we write code and what it means for the future of software development',
       featured: false,
       draft: false,
       tags: [
-        "artificial-intelligence",
-        "software-development",
-        "programming",
-        "future-of-work",
-        "technology"
+        'artificial-intelligence',
+        'software-development',
+        'programming',
+        'future-of-work',
+        'technology',
       ],
       image: {
         url: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1',
-        alt: "Gray and black laptop computer on surface showing code"
-      }
+        alt: 'Gray and black laptop computer on surface showing code',
+      },
     },
     content: `
 # The Future of Development Tools: AI as a Pair Programmer
@@ -157,28 +159,29 @@ This evolution raises important questions about the changing nature of developme
 The future of development tools isn't about replacing developers but transforming how they work. The most successful developers will be those who learn to effectively collaborate with AI assistants, leveraging their capabilities while providing the critical human elements of creativity, judgment, and contextual understanding that remain beyond AI's reach.
 
 As these tools evolve, we'll need to thoughtfully adapt our development practices, training approaches, and even our understanding of what it means to be a software developer in an AI-augmented world.
-`
+`,
   },
   {
     slug: 'ethical-considerations-in-ai',
     frontmatter: {
-      author: "Jonathan Haas",
-      pubDate: "2024-10-22",
-      title: "Ethical Considerations in AI System Design",
-      description: "Exploring the critical ethical questions that every AI system designer must consider",
+      author: 'Jonathan Haas',
+      pubDate: '2024-10-22',
+      title: 'Ethical Considerations in AI System Design',
+      description:
+        'Exploring the critical ethical questions that every AI system designer must consider',
       featured: false,
       draft: false,
       tags: [
-        "artificial-intelligence",
-        "ethics",
-        "technology",
-        "software-development",
-        "responsible-ai"
+        'artificial-intelligence',
+        'ethics',
+        'technology',
+        'software-development',
+        'responsible-ai',
       ],
       image: {
         url: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158',
-        alt: "Woman in white long sleeve shirt using black laptop computer with code on screen"
-      }
+        alt: 'Woman in white long sleeve shirt using black laptop computer with code on screen',
+      },
     },
     content: `
 # Ethical Considerations in AI System Design
@@ -238,28 +241,30 @@ Addressing these considerations requires more than abstract principles. Practica
 Ethical considerations shouldn't be an afterthought or compliance checkbox—they should be central to the design process from the earliest stages. By thoughtfully addressing these concerns, we can build AI systems that not only avoid harm but actively contribute to human flourishing and social good.
 
 As AI capabilities continue to advance, the importance of ethical design will only grow. The choices we make today will shape not just individual products but the broader trajectory of how AI impacts society for years to come.
-`
+`,
   },
   {
     slug: 'designing-for-scale',
     frontmatter: {
-      author: "Jonathan Haas",
-      pubDate: "2024-10-05",
-      title: "Designing for Scale: Architecture Patterns for Growing Applications",
-      description: "Architectural approaches that allow your application to scale gracefully as user demands increase",
+      author: 'Jonathan Haas',
+      pubDate: '2024-10-05',
+      title:
+        'Designing for Scale: Architecture Patterns for Growing Applications',
+      description:
+        'Architectural approaches that allow your application to scale gracefully as user demands increase',
       featured: false,
       draft: false,
       tags: [
-        "software-architecture",
-        "scalability",
-        "software-development",
-        "technology",
-        "system-design"
+        'software-architecture',
+        'scalability',
+        'software-development',
+        'technology',
+        'system-design',
       ],
       image: {
         url: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c',
-        alt: "People sitting down near table with assorted laptop computers"
-      }
+        alt: 'People sitting down near table with assorted laptop computers',
+      },
     },
     content: `
 # Designing for Scale: Architecture Patterns for Growing Applications
@@ -349,28 +354,29 @@ Scaled systems must be designed for failure:
 Designing for scale requires thinking beyond immediate requirements to anticipate future growth patterns. The most successful scalable architectures combine thoughtful patterns with continuous measurement and evolution.
 
 Rather than attempting to build for massive scale from day one, focus on creating clean architectural boundaries and measuring real-world usage patterns. This approach allows you to apply targeted scaling strategies precisely where and when they're needed, avoiding both premature optimization and painful rewrites as your application grows.
-`
+`,
   },
   {
     slug: 'continuous-learning-in-tech',
     frontmatter: {
-      author: "Jonathan Haas",
-      pubDate: "2024-09-18",
-      title: "Continuous Learning in Tech: Strategies for Staying Current",
-      description: "Effective approaches for maintaining relevant skills in the rapidly evolving technology landscape",
+      author: 'Jonathan Haas',
+      pubDate: '2024-09-18',
+      title: 'Continuous Learning in Tech: Strategies for Staying Current',
+      description:
+        'Effective approaches for maintaining relevant skills in the rapidly evolving technology landscape',
       featured: false,
       draft: false,
       tags: [
-        "professional-development",
-        "learning",
-        "technology",
-        "career-development",
-        "future-of-work"
+        'professional-development',
+        'learning',
+        'technology',
+        'career-development',
+        'future-of-work',
       ],
       image: {
         url: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d',
-        alt: "Person using MacBook Pro"
-      }
+        alt: 'Person using MacBook Pro',
+      },
     },
     content: `
 # Continuous Learning in Tech: Strategies for Staying Current
@@ -440,6 +446,6 @@ Effective continuous learning requires intentionality. Consider developing a per
 In technology, learning isn't just a phase at the beginning of your career—it's a career-long imperative. By developing effective learning strategies and habits, you can not only keep pace with change but leverage it as a competitive advantage.
 
 The most successful technology professionals don't just react to change; they anticipate it. They see continuous learning not as a burden but as an opportunity for growth and advancement in an increasingly dynamic field.
-`
-  }
-];
+`,
+  },
+]

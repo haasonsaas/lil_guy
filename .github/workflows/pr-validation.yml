@@ -14,7 +14,7 @@ jobs:
   validate-pr:
     runs-on: ubuntu-latest
     name: Validate PR Build
-    
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -106,7 +106,7 @@ jobs:
             const description = state === 'success' 
               ? 'Preview deployment successful' 
               : 'Preview deployment failed';
-            
+
             await github.rest.repos.createCommitStatus({
               owner: context.repo.owner,
               repo: context.repo.repo,

@@ -1,5 +1,18 @@
 {
   "version": 1,
   "include": ["/api/*", "/blog/*"],
-  "exclude": ["/assets/*", "/generated/*", "*.js", "*.css", "*.webp", "*.png", "*.jpg", "*.xml", "*.txt", "*.woff", "*.woff2", "*.ttf"]
-} 
+  "exclude": [
+    "/assets/*",
+    "/generated/*",
+    "*.js",
+    "*.css",
+    "*.webp",
+    "*.png",
+    "*.jpg",
+    "*.xml",
+    "*.txt",
+    "*.woff",
+    "*.woff2",
+    "*.ttf"
+  ]
+}

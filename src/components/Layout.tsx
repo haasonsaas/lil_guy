@@ -1,40 +1,40 @@
-import { ReactNode, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
+import { ReactNode, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import Header from './Header'
+import Footer from './Footer'
 
 interface LayoutProps {
-  children: ReactNode;
+  children: ReactNode
 }
 
 export default function Layout({ children }: LayoutProps) {
-  const location = useLocation();
+  const location = useLocation()
 
   useEffect(() => {
-    const path = location.pathname;
-    let title = 'Haas on SaaS';
+    const path = location.pathname
+    let title = 'Haas on SaaS'
 
     if (path.startsWith('/blog/')) {
       // Blog post title is handled by the BlogPost component
-      return;
+      return
     } else if (path === '/blog') {
-      title = 'Blog - Haas on SaaS';
+      title = 'Blog - Haas on SaaS'
     } else if (path === '/tags') {
-      title = 'Topics - Haas on SaaS';
+      title = 'Topics - Haas on SaaS'
     } else if (path === '/about') {
-      title = 'About - Haas on SaaS';
+      title = 'About - Haas on SaaS'
     } else if (path === '/uses') {
-      title = 'Uses - Haas on SaaS';
+      title = 'Uses - Haas on SaaS'
     } else if (path === '/reading') {
-      title = 'Reading List - Haas on SaaS';
+      title = 'Reading List - Haas on SaaS'
     } else if (path === '/newsletter') {
-      title = 'Newsletter - Haas on SaaS';
+      title = 'Newsletter - Haas on SaaS'
     } else if (path === '/') {
-      title = 'Jonathan Haas | Haas on SaaS';
+      title = 'Jonathan Haas | Haas on SaaS'
     }
 
-    document.title = title;
-  }, [location.pathname]);
+    document.title = title
+  }, [location.pathname])
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -44,5 +44,5 @@ export default function Layout({ children }: LayoutProps) {
       </main>
       <Footer />
     </div>
-  );
+  )
 }

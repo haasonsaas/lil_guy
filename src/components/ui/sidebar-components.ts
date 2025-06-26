@@ -1,5 +1,5 @@
-import { SidebarProvider } from "./sidebar-provider"
-import { useSidebar } from "./sidebar-context"
+import { SidebarProvider } from './sidebar-provider'
+import { useSidebar } from './sidebar-context'
 import {
   Sidebar,
   SidebarContent,
@@ -23,7 +23,7 @@ import {
   SidebarRail,
   SidebarSeparator,
   SidebarTrigger,
-} from "./sidebar"
+} from './sidebar'
 
 export {
   Sidebar,
@@ -50,4 +50,4 @@ export {
   SidebarSeparator,
   SidebarTrigger,
   useSidebar,
-} 
+}

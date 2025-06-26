@@ -1,14 +1,14 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight } from 'lucide-react'
 
 interface ArticleCardProps {
-  title: string;
-  description: string;
-  date: string;
-  readTime: string;
-  tags: string[];
-  imageUrl: string;
-  isFeatured?: boolean;
-  href: string;
+  title: string
+  description: string
+  date: string
+  readTime: string
+  tags: string[]
+  imageUrl: string
+  isFeatured?: boolean
+  href: string
 }
 
 const ArticleCard = ({
@@ -59,7 +59,9 @@ const ArticleCard = ({
           <h2 className="mb-2 font-display text-xl font-semibold leading-tight tracking-tight text-foreground">
             {title}
           </h2>
-          <p className="mb-4 text-muted-foreground line-clamp-2">{description}</p>
+          <p className="mb-4 text-muted-foreground line-clamp-2">
+            {description}
+          </p>
           <div className="flex items-center text-sm font-medium text-primary">
             Read more
             <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -67,7 +69,7 @@ const ArticleCard = ({
         </div>
       </a>
     </article>
-  );
-};
+  )
+}
 
-export default ArticleCard; 
+export default ArticleCard

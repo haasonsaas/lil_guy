@@ -35,7 +35,7 @@ jobs:
         uses: dacbd/create-issue-action@main
         with:
           token: ${{ steps.create-token.outputs.token }}
-          title: "Broken Links Detected in Blog Posts"
+          title: 'Broken Links Detected in Blog Posts'
           body: |
             The weekly link checker has detected one or more broken links in the blog posts.
             Please review the following output and fix the links:

@@ -1,9 +1,9 @@
 interface TopicPillsProps {
   topics: {
-    name: string;
-    count: number;
-    href: string;
-  }[];
+    name: string
+    count: number
+    href: string
+  }[]
 }
 
 const TopicPills = ({ topics }: TopicPillsProps) => {
@@ -26,7 +26,7 @@ const TopicPills = ({ topics }: TopicPillsProps) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TopicPills; 
+export default TopicPills

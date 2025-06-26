@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness"
+title: 'Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness'
 description: "An in-depth exploration of how the Bloom platform transcends traditional wellness tracking to create a holistic system that adapts to users' lives rather than demanding adaptation from them"
 tags:
   - product
@@ -11,7 +11,7 @@ tags:
   - strategy
 image:
   url: 'https://images.pexels.com/photos/3760529/pexels-photo-3760529.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A peaceful arrangement of wellness items including plants, journal, and meditation stones, representing the integrated approach of the Bloom Life Dashboard"
+  alt: 'A peaceful arrangement of wellness items including plants, journal, and meditation stones, representing the integrated approach of the Bloom Life Dashboard'
 ---
 
 This digital fragmentation mirrors the very compartmentalization of health that holistic wellness seeks to overcome.
@@ -22,7 +22,7 @@ Bloom Life Dashboard emerges as a response to this fundamental contradiction. No
 
 ## The Genesis of Bloom
 
-When I began conceptualizing Bloom as a personal side project, I didn't start by asking what features should be included or what metrics should be tracked. Instead, I posed a more foundational question: *How does wellness actually work in a human life?*
+When I began conceptualizing Bloom as a personal side project, I didn't start by asking what features should be included or what metrics should be tracked. Instead, I posed a more foundational question: _How does wellness actually work in a human life?_
 
 The answer became my north star: Wellness isn't compartmentalized. Sleep influences nutrition, which impacts exercise capacity, which affects mental clarity, which shapes relationship quality, which determines emotional resilience... and the cycle continues in countless permutations.
 

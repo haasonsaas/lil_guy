@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import { Subscribe } from './Subscribe';
+import { motion } from 'framer-motion'
+import { Subscribe } from './Subscribe'
 
 export default function WeeklyPlaybook() {
   return (
@@ -14,8 +14,8 @@ export default function WeeklyPlaybook() {
           Get the Weekly Playbook
         </h3>
         <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
-          One tactical post per week on scaling SaaS with AI — zero fluff,
-          all signal
+          One tactical post per week on scaling SaaS with AI — zero fluff, all
+          signal
         </p>
         <Subscribe />
         <p className="text-xs md:text-sm text-muted-foreground mt-4">
@@ -23,5 +23,5 @@ export default function WeeklyPlaybook() {
         </p>
       </div>
     </motion.div>
-  );
-} 
+  )
+}

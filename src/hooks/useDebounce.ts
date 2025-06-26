@@ -1,23 +1,23 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react'
 
 /**
  * Debounces a value by the specified delay
  * Perfect for search inputs and expensive calculations
  */
 export function useDebounce<T>(value: T, delay: number): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value);
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
+      setDebouncedValue(value)
+    }, delay)
 
     return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
+      clearTimeout(handler)
+    }
+  }, [value, delay])
 
-  return debouncedValue;
+  return debouncedValue
 }
 
 /**
@@ -28,21 +28,21 @@ export function useDebouncedCallback<T extends (...args: unknown[]) => unknown>(
   callback: T,
   delay: number
 ): (...args: Parameters<T>) => void {
-  const timeoutRef = useRef<NodeJS.Timeout>();
-  const callbackRef = useRef(callback);
+  const timeoutRef = useRef<NodeJS.Timeout>()
+  const callbackRef = useRef(callback)
 
   // Update callback ref on each render
-  callbackRef.current = callback;
+  callbackRef.current = callback
 
   return useRef((...args: Parameters<T>) => {
     if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
+      clearTimeout(timeoutRef.current)
     }
 
     timeoutRef.current = setTimeout(() => {
-      callbackRef.current(...args);
-    }, delay);
-  }).current;
+      callbackRef.current(...args)
+    }, delay)
+  }).current
 }
 
 /**
@@ -53,21 +53,21 @@ export function useDebounceWithLoading<T>(
   value: T,
   delay: number
 ): { debouncedValue: T; isDebouncing: boolean } {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value);
-  const [isDebouncing, setIsDebouncing] = useState(false);
+  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+  const [isDebouncing, setIsDebouncing] = useState(false)
 
   useEffect(() => {
-    setIsDebouncing(true);
+    setIsDebouncing(true)
 
     const handler = setTimeout(() => {
-      setDebouncedValue(value);
-      setIsDebouncing(false);
-    }, delay);
+      setDebouncedValue(value)
+      setIsDebouncing(false)
+    }, delay)
 
     return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
+      clearTimeout(handler)
+    }
+  }, [value, delay])
 
-  return { debouncedValue, isDebouncing };
+  return { debouncedValue, isDebouncing }
 }

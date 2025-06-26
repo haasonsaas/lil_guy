@@ -1,45 +1,51 @@
-import { useState, useEffect } from 'react';
-import Layout from '@/components/Layout';
-import { PreviewLinkGenerator } from '@/components/PreviewLinkGenerator';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
-import { 
+import { useState, useEffect } from 'react'
+import Layout from '@/components/Layout'
+import { PreviewLinkGenerator } from '@/components/PreviewLinkGenerator'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
+import {
   Dialog,
   DialogContent,
   DialogDescription,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from '@/components/ui/dialog';
-import { Link, Eye, Calendar, FileText, Lock } from 'lucide-react';
-import { getAllPosts, formatDate } from '@/utils/blogUtils';
-import type { BlogPost } from '@/types/blog';
+} from '@/components/ui/dialog'
+import { Link, Eye, Calendar, FileText, Lock } from 'lucide-react'
+import { getAllPosts, formatDate } from '@/utils/blogUtils'
+import type { BlogPost } from '@/types/blog'
 
 export default function DraftsPage() {
-  const [drafts, setDrafts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [drafts, setDrafts] = useState<BlogPost[]>([])
+  const [loading, setLoading] = useState(true)
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null)
 
   useEffect(() => {
     const loadDrafts = async () => {
       try {
-        const allPosts = await getAllPosts(true); // Include drafts
-        const draftPosts = allPosts.filter(post => post.frontmatter.draft);
-        setDrafts(draftPosts);
+        const allPosts = await getAllPosts(true) // Include drafts
+        const draftPosts = allPosts.filter((post) => post.frontmatter.draft)
+        setDrafts(draftPosts)
       } catch (error) {
-        console.error('Error loading drafts:', error);
+        console.error('Error loading drafts:', error)
       } finally {
-        setLoading(false);
+        setLoading(false)
       }
-    };
+    }
 
-    loadDrafts();
-  }, []);
+    loadDrafts()
+  }, [])
 
   useEffect(() => {
-    document.title = 'Draft Posts | Haas on SaaS';
-  }, []);
+    document.title = 'Draft Posts | Haas on SaaS'
+  }, [])
 
   if (loading) {
     return (
@@ -55,7 +61,7 @@ export default function DraftsPage() {
           </div>
         </div>
       </Layout>
-    );
+    )
   }
 
   return (
@@ -83,7 +89,10 @@ export default function DraftsPage() {
         ) : (
           <div className="space-y-4">
             {drafts.map((draft) => (
-              <Card key={draft.slug} className="hover:shadow-lg transition-shadow">
+              <Card
+                key={draft.slug}
+                className="hover:shadow-lg transition-shadow"
+              >
                 <CardHeader>
                   <div className="flex items-start justify-between">
                     <div className="space-y-1">
@@ -104,25 +113,32 @@ export default function DraftsPage() {
                         <Calendar className="h-3 w-3" />
                         <span>{formatDate(draft.frontmatter.pubDate)}</span>
                       </div>
-                      {draft.frontmatter.tags && draft.frontmatter.tags.length > 0 && (
-                        <div className="flex gap-1">
-                          {draft.frontmatter.tags.slice(0, 3).map(tag => (
-                            <Badge key={tag} variant="outline" className="text-xs">
-                              {tag}
-                            </Badge>
-                          ))}
-                          {draft.frontmatter.tags.length > 3 && (
-                            <span className="text-xs">+{draft.frontmatter.tags.length - 3}</span>
-                          )}
-                        </div>
-                      )}
+                      {draft.frontmatter.tags &&
+                        draft.frontmatter.tags.length > 0 && (
+                          <div className="flex gap-1">
+                            {draft.frontmatter.tags.slice(0, 3).map((tag) => (
+                              <Badge
+                                key={tag}
+                                variant="outline"
+                                className="text-xs"
+                              >
+                                {tag}
+                              </Badge>
+                            ))}
+                            {draft.frontmatter.tags.length > 3 && (
+                              <span className="text-xs">
+                                +{draft.frontmatter.tags.length - 3}
+                              </span>
+                            )}
+                          </div>
+                        )}
                     </div>
-                    
+
                     <div className="flex gap-2">
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Button 
-                            size="sm" 
+                          <Button
+                            size="sm"
                             variant="outline"
                             onClick={() => setSelectedPost(draft)}
                           >
@@ -138,14 +154,14 @@ export default function DraftsPage() {
                             </DialogDescription>
                           </DialogHeader>
                           {selectedPost && (
-                            <PreviewLinkGenerator 
-                              slug={selectedPost.slug} 
+                            <PreviewLinkGenerator
+                              slug={selectedPost.slug}
                               title={selectedPost.frontmatter.title}
                             />
                           )}
                         </DialogContent>
                       </Dialog>
-                      
+
                       <Link to={`/blog/${draft.slug}?preview=internal`}>
                         <Button size="sm">
                           <Eye className="h-3 w-3 mr-1" />
@@ -163,12 +179,10 @@ export default function DraftsPage() {
         {/* Back to Blog */}
         <div className="mt-12 text-center">
           <Link to="/blog">
-            <Button variant="outline">
-              Back to Published Posts
-            </Button>
+            <Button variant="outline">Back to Published Posts</Button>
           </Link>
         </div>
       </div>
     </Layout>
-  );
+  )
 }

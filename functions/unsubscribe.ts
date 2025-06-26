@@ -1,18 +1,22 @@
-import type { PagesFunction, ExecutionContext, KVNamespace } from '@cloudflare/workers-types';
+import type {
+  PagesFunction,
+  ExecutionContext,
+  KVNamespace,
+} from '@cloudflare/workers-types'
 
 interface Env {
-  SUBSCRIBERS: KVNamespace;
+  SUBSCRIBERS: KVNamespace
 }
 
 interface Subscriber {
-  email: string;
-  subscribedAt: string;
+  email: string
+  subscribedAt: string
   preferences?: {
-    welcomeSeriesCompleted?: boolean;
-    unsubscribed?: boolean;
-    tags?: string[];
-  };
-  emailsSent?: Record<string, string>;
+    welcomeSeriesCompleted?: boolean
+    unsubscribed?: boolean
+    tags?: string[]
+  }
+  emailsSent?: Record<string, string>
 }
 
 const corsHeaders = {
@@ -20,85 +24,95 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Credentials': 'true',
-};
+}
 
 const securityHeaders = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Permissions-Policy':
+    'camera=(), microphone=(), geolocation=(), interest-cohort=()',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-};
+}
 
 const responseHeaders = {
   ...corsHeaders,
   ...securityHeaders,
   'Content-Type': 'application/json',
-};
+}
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    const url = new URL(request.url);
-    
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
+    const url = new URL(request.url)
+
     // Handle CORS preflight requests
     if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: corsHeaders });
+      return new Response(null, { headers: corsHeaders })
     }
 
     try {
       if (request.method === 'POST') {
         // Handle unsubscribe request
-        const { email } = await request.json() as { email: string };
-        
+        const { email } = (await request.json()) as { email: string }
+
         if (!email) {
           return new Response(JSON.stringify({ error: 'Email is required' }), {
             status: 400,
             headers: responseHeaders,
-          });
+          })
         }
 
         // Get subscriber data
-        const subscriberData = await env.SUBSCRIBERS.get(email);
+        const subscriberData = await env.SUBSCRIBERS.get(email)
         if (!subscriberData) {
           return new Response(JSON.stringify({ error: 'Email not found' }), {
             status: 404,
             headers: responseHeaders,
-          });
+          })
         }
 
         // Update subscriber preferences to mark as unsubscribed
-        const subscriber: Subscriber = JSON.parse(subscriberData);
+        const subscriber: Subscriber = JSON.parse(subscriberData)
         if (!subscriber.preferences) {
-          subscriber.preferences = {};
+          subscriber.preferences = {}
         }
-        subscriber.preferences.unsubscribed = true;
+        subscriber.preferences.unsubscribed = true
 
         // Store updated subscriber data
-        await env.SUBSCRIBERS.put(email, JSON.stringify(subscriber));
+        await env.SUBSCRIBERS.put(email, JSON.stringify(subscriber))
 
         return new Response(JSON.stringify({ success: true }), {
           headers: responseHeaders,
-        });
+        })
       }
 
       if (request.method === 'GET') {
         // Handle unsubscribe confirmation page
-        const email = url.searchParams.get('email');
-        
+        const email = url.searchParams.get('email')
+
         if (!email) {
-          return new Response(getUnsubscribePageHTML(null, 'Email parameter is required'), {
-            headers: {
-              ...corsHeaders,
-              ...securityHeaders,
-              'Content-Type': 'text/html',
-            },
-          });
+          return new Response(
+            getUnsubscribePageHTML(null, 'Email parameter is required'),
+            {
+              headers: {
+                ...corsHeaders,
+                ...securityHeaders,
+                'Content-Type': 'text/html',
+              },
+            }
+          )
         }
 
         // Check if email exists in subscribers
-        const subscriberData = await env.SUBSCRIBERS.get(email);
-        const isSubscribed = subscriberData ? !JSON.parse(subscriberData).preferences?.unsubscribed : false;
+        const subscriberData = await env.SUBSCRIBERS.get(email)
+        const isSubscribed = subscriberData
+          ? !JSON.parse(subscriberData).preferences?.unsubscribed
+          : false
 
         return new Response(getUnsubscribePageHTML(email, null, isSubscribed), {
           headers: {
@@ -106,24 +120,28 @@ export default {
             ...securityHeaders,
             'Content-Type': 'text/html',
           },
-        });
+        })
       }
 
       return new Response('Method not allowed', {
         status: 405,
         headers: responseHeaders,
-      });
+      })
     } catch (error) {
-      console.error('Unsubscribe error:', error);
+      console.error('Unsubscribe error:', error)
       return new Response(JSON.stringify({ error: 'Internal server error' }), {
         status: 500,
         headers: responseHeaders,
-      });
+      })
     }
   },
-};
+}
 
-function getUnsubscribePageHTML(email: string | null, error: string | null, isSubscribed: boolean = false): string {
+function getUnsubscribePageHTML(
+  email: string | null,
+  error: string | null,
+  isSubscribed: boolean = false
+): string {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -216,16 +234,21 @@ function getUnsubscribePageHTML(email: string | null, error: string | null, isSu
         
         ${error ? `<div class="error">${error}</div>` : ''}
         
-        ${email ? `
+        ${
+          email
+            ? `
             <p>We're sorry to see you go! If you're sure you want to unsubscribe from Haas on SaaS emails, please confirm below:</p>
             
             <div class="email-display">${email}</div>
             
-            ${!isSubscribed ? `
+            ${
+              !isSubscribed
+                ? `
                 <div class="already-unsubscribed">
                     This email address is already unsubscribed or was never subscribed.
                 </div>
-            ` : `
+            `
+                : `
                 <button class="button" onclick="unsubscribe()" id="unsubscribeBtn">
                     Unsubscribe from all emails
                 </button>
@@ -236,10 +259,13 @@ function getUnsubscribePageHTML(email: string | null, error: string | null, isSu
                     <strong>Feedback:</strong> If you have a moment, I'd love to know why you're unsubscribing. 
                     Feel free to reply to any of my emails with your thoughts — I read everything.
                 </p>
-            `}
-        ` : `
+            `
+            }
+        `
+            : `
             <p>To unsubscribe, please use the unsubscribe link from one of our emails, or contact us directly.</p>
-        `}
+        `
+        }
         
         <div class="back-link">
             <a href="https://haasonsaas.com">← Back to Haas on SaaS</a>
@@ -281,5 +307,5 @@ function getUnsubscribePageHTML(email: string | null, error: string | null, isSu
         }
     </script>
 </body>
-</html>`;
+</html>`
 }

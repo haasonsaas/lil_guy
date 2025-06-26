@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-25
-title: "The Rise of Single-Serving Software"
-description: 
-  Why small, purposeful, disposable apps are becoming the future of creativity—and how AI and vibe-coding are accelerating the trend
+title: 'The Rise of Single-Serving Software'
+description: Why small, purposeful, disposable apps are becoming the future of creativity—and how AI and vibe-coding are accelerating the trend
 featured: false
 draft: false
 tags:
@@ -14,7 +13,7 @@ tags:
   - creativity
 image:
   url: '/images/single-serving-software.jpg'
-  alt: "An illustration of small apps floating in space like paper airplanes, symbolizing fast, disposable software development"
+  alt: 'An illustration of small apps floating in space like paper airplanes, symbolizing fast, disposable software development'
 ---
 
 Most software dreams used to start the same way:
@@ -64,7 +63,7 @@ Several trends are pushing this shift:
 Between tools like Vercel, Supabase, and OpenAI APIs, it's never been easier—or cheaper—to spin up a working product in hours.
 
 Shipping an idea no longer demands months of work or armies of engineers.  
-You can go from *"what if..."* to *"here’s the link"* in a weekend.
+You can go from _"what if..."_ to _"here’s the link"_ in a weekend.
 
 When creation gets that cheap, exploration explodes.
 
@@ -77,7 +76,7 @@ This "vibe-coding" style—describing what you want instead of building it line-
 It’s not just faster to build single-serving apps.  
 It’s **fun** to build them.
 
-And when the cost of trying something drops to almost zero, people *try more things.*
+And when the cost of trying something drops to almost zero, people _try more things._
 
 ### 3. We’re Embracing Impermanence
 
@@ -105,7 +104,7 @@ You don’t have to:
 
 You can just build.  
 You can just solve.  
-You can just *make*.
+You can just _make_.
 
 And ironically?  
 Some of these single-serving ideas end up outgrowing their moment.
@@ -113,7 +112,7 @@ Some of these single-serving ideas end up outgrowing their moment.
 (Plenty of now-famous startups started as "one weekend hacks.")
 
 But that’s not the goal.  
-The freedom lies in *not needing* it to happen.
+The freedom lies in _not needing_ it to happen.
 
 ## How to Think Like a Single-Serving Creator
 
@@ -150,4 +149,3 @@ It'll be billions of tiny, joyful things that mattered for a moment—and that w
 > **Maybe the best software you’ll ever build won't last forever.  
 > Maybe it won't even last six months.  
 > And maybe that's exactly why you should build it anyway.**
-

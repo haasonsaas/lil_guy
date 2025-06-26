@@ -1,9 +1,9 @@
 #!/usr/bin/env bun
 
-import { parseArgs } from "util";
-import fs from 'fs/promises';
-import path from 'path';
-import chalk from 'chalk';
+import { parseArgs } from 'util'
+import fs from 'fs/promises'
+import path from 'path'
+import chalk from 'chalk'
 
 const { values, positionals } = parseArgs({
   args: Bun.argv,
@@ -19,11 +19,11 @@ const { values, positionals } = parseArgs({
     help: {
       type: 'boolean',
       short: 'h',
-    }
+    },
   },
   strict: true,
   allowPositionals: true,
-});
+})
 
 if (values.help || positionals.length < 3) {
   console.log(`
@@ -36,18 +36,19 @@ ${chalk.bold('Options:')}
 
 ${chalk.bold('Example:')}
   bun run new-interactive CustomerJourneyMapper -n "Customer Journey Mapper" -d "Map customer touchpoints"
-  `);
-  process.exit(0);
+  `)
+  process.exit(0)
 }
 
-const componentName = positionals[2];
-const displayName = values.name || componentName.replace(/([A-Z])/g, ' $1').trim();
-const description = values.description || `Interactive ${displayName} component`;
+const componentName = positionals[2]
+const displayName =
+  values.name || componentName.replace(/([A-Z])/g, ' $1').trim()
+const description = values.description || `Interactive ${displayName} component`
 
 // Convert to kebab-case for the markdown tag
 const kebabCase = componentName
   .replace(/([a-z])([A-Z])/g, '$1-$2')
-  .toLowerCase();
+  .toLowerCase()
 
 const componentTemplate = `import React, { useState, useEffect, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -179,28 +180,35 @@ export default function ${componentName}() {
     </div>
   );
 }
-`;
+`
 
 // Create the component file
-const componentPath = path.join(process.cwd(), 'src', 'components', `${componentName}.tsx`);
+const componentPath = path.join(
+  process.cwd(),
+  'src',
+  'components',
+  `${componentName}.tsx`
+)
 
 try {
   // Check if component already exists
-  await fs.access(componentPath);
-  console.error(chalk.red(`❌ Component ${componentName} already exists!`));
-  process.exit(1);
+  await fs.access(componentPath)
+  console.error(chalk.red(`❌ Component ${componentName} already exists!`))
+  process.exit(1)
 } catch {
   // Component doesn't exist, we can create it
 }
 
-await fs.writeFile(componentPath, componentTemplate);
+await fs.writeFile(componentPath, componentTemplate)
 
-console.log(chalk.green(`✅ Created component: ${componentName}`));
-console.log(chalk.blue(`📁 Location: src/components/${componentName}.tsx`));
-console.log(chalk.yellow(`\n⚡ Next steps:`));
-console.log(chalk.gray(`1. Add to MarkdownRenderer.tsx:`));
-console.log(chalk.cyan(`   import ${componentName} from './${componentName}';`));
-console.log(chalk.cyan(`   '${kebabCase}': ${componentName},`));
-console.log(chalk.gray(`\n2. Use in markdown:`));
-console.log(chalk.cyan(`   <${kebabCase} />`));
-console.log(chalk.gray(`\n3. Customize the component logic in the generated file`));
+console.log(chalk.green(`✅ Created component: ${componentName}`))
+console.log(chalk.blue(`📁 Location: src/components/${componentName}.tsx`))
+console.log(chalk.yellow(`\n⚡ Next steps:`))
+console.log(chalk.gray(`1. Add to MarkdownRenderer.tsx:`))
+console.log(chalk.cyan(`   import ${componentName} from './${componentName}';`))
+console.log(chalk.cyan(`   '${kebabCase}': ${componentName},`))
+console.log(chalk.gray(`\n2. Use in markdown:`))
+console.log(chalk.cyan(`   <${kebabCase} />`))
+console.log(
+  chalk.gray(`\n3. Customize the component logic in the generated file`)
+)

@@ -1,19 +1,19 @@
-import { Moon, Sun } from "lucide-react"
-import { useTheme } from "@/components/use-theme"
-import { useAnalytics } from "@/hooks/useAnalytics"
-import { Button } from "./ui/button"
+import { Moon, Sun } from 'lucide-react'
+import { useTheme } from '@/components/use-theme'
+import { useAnalytics } from '@/hooks/useAnalytics'
+import { Button } from './ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "./ui/dropdown-menu"
+} from './ui/dropdown-menu'
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
   const { trackThemeChange } = useAnalytics()
-  
-  const handleThemeChange = (newTheme: "light" | "dark" | "system") => {
+
+  const handleThemeChange = (newTheme: 'light' | 'dark' | 'system') => {
     setTheme(newTheme)
     trackThemeChange(newTheme)
   }
@@ -28,16 +28,16 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem onClick={() => handleThemeChange("light")}>
+        <DropdownMenuItem onClick={() => handleThemeChange('light')}>
           Light
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleThemeChange("dark")}>
+        <DropdownMenuItem onClick={() => handleThemeChange('dark')}>
           Dark
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => handleThemeChange("system")}>
+        <DropdownMenuItem onClick={() => handleThemeChange('system')}>
           System
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
-} 
+}

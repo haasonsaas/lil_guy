@@ -1,60 +1,66 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Separator } from "@/components/ui/separator";
-import { useToast } from "@/components/ui/use-toast";
-import { useState } from "react";
-import Layout from "@/components/Layout";
-import { useAsyncState } from "@/hooks/useAsyncState";
-import { Loader2 } from "lucide-react";
+import { Button } from '@/components/ui/button'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Separator } from '@/components/ui/separator'
+import { useToast } from '@/components/ui/use-toast'
+import { useState } from 'react'
+import Layout from '@/components/Layout'
+import { useAsyncState } from '@/hooks/useAsyncState'
+import { Loader2 } from 'lucide-react'
 
 const NewsletterPage = () => {
-  const [email, setEmail] = useState("");
-  const { toast } = useToast();
-  const { isLoading, execute } = useAsyncState<void>();
+  const [email, setEmail] = useState('')
+  const { toast } = useToast()
+  const { isLoading, execute } = useAsyncState<void>()
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
+    e.preventDefault()
+
     if (!email.trim() || !email.includes('@')) {
       toast({
-        title: "Invalid email",
-        description: "Please enter a valid email address.",
-        variant: "destructive",
-      });
-      return;
+        title: 'Invalid email',
+        description: 'Please enter a valid email address.',
+        variant: 'destructive',
+      })
+      return
     }
-    
+
     try {
       await execute(async () => {
         const response = await fetch('/api/subscribe', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ email }),
-        });
-        
+        })
+
         if (!response.ok) {
-          const error = await response.text();
-          throw new Error(error || 'Subscription failed');
+          const error = await response.text()
+          throw new Error(error || 'Subscription failed')
         }
-        
-        return response.json();
-      });
-      
+
+        return response.json()
+      })
+
       toast({
-        title: "Thanks for subscribing!",
+        title: 'Thanks for subscribing!',
         description: "You'll receive our next newsletter soon.",
-      });
-      setEmail("");
+      })
+      setEmail('')
     } catch (error) {
       toast({
-        title: "Subscription failed",
-        description: "Please try again later or contact support.",
-        variant: "destructive",
-      });
+        title: 'Subscription failed',
+        description: 'Please try again later or contact support.',
+        variant: 'destructive',
+      })
     }
-  };
+  }
 
   return (
     <Layout>
@@ -62,13 +68,16 @@ const NewsletterPage = () => {
         {/* Hero Section */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tight mb-4">
-            Join 4,700+ PMs & security engineers who get one tactical "ship-it" playbook in their inbox every Monday.
+            Join 4,700+ PMs & security engineers who get one tactical "ship-it"
+            playbook in their inbox every Monday.
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            No fluff. Just the frameworks, templates, and war stories that turn B2B roadmaps into products customers pay for.
+            No fluff. Just the frameworks, templates, and war stories that turn
+            B2B roadmaps into products customers pay for.
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            Trusted by 4,700 product and security pros on LinkedIn—now in your inbox.
+            Trusted by 4,700 product and security pros on LinkedIn—now in your
+            inbox.
           </p>
         </div>
 
@@ -186,7 +195,8 @@ const NewsletterPage = () => {
                     <div>
                       <h3 className="font-semibold">Skip the Noise</h3>
                       <p className="text-sm text-muted-foreground">
-                        I distill 20+ articles & threads into one actionable brief.
+                        I distill 20+ articles & threads into one actionable
+                        brief.
                       </p>
                     </div>
                   </div>
@@ -212,7 +222,8 @@ const NewsletterPage = () => {
                     <div>
                       <h3 className="font-semibold">Built at Scale</h3>
                       <p className="text-sm text-muted-foreground">
-                        Lessons from ThreatKey, DoorDash, Snap, and Carta that shipped to millions.
+                        Lessons from ThreatKey, DoorDash, Snap, and Carta that
+                        shipped to millions.
                       </p>
                     </div>
                   </div>
@@ -238,7 +249,8 @@ const NewsletterPage = () => {
                     <div>
                       <h3 className="font-semibold">Early Access</h3>
                       <p className="text-sm text-muted-foreground">
-                        Subscribers see drafts of my deep-dive articles before LinkedIn does.
+                        Subscribers see drafts of my deep-dive articles before
+                        LinkedIn does.
                       </p>
                     </div>
                   </div>
@@ -250,9 +262,12 @@ const NewsletterPage = () => {
           {/* Right Column - Newsletter Signup */}
           <Card className="shadow-lg">
             <CardHeader>
-              <CardTitle>Grab the Playbook + Free GTM Reality-Check Template</CardTitle>
+              <CardTitle>
+                Grab the Playbook + Free GTM Reality-Check Template
+              </CardTitle>
               <CardDescription>
-                Join product managers and founders getting actionable insights every other Monday.
+                Join product managers and founders getting actionable insights
+                every other Monday.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -288,7 +303,7 @@ const NewsletterPage = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default NewsletterPage; 
+export default NewsletterPage

@@ -2,8 +2,7 @@
 author: Jonathan Haas
 pubDate: 2025-04-20
 title: "The Dehydrated Entity: Hire Only When You're Truly Underwater"
-description: 
-  Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to think about hiring pressure, prioritization, and company clarity
+description: Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to think about hiring pressure, prioritization, and company clarity
 featured: false
 draft: false
 tags:
@@ -14,14 +13,14 @@ tags:
   - growth
 image:
   url: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A lean, focused team collaborating intensely on a whiteboard, symbolizing the urgency-driven nature of lean startups"
+  alt: 'A lean, focused team collaborating intensely on a whiteboard, symbolizing the urgency-driven nature of lean startups'
 ---
 
 A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of [Windsurf](https://www.windsurf.com), that stopped me cold.
 
 He called it the **“dehydrated entity” approach to hiring**—and it's one of the most practical, clarity-inducing frameworks I’ve heard in a long time.
 
-> *"You should only hire when the current team is genuinely underwater—when critical work is actively being dropped."*  
+> _"You should only hire when the current team is genuinely underwater—when critical work is actively being dropped."_  
 > — Varun Mohan
 
 This model flips the conventional wisdom on its head. Instead of hiring “just in time” or “ahead of need,” it forces you to **feel the constraint first**. It prioritizes intentionality over comfort, clarity over cushioning.
@@ -64,7 +63,7 @@ Scarcity forces judgment. You can’t do everything, so you have to decide what 
 
 This pushes teams to say:
 
-- “What’s the highest leverage thing we *can* do this week?”
+- “What’s the highest leverage thing we _can_ do this week?”
 - “What do we need to say no to?”
 - “If we do nothing else, what must ship?”
 
@@ -141,7 +140,7 @@ Make exceptions prove themselves.
 
 ### 2. Create a Shadow Hiring Plan
 
-Each quarter, sketch the 1–2 hires you’d make *if things broke*. Document the trigger conditions.
+Each quarter, sketch the 1–2 hires you’d make _if things broke_. Document the trigger conditions.
 
 This gives you a plan without a commitment—and lets you move quickly if the situation changes.
 
@@ -162,4 +161,3 @@ Varun Mohan’s dehydrated entity idea works because it captures the essence of 
 Yes, it’s uncomfortable. Yes, it will stretch you. But that stretch is where you find out what really matters—and who on your team can handle the altitude.
 
 If your company doesn’t feel just a little dehydrated… you might already be bloated.
-

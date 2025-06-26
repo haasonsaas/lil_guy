@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-26
-title: "Clarity Over Compromise: Making the Right Call on Work Models"
-description: 
-  Why thriving companies pick a lane—remote or in-office—and build everything around it, instead of wobbling in the messy middle.
+title: 'Clarity Over Compromise: Making the Right Call on Work Models'
+description: Why thriving companies pick a lane—remote or in-office—and build everything around it, instead of wobbling in the messy middle.
 featured: false
 draft: false
 tags:
@@ -14,12 +13,12 @@ tags:
   - decision-making
 image:
   url: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A team collaborating over video call and in-office, highlighting different work models"
+  alt: 'A team collaborating over video call and in-office, highlighting different work models'
 ---
 
 When it comes to remote work, hybrid setups, and office mandates, most debates miss the real point.
 
-It's not about which model is *better* in some universal sense.  
+It's not about which model is _better_ in some universal sense.  
 It's about **choosing a model clearly, building intentionally around it, and sticking to the choice.**
 
 Companies that thrive do a few things differently:
@@ -28,8 +27,8 @@ Companies that thrive do a few things differently:
 
 The best teams don’t float in a gray area. They make a sharp, explicit call:
 
-- **Fully in-office**, *by design.*
-- **Fully remote**, *by design.*
+- **Fully in-office**, _by design._
+- **Fully remote**, _by design._
 
 Not "three days maybe" or "we’ll see what feels right."
 
@@ -92,8 +91,8 @@ And guessed expectations never align cleanly across a company.
 
 You need two infrastructures to do hybrid well:
 
-- A *remote* infrastructure (async workflows, digital-first culture, virtual collaboration).
-- An *in-office* infrastructure (physical spaces that foster impromptu magic, rituals of presence).
+- A _remote_ infrastructure (async workflows, digital-first culture, virtual collaboration).
+- An _in-office_ infrastructure (physical spaces that foster impromptu magic, rituals of presence).
 
 Without full commitment to either, you end up with:
 
@@ -116,7 +115,7 @@ And eventually, you see it:
 
 ---
 
-## But Good Hybrid *Can* Work (If You Treat It Like a Product)
+## But Good Hybrid _Can_ Work (If You Treat It Like a Product)
 
 There’s a way to make hybrid models actually function—and it starts with treating the model itself like a **deliberate design problem**, not a compromise.
 
@@ -136,11 +135,11 @@ When everyone knows the rules, nobody has to guess—or stress.
 The office isn’t just a sea of desks.  
 It’s built for collaboration: whiteboards, project rooms, team huddles.
 
-Coming in feels *worth it*.
+Coming in feels _worth it_.
 
 ### 3. **Serious Remote Investment**
 
-Not an afterthought. Not "second-class citizen" treatment.  
+Not an afterthought. Not "second-class citizen" treatment.
 
 - Best-in-class video setups.
 - Asynchronous-friendly tooling.

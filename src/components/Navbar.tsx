@@ -1,21 +1,21 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { useIsMobile } from '@/hooks/use-mobile';
-import { Menu, X, BookOpen } from 'lucide-react';
-import { ThemeToggle } from './ThemeToggle';
+import { useState, useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import { useIsMobile } from '@/hooks/use-mobile'
+import { Menu, X, BookOpen } from 'lucide-react'
+import { ThemeToggle } from './ThemeToggle'
 
 const Navbar = () => {
-  const location = useLocation();
-  const isMobile = useIsMobile();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  
+  const location = useLocation()
+  const isMobile = useIsMobile()
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location.pathname]);
-  
+    setIsMenuOpen(false)
+  }, [location.pathname])
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Insights', path: '/blog' },
@@ -23,8 +23,8 @@ const Navbar = () => {
     { name: 'Uses', path: '/uses' },
     { name: 'Reading', path: '/reading' },
     { name: 'FAQ', path: '/faq' },
-  ];
-  
+  ]
+
   return (
     <nav className="border-b border-border bg-background/80 backdrop-blur-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,24 +34,26 @@ const Navbar = () => {
               <span className="text-lg font-bold">Jonathan Haas</span>
             </Link>
           </div>
-          
+
           {/* Desktop menu */}
           {!isMobile && (
             <div className="flex items-center space-x-4">
               {navLinks.map((link) => (
                 <Link to={link.path} key={link.name}>
                   <Button
-                    variant={location.pathname === link.path ? "default" : "ghost"}
+                    variant={
+                      location.pathname === link.path ? 'default' : 'ghost'
+                    }
                     className="text-sm"
                   >
                     {link.name}
                   </Button>
                 </Link>
               ))}
-              <a 
-                href="https://sidechannel.ventures" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+              <a
+                href="https://sidechannel.ventures"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="hover:opacity-80 transition-opacity"
               >
                 <Button variant="ghost" className="text-sm">
@@ -61,7 +63,7 @@ const Navbar = () => {
               <ThemeToggle />
             </div>
           )}
-          
+
           {/* Mobile menu button */}
           {isMobile && (
             <div className="flex items-center space-x-2">
@@ -73,7 +75,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      
+
       {/* Mobile menu */}
       {isMobile && isMenuOpen && (
         <div className="border-t border-border">
@@ -81,17 +83,19 @@ const Navbar = () => {
             {navLinks.map((link) => (
               <Link to={link.path} key={link.name}>
                 <Button
-                  variant={location.pathname === link.path ? "default" : "ghost"}
+                  variant={
+                    location.pathname === link.path ? 'default' : 'ghost'
+                  }
                   className="w-full justify-start rounded-none text-left"
                 >
                   {link.name}
                 </Button>
               </Link>
             ))}
-            <a 
-              href="https://sidechannel.ventures" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <a
+              href="https://sidechannel.ventures"
+              target="_blank"
+              rel="noopener noreferrer"
               className="block"
             >
               <Button
@@ -105,7 +109,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

@@ -1,33 +1,37 @@
-import { getAllPosts } from './blogUtils';
-import type { BlogPost } from '@/types/blog';
+import { getAllPosts } from './blogUtils'
+import type { BlogPost } from '@/types/blog'
 
 interface RSSItem {
-  title: string;
-  description: string;
-  link: string;
-  pubDate: string;
-  guid: string;
-  category?: string[];
+  title: string
+  description: string
+  link: string
+  pubDate: string
+  guid: string
+  category?: string[]
 }
 
 export const generateRSSFeed = async (): Promise<string> => {
-  const posts = await getAllPosts();
-  const baseUrl = 'https://www.haasonsaas.com';
-  
-  // Get the most recent 50 posts for the feed
-  const recentPosts = posts.slice(0, 50);
-  
-  const rssItems = recentPosts.map((post: BlogPost): RSSItem => ({
-    title: post.frontmatter.title,
-    description: post.frontmatter.description,
-    link: `${baseUrl}/blog/${post.slug}`,
-    pubDate: new Date(post.frontmatter.pubDate).toUTCString(),
-    guid: `${baseUrl}/blog/${post.slug}`,
-    category: post.frontmatter.tags
-  }));
+  const posts = await getAllPosts()
+  const baseUrl = 'https://www.haasonsaas.com'
 
-  const latestPost = recentPosts[0];
-  const lastBuildDate = latestPost ? new Date(latestPost.frontmatter.pubDate).toUTCString() : new Date().toUTCString();
+  // Get the most recent 50 posts for the feed
+  const recentPosts = posts.slice(0, 50)
+
+  const rssItems = recentPosts.map(
+    (post: BlogPost): RSSItem => ({
+      title: post.frontmatter.title,
+      description: post.frontmatter.description,
+      link: `${baseUrl}/blog/${post.slug}`,
+      pubDate: new Date(post.frontmatter.pubDate).toUTCString(),
+      guid: `${baseUrl}/blog/${post.slug}`,
+      category: post.frontmatter.tags,
+    })
+  )
+
+  const latestPost = recentPosts[0]
+  const lastBuildDate = latestPost
+    ? new Date(latestPost.frontmatter.pubDate).toUTCString()
+    : new Date().toUTCString()
 
   const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -49,30 +53,36 @@ export const generateRSSFeed = async (): Promise<string> => {
       <height>144</height>
     </image>
     <atom:link href="${baseUrl}/rss.xml" rel="self" type="application/rss+xml" />
-    ${rssItems.map(item => `
+    ${rssItems
+      .map(
+        (item) => `
     <item>
       <title><![CDATA[${item.title}]]></title>
       <description><![CDATA[${item.description}]]></description>
       <link>${item.link}</link>
       <guid isPermaLink="true">${item.guid}</guid>
       <pubDate>${item.pubDate}</pubDate>
-      ${item.category ? item.category.map(cat => `<category><![CDATA[${cat}]]></category>`).join('\n      ') : ''}
-    </item>`).join('')}
+      ${item.category ? item.category.map((cat) => `<category><![CDATA[${cat}]]></category>`).join('\n      ') : ''}
+    </item>`
+      )
+      .join('')}
   </channel>
-</rss>`;
+</rss>`
 
-  return rssXml;
-};
+  return rssXml
+}
 
 export const generateAtomFeed = async (): Promise<string> => {
-  const posts = await getAllPosts();
-  const baseUrl = 'https://www.haasonsaas.com';
-  
+  const posts = await getAllPosts()
+  const baseUrl = 'https://www.haasonsaas.com'
+
   // Get the most recent 50 posts for the feed
-  const recentPosts = posts.slice(0, 50);
-  
-  const latestPost = recentPosts[0];
-  const updated = latestPost ? new Date(latestPost.frontmatter.pubDate).toISOString() : new Date().toISOString();
+  const recentPosts = posts.slice(0, 50)
+
+  const latestPost = recentPosts[0]
+  const updated = latestPost
+    ? new Date(latestPost.frontmatter.pubDate).toISOString()
+    : new Date().toISOString()
 
   const atomXml = `<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -88,7 +98,9 @@ export const generateAtomFeed = async (): Promise<string> => {
     <uri>${baseUrl}</uri>
   </author>
   <rights>Copyright © ${new Date().getFullYear()} Jonathan Haas</rights>
-  ${recentPosts.map(post => `
+  ${recentPosts
+    .map(
+      (post) => `
   <entry>
     <title><![CDATA[${post.frontmatter.title}]]></title>
     <link href="${baseUrl}/blog/${post.slug}" rel="alternate" type="text/html" />
@@ -100,9 +112,11 @@ export const generateAtomFeed = async (): Promise<string> => {
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    ${post.frontmatter.tags.map(tag => `<category term="${tag}" />`).join('\n    ')}
-  </entry>`).join('')}
-</feed>`;
+    ${post.frontmatter.tags.map((tag) => `<category term="${tag}" />`).join('\n    ')}
+  </entry>`
+    )
+    .join('')}
+</feed>`
 
-  return atomXml;
-};
+  return atomXml
+}

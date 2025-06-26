@@ -14,8 +14,7 @@ tags:
 image:
   url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Group of people in a meeting room from above'
-description:
-  Breaking down why most startup advice falls flat, and what to do about it
+description: Breaking down why most startup advice falls flat, and what to do about it
 ---
 
 The most dangerous thing about startup advice isn't that it's wrong—it's that

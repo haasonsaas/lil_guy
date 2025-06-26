@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2025-04-21
-title: "The Confidence Cliff: Why Overcertainty Kills Good Decisions"
+title: 'The Confidence Cliff: Why Overcertainty Kills Good Decisions'
 description: How early confidence in ideas can feel like clarity—but often leads to blind spots, brittle strategy, and bad decisions. Here’s how to catch yourself before you go over the edge.
 featured: false
 draft: false
@@ -12,8 +12,8 @@ tags:
   - organizational-dynamics
   - mindset
 image:
-  url: "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-  alt: "A person confidently drawing on a whiteboard, unaware of looming gaps in logic behind them"
+  url: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: 'A person confidently drawing on a whiteboard, unaware of looming gaps in logic behind them'
 ---
 
 You’ve probably seen this play out.
@@ -30,10 +30,10 @@ Here’s the core problem: early confidence masquerades as clarity. It feels dec
 
 A bypass around:
 
-- Deep questioning  
-- Critical testing  
-- Cross-functional tension  
-- Humbling user feedback  
+- Deep questioning
+- Critical testing
+- Cross-functional tension
+- Humbling user feedback
 
 In product, in leadership, in strategy—confidence is cheap. Follow-through is expensive.
 
@@ -90,7 +90,7 @@ Ask yourself:
 
 - Did we pressure-test this idea?
 - Did we ask the most skeptical person we know?
-- Did we build feedback *into* the idea, not bolt it on afterward?
+- Did we build feedback _into_ the idea, not bolt it on afterward?
 
 ## What This Looks Like in Practice
 
@@ -118,7 +118,7 @@ Don’t wait for perfect data. But do wait for decent tension. Give the idea a w
 
 ## Final Thought: Clarity Isn’t Loud
 
-We often confuse *loudness* with *leadership*. But the best leaders I’ve worked with? They don’t need to shout their ideas. Their confidence is calm. It makes room for other inputs.
+We often confuse _loudness_ with _leadership_. But the best leaders I’ve worked with? They don’t need to shout their ideas. Their confidence is calm. It makes room for other inputs.
 
 And when they’re wrong? They pivot early—because they never mistook early clarity for final truth.
 

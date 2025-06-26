@@ -48,7 +48,7 @@ Navigate to your GitHub repository → Settings → Secrets and variables → Ac
    - Use these build settings:
      - Build command: `bun run build`
      - Build output directory: `dist`
-     - Environment variables: Add the VITE_* variables above
+     - Environment variables: Add the VITE\_\* variables above
 
 2. **Configure custom domain (optional):**
    - In your Pages project, go to Custom domains
@@ -57,12 +57,14 @@ Navigate to your GitHub repository → Settings → Secrets and variables → Ac
 ## Testing the Setup
 
 1. **Test Quality Checks:**
+
    ```bash
    # These run on every push and PR
    git push origin main
    ```
 
 2. **Test Preview Deployment:**
+
    ```bash
    # Create a PR to trigger preview deployment
    git checkout -b test-deployment
@@ -112,6 +114,7 @@ Navigate to your GitHub repository → Settings → Secrets and variables → Ac
 ## Next Steps
 
 After setup:
+
 1. Verify all workflows pass
 2. Test preview deployments work
 3. Confirm production deployments are successful

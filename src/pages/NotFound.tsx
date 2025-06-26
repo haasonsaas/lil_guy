@@ -1,18 +1,17 @@
-
-import { useLocation, Link } from "react-router-dom";
-import { useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import Layout from "@/components/Layout";
+import { useLocation, Link } from 'react-router-dom'
+import { useEffect } from 'react'
+import { Button } from '@/components/ui/button'
+import Layout from '@/components/Layout'
 
 const NotFound = () => {
-  const location = useLocation();
+  const location = useLocation()
 
   useEffect(() => {
     console.error(
-      "404 Error: User attempted to access non-existent route:",
+      '404 Error: User attempted to access non-existent route:',
       location.pathname
-    );
-  }, [location.pathname]);
+    )
+  }, [location.pathname])
 
   return (
     <Layout>
@@ -28,7 +27,7 @@ const NotFound = () => {
         </div>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default NotFound;
+export default NotFound

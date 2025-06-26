@@ -1,6 +1,6 @@
-import * as React from "react"
-import { useFormContext } from "react-hook-form"
-import { FormFieldContext, FormItemContext } from "./form-context"
+import * as React from 'react'
+import { useFormContext } from 'react-hook-form'
+import { FormFieldContext, FormItemContext } from './form-context'
 
 export const useFormField = () => {
   const fieldContext = React.useContext(FormFieldContext)
@@ -10,7 +10,7 @@ export const useFormField = () => {
   const fieldState = getFieldState(fieldContext.name, formState)
 
   if (!fieldContext) {
-    throw new Error("useFormField should be used within <FormField>")
+    throw new Error('useFormField should be used within <FormField>')
   }
 
   const { id } = itemContext
@@ -23,4 +23,4 @@ export const useFormField = () => {
     formMessageId: `${id}-form-item-message`,
     ...fieldState,
   }
-} 
+}

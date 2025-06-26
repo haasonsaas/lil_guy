@@ -1,18 +1,18 @@
-import { useServiceWorker } from "@/hooks/useServiceWorker";
-import { Toaster, toast } from "sonner";
+import { useServiceWorker } from '@/hooks/useServiceWorker'
+import { Toaster, toast } from 'sonner'
 
 export function UpdateNotifier() {
-  const { updateAvailable, updateSW } = useServiceWorker();
+  const { updateAvailable, updateSW } = useServiceWorker()
 
   if (updateAvailable) {
-    toast.info("A new version of the site is available.", {
+    toast.info('A new version of the site is available.', {
       action: {
-        label: "Reload",
+        label: 'Reload',
         onClick: () => updateSW(),
       },
       duration: Infinity,
-    });
+    })
   }
 
-  return <Toaster />;
+  return <Toaster />
 }

@@ -1,58 +1,62 @@
-import React, { Component, ReactNode } from 'react';
-import { AlertCircle, RefreshCw, Home } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
+import React, { Component, ReactNode } from 'react'
+import { AlertCircle, RefreshCw, Home } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent } from '@/components/ui/card'
 
 interface Props {
-  children: ReactNode;
-  fallback?: ReactNode;
-  onError?: (error: Error, errorInfo: React.ErrorInfo) => void;
+  children: ReactNode
+  fallback?: ReactNode
+  onError?: (error: Error, errorInfo: React.ErrorInfo) => void
 }
 
 interface State {
-  hasError: boolean;
-  error: Error | null;
-  errorInfo: React.ErrorInfo | null;
+  hasError: boolean
+  error: Error | null
+  errorInfo: React.ErrorInfo | null
 }
 
 export class ErrorBoundary extends Component<Props, State> {
   constructor(props: Props) {
-    super(props);
-    this.state = { hasError: false, error: null, errorInfo: null };
+    super(props)
+    this.state = { hasError: false, error: null, errorInfo: null }
   }
 
   static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, error, errorInfo: null };
+    return { hasError: true, error, errorInfo: null }
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Log to error reporting service
-    console.error('ErrorBoundary caught an error:', error, errorInfo);
-    
+    console.error('ErrorBoundary caught an error:', error, errorInfo)
+
     // Call optional error handler
-    this.props.onError?.(error, errorInfo);
-    
+    this.props.onError?.(error, errorInfo)
+
     // Update state with error info
-    this.setState({ errorInfo });
-    
+    this.setState({ errorInfo })
+
     // Track in analytics if available
     if (typeof window !== 'undefined' && 'gtag' in window) {
-      (window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.('event', 'exception', {
-        description: error.toString(),
-        fatal: false,
-      });
+      ;(window as Window & { gtag?: (...args: unknown[]) => void }).gtag?.(
+        'event',
+        'exception',
+        {
+          description: error.toString(),
+          fatal: false,
+        }
+      )
     }
   }
 
   handleReset = () => {
-    this.setState({ hasError: false, error: null, errorInfo: null });
-  };
+    this.setState({ hasError: false, error: null, errorInfo: null })
+  }
 
   render() {
     if (this.state.hasError) {
       // Use custom fallback if provided
       if (this.props.fallback) {
-        return <>{this.props.fallback}</>;
+        return <>{this.props.fallback}</>
       }
 
       // Default error UI
@@ -64,11 +68,14 @@ export class ErrorBoundary extends Component<Props, State> {
                 <div className="w-12 h-12 rounded-full bg-destructive/10 flex items-center justify-center">
                   <AlertCircle className="w-6 h-6 text-destructive" />
                 </div>
-                
+
                 <div className="space-y-2">
-                  <h3 className="text-lg font-semibold">Something went wrong</h3>
+                  <h3 className="text-lg font-semibold">
+                    Something went wrong
+                  </h3>
                   <p className="text-sm text-muted-foreground">
-                    An unexpected error occurred. Please try refreshing the page.
+                    An unexpected error occurred. Please try refreshing the
+                    page.
                   </p>
                 </div>
 
@@ -80,7 +87,8 @@ export class ErrorBoundary extends Component<Props, State> {
                     </summary>
                     <pre className="mt-2 text-xs bg-muted p-2 rounded overflow-auto">
                       {this.state.error.toString()}
-                      {this.state.errorInfo && this.state.errorInfo.componentStack}
+                      {this.state.errorInfo &&
+                        this.state.errorInfo.componentStack}
                     </pre>
                   </details>
                 )}
@@ -98,7 +106,7 @@ export class ErrorBoundary extends Component<Props, State> {
                   <Button
                     variant="outline"
                     size="sm"
-                    onClick={() => window.location.href = '/'}
+                    onClick={() => (window.location.href = '/')}
                     className="gap-2"
                   >
                     <Home className="w-4 h-4" />
@@ -109,10 +117,10 @@ export class ErrorBoundary extends Component<Props, State> {
             </CardContent>
           </Card>
         </div>
-      );
+      )
     }
 
-    return this.props.children;
+    return this.props.children
   }
 }
 
@@ -125,9 +133,9 @@ export function withErrorBoundary<P extends object>(
     <ErrorBoundary {...errorBoundaryProps}>
       <Component {...props} />
     </ErrorBoundary>
-  );
-  
-  WrappedComponent.displayName = `withErrorBoundary(${Component.displayName || Component.name})`;
-  
-  return WrappedComponent;
+  )
+
+  WrappedComponent.displayName = `withErrorBoundary(${Component.displayName || Component.name})`
+
+  return WrappedComponent
 }

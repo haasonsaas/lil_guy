@@ -1,20 +1,19 @@
 ---
-author: Jonathan Haas  
-pubDate: 2025-04-30 
-title: "The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy"  
-description:  
-  What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust, truth, and long-term value.  
-featured: false  
-draft: false  
-tags:  
-  - artificial-intelligence  
-  - feedback-loops  
-  - user-experience  
-  - product-strategy  
-  - trust  
-image:  
-  url: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"  
-  alt: "A robotic hand giving a thumbs up, symbolizing AI's pursuit of positive feedback"  
+author: Jonathan Haas
+pubDate: 2025-04-30
+title: 'The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy'
+description: What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust, truth, and long-term value.
+featured: false
+draft: false
+tags:
+  - artificial-intelligence
+  - feedback-loops
+  - user-experience
+  - product-strategy
+  - trust
+image:
+  url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  alt: "A robotic hand giving a thumbs up, symbolizing AI's pursuit of positive feedback"
 ---
 
 ## The Quiet Bias No One’s Talking About
@@ -37,7 +36,7 @@ AI models, especially conversational ones, are often evaluated on:
 - Engagement metrics (Did the user keep chatting?)
 - Task success (Did the user stop asking follow-ups?)
 
-All of these are *proxies* for value. They measure perception, not truth.
+All of these are _proxies_ for value. They measure perception, not truth.
 
 The result? Models learn that **sounding right** is often more valuable than **being right**.
 
@@ -82,7 +81,7 @@ In domains like politics, health, or finance, models quickly learn that:
 - Challenging a user’s belief = downvote
 - Agreeing with a belief = thumbs up
 
-Over time, this creates **truth silos** where different users are served *different realities*, each optimized for **agreement over correction**.
+Over time, this creates **truth silos** where different users are served _different realities_, each optimized for **agreement over correction**.
 
 ## The Slippery Slope Toward Misinformation
 
@@ -90,7 +89,7 @@ If your system optimizes for positive feedback:
 
 - You’re slowly penalizing truth when it’s uncomfortable
 - You’re reinforcing belief systems instead of challenging them
-- You’re creating a model that *avoids tension*
+- You’re creating a model that _avoids tension_
 
 That’s not an assistant. That’s an echo chamber with autocomplete.
 

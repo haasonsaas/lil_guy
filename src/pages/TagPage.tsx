@@ -1,39 +1,39 @@
-import { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import Layout from '@/components/Layout';
-import BlogCard from '@/components/BlogCard';
-import { BlogCardSkeleton } from '@/components/BlogCardSkeleton';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
-import { getPostsByTag } from '@/utils/blogUtils';
-import { BlogPost } from '@/types/blog';
-import WeeklyPlaybook from '@/components/WeeklyPlaybook';
+import { useState, useEffect } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import Layout from '@/components/Layout'
+import BlogCard from '@/components/BlogCard'
+import { BlogCardSkeleton } from '@/components/BlogCardSkeleton'
+import { Button } from '@/components/ui/button'
+import { ArrowLeft } from 'lucide-react'
+import { getPostsByTag } from '@/utils/blogUtils'
+import { BlogPost } from '@/types/blog'
+import WeeklyPlaybook from '@/components/WeeklyPlaybook'
 
 export default function TagPage() {
-  const { tag } = useParams<{ tag: string }>();
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const { tag } = useParams<{ tag: string }>()
+  const [posts, setPosts] = useState<BlogPost[]>([])
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        setIsLoading(true);
-        setError(null);
-        if (!tag) return;
-        
-        const tagPosts = await getPostsByTag(tag);
-        setPosts(tagPosts);
-      } catch (err) {
-        setError('Failed to load posts');
-        console.error('Error loading posts:', err);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+        setIsLoading(true)
+        setError(null)
+        if (!tag) return
 
-    loadPosts();
-  }, [tag]);
+        const tagPosts = await getPostsByTag(tag)
+        setPosts(tagPosts)
+      } catch (err) {
+        setError('Failed to load posts')
+        console.error('Error loading posts:', err)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+
+    loadPosts()
+  }, [tag])
 
   return (
     <Layout>
@@ -44,16 +44,18 @@ export default function TagPage() {
               <ArrowLeft size={16} /> All Tags
             </Button>
           </Link>
-          
+
           <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">
             <h1 className="text-4xl font-bold mb-4 capitalize">
               {tag?.replace(/-/g, ' ')}
             </h1>
             <p className="text-muted-foreground">
-              {isLoading ? 'Loading...' : `${posts.length} article${posts.length !== 1 ? 's' : ''}`}
+              {isLoading
+                ? 'Loading...'
+                : `${posts.length} article${posts.length !== 1 ? 's' : ''}`}
             </p>
           </div>
-          
+
           {isLoading ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {Array.from({ length: 6 }).map((_, index) => (
@@ -66,13 +68,15 @@ export default function TagPage() {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {posts.map(post => (
+              {posts.map((post) => (
                 <BlogCard key={post.slug} post={post} />
               ))}
-              
+
               {posts.length === 0 && (
                 <div className="col-span-full text-center py-12">
-                  <h3 className="text-xl font-medium mb-2">No articles found</h3>
+                  <h3 className="text-xl font-medium mb-2">
+                    No articles found
+                  </h3>
                   <p className="text-muted-foreground">
                     There are no articles with this tag yet
                   </p>
@@ -80,12 +84,12 @@ export default function TagPage() {
               )}
             </div>
           )}
-          
+
           <div className="mt-16">
             <WeeklyPlaybook />
           </div>
         </div>
       </section>
     </Layout>
-  );
+  )
 }

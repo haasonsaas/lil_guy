@@ -81,14 +81,25 @@
     --ring: 210 29% 80%;
   }
 
-
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03", "cv04", "cv05", "cv06", "cv07", "cv08", "cv09", "cv10", "cv11", "cv12", "cv13", "cv14", "cv15", "cv16", "cv17", "cv18", "cv19", "cv20", "cv21", "cv22", "cv23", "cv24", "cv25", "cv26", "cv27", "cv28", "cv29", "cv30", "cv31", "cv32", "cv33", "cv34", "cv35", "cv36", "cv37", "cv38", "cv39", "cv40", "cv41", "cv42", "cv43", "cv44", "cv45", "cv46", "cv47", "cv48", "cv49", "cv50", "cv51", "cv52", "cv53", "cv54", "cv55", "cv56", "cv57", "cv58", "cv59", "cv60", "cv61", "cv62", "cv63", "cv64", "cv65", "cv66", "cv67", "cv68", "cv69", "cv70", "cv71", "cv72", "cv73", "cv74", "cv75", "cv76", "cv77", "cv78", "cv79", "cv80", "cv81", "cv82", "cv83", "cv84", "cv85", "cv86", "cv87", "cv88", "cv89", "cv90", "cv91", "cv92", "cv93", "cv94", "cv95", "cv96", "cv97", "cv98", "cv99", "cv100";
+    font-feature-settings:
+      'ss01', 'ss02', 'cv01', 'cv02', 'cv03', 'cv04', 'cv05', 'cv06', 'cv07',
+      'cv08', 'cv09', 'cv10', 'cv11', 'cv12', 'cv13', 'cv14', 'cv15', 'cv16',
+      'cv17', 'cv18', 'cv19', 'cv20', 'cv21', 'cv22', 'cv23', 'cv24', 'cv25',
+      'cv26', 'cv27', 'cv28', 'cv29', 'cv30', 'cv31', 'cv32', 'cv33', 'cv34',
+      'cv35', 'cv36', 'cv37', 'cv38', 'cv39', 'cv40', 'cv41', 'cv42', 'cv43',
+      'cv44', 'cv45', 'cv46', 'cv47', 'cv48', 'cv49', 'cv50', 'cv51', 'cv52',
+      'cv53', 'cv54', 'cv55', 'cv56', 'cv57', 'cv58', 'cv59', 'cv60', 'cv61',
+      'cv62', 'cv63', 'cv64', 'cv65', 'cv66', 'cv67', 'cv68', 'cv69', 'cv70',
+      'cv71', 'cv72', 'cv73', 'cv74', 'cv75', 'cv76', 'cv77', 'cv78', 'cv79',
+      'cv80', 'cv81', 'cv82', 'cv83', 'cv84', 'cv85', 'cv86', 'cv87', 'cv88',
+      'cv89', 'cv90', 'cv91', 'cv92', 'cv93', 'cv94', 'cv95', 'cv96', 'cv97',
+      'cv98', 'cv99', 'cv100';
   }
 
   .prose-custom {
@@ -139,9 +150,11 @@
 
 /* Prism.js syntax highlighting customization */
 /* Override Prism Tomorrow theme for consistent sizing */
-pre[class*="language-"],
-code[class*="language-"] {
-  font-family: 'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace !important;
+pre[class*='language-'],
+code[class*='language-'] {
+  font-family:
+    'JetBrains Mono', 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code',
+    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace !important;
   font-size: 13px !important;
   line-height: 1.5 !important;
   -moz-tab-size: 2 !important;
@@ -154,25 +167,25 @@ code[class*="language-"] {
 }
 
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*='language-'] {
   @apply rounded-lg my-6 overflow-hidden;
   padding: 1rem !important;
   margin: 1.5rem 0 !important;
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*='language-'] {
   @apply px-1.5 py-0.5 rounded text-[13px];
   white-space: normal !important;
 }
 
 /* Light mode colors - High contrast theme */
-:root pre[class*="language-"] {
+:root pre[class*='language-'] {
   background: #f8f8f8 !important;
   border: 1px solid #e0e0e0 !important;
 }
 
-:root :not(pre) > code[class*="language-"] {
+:root :not(pre) > code[class*='language-'] {
   background: #f0f0f0 !important;
   color: #2d2d2d !important;
   border: 1px solid #e0e0e0 !important;
@@ -278,11 +291,11 @@ pre[class*="language-"] {
 }
 
 /* Dark mode colors */
-.dark pre[class*="language-"] {
+.dark pre[class*='language-'] {
   background: var(--ctp-mocha-mantle) !important;
 }
 
-.dark :not(pre) > code[class*="language-"] {
+.dark :not(pre) > code[class*='language-'] {
   background: var(--ctp-mocha-surface0) !important;
   color: var(--ctp-mocha-text) !important;
 }
@@ -344,7 +357,7 @@ pre[class*="language-"] {
 }
 
 /* Ensure scrollbars are styled */
-pre[class*="language-"] {
+pre[class*='language-'] {
   overflow: auto !important;
 }
 
@@ -383,43 +396,43 @@ pre[class*="language-"] {
   .btn {
     @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background;
   }
-  
+
   .btn-primary {
     @apply bg-primary text-primary-foreground hover:bg-primary/90;
   }
-  
+
   .btn-secondary {
     @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
   }
-  
+
   .btn-ghost {
     @apply hover:bg-accent hover:text-accent-foreground;
   }
-  
+
   .btn-link {
     @apply text-primary underline-offset-4 hover:underline;
   }
-  
+
   .card {
     @apply rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md transition-shadow;
   }
-  
+
   .card-header {
     @apply flex flex-col space-y-1.5 p-6;
   }
-  
+
   .card-title {
     @apply text-2xl font-semibold leading-none tracking-tight;
   }
-  
+
   .card-description {
     @apply text-sm text-muted-foreground;
   }
-  
+
   .card-content {
     @apply p-6 pt-0;
   }
-  
+
   .card-footer {
     @apply flex items-center p-6 pt-0;
   }

@@ -1,31 +1,40 @@
-import Layout from '@/components/Layout';
-import GroupedTags from '@/components/GroupedTags';
-import { Button } from '@/components/ui/button';
-import { ArrowLeft } from 'lucide-react';
-import { Hammer, Scale, Settings, HelpCircle } from 'lucide-react';
+import Layout from '@/components/Layout'
+import GroupedTags from '@/components/GroupedTags'
+import { Button } from '@/components/ui/button'
+import { ArrowLeft } from 'lucide-react'
+import { Hammer, Scale, Settings, HelpCircle } from 'lucide-react'
 
 const tagGroups = [
   {
-    name: "Build",
+    name: 'Build',
     icon: <Hammer className="w-4 h-4" />,
-    tags: ["product", "ux", "ai", "engineering", "design"]
+    tags: ['product', 'ux', 'ai', 'engineering', 'design'],
   },
   {
-    name: "Scale",
+    name: 'Scale',
     icon: <Scale className="w-4 h-4" />,
-    tags: ["leadership", "productivity", "growth", "marketing", "sales"]
+    tags: ['leadership', 'productivity', 'growth', 'marketing', 'sales'],
   },
   {
-    name: "Operate",
+    name: 'Operate',
     icon: <Settings className="w-4 h-4" />,
-    tags: ["personal-growth", "strategy", "management", "culture", "career"]
+    tags: ['personal-growth', 'strategy', 'management', 'culture', 'career'],
   },
   {
-    name: "Misc",
+    name: 'Misc',
     icon: <HelpCircle className="w-4 h-4" />,
-    tags: ["data", "security", "startup", "founder", "technical", "framework", "transparency", "trust"]
-  }
-];
+    tags: [
+      'data',
+      'security',
+      'startup',
+      'founder',
+      'technical',
+      'framework',
+      'transparency',
+      'trust',
+    ],
+  },
+]
 
 export default function TagsPage() {
   return (
@@ -38,12 +47,12 @@ export default function TagsPage() {
               Browse all topics covered in the blog
             </p>
           </div>
-          
+
           <div className="bg-gradient-to-br from-card to-background border border-border rounded-xl p-8 shadow-md animate-fade-up">
             <GroupedTags groups={tagGroups} className="max-w-2xl mx-auto" />
           </div>
         </div>
       </section>
     </Layout>
-  );
+  )
 }

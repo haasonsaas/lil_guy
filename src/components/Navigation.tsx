@@ -1,13 +1,13 @@
-import { useState } from 'react';
-import { Menu, X, Search } from 'lucide-react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import SmartSearch from '@/components/SmartSearch';
+import { useState } from 'react'
+import { Menu, X, Search } from 'lucide-react'
+import { Link } from 'react-router-dom'
+import { Button } from '@/components/ui/button'
+import SmartSearch from '@/components/SmartSearch'
 
 const Navigation = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isSearchOpen, setIsSearchOpen] = useState(false)
+
   const navItems = [
     { name: 'About', href: '/about' },
     { name: 'Blog', href: '/blog' },
@@ -15,7 +15,7 @@ const Navigation = () => {
     { name: 'AI', href: '/ai' },
     { name: 'Agents', href: '/agents' },
     { name: 'Newsletter', href: '/newsletter' },
-  ];
+  ]
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -33,7 +33,9 @@ const Navigation = () => {
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span className="font-display text-xl font-semibold">Jonathan Haas</span>
+            <span className="font-display text-xl font-semibold">
+              Jonathan Haas
+            </span>
           </Link>
         </div>
 
@@ -76,7 +78,11 @@ const Navigation = () => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="rounded-md p-2 text-foreground/60 hover:bg-accent hover:text-foreground"
           >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
@@ -106,7 +112,7 @@ const Navigation = () => {
         onOpen={() => setIsSearchOpen(true)}
       />
     </nav>
-  );
-};
+  )
+}
 
-export default Navigation; 
+export default Navigation

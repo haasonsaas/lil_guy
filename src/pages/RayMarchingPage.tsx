@@ -1,14 +1,14 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Layout from '@/components/Layout';
-import { Button } from '@/components/ui/button';
-import { Card } from '@/components/ui/card';
-import { Slider } from '@/components/ui/slider';
-import { Badge } from '@/components/ui/badge';
-import { 
-  Shapes, 
-  Play, 
-  Pause, 
-  RotateCcw, 
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import Layout from '@/components/Layout'
+import { Button } from '@/components/ui/button'
+import { Card } from '@/components/ui/card'
+import { Slider } from '@/components/ui/slider'
+import { Badge } from '@/components/ui/badge'
+import {
+  Shapes,
+  Play,
+  Pause,
+  RotateCcw,
   Camera,
   Lightbulb,
   Layers,
@@ -16,9 +16,9 @@ import {
   Sparkles,
   Box,
   Circle,
-  Triangle
-} from 'lucide-react';
-import { motion } from 'framer-motion';
+  Triangle,
+} from 'lucide-react'
+import { motion } from 'framer-motion'
 
 // Vertex shader for fullscreen quad
 const vertexShaderSource = `
@@ -29,7 +29,7 @@ const vertexShaderSource = `
     gl_Position = vec4(a_position, 0.0, 1.0);
     v_uv = a_position * 0.5 + 0.5;
   }
-`;
+`
 
 // Ray marching fragment shader
 const fragmentShaderSource = `
@@ -376,251 +376,311 @@ const fragmentShaderSource = `
     
     gl_FragColor = vec4(color, 1.0);
   }
-`;
+`
 
 export default function RayMarchingPage() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const glRef = useRef<WebGLRenderingContext | null>(null);
-  const programRef = useRef<WebGLProgram | null>(null);
-  const animationRef = useRef<number | null>(null);
-  const mouseRef = useRef<{ x: number; y: number }>({ x: 0.5, y: 0.5 });
-  const startTimeRef = useRef<number>(Date.now());
-  const renderRef = useRef<(() => void) | null>(null);
-  
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [currentScene, setCurrentScene] = useState(0);
-  const [cameraDistance, setCameraDistance] = useState([5]);
-  const [lightIntensity, setLightIntensity] = useState([1.0]);
-  const [shadowSoftness, setShadowSoftness] = useState([8.0]);
-  const [metallic, setMetallic] = useState([0.5]);
-  const [roughness, setRoughness] = useState([0.5]);
-  const [colorScheme, setColorScheme] = useState(0);
-  const [autoRotate, setAutoRotate] = useState(true);
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const glRef = useRef<WebGLRenderingContext | null>(null)
+  const programRef = useRef<WebGLProgram | null>(null)
+  const animationRef = useRef<number | null>(null)
+  const mouseRef = useRef<{ x: number; y: number }>({ x: 0.5, y: 0.5 })
+  const startTimeRef = useRef<number>(Date.now())
+  const renderRef = useRef<(() => void) | null>(null)
+
+  const [isPlaying, setIsPlaying] = useState(true)
+  const [currentScene, setCurrentScene] = useState(0)
+  const [cameraDistance, setCameraDistance] = useState([5])
+  const [lightIntensity, setLightIntensity] = useState([1.0])
+  const [shadowSoftness, setShadowSoftness] = useState([8.0])
+  const [metallic, setMetallic] = useState([0.5])
+  const [roughness, setRoughness] = useState([0.5])
+  const [colorScheme, setColorScheme] = useState(0)
+  const [autoRotate, setAutoRotate] = useState(true)
 
   const scenes = [
     {
-      name: "Basic Shapes",
-      description: "Fundamental 3D primitives with smooth blending",
-      icon: Shapes
+      name: 'Basic Shapes',
+      description: 'Fundamental 3D primitives with smooth blending',
+      icon: Shapes,
     },
     {
-      name: "Complex Objects",
-      description: "Boolean operations and orbiting elements",
-      icon: Box
+      name: 'Complex Objects',
+      description: 'Boolean operations and orbiting elements',
+      icon: Box,
     },
     {
-      name: "Menger Sponge",
-      description: "Fractal geometry with infinite detail",
-      icon: Layers
+      name: 'Menger Sponge',
+      description: 'Fractal geometry with infinite detail',
+      icon: Layers,
     },
     {
-      name: "Metaballs",
-      description: "Organic shapes with fluid motion",
-      icon: Circle
-    }
-  ];
+      name: 'Metaballs',
+      description: 'Organic shapes with fluid motion',
+      icon: Circle,
+    },
+  ]
 
-  const colorSchemes = useMemo(() => [
-    {
-      name: "Metal",
-      colors: [[0.5, 0.5, 0.6], [0.7, 0.7, 0.8], [0.9, 0.9, 1.0]]
-    },
-    {
-      name: "Gold",
-      colors: [[0.8, 0.5, 0.2], [0.9, 0.7, 0.3], [1.0, 0.9, 0.5]]
-    },
-    {
-      name: "Gem",
-      colors: [[0.1, 0.4, 0.8], [0.3, 0.6, 0.9], [0.5, 0.8, 1.0]]
-    },
-    {
-      name: "Emerald",
-      colors: [[0.1, 0.5, 0.2], [0.2, 0.7, 0.3], [0.3, 0.9, 0.4]]
-    },
-    {
-      name: "Ruby",
-      colors: [[0.8, 0.1, 0.2], [0.9, 0.2, 0.3], [1.0, 0.3, 0.4]]
-    }
-  ], []);
+  const colorSchemes = useMemo(
+    () => [
+      {
+        name: 'Metal',
+        colors: [
+          [0.5, 0.5, 0.6],
+          [0.7, 0.7, 0.8],
+          [0.9, 0.9, 1.0],
+        ],
+      },
+      {
+        name: 'Gold',
+        colors: [
+          [0.8, 0.5, 0.2],
+          [0.9, 0.7, 0.3],
+          [1.0, 0.9, 0.5],
+        ],
+      },
+      {
+        name: 'Gem',
+        colors: [
+          [0.1, 0.4, 0.8],
+          [0.3, 0.6, 0.9],
+          [0.5, 0.8, 1.0],
+        ],
+      },
+      {
+        name: 'Emerald',
+        colors: [
+          [0.1, 0.5, 0.2],
+          [0.2, 0.7, 0.3],
+          [0.3, 0.9, 0.4],
+        ],
+      },
+      {
+        name: 'Ruby',
+        colors: [
+          [0.8, 0.1, 0.2],
+          [0.9, 0.2, 0.3],
+          [1.0, 0.3, 0.4],
+        ],
+      },
+    ],
+    []
+  )
 
   // Create shader helper
-  const createShader = useCallback((gl: WebGLRenderingContext, type: number, source: string) => {
-    const shader = gl.createShader(type);
-    if (!shader) return null;
-    
-    gl.shaderSource(shader, source);
-    gl.compileShader(shader);
-    
-    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-      console.error('Shader compilation error:', gl.getShaderInfoLog(shader));
-      gl.deleteShader(shader);
-      return null;
-    }
-    
-    return shader;
-  }, []);
+  const createShader = useCallback(
+    (gl: WebGLRenderingContext, type: number, source: string) => {
+      const shader = gl.createShader(type)
+      if (!shader) return null
+
+      gl.shaderSource(shader, source)
+      gl.compileShader(shader)
+
+      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+        console.error('Shader compilation error:', gl.getShaderInfoLog(shader))
+        gl.deleteShader(shader)
+        return null
+      }
+
+      return shader
+    },
+    []
+  )
 
   // Create program helper
-  const createProgram = useCallback((gl: WebGLRenderingContext, vertexShader: WebGLShader, fragmentShader: WebGLShader) => {
-    const program = gl.createProgram();
-    if (!program) return null;
-    
-    gl.attachShader(program, vertexShader);
-    gl.attachShader(program, fragmentShader);
-    gl.linkProgram(program);
-    
-    if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error('Program linking error:', gl.getProgramInfoLog(program));
-      gl.deleteProgram(program);
-      return null;
-    }
-    
-    return program;
-  }, []);
+  const createProgram = useCallback(
+    (
+      gl: WebGLRenderingContext,
+      vertexShader: WebGLShader,
+      fragmentShader: WebGLShader
+    ) => {
+      const program = gl.createProgram()
+      if (!program) return null
+
+      gl.attachShader(program, vertexShader)
+      gl.attachShader(program, fragmentShader)
+      gl.linkProgram(program)
+
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        console.error('Program linking error:', gl.getProgramInfoLog(program))
+        gl.deleteProgram(program)
+        return null
+      }
+
+      return program
+    },
+    []
+  )
 
   // Initialize WebGL
   const initWebGL = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return false;
+    const canvas = canvasRef.current
+    if (!canvas) return false
 
-    const gl = canvas.getContext('webgl');
+    const gl = canvas.getContext('webgl')
     if (!gl) {
-      console.error('WebGL not supported');
-      return false;
+      console.error('WebGL not supported')
+      return false
     }
 
-    glRef.current = gl;
+    glRef.current = gl
 
     // Create shaders
-    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-    
-    if (!vertexShader || !fragmentShader) return false;
+    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
+    const fragmentShader = createShader(
+      gl,
+      gl.FRAGMENT_SHADER,
+      fragmentShaderSource
+    )
+
+    if (!vertexShader || !fragmentShader) return false
 
     // Create program
-    const program = createProgram(gl, vertexShader, fragmentShader);
-    if (!program) return false;
+    const program = createProgram(gl, vertexShader, fragmentShader)
+    if (!program) return false
 
-    programRef.current = program;
+    programRef.current = program
 
     // Set up geometry (fullscreen quad)
-    const positions = new Float32Array([
-      -1, -1,
-       1, -1,
-      -1,  1,
-       1,  1
-    ]);
+    const positions = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1])
 
-    const positionBuffer = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-    gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW);
+    const positionBuffer = gl.createBuffer()
+    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer)
+    gl.bufferData(gl.ARRAY_BUFFER, positions, gl.STATIC_DRAW)
 
-    const positionLocation = gl.getAttribLocation(program, 'a_position');
-    gl.enableVertexAttribArray(positionLocation);
-    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
+    const positionLocation = gl.getAttribLocation(program, 'a_position')
+    gl.enableVertexAttribArray(positionLocation)
+    gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0)
 
-    return true;
-  }, [createShader, createProgram]);
+    return true
+  }, [createShader, createProgram])
 
   // Render frame
   const render = useCallback(() => {
-    const gl = glRef.current;
-    const program = programRef.current;
-    const canvas = canvasRef.current;
-    
-    if (!gl || !program || !canvas || !isPlaying) return;
+    const gl = glRef.current
+    const program = programRef.current
+    const canvas = canvasRef.current
 
-    gl.viewport(0, 0, canvas.width, canvas.height);
-    gl.clearColor(0, 0, 0, 1);
-    gl.clear(gl.COLOR_BUFFER_BIT);
+    if (!gl || !program || !canvas || !isPlaying) return
 
-    gl.useProgram(program);
+    gl.viewport(0, 0, canvas.width, canvas.height)
+    gl.clearColor(0, 0, 0, 1)
+    gl.clear(gl.COLOR_BUFFER_BIT)
+
+    gl.useProgram(program)
 
     // Set uniforms
-    const time = (Date.now() - startTimeRef.current) * 0.001;
-    gl.uniform2f(gl.getUniformLocation(program, 'u_resolution'), canvas.width, canvas.height);
-    gl.uniform1f(gl.getUniformLocation(program, 'u_time'), autoRotate ? time : 0);
-    gl.uniform2f(gl.getUniformLocation(program, 'u_mouse'), mouseRef.current.x, mouseRef.current.y);
-    gl.uniform1i(gl.getUniformLocation(program, 'u_scene'), currentScene);
-    gl.uniform1f(gl.getUniformLocation(program, 'u_lightIntensity'), lightIntensity[0]);
-    gl.uniform1f(gl.getUniformLocation(program, 'u_shadowSoftness'), shadowSoftness[0]);
-    gl.uniform1f(gl.getUniformLocation(program, 'u_metallic'), metallic[0]);
-    gl.uniform1f(gl.getUniformLocation(program, 'u_roughness'), roughness[0]);
-    
+    const time = (Date.now() - startTimeRef.current) * 0.001
+    gl.uniform2f(
+      gl.getUniformLocation(program, 'u_resolution'),
+      canvas.width,
+      canvas.height
+    )
+    gl.uniform1f(
+      gl.getUniformLocation(program, 'u_time'),
+      autoRotate ? time : 0
+    )
+    gl.uniform2f(
+      gl.getUniformLocation(program, 'u_mouse'),
+      mouseRef.current.x,
+      mouseRef.current.y
+    )
+    gl.uniform1i(gl.getUniformLocation(program, 'u_scene'), currentScene)
+    gl.uniform1f(
+      gl.getUniformLocation(program, 'u_lightIntensity'),
+      lightIntensity[0]
+    )
+    gl.uniform1f(
+      gl.getUniformLocation(program, 'u_shadowSoftness'),
+      shadowSoftness[0]
+    )
+    gl.uniform1f(gl.getUniformLocation(program, 'u_metallic'), metallic[0])
+    gl.uniform1f(gl.getUniformLocation(program, 'u_roughness'), roughness[0])
+
     // Camera position
-    const camAngle = autoRotate ? time * 0.3 : 0;
-    const camX = Math.cos(camAngle) * cameraDistance[0];
-    const camZ = Math.sin(camAngle) * cameraDistance[0];
-    gl.uniform3f(gl.getUniformLocation(program, 'u_cameraPos'), camX, 2, camZ);
-    
+    const camAngle = autoRotate ? time * 0.3 : 0
+    const camX = Math.cos(camAngle) * cameraDistance[0]
+    const camZ = Math.sin(camAngle) * cameraDistance[0]
+    gl.uniform3f(gl.getUniformLocation(program, 'u_cameraPos'), camX, 2, camZ)
+
     // Colors
-    const colors = colorSchemes[colorScheme].colors;
-    gl.uniform3fv(gl.getUniformLocation(program, 'u_color1'), colors[0]);
-    gl.uniform3fv(gl.getUniformLocation(program, 'u_color2'), colors[1]);
-    gl.uniform3fv(gl.getUniformLocation(program, 'u_color3'), colors[2]);
+    const colors = colorSchemes[colorScheme].colors
+    gl.uniform3fv(gl.getUniformLocation(program, 'u_color1'), colors[0])
+    gl.uniform3fv(gl.getUniformLocation(program, 'u_color2'), colors[1])
+    gl.uniform3fv(gl.getUniformLocation(program, 'u_color3'), colors[2])
 
     // Draw
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4)
 
     if (renderRef.current) {
-      animationRef.current = requestAnimationFrame(renderRef.current);
+      animationRef.current = requestAnimationFrame(renderRef.current)
     }
-  }, [isPlaying, autoRotate, currentScene, lightIntensity, shadowSoftness, metallic, roughness, cameraDistance, colorSchemes, colorScheme]);
+  }, [
+    isPlaying,
+    autoRotate,
+    currentScene,
+    lightIntensity,
+    shadowSoftness,
+    metallic,
+    roughness,
+    cameraDistance,
+    colorSchemes,
+    colorScheme,
+  ])
 
   // Update render ref
-  renderRef.current = render;
+  renderRef.current = render
 
   // Handle canvas resize
   const handleResize = useCallback(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    canvas.width = canvas.clientWidth;
-    canvas.height = canvas.clientHeight;
-  }, []);
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    canvas.width = canvas.clientWidth
+    canvas.height = canvas.clientHeight
+  }, [])
 
   // Handle mouse move
   const handleMouseMove = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    
-    const rect = canvas.getBoundingClientRect();
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const rect = canvas.getBoundingClientRect()
     mouseRef.current = {
       x: (e.clientX - rect.left) / rect.width,
-      y: 1 - (e.clientY - rect.top) / rect.height
-    };
-  };
+      y: 1 - (e.clientY - rect.top) / rect.height,
+    }
+  }
 
   // Reset camera
   const resetCamera = () => {
-    setCameraDistance([5]);
-    mouseRef.current = { x: 0.5, y: 0.5 };
-  };
+    setCameraDistance([5])
+    mouseRef.current = { x: 0.5, y: 0.5 }
+  }
 
   // Initialize on mount
   useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    
-    const success = initWebGL();
+    handleResize()
+    window.addEventListener('resize', handleResize)
+
+    const success = initWebGL()
     if (success) {
-      render();
+      render()
     }
-    
+
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', handleResize)
       if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
+        cancelAnimationFrame(animationRef.current)
       }
-    };
-  }, [handleResize, initWebGL, render]);
+    }
+  }, [handleResize, initWebGL, render])
 
   // Update render when settings change
   useEffect(() => {
     if (isPlaying && !animationRef.current) {
-      render();
+      render()
     }
-  }, [isPlaying, render]);
+  }, [isPlaying, render])
 
   return (
     <Layout>
@@ -635,11 +695,14 @@ export default function RayMarchingPage() {
           >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Shapes className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-display font-semibold">Ray Marching Explorer</h1>
+              <h1 className="text-4xl font-display font-semibold">
+                Ray Marching Explorer
+              </h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore 3D scenes rendered entirely in a fragment shader using ray marching. 
-              Features soft shadows, ambient occlusion, and PBR materials.
+              Explore 3D scenes rendered entirely in a fragment shader using ray
+              marching. Features soft shadows, ambient occlusion, and PBR
+              materials.
             </p>
           </motion.div>
 
@@ -656,11 +719,11 @@ export default function RayMarchingPage() {
               className="w-full h-[500px] bg-black rounded-lg shadow-2xl cursor-move"
               style={{ imageRendering: 'crisp-edges' }}
             />
-            
+
             {/* Scene selector */}
             <div className="absolute top-4 left-4 flex flex-col gap-2">
               {scenes.map((scene, index) => {
-                const Icon = scene.icon;
+                const Icon = scene.icon
                 return (
                   <Badge
                     key={index}
@@ -671,7 +734,7 @@ export default function RayMarchingPage() {
                     <Icon className="h-3 w-3" />
                     {scene.name}
                   </Badge>
-                );
+                )
               })}
             </div>
 
@@ -679,7 +742,7 @@ export default function RayMarchingPage() {
             <div className="absolute bottom-4 right-4 flex gap-2">
               <Button
                 size="icon"
-                variant={autoRotate ? "default" : "outline"}
+                variant={autoRotate ? 'default' : 'outline'}
                 onClick={() => setAutoRotate(!autoRotate)}
                 title="Toggle auto-rotation"
               >
@@ -687,16 +750,16 @@ export default function RayMarchingPage() {
               </Button>
               <Button
                 size="icon"
-                variant={isPlaying ? "default" : "outline"}
+                variant={isPlaying ? 'default' : 'outline'}
                 onClick={() => setIsPlaying(!isPlaying)}
               >
-                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
+                {isPlaying ? (
+                  <Pause className="h-4 w-4" />
+                ) : (
+                  <Play className="h-4 w-4" />
+                )}
               </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={resetCamera}
-              >
+              <Button size="icon" variant="outline" onClick={resetCamera}>
                 <RotateCcw className="h-4 w-4" />
               </Button>
             </div>
@@ -711,8 +774,12 @@ export default function RayMarchingPage() {
           >
             {/* Scene info */}
             <Card className="p-6">
-              <h3 className="text-lg font-semibold mb-2">{scenes[currentScene].name}</h3>
-              <p className="text-muted-foreground">{scenes[currentScene].description}</p>
+              <h3 className="text-lg font-semibold mb-2">
+                {scenes[currentScene].name}
+              </h3>
+              <p className="text-muted-foreground">
+                {scenes[currentScene].description}
+              </p>
             </Card>
 
             {/* Settings */}
@@ -726,7 +793,9 @@ export default function RayMarchingPage() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Distance</label>
-                      <span className="text-sm text-muted-foreground">{cameraDistance[0].toFixed(1)}</span>
+                      <span className="text-sm text-muted-foreground">
+                        {cameraDistance[0].toFixed(1)}
+                      </span>
                     </div>
                     <Slider
                       value={cameraDistance}
@@ -751,8 +820,12 @@ export default function RayMarchingPage() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium">Light Intensity</label>
-                      <span className="text-sm text-muted-foreground">{(lightIntensity[0] * 100).toFixed(0)}%</span>
+                      <label className="text-sm font-medium">
+                        Light Intensity
+                      </label>
+                      <span className="text-sm text-muted-foreground">
+                        {(lightIntensity[0] * 100).toFixed(0)}%
+                      </span>
                     </div>
                     <Slider
                       value={lightIntensity}
@@ -763,11 +836,15 @@ export default function RayMarchingPage() {
                       className="w-full"
                     />
                   </div>
-                  
+
                   <div>
                     <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium">Shadow Softness</label>
-                      <span className="text-sm text-muted-foreground">{shadowSoftness[0].toFixed(1)}</span>
+                      <label className="text-sm font-medium">
+                        Shadow Softness
+                      </label>
+                      <span className="text-sm text-muted-foreground">
+                        {shadowSoftness[0].toFixed(1)}
+                      </span>
                     </div>
                     <Slider
                       value={shadowSoftness}
@@ -790,7 +867,9 @@ export default function RayMarchingPage() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Metallic</label>
-                      <span className="text-sm text-muted-foreground">{(metallic[0] * 100).toFixed(0)}%</span>
+                      <span className="text-sm text-muted-foreground">
+                        {(metallic[0] * 100).toFixed(0)}%
+                      </span>
                     </div>
                     <Slider
                       value={metallic}
@@ -801,11 +880,13 @@ export default function RayMarchingPage() {
                       className="w-full"
                     />
                   </div>
-                  
+
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Roughness</label>
-                      <span className="text-sm text-muted-foreground">{(roughness[0] * 100).toFixed(0)}%</span>
+                      <span className="text-sm text-muted-foreground">
+                        {(roughness[0] * 100).toFixed(0)}%
+                      </span>
                     </div>
                     <Slider
                       value={roughness}
@@ -842,14 +923,16 @@ export default function RayMarchingPage() {
                 <Shapes className="h-5 w-5 text-muted-foreground mt-0.5" />
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p>
-                    Ray marching is a technique for rendering 3D scenes by stepping along rays and 
-                    evaluating signed distance functions (SDFs). This allows for complex geometry 
-                    and effects that would be difficult with traditional polygon rendering.
+                    Ray marching is a technique for rendering 3D scenes by
+                    stepping along rays and evaluating signed distance functions
+                    (SDFs). This allows for complex geometry and effects that
+                    would be difficult with traditional polygon rendering.
                   </p>
                   <p>
-                    The entire scene is calculated per-pixel in real-time, including lighting, 
-                    shadows, and ambient occlusion. Try different scenes and materials to see 
-                    the variety of effects possible with this technique.
+                    The entire scene is calculated per-pixel in real-time,
+                    including lighting, shadows, and ambient occlusion. Try
+                    different scenes and materials to see the variety of effects
+                    possible with this technique.
                   </p>
                 </div>
               </div>
@@ -858,5 +941,5 @@ export default function RayMarchingPage() {
         </div>
       </section>
     </Layout>
-  );
+  )
 }

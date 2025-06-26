@@ -11,7 +11,7 @@
   .back-to-blog,
   button,
   .button,
-  [role="button"],
+  [role='button'],
   .hover\:shadow-md,
   .transition-shadow,
   .group,
@@ -37,7 +37,7 @@
     padding: 0;
     background: white !important;
     color: black !important;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, 'Times New Roman', serif;
   }
 
   /* Article layout */
@@ -80,7 +80,9 @@
     color: black !important;
   }
 
-  h4, h5, h6 {
+  h4,
+  h5,
+  h6 {
     font-size: 12pt;
     font-weight: bold;
     margin: 0.4cm 0 0.2cm 0;
@@ -97,7 +99,8 @@
   }
 
   /* Lists */
-  ul, ol {
+  ul,
+  ol {
     margin: 0.4cm 0;
     padding-left: 1cm;
   }
@@ -108,8 +111,9 @@
   }
 
   /* Code blocks */
-  pre, code {
-    font-family: "Courier New", Courier, monospace;
+  pre,
+  code {
+    font-family: 'Courier New', Courier, monospace;
     font-size: 10pt;
     background: #f5f5f5 !important;
     border: 1px solid #ddd !important;
@@ -152,7 +156,8 @@
     page-break-inside: avoid;
   }
 
-  th, td {
+  th,
+  td {
     border: 1px solid #ddd;
     padding: 0.2cm;
     text-align: left;
@@ -170,20 +175,20 @@
   }
 
   a:after {
-    content: " (" attr(href) ")";
+    content: ' (' attr(href) ')';
     font-size: 0.8em;
     color: #666;
   }
 
   /* Don't show URLs for internal links */
-  a[href^="/"],
-  a[href^="#"] {
+  a[href^='/'],
+  a[href^='#'] {
     text-decoration: none;
   }
 
-  a[href^="/"]::after,
-  a[href^="#"]::after {
-    content: "";
+  a[href^='/']::after,
+  a[href^='#']::after {
+    content: '';
   }
 
   /* Article metadata */
@@ -210,26 +215,30 @@
   }
 
   /* Page breaks */
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     page-break-after: avoid;
   }
 
-  h1 + *, h2 + *, h3 + * {
+  h1 + *,
+  h2 + *,
+  h3 + * {
     page-break-before: avoid;
   }
 
   /* Footer with page info */
   @page {
     margin: 2cm;
-    
+
     @bottom-right {
-      content: "Page " counter(page) " of " counter(pages);
+      content: 'Page ' counter(page) ' of ' counter(pages);
       font-size: 9pt;
       color: #666;
     }
-    
+
     @bottom-left {
-      content: "haasonsaas.com";
+      content: 'haasonsaas.com';
       font-size: 9pt;
       color: #666;
     }
@@ -238,7 +247,7 @@
   /* First page header */
   @page :first {
     @top-center {
-      content: "Haas on SaaS";
+      content: 'Haas on SaaS';
       font-size: 12pt;
       font-weight: bold;
       color: #333;

@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "Dark Patterns, Bright Lessons: Ethics in Product Design"
-description: "Exploring the ethical implications of dark patterns in UX design and how to build products that respect user agency"
+title: 'Dark Patterns, Bright Lessons: Ethics in Product Design'
+description: 'Exploring the ethical implications of dark patterns in UX design and how to build products that respect user agency'
 tags:
   - product
   - ux
@@ -11,10 +11,10 @@ tags:
   - transparency
 image:
   url: '/images/dark-patterns.png'
-  alt: "A maze-like interface illustrating dark patterns in user experience design"
+  alt: 'A maze-like interface illustrating dark patterns in user experience design'
 ---
 
-The FTC just dropped a 44-page complaint against Uber for deceptive practices around its Uber One subscription. You might think: *legal drama, not my lane.*
+The FTC just dropped a 44-page complaint against Uber for deceptive practices around its Uber One subscription. You might think: _legal drama, not my lane._
 
 But here's the truth: this isn't just a lawsuit. It's a product teardown—one that exposes what happens when growth strategy is prioritized over user trust.
 
@@ -55,17 +55,17 @@ This case isn't just about cancel buttons. It's about how product decisions—ma
 
 If your product relies on users skimming, misreading, or giving up—you're not designing an experience, you're running a con.
 
-> **Ask yourself:** Would a reasonable user *clearly understand* what they're opting into?
+> **Ask yourself:** Would a reasonable user _clearly understand_ what they're opting into?
 
 If not, it's not consent. It's manipulation.
 
 ### 2. **Friction Is Not Neutral**
 
-Not all friction is bad. Some clarifies. Some protects. But friction that exists *only* to trap users or delay action?
+Not all friction is bad. Some clarifies. Some protects. But friction that exists _only_ to trap users or delay action?
 
 That's not design. That's entrapment.
 
-> **Ask:** Does this friction serve *the user's* interest—or only ours?
+> **Ask:** Does this friction serve _the user's_ interest—or only ours?
 
 ### 3. **Legal Isn't the Bar—It's the Floor**
 
@@ -101,11 +101,11 @@ Here's a baseline for sustainable, defensible subscription design:
 ### ✅ Transparent Enrollment
 
 - Clear pricing, billing frequency, and renewal details up front
-- CTA buttons that *mean what they say* ("Start $9.99/mo" > "Try Now")
+- CTA buttons that _mean what they say_ ("Start $9.99/mo" > "Try Now")
 
 ### ✅ Real Free Trials
 
-- Tell users *exactly* when they'll be charged
+- Tell users _exactly_ when they'll be charged
 - Send reminders before billing
 
 ### ✅ Easy, Respectful Cancellation
@@ -129,7 +129,7 @@ You're not just designing flows. You're designing **relationships**.
 
 The Uber case is a wake-up call.
 
-The systems we design *are our responsibility*. That includes the nudges, the defaults, the offboarding flow, and the metrics we choose to celebrate.
+The systems we design _are our responsibility_. That includes the nudges, the defaults, the offboarding flow, and the metrics we choose to celebrate.
 
 You don't need an FTC lawsuit to fix it.
 

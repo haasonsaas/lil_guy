@@ -1,36 +1,38 @@
-import { useState } from 'react';
-import { Button } from './ui/button';
-import { Check, Copy } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { useState } from 'react'
+import { Button } from './ui/button'
+import { Check, Copy } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 interface CodeBlockProps {
-  children: React.ReactNode;
-  className?: string;
-  'data-language'?: string;
+  children: React.ReactNode
+  className?: string
+  'data-language'?: string
 }
 
-export default function CodeBlock({ children, className, 'data-language': language }: CodeBlockProps) {
-  const [copied, setCopied] = useState(false);
+export default function CodeBlock({
+  children,
+  className,
+  'data-language': language,
+}: CodeBlockProps) {
+  const [copied, setCopied] = useState(false)
 
   const copyToClipboard = async () => {
-    const codeElement = document.querySelector(`pre.${className} code`);
+    const codeElement = document.querySelector(`pre.${className} code`)
     if (codeElement) {
-      const code = codeElement.textContent || '';
+      const code = codeElement.textContent || ''
       try {
-        await navigator.clipboard.writeText(code);
-        setCopied(true);
-        setTimeout(() => setCopied(false), 2000);
+        await navigator.clipboard.writeText(code)
+        setCopied(true)
+        setTimeout(() => setCopied(false), 2000)
       } catch (err) {
-        console.error('Failed to copy:', err);
+        console.error('Failed to copy:', err)
       }
     }
-  };
+  }
 
   return (
     <div className="relative group">
-      <pre className={cn('relative', className)}>
-        {children}
-      </pre>
+      <pre className={cn('relative', className)}>{children}</pre>
       <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
         <Button
           size="sm"
@@ -59,5 +61,5 @@ export default function CodeBlock({ children, className, 'data-language': langua
         </div>
       )}
     </div>
-  );
+  )
 }

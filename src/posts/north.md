@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "North: Navigating the Complex Landscape of Enterprise Security Solutions"
-description: "An in-depth exploration of how the North platform helps organizations navigate the complex landscape of security tools through community-driven insights and structured comparison"
+title: 'North: Navigating the Complex Landscape of Enterprise Security Solutions'
+description: 'An in-depth exploration of how the North platform helps organizations navigate the complex landscape of security tools through community-driven insights and structured comparison'
 featured: false
 draft: false
 tags:
@@ -19,7 +19,7 @@ In the rapidly evolving world of cybersecurity, organizations face an overwhelmi
 
 ## The Genesis of North
 
-When I began developing North, I didn't start by asking what features to include or what metrics to track. Instead, I posed a more fundamental question: *How do organizations actually evaluate and select security tools in practice?*
+When I began developing North, I didn't start by asking what features to include or what metrics to track. Instead, I posed a more fundamental question: _How do organizations actually evaluate and select security tools in practice?_
 
 The answer became my guiding principle: Security tool selection isn't just about feature checklists or vendor claims. It's about understanding how tools perform in real-world scenarios, how they integrate with existing infrastructure, and how they address specific organizational needs.
 

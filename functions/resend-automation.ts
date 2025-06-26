@@ -1,18 +1,22 @@
-import type { PagesFunction, ExecutionContext, KVNamespace } from '@cloudflare/workers-types';
+import type {
+  PagesFunction,
+  ExecutionContext,
+  KVNamespace,
+} from '@cloudflare/workers-types'
 
 interface Env {
-  RESEND_API_KEY: string;
-  SUBSCRIBERS: KVNamespace;
-  EMAIL_SCHEDULE: KVNamespace;
+  RESEND_API_KEY: string
+  SUBSCRIBERS: KVNamespace
+  EMAIL_SCHEDULE: KVNamespace
 }
 
 interface ScheduledEmail {
-  id: string;
-  email: string;
-  type: 'welcome1' | 'welcome2' | 'welcome3';
-  sendAt: string;
-  audienceId?: string;
-  contactId?: string;
+  id: string
+  email: string
+  type: 'welcome1' | 'welcome2' | 'welcome3'
+  sendAt: string
+  audienceId?: string
+  contactId?: string
 }
 
 const corsHeaders = {
@@ -20,22 +24,23 @@ const corsHeaders = {
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
   'Access-Control-Allow-Headers': 'Content-Type',
   'Access-Control-Allow-Credentials': 'true',
-};
+}
 
 const securityHeaders = {
   'X-Content-Type-Options': 'nosniff',
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Permissions-Policy':
+    'camera=(), microphone=(), geolocation=(), interest-cohort=()',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
-};
+}
 
 const responseHeaders = {
   ...corsHeaders,
   ...securityHeaders,
   'Content-Type': 'application/json',
-};
+}
 
 /**
  * Create or get Resend audience
@@ -46,16 +51,19 @@ async function ensureAudience(env: Env): Promise<string> {
     const listResponse = await fetch('https://api.resend.com/audiences', {
       method: 'GET',
       headers: {
-        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
-    });
+    })
 
     if (listResponse.ok) {
-      const audiences = await listResponse.json();
-      const existingAudience = audiences.data?.find((aud: { name: string; id: string }) => aud.name === 'Haas on SaaS Subscribers');
+      const audiences = await listResponse.json()
+      const existingAudience = audiences.data?.find(
+        (aud: { name: string; id: string }) =>
+          aud.name === 'Haas on SaaS Subscribers'
+      )
       if (existingAudience) {
-        return existingAudience.id;
+        return existingAudience.id
       }
     }
 
@@ -63,76 +71,89 @@ async function ensureAudience(env: Env): Promise<string> {
     const createResponse = await fetch('https://api.resend.com/audiences', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        name: 'Haas on SaaS Subscribers'
+        name: 'Haas on SaaS Subscribers',
       }),
-    });
+    })
 
     if (!createResponse.ok) {
-      throw new Error(`Failed to create audience: ${await createResponse.text()}`);
+      throw new Error(
+        `Failed to create audience: ${await createResponse.text()}`
+      )
     }
 
-    const audienceData = await createResponse.json();
-    console.log('Created Resend audience:', audienceData.id);
-    return audienceData.id;
+    const audienceData = await createResponse.json()
+    console.log('Created Resend audience:', audienceData.id)
+    return audienceData.id
   } catch (error) {
-    console.error('Error managing Resend audience:', error);
-    throw error;
+    console.error('Error managing Resend audience:', error)
+    throw error
   }
 }
 
 /**
  * Add contact to Resend audience
  */
-async function addToAudience(env: Env, email: string, audienceId: string): Promise<string> {
+async function addToAudience(
+  env: Env,
+  email: string,
+  audienceId: string
+): Promise<string> {
   try {
-    const response = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        first_name: '', // Could be enhanced with name collection
-        last_name: '',
-        unsubscribed: false,
-      }),
-    });
+    const response = await fetch(
+      `https://api.resend.com/audiences/${audienceId}/contacts`,
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          first_name: '', // Could be enhanced with name collection
+          last_name: '',
+          unsubscribed: false,
+        }),
+      }
+    )
 
     if (!response.ok) {
-      const errorText = await response.text();
+      const errorText = await response.text()
       // Don't throw if contact already exists
       if (response.status === 409) {
-        console.log(`Contact ${email} already exists in audience`);
-        return '';
+        console.log(`Contact ${email} already exists in audience`)
+        return ''
       }
-      throw new Error(`Failed to add contact: ${errorText}`);
+      throw new Error(`Failed to add contact: ${errorText}`)
     }
 
-    const contactData = await response.json();
-    console.log(`Added ${email} to Resend audience:`, contactData.id);
-    return contactData.id;
+    const contactData = await response.json()
+    console.log(`Added ${email} to Resend audience:`, contactData.id)
+    return contactData.id
   } catch (error) {
-    console.error('Error adding contact to audience:', error);
-    throw error;
+    console.error('Error adding contact to audience:', error)
+    throw error
   }
 }
 
 /**
  * Send individual email using Resend
  */
-async function sendWelcomeEmail(env: Env, email: string, type: 'welcome1' | 'welcome2' | 'welcome3'): Promise<boolean> {
+async function sendWelcomeEmail(
+  env: Env,
+  email: string,
+  type: 'welcome1' | 'welcome2' | 'welcome3'
+): Promise<boolean> {
   try {
-    const template = getEmailTemplate(type, { email });
-    
+    const template = getEmailTemplate(type, { email })
+
     const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
@@ -143,115 +164,142 @@ async function sendWelcomeEmail(env: Env, email: string, type: 'welcome1' | 'wel
         text: template.text,
         headers: {
           'List-Unsubscribe': `<https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}>`,
-          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click'
+          'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
         },
         tags: [
           { name: 'campaign', value: 'welcome-series' },
-          { name: 'email_type', value: type }
-        ]
+          { name: 'email_type', value: type },
+        ],
       }),
-    });
+    })
 
     if (!response.ok) {
-      console.error(`Failed to send ${type} to ${email}:`, await response.text());
-      return false;
+      console.error(
+        `Failed to send ${type} to ${email}:`,
+        await response.text()
+      )
+      return false
     }
 
-    const result = await response.json();
-    console.log(`Sent ${type} to ${email}:`, result.id);
-    return true;
+    const result = await response.json()
+    console.log(`Sent ${type} to ${email}:`, result.id)
+    return true
   } catch (error) {
-    console.error(`Error sending ${type} to ${email}:`, error);
-    return false;
+    console.error(`Error sending ${type} to ${email}:`, error)
+    return false
   }
 }
 
 /**
  * Schedule email for later delivery
  */
-async function scheduleEmail(env: Env, email: string, type: 'welcome1' | 'welcome2' | 'welcome3', delayHours: number): Promise<void> {
-  const sendAt = new Date(Date.now() + delayHours * 60 * 60 * 1000).toISOString();
+async function scheduleEmail(
+  env: Env,
+  email: string,
+  type: 'welcome1' | 'welcome2' | 'welcome3',
+  delayHours: number
+): Promise<void> {
+  const sendAt = new Date(
+    Date.now() + delayHours * 60 * 60 * 1000
+  ).toISOString()
   const scheduledEmail: ScheduledEmail = {
     id: `${type}_${email}_${Date.now()}`,
     email,
     type,
     sendAt,
-  };
+  }
 
-  await env.EMAIL_SCHEDULE.put(scheduledEmail.id, JSON.stringify(scheduledEmail));
-  console.log(`Scheduled ${type} for ${email} at ${sendAt}`);
+  await env.EMAIL_SCHEDULE.put(
+    scheduledEmail.id,
+    JSON.stringify(scheduledEmail)
+  )
+  console.log(`Scheduled ${type} for ${email} at ${sendAt}`)
 }
 
 /**
  * Process scheduled emails
  */
-async function processScheduledEmails(env: Env): Promise<{ sent: number; failed: number }> {
-  const now = new Date().toISOString();
-  let sent = 0;
-  let failed = 0;
+async function processScheduledEmails(
+  env: Env
+): Promise<{ sent: number; failed: number }> {
+  const now = new Date().toISOString()
+  let sent = 0
+  let failed = 0
 
   try {
-    const list = await env.EMAIL_SCHEDULE.list();
-    
+    const list = await env.EMAIL_SCHEDULE.list()
+
     for (const key of list.keys) {
       try {
-        const scheduledData = await env.EMAIL_SCHEDULE.get(key.name);
-        if (!scheduledData) continue;
+        const scheduledData = await env.EMAIL_SCHEDULE.get(key.name)
+        if (!scheduledData) continue
 
-        const scheduled: ScheduledEmail = JSON.parse(scheduledData);
-        
+        const scheduled: ScheduledEmail = JSON.parse(scheduledData)
+
         if (scheduled.sendAt <= now) {
-          const success = await sendWelcomeEmail(env, scheduled.email, scheduled.type);
-          
+          const success = await sendWelcomeEmail(
+            env,
+            scheduled.email,
+            scheduled.type
+          )
+
           if (success) {
-            sent++;
+            sent++
             // Update subscriber record
-            await updateSubscriberEmailSent(env, scheduled.email, scheduled.type);
+            await updateSubscriberEmailSent(
+              env,
+              scheduled.email,
+              scheduled.type
+            )
           } else {
-            failed++;
+            failed++
           }
-          
+
           // Remove from schedule regardless of success/failure
-          await env.EMAIL_SCHEDULE.delete(key.name);
+          await env.EMAIL_SCHEDULE.delete(key.name)
         }
       } catch (error) {
-        console.error(`Error processing scheduled email ${key.name}:`, error);
-        failed++;
+        console.error(`Error processing scheduled email ${key.name}:`, error)
+        failed++
         // Remove problematic scheduled email
-        await env.EMAIL_SCHEDULE.delete(key.name);
+        await env.EMAIL_SCHEDULE.delete(key.name)
       }
     }
   } catch (error) {
-    console.error('Error processing scheduled emails:', error);
+    console.error('Error processing scheduled emails:', error)
   }
 
-  return { sent, failed };
+  return { sent, failed }
 }
 
 /**
  * Update subscriber record when email is sent
  */
-async function updateSubscriberEmailSent(env: Env, email: string, emailType: string): Promise<void> {
+async function updateSubscriberEmailSent(
+  env: Env,
+  email: string,
+  emailType: string
+): Promise<void> {
   try {
-    const subscriberData = await env.SUBSCRIBERS.get(email);
+    const subscriberData = await env.SUBSCRIBERS.get(email)
     if (subscriberData) {
-      const subscriber = JSON.parse(subscriberData);
-      
+      const subscriber = JSON.parse(subscriberData)
+
       if (!subscriber.emailsSent) {
-        subscriber.emailsSent = {};
+        subscriber.emailsSent = {}
       }
-      
-      subscriber.emailsSent[emailType] = new Date().toISOString();
-      
+
+      subscriber.emailsSent[emailType] = new Date().toISOString()
+
       // Mark welcome series as completed if this was the last email
       if (emailType === 'welcome3' && subscriber.preferences) {
-        subscriber.preferences.welcomeSeriesCompleted = true;
+        subscriber.preferences.welcomeSeriesCompleted = true
       }
-      
-      await env.SUBSCRIBERS.put(email, JSON.stringify(subscriber));
+
+      await env.SUBSCRIBERS.put(email, JSON.stringify(subscriber))
     }
   } catch (error) {
-    console.error(`Error updating subscriber ${email}:`, error);
+    console.error(`Error updating subscriber ${email}:`, error)
   }
 }
 
@@ -261,49 +309,52 @@ async function updateSubscriberEmailSent(env: Env, email: string, emailType: str
 async function triggerWelcomeSeries(env: Env, email: string): Promise<void> {
   try {
     // Add to Resend audience
-    const audienceId = await ensureAudience(env);
-    await addToAudience(env, email, audienceId);
+    const audienceId = await ensureAudience(env)
+    await addToAudience(env, email, audienceId)
 
     // Send first email immediately
-    await sendWelcomeEmail(env, email, 'welcome1');
-    await updateSubscriberEmailSent(env, email, 'welcome1');
-    
+    await sendWelcomeEmail(env, email, 'welcome1')
+    await updateSubscriberEmailSent(env, email, 'welcome1')
+
     // Schedule follow-up emails
-    await scheduleEmail(env, email, 'welcome2', 24);
-    await scheduleEmail(env, email, 'welcome3', 72);
-    
-    console.log(`Welcome series triggered for ${email}`);
+    await scheduleEmail(env, email, 'welcome2', 24)
+    await scheduleEmail(env, email, 'welcome3', 72)
+
+    console.log(`Welcome series triggered for ${email}`)
   } catch (error) {
-    console.error(`Error triggering welcome series for ${email}:`, error);
-    throw error;
+    console.error(`Error triggering welcome series for ${email}:`, error)
+    throw error
   }
 }
 
 /**
  * Simple email templates (same as before)
  */
-function getEmailTemplate(type: 'welcome1' | 'welcome2' | 'welcome3', data: { email: string }) {
+function getEmailTemplate(
+  type: 'welcome1' | 'welcome2' | 'welcome3',
+  data: { email: string }
+) {
   switch (type) {
     case 'welcome1':
       return {
         subject: 'Welcome to Haas on SaaS! 👋',
         html: getWelcome1HTML(data.email),
-        text: getWelcome1Text(data.email)
-      };
+        text: getWelcome1Text(data.email),
+      }
     case 'welcome2':
       return {
         subject: 'My favorite posts to get you started',
         html: getWelcome2HTML(data.email),
-        text: getWelcome2Text(data.email)
-      };
+        text: getWelcome2Text(data.email),
+      }
     case 'welcome3':
       return {
         subject: 'The reality of building in 2025',
         html: getWelcome3HTML(data.email),
-        text: getWelcome3Text(data.email)
-      };
+        text: getWelcome3Text(data.email),
+      }
     default:
-      throw new Error(`Unknown email type: ${type}`);
+      throw new Error(`Unknown email type: ${type}`)
   }
 }
 
@@ -353,7 +404,7 @@ function getWelcome1HTML(email: string): string {
     <p><a href="https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}">Unsubscribe</a> | <a href="https://haasonsaas.com">haasonsaas.com</a></p>
   </div>
 </body>
-</html>`;
+</html>`
 }
 
 function getWelcome1Text(email: string): string {
@@ -381,7 +432,7 @@ Jonathan
 
 ---
 Unsubscribe: https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}
-Website: https://haasonsaas.com`;
+Website: https://haasonsaas.com`
 }
 
 function getWelcome2HTML(email: string): string {
@@ -430,7 +481,7 @@ function getWelcome2HTML(email: string): string {
     <p><a href="https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}">Unsubscribe</a> | <a href="https://haasonsaas.com">haasonsaas.com</a></p>
   </div>
 </body>
-</html>`;
+</html>`
 }
 
 function getWelcome2Text(email: string): string {
@@ -458,7 +509,7 @@ Talk soon,
 Jonathan
 
 ---
-Unsubscribe: https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}`;
+Unsubscribe: https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}`
 }
 
 function getWelcome3HTML(email: string): string {
@@ -504,7 +555,7 @@ function getWelcome3HTML(email: string): string {
     <p><a href="https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}">Unsubscribe</a> | <a href="https://haasonsaas.com">haasonsaas.com</a></p>
   </div>
 </body>
-</html>`;
+</html>`
 }
 
 function getWelcome3Text(email: string): string {
@@ -532,52 +583,69 @@ Jonathan
 P.S. Feel free to reply — I read and respond to everything.
 
 ---
-Unsubscribe: https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}`;
+Unsubscribe: https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email)}`
 }
 
 export default {
-  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    const url = new URL(request.url);
-    
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
+    const url = new URL(request.url)
+
     if (request.method === 'OPTIONS') {
-      return new Response(null, { headers: corsHeaders });
+      return new Response(null, { headers: corsHeaders })
     }
 
     try {
       // Process scheduled emails
       if (url.pathname === '/process-scheduled' && request.method === 'POST') {
-        const result = await processScheduledEmails(env);
-        return new Response(JSON.stringify(result), { headers: responseHeaders });
+        const result = await processScheduledEmails(env)
+        return new Response(JSON.stringify(result), {
+          headers: responseHeaders,
+        })
       }
 
       // Trigger welcome series
       if (url.pathname === '/trigger-welcome' && request.method === 'POST') {
-        const { email } = await request.json() as { email: string };
+        const { email } = (await request.json()) as { email: string }
         if (!email) {
           return new Response(JSON.stringify({ error: 'Email required' }), {
             status: 400,
             headers: responseHeaders,
-          });
+          })
         }
 
-        await triggerWelcomeSeries(env, email);
-        return new Response(JSON.stringify({ success: true }), { headers: responseHeaders });
+        await triggerWelcomeSeries(env, email)
+        return new Response(JSON.stringify({ success: true }), {
+          headers: responseHeaders,
+        })
       }
 
-      return new Response('Not found', { status: 404, headers: responseHeaders });
+      return new Response('Not found', {
+        status: 404,
+        headers: responseHeaders,
+      })
     } catch (error) {
-      console.error('Resend automation error:', error);
+      console.error('Resend automation error:', error)
       return new Response(JSON.stringify({ error: 'Internal server error' }), {
         status: 500,
         headers: responseHeaders,
-      });
+      })
     }
   },
 
   // Cron trigger for processing scheduled emails
-  async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
-    console.log('Processing scheduled emails...');
-    const result = await processScheduledEmails(env);
-    console.log(`Scheduled emails processed: ${result.sent} sent, ${result.failed} failed`);
+  async scheduled(
+    controller: ScheduledController,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<void> {
+    console.log('Processing scheduled emails...')
+    const result = await processScheduledEmails(env)
+    console.log(
+      `Scheduled emails processed: ${result.sent} sent, ${result.failed} failed`
+    )
   },
-};
+}

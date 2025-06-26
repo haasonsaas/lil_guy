@@ -1,22 +1,22 @@
-import { useState, useRef, useEffect } from 'react';
-import { cn } from '@/lib/utils';
+import { useState, useRef, useEffect } from 'react'
+import { cn } from '@/lib/utils'
 
 interface LazyImageProps {
-  src: string;
-  alt: string;
-  className?: string;
-  placeholder?: string;
-  quality?: number;
-  width?: number;
-  height?: number;
-  loading?: 'lazy' | 'eager';
-  preferWebP?: boolean;
-  sizes?: string;
+  src: string
+  alt: string
+  className?: string
+  placeholder?: string
+  quality?: number
+  width?: number
+  height?: number
+  loading?: 'lazy' | 'eager'
+  preferWebP?: boolean
+  sizes?: string
 }
 
-export default function LazyImage({ 
-  src, 
-  alt, 
+export default function LazyImage({
+  src,
+  alt,
   className,
   placeholder,
   quality = 75,
@@ -24,63 +24,63 @@ export default function LazyImage({
   height,
   loading = 'lazy',
   preferWebP = true,
-  sizes
+  sizes,
 }: LazyImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(false);
-  const [hasError, setHasError] = useState(false);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [isInView, setIsInView] = useState(false)
+  const [hasError, setHasError] = useState(false)
+  const imgRef = useRef<HTMLImageElement>(null)
 
   // Intersection Observer for lazy loading
   useEffect(() => {
     if (loading === 'eager') {
-      setIsInView(true);
-      return;
+      setIsInView(true)
+      return
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
+          setIsInView(true)
+          observer.disconnect()
         }
       },
       {
         threshold: 0.1,
         rootMargin: '50px 0px', // Start loading 50px before the image comes into view
       }
-    );
+    )
 
     if (imgRef.current) {
-      observer.observe(imgRef.current);
+      observer.observe(imgRef.current)
     }
 
-    return () => observer.disconnect();
-  }, [loading]);
+    return () => observer.disconnect()
+  }, [loading])
 
   // Generate optimized image sources
   const getOptimizedSources = (originalSrc: string) => {
     // If it's already external, return as-is
     if (originalSrc.startsWith('http')) {
-      return { webp: originalSrc, fallback: originalSrc };
+      return { webp: originalSrc, fallback: originalSrc }
     }
-    
+
     // For local generated images, prefer WebP
     if (originalSrc.startsWith('/generated/')) {
       if (preferWebP && !originalSrc.endsWith('.webp')) {
-        const webpSrc = originalSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp');
-        return { webp: webpSrc, fallback: originalSrc };
+        const webpSrc = originalSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp')
+        return { webp: webpSrc, fallback: originalSrc }
       }
-      return { webp: originalSrc, fallback: originalSrc };
+      return { webp: originalSrc, fallback: originalSrc }
     }
-    
-    return { webp: originalSrc, fallback: originalSrc };
-  };
+
+    return { webp: originalSrc, fallback: originalSrc }
+  }
 
   // Generate placeholder - could be blur hash, solid color, or skeleton
   const getPlaceholder = () => {
-    if (placeholder) return placeholder;
-    
+    if (placeholder) return placeholder
+
     // Generate a simple blur placeholder
     return `data:image/svg+xml;base64,${btoa(`
       <svg width="${width || 400}" height="${height || 300}" xmlns="http://www.w3.org/2000/svg">
@@ -93,22 +93,22 @@ export default function LazyImage({
         <rect width="100%" height="100%" fill="url(#gradient)" />
         <text x="50%" y="50%" text-anchor="middle" dy="0.3em" font-family="system-ui" font-size="16" fill="#9ca3af">Loading...</text>
       </svg>
-    `)}`;
-  };
+    `)}`
+  }
 
   const handleLoad = () => {
-    setIsLoaded(true);
-  };
+    setIsLoaded(true)
+  }
 
   const handleError = () => {
-    setHasError(true);
-    setIsLoaded(true);
-  };
+    setHasError(true)
+    setIsLoaded(true)
+  }
 
-  const sources = getOptimizedSources(src);
+  const sources = getOptimizedSources(src)
 
   return (
-    <div 
+    <div
       ref={imgRef}
       className={cn('relative overflow-hidden', className)}
       style={{ width, height }}
@@ -127,19 +127,21 @@ export default function LazyImage({
 
       {/* Actual image with WebP support */}
       {isInView && !hasError && (
-        <picture className={cn(
-          'w-full h-full transition-opacity duration-300',
-          isLoaded ? 'opacity-100' : 'opacity-0'
-        )}>
+        <picture
+          className={cn(
+            'w-full h-full transition-opacity duration-300',
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          )}
+        >
           {/* WebP source */}
           {sources.webp !== sources.fallback && (
-            <source 
-              srcSet={sources.webp} 
+            <source
+              srcSet={sources.webp}
               type="image/webp"
               {...(sizes && { sizes })}
             />
           )}
-          
+
           {/* Fallback image */}
           <img
             src={sources.fallback}
@@ -151,9 +153,10 @@ export default function LazyImage({
             width={width}
             height={height}
             {...(sizes && { sizes })}
-            {...(width && height && {
-              style: { aspectRatio: `${width} / ${height}` }
-            })}
+            {...(width &&
+              height && {
+                style: { aspectRatio: `${width} / ${height}` },
+              })}
           />
         </picture>
       )}
@@ -168,5 +171,5 @@ export default function LazyImage({
         </div>
       )}
     </div>
-  );
+  )
 }

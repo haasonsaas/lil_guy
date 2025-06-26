@@ -1,10 +1,10 @@
-import { generateBlogImages } from '../src/utils/blogImageGenerator';
-import fs from 'fs';
-import path from 'path';
+import { generateBlogImages } from '../src/utils/blogImageGenerator'
+import fs from 'fs'
+import path from 'path'
 
 async function main() {
-  console.log('Generating OpenGraph image...');
-  
+  console.log('Generating OpenGraph image...')
+
   // Define the OpenGraph image configuration
   const ogImageConfig = {
     width: 1200,
@@ -12,29 +12,33 @@ async function main() {
     text: 'Haas on SaaS',
     type: 'blog' as const,
     backgroundColor: '#f5f5f5',
-    textColor: '#333333'
-  };
-  
+    textColor: '#333333',
+  }
+
   // Generate the OpenGraph image
-  await generateBlogImages([ogImageConfig]);
-  
+  await generateBlogImages([ogImageConfig])
+
   // Copy the generated image to the public directory with the correct name
   const generatedImagePath = path.join(
-    process.cwd(), 
-    'public', 
-    'generated', 
+    process.cwd(),
+    'public',
+    'generated',
     `${ogImageConfig.width}x${ogImageConfig.height}-${ogImageConfig.text.toLowerCase().replace(/[^a-z0-9]/g, '-')}.png`
-  );
-  
-  const targetImagePath = path.join(process.cwd(), 'public', 'opengraph-image-p98pqg.png');
-  
+  )
+
+  const targetImagePath = path.join(
+    process.cwd(),
+    'public',
+    'opengraph-image-p98pqg.png'
+  )
+
   // Copy the file
-  fs.copyFileSync(generatedImagePath, targetImagePath);
-  
-  console.log(`OpenGraph image generated successfully at: ${targetImagePath}`);
+  fs.copyFileSync(generatedImagePath, targetImagePath)
+
+  console.log(`OpenGraph image generated successfully at: ${targetImagePath}`)
 }
 
 main().catch((error) => {
-  console.error('Error generating OpenGraph image:', error);
-  process.exit(1);
-}); 
+  console.error('Error generating OpenGraph image:', error)
+  process.exit(1)
+})

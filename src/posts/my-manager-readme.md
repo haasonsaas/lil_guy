@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: 2024-04-11
-title: "My Manager README: A Guide to Working With Me"
+title: 'My Manager README: A Guide to Working With Me'
 postSlug: my-manager-readme
 featured: false
 draft: false
@@ -14,7 +14,7 @@ tags:
 image:
   url: 'https://images.pexels.com/photos/267586/pexels-photo-267586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'A book open on a desk'
-description: "A transparent guide to my management style, communication preferences, and working expectations"
+description: 'A transparent guide to my management style, communication preferences, and working expectations'
 ---
 
 If you're reading this, you're either working with me, interested in working

@@ -1,15 +1,15 @@
-import React from 'react';
+import React from 'react'
 
 interface SoundCloudEmbedProps {
-  trackId: string;
-  title?: string;
-  className?: string;
+  trackId: string
+  title?: string
+  className?: string
 }
 
-export default function SoundCloudEmbed({ 
-  trackId, 
-  title = "SoundCloud Track",
-  className = ""
+export default function SoundCloudEmbed({
+  trackId,
+  title = 'SoundCloud Track',
+  className = '',
 }: SoundCloudEmbedProps) {
   return (
     <div className={`my-8 ${className}`}>
@@ -24,17 +24,17 @@ export default function SoundCloudEmbed({
         className="rounded-lg shadow-lg"
       />
       <div className="text-xs text-gray-400 mt-2">
-        <a 
-          href="https://soundcloud.com/haasonsaas" 
-          title="Jonathan Haas" 
-          target="_blank" 
+        <a
+          href="https://soundcloud.com/haasonsaas"
+          title="Jonathan Haas"
+          target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-gray-300"
         >
           Jonathan Haas
         </a>
-        {" · "}
-        <a 
+        {' · '}
+        <a
           href={`https://soundcloud.com/haasonsaas/${title.toLowerCase().replace(/\s+/g, '-')}`}
           title={title}
           target="_blank"
@@ -45,8 +45,9 @@ export default function SoundCloudEmbed({
         </a>
       </div>
       <div className="text-xs text-gray-500 mt-2 italic">
-        Note: These audio tracks are AI-generated using NotebookLLM and may contain inaccuracies or mispronunciations.
+        Note: These audio tracks are AI-generated using NotebookLLM and may
+        contain inaccuracies or mispronunciations.
       </div>
     </div>
-  );
-} 
+  )
+}
