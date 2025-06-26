@@ -1,5 +1,6 @@
 name: Automated Blog Generation
 
+# Updated with comprehensive formatting rules
 on:
   schedule:
     # Run 3 times daily: 9 AM, 1 PM, and 6 PM PST (17:00, 21:00, 02:00 UTC)
