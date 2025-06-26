@@ -1,0 +1,341 @@
+name: Automated Blog Generation
+
+on:
+  schedule:
+    # Run twice a week: Tuesday and Friday at 9 AM PST (17:00 UTC)
+    - cron: '0 17 * * 2,5'
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Specific topic to write about (optional)'
+        required: false
+        type: string
+      force_publish:
+        description: 'Force publish the generated post'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  NODE_ENV: production
+
+jobs:
+  generate-blog-post:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Generate blog topic and content
+        env:
+          GOOGLE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
+        run: |
+          # Create the automated blog generation script
+          cat > scripts/auto-blog-generator.ts << 'EOF'
+          #!/usr/bin/env bun
+          
+          import { parseArgs } from 'util'
+          import chalk from 'chalk'
+          import { promisify } from 'util'
+          import { exec } from 'child_process'
+          import fs from 'fs/promises'
+          import path from 'path'
+          
+          const execAsync = promisify(exec)
+          
+          interface AutoBlogConfig {
+            topicCategories: string[]
+            recentPostsToAvoid: string[]
+            qualityThresholds: {
+              minWords: number
+              maxWords: number
+              requiredSections: string[]
+            }
+          }
+          
+          class AutoBlogGenerator {
+            private config: AutoBlogConfig = {
+              topicCategories: [
+                "AI and automation challenges",
+                "Startup funding and growth",
+                "Engineering leadership",
+                "Product management insights", 
+                "Security and developer tools",
+                "Technical architecture decisions",
+                "Remote work and team culture",
+                "Contrarian takes on popular advice"
+              ],
+              recentPostsToAvoid: [],
+              qualityThresholds: {
+                minWords: 800,
+                maxWords: 2000,
+                requiredSections: ['##', '###']
+              }
+            }
+          
+            async run(): Promise<void> {
+              try {
+                console.log(chalk.blue('🤖 Starting automated blog generation...'))
+                
+                // Get recent posts to avoid duplicates
+                await this.loadRecentPosts()
+                
+                // Generate or use provided topic
+                const topic = await this.generateTopic()
+                console.log(chalk.yellow(`📝 Selected topic: "${topic}"`))
+                
+                // Generate the blog post
+                const postSlug = await this.generatePost(topic)
+                
+                // Validate quality
+                const isQualityPost = await this.validateQuality(postSlug)
+                
+                if (!isQualityPost) {
+                  console.log(chalk.red('❌ Generated post did not meet quality standards'))
+                  process.exit(1)
+                }
+                
+                // Decide whether to publish or keep as draft
+                const shouldPublish = this.shouldAutoPublish()
+                
+                if (shouldPublish) {
+                  await this.publishPost(postSlug)
+                  console.log(chalk.green('✅ Blog post generated and published!'))
+                } else {
+                  console.log(chalk.yellow('📝 Blog post generated as draft for review'))
+                }
+                
+                // Output for GitHub Actions
+                console.log(`::set-output name=post_slug::${postSlug}`)
+                console.log(`::set-output name=published::${shouldPublish}`)
+                
+              } catch (error) {
+                console.error(chalk.red('❌ Auto-generation failed:'), error)
+                process.exit(1)
+              }
+            }
+            
+            private async loadRecentPosts(): Promise<void> {
+              try {
+                const postsDir = path.join(process.cwd(), 'src', 'posts')
+                const files = await fs.readdir(postsDir)
+                
+                // Get the 10 most recent posts to avoid similar topics
+                const recentFiles = files
+                  .filter(f => f.endsWith('.md'))
+                  .slice(-10)
+                  .map(f => f.replace('.md', ''))
+                
+                this.config.recentPostsToAvoid = recentFiles
+              } catch (error) {
+                console.warn('Could not load recent posts:', error)
+              }
+            }
+            
+            private async generateTopic(): Promise<string> {
+              // Check if topic was provided via input
+              const providedTopic = process.env.INPUT_TOPIC
+              if (providedTopic?.trim()) {
+                return providedTopic.trim()
+              }
+              
+              // Generate a strategic topic
+              const category = this.config.topicCategories[
+                Math.floor(Math.random() * this.config.topicCategories.length)
+              ]
+              
+              // Use the ideas generator for fresh topics
+              const { stdout } = await execAsync('bun run ideas -n 5 -t practical-guide -f json')
+              const ideas = JSON.parse(stdout.trim())
+              
+              // Pick a topic that hasn't been covered recently
+              const freshIdeas = ideas.filter((idea: any) => 
+                !this.config.recentPostsToAvoid.some(recent => 
+                  idea.title.toLowerCase().includes(recent.toLowerCase().replace(/-/g, ' '))
+                )
+              )
+              
+              if (freshIdeas.length > 0) {
+                return freshIdeas[0].title
+              }
+              
+              // Fallback to category-based generation
+              return `The Hidden Truth About ${category}`
+            }
+            
+            private async generatePost(topic: string): Promise<string> {
+              console.log(chalk.yellow('🔄 Generating full blog post...'))
+              
+              const { stdout } = await execAsync(`bun scripts/gemini.ts new-draft "${topic}"`)
+              
+              // Extract the slug from the output
+              const slugMatch = stdout.match(/🔗 Slug: ([^\n]+)/)
+              if (!slugMatch) {
+                throw new Error('Could not extract post slug from generation output')
+              }
+              
+              const slug = slugMatch[1].trim()
+              
+              // Write the full post content
+              await execAsync(`bun scripts/gemini.ts write-post "${slug}"`)
+              
+              return slug
+            }
+            
+            private async validateQuality(postSlug: string): Promise<boolean> {
+              try {
+                const postPath = path.join(process.cwd(), 'src', 'posts', `${postSlug}.md`)
+                const content = await fs.readFile(postPath, 'utf-8')
+                
+                // Word count check
+                const wordCount = content.split(/\s+/).length
+                if (wordCount < this.config.qualityThresholds.minWords) {
+                  console.log(chalk.yellow(`⚠️  Post too short: ${wordCount} words (min: ${this.config.qualityThresholds.minWords})`))
+                  return false
+                }
+                
+                if (wordCount > this.config.qualityThresholds.maxWords) {
+                  console.log(chalk.yellow(`⚠️  Post too long: ${wordCount} words (max: ${this.config.qualityThresholds.maxWords})`))
+                  return false
+                }
+                
+                // Structure check
+                const hasRequiredSections = this.config.qualityThresholds.requiredSections.every(
+                  section => content.includes(section)
+                )
+                
+                if (!hasRequiredSections) {
+                  console.log(chalk.yellow('⚠️  Post missing required sections'))
+                  return false
+                }
+                
+                // Check for placeholder content
+                const hasPlaceholders = /TODO|PLACEHOLDER|Lorem ipsum|ipsum dolor/i.test(content)
+                if (hasPlaceholders) {
+                  console.log(chalk.yellow('⚠️  Post contains placeholder content'))
+                  return false
+                }
+                
+                console.log(chalk.green(`✅ Quality validation passed (${wordCount} words)`))
+                return true
+                
+              } catch (error) {
+                console.error('Quality validation failed:', error)
+                return false
+              }
+            }
+            
+            private shouldAutoPublish(): boolean {
+              // Check for force publish flag
+              if (process.env.INPUT_FORCE_PUBLISH === 'true') {
+                return true
+              }
+              
+              // Auto-publish 70% of the time for regular automation
+              // This ensures some posts go to draft for manual review
+              return Math.random() < 0.7
+            }
+            
+            private async publishPost(postSlug: string): Promise<void> {
+              await execAsync(`bun run publish "${postSlug}" -c`)
+            }
+          }
+          
+          const generator = new AutoBlogGenerator()
+          generator.run()
+          EOF
+          
+          # Run the auto-generator
+          bun scripts/auto-blog-generator.ts
+
+      - name: Run quality checks
+        run: |
+          bun run lint
+          bun run typecheck
+          bun run spell
+
+      - name: Generate blog images
+        run: bun run generate-blog-images
+
+      - name: Commit and push changes
+        run: |
+          git add .
+          
+          # Check if there are changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          
+          # Commit with conventional format
+          git commit -m "feat: auto-generate blog post
+
+          🤖 Generated with automated blog pipeline
+          📅 Scheduled: $(date -u +"%Y-%m-%d %H:%M UTC")
+          
+          🤖 Generated with [Claude Code](https://claude.ai/code)
+          
+          Co-Authored-By: Claude <noreply@anthropic.com>"
+          
+          git push origin main
+
+      - name: Create summary comment
+        if: always()
+        run: |
+          echo "## 🤖 Automated Blog Generation Summary" > summary.md
+          echo "" >> summary.md
+          echo "- **Date**: $(date -u +"%Y-%m-%d %H:%M UTC")" >> summary.md
+          echo "- **Status**: ${{ job.status }}" >> summary.md
+          echo "- **Trigger**: ${{ github.event_name }}" >> summary.md
+          
+          if [ -n "${{ steps.generate.outputs.post_slug }}" ]; then
+            echo "- **Generated Post**: ${{ steps.generate.outputs.post_slug }}" >> summary.md
+            echo "- **Published**: ${{ steps.generate.outputs.published }}" >> summary.md
+          fi
+          
+          echo "" >> summary.md
+          echo "Generated content is available for review at: https://haasonsaas.com/blog/" >> summary.md
+
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    needs: generate-blog-post
+    if: failure()
+    
+    steps:
+      - name: Create issue on failure
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: '🤖 Automated Blog Generation Failed',
+              body: `The automated blog generation workflow failed.
+              
+              **Run Details:**
+              - Workflow: ${context.workflow}
+              - Run ID: ${context.runId}
+              - Trigger: ${context.eventName}
+              - Time: ${new Date().toISOString()}
+              
+              Please check the [workflow run](${context.payload.repository.html_url}/actions/runs/${context.runId}) for details.`,
+              labels: ['automated', 'blog', 'bug']
+            })

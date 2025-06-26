@@ -27,6 +27,8 @@
     "drafts": "bun run scripts/draft-analyzer.ts",
     "ideas": "bun run scripts/content-ideas.ts",
     "momentum": "bun run scripts/momentum.ts",
+    "setup:automation": "bun --env-file=.env run scripts/setup-automation.ts",
+    "test:automation": "bun --env-file=.env run scripts/test-auto-blog.ts",
     "gemini": "bun --env-file=.env run scripts/gemini.ts",
     "claude": "bun --env-file=.env run scripts/claude.ts",
     "ai-orchestrator": "bun --env-file=.env run scripts/ai-orchestrator.ts",

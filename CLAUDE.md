@@ -47,6 +47,20 @@ bun run momentum [-q] [-f table|minimal|json]                           # Writin
 # Personal productivity utilities use shared libraries in scripts/lib/ for consistency
 ```
 
+### Automated Blog Generation
+
+```bash
+bun run setup:automation    # Setup automated blog generation pipeline
+bun run test:automation     # Test automation pipeline locally
+bun run test:automation -d  # Dry run test (no files created)
+bun run test:automation -t "Custom Topic"  # Test with specific topic
+
+# The automation runs via GitHub Actions:
+# - Scheduled: Tuesdays and Fridays at 9 AM PST (17:00 UTC)
+# - Manual: Via GitHub Actions UI with optional topic override
+# - Quality: 70% auto-publish, 30% held as drafts for review
+```
+
 ### Deployment & DevOps
 
 ```bash
