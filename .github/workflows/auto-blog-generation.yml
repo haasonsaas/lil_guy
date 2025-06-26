@@ -21,6 +21,10 @@ on:
 env:
   NODE_ENV: production
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   generate-blog-post:
     runs-on: ubuntu-latest
