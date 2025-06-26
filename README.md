@@ -1,17 +1,27 @@
 # Haas Blog
 
-A modern, feature-rich blog built with React, TypeScript, and Vite. This project showcases a clean architecture and modern web development practices.
+A modern, feature-rich blog built with React, TypeScript, and Vite. This project showcases a clean architecture, modern web development practices, and cutting-edge AI integration for content creation and voice replication.
 
 ## 🚀 Features
 
-- 📝 Markdown-based blog posts
+### Core Blog Features
+
+- 📝 Markdown-based blog posts with rich frontmatter
 - 🎨 Modern UI with Tailwind CSS and shadcn/ui components
-- 🌙 Dark mode support
-- 📱 Responsive design
-- ⚡ Fast development with Vite
-- 🔍 SEO friendly
-- 📊 Syntax highlighting for code blocks
+- 🌙 Dark mode support with theme persistence
+- 📱 Responsive design optimized for all devices
+- ⚡ Fast development with Vite and hot module replacement
+- 🔍 SEO friendly with structured data and meta tags
+- 📊 Syntax highlighting for code blocks with copy buttons
 - 🎯 Type-safe development with TypeScript
+
+### AI-Powered Content Creation
+
+- 🤖 **Multi-AI Content Pipeline** - Automated blog post generation using Gemini and Claude
+- 🧠 **Jonathan Voice Engine** - AI personality replication system with authentic voice characteristics
+- 🎭 **Voice Validation System** - Authenticity scoring to ensure consistent voice and perspective
+- 📋 **AI Orchestration** - Sophisticated workflow management for multi-agent content creation
+- 🎯 **Framework Extraction** - Codified thinking patterns and strategic frameworks
 
 ## 🛠️ Tech Stack
 
@@ -51,18 +61,23 @@ src/
 
 ### Installation
 
-1. Clone the repository:
+1. Access the repository (private repository):
+
    ```bash
-   git clone https://github.com/haasonsaas/haas-blog.git
-   cd haas-blog
+   # Repository is not publicly available
+   # Contact for access if needed for educational review
    ```
 
+   _Note: This repository contains proprietary blog implementation and AI systems. The code is not publicly available and is not licensed for reuse or redistribution._
+
 2. Install dependencies:
+
    ```bash
    bun install
    ```
 
 3. Start the development server:
+
    ```bash
    bun run dev
    ```
@@ -71,19 +86,120 @@ src/
 
 ## 📝 Available Scripts
 
-- `bun run dev` - Start development server
+### Core Development
+
+- `bun run dev` - Start development server (localhost:8080)
 - `bun run build` - Build for production
 - `bun run build:dev` - Build for development
-- `bun run lint` - Run ESLint
+- `bun run lint` - Run ESLint with TypeScript support
+- `bun run typecheck` - TypeScript type checking
 - `bun run preview` - Preview production build
+
+### Blog Content Management
+
+- `bun run new-post "Title"` - Create new blog post with interactive setup
+- `bun run search "keyword"` - Search blog content with fuzzy matching
+- `bun run publish "post title"` - Convert draft to published post
+- `bun run generate-blog-images` - Generate social media images for all posts
+
+### AI Content Creation
+
+- `bun scripts/gemini.ts new-draft "Topic"` - Generate structured blog post outline
+- `bun scripts/gemini.ts write-blog-post "slug"` - Write full blog post from outline
+- `bun scripts/enhanced-pipeline.ts run "Topic"` - End-to-end content generation
+- `bun scripts/ai-orchestrator.ts workflow "Topic"` - Multi-agent content workflow
+
+### Jonathan Voice Engine
+
+- `bun scripts/jonathan-voice.ts respond "Question"` - Generate authentic response in Jonathan's voice
+- `bun scripts/jonathan-voice.ts test` - Run voice authenticity validation tests
+- `bun scripts/jonathan-voice.ts stats` - Show voice engine statistics
+- `bun scripts/jonathan-voice.ts train` - Train voice model from blog corpus
+
+### Quality Assurance
+
+- `bun run lint:md` - Markdown linting with markdownlint-cli2
+- `bun run spell` - Spell checking with custom dictionary
+- `bun run check:links` - Validate all links in markdown files
+
+## 🤖 AI Systems Overview
+
+This blog features cutting-edge AI integration for content creation and voice replication:
+
+### Multi-AI Content Pipeline
+
+A sophisticated system that combines multiple AI models for end-to-end content creation:
+
+1. **Draft Generation** - Gemini creates structured outlines with title, description, tags
+2. **Content Writing** - Full blog post generation from outlines (780+ words)
+3. **Quality Validation** - Automated checks for frontmatter, structure, and quality
+4. **Voice Consistency** - Ensures output matches Jonathan's authentic voice
+
+```bash
+# Generate complete blog post
+bun scripts/enhanced-pipeline.ts run "AI Testing Strategies"
+
+# Multi-agent orchestration workflow
+bun scripts/ai-orchestrator.ts workflow "Security Best Practices"
+```
+
+### Jonathan Voice Engine
+
+An AI personality replication system that generates authentic responses in Jonathan's voice:
+
+- **Voice Profile Extraction** - Analysis of 50+ blog posts to extract writing patterns
+- **Framework Codification** - 4 major strategic frameworks extracted from corpus
+- **Authenticity Validation** - Scoring system to ensure voice consistency
+- **Context-Aware Responses** - Adapts to audience, format, and topic domain
+
+```bash
+# Generate response in Jonathan's voice
+bun scripts/jonathan-voice.ts respond "How should startups approach AI integration?"
+
+# Test voice authenticity
+bun scripts/jonathan-voice.ts test
+
+# View voice profile statistics
+bun scripts/jonathan-voice.ts stats
+```
+
+### Voice Profile Features
+
+The system captures Jonathan's distinctive characteristics:
+
+- **Tone**: Direct (90%), Contrarian (80%), Empathetic (70%), Pragmatic (95%)
+- **Style**: Short paragraphs, heavy contractions, active voice, rhetorical questions
+- **Perspectives**: Contrarian takes on equity, nuanced AI adoption views, anti-perfectionism
+- **Frameworks**: Startup bargain analysis, strategic quality, AI integration, founder psychology
+
+### AI Orchestration System
+
+Sophisticated workflow management for multi-agent collaboration:
+
+- **Task Distribution** - Intelligent work assignment across AI agents
+- **Quality Assurance** - Multi-stage validation and error handling
+- **Progress Tracking** - Real-time status monitoring and reporting
+- **Conflict Resolution** - Handles competing AI approaches gracefully
 
 ## 🎨 Customization
 
 ### Adding New Blog Posts
 
+#### Traditional Method
+
 1. Create a new markdown file in the `src/posts` directory
 2. Add frontmatter with title, date, and other metadata
 3. Write your content in markdown format
+
+#### AI-Assisted Method
+
+```bash
+# Interactive post creation
+bun run new-post "Your Amazing Topic"
+
+# AI-generated complete post
+bun scripts/enhanced-pipeline.ts run "Your Amazing Topic"
+```
 
 ### Styling
 
@@ -91,11 +207,7 @@ The project uses Tailwind CSS for styling. You can customize the theme in `tailw
 
 ## 📚 Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+_This is a private repository. Contributing guidelines are available to authorized collaborators only._
 
 ## 📄 License
 

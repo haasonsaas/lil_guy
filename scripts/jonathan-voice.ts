@@ -384,7 +384,7 @@ ${context.length === 'long' ? 'Provide a comprehensive response with examples an
     }
   }
 
-  private validateVoiceAuthenticity(
+  validateVoiceAuthenticity(
     response: string,
     context: VoiceContext
   ): VoiceValidation {
@@ -611,6 +611,9 @@ class VoiceCLI {
       case 'test':
         await this.runVoiceTest()
         break
+      case 'validate':
+        await this.validateText(args)
+        break
       default:
         console.error(chalk.red(`❌ Unknown command: ${command}`))
         this.showUsage()
@@ -677,6 +680,115 @@ class VoiceCLI {
     }
   }
 
+  private async validateText(args: string[]): Promise<void> {
+    const text = args.join(' ')
+    if (!text) {
+      // Try to read from stdin if no text provided
+      const stdin = await this.readFromStdin()
+      if (!stdin) {
+        throw new Error(
+          'Text is required for validation. Provide text as arguments or pipe it in.'
+        )
+      }
+      await this.analyzeTextAuthenticity(stdin)
+    } else {
+      await this.analyzeTextAuthenticity(text)
+    }
+  }
+
+  private async readFromStdin(): Promise<string | null> {
+    return new Promise((resolve) => {
+      let data = ''
+      process.stdin.setEncoding('utf8')
+
+      const timeout = setTimeout(() => {
+        resolve(null)
+      }, 100) // Quick timeout since we're not blocking
+
+      process.stdin.on('readable', () => {
+        clearTimeout(timeout)
+        const chunk = process.stdin.read()
+        if (chunk !== null) {
+          data += chunk
+        }
+      })
+
+      process.stdin.on('end', () => {
+        clearTimeout(timeout)
+        resolve(data.trim() || null)
+      })
+    })
+  }
+
+  private async analyzeTextAuthenticity(text: string): Promise<void> {
+    console.log(chalk.blue('🔍 Analyzing text authenticity...'))
+    console.log(chalk.gray(`   Text length: ${text.length} characters`))
+
+    const context: VoiceContext = {
+      audience: 'founders',
+      format: 'blog-post',
+      topic_domain: 'startup',
+      formality: 'professional',
+      length: 'medium',
+    }
+
+    const validation = this.engine.validateVoiceAuthenticity(text, context)
+
+    console.log(chalk.blue('\n📊 Authenticity Analysis:'))
+    console.log(
+      chalk.white(
+        `Overall Score: ${Math.round(validation.authenticity_score * 100)}%`
+      )
+    )
+    console.log(
+      chalk.gray(
+        `Perspective Alignment: ${Math.round(validation.perspective_alignment * 100)}%`
+      )
+    )
+    console.log(
+      chalk.gray(
+        `Style Consistency: ${Math.round(validation.style_consistency * 100)}%`
+      )
+    )
+
+    if (validation.authenticity_score >= 0.7) {
+      console.log(chalk.green('\n✅ Authentic Jonathan voice detected!'))
+    } else if (validation.authenticity_score >= 0.5) {
+      console.log(
+        chalk.yellow('\n⚠️  Moderately authentic - could use improvement')
+      )
+    } else {
+      console.log(
+        chalk.red(
+          '\n❌ Low authenticity - significant voice improvements needed'
+        )
+      )
+    }
+
+    if (validation.validation_notes.authentic_elements.length > 0) {
+      console.log(chalk.green('\n🎯 Authentic elements found:'))
+      validation.validation_notes.authentic_elements.forEach((element) => {
+        console.log(chalk.green(`  ✓ ${element}`))
+      })
+    }
+
+    if (validation.validation_notes.potential_issues.length > 0) {
+      console.log(chalk.red('\n⚠️  Issues detected:'))
+      validation.validation_notes.potential_issues.forEach((issue) => {
+        console.log(chalk.red(`  ✗ ${issue}`))
+      })
+    }
+
+    if (validation.validation_notes.improvement_suggestions.length > 0) {
+      console.log(chalk.yellow('\n💡 Suggestions for improvement:'))
+      validation.validation_notes.improvement_suggestions.forEach(
+        (suggestion) => {
+          console.log(chalk.yellow(`  • ${suggestion}`))
+        }
+      )
+    }
+  }
+
   private showUsage(): void {
     console.error(chalk.red('❌ Please provide a command.'))
     console.error('Usage: bun run jonathan-voice <command> [args]')
@@ -687,11 +799,16 @@ class VoiceCLI {
     console.error('  train                 - Train voice model from blog posts')
     console.error('  stats                 - Show voice engine statistics')
     console.error('  test                  - Run voice authenticity tests')
+    console.error(
+      '  validate <text>       - Analyze text for Jonathan voice authenticity'
+    )
     console.error('\nExamples:')
     console.error(
       '  bun run jonathan-voice respond "How should I evaluate AI vendors?"'
     )
     console.error('  bun run jonathan-voice test')
+    console.error('  bun run jonathan-voice validate "Your text here"')
+    console.error('  echo "Your text" | bun run jonathan-voice validate')
   }
 }
 
