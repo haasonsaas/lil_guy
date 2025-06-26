@@ -184,7 +184,8 @@
       "mcp__everything__printEnv",
       "mcp__slack__slack_list_channels",
       "mcp__slack__slack_post_message",
-      "mcp__deep-code-reasoning__escalate_analysis"
+      "mcp__deep-code-reasoning__escalate_analysis",
+      "WebFetch(domain:ai.google.dev)"
     ],
     "deny": []
   }

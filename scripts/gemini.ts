@@ -912,12 +912,15 @@ ${outline}
 </input>
 
 <requirements>
-<requirement>Write 780+ words of substantive content</requirement>
+<requirement>Write 1500+ words of substantive, in-depth content</requirement>
 <requirement>Use specific examples from advisory experience</requirement>
 <requirement>Challenge conventional wisdom where appropriate</requirement>
 <requirement>Include actionable insights, not generic advice</requirement>
 <requirement>Maintain logical flow between paragraphs</requirement>
 <requirement>Stay strictly on topic throughout</requirement>
+<requirement>Expand each main section with detailed explanations and multiple examples</requirement>
+<requirement>Include specific frameworks, methodologies, or step-by-step processes</requirement>
+<requirement>Address potential objections and counterarguments thoroughly</requirement>
 </requirements>
 
 <success_criteria>
