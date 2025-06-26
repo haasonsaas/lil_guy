@@ -293,7 +293,7 @@ jobs:
 
       - name: Create Pull Request with generated content
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ secrets.AUTO_BLOG_PAT }}
         run: |
           # Clean up the script file to avoid linting issues
           rm -f scripts/auto-blog-generator.ts
