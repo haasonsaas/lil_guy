@@ -320,7 +320,8 @@
     "Projectify",
     "barebones",
     "Procfile",
-    "Overengineering"
+    "Overengineering",
+    "Dynatrace"
   ],
   "ignorePaths": [
     "node_modules/**",
