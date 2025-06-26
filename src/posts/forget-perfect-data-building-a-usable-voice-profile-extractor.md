@@ -24,7 +24,7 @@ Here's the kicker: I built it with messy markdown files, basic regex patterns, a
 
 ## The Perfect Data Trap (And Why You're Stuck In It)
 
-Three years ago at a tiny startup, we burned through $200K and six months because the CTO read too many ML papers. "We need clean data," he said. "We need balanced demographics."
+Many years ago at a tiny startup, we burned through $200K and six months because the CTO read too many ML papers. "We need clean data," he said. "We need balanced demographics."
 
 We needed revenue. We got bankruptcy.
 
