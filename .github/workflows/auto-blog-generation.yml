@@ -271,6 +271,18 @@ jobs:
               // Fix MD049 - use underscore for emphasis consistently
               content = content.replace(/\*([^*]+)\*/g, '_$1_')
               
+              // Fix YAML frontmatter formatting issues
+              // Remove block scalar indicators that break parsing
+              content = content.replace(/^title: \|$/gm, 'title:')
+              content = content.replace(/^description: >$/gm, 'description:')
+              
+              // Ensure title and description are properly quoted
+              content = content.replace(/^title:\s*$/gm, 'title: ""')
+              content = content.replace(/^description:\s*$/gm, 'description: ""')
+              
+              // Fix any unquoted YAML values that contain special characters
+              content = content.replace(/^(title|description):\s*([^"'][^\\n]*[:|>\\[\\]{}])(.*)$/gm, '$1: "$2$3"')
+              
               return content
             }
             
