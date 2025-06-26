@@ -8,7 +8,7 @@ description: >-
   in security and AI.  Get practical steps to integrate AI effectively, not
   perfectly.
 featured: false
-draft: true
+draft: false
 tags:
   - AI
   - Content Generation

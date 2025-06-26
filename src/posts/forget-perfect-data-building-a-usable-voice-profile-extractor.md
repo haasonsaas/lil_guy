@@ -5,7 +5,7 @@ title: 'Forget Perfect Data: Building a Usable Voice Profile Extractor'
 description: >-
   Stop chasing the mythical 'perfect' dataset. I built a working voice profile extractor with 50 markdown files and regex. Here's why your obsession with data quality is killing your AI project—and what to do instead.
 featured: false
-draft: true
+draft: false
 tags:
   - AI
   - Voice AI

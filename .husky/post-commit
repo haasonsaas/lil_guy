@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+# Ensure generated files are committed when posts are modified
+modified_posts=$(git diff HEAD^ HEAD --name-only | grep "src/posts/.*\.md$" || true)
+
+if [ -n "$modified_posts" ]; then
+  echo "📸 Checking for uncommitted generated files..."
+  
+  # Check for unstaged generated images
+  unstaged_images=$(git status --porcelain | grep "public/generated/" || true)
+  
+  if [ -n "$unstaged_images" ]; then
+    echo "⚠️  Found uncommitted generated images. Adding to next commit..."
+    git add public/generated/*.png public/generated/*.webp 2>/dev/null || true
+    
+    # Check for RSS/sitemap updates
+    if [ -f "dist/rss.xml" ]; then
+      git add dist/rss.xml 2>/dev/null || true
+    fi
+    if [ -f "dist/sitemap.xml" ]; then
+      git add dist/sitemap.xml dist/robots.txt 2>/dev/null || true
+    fi
+    
+    echo "💡 Run 'git commit --amend' to include these files in the current commit"
+  fi
+fi

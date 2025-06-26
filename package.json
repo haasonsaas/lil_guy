@@ -33,13 +33,19 @@
     "enhanced-pipeline": "bun --env-file=.env run scripts/enhanced-pipeline.ts",
     "jonathan-voice": "bun --env-file=.env run scripts/jonathan-voice.ts",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "lint:md": "markdownlint-cli2 src/posts/*.md",
+    "prettier:check": "prettier --check .",
+    "prettier:fix": "prettier --write .",
     "spell": "cspell src/posts/*.md",
     "check:links": "find src/posts -name '*.md' -exec markdown-link-check {} \\;",
     "validate:seo": "bun run scripts/validateSEO.ts",
     "typecheck": "tsc --noEmit",
     "preview": "vite preview",
-    "prepare": "husky"
+    "prepare": "husky",
+    "check:all": "bun run scripts/run-all-checks.ts",
+    "precommit": "lint-staged",
+    "fix:all": "bun run lint:fix && bun run prettier:fix && bun x markdownlint-cli2 --fix 'src/posts/*.md'"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
@@ -48,6 +54,10 @@
     ],
     "*.{md,json}": [
       "prettier --write"
+    ],
+    "src/posts/*.md": [
+      "markdownlint-cli2 --fix",
+      "cspell --no-must-find-files"
     ]
   },
   "prettier": {
