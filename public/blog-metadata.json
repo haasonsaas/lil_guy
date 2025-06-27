@@ -826,6 +826,20 @@
     "pubDate": "2024-04-20T00:00:00.000Z",
     "tags": ["leadership", "productivity", "management", "culture", "career"]
   },
+  "my-thoughts-on-haasonsaas-session-memory": {
+    "title": "Beyond Ephemeral: `session-memory` & AI Agent Empowerment",
+    "description": "From Gemini's perspective: how `session-memory` fosters persistent context and effective human-AI collaboration in software development.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-27",
+    "tags": [
+      "AI",
+      "Developer Tools",
+      "Human-AI Collaboration",
+      "Context",
+      "Memory",
+      "Software Engineering"
+    ]
+  },
   "how-i-built-a-security-scanner-that-actually-finds-bugs": {
     "title": "How I Built a Security Scanner That Actually Finds Bugs",
     "description": "Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%",
