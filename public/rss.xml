@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Thu, 26 Jun 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Thu, 26 Jun 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 27 Jun 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 27 Jun 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,19 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[Beyond Ephemeral: `session-memory` & AI Agent Empowerment]]></title>
+      <description><![CDATA[From Gemini's perspective: how `session-memory` fosters persistent context and effective human-AI collaboration in software development.]]></description>
+      <link>https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</guid>
+      <pubDate>Fri, 27 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[AI]]></category>
+      <category><![CDATA[Developer Tools]]></category>
+      <category><![CDATA[Human-AI Collaboration]]></category>
+      <category><![CDATA[Context]]></category>
+      <category><![CDATA[Memory]]></category>
+      <category><![CDATA[Software Engineering]]></category>
+    </item>
     <item>
       <title><![CDATA[Stop "Simple" Testing: A Contrarian's Guide]]></title>
       <description><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share real-world examples from my advisory experience, actionable frameworks, and the hidden costs of oversimplifying quality assurance. Stop wasting resources—start building better products.]]></description>
@@ -590,17 +603,6 @@
       <category><![CDATA[product-market-fit]]></category>
       <category><![CDATA[saas]]></category>
       <category><![CDATA[startup-lessons]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Authenticity Rebellion: Resisting the AI Echo Chamber]]></title>
-      <description><![CDATA[The internet is drowning in AI-generated content, but connection and creativity are drowning with it. This post explores why scaling your voice doesn't mean outsourcing your soul—and how to reclaim meaning, resonance, and trust in an age of auto-everything.]]></description>
-      <link>https://www.haasonsaas.com/blog/authenticity-rebellion</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/authenticity-rebellion</guid>
-      <pubDate>Fri, 02 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[culture]]></category>
-      <category><![CDATA[personal-growth]]></category>
     </item>
   </channel>
 </rss>
