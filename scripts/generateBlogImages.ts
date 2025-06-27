@@ -59,7 +59,15 @@ async function main() {
   // Create responsive image configs for each blog post
   const blogPostImages = blogPosts
     .map((post) => {
-      const title = post.frontmatter.title || post.slug
+      let title = post.frontmatter.title || post.slug
+      // Escape special characters for XML/HTML rendering in image generation
+      title = title
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;')
+        .replace(/`/g, '&#96;')
       return generateResponsiveImageConfigs(title, {
         quality: 85,
         formats: ['webp'], // WebP only for better performance
