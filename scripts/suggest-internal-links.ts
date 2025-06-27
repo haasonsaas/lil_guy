@@ -151,13 +151,29 @@ function singularize(word: string): string {
   return word
 }
 
-// Function to extract keywords from a title
-function getKeywords(title: string): string[] {
-  return title
+// Function to extract keywords and n-grams from text
+function getKeywords(text: string): string[] {
+  const words = text
     .toLowerCase()
-    .split(/[\s,-]+/)
+    .split(/[\s,.!?;:"'()[\]{}—-]+/)
     .map((word) => word.replace(/[^a-z0-9]/g, ''))
     .filter((word) => word.length > 3 && !stopWords.has(word))
+
+  const nGrams: string[] = []
+  for (let i = 0; i < words.length; i++) {
+    if (words[i] && words[i + 1]) {
+      nGrams.push(`${words[i]} ${words[i + 1]}`) // 2-gram
+    }
+    if (words[i] && words[i + 1] && words[i + 2]) {
+      nGrams.push(`${words[i]} ${words[i + 1]} ${words[i + 2]}`) // 3-gram
+    }
+  }
+  return [...words, ...nGrams]
+}
+
+// Simple sentence tokenizer
+function getSentences(text: string): string[] {
+  return text.split(/(?<=[.!?])\s+/).filter((s) => s.trim().length > 0)
 }
 
 // Calculate a relevance score for a suggestion
@@ -182,11 +198,13 @@ function calculateScore(
 }
 
 interface Suggestion {
-  source: string
-  target: string
+  sourceSlug: string
+  targetSlug: string
   keyword: string
   targetTitle: string
   score: number
+  suggestedSentence: string
+  suggestedLine: number
 }
 
 async function main() {
@@ -196,35 +214,52 @@ async function main() {
   const suggestions = new Map<string, Suggestion>()
 
   for (const sourcePost of posts) {
+    const sourceSentences = getSentences(sourcePost.content)
+
     for (const targetPost of posts) {
       if (sourcePost.slug === targetPost.slug) continue
 
-      const keywords = getKeywords(targetPost.frontmatter.title)
-      const sourceContent = ` ${sourcePost.content.toLowerCase().replace(/[.,]/g, '')} `
+      const targetKeywords = new Set([
+        ...getKeywords(targetPost.frontmatter.title),
+        ...getKeywords(targetPost.frontmatter.description),
+        ...getKeywords(targetPost.content),
+      ])
 
-      for (const keyword of keywords) {
-        if (keyword.length < 4) continue
+      for (let i = 0; i < sourceSentences.length; i++) {
+        const sentence = sourceSentences[i]
+        const sentenceLower = sentence.toLowerCase()
 
-        const singularKeyword = singularize(keyword)
+        for (const keyword of targetKeywords) {
+          if (keyword.length < 4) continue
 
-        if (
-          sourceContent.includes(` ${singularKeyword} `) ||
-          sourceContent.includes(` ${keyword} `)
-        ) {
-          const link = `](/blog/${targetPost.slug})`
-          const suggestionKey = `${sourcePost.slug}->${targetPost.slug}`
+          const singularKeyword = singularize(keyword)
 
           if (
-            !sourcePost.content.toLowerCase().includes(link) &&
-            !suggestions.has(suggestionKey)
+            sentenceLower.includes(` ${singularKeyword} `) ||
+            sentenceLower.includes(` ${keyword} `)
           ) {
+            const link = `](/blog/${targetPost.slug})`
+            const suggestionKey = `${sourcePost.slug}->${targetPost.slug}->${keyword}`
+
+            // Check if the link already exists in the source post content
+            if (sourcePost.content.toLowerCase().includes(link)) {
+              continue
+            }
+
+            // Check if a similar suggestion already exists to avoid duplicates
+            if (suggestions.has(suggestionKey)) {
+              continue
+            }
+
             const score = calculateScore(keyword, sourcePost, targetPost)
             suggestions.set(suggestionKey, {
-              source: sourcePost.slug,
-              target: targetPost.slug,
+              sourceSlug: sourcePost.slug,
+              targetSlug: targetPost.slug,
               keyword: keyword,
               targetTitle: targetPost.frontmatter.title,
               score: score,
+              suggestedSentence: sentence,
+              suggestedLine: i + 1, // Line numbers are 1-based
             })
           }
         }
@@ -240,10 +275,10 @@ async function main() {
   // Group suggestions by source post
   const groupedSuggestions = sortedSuggestions.reduce(
     (acc, suggestion) => {
-      if (!acc[suggestion.source]) {
-        acc[suggestion.source] = []
+      if (!acc[suggestion.sourceSlug]) {
+        acc[suggestion.sourceSlug] = []
       }
-      acc[suggestion.source].push(suggestion)
+      acc[suggestion.sourceSlug].push(suggestion)
       return acc
     },
     {} as Record<string, Suggestion[]>
@@ -255,12 +290,11 @@ async function main() {
         `Found ${sortedSuggestions.length} potential internal link opportunities, grouped by source post:`
       )
     )
-    for (const sourcePost in groupedSuggestions) {
-      console.log(`
-${chalk.bold.underline(sourcePost)}:`)
-      for (const suggestion of groupedSuggestions[sourcePost]) {
+    for (const sourceSlug in groupedSuggestions) {
+      console.log(`\n${chalk.bold.underline(sourceSlug)}:`)
+      for (const suggestion of groupedSuggestions[sourceSlug]) {
         console.log(
-          `- (Score: ${suggestion.score}) In "${chalk.bold(suggestion.source)}", the keyword "${chalk.green(suggestion.keyword)}" could link to "${chalk.bold(suggestion.target)}" (Post: ${suggestion.targetTitle})`
+          `- (Score: ${suggestion.score}) In &quot;${chalk.bold(suggestion.sourceSlug)}&quot;, the keyword &quot;${chalk.green(suggestion.keyword)}&quot; could link to &quot;${chalk.bold(suggestion.targetSlug)}&quot; (Post: ${suggestion.targetTitle}) - Line: ${suggestion.suggestedLine} - Sentence: &quot;${suggestion.suggestedSentence.substring(0, 100)}...&quot;`
         )
       }
     }
