@@ -92,9 +92,14 @@ export async function validateFrontmatter(files?: string[]): Promise<boolean> {
 
       // Check date format
       if (data.pubDate) {
-        const dateStr = data.pubDate.toString()
-        if (!dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
-          errors.push('pubDate should be in YYYY-MM-DD format')
+        // Check if it's a Date object (YAML parser converts YYYY-MM-DD to Date)
+        if (data.pubDate instanceof Date) {
+          // Valid date format, no error
+        } else {
+          const dateStr = data.pubDate.toString()
+          if (!dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
+            errors.push('pubDate should be in YYYY-MM-DD format')
+          }
         }
       }
 
