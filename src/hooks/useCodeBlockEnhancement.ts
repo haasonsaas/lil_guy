@@ -1,15 +1,17 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export function useCodeBlockEnhancement(
   containerRef: React.RefObject<HTMLElement>
 ) {
+  const observerRef = useRef<MutationObserver | null>(null)
+
   useEffect(() => {
     if (!containerRef.current) return
 
     const container = containerRef.current // Capture ref value early
-    const codeBlocks = container.querySelectorAll('pre code')
 
-    codeBlocks.forEach((codeElement) => {
+    // Function to enhance a single code block
+    const enhanceCodeBlock = (codeElement: Element) => {
       const preElement = codeElement.parentElement as HTMLPreElement
       if (!preElement || preElement.querySelector('.code-copy-button')) return
 
@@ -92,10 +94,42 @@ export function useCodeBlockEnhancement(
 
       buttonContainer.appendChild(copyButton)
       wrapper.appendChild(buttonContainer)
+    }
+
+    // Enhance all existing code blocks
+    const codeBlocks = container.querySelectorAll('pre code')
+    codeBlocks.forEach(enhanceCodeBlock)
+
+    // Watch for dynamically added code blocks (from lazy loading)
+    observerRef.current = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        mutation.addedNodes.forEach((node) => {
+          if (node.nodeType === Node.ELEMENT_NODE) {
+            const element = node as Element
+            // Check if it's a code block or contains code blocks
+            if (
+              element.tagName === 'CODE' &&
+              element.parentElement?.tagName === 'PRE'
+            ) {
+              enhanceCodeBlock(element)
+            } else {
+              const codeElements = element.querySelectorAll('pre code')
+              codeElements.forEach(enhanceCodeBlock)
+            }
+          }
+        })
+      })
+    })
+
+    // Start observing
+    observerRef.current.observe(container, {
+      childList: true,
+      subtree: true,
     })
 
     // Cleanup function
     return () => {
+      observerRef.current?.disconnect()
       if (container) {
         const copyButtons = container.querySelectorAll('.code-copy-button')
         copyButtons.forEach((button) => button.remove())

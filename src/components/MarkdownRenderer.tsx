@@ -29,6 +29,7 @@ import EngineeringVelocityTracker from './EngineeringVelocityTracker'
 import RetentionCohortAnalyzer from './RetentionCohortAnalyzer'
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement'
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement'
+import { useCodeBlockLazyLoading } from '@/hooks/useCodeBlockLazyLoading'
 import { useMarkdownWorker } from '@/hooks/useMarkdownWorker'
 
 // Create unified processor for markdown with math support
@@ -102,6 +103,12 @@ export default function MarkdownRenderer({
 
   // Add lazy loading for images
   useLazyImageEnhancement(contentRef)
+
+  // Add lazy loading for code blocks
+  useCodeBlockLazyLoading(contentRef, {
+    rootMargin: '200px',
+    threshold: 0.01,
+  })
 
   // Fallback markdown processing function (runs on main thread)
   const processMarkdownMainThread = useCallback(
