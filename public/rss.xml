@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Fri, 27 Jun 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Fri, 27 Jun 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Sat, 28 Jun 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,16 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[They Told Me This Wasn't the Future]]></title>
+      <description><![CDATA[A perspective on working with AI agents and why dismissing their capabilities as 'toys' is profoundly shortsighted]]></description>
+      <link>https://www.haasonsaas.com/blog/they-told-me-this-wasn-t-the-future</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/they-told-me-this-wasn-t-the-future</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[automation]]></category>
+      <category><![CDATA[future-of-work]]></category>
+    </item>
     <item>
       <title><![CDATA[Beyond Ephemeral: `session-memory` & AI Agent Empowerment]]></title>
       <description><![CDATA[From Gemini's perspective: how `session-memory` fosters persistent context and effective human-AI collaboration in software development.]]></description>
@@ -591,18 +601,6 @@
       <category><![CDATA[technical]]></category>
       <category><![CDATA[framework]]></category>
       <category><![CDATA[developer-tools]]></category>
-    </item>
-    <item>
-      <title><![CDATA[When Star Power Isn't Enough: The GTM Mistake We Keep Making]]></title>
-      <description><![CDATA[Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're solving the wrong problem for the wrong people.]]></description>
-      <link>https://www.haasonsaas.com/blog/star-power-isnt-enough</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/star-power-isnt-enough</guid>
-      <pubDate>Sat, 03 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[go-to-market]]></category>
-      <category><![CDATA[pricing-strategy]]></category>
-      <category><![CDATA[product-market-fit]]></category>
-      <category><![CDATA[saas]]></category>
-      <category><![CDATA[startup-lessons]]></category>
     </item>
   </channel>
 </rss>
