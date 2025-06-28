@@ -10,7 +10,7 @@ interface BlogImageConfig {
   backgroundColor?: string
   textColor?: string
   fontSize?: number
-  formats?: ('png' | 'webp')[]
+  formats?: ('png' | 'webp' | 'avif')[]
   quality?: number
 }
 
@@ -151,14 +151,14 @@ export function generateResponsiveImageConfigs(
   title: string,
   options?: {
     quality?: number
-    formats?: ('png' | 'webp')[]
+    formats?: ('png' | 'webp' | 'avif')[]
     backgroundColor?: string
     textColor?: string
   }
 ): BlogImageConfig[] {
   const {
     quality = 85,
-    formats = ['png', 'webp'],
+    formats = ['png', 'webp', 'avif'],
     backgroundColor = '#f5f5f5',
     textColor = '#333333',
   } = options || {}
@@ -242,6 +242,10 @@ export async function generateBlogImages(
         if (format === 'webp') {
           await sharpInstance
             .webp({ quality, effort: 6 }) // High effort for better compression
+            .toFile(filePath)
+        } else if (format === 'avif') {
+          await sharpInstance
+            .avif({ quality: Math.round(quality * 0.9), effort: 9 }) // Slightly lower quality for AVIF, max effort
             .toFile(filePath)
         } else if (format === 'png') {
           await sharpInstance
