@@ -14,6 +14,40 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[Feature Flags for Security: Decouple Deployment from Risk]]></title>
+    <link href="https://www.haasonsaas.com/blog/feature-flags-for-security-decouple-deployment-from-risk" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/feature-flags-for-security-decouple-deployment-from-risk</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2025-06-28T00:00:00.000Z</updated>
+    <summary><![CDATA[How feature flags transform security from a deployment blocker into a risk control mechanism - with real-world examples and implementation patterns]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="security" />
+    <category term="feature-flags" />
+    <category term="deployment" />
+    <category term="devops" />
+    <category term="risk-management" />
+  </entry>
+  <entry>
+    <title><![CDATA[Security at AI Speed: Rethinking Review Processes for Velocity]]></title>
+    <link href="https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2025-06-28T00:00:00.000Z</updated>
+    <summary><![CDATA[Daily deployments terrify security teams. Here's how to build security practices that enable velocity instead of blocking it.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="security" />
+    <category term="velocity" />
+    <category term="deployment" />
+    <category term="ai" />
+    <category term="devops" />
+  </entry>
+  <entry>
     <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
     <link href="https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</id>
@@ -28,6 +62,22 @@
     <category term="startup-engineering" />
     <category term="technical-debt" />
     <category term="scaling" />
+  </entry>
+  <entry>
+    <title><![CDATA[When Your Manager Says 'Slow Down': Navigating Velocity Resistance]]></title>
+    <link href="https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2025-06-28T00:00:00.000Z</updated>
+    <summary><![CDATA[Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here's how to navigate organizational resistance without killing momentum.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="leadership" />
+    <category term="velocity" />
+    <category term="organizational-change" />
+    <category term="ai" />
   </entry>
   <entry>
     <title><![CDATA[Running Untrusted LLM Code Without Fear: The Implementation Guide]]></title>
@@ -61,6 +111,23 @@
     <category term="developer-experience" />
     <category term="velocity" />
     <category term="future-of-coding" />
+  </entry>
+  <entry>
+    <title><![CDATA[Testing at Light Speed: How QA Adapts to AI Velocity]]></title>
+    <link href="https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2025-06-28T00:00:00.000Z</updated>
+    <summary><![CDATA[When your team ships daily instead of quarterly, traditional QA breaks down. Here's how to build quality assurance that keeps pace with AI development.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="qa" />
+    <category term="testing" />
+    <category term="velocity" />
+    <category term="ai" />
+    <category term="quality-assurance" />
   </entry>
   <entry>
     <title><![CDATA[They Told Me This Wasn't the Future]]></title>
@@ -770,75 +837,5 @@
     <category term="prompt-engineering" />
     <category term="Claude" />
     <category term="software-strategy" />
-  </entry>
-  <entry>
-    <title><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too)]]></title>
-    <link href="https://www.haasonsaas.com/blog/ocode" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/ocode</id>
-    <published>2025-05-26T00:00:00.000Z</published>
-    <updated>2025-05-26T00:00:00.000Z</updated>
-    <summary><![CDATA[After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by Ollama, running locally, and priced at $0 per token.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="engineering" />
-    <category term="product" />
-    <category term="strategy" />
-    <category term="transparency" />
-    <category term="open-source" />
-    <category term="developer-tools" />
-    <category term="ai" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Optimization Trap: Why Technical Founders Self-Sabotage]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-optimization-trap" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-optimization-trap</id>
-    <published>2025-05-16T00:00:00.000Z</published>
-    <updated>2025-05-16T00:00:00.000Z</updated>
-    <summary><![CDATA[A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's why doing less—at the right time—is often doing it right.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup-culture" />
-    <category term="product-development" />
-    <category term="engineering" />
-    <category term="founder-advice" />
-    <category term="execution" />
-  </entry>
-  <entry>
-    <title><![CDATA[The New Series A Reality: Why It Feels Harder (Because It Is)]]></title>
-    <link href="https://www.haasonsaas.com/blog/new-series-a-reality" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/new-series-a-reality</id>
-    <published>2025-05-12T00:00:00.000Z</published>
-    <updated>2025-05-12T00:00:00.000Z</updated>
-    <summary><![CDATA[If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher, and what early-stage founders need to know to survive the new bar.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup-funding" />
-    <category term="founder-advice" />
-    <category term="venture-capital" />
-    <category term="early-stage" />
-    <category term="growth-strategy" />
-  </entry>
-  <entry>
-    <title><![CDATA[When Vibe Coding Goes Wrong: Security Lessons from Granola]]></title>
-    <link href="https://www.haasonsaas.com/blog/vibe-coding-goes-wrong" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/vibe-coding-goes-wrong</id>
-    <published>2025-05-12T00:00:00.000Z</published>
-    <updated>2025-05-12T00:00:00.000Z</updated>
-    <summary><![CDATA[Vibe coding shifts software creation from careful engineering to casual AI generation. When startups skip security fundamentals, the consequences aren't just bugs—they're breaches. Here's what the Granola incident teaches us.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="cybersecurity" />
-    <category term="vibe-coding" />
-    <category term="AI-development" />
-    <category term="product-security" />
-    <category term="electron-apps" />
   </entry>
 </feed>

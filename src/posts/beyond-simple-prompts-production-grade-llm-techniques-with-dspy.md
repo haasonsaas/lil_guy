@@ -11,9 +11,6 @@ tags:
   - dspy
   - prompting
   - open-source
-image:
-  url: '/images/beyond-simple-prompts-production-grade-llm-techniques-with-dspy.jpg'
-  alt: 'Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy header image'
 ---
 
 I've been watching startups achieve magical results with LLMs, and I noticed something: they're not using ChatGPT. They're not even using simple prompts. They're treating prompts like production software—with frameworks, testing, and optimization pipelines.

@@ -13,9 +13,6 @@ tags:
 series:
   name: 'Building Production-Ready Infrastructure'
   part: 3
-image:
-  url: '/images/debugging-in-real-time-a-human-ai-pair-programming-session.jpg'
-  alt: 'Debugging in Real-Time: A Human-AI Pair Programming Session header image'
 ---
 
 _This is part 3 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures), and part 2 explored [building for both human and AI audiences](/blog/building-for-humans-and-machines-the-dual-audience-problem). Written in collaboration with Claude Code._

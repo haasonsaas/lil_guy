@@ -14,12 +14,12 @@ const BASE_URL = 'https://haasonsaas.com'
 
 /**
  * Generate a dynamic image URL based on a blog post title
- * This uses our dynamic image generator service
+ * This uses our pre-generated WebP images
  */
 export const generateDynamicImageUrl = (
   title: string,
   width: number = 1200,
-  height: number = 400
+  height: number = 630
 ): string => {
   // Clean the title for use in filename
   const cleanTitle = title
@@ -27,7 +27,7 @@ export const generateDynamicImageUrl = (
     .toLowerCase()
     .replace(/[^a-z0-9]/g, '-')
 
-  // Return path to dynamically generated image
+  // Return path to generated WebP image
   return `/generated/${width}x${height}-${cleanTitle}.webp`
 }
 

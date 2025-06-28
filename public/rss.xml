@@ -20,6 +20,30 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[Feature Flags for Security: Decouple Deployment from Risk]]></title>
+      <description><![CDATA[How feature flags transform security from a deployment blocker into a risk control mechanism - with real-world examples and implementation patterns]]></description>
+      <link>https://www.haasonsaas.com/blog/feature-flags-for-security-decouple-deployment-from-risk</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/feature-flags-for-security-decouple-deployment-from-risk</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[security]]></category>
+      <category><![CDATA[feature-flags]]></category>
+      <category><![CDATA[deployment]]></category>
+      <category><![CDATA[devops]]></category>
+      <category><![CDATA[risk-management]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Security at AI Speed: Rethinking Review Processes for Velocity]]></title>
+      <description><![CDATA[Daily deployments terrify security teams. Here's how to build security practices that enable velocity instead of blocking it.]]></description>
+      <link>https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[security]]></category>
+      <category><![CDATA[velocity]]></category>
+      <category><![CDATA[deployment]]></category>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[devops]]></category>
+    </item>
+    <item>
       <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
       <description><![CDATA[Most startups die from technical debt, not market risk. Here's how to build fast without building fragile - lessons from scaling 20+ engineering teams.]]></description>
       <link>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</link>
@@ -29,6 +53,17 @@
       <category><![CDATA[startup-engineering]]></category>
       <category><![CDATA[technical-debt]]></category>
       <category><![CDATA[scaling]]></category>
+    </item>
+    <item>
+      <title><![CDATA[When Your Manager Says 'Slow Down': Navigating Velocity Resistance]]></title>
+      <description><![CDATA[Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here's how to navigate organizational resistance without killing momentum.]]></description>
+      <link>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[leadership]]></category>
+      <category><![CDATA[velocity]]></category>
+      <category><![CDATA[organizational-change]]></category>
+      <category><![CDATA[ai]]></category>
     </item>
     <item>
       <title><![CDATA[Running Untrusted LLM Code Without Fear: The Implementation Guide]]></title>
@@ -52,6 +87,18 @@
       <category><![CDATA[developer-experience]]></category>
       <category><![CDATA[velocity]]></category>
       <category><![CDATA[future-of-coding]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Testing at Light Speed: How QA Adapts to AI Velocity]]></title>
+      <description><![CDATA[When your team ships daily instead of quarterly, traditional QA breaks down. Here's how to build quality assurance that keeps pace with AI development.]]></description>
+      <link>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[qa]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[velocity]]></category>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[quality-assurance]]></category>
     </item>
     <item>
       <title><![CDATA[They Told Me This Wasn't the Future]]></title>
@@ -546,56 +593,6 @@
       <category><![CDATA[prompt-engineering]]></category>
       <category><![CDATA[Claude]]></category>
       <category><![CDATA[software-strategy]]></category>
-    </item>
-    <item>
-      <title><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too)]]></title>
-      <description><![CDATA[After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by Ollama, running locally, and priced at $0 per token.]]></description>
-      <link>https://www.haasonsaas.com/blog/ocode</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ocode</guid>
-      <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[transparency]]></category>
-      <category><![CDATA[open-source]]></category>
-      <category><![CDATA[developer-tools]]></category>
-      <category><![CDATA[ai]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Optimization Trap: Why Technical Founders Self-Sabotage]]></title>
-      <description><![CDATA[A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's why doing less—at the right time—is often doing it right.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-optimization-trap</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-optimization-trap</guid>
-      <pubDate>Fri, 16 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[product-development]]></category>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[founder-advice]]></category>
-      <category><![CDATA[execution]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The New Series A Reality: Why It Feels Harder (Because It Is)]]></title>
-      <description><![CDATA[If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher, and what early-stage founders need to know to survive the new bar.]]></description>
-      <link>https://www.haasonsaas.com/blog/new-series-a-reality</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/new-series-a-reality</guid>
-      <pubDate>Mon, 12 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-funding]]></category>
-      <category><![CDATA[founder-advice]]></category>
-      <category><![CDATA[venture-capital]]></category>
-      <category><![CDATA[early-stage]]></category>
-      <category><![CDATA[growth-strategy]]></category>
-    </item>
-    <item>
-      <title><![CDATA[When Vibe Coding Goes Wrong: Security Lessons from Granola]]></title>
-      <description><![CDATA[Vibe coding shifts software creation from careful engineering to casual AI generation. When startups skip security fundamentals, the consequences aren't just bugs—they're breaches. Here's what the Granola incident teaches us.]]></description>
-      <link>https://www.haasonsaas.com/blog/vibe-coding-goes-wrong</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/vibe-coding-goes-wrong</guid>
-      <pubDate>Mon, 12 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[cybersecurity]]></category>
-      <category><![CDATA[vibe-coding]]></category>
-      <category><![CDATA[AI-development]]></category>
-      <category><![CDATA[product-security]]></category>
-      <category><![CDATA[electron-apps]]></category>
     </item>
   </channel>
 </rss>

@@ -188,7 +188,13 @@
       "WebFetch(domain:ai.google.dev)",
       "mcp__git__git_log",
       "Bash(pre-commit-fix:*)",
-      "Bash(git branch:*)"
+      "Bash(git branch:*)",
+      "Bash(awk:*)",
+      "Bash(/usr/bin/du -sm dist)",
+      "Bash(/usr/bin/du:*)",
+      "Bash(fd:*)",
+      "Bash(/usr/bin/find dist/images -name \"*.jpg\" -size +400k)",
+      "Bash(/usr/bin/find dist/images -name \"*.jpg\" -size +400k -exec ls -lh {} \\;)"
     ],
     "deny": []
   }

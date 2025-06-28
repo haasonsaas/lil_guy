@@ -84,6 +84,19 @@
       "automation"
     ]
   },
+  "feature-flags-for-security-decouple-deployment-from-risk": {
+    "title": "Feature Flags for Security: Decouple Deployment from Risk",
+    "description": "How feature flags transform security from a deployment blocker into a risk control mechanism - with real-world examples and implementation patterns",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": [
+      "security",
+      "feature-flags",
+      "deployment",
+      "devops",
+      "risk-management"
+    ]
+  },
   "the-apple-ruling": {
     "title": "The Apple Ruling: A Win That Might Hurt More Than Help",
     "description": "Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.",
@@ -144,6 +157,13 @@
     "author": "Jonathan Haas",
     "pubDate": "2025-06-19",
     "tags": ["technical-debt", "engineering", "product"]
+  },
+  "security-at-ai-speed-rethinking-review-processes-for-velocity": {
+    "title": "Security at AI Speed: Rethinking Review Processes for Velocity",
+    "description": "Daily deployments terrify security teams. Here's how to build security practices that enable velocity instead of blocking it.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["security", "velocity", "deployment", "ai", "devops"]
   },
   "ocode": {
     "title": "OCode: Why I Built My Own Claude Code (and Why You Might Too)",
@@ -368,6 +388,13 @@
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11T00:00:00.000Z",
     "tags": ["security", "product", "engineering", "strategy", "ai"]
+  },
+  "when-your-manager-says-slow-down-navigating-velocity-resistance": {
+    "title": "When Your Manager Says 'Slow Down': Navigating Velocity Resistance",
+    "description": "Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here's how to navigate organizational resistance without killing momentum.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["leadership", "velocity", "organizational-change", "ai"]
   },
   "building-shout": {
     "title": "Engineering Recognition Through Evals: My Technical Journey Building Shout",
@@ -918,6 +945,13 @@
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11T00:00:00.000Z",
     "tags": ["personal-growth", "leadership", "culture"]
+  },
+  "testing-at-light-speed-how-qa-adapts-to-ai-velocity": {
+    "title": "Testing at Light Speed: How QA Adapts to AI Velocity",
+    "description": "When your team ships daily instead of quarterly, traditional QA breaks down. Here's how to build quality assurance that keeps pace with AI development.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["qa", "testing", "velocity", "ai", "quality-assurance"]
   },
   "the-responsiveness-principle": {
     "title": "The Responsiveness Principle: How Small Signals Build Big Trust in Venture",

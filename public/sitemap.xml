@@ -223,6 +223,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/feature-flags-for-security-decouple-deployment-from-risk</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/feedback-that-never-comes</loc>
     <lastmod>2024-04-22</lastmod>
     <changefreq>monthly</changefreq>
@@ -409,6 +415,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/security-perspective</loc>
     <lastmod>2024-04-11</lastmod>
     <changefreq>monthly</changefreq>
@@ -507,6 +519,12 @@
   <url>
     <loc>https://haasonsaas.com/blog/technical-founder-pmf</loc>
     <lastmod>2025-04-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</loc>
+    <lastmod>2025-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -687,6 +705,12 @@
   <url>
     <loc>https://haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</loc>
     <lastmod>2025-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</loc>
+    <lastmod>2025-06-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -1003,6 +1027,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/deployment</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/design</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1022,6 +1052,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/developer-tools</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/devops</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1106,6 +1142,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/execution</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/feature-flags</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1363,6 +1405,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/organizational-change</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/organizational-culture</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1513,6 +1561,18 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/qa</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/quality-assurance</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/react</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1544,6 +1604,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/retention</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/risk-management</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1766,6 +1832,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/technology</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/testing</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
