@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: 'Work-Life Meditation: Finding Balance in Tech'
-description: 'Practical approaches to maintaining work-life balance in the tech industry'
+description: Practical approaches to maintaining work-life balance in the tech industry
 featured: false
 draft: false
 tags:
@@ -10,10 +10,6 @@ tags:
   - productivity
   - leadership
   - culture
-image:
-  url: 'https://images.pexels.com/photos/1051449/pexels-photo-1051449.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A number of smooth rocks stacked upon one another with a beach in the
-    background'
 ---
 
 ## The Weight We Carry

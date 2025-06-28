@@ -1,22 +1,20 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine'
-description: 'An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency.'
+description: >-
+  An inside look at the design philosophy behind the Deliberate Reasoning
+  Engine, a structured thought graph for large language models—and how it
+  changes the game for AI reasoning transparency.
 featured: false
 draft: false
 tags:
-  [
-    'open-source',
-    'ai',
-    'reasoning',
-    'graph-structure',
-    'mcp',
-    'developer-tools',
-  ]
-image:
-  url: 'https://images.pexels.com/photos/8251000/pexels-photo-8251000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A mind map drawn on glass, representing structured thought and graph-based reasoning'
+  - open-source
+  - ai
+  - reasoning
+  - graph-structure
+  - mcp
+  - developer-tools
 ---
 
 One of the things that's always bugged me about LLMs is how opaque their thinking is.

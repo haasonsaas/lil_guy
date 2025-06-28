@@ -1,17 +1,16 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: 'Dark Patterns, Bright Lessons: Ethics in Product Design'
-description: 'Exploring the ethical implications of dark patterns in UX design and how to build products that respect user agency'
+description: >-
+  Exploring the ethical implications of dark patterns in UX design and how to
+  build products that respect user agency
 tags:
   - product
   - ux
   - design
   - trust
   - transparency
-image:
-  url: '/images/dark-patterns.png'
-  alt: 'A maze-like interface illustrating dark patterns in user experience design'
 ---
 
 The FTC just dropped a 44-page complaint against Uber for deceptive practices around its Uber One subscription. You might think: _legal drama, not my lane._

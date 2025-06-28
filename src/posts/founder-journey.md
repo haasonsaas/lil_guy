@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-12-13
+pubDate: 2024-12-13T00:00:00.000Z
 title: 'The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster'
-description:
+description: >-
   An honest exploration of the psychological whiplash that comes with building a
   company, and why we keep coming back for more
 tags:
@@ -12,10 +12,6 @@ tags:
   - leadership
 featured: false
 draft: false
-image:
-  url: 'https://images.pexels.com/photos/7567557/pexels-photo-7567557.jpeg'
-  alt: 'A woman sitting in front of a number of charts holding open a book while
-    looking at a laptop'
 ---
 
 ## The Dance of Euphoria and Despair

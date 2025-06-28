@@ -1,8 +1,10 @@
 ---
 title: 'Thinking Frameworks: Tools for Better Decision Making'
 author: Jonathan Haas
-pubDate: 2024-04-20
-description: 'A collection of mental models and frameworks for improving decision making in product and business'
+pubDate: 2024-04-20T00:00:00.000Z
+description: >-
+  A collection of mental models and frameworks for improving decision making in
+  product and business
 tags:
   - product
   - strategy
@@ -10,9 +12,6 @@ tags:
   - personal-growth
 featured: false
 draft: false
-image:
-  url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A person's hand drawing a mind map on a whiteboard, representing structured thinking and decision-making processes"
 ---
 
 In the relentless push to build and scale, organizations often overlook a critical piece of infrastructure: how decisions get made. We obsess over our tech stack, our hiring pipelines, and our go-to-market strategies, but we rarely invest proportionately in the cognitive tools that underpin everything we do.

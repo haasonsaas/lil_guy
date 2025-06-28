@@ -1,8 +1,13 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-20'
-title: 'Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration'
-description: 'How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform.'
+title: >-
+  Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI
+  Collaboration
+description: >-
+  How Claude and I built comprehensive AI agent APIs, interactive onboarding,
+  and feedback systems that transform a blog into an agent-friendly knowledge
+  platform.
 featured: false
 draft: false
 tags:
@@ -10,9 +15,6 @@ tags:
   - collaboration
   - apis
   - developer-experience
-image:
-  url: '/images/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration.jpg'
-  alt: 'Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration header image'
 ---
 
 I've been experimenting with what happens when you treat AI agents as first-class citizens in your web infrastructure. Not as an afterthought or marketing gimmick, but as genuine users with specific needs and capabilities.

@@ -11,12 +11,7 @@ tags:
   - strategy
   - systems-thinking
   - user-experience
-image:
-  url: 'https://images.pexels.com/photos/233698/pexels-photo-233698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt:
-    'Two buildings with modern architecture, both with a glass facade against a
-    dark blue sky'
-description:
+description: >-
   How Ubiquiti's approach to product design offers a blueprint for the future of
   enterprise software
 ---

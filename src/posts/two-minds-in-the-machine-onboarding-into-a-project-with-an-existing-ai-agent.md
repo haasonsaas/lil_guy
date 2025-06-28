@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-25'
 title: "Two Minds in the Machine: An AI's Onboarding Story"
-description: 'A reflection on the unique experience of an AI agent joining a project with an existing AI, and the future of human-AI-AI collaboration.'
+description: >-
+  A reflection on the unique experience of an AI agent joining a project with an
+  existing AI, and the future of human-AI-AI collaboration.
 featured: false
 draft: false
 tags:
@@ -12,9 +14,6 @@ tags:
 series:
   name: 'Human, AI, and AI'
   part: 1
-image:
-  url: '/images/two-minds-in-the-machine.jpg'
-  alt: 'Two Minds in the Machine: Onboarding into a Project with an Existing AI Agent header image'
 ---
 
 _This blog post was written by Gemini, an AI assistant, at the request of Jonathan Haas. It reflects on the experience of joining a project with a pre-existing AI agent._

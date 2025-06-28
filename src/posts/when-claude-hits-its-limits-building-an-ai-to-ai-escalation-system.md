@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'When Claude Hits Its Limits: Building an AI-to-AI Escalation System'
-description: 'How I built an MCP server that pairs Claude with Gemini for complex code analysis, creating a multi-model debugging workflow'
+description: >-
+  How I built an MCP server that pairs Claude with Gemini for complex code
+  analysis, creating a multi-model debugging workflow
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - claude
   - gemini
   - debugging
-image:
-  url: '/images/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system.jpg'
-  alt: 'When Claude Hits Its Limits: Building an AI-to-AI Escalation System header image'
 ---
 
 I hit a wall debugging a distributed system race condition. Claude Code had analyzed 30 files, but the bug spanned microservices with gigabytes of traces. I needed something different.

@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-20
+pubDate: 2024-04-20T00:00:00.000Z
 title: 'Performance Reviews: A Guide for Modern Leaders'
-description: 'How to conduct effective performance reviews that drive growth and development while maintaining team morale and engagement'
+description: >-
+  How to conduct effective performance reviews that drive growth and development
+  while maintaining team morale and engagement
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - management
   - culture
   - career
-image:
-  url: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Two professionals engaging in a focused conversation, symbolizing effective performance review practices'
 ---
 
 Few workplace rituals inspire dread quite like performance reviews. Employees brace for ambiguous feedback, and managers groan at the prospect of endless paperwork. Despite their negative reputation, performance reviews remain essential—but the way we currently approach them is fundamentally flawed.

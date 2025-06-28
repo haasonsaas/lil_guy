@@ -1,8 +1,12 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
-title: "The CISO Survival Guide: What I've Learned From Hundreds of Conversations with Security Leaders"
-description: "A product manager's perspective on the growing disconnect between security vendors and practitioners, based on hundreds of CISO conversations"
+pubDate: 2024-04-11T00:00:00.000Z
+title: >-
+  The CISO Survival Guide: What I've Learned From Hundreds of Conversations with
+  Security Leaders
+description: >-
+  A product manager's perspective on the growing disconnect between security
+  vendors and practitioners, based on hundreds of CISO conversations
 featured: false
 draft: false
 tags:
@@ -10,9 +14,6 @@ tags:
   - leadership
   - strategy
   - sales
-image:
-  url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Security professionals in a meeting discussing cybersecurity challenges'
 ---
 
 In my role leading cloud security integrations, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security operations and architecture roles. This unique vantage point—having stood on both sides of the fence—has given me uncommon insight into the growing disconnect between security vendors and the leaders they aim to serve.

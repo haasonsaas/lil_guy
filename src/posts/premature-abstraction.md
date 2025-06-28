@@ -1,15 +1,14 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: 'The Abstraction Trap: When Clean Code Goes Wrong'
-description: 'How premature abstraction can lead to increased complexity and maintenance burden in software projects'
+description: >-
+  How premature abstraction can lead to increased complexity and maintenance
+  burden in software projects
 tags:
   - engineering
   - product
   - strategy
-image:
-  url: 'https://images.pexels.com/photos/3715428/pexels-photo-3715428.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A complex maze representing software architecture'
 ---
 
 The most insidious form of technical debt I've encountered doesn't come from

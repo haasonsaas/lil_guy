@@ -2,7 +2,10 @@
 author: Jonathan Haas
 pubDate: '2025-06-26'
 title: 'Forget Perfect Data: Building a Usable Voice Profile Extractor'
-description: 'Stop chasing the mythical perfect dataset. I built a working voice profile extractor with 50 markdown files and regex. Here is why your obsession with data quality is killing your AI project and what to do instead.'
+description: >-
+  Stop chasing the mythical perfect dataset. I built a working voice profile
+  extractor with 50 markdown files and regex. Here is why your obsession with
+  data quality is killing your AI project and what to do instead.
 featured: false
 draft: false
 tags:
@@ -11,9 +14,6 @@ tags:
   - Personality Replication
   - Startup Engineering
   - Data Science
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: 'Forget Perfect Data: Building a Usable Voice Profile Extractor header image'
 ---
 
 I spent last week building an AI that writes exactly like me. Not "kind of" like me—exactly like me. Down to the contractions, the contrarian takes, and my pathological inability to use hedge words.

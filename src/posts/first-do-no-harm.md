@@ -1,17 +1,16 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: 'First, Do No Harm: When Not to Ship Features'
-description: "Exploring the delicate balance between customer requests and product integrity through the lens of 'first, do no harm'"
+description: >-
+  Exploring the delicate balance between customer requests and product integrity
+  through the lens of 'first, do no harm'
 tags:
   - product
   - strategy
   - leadership
   - culture
   - trust
-image:
-  url: 'https://images.pexels.com/photos/267586/pexels-photo-267586.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A book open on a desk'
 ---
 
 In medical school, students take the Hippocratic Oath, pledging to "first, do no

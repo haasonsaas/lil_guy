@@ -1,8 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-05
+pubDate: 2025-05-05T00:00:00.000Z
 title: 'From Gimmick to Game-Changer: Six Years of Living With Tesla FSD'
-description: 'Reflections on how Tesla’s Full Self-Driving went from laughably limited to astonishingly capable, and what it teaches us about compounding software and trust in autonomous systems.'
+description: >-
+  Reflections on how Tesla’s Full Self-Driving went from laughably limited to
+  astonishingly capable, and what it teaches us about compounding software and
+  trust in autonomous systems.
 featured: false
 draft: false
 tags:
@@ -11,10 +14,6 @@ tags:
   - user-experience
   - software-development
   - machine-learning
-
-image:
-  url: https://images.pexels.com/photos/8449281/pexels-photo-8449281.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2
-  alt: 'Tesla interior view with navigation and FSD engaged'
 ---
 
 > Software isn’t static—it compounds. And when it’s wrapped in hardware that can evolve with it, the results feel like time travel.

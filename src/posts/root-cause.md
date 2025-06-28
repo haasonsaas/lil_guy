@@ -1,15 +1,14 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: "Don't Build What They Ask For: The Art of Need-Finding"
-description: 'Exploring the critical skill of discovering what customers truly need versus what they ask for, and how this shapes better product decisions'
+description: >-
+  Exploring the critical skill of discovering what customers truly need versus
+  what they ask for, and how this shapes better product decisions
 tags:
   - product
   - strategy
   - leadership
-image:
-  url: 'https://images.pexels.com/photos/1904204/pexels-photo-1904204.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A maze viewed from above, representing the journey from feature requests to true needs'
 ---
 
 "If I had asked people what they wanted, they would have said faster horses."

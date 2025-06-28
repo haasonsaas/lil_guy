@@ -1,8 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-16
+pubDate: 2025-04-16T00:00:00.000Z
 title: "The Secondary Celebration: A Founder's Perspective on VC Liquidity Events"
-description: Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy
+description: >-
+  Examining the complex emotions founders experience when VCs celebrate
+  secondary returns, and how investors can approach these milestones with
+  greater empathy
 featured: false
 draft: false
 tags:
@@ -13,9 +16,6 @@ tags:
   - secondary-transactions
   - investor-dynamics
   - entrepreneurship
-image:
-  url: 'https://images.pexels.com/photos/3184405/pexels-photo-3184405.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Entrepreneurs and investors sitting at a table with mixed expressions'
 ---
 
 During my morning LinkedIn scroll, I came across yet another post from a venture firm celebrating a massive return multiple from a secondary transaction. The usual format: impressive return metrics, enthusiastic self-congratulation, and an almost afterthought mention of the founders who made it all possible.

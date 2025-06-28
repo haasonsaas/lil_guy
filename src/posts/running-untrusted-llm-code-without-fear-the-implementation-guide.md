@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Running Untrusted LLM Code Without Fear: The Implementation Guide'
-description: 'A practical guide to implementing Firecracker microVM sandboxes for safe LLM code execution, with real-world examples and performance optimizations'
+description: >-
+  A practical guide to implementing Firecracker microVM sandboxes for safe LLM
+  code execution, with real-world examples and performance optimizations
 featured: false
 draft: true
 tags:
@@ -11,9 +13,6 @@ tags:
   - microvm
   - llm
   - implementation-guide
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: 'Running Untrusted LLM Code Without Fear: The Implementation Guide header image'
 ---
 
 Last week, I shared how I built [Fission](/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox), a high-performance sandbox for executing LLM-generated code using Firecracker microVMs. The response was overwhelming—hundreds of developers reached out asking for implementation details.

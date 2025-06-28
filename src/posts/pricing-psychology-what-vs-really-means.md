@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'Pricing Psychology: What $99 vs $100 Really Means'
-description: "The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value."
+description: >-
+  The psychology behind pricing decisions drives billions in revenue. Here's how
+  small pricing changes create massive impact on conversion and lifetime value.
 featured: false
 draft: false
 tags:
@@ -10,9 +12,6 @@ tags:
   - psychology
   - saas
   - conversion
-image:
-  url: '/images/pricing-psychology-what-vs-really-means.jpg'
-  alt: 'Pricing Psychology: What $99 vs $100 Really Means header image'
 ---
 
 A single dollar can make the difference between a thriving SaaS business and one that struggles to grow. I've seen companies increase conversion rates by 30% simply by changing "$100" to "$99"—and others destroy their premium positioning by making the opposite mistake.

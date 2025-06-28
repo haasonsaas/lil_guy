@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-14
+pubDate: 2025-04-14T00:00:00.000Z
 title: 'Reading Between the Lines: How to Decode Community Investment Rounds'
-description: A practical guide to interpreting startup metrics in community investment rounds and identifying potential red flags before investing
+description: >-
+  A practical guide to interpreting startup metrics in community investment
+  rounds and identifying potential red flags before investing
 featured: false
 draft: false
 tags:
@@ -14,9 +16,6 @@ tags:
   - funding-strategy
   - retail-investing
   - financial-literacy
-image:
-  url: 'https://images.pexels.com/photos/6801874/pexels-photo-6801874.jpeg'
-  alt: 'Person examining financial documents with a magnifying glass'
 ---
 
 The democratization of startup investing through community rounds has opened exciting opportunities for retail investors. However, it's created a new challenge: interpreting the carefully curated metrics these companies share in their pitch materials.

@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Security at AI Speed: Rethinking Review Processes for Velocity'
-description: "Daily deployments terrify security teams. Here's how to build security practices that enable velocity instead of blocking it."
+description: >-
+  Daily deployments terrify security teams. Here's how to build security
+  practices that enable velocity instead of blocking it.
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - deployment
   - ai
   - devops
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: 'Security at AI Speed: Rethinking Review Processes for Velocity header image'
 ---
 
 "We can't deploy daily. What about our security review process?"

@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: 'Engineering Recognition Through Evals: My Technical Journey Building Shout'
-description: 'A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way'
+description: >-
+  A deep dive into the technical implementation of evaluation frameworks in my
+  side project Shout, and the lessons learned along the way
 featured: false
 draft: false
 tags:
@@ -10,9 +12,6 @@ tags:
   - product
   - strategy
   - framework
-image:
-  url: '/images/shout-screenshot.png'
-  alt: 'Screenshot of the Shout application interface showing the recognition evaluation system'
 ---
 
 When I set out to build Shout, my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. After learning about evaluation frameworks from an AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.

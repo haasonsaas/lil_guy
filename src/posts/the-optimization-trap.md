@@ -1,8 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-16
+pubDate: 2025-05-16T00:00:00.000Z
 title: 'The Optimization Trap: Why Technical Founders Self-Sabotage'
-description: A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's why doing less—at the right time—is often doing it right.
+description: >-
+  A deep dive into how premature optimization derails early-stage startups,
+  especially when technical founders chase performance before product-market
+  fit. Here's why doing less—at the right time—is often doing it right.
 featured: false
 draft: false
 tags:
@@ -11,9 +14,6 @@ tags:
   - engineering
   - founder-advice
   - execution
-image:
-  url: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Engineer staring at performance metrics on a screen, symbolizing over-optimization in early product stages'
 ---
 
 ## Premature Optimization Is the Founder’s Folly

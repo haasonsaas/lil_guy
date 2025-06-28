@@ -2,7 +2,11 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'The Orchestration Dance: What I Learned Building a Multi-AI Content System'
-description: 'I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here''s what actually worked, what didn''t, and why most teams are overcomplicating AI orchestration.'featured: false
+description: >-
+  I built a system that combines Gemini and Claude to generate 780+ word blog
+  posts automatically. Here's what actually worked, what didn't, and why most
+  teams are overcomplicating AI orchestration.
+featured: false
 draft: false
 tags:
   - AI
@@ -10,9 +14,6 @@ tags:
   - content-orchestration
   - ai-agents
   - developer-experience
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: 'The Orchestration Dance: What I Learned Building a Multi-AI Content System'
 ---
 
 I just spent a week building something that sounds impressive on paper: a multi-AI content orchestration system that automatically generates full blog posts by combining multiple AI models.

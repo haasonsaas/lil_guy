@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: 'Cognitive Friction: The Hidden Cost of Bad UX'
-description: 'Understanding and reducing cognitive friction in user interfaces'
+description: Understanding and reducing cognitive friction in user interfaces
 featured: false
 draft: false
 tags:
@@ -10,9 +10,6 @@ tags:
   - design
   - product
   - strategy
-image:
-  url: 'https://images.pexels.com/photos/116676/pexels-photo-116676.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A car tire covered in dirt'
 ---
 
 ## The Illusion of Smooth Thinking

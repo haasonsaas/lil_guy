@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-26
+pubDate: 2025-04-26T00:00:00.000Z
 title: 'Clarity Over Compromise: Making the Right Call on Work Models'
-description: Why thriving companies pick a lane—remote or in-office—and build everything around it, instead of wobbling in the messy middle.
+description: >-
+  Why thriving companies pick a lane—remote or in-office—and build everything
+  around it, instead of wobbling in the messy middle.
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - remote-work
   - work-strategy
   - decision-making
-image:
-  url: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A team collaborating over video call and in-office, highlighting different work models'
 ---
 
 When it comes to remote work, hybrid setups, and office mandates, most debates miss the real point.

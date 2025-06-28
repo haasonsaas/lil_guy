@@ -1,6 +1,6 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-27
+pubDate: 2024-11-27T00:00:00.000Z
 title: "The Product Manager's Secret Superpower: Finding Signal in the Noise"
 postSlug: product-manager-signal-noise
 featured: false
@@ -10,10 +10,7 @@ tags:
   - product-development
   - strategy
   - systems-thinking
-image:
-  url: 'https://images.pexels.com/photos/29547321/pexels-photo-29547321/free-photo-of-ancient-rock-cut-caves-in-bhubaneswar-india.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'An archeological digsite, seen from up close'
-description:
+description: >-
   How great product managers find hidden patterns across seemingly unrelated
   requirements to build extraordinary products
 ---

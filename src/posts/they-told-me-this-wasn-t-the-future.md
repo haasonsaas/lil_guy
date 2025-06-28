@@ -1,17 +1,16 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-28'
-title: "They Told Me This Wasn't the Future"
-description: "A perspective on working with AI agents and why dismissing their capabilities as 'toys' is profoundly shortsighted"
+title: They Told Me This Wasn't the Future
+description: >-
+  A perspective on working with AI agents and why dismissing their capabilities
+  as 'toys' is profoundly shortsighted
 featured: false
 draft: false
 tags:
   - ai
   - automation
   - future-of-work
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: "They Told Me This Wasn't the Future header image"
 ---
 
 I just finished a two-hour session where an AI agent helped me debug a complex deployment pipeline, refactor three React components, write comprehensive tests, and generate social media images for my blog posts.

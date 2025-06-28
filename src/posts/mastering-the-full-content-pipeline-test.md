@@ -2,7 +2,12 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: Mastering the Full Content Pipeline Test
-description: 'Stop shipping broken content! Learn how to implement a robust full content pipeline test, catching issues before they reach your users. This guide provides practical strategies and actionable steps for building a bulletproof content delivery system.'featured: false
+description: >-
+  Stop shipping broken content! Learn how to implement a robust full content
+  pipeline test, catching issues before they reach your users. This guide
+  provides practical strategies and actionable steps for building a bulletproof
+  content delivery system.
+featured: false
 draft: true
 tags:
   - content pipeline
@@ -10,9 +15,6 @@ tags:
   - software engineering
   - product management
   - quality assurance
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: Mastering the Full Content Pipeline Test header image
 ---
 
 ## Introduction

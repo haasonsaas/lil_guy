@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-19
-title: 'The Answer Is Obvious—You Just Don’t Like It'
-description: Why some problems remain "intractable" not because they’re unsolvable, but because the solution challenges a deeply held assumption.
+pubDate: 2025-04-19T00:00:00.000Z
+title: The Answer Is Obvious—You Just Don’t Like It
+description: >-
+  Why some problems remain "intractable" not because they’re unsolvable, but
+  because the solution challenges a deeply held assumption.
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - mindset
   - problem-solving
   - organizational-dynamics
-image:
-  url: 'https://images.pexels.com/photos/3183186/pexels-photo-3183186.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A person staring at a whiteboard filled with ideas, representing mental resistance to an obvious but uncomfortable solution'
 ---
 
 You’ve probably seen this happen.

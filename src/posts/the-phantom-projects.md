@@ -1,8 +1,12 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-22
-title: 'The Phantom Projects of Overhiring'
-description: When companies overhire, it’s not laziness or malice that creeps in—it’s the quiet invention of work. Here’s why idle bandwidth leads to dangerous distractions, and how to spot the signs before your team builds a palace of process.
+pubDate: 2025-04-22T00:00:00.000Z
+title: The Phantom Projects of Overhiring
+description: >-
+  When companies overhire, it’s not laziness or malice that creeps in—it’s the
+  quiet invention of work. Here’s why idle bandwidth leads to dangerous
+  distractions, and how to spot the signs before your team builds a palace of
+  process.
 featured: false
 draft: false
 tags:
@@ -11,9 +15,6 @@ tags:
   - team-structure
   - startup-culture
   - leadership
-image:
-  url: 'https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A team of professionals around a whiteboard filled with sticky notes, suggesting busywork without clear outcomes'
 ---
 
 One of the most quietly corrosive things a company can do is overhire.

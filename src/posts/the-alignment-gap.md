@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-20
+pubDate: 2024-04-20T00:00:00.000Z
 title: 'The Alignment Gap: Bridging Strategy and Execution'
-description: "How to ensure your team's execution aligns with your strategic vision"
+description: How to ensure your team's execution aligns with your strategic vision
 featured: true
 draft: false
 tags:
@@ -10,9 +10,6 @@ tags:
   - leadership
   - management
   - culture
-image:
-  url: '/images/alignment-gap.png'
-  alt: 'A diagram showing the alignment gap between leadership and product teams'
 ---
 
 Every product leader has experienced that sinking feeling: you're confidently presenting to stakeholders about an "on-track" product launch when someone asks an innocent question that reveals a fundamental issue everyone on the ground floor knew about weeks ago. Why didn't this information reach you sooner? Welcome to what Phil Venables calls the "thermocline of truth" – but in product development, I call it the **alignment gap**.

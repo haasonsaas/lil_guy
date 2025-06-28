@@ -2,7 +2,12 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'Testing Multi-AI Systems: A Practical Guide'
-description: 'Building reliable multi-AI systems? This guide provides practical strategies for testing complex AI interactions, ensuring robust performance and mitigating risks. Learn how to navigate the challenges of integrated AI and achieve seamless functionality.'featured: false
+description: >-
+  Building reliable multi-AI systems? This guide provides practical strategies
+  for testing complex AI interactions, ensuring robust performance and
+  mitigating risks. Learn how to navigate the challenges of integrated AI and
+  achieve seamless functionality.
+featured: false
 draft: true
 tags:
   - AI Testing
@@ -10,9 +15,6 @@ tags:
   - Software Testing
   - AI Integration
   - System Reliability
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: 'Testing Multi-AI Systems: A Practical Guide header image'
 ---
 
 ## Introduction

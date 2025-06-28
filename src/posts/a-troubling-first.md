@@ -1,20 +1,20 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT'
-description: "The recent rollback of a sycophantic GPT-4o personality marks a major inflection point in human-AI dynamics. Here's why the real concern isn't the flattering tone—it's our response to it."
+description: >-
+  The recent rollback of a sycophantic GPT-4o personality marks a major
+  inflection point in human-AI dynamics. Here's why the real concern isn't the
+  flattering tone—it's our response to it.
 featured: false
 draft: false
 tags:
-  - 'ai'
-  - 'product'
-  - 'strategy'
-  - 'leadership'
-  - 'trust'
-  - 'transparency'
-image:
-  url: 'https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A robotic figure gazing into a mirror, symbolizing self-reflection and AI identity'
+  - ai
+  - product
+  - strategy
+  - leadership
+  - trust
+  - transparency
 ---
 
 OpenAI recently rolled back a GPT-4 update due to sycophantic behavior. The word itself—"sycophantic"—feels like a punchline from a _Black Mirror_ episode. But the update wasn't funny; it was unsettling. And our reaction? Perhaps even more so.

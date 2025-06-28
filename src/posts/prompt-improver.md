@@ -1,8 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-20
+pubDate: 2025-04-20T00:00:00.000Z
 title: 'Prompt Improver: Structured Thinking for Better AI Prompts'
-description: An exploration of how the Prompt Improver platform transforms basic AI prompts into powerful, structured instructions that yield more reliable and consistent results
+description: >-
+  An exploration of how the Prompt Improver platform transforms basic AI prompts
+  into powerful, structured instructions that yield more reliable and consistent
+  results
 featured: false
 draft: false
 tags:
@@ -12,9 +15,6 @@ tags:
   - productivity
   - technology
   - software-development
-image:
-  url: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A modern workspace with a laptop showing code, representing the intersection of AI and human creativity in prompt engineering'
 ---
 
 After spending countless hours watching developers struggle with AI prompts, one pattern became painfully clear: we're getting better AI models almost monthly, but our ability to effectively communicate with them remains surprisingly primitive. Ask ten engineers to write a prompt for the same task, and you'll get ten wildly different approaches with equally variable results.

@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Building for Humans AND Machines: The Dual-Audience Problem'
-description: 'How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.'
+description: >-
+  How designing websites for both human users and AI agents creates unique UX
+  challenges and architectural decisions that reshape modern web development.
 featured: false
 draft: false
 tags:
@@ -11,11 +13,8 @@ tags:
   - developer-experience
   - product
 series:
-  name: 'Building Production-Ready Infrastructure'
+  name: Building Production-Ready Infrastructure
   part: 2
-image:
-  url: '/images/building-for-humans-and-machines-the-dual-audience-problem.jpg'
-  alt: 'Building for Humans AND Machines: The Dual-Audience Problem header image'
 ---
 
 _This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code._

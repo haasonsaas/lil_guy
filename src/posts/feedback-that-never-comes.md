@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-22
+pubDate: 2024-04-22T00:00:00.000Z
 title: 'The Passive-Aggressive Manager: Navigating Feedback That Never Comes'
-description: Why some of the most frustrating managers succeed without giving direct feedback, and how to work with them without losing your mind—or your momentum.
+description: >-
+  Why some of the most frustrating managers succeed without giving direct
+  feedback, and how to work with them without losing your mind—or your momentum.
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - career
   - culture
   - personal-growth
-image:
-  url: 'https://images.pexels.com/photos/3205566/pexels-photo-3205566.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'An employee waiting in an office, symbolizing ambiguity and lack of direct feedback from leadership'
 ---
 
 Let’s talk about a particular flavor of leadership dysfunction: the **passive-aggressive manager**. You’ve probably worked with one. Or maybe, if you’re really unlucky, you work for one right now.

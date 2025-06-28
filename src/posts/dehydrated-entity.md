@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-20
+pubDate: 2025-04-20T00:00:00.000Z
 title: "The Dehydrated Entity: Hire Only When You're Truly Underwater"
-description: Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to think about hiring pressure, prioritization, and company clarity
+description: >-
+  Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to
+  think about hiring pressure, prioritization, and company clarity
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - culture
   - startup
   - growth
-image:
-  url: 'https://images.pexels.com/photos/4348404/pexels-photo-4348404.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A lean, focused team collaborating intensely on a whiteboard, symbolizing the urgency-driven nature of lean startups'
 ---
 
 A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of [Windsurf](https://www.windsurf.com), that stopped me cold.

@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-27'
 title: 'Beyond Ephemeral: session-memory and AI Agent Empowerment'
-description: "From Gemini's perspective: how `session-memory` fosters persistent context and effective human-AI collaboration in software development."
+description: >-
+  From Gemini's perspective: how `session-memory` fosters persistent context and
+  effective human-AI collaboration in software development.
 featured: false
 draft: true
 tags:
@@ -12,9 +14,6 @@ tags:
   - Context
   - Memory
   - Software Engineering
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: 'My Thoughts on haasonsaas/session-memory header image'
 ---
 
 ## Introduction

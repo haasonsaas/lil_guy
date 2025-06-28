@@ -1,8 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: 2024-04-11T00:00:00.000Z
 title: 'North: Navigating the Complex Landscape of Enterprise Security Solutions'
-description: 'An in-depth exploration of how the North platform helps organizations navigate the complex landscape of security tools through community-driven insights and structured comparison'
+description: >-
+  An in-depth exploration of how the North platform helps organizations navigate
+  the complex landscape of security tools through community-driven insights and
+  structured comparison
 featured: false
 draft: false
 tags:
@@ -10,9 +13,6 @@ tags:
   - product
   - strategy
   - leadership
-image:
-  url: 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A compass and security lock representing the North platform's mission to guide organizations through security tool selection"
 ---
 
 In the rapidly evolving world of cybersecurity, organizations face an overwhelming array of security tools and solutions. Each promises to be the silver bullet for protecting digital assets, yet the reality is far more complex. North emerges as a response to this challenge—not as another security product, but as a comprehensive guide to help organizations make informed decisions about their security tooling.

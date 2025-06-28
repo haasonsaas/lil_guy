@@ -1,8 +1,11 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-28'
 title: "When Your Manager Says 'Slow Down': Navigating Velocity Resistance"
-description: "Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here's how to navigate organizational resistance without killing momentum."
+description: >-
+  Your team can ship 10x faster with AI, but your manager wants more planning
+  meetings. Here's how to navigate organizational resistance without killing
+  momentum.
 featured: false
 draft: false
 tags:
@@ -10,9 +13,6 @@ tags:
   - velocity
   - organizational-change
   - ai
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: "When Your Manager Says 'Slow Down': Navigating Velocity Resistance header image"
 ---
 
 "This is moving too fast. We need more planning."

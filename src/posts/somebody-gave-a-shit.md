@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-09
+pubDate: 2025-05-09T00:00:00.000Z
 title: 'Somebody Gave a Shit: The Quiet Power of Product Detail'
-description: Why the smallest details in product design—like a cable wrap—matter more than you think, and how they transmit care, conviction, and identity at scale.
+description: >-
+  Why the smallest details in product design—like a cable wrap—matter more than
+  you think, and how they transmit care, conviction, and identity at scale.
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - craftsmanship
   - startup-culture
   - customer-emotion
-image:
-  url: 'https://images.pexels.com/photos/7479814/pexels-photo-7479814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A beautifully wrapped charging cable in a minimalistic box, symbolizing attention to detail in product experience'
 ---
 
 "When they unwrap that cable and they think 'somebody gave a shit about me'—I think that's a spiritual thing."
