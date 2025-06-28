@@ -30,23 +30,28 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   }
 
   try {
-    const allBlogPosts = getAllBlogPosts()
+    const allBlogPosts = await getAllBlogPosts(env)
 
     // Count tags
     const tagCounts = new Map<string, number>()
     const tagPosts = new Map<string, BlogPost[]>()
 
     allBlogPosts.forEach((post) => {
-      const tags = post.tags || []
-      tags.forEach((tag: string) => {
-        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+      try {
+        // Ensure post.tags is always an array
+        const tags = Array.isArray(post.tags) ? post.tags : [];
+        tags.forEach((tag: string) => {
+          tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
 
-        if (!tagPosts.has(tag)) {
-          tagPosts.set(tag, [])
-        }
-        tagPosts.get(tag)!.push(post)
-      })
-    })
+          if (!tagPosts.has(tag)) {
+            tagPosts.set(tag, []);
+          }
+          tagPosts.get(tag)!.push(post);
+        });
+      } catch (e: unknown) {
+        console.error(`Error processing post ${post.slug} for tags:`, e);
+      }
+    });
 
     // Parse query parameters
     const url = new URL(request.url)
@@ -101,15 +106,15 @@ export const onRequest: PagesFunction<Env> = async (context) => {
               'cloudflare',
               'react',
             ].includes(t.tag)
-          ),
+          ) || [],
           business: tags.filter((t) =>
             ['strategy', 'leadership', 'startup', 'saas', 'growth'].includes(
               t.tag
             )
-          ),
+          ) || [],
           personal: tags.filter((t) =>
             ['personal-growth', 'culture', 'productivity'].includes(t.tag)
-          ),
+          ) || [],
         },
       },
     }
@@ -122,12 +127,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         ...corsHeaders,
       },
     })
-  } catch (error) {
-    console.error('Error in tags API:', error)
+  } catch (error: unknown) {
+    console.error('Error in tags API:', error);
     return new Response(
       JSON.stringify({
         error: 'Internal server error',
-        message: 'Failed to fetch tags',
+        message: (error instanceof Error) ? error.message : String(error),
+        stack: (error instanceof Error) ? error.stack : undefined,
       }),
       {
         status: 500,
@@ -136,6 +142,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
           ...corsHeaders,
         },
       }
-    )
+    );
   }
 }
