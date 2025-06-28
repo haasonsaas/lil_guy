@@ -781,19 +781,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/AI</loc>
-    <lastmod>2025-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://haasonsaas.com/tags/ai-agents</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/AI-development</loc>
+    <loc>https://haasonsaas.com/tags/ai-development</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -811,7 +805,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/AI-tools</loc>
+    <loc>https://haasonsaas.com/tags/ai-tools</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -877,19 +871,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/CISO</loc>
+    <loc>https://haasonsaas.com/tags/ciso</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/claude</loc>
-    <lastmod>2025-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://haasonsaas.com/tags/Claude</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -931,7 +919,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/Content Generation</loc>
+    <loc>https://haasonsaas.com/tags/content-generation</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1009,7 +997,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/Data Science</loc>
+    <loc>https://haasonsaas.com/tags/data-science</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1069,7 +1057,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/DTC-brands</loc>
+    <loc>https://haasonsaas.com/tags/dtc-brands</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1435,7 +1423,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/Personality Replication</loc>
+    <loc>https://haasonsaas.com/tags/personality-replication</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1478,12 +1466,6 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/product</loc>
-    <lastmod>2025-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://haasonsaas.com/tags/Product Management</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1693,13 +1675,13 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/Software Engineering</loc>
+    <loc>https://haasonsaas.com/tags/software-development</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/software-development</loc>
+    <loc>https://haasonsaas.com/tags/software-engineering</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1723,19 +1705,19 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/Startup Advice</loc>
-    <lastmod>2025-06-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://haasonsaas.com/tags/Startup Engineering</loc>
+    <loc>https://haasonsaas.com/tags/startup-advice</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/startup-culture</loc>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/startup-engineering</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1939,7 +1921,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://haasonsaas.com/tags/Voice AI</loc>
+    <loc>https://haasonsaas.com/tags/voice-ai</loc>
     <lastmod>2025-06-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

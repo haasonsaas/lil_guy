@@ -1,10 +1,11 @@
 ---
 title: 'Thinking Frameworks: Tools for Better Decision Making'
+
 author: Jonathan Haas
-pubDate: 2024-04-20T00:00:00.000Z
-description: >-
-  A collection of mental models and frameworks for improving decision making in
-  product and business
+pubDate: '2024-04-20'
+
+description: 'A collection of mental models and frameworks for improving decision making in product and business'
+
 tags:
   - product
   - strategy

@@ -1,9 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-23'
+
 title: 'DSPy: The End of Prompt Engineering As We Know It'
-description: "Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready techniques"
-featured: true
+
+description: 'Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready'featured: true
 draft: false
 tags:
   - ai

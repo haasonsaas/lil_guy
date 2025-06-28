@@ -1,11 +1,15 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'The Retention Equation: Why 1% Better Can Mean 10x More Revenue'
-description: 'See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum impact.'
+description: 'See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum'
 featured: false
 draft: false
-tags: ['saas', 'metrics', 'retention', 'interactive']
+tags:
+  - saas
+  - metrics
+  - retention
+  - interactive
 ---
 
 I once watched a board meeting where the CEO proudly announced: "We improved retention from 89% to 90%!"

@@ -1,8 +1,7 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-25T00:00:00.000Z
+pubDate: '2024-11-25'
 title: The Three Types of Startup Advice (And Why They're All Wrong)
-postSlug: three-types-startup-advice
 featured: true
 draft: false
 tags:

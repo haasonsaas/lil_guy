@@ -1,14 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-25T00:00:00.000Z
+pubDate: '2025-04-25'
+
 title: >-
   Psychological Safety and Productive Conflict: The Hidden Link Driving
   High-Performing Teams
-description: >-
-  Exploring why the best teams don't avoid disagreement—they lean into it with
-  trust, clarity, and safety. Here's how psychological safety turns conflict
-  into collaboration.
-featured: false
+description: 'Exploring why the best teams don't avoid disagreement—they lean into it with trust, clarity, and safety. Here's how psychological safety turns conflict into'featured: false
 draft: false
 tags:
   - leadership

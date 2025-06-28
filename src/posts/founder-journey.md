@@ -1,10 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-12-13T00:00:00.000Z
+pubDate: '2024-12-13'
+
 title: 'The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster'
-description: >-
-  An honest exploration of the psychological whiplash that comes with building a
-  company, and why we keep coming back for more
+
+description: 'An honest exploration of the psychological whiplash that comes with building a company, and why we keep coming back for more'
+
 tags:
   - founder
   - startup

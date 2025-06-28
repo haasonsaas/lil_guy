@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'AI Expectations: Managing the Hype Cycle'
-description: >-
-  How to set realistic expectations for AI implementation and avoid common
-  pitfalls in enterprise adoption
+description: 'How to set realistic expectations for AI implementation and avoid common pitfalls in enterprise adoption'
 featured: false
 draft: false
 tags:

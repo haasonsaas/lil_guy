@@ -1,8 +1,7 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
 title: 'Engineering and Product Collaboration: Breaking Down Silos'
-postSlug: engineering-product-alliance
 featured: false
 draft: false
 tags:
@@ -11,9 +10,7 @@ tags:
   - leadership
   - culture
   - management
-description: >-
-  Moving beyond traditional engineering and product silos to build lasting,
-  effective partnerships that drive innovation
+description: 'Moving beyond traditional engineering and product silos to build lasting, effective partnerships that drive innovation'
 ---
 
 "This isn't what we asked for."

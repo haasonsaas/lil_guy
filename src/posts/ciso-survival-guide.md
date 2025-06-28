@@ -1,13 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
+
 title: >-
   The CISO Survival Guide: What I've Learned From Hundreds of Conversations with
   Security Leaders
-description: >-
-  A product manager's perspective on the growing disconnect between security
-  vendors and practitioners, based on hundreds of CISO conversations
-featured: false
+description: 'A product manager's perspective on the growing disconnect between security vendors and practitioners, based on hundreds of CISO conversations'featured: false
 draft: false
 tags:
   - security

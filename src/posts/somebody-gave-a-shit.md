@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-09T00:00:00.000Z
+pubDate: '2025-05-09'
 title: 'Somebody Gave a Shit: The Quiet Power of Product Detail'
-description: >-
-  Why the smallest details in product design—like a cable wrap—matter more than
-  you think, and how they transmit care, conviction, and identity at scale.
+description: 'Why the smallest details in product design—like a cable wrap—matter more than you think, and how they transmit care, conviction, and identity at scale.'
 featured: false
 draft: false
 tags:

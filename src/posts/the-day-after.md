@@ -1,12 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-28T00:00:00.000Z
+pubDate: '2025-04-28'
+
 title: 'The Day After: Building a System to Remember What Matters'
-description: >-
-  How a weekend project using the Limitless API turned into a system for
-  capturing and reflecting on daily conversations, decisions, and
-  connections—even if it's still imperfect.
-featured: false
+
+description: 'How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's'featured: false
 draft: false
 tags:
   - productivity

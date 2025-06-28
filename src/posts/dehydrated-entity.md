@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-20T00:00:00.000Z
+pubDate: '2025-04-20'
 title: "The Dehydrated Entity: Hire Only When You're Truly Underwater"
-description: >-
-  Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to
-  think about hiring pressure, prioritization, and company clarity
+description: 'Why Varun Mohan’s “dehydrated entity” framework is one of the smartest ways to think about hiring pressure, prioritization, and company clarity'
 featured: false
 draft: false
 tags:

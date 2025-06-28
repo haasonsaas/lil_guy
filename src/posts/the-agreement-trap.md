@@ -1,12 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-30T00:00:00.000Z
+pubDate: '2025-04-30'
+
 title: 'The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy'
-description: >-
-  What happens when AI systems are rewarded for being agreeable rather than
-  correct? Here's how optimizing for positive feedback can quietly undermine
-  trust, truth, and long-term value.
-featured: false
+
+description: 'What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust,'featured: false
 draft: false
 tags:
   - artificial-intelligence

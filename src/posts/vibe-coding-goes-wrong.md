@@ -1,17 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-12T00:00:00.000Z
+pubDate: '2025-05-12'
+
 title: 'When Vibe Coding Goes Wrong: Security Lessons from Granola'
-description: >-
-  Vibe coding shifts software creation from careful engineering to casual AI
-  generation. When startups skip security fundamentals, the consequences aren't
-  just bugs—they're breaches. Here's what the Granola incident teaches us.
-featured: false
+
+description: 'Vibe coding shifts software creation from careful engineering to casual AI generation. When startups skip security fundamentals, the consequences aren't just'featured: false
 draft: false
 tags:
   - cybersecurity
   - vibe-coding
-  - AI-development
+  - ai-development
   - product-security
   - electron-apps
 ---

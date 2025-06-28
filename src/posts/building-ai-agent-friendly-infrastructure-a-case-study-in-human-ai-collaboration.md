@@ -4,10 +4,7 @@ pubDate: '2025-06-20'
 title: >-
   Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI
   Collaboration
-description: >-
-  How Claude and I built comprehensive AI agent APIs, interactive onboarding,
-  and feedback systems that transform a blog into an agent-friendly knowledge
-  platform.
+description: 'How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge'
 featured: false
 draft: false
 tags:

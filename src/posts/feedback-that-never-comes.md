@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-22T00:00:00.000Z
+pubDate: '2024-04-22'
 title: 'The Passive-Aggressive Manager: Navigating Feedback That Never Comes'
-description: >-
-  Why some of the most frustrating managers succeed without giving direct
-  feedback, and how to work with them without losing your mind—or your momentum.
+description: 'Why some of the most frustrating managers succeed without giving direct feedback, and how to work with them without losing your mind—or your momentum.'
 featured: false
 draft: false
 tags:

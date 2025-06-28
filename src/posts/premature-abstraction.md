@@ -1,10 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
+
 title: 'The Abstraction Trap: When Clean Code Goes Wrong'
-description: >-
-  How premature abstraction can lead to increased complexity and maintenance
-  burden in software projects
+
+description: 'How premature abstraction can lead to increased complexity and maintenance burden in software projects'
+
 tags:
   - engineering
   - product

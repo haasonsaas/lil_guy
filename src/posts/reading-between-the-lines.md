@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-14T00:00:00.000Z
+pubDate: '2025-04-14'
 title: 'Reading Between the Lines: How to Decode Community Investment Rounds'
-description: >-
-  A practical guide to interpreting startup metrics in community investment
-  rounds and identifying potential red flags before investing
+description: 'A practical guide to interpreting startup metrics in community investment rounds and identifying potential red flags before investing'
 featured: false
 draft: false
 tags:
@@ -12,7 +10,7 @@ tags:
   - community-rounds
   - investment-analysis
   - due-diligence
-  - DTC-brands
+  - dtc-brands
   - funding-strategy
   - retail-investing
   - financial-literacy

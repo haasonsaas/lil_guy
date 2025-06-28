@@ -1,20 +1,18 @@
 ---
+
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
 title: 'My Manager README: A Guide to Working With Me'
-postSlug: my-manager-readme
 featured: false
 draft: false
 tags:
-  - management
-  - leadership
-  - culture
-  - transparency
-  - trust
-description: >-
-  A transparent guide to my management style, communication preferences, and
-  working expectations
----
+
+- management
+- leadership
+- culture
+- transparency
+- trust
+  description: 'A transparent guide to my management style, communication preferences, and working expectations'---
 
 If you're reading this, you're either working with me, interested in working
 with me, or just at some level curious how I operate as a manager. While I'm

@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine'
-description: >-
-  An inside look at the design philosophy behind the Deliberate Reasoning
-  Engine, a structured thought graph for large language models—and how it
-  changes the game for AI reasoning transparency.
+description: 'An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game'
 featured: false
 draft: false
 tags:

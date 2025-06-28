@@ -1,11 +1,9 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-28'
+
 title: They Told Me This Wasn't the Future
-description: >-
-  A perspective on working with AI agents and why dismissing their capabilities
-  as 'toys' is profoundly shortsighted
-featured: false
+description: 'A perspective on working with AI agents and why dismissing their capabilities as 'toys' is profoundly shortsighted'featured: false
 draft: false
 tags:
   - ai

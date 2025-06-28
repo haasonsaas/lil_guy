@@ -1,13 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
 title: >-
   Keep Your Hands Dirty: Why Executives Who Stop Doing The Work Destroy
   Companies
-description: >-
-  A battle-tested perspective on why executives must continue doing the core
-  work that got them their role, and how stepping away leads to organizational
-  failure
+description: 'A battle-tested perspective on why executives must continue doing the core work that got them their role, and how stepping away leads to organizational failure'
 featured: false
 draft: false
 tags:

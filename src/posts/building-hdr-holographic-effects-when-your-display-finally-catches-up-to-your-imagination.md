@@ -4,9 +4,7 @@ pubDate: '2025-06-19'
 title: >-
   Building HDR Holographic Effects: When Your Display Finally Catches Up to Your
   Imagination
-description: >-
-  How to create true HDR holographic foil effects that push beyond standard RGB
-  limits on modern displays
+description: 'How to create true HDR holographic foil effects that push beyond standard RGB limits on modern displays'
 featured: false
 draft: false
 tags:
@@ -14,9 +12,6 @@ tags:
   - graphics
   - creative-coding
   - hdr
-series:
-  name: WebGL & Graphics
-  part: 2
 ---
 
 I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt them. But recreating that effect digitally? That always felt impossible.

@@ -1,13 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-12T00:00:00.000Z
+pubDate: '2025-05-12'
+
 title: 'The New Series A Reality: Why It Feels Harder (Because It Is)'
-description: >-
-  If you're feeling like the startup funding landscape has shifted under your
-  feet, you're not imagining it. Here's a breakdown of why raising a Series A
-  today is tougher, and what early-stage founders need to know to survive the
-  new bar.
-featured: false
+
+description: 'If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is'featured: false
 draft: false
 tags:
   - startup-funding

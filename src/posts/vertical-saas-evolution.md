@@ -1,11 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
+
 title: 'The Agentic Shift: How AI is Transforming Vertical SaaS'
-description: >-
-  How vertical SaaS companies are rapidly evolving from workflow automation to
-  intelligent agents, and what it means for the future of industry-specific
-  software
+
+description: 'How vertical SaaS companies are rapidly evolving from workflow automation to intelligent agents, and what it means for the future of industry-specific software'
+
 tags:
   - ai
   - ai-agents

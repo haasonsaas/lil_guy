@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-30T00:00:00.000Z
+pubDate: '2025-04-30'
 title: 'The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company'
-description: >-
-  After year four, founder CEOs are paid like caretakers—while hired CEOs are
-  paid like kings. Here’s why the cap table math is broken, and what we can do
-  about it.
+description: 'After year four, founder CEOs are paid like caretakers—while hired CEOs are paid like kings. Here’s why the cap table math is broken, and what we can do about'
 featured: false
 draft: false
 tags:

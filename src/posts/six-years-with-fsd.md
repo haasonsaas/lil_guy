@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-05T00:00:00.000Z
+pubDate: '2025-05-05'
 title: 'From Gimmick to Game-Changer: Six Years of Living With Tesla FSD'
-description: >-
-  Reflections on how Tesla’s Full Self-Driving went from laughably limited to
-  astonishingly capable, and what it teaches us about compounding software and
-  trust in autonomous systems.
+description: 'Reflections on how Tesla’s Full Self-Driving went from laughably limited to astonishingly capable, and what it teaches us about compounding software and trust'
 featured: false
 draft: false
 tags:

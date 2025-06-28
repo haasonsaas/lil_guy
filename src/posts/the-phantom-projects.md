@@ -1,12 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-22T00:00:00.000Z
+pubDate: '2025-04-22'
 title: The Phantom Projects of Overhiring
-description: >-
-  When companies overhire, it’s not laziness or malice that creeps in—it’s the
-  quiet invention of work. Here’s why idle bandwidth leads to dangerous
-  distractions, and how to spot the signs before your team builds a palace of
-  process.
+description: 'When companies overhire, it’s not laziness or malice that creeps in—it’s the quiet invention of work. Here’s why idle bandwidth leads to dangerous distractions,'
 featured: false
 draft: false
 tags:

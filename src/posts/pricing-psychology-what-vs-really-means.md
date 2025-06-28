@@ -1,11 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-19'
+
 title: 'Pricing Psychology: What $99 vs $100 Really Means'
-description: >-
-  The psychology behind pricing decisions drives billions in revenue. Here's how
-  small pricing changes create massive impact on conversion and lifetime value.
-featured: false
+
+description: 'The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value.'featured: false
 draft: false
 tags:
   - pricing

@@ -1,12 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
+
 title: 'Inside InboxArmor: Building a Smarter Email Analysis Engine'
-description: >-
-  A deep dive into the architecture, design principles, and future evolution of
-  InboxArmor—an intelligent email insight system built for today's overwhelming
-  inboxes
-featured: false
+
+description: 'A deep dive into the architecture, design principles, and future evolution of InboxArmor—an intelligent email insight system built for today's overwhelming'featured: false
 draft: false
 tags:
   - security

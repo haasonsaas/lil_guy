@@ -1,12 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
+
 title: 'When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT'
-description: >-
-  The recent rollback of a sycophantic GPT-4o personality marks a major
-  inflection point in human-AI dynamics. Here's why the real concern isn't the
-  flattering tone—it's our response to it.
-featured: false
+
+description: 'The recent rollback of a sycophantic GPT-4o personality marks a major inflection point in human-AI dynamics. Here's why the real concern isn't the flattering'featured: false
 draft: false
 tags:
   - ai

@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-20T00:00:00.000Z
+pubDate: '2024-04-20'
 title: 'Founder-Led Sales: The Art of Selling Your Vision'
-description: >-
-  How founders can effectively lead sales efforts in the early stages of their
-  startup
+description: 'How founders can effectively lead sales efforts in the early stages of their startup'
 featured: false
 draft: false
 tags:

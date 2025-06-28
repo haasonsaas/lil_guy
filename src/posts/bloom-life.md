@@ -1,12 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
 title: 'Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness'
-description: >-
-  An in-depth exploration of how the Bloom platform transcends traditional
-  wellness tracking to create a holistic system that adapts to users' lives
-  rather than demanding adaptation from them
-tags:
+description: 'An in-depth exploration of how the Bloom platform transcends traditional wellness tracking to create a holistic system that adapts to users' lives rather than'tags:
   - product
   - ux
   - design

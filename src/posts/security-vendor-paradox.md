@@ -1,19 +1,16 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-13T00:00:00.000Z
+pubDate: '2025-04-13'
+
 title: >-
   The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need
   to Understand
-description: >-
-  An insider's perspective on the growing disconnect between security
-  practitioners and solution providers, and how both sides can better navigate
-  the complex cybersecurity ecosystem
-featured: false
+description: 'An insider's perspective on the growing disconnect between security practitioners and solution providers, and how both sides can better navigate the complex'featured: false
 draft: false
 tags:
   - cybersecurity
   - vendor-relations
-  - CISO
+  - ciso
   - security-leadership
   - industry-insights
   - security-operations

@@ -1,11 +1,9 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-19'
+
 title: The Unit Economics That Actually Matter
-description: >-
-  Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable
-  growth and the metrics that matter.
-featured: false
+description: 'Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.'featured: false
 draft: false
 tags:
   - saas

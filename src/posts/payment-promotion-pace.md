@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-30T00:00:00.000Z
+pubDate: '2025-04-30'
 title: 'The Startup Reality Check: Payment, Promotion, and Pace'
-description: >-
-  A blunt field guide for early-stage founders: why cash is your only true
-  validator, marketing matters more than code, and slow shipping is the fast
-  lane to failure.
+description: 'A blunt field guide for early-stage founders: why cash is your only true validator, marketing matters more than code, and slow shipping is the fast lane to'
 featured: false
 draft: false
 tags:

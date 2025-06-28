@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-26T00:00:00.000Z
+pubDate: '2025-04-26'
 title: 'Clarity Over Compromise: Making the Right Call on Work Models'
-description: >-
-  Why thriving companies pick a lane—remote or in-office—and build everything
-  around it, instead of wobbling in the messy middle.
+description: 'Why thriving companies pick a lane—remote or in-office—and build everything around it, instead of wobbling in the messy middle.'
 featured: false
 draft: false
 tags:

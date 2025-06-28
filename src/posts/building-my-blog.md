@@ -1,10 +1,11 @@
 ---
 title: 'Building My Blog: A Modern React + TypeScript Journey'
-pubDate: 2024-04-11T00:00:00.000Z
+
+pubDate: '2024-04-11'
+
 author: Jonathan Haas
-description: >-
-  A deep dive into building a modern blog using React, TypeScript, Vite, and
-  other cutting-edge technologies
+description: 'A deep dive into building a modern blog using React, TypeScript, Vite, and other cutting-edge technologies'
+
 tags:
   - engineering
   - technical

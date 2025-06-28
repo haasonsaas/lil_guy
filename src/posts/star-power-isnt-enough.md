@@ -1,12 +1,9 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-03T00:00:00.000Z
+pubDate: '2025-05-03'
+
 title: "When Star Power Isn't Enough: The GTM Mistake We Keep Making"
-description: >-
-  Even icons can misfire on go-to-market when pricing and audience alignment are
-  off. In SaaS, just like on tour, no amount of brilliance saves you if you're
-  solving the wrong problem for the wrong people.
-featured: false
+description: 'Even icons can misfire on go-to-market when pricing and audience alignment are off. In SaaS, just like on tour, no amount of brilliance saves you if you're'featured: false
 draft: false
 tags:
   - go-to-market

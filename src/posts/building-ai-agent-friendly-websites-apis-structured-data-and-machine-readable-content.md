@@ -4,9 +4,7 @@ pubDate: '2025-06-20'
 title: >-
   Building AI-Agent-Friendly Websites: APIs, Structured Data, and
   Machine-Readable Content
-description: >-
-  How to make your website accessible to AI agents with proper APIs, enhanced
-  structured data, and machine-readable content formats
+description: 'How to make your website accessible to AI agents with proper APIs, enhanced structured data, and machine-readable content formats'
 featured: false
 draft: false
 tags:

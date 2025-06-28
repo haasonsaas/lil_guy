@@ -1,12 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-05-04T00:00:00.000Z
+pubDate: '2024-05-04'
+
 title: 'When the Ask Feels Awkward, It’s Already Too Late'
-description: >-
-  If you're hesitating to ask someone to do their job—or just doing it yourself
-  to avoid conflict—it’s not a performance problem. It’s a role problem. Here's
-  why discomfort delegating is the clearest signal a team reset is overdue.
-featured: false
+
+description: 'If you're hesitating to ask someone to do their job—or just doing it yourself to avoid conflict—it’s not a performance problem. It’s a role problem. Here's why'featured: false
 draft: false
 tags:
   - leadership

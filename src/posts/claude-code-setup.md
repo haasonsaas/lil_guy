@@ -1,17 +1,15 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-06-17T00:00:00.000Z
+pubDate: '2025-06-17'
 title: 'Claude Code: Setup, Strategy, and Sanity Checks'
-description: >-
-  A practical guide to getting the most out of Claude Code, from model selection
-  and execution patterns to debugging loops and knowing when to quit.
+description: 'A practical guide to getting the most out of Claude Code, from model selection and execution patterns to debugging loops and knowing when to quit.'
 featured: false
 draft: false
 tags:
-  - AI-tools
+  - ai-tools
   - developer-productivity
   - prompt-engineering
-  - Claude
+  - claude
   - software-strategy
 ---
 

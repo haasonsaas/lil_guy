@@ -1,12 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-16T00:00:00.000Z
+pubDate: '2025-05-16'
+
 title: 'The Optimization Trap: Why Technical Founders Self-Sabotage'
-description: >-
-  A deep dive into how premature optimization derails early-stage startups,
-  especially when technical founders chase performance before product-market
-  fit. Here's why doing less—at the right time—is often doing it right.
-featured: false
+
+description: 'A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's'featured: false
 draft: false
 tags:
   - startup-culture

@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'Simulating Liquid Metal: Building T-1000 Physics with Web Technologies'
-description: >-
-  Deep dive into creating realistic liquid metal fluid dynamics using metaballs,
-  surface tension, and real-time rendering
+description: 'Deep dive into creating realistic liquid metal fluid dynamics using metaballs, surface tension, and real-time rendering'
 featured: false
 draft: false
 tags:
@@ -12,9 +10,6 @@ tags:
   - graphics
   - creative-coding
   - physics
-series:
-  name: WebGL & Graphics
-  part: 3
 ---
 
 Remember that scene in Terminator 2 where the T-1000 rises from the floor, liquid metal flowing seamlessly back into human form? That effect has haunted VFX artists—and inspired programmers—for decades.

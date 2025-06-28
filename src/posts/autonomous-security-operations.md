@@ -1,7 +1,7 @@
 ---
 title: 'Autonomous Security Operations: The Future of Enterprise Security'
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
 description: Exploring the role of automation and AI in modern security operations
 tags:
   - ai

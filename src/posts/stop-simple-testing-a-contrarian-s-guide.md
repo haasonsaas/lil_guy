@@ -1,21 +1,17 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-26'
+
 title: 'Stop "Simple" Testing: A Contrarian''s Guide'
-description: >-
-  Ditch the "simple" testing dogma! Discover why basic testing fails startups
-  and how to build robust, efficient testing strategies for rapid growth. I'll
-  share real-world examples from my advisory experience, actionable frameworks,
-  and the hidden costs of oversimplifying quality assurance. Stop wasting
-  resources—start building better products.
-featured: false
+
+description: 'Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share'featured: false
 draft: true
 tags:
-  - startup testing
-  - software testing
-  - quality assurance
-  - agile testing
-  - contrarian advice
+  - startup-testing
+  - software-testing
+  - quality-assurance
+  - agile-testing
+  - contrarian-advice
 ---
 
 ## Introduction

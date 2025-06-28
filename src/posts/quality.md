@@ -9,7 +9,6 @@ tags:
   - leadership
   - culture
   - strategy
-postSlug: the-quality-quotient
 featured: false
 draft: false
 ---

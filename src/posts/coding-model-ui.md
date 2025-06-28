@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-06-18T00:00:00.000Z
+pubDate: '2025-06-18'
 title: Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)
-description: >-
-  Coding models can write brilliant functions and tidy interfaces. But ask them
-  to design usable UI—and they fall apart. Here’s why that matters more than you
-  think.
+description: 'Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you'
 featured: false
 draft: false
 tags:

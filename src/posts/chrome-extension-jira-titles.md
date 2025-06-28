@@ -1,7 +1,7 @@
 ---
 title: "Chrome Extension for Jira Titles: A Developer's Journey"
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
 description: Building a Chrome extension to improve Jira ticket management
 tags:
   - engineering

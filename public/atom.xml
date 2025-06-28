@@ -102,7 +102,7 @@
     <id>https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here's what 1,500+ file changes teach us about the future of software development.]]></summary>
+    <summary><![CDATA[A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here's what 1,500+]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -171,12 +171,12 @@
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI" />
-    <category term="Developer Tools" />
-    <category term="Human-AI Collaboration" />
-    <category term="Context" />
-    <category term="Memory" />
-    <category term="Software Engineering" />
+    <category term="ai" />
+    <category term="developer-tools" />
+    <category term="human-ai-collaboration" />
+    <category term="context" />
+    <category term="memory" />
+    <category term="software-engineering" />
   </entry>
   <entry>
     <title><![CDATA[Stop "Simple" Testing: A Contrarian's Guide]]></title>
@@ -184,16 +184,16 @@
     <id>https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide</id>
     <published>2025-06-26T00:00:00.000Z</published>
     <updated>2025-06-26T00:00:00.000Z</updated>
-    <summary><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share real-world examples from my advisory experience, actionable frameworks, and the hidden costs of oversimplifying quality assurance. Stop wasting resources—start building better products.]]></summary>
+    <summary><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="startup testing" />
-    <category term="software testing" />
-    <category term="quality assurance" />
-    <category term="agile testing" />
-    <category term="contrarian advice" />
+    <category term="startup-testing" />
+    <category term="software-testing" />
+    <category term="quality-assurance" />
+    <category term="agile-testing" />
+    <category term="contrarian-advice" />
   </entry>
   <entry>
     <title><![CDATA[The Myth of Fast Growth]]></title>
@@ -201,16 +201,16 @@
     <id>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</id>
     <published>2025-06-26T00:00:00.000Z</published>
     <updated>2025-06-26T00:00:00.000Z</updated>
-    <summary><![CDATA[Forget the hype! This post challenges conventional startup wisdom with practical, experience-based advice. Learn how to avoid common pitfalls and unlock real growth from a contrarian startup advisor who's seen it all. Discover actionable strategies and surprising truths that will transform your approach.]]></summary>
+    <summary><![CDATA[Forget the hype! This post challenges conventional startup wisdom with practical, experience-based advice. Learn how to avoid common pitfalls and unlock real]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="startup advice" />
+    <category term="startup-advice" />
     <category term="contrarian" />
-    <category term="business strategy" />
+    <category term="business-strategy" />
     <category term="profitability" />
-    <category term="growth hacking" />
+    <category term="growth-hacking" />
   </entry>
   <entry>
     <title><![CDATA[Forget Perfect Data: Building a Usable Voice Profile Extractor]]></title>
@@ -218,16 +218,16 @@
     <id>https://www.haasonsaas.com/blog/forget-perfect-data-building-a-usable-voice-profile-extractor</id>
     <published>2025-06-26T00:00:00.000Z</published>
     <updated>2025-06-26T00:00:00.000Z</updated>
-    <summary><![CDATA[Stop chasing the mythical perfect dataset. I built a working voice profile extractor with 50 markdown files and regex. Here is why your obsession with data quality is killing your AI project and what to do instead.]]></summary>
+    <summary><![CDATA[Stop chasing the mythical perfect dataset. I built a working voice profile extractor with 50 markdown files and regex. Here is why your obsession with data]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI" />
-    <category term="Voice AI" />
-    <category term="Personality Replication" />
-    <category term="Startup Engineering" />
-    <category term="Data Science" />
+    <category term="ai" />
+    <category term="voice-ai" />
+    <category term="personality-replication" />
+    <category term="startup-engineering" />
+    <category term="data-science" />
   </entry>
   <entry>
     <title><![CDATA[Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox]]></title>
@@ -257,7 +257,7 @@
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI" />
+    <category term="ai" />
     <category term="software-development" />
     <category term="collaboration" />
   </entry>
@@ -284,12 +284,12 @@
     <id>https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here's what actually worked, what didn't, and why most teams are overcomplicating AI orchestration.]]></summary>
+    <summary><![CDATA[I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here's what actually worked, what didn't, and why most teams]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI" />
+    <category term="ai" />
     <category term="multi-ai" />
     <category term="content-orchestration" />
     <category term="ai-agents" />
@@ -301,16 +301,16 @@
     <id>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[Building reliable multi-AI systems? This guide provides practical strategies for testing complex AI interactions, ensuring robust performance and mitigating risks. Learn how to navigate the challenges of integrated AI and achieve seamless functionality.]]></summary>
+    <summary><![CDATA[Building reliable multi-AI systems? This guide provides practical strategies for testing complex AI interactions, ensuring robust performance and mitigating]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI Testing" />
-    <category term="Multi-AI Systems" />
-    <category term="Software Testing" />
-    <category term="AI Integration" />
-    <category term="System Reliability" />
+    <category term="ai-testing" />
+    <category term="multi-ai-systems" />
+    <category term="software-testing" />
+    <category term="ai-integration" />
+    <category term="system-reliability" />
   </entry>
   <entry>
     <title><![CDATA[AI Content: Ditch the Hype, Build a Business]]></title>
@@ -318,16 +318,16 @@
     <id>https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[Forget the AI content generation hype. Seasoned startup advisor Jonathan Haas reveals why most advice is wrong, sharing battle-tested strategies from years in security and AI. Get practical steps to integrate AI effectively, not perfectly.]]></summary>
+    <summary><![CDATA[Forget the AI content generation hype. Seasoned startup advisor Jonathan Haas reveals why most advice is wrong, sharing battle-tested strategies from years in]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI" />
-    <category term="Content Generation" />
-    <category term="Startup Advice" />
-    <category term="Product Management" />
-    <category term="Software Engineering" />
+    <category term="ai" />
+    <category term="content-generation" />
+    <category term="startup-advice" />
+    <category term="product-management" />
+    <category term="software-engineering" />
   </entry>
   <entry>
     <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
@@ -352,12 +352,12 @@
     <id>https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog posts and created an authenticity validation system that keeps responses true to my contrarian, pragmatic worldview.]]></summary>
+    <summary><![CDATA[I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI" />
+    <category term="ai" />
     <category term="voice-replication" />
     <category term="personalization" />
     <category term="meta" />
@@ -386,16 +386,16 @@
     <id>https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[Stop shipping broken content! Learn how to implement a robust full content pipeline test, catching issues before they reach your users. This guide provides practical strategies and actionable steps for building a bulletproof content delivery system.]]></summary>
+    <summary><![CDATA[Stop shipping broken content! Learn how to implement a robust full content pipeline test, catching issues before they reach your users. This guide provides]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="content pipeline" />
+    <category term="content-pipeline" />
     <category term="testing" />
-    <category term="software engineering" />
-    <category term="product management" />
-    <category term="quality assurance" />
+    <category term="software-engineering" />
+    <category term="product-management" />
+    <category term="quality-assurance" />
   </entry>
   <entry>
     <title><![CDATA[Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy]]></title>
@@ -420,7 +420,7 @@
     <id>https://www.haasonsaas.com/blog/stop-guessing-in-customer-interviews-a-simulator-for-better-discovery</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas.]]></summary>
+    <summary><![CDATA[Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -436,7 +436,7 @@
     <id>https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for your team.]]></summary>
+    <summary><![CDATA[Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -468,7 +468,7 @@
     <id>https://www.haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum impact.]]></summary>
+    <summary><![CDATA[See how small retention improvements compound over time with this interactive cohort analyzer. Model your SaaS metrics and discover where to focus for maximum]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -484,7 +484,7 @@
     <id>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game for AI reasoning transparency.]]></summary>
+    <summary><![CDATA[An inside look at the design philosophy behind the Deliberate Reasoning Engine, a structured thought graph for large language models—and how it changes the game]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -502,7 +502,7 @@
     <id>https://www.haasonsaas.com/blog/dspy-the-end-of-prompt-engineering-as-we-know-it</id>
     <published>2025-06-23T00:00:00.000Z</published>
     <updated>2025-06-23T00:00:00.000Z</updated>
-    <summary><![CDATA[Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready techniques]]></summary>
+    <summary><![CDATA[Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -569,7 +569,7 @@
     <id>https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword matching]]></summary>
+    <summary><![CDATA[A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -603,7 +603,7 @@
     <id>https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform.]]></summary>
+    <summary><![CDATA[How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -791,7 +791,7 @@
     <id>https://www.haasonsaas.com/blog/coding-model-ui</id>
     <published>2025-06-18T00:00:00.000Z</published>
     <updated>2025-06-18T00:00:00.000Z</updated>
-    <summary><![CDATA[Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you think.]]></summary>
+    <summary><![CDATA[Coding models can write brilliant functions and tidy interfaces. But ask them to design usable UI—and they fall apart. Here’s why that matters more than you]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -808,7 +808,7 @@
     <id>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</id>
     <published>2025-06-17T00:00:00.000Z</published>
     <updated>2025-06-17T00:00:00.000Z</updated>
-    <summary><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation workflow.]]></summary>
+    <summary><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -832,10 +832,10 @@
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="AI-tools" />
+    <category term="ai-tools" />
     <category term="developer-productivity" />
     <category term="prompt-engineering" />
-    <category term="Claude" />
+    <category term="claude" />
     <category term="software-strategy" />
   </entry>
 </feed>

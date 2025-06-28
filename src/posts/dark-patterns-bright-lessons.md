@@ -1,10 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11T00:00:00.000Z
+pubDate: '2024-04-11'
+
 title: 'Dark Patterns, Bright Lessons: Ethics in Product Design'
-description: >-
-  Exploring the ethical implications of dark patterns in UX design and how to
-  build products that respect user agency
+
+description: 'Exploring the ethical implications of dark patterns in UX design and how to build products that respect user agency'
+
 tags:
   - product
   - ux

@@ -1,16 +1,13 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-25'
+
 title: 'Scaling the Me Component: How I Built an AI That Thinks Like Me'
-description: >-
-  I built the Jonathan Voice Engine—an AI that replicates my writing style,
-  perspective, and strategic thinking. Here's how I extracted my voice from 50+
-  blog posts and created an authenticity validation system that keeps responses
-  true to my contrarian, pragmatic worldview.
-featured: false
+
+description: 'I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog'featured: false
 draft: false
 tags:
-  - AI
+  - ai
   - voice-replication
   - personalization
   - meta
