@@ -57,6 +57,7 @@
     "bypassable",
     "sandboxing",
     "groupby",
+    "TTFB",
     "numpy",
     "scipy",
     "matplotlib",
