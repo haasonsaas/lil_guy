@@ -28,6 +28,7 @@
     "drafts": "bun run scripts/draft-analyzer.ts",
     "ideas": "bun run scripts/content-ideas.ts",
     "momentum": "bun run scripts/momentum.ts",
+    "perf": "bun run scripts/performance-report.ts",
     "setup:automation": "bun --env-file=.env run scripts/setup-automation.ts",
     "test:automation": "bun --env-file=.env run scripts/test-auto-blog.ts",
     "gemini": "bun --env-file=.env run scripts/gemini.ts",

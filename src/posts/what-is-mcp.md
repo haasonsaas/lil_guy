@@ -15,7 +15,7 @@ tags:
   - mcp-standard
   - system-integration
 image:
-  url: 'https://images.pexels.com/photos/1661476/pexels-photo-1661476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
+  url: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
   alt: 'Developer orchestrating multiple systems through an integrated interface'
 ---
 

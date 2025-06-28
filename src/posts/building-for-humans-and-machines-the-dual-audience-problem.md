@@ -18,7 +18,7 @@ image:
   alt: 'Building for Humans AND Machines: The Dual-Audience Problem header image'
 ---
 
-_This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code._
+_This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code._
 
 Building a website used to be straightforward: design for humans, optimize for search engines, ship it. Now we have a third audience that's rapidly becoming just as important: **AI agents**.
 

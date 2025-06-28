@@ -107,7 +107,7 @@ to wait for solutions to come from elsewhere.
 The extension is straightforward to use:
 
 1. Download it from the GitHub
-   [repo](https://github.com/haasonsaas/jira-title-generator)
+   repository
 1. Load the unpacked folder in Chrome
 1. Add your OpenAI API key in the settings
 1. Select any text, right-click, and choose "Generate JIRA Title"

@@ -34,6 +34,7 @@ import {
 import { BlogPost } from '@/types/blog'
 import WeeklyPlaybook from '@/components/WeeklyPlaybook'
 import SmartSearch from '@/components/SmartSearch'
+import { WebsiteMeta } from '@/components/SEO/MetaTags'
 
 const POSTS_PER_PAGE = 9
 
@@ -293,6 +294,11 @@ export default function BlogPage() {
 
   return (
     <Layout>
+      <WebsiteMeta
+        title="Blog - Insights for Builders, Backers, and Operators"
+        description="Hard-earned lessons and forward-looking analysis on AI-native SaaS, product-market fit, and scaling trust in software. Read what top-tier founders and VCs are already talking about."
+        path="/blog"
+      />
       <section className="py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-12 animate-fade-in">

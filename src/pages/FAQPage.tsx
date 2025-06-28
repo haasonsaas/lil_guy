@@ -5,10 +5,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
+import { WebsiteMeta } from '@/components/SEO/MetaTags'
 
 export default function FAQPage() {
   return (
     <Layout>
+      <WebsiteMeta
+        title="FAQ - Frequently Asked Questions"
+        description="Get answers to frequently asked questions about Jonathan Haas's work, consulting services, and expertise in security, AI, and SaaS product development."
+        path="/faq"
+      />
       <section className="py-12 md:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">

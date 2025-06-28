@@ -15,7 +15,7 @@ image:
   alt: "A compass and security lock representing the North platform's mission to guide organizations through security tool selection"
 ---
 
-In the rapidly evolving world of cybersecurity, organizations face an overwhelming array of security tools and solutions. Each promises to be the silver bullet for protecting digital assets, yet the reality is far more complex. [North](https://north.haasonsaas.com) emerges as a response to this challenge—not as another security product, but as a comprehensive guide to help organizations make informed decisions about their security tooling.
+In the rapidly evolving world of cybersecurity, organizations face an overwhelming array of security tools and solutions. Each promises to be the silver bullet for protecting digital assets, yet the reality is far more complex. North emerges as a response to this challenge—not as another security product, but as a comprehensive guide to help organizations make informed decisions about their security tooling.
 
 ## The Genesis of North
 

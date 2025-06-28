@@ -12,7 +12,7 @@ interface BlogPost {
     title: string
     pubDate: string
     description?: string
-    tags?: string[]
+    tags?: string[] | string
     draft?: boolean
     author?: string
     featured?: boolean
@@ -213,8 +213,13 @@ function getTopTags(posts: BlogPost[]): { tag: string; count: number }[] {
 
   posts.forEach((post) => {
     if (post.frontmatter.tags) {
-      post.frontmatter.tags.forEach((tag) => {
-        tagCounts[tag] = (tagCounts[tag] || 0) + 1
+      const tags = Array.isArray(post.frontmatter.tags)
+        ? post.frontmatter.tags
+        : [post.frontmatter.tags]
+      tags.forEach((tag) => {
+        if (typeof tag === 'string') {
+          tagCounts[tag] = (tagCounts[tag] || 0) + 1
+        }
       })
     }
   })
@@ -305,12 +310,17 @@ function getTopicDistribution(
 
   posts.forEach((post) => {
     if (post.frontmatter.tags) {
-      post.frontmatter.tags.forEach((tag) => {
-        Object.entries(topicMap).forEach(([topic, keywords]) => {
-          if (keywords.some((keyword) => tag.includes(keyword))) {
-            topicCounts[topic]++
-          }
-        })
+      const tags = Array.isArray(post.frontmatter.tags)
+        ? post.frontmatter.tags
+        : [post.frontmatter.tags]
+      tags.forEach((tag) => {
+        if (typeof tag === 'string') {
+          Object.entries(topicMap).forEach(([topic, keywords]) => {
+            if (keywords.some((keyword) => tag.includes(keyword))) {
+              topicCounts[topic]++
+            }
+          })
+        }
       })
     }
   })

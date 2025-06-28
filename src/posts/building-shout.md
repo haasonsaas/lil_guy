@@ -15,7 +15,7 @@ image:
   alt: 'Screenshot of the Shout application interface showing the recognition evaluation system'
 ---
 
-When I set out to build [Shout](https://shout.haasonsaas.com), my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. After learning about evaluation frameworks from an AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
+When I set out to build Shout, my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition messages. After learning about evaluation frameworks from an AI team, I decided to implement my own evaluation system—a journey that proved both technically challenging and intellectually rewarding.
 
 <soundcloud trackId="2078893932" title="Building Shout: Engineering Recognition Through Evals" />
 

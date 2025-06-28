@@ -71,7 +71,7 @@ That's the real unlock: **models can reason with accountability.**
 
 ## Plugging Into the Claude Desktop Ecosystem
 
-DRE is designed to work seamlessly with the [Claude Desktop](https://www.anthropic.com/index/claude-desktop) environment. Claude speaks the **Model Context Protocol (MCP)**, and DRE implements that spec as a server.
+DRE is designed to work seamlessly with the Claude Desktop environment. Claude speaks the **Model Context Protocol (MCP)**, and DRE implements that spec as a server.
 
 Once configured, you can:
 

@@ -735,11 +735,11 @@ Is it necessary when you're running code from an AI that learned from Stack Over
 Here's everything you need to build this yourself:
 
 - [Firecracker GitHub](https://github.com/firecracker-microvm/firecracker)
-- [My Example Configs](https://github.com/yourusername/firecracker-configs)
+- Example Firecracker configurations
 - [Kernel Build Guide](https://github.com/firecracker-microvm/firecracker/blob/main/docs/rootfs-and-kernel-setup.md)
-- [Production Rootfs Template](https://github.com/yourusername/minimal-rootfs)
+- Production rootfs template
 
-Got questions? Hit me up on Twitter [@yourusername]. I love talking about this stuff.
+Got questions? I love talking about this stuff.
 
 And remember: just because you _can_ run arbitrary code doesn't mean you _should_. But when you must, do it right.
 

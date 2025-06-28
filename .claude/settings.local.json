@@ -187,7 +187,8 @@
       "mcp__deep-code-reasoning__escalate_analysis",
       "WebFetch(domain:ai.google.dev)",
       "mcp__git__git_log",
-      "Bash(pre-commit-fix:*)"
+      "Bash(pre-commit-fix:*)",
+      "Bash(git branch:*)"
     ],
     "deny": []
   }
