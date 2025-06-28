@@ -322,7 +322,22 @@
     "Procfile",
     "Overengineering",
     "Dynatrace",
-    "MVDS"
+    "MVDS",
+    "debootstrap",
+    "minbase",
+    "dpkg",
+    "setrlimit",
+    "RLIMIT",
+    "Errorf",
+    "vsock",
+    "splitlines",
+    "Unmarshal",
+    "MULTIUSER",
+    "SYSFS",
+    "NOFILE",
+    "backpressure",
+    "Backpressure",
+    "yourusername"
   ],
   "ignorePaths": [
     "node_modules/**",
