@@ -27,6 +27,8 @@ import TechnicalArchitectureVisualizer from './TechnicalArchitectureVisualizer'
 import CustomerDevelopmentSimulator from './CustomerDevelopmentSimulator'
 import EngineeringVelocityTracker from './EngineeringVelocityTracker'
 import RetentionCohortAnalyzer from './RetentionCohortAnalyzer'
+import PerformanceBudgetCalculator from './PerformanceBudgetCalculator'
+import BuildTimeAnalyzer from './BuildTimeAnalyzer'
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement'
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement'
 import { useCodeBlockLazyLoading } from '@/hooks/useCodeBlockLazyLoading'
@@ -73,6 +75,8 @@ const components = {
   'customer-development-simulator': CustomerDevelopmentSimulator,
   'engineering-velocity-tracker': EngineeringVelocityTracker,
   'retention-cohort-analyzer': RetentionCohortAnalyzer,
+  'performance-budget-calculator': PerformanceBudgetCalculator,
+  'build-time-analyzer': BuildTimeAnalyzer,
 }
 
 interface MarkdownRendererProps {
