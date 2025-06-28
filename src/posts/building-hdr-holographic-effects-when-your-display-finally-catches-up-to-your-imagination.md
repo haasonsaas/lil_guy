@@ -4,7 +4,7 @@ pubDate: '2025-06-19'
 title: >-
   Building HDR Holographic Effects: When Your Display Finally Catches Up to Your
   Imagination
-description: 'How to create true HDR holographic foil effects that push beyond standard RGB limits on modern displays'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

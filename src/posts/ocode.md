@@ -4,7 +4,8 @@ pubDate: '2025-05-26'
 
 title: 'OCode: Why I Built My Own Claude Code (and Why You Might Too)'
 
-description: 'After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - engineering

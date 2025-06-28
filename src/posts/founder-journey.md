@@ -4,8 +4,7 @@ pubDate: '2024-12-13'
 
 title: 'The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster'
 
-description: 'An honest exploration of the psychological whiplash that comes with building a company, and why we keep coming back for more'
-
+description: 'FIXME: Add a full description for this post.'
 tags:
   - founder
   - startup

@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox'
-description: 'How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

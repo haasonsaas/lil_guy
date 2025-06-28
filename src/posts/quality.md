@@ -2,7 +2,7 @@
 title: 'Quality: The Foundation of Sustainable Growth'
 author: Jonathan Haas
 pubDate: '2024-04-11'
-description: How to build and maintain quality as a core value in your organization
+description: 'FIXME: Add a full description for this post.'
 tags:
   - engineering
   - product

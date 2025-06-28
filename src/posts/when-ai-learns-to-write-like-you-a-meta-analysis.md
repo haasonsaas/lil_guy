@@ -2,7 +2,7 @@
 author: 'Jonathan Haas'
 pubDate: '2025-06-19'
 title: 'When AI Learns to Write Like You: A Meta-Analysis'
-description: 'What happens when you teach Claude to analyze and replicate your writing style? A meta experiment in AI-assisted content creation.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags: ['ai', 'writing', 'developer-experience', 'meta']

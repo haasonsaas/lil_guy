@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'Testing Multi-AI Systems: A Practical Guide'
-description: 'Building reliable multi-AI systems? This guide provides practical strategies for testing complex AI interactions, ensuring robust performance and mitigating'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: true
 tags:

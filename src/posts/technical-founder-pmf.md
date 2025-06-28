@@ -5,7 +5,8 @@ pubDate: '2025-04-08'
 title: >-
   The Illusion of Traction: When Technical Founders Mistake Interest for
   Product-Market Fit
-description: 'Examining why technical founders often confuse early signals with genuine product-market fit, and how to recognize when you're building something people truly'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - entrepreneurship

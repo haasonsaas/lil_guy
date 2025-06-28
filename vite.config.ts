@@ -5,10 +5,20 @@ import { markdownPlugin } from './src/vite-markdown-plugin'
 import { viteBlogImagesPlugin } from './src/vite-blog-images-plugin'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   server: {
     host: '::',
-    port: 8080,
+    port: 8082,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8788',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+    hmr: {
+      port: 8082,
+    },
   },
   plugins: [react(), markdownPlugin(), viteBlogImagesPlugin()],
   resolve: {
@@ -113,4 +123,4 @@ export default defineConfig(({ mode }) => ({
     },
     chunkSizeWarningLimit: 1000,
   },
-}))
+})

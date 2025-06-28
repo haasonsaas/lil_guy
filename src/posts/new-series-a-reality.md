@@ -4,7 +4,8 @@ pubDate: '2025-05-12'
 
 title: 'The New Series A Reality: Why It Feels Harder (Because It Is)'
 
-description: 'If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - startup-funding

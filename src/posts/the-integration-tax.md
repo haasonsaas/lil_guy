@@ -4,8 +4,7 @@ pubDate: '2024-04-11'
 
 title: 'The Integration Tax: What Nobody Tells You About Building Modern Software'
 
-description: 'Why integrations are the hidden cost of modern software development, and what we can do about it'
-
+description: 'FIXME: Add a full description for this post.'
 tags:
   - engineering
   - product

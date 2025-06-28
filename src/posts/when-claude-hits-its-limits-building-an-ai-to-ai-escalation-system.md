@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'When Claude Hits Its Limits: Building an AI-to-AI Escalation System'
-description: 'How I built an MCP server that pairs Claude with Gemini for complex code analysis, creating a multi-model debugging workflow'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

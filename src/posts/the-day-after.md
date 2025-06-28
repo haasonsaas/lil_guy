@@ -4,7 +4,8 @@ pubDate: '2025-04-28'
 
 title: 'The Day After: Building a System to Remember What Matters'
 
-description: 'How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - productivity

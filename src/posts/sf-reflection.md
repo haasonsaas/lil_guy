@@ -4,8 +4,7 @@ pubDate: '2024-04-11'
 
 title: 'Three Months Back in SF: Finding Balance After ThreatKey'
 
-description: 'A personal reflection on returning to San Francisco three months ago, balancing a new PM role with personal health transformation, and finding sustainable'
-
+description: 'FIXME: Add a full description for this post.'
 tags:
   - personal-growth
   - leadership

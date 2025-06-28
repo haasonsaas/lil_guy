@@ -4,7 +4,8 @@ pubDate: '2024-05-04'
 
 title: 'When the Ask Feels Awkward, It’s Already Too Late'
 
-description: 'If you're hesitating to ask someone to do their job—or just doing it yourself to avoid conflict—it’s not a performance problem. It’s a role problem. Here's why'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - leadership

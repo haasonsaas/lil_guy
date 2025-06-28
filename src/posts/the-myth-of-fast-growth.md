@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-26'
 title: The Myth of Fast Growth
-description: 'Forget the hype! This post challenges conventional startup wisdom with practical, experience-based advice. Learn how to avoid common pitfalls and unlock real'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: true
 tags:

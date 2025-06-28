@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-17'
 title: 'Claude Code: Setup, Strategy, and Sanity Checks'
-description: 'A practical guide to getting the most out of Claude Code, from model selection and execution patterns to debugging loops and knowing when to quit.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

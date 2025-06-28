@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-26'
 title: 'Forget Perfect Data: Building a Usable Voice Profile Extractor'
-description: 'Stop chasing the mythical perfect dataset. I built a working voice profile extractor with 50 markdown files and regex. Here is why your obsession with data'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

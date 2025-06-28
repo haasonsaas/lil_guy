@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Testing at Light Speed: How QA Adapts to AI Velocity'
-description: 'When your team ships daily instead of quarterly, traditional QA breaks down. Here's how to build quality assurance that keeps pace with AI development.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

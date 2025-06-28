@@ -4,7 +4,8 @@ pubDate: '2025-06-28'
 
 title: 'The Velocity Revolution: 4,000 Lines of Code in 24 Hours'
 
-description: 'A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here's what 1,500+'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - ai

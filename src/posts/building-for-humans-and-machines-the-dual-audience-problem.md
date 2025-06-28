@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Building for Humans AND Machines: The Dual-Audience Problem'
-description: 'How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

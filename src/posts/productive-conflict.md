@@ -5,7 +5,8 @@ pubDate: '2025-04-25'
 title: >-
   Psychological Safety and Productive Conflict: The Hidden Link Driving
   High-Performing Teams
-description: 'Exploring why the best teams don't avoid disagreement—they lean into it with trust, clarity, and safety. Here's how psychological safety turns conflict into'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - leadership

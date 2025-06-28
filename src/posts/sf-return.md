@@ -8,7 +8,7 @@ tags:
   - personal-growth
   - leadership
   - culture
-description: 'A personal reflection on why I've decided to return to San Francisco, exploring the intersection of career growth, lifestyle, and happiness in the tech industry'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 It's become almost a cliché at this point: leaving San Francisco, writing a

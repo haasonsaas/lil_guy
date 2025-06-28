@@ -10,7 +10,7 @@ tags:
   - culture
   - transparency
   - trust
-description: 'A transparent guide to my management style, communication preferences, and working expectations'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 If you're reading this, you're either working with me, interested in working

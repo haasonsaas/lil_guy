@@ -1,7 +1,7 @@
 ---
 title: '25 Posts in 7 Days: Inside an AI-Powered Writing Sprint'
 pubDate: '2025-06-24'
-description: 'What happens when you pair with AI for a week? 23,000 words, 25 posts, and insights into the future of creative work'
+description: 'FIXME: Add a full description for this post.'
 author: 'Jonathan Haas'
 tags: ['ai', 'productivity', 'writing', 'developer-experience', 'creativity']
 featured: false

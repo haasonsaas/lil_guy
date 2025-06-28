@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Running Untrusted LLM Code Without Fear: The Implementation Guide'
-description: 'A practical guide to implementing Firecracker microVM sandboxes for safe LLM code execution, with real-world examples and performance optimizations'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: true
 tags:

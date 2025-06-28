@@ -8,7 +8,7 @@ tags:
   - technical-debt
   - engineering
   - product
-description: 'A framework for understanding and measuring the real impact of technical debt on engineering velocity and product development'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 The most expensive software I've ever written was code I wrote "quickly." Not

@@ -4,7 +4,7 @@ pubDate: '2025-04-12'
 title: >-
   API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI
   Approach
-description: 'A critical examination of why enterprises that rely solely on third-party AI APIs are setting themselves up for long-term failure, and what a genuine AI'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-25'
 title: The Rise of Single-Serving Software
-description: 'Why small, purposeful, disposable apps are becoming the future of creativity—and how AI and vibe-coding are accelerating the trend'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

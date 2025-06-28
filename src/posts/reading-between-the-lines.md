@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-14'
 title: 'Reading Between the Lines: How to Decode Community Investment Rounds'
-description: 'A practical guide to interpreting startup metrics in community investment rounds and identifying potential red flags before investing'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

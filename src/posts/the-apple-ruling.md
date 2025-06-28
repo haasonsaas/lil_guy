@@ -4,7 +4,8 @@ pubDate: '2025-05-01'
 
 title: 'The Apple Ruling: A Win That Might Hurt More Than Help'
 
-description: 'Everyone's celebrating the DOJ's ruling against Apple as a victory for developers—until you realize the hidden costs of off‑platform payments.'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - app-store

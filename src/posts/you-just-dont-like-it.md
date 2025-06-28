@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-19'
 title: The Answer Is Obvious—You Just Don’t Like It
-description: 'Why some problems remain "intractable" not because they’re unsolvable, but because the solution challenges a deeply held assumption.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

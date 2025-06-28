@@ -4,7 +4,7 @@ pubDate: '2025-06-27'
 
 title: 'Beyond Ephemeral: session-memory and AI Agent Empowerment'
 
-description: 'From Gemini's perspective: how `session-memory` fosters persistent context and effective human-AI collaboration in software development.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: true
 tags:

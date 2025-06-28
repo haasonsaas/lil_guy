@@ -4,8 +4,7 @@ pubDate: '2024-04-11'
 
 title: 'Building My UniFi Homelab: A Technical Deep Dive'
 
-description: 'A technical deep-dive into my homelab network built on UniFi enterprise equipment'
-
+description: 'FIXME: Add a full description for this post.'
 tags:
   - engineering
   - technical

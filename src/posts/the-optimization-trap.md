@@ -4,7 +4,8 @@ pubDate: '2025-05-16'
 
 title: 'The Optimization Trap: Why Technical Founders Self-Sabotage'
 
-description: 'A deep dive into how premature optimization derails early-stage startups, especially when technical founders chase performance before product-market fit. Here's'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - startup-culture

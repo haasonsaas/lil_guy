@@ -10,7 +10,7 @@ tags:
   - leadership
   - culture
   - management
-description: 'Moving beyond traditional engineering and product silos to build lasting, effective partnerships that drive innovation'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 "This isn't what we asked for."

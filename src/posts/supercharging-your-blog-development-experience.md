@@ -3,7 +3,8 @@ author: Jonathan Haas
 pubDate: '2025-06-17'
 
 title: Supercharging Your Blog Development Experience
-description: 'Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - developer-experience

@@ -3,7 +3,8 @@ author: Jonathan Haas
 pubDate: '2025-04-21'
 
 title: "Same Data, Same Dance: Why the Moat Isn't Technical Anymore"
-description: 'In an era where every security tool starts from the same place—your data—the technical playing field is flat. So where's the moat? It's not in the tech. It's in'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - cybersecurity

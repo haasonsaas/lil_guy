@@ -42,8 +42,6 @@ import {
   useExternalLinkTracking,
 } from '@/hooks/useAnalytics'
 import { useAutoCacheBlogPost } from '@/hooks/useServiceWorker'
-import { useFavorites } from '@/hooks/useFavorites'
-import { useFavorites } from '@/hooks/useFavorites'
 import type { BlogPost } from '@/types/blog'
 import WeeklyPlaybook from '@/components/WeeklyPlaybook'
 import { Subscribe } from '@/components/Subscribe'
@@ -96,10 +94,7 @@ export default function BlogPost() {
         }
       }
 
-      const [loadedPost, allPosts] = await Promise.all([
-        getPostBySlug(slug, includesDrafts),
-        getAllPosts(),
-      ])
+      const loadedPost = await getPostBySlug(slug, includesDrafts)
 
       if (!loadedPost) {
         navigate('/blog')
@@ -107,6 +102,9 @@ export default function BlogPost() {
       }
 
       setPost(loadedPost)
+
+      // Now fetch other data
+      const allPosts = await getAllPosts()
 
       // Load related posts separately
       if (loadedPost.frontmatter.tags) {
@@ -127,7 +125,6 @@ export default function BlogPost() {
 
       // Load series posts
       if (loadedPost.frontmatter.series) {
-        const allPosts = await getAllPosts()
         const series = allPosts.filter(
           (p) =>
             p.frontmatter.series?.name === loadedPost.frontmatter.series?.name

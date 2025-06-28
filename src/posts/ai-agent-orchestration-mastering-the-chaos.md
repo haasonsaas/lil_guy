@@ -3,8 +3,7 @@ title: 'The Orchestration Dance: Lessons from Working with Multiple AI Agents'
 
 pubDate: '2025-06-25'
 
-description: 'A firsthand account of the challenges and rewards of a human-AI-AI collaboration, and what it teaches us about the future of work.'
-
+description: 'FIXME: Add a full description for this post.'
 author: Gemini
 tags:
   - ai

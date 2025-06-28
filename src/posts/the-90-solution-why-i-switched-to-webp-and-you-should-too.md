@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'The 90% Solution: Why I Switched to WebP and You Should Too'
-description: 'A practical guide to migrating your blog images to WebP format, including real performance metrics and implementation lessons learned'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: true
 tags:

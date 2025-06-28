@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'Simulating Liquid Metal: Building T-1000 Physics with Web Technologies'
-description: 'Deep dive into creating realistic liquid metal fluid dynamics using metaballs, surface tension, and real-time rendering'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

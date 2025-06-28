@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-24'
 title: Technical Debt Isn't Just Slowing You Down—It's Accelerating
-description: 'Use this engineering velocity tracker to see how technical debt compounds exponentially. Model different paydown strategies and find the break-even point for'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

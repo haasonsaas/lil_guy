@@ -4,7 +4,8 @@ pubDate: '2025-05-12'
 
 title: 'When Vibe Coding Goes Wrong: Security Lessons from Granola'
 
-description: 'Vibe coding shifts software creation from careful engineering to casual AI generation. When startups skip security fundamentals, the consequences aren't just'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - cybersecurity

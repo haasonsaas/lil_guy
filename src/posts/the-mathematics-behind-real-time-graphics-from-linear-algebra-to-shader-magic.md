@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic'
-description: 'Exploring the mathematical foundations that power modern graphics programming, from transformation matrices to lighting equations'
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:

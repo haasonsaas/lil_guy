@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Feature Flags for Security: Decouple Deployment from Risk'
-description: 'How feature flags transform security from a deployment blocker into a risk control mechanism - with real-world examples and implementation patterns'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

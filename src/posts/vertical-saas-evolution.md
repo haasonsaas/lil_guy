@@ -4,8 +4,7 @@ pubDate: '2024-04-11'
 
 title: 'The Agentic Shift: How AI is Transforming Vertical SaaS'
 
-description: 'How vertical SaaS companies are rapidly evolving from workflow automation to intelligent agents, and what it means for the future of industry-specific software'
-
+description: 'FIXME: Add a full description for this post.'
 tags:
   - ai
   - ai-agents

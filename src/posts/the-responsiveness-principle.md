@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-19'
 title: 'The Responsiveness Principle: How Small Signals Build Big Trust in Venture'
-description: 'A practical field guide for early-stage investors and founders on why responsiveness—not just capital—sets the tone for trust, momentum, and long-term outcomes.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

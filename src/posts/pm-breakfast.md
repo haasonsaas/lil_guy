@@ -2,7 +2,8 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: The Product Manager's Guide to the Perfect Breakfast
-description: 'My first month as a Product Manager has been a whirlwind of meetings, Slack messages, and breakfasts at my desk. Here's a template to help you navigate the most'tags:
+description: 'FIXME: Add a full description for this post.'
+tags:
   - product
   - leadership
   - culture

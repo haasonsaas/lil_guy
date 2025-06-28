@@ -4,8 +4,7 @@ pubDate: '2024-04-11'
 
 title: 'The Perfection Paralysis: Why Moving Too Carefully Kills Startups'
 
-description: 'How an obsession with perfect architecture and clean code can prevent startups from finding product-market fit'
-
+description: 'FIXME: Add a full description for this post.'
 tags:
   - engineering
   - product

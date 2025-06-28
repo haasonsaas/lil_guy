@@ -2,7 +2,8 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'First, Do No Harm: When Not to Ship Features'
-description: 'Exploring the delicate balance between customer requests and product integrity through the lens of 'first, do no harm''tags:
+description: 'FIXME: Add a full description for this post.'
+tags:
   - product
   - strategy
   - leadership

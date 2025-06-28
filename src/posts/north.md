@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'North: Navigating the Complex Landscape of Enterprise Security Solutions'
-description: 'An in-depth exploration of how the North platform helps organizations navigate the complex landscape of security tools through community-driven insights and'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Engineering Recognition Through Evals: My Technical Journey Building Shout'
-description: 'A deep dive into the technical implementation of evaluation frameworks in my side project Shout, and the lessons learned along the way'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

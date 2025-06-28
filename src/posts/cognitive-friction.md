@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Cognitive Friction: The Hidden Cost of Bad UX'
-description: Understanding and reducing cognitive friction in user interfaces
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

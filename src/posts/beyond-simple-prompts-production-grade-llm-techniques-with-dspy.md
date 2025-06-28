@@ -2,7 +2,7 @@
 author: 'Jonathan Haas'
 pubDate: '2025-06-25'
 title: 'Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy'
-description: 'How I built a comprehensive toolkit of advanced prompting strategies that top AI startups use, going far beyond basic prompt engineering'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

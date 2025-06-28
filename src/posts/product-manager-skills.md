@@ -9,7 +9,7 @@ tags:
   - product-development
   - strategy
   - systems-thinking
-description: 'How great product managers find hidden patterns across seemingly unrelated requirements to build extraordinary products'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 The best product managers have a superpower that's rarely discussed: they can

@@ -4,7 +4,8 @@ pubDate: '2025-06-28'
 
 title: 'Security at AI Speed: Rethinking Review Processes for Velocity'
 
-description: 'Daily deployments terrify security teams. Here's how to build security practices that enable velocity instead of blocking it.'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - security

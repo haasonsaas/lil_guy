@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'When TypeScript Errors Break Production: Silent Cloudflare Function Failures'
-description: 'A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

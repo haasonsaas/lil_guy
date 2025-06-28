@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Work-Life Meditation: Finding Balance in Tech'
-description: Practical approaches to maintaining work-life balance in the tech industry
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

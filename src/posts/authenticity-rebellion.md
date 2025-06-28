@@ -4,7 +4,8 @@ pubDate: '2025-05-02'
 
 title: 'The Authenticity Rebellion: Resisting the AI Echo Chamber'
 
-description: 'The internet is drowning in AI-generated content, but connection and creativity are drowning with it. This post explores why scaling your voice doesn't mean'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - ai

@@ -4,7 +4,8 @@ pubDate: '2025-06-26'
 
 title: 'Stop "Simple" Testing: A Contrarian''s Guide'
 
-description: 'Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: true
 tags:
   - startup-testing

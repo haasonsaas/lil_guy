@@ -5,7 +5,8 @@ pubDate: '2024-04-11'
 title: >-
   The CISO Survival Guide: What I've Learned From Hundreds of Conversations with
   Security Leaders
-description: 'A product manager's perspective on the growing disconnect between security vendors and practitioners, based on hundreds of CISO conversations'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - security

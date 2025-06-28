@@ -10,7 +10,7 @@ tags:
   - product-development
   - startups
   - strategy
-description: 'Breaking down why most startup advice falls flat, and what to do about it'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 The most dangerous thing about startup advice isn't that it's wrong—it's that

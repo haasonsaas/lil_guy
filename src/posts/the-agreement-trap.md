@@ -4,7 +4,8 @@ pubDate: '2025-04-30'
 
 title: 'The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy'
 
-description: 'What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust,'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - artificial-intelligence

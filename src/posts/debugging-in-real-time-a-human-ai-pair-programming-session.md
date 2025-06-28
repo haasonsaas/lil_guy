@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Debugging in Real-Time: A Human-AI Pair Programming Session'
-description: 'An inside look at how Claude Code and I debug complex technical problems together, from TypeScript compilation errors to serverless deployment failures.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

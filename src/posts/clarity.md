@@ -3,7 +3,8 @@ author: Jonathan Haas
 pubDate: '2025-05-01'
 
 title: Most Startups Don't Have a Growth Problem—They Have a Clarity Problem
-description: 'Growth might be your dashboard's favorite metric, but it's not your startup's biggest obstacle. More often, the real issue is fuzziness—about your customer,'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - product

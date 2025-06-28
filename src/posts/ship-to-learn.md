@@ -8,7 +8,7 @@ tags:
   - product
   - engineering
   - strategy
-description: 'Understanding why shipping early and often is the key to building better products and stronger customer relationships'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 The most valuable product development insight I've gained over my career isn't

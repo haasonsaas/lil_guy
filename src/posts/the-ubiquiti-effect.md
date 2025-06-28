@@ -10,7 +10,7 @@ tags:
   - strategy
   - systems-thinking
   - user-experience
-description: 'How Ubiquiti's approach to product design offers a blueprint for the future of enterprise software'
+description: 'FIXME: Add a full description for this post.'
 ---
 
 ## The False Choice of Enterprise Software

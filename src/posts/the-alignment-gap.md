@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-20'
 title: 'The Alignment Gap: Bridging Strategy and Execution'
-description: How to ensure your team's execution aligns with your strategic vision
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:

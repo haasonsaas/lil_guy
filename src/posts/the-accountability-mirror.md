@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-30'
 title: 'The Accountability Mirror: Would a Stranger Believe You?'
-description: 'A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

@@ -4,7 +4,8 @@ pubDate: '2025-06-25'
 
 title: 'Scaling the Me Component: How I Built an AI That Thinks Like Me'
 
-description: 'I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - ai

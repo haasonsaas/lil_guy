@@ -3,7 +3,8 @@ author: Jonathan Haas
 pubDate: '2025-06-28'
 
 title: "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups"
-description: 'Most startups die from technical debt, not market risk. Here's how to build fast without building fragile - lessons from scaling 20+ engineering teams.'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: true
 tags:
   - contrarian-advice

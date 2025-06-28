@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-21'
 title: 'The Confidence Cliff: Why Overcertainty Kills Good Decisions'
-description: 'How early confidence in ideas can feel like clarity—but often leads to blind spots, brittle strategy, and bad decisions. Here’s how to catch yourself before you'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

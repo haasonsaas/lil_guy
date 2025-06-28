@@ -4,7 +4,8 @@ pubDate: '2025-05-04'
 
 title: 'Culture Over Code: Why Learning Ability Beats Raw Skill'
 
-description: 'Hiring great engineers isn't just about finding the smartest person in the room—it's about building a team that learns fast, adapts well, and plays the long'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - hiring

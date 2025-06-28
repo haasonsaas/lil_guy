@@ -3,7 +3,8 @@ author: Jonathan Haas
 pubDate: '2025-05-01'
 
 title: The Startup Bargain Is Broken
-description: 'The startup ecosystem promised a tradeoff: take below-market pay, bet on equity, win big at IPO. That promise is unraveling—and it's time we reckon with what'featured: false
+description: 'FIXME: Add a full description for this post.'
+featured: false
 draft: false
 tags:
   - startup-culture

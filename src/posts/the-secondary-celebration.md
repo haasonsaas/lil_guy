@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-16'
 title: "The Secondary Celebration: A Founder's Perspective on VC Liquidity Events"
-description: 'Examining the complex emotions founders experience when VCs celebrate secondary returns, and how investors can approach these milestones with greater empathy'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

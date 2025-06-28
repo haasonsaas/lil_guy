@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'Stop Guessing in Customer Interviews: A Simulator for Better Discovery'
-description: 'Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
