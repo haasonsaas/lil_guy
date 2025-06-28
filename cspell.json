@@ -58,6 +58,7 @@
     "sandboxing",
     "groupby",
     "TTFB",
+    "rollouts",
     "numpy",
     "scipy",
     "matplotlib",

@@ -20,6 +20,40 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
+      <description><![CDATA[Most startups die from technical debt, not market risk. Here's how to build fast without building fragile - lessons from scaling 20+ engineering teams.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[contrarian-advice]]></category>
+      <category><![CDATA[startup-engineering]]></category>
+      <category><![CDATA[technical-debt]]></category>
+      <category><![CDATA[scaling]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Running Untrusted LLM Code Without Fear: The Implementation Guide]]></title>
+      <description><![CDATA[A practical guide to implementing Firecracker microVM sandboxes for safe LLM code execution, with real-world examples and performance optimizations]]></description>
+      <link>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-the-implementation-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-the-implementation-guide</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[security]]></category>
+      <category><![CDATA[firecracker]]></category>
+      <category><![CDATA[microvm]]></category>
+      <category><![CDATA[llm]]></category>
+      <category><![CDATA[implementation-guide]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Velocity Revolution: 4,000 Lines of Code in 24 Hours]]></title>
+      <description><![CDATA[A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here's what 1,500+ file changes teach us about the future of software development.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[velocity]]></category>
+      <category><![CDATA[future-of-coding]]></category>
+    </item>
+    <item>
       <title><![CDATA[They Told Me This Wasn't the Future]]></title>
       <description><![CDATA[A perspective on working with AI agents and why dismissing their capabilities as 'toys' is profoundly shortsighted]]></description>
       <link>https://www.haasonsaas.com/blog/they-told-me-this-wasn-t-the-future</link>
@@ -562,42 +596,6 @@
       <category><![CDATA[AI-development]]></category>
       <category><![CDATA[product-security]]></category>
       <category><![CDATA[electron-apps]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Somebody Gave a Shit: The Quiet Power of Product Detail]]></title>
-      <description><![CDATA[Why the smallest details in product design—like a cable wrap—matter more than you think, and how they transmit care, conviction, and identity at scale.]]></description>
-      <link>https://www.haasonsaas.com/blog/somebody-gave-a-shit</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/somebody-gave-a-shit</guid>
-      <pubDate>Fri, 09 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[product-design]]></category>
-      <category><![CDATA[user-experience]]></category>
-      <category><![CDATA[craftsmanship]]></category>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[customer-emotion]]></category>
-    </item>
-    <item>
-      <title><![CDATA[From Gimmick to Game-Changer: Six Years of Living With Tesla FSD]]></title>
-      <description><![CDATA[Reflections on how Tesla’s Full Self-Driving went from laughably limited to astonishingly capable, and what it teaches us about compounding software and trust in autonomous systems.]]></description>
-      <link>https://www.haasonsaas.com/blog/six-years-with-fsd</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/six-years-with-fsd</guid>
-      <pubDate>Mon, 05 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[autonomous-driving]]></category>
-      <category><![CDATA[product-evolution]]></category>
-      <category><![CDATA[user-experience]]></category>
-      <category><![CDATA[software-development]]></category>
-      <category><![CDATA[machine-learning]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Culture Over Code: Why Learning Ability Beats Raw Skill]]></title>
-      <description><![CDATA[Hiring great engineers isn't just about finding the smartest person in the room—it's about building a team that learns fast, adapts well, and plays the long game together. Here's why cultural fit and learning velocity matter more than technical perfection.]]></description>
-      <link>https://www.haasonsaas.com/blog/culture-over-code</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/culture-over-code</guid>
-      <pubDate>Sun, 04 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[hiring]]></category>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[team-dynamics]]></category>
     </item>
   </channel>
 </rss>

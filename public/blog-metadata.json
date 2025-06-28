@@ -328,6 +328,18 @@
     "pubDate": "2025-04-20T00:00:00.000Z",
     "tags": ["management", "leadership", "culture", "startup", "growth"]
   },
+  "the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups": {
+    "title": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups",
+    "description": "Most startups die from technical debt, not market risk. Here's how to build fast without building fragile - lessons from scaling 20+ engineering teams.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": [
+      "contrarian-advice",
+      "startup-engineering",
+      "technical-debt",
+      "scaling"
+    ]
+  },
   "security-vendor-paradox": {
     "title": "The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand",
     "description": "An insider's perspective on the growing disconnect between security practitioners and solution providers, and how both sides can better navigate the complex cybersecurity ecosystem",
@@ -611,6 +623,19 @@
     "pubDate": "2024-04-11",
     "tags": ["ai", "product", "strategy", "leadership", "trust", "transparency"]
   },
+  "running-untrusted-llm-code-without-fear-the-implementation-guide": {
+    "title": "Running Untrusted LLM Code Without Fear: The Implementation Guide",
+    "description": "A practical guide to implementing Firecracker microVM sandboxes for safe LLM code execution, with real-world examples and performance optimizations",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": [
+      "security",
+      "firecracker",
+      "microvm",
+      "llm",
+      "implementation-guide"
+    ]
+  },
   "building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration": {
     "title": "Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration",
     "description": "How Claude and I built comprehensive AI agent APIs, interactive onboarding, and feedback systems that transform a blog into an agent-friendly knowledge platform.",
@@ -805,6 +830,13 @@
       "venture-capital",
       "organizational-dynamics"
     ]
+  },
+  "the-velocity-revolution-4-000-lines-of-code-in-24-hours": {
+    "title": "The Velocity Revolution: 4,000 Lines of Code in 24 Hours",
+    "description": "A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here's what 1,500+ file changes teach us about the future of software development.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["ai", "developer-experience", "velocity", "future-of-coding"]
   },
   "ai-content-ditch-the-hype-build-a-business": {
     "title": "AI Content: Ditch the Hype, Build a Business",
