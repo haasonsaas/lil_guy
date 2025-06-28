@@ -15,3 +15,8 @@ id = "da9ea499f9534d1ba78cd9a3a381ae2a"
 [[kv_namespaces]]
 binding = "RATE_LIMIT" 
 id = "12a9dd7606564fe9a3261bfab8de9d5a"
+
+# Performance metrics storage
+[[kv_namespaces]]
+binding = "METRICS_KV"
+id = "placeholder_metrics_kv_id"  # Replace with actual KV namespace ID

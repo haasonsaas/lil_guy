@@ -92,6 +92,38 @@ const PerformanceDashboard: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
+    // Import performance utilities
+    const loadPerformanceUtils = async () => {
+      try {
+        const { getStoredMetrics } = await import('@/utils/performance')
+
+        // Load existing metrics
+        const storedMetrics = getStoredMetrics()
+        const metricsData: PerformanceData = {}
+
+        // Convert stored metrics to dashboard format
+        storedMetrics.forEach(
+          (metric: {
+            name: string
+            value: number
+            rating: string
+            timestamp: number
+          }) => {
+            metricsData[metric.name as keyof PerformanceData] = {
+              name: metric.name,
+              value: metric.value,
+              rating: metric.rating,
+              timestamp: metric.timestamp,
+            }
+          }
+        )
+
+        setMetrics(metricsData)
+      } catch (error) {
+        console.warn('Could not load performance utilities:', error)
+      }
+    }
+
     // Listen for performance metrics from our monitoring system
     const handlePerformanceMetric = (event: CustomEvent<Metric>) => {
       const { name, value, rating, timestamp } = event.detail
@@ -114,6 +146,20 @@ const PerformanceDashboard: React.FC = () => {
       localStorage.getItem('show-performance-dashboard') === 'true'
 
     setIsVisible(showDashboard)
+
+    if (showDashboard) {
+      loadPerformanceUtils()
+
+      // Refresh metrics every 10 seconds
+      const interval = setInterval(loadPerformanceUtils, 10000)
+      return () => {
+        clearInterval(interval)
+        window.removeEventListener(
+          'performance-metric',
+          handlePerformanceMetric as EventListener
+        )
+      }
+    }
 
     return () => {
       window.removeEventListener(

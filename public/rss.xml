@@ -33,7 +33,7 @@
     </item>
     <item>
       <title><![CDATA[Security at AI Speed: Rethinking Review Processes for Velocity]]></title>
-      <description><![CDATA[Daily deployments terrify security teams. Here's how to build security practices that enable velocity instead of blocking it.]]></description>
+      <description><![CDATA[Daily deployments terrify security teams. Here]]></description>
       <link>https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</guid>
       <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
@@ -45,7 +45,7 @@
     </item>
     <item>
       <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
-      <description><![CDATA[Most startups die from technical debt, not market risk. Here's how to build fast without building fragile - lessons from scaling 20+ engineering teams.]]></description>
+      <description><![CDATA[Most startups die from technical debt, not market risk. Here]]></description>
       <link>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</guid>
       <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
@@ -56,7 +56,7 @@
     </item>
     <item>
       <title><![CDATA[When Your Manager Says 'Slow Down': Navigating Velocity Resistance]]></title>
-      <description><![CDATA[Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here's how to navigate organizational resistance without killing momentum.]]></description>
+      <description><![CDATA[Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here]]></description>
       <link>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</guid>
       <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
@@ -79,7 +79,7 @@
     </item>
     <item>
       <title><![CDATA[The Velocity Revolution: 4,000 Lines of Code in 24 Hours]]></title>
-      <description><![CDATA[A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here's what 1,500+]]></description>
+      <description><![CDATA[A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here]]></description>
       <link>https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours</guid>
       <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
@@ -89,20 +89,8 @@
       <category><![CDATA[future-of-coding]]></category>
     </item>
     <item>
-      <title><![CDATA[Testing at Light Speed: How QA Adapts to AI Velocity]]></title>
-      <description><![CDATA[When your team ships daily instead of quarterly, traditional QA breaks down. Here's how to build quality assurance that keeps pace with AI development.]]></description>
-      <link>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</guid>
-      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[qa]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[velocity]]></category>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[quality-assurance]]></category>
-    </item>
-    <item>
       <title><![CDATA[They Told Me This Wasn't the Future]]></title>
-      <description><![CDATA[A perspective on working with AI agents and why dismissing their capabilities as 'toys' is profoundly shortsighted]]></description>
+      <description><![CDATA[A perspective on working with AI agents and why dismissing their capabilities as ]]></description>
       <link>https://www.haasonsaas.com/blog/they-told-me-this-wasn-t-the-future</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/they-told-me-this-wasn-t-the-future</guid>
       <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
@@ -123,7 +111,7 @@
     </item>
     <item>
       <title><![CDATA[Beyond Ephemeral: session-memory and AI Agent Empowerment]]></title>
-      <description><![CDATA[From Gemini's perspective: how `session-memory` fosters persistent context and effective human-AI collaboration in software development.]]></description>
+      <description><![CDATA[From Gemini]]></description>
       <link>https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</guid>
       <pubDate>Fri, 27 Jun 2025 00:00:00 GMT</pubDate>
@@ -136,7 +124,7 @@
     </item>
     <item>
       <title><![CDATA[Stop "Simple" Testing: A Contrarian's Guide]]></title>
-      <description><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share]]></description>
+      <description><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I]]></description>
       <link>https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide</guid>
       <pubDate>Thu, 26 Jun 2025 00:00:00 GMT</pubDate>
@@ -206,7 +194,7 @@
     </item>
     <item>
       <title><![CDATA[The Orchestration Dance: What I Learned Building a Multi-AI Content System]]></title>
-      <description><![CDATA[I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here's what actually worked, what didn't, and why most teams]]></description>
+      <description><![CDATA[I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here]]></description>
       <link>https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</guid>
       <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
@@ -242,7 +230,7 @@
     </item>
     <item>
       <title><![CDATA[How I Built a Security Scanner That Actually Finds Bugs]]></title>
-      <description><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%]]></description>
+      <description><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools]]></description>
       <link>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</guid>
       <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
@@ -254,7 +242,7 @@
     </item>
     <item>
       <title><![CDATA[Scaling the Me Component: How I Built an AI That Thinks Like Me]]></title>
-      <description><![CDATA[I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog]]></description>
+      <description><![CDATA[I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here]]></description>
       <link>https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</guid>
       <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
@@ -359,7 +347,7 @@
     </item>
     <item>
       <title><![CDATA[DSPy: The End of Prompt Engineering As We Know It]]></title>
-      <description><![CDATA[Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready]]></description>
+      <description><![CDATA[Why Stanford]]></description>
       <link>https://www.haasonsaas.com/blog/dspy-the-end-of-prompt-engineering-as-we-know-it</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/dspy-the-end-of-prompt-engineering-as-we-know-it</guid>
       <pubDate>Mon, 23 Jun 2025 00:00:00 GMT</pubDate>
@@ -460,7 +448,7 @@
     </item>
     <item>
       <title><![CDATA[The Hidden Costs of Technical Debt]]></title>
-      <description><![CDATA[Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate.]]></description>
+      <description><![CDATA[Technical debt isn]]></description>
       <link>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
@@ -470,7 +458,7 @@
     </item>
     <item>
       <title><![CDATA[Why Your A/B Tests Are Lying to You]]></title>
-      <description><![CDATA[Statistical significance doesn't mean what you think it means. Here's why 95% of A/B tests are misleading and what to track instead.]]></description>
+      <description><![CDATA[Statistical significance doesn]]></description>
       <link>https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
@@ -515,7 +503,7 @@
     </item>
     <item>
       <title><![CDATA[The Unit Economics That Actually Matter]]></title>
-      <description><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></description>
+      <description><![CDATA[Most SaaS founders track LTV/CAC wrong. Here]]></description>
       <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
@@ -526,7 +514,7 @@
     </item>
     <item>
       <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
-      <description><![CDATA[The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value.]]></description>
+      <description><![CDATA[The psychology behind pricing decisions drives billions in revenue. Here]]></description>
       <link>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</guid>
       <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
@@ -570,7 +558,7 @@
     </item>
     <item>
       <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
-      <description><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation]]></description>
+      <description><![CDATA[Learn how we transformed our blog]]></description>
       <link>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</guid>
       <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
@@ -593,6 +581,20 @@
       <category><![CDATA[prompt-engineering]]></category>
       <category><![CDATA[claude]]></category>
       <category><![CDATA[software-strategy]]></category>
+    </item>
+    <item>
+      <title><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too)]]></title>
+      <description><![CDATA[After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here]]></description>
+      <link>https://www.haasonsaas.com/blog/ocode</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ocode</guid>
+      <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[product]]></category>
+      <category><![CDATA[strategy]]></category>
+      <category><![CDATA[transparency]]></category>
+      <category><![CDATA[open-source]]></category>
+      <category><![CDATA[developer-tools]]></category>
+      <category><![CDATA[ai]]></category>
     </item>
   </channel>
 </rss>

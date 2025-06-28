@@ -1,16 +1,15 @@
 ---
-
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Ship to Learn: Why Iteration Beats Perfection'
 featured: true
 draft: false
 tags:
-
-- product
-- engineering
-- strategy
-  description: 'Understanding why shipping early and often is the key to building better products and stronger customer relationships'---
+  - product
+  - engineering
+  - strategy
+description: 'Understanding why shipping early and often is the key to building better products and stronger customer relationships'
+---
 
 The most valuable product development insight I've gained over my career isn't
 about frameworks, methodologies, or technical decisions. It's simpler and more

@@ -136,6 +136,23 @@ jobs:
             fi
           fi
 
+          # Test performance monitoring setup
+          echo "📊 Testing performance monitoring..."
+          bun run perf:test || echo "⚠️ Performance monitoring tests failed"
+
+          # Run mock lighthouse audit
+          echo "🔍 Running performance audit..."
+          bun run lighthouse -f summary || echo "⚠️ Performance audit failed"
+
+          # Check for performance budget violations
+          echo "💰 Checking performance budgets..."
+          DIST_SIZE=$(du -sm dist 2>/dev/null | cut -f1 || echo "0")
+          if [ "$DIST_SIZE" -gt 25 ]; then
+            echo "⚠️ Bundle size ($DIST_SIZE MB) may exceed Cloudflare Pages limit"
+          else
+            echo "✅ Bundle size within limits ($DIST_SIZE MB)"
+          fi
+
       - name: Report results
         if: always()
         run: |

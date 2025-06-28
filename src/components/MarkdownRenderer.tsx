@@ -12,23 +12,25 @@ import 'katex/dist/katex.min.css'
 // Import Prism themes - using Material Oceanic as base
 import 'prism-themes/themes/prism-material-oceanic.css'
 import SoundCloudEmbed from './SoundCloudEmbed'
-import UnitEconomicsCalculator from './UnitEconomicsCalculator'
-import ABTestSimulator from './ABTestSimulator'
-import TechnicalDebtSimulator from './TechnicalDebtSimulator'
-import PricingPsychologySimulator from './PricingPsychologySimulator'
-import SaaSMetricsDashboard from './SaaSMetricsDashboard'
-import StartupRunwayCalculator from './StartupRunwayCalculator'
-import ProductMarketFitScorer from './ProductMarketFitScorer'
-import TAMSAMSOMCalculator from './TAMSAMSOMCalculator'
-import GrowthStrategySimulator from './GrowthStrategySimulator'
-import HiringCostCalculator from './HiringCostCalculator'
-import FeaturePrioritizationMatrix from './FeaturePrioritizationMatrix'
-import TechnicalArchitectureVisualizer from './TechnicalArchitectureVisualizer'
-import CustomerDevelopmentSimulator from './CustomerDevelopmentSimulator'
-import EngineeringVelocityTracker from './EngineeringVelocityTracker'
-import RetentionCohortAnalyzer from './RetentionCohortAnalyzer'
-import PerformanceBudgetCalculator from './PerformanceBudgetCalculator'
-import BuildTimeAnalyzer from './BuildTimeAnalyzer'
+import {
+  LazyUnitEconomicsCalculator,
+  LazyABTestSimulator,
+  LazyTechnicalDebtSimulator,
+  LazyPricingPsychologySimulator,
+  LazySaaSMetricsDashboard,
+  LazyStartupRunwayCalculator,
+  LazyProductMarketFitScorer,
+  LazyTAMSAMSOMCalculator,
+  LazyGrowthStrategySimulator,
+  LazyHiringCostCalculator,
+  LazyFeaturePrioritizationMatrix,
+  LazyTechnicalArchitectureVisualizer,
+  LazyCustomerDevelopmentSimulator,
+  LazyEngineeringVelocityTracker,
+  LazyRetentionCohortAnalyzer,
+  LazyPerformanceBudgetCalculator,
+  LazyBuildTimeAnalyzer,
+} from './LazyInteractiveComponents'
 import { useCodeBlockEnhancement } from '@/hooks/useCodeBlockEnhancement'
 import { useLazyImageEnhancement } from '@/hooks/useLazyImageEnhancement'
 import { useCodeBlockLazyLoading } from '@/hooks/useCodeBlockLazyLoading'
@@ -60,23 +62,23 @@ const createProcessor = () =>
 // Component registry
 const components = {
   soundcloud: SoundCloudEmbed,
-  'unit-economics-calculator': UnitEconomicsCalculator,
-  'ab-test-simulator': ABTestSimulator,
-  'technical-debt-simulator': TechnicalDebtSimulator,
-  'pricing-psychology-simulator': PricingPsychologySimulator,
-  'saas-metrics-dashboard': SaaSMetricsDashboard,
-  'startup-runway-calculator': StartupRunwayCalculator,
-  'product-market-fit-scorer': ProductMarketFitScorer,
-  'tam-sam-som-calculator': TAMSAMSOMCalculator,
-  'growth-strategy-simulator': GrowthStrategySimulator,
-  'hiring-cost-calculator': HiringCostCalculator,
-  'feature-prioritization-matrix': FeaturePrioritizationMatrix,
-  'technical-architecture-visualizer': TechnicalArchitectureVisualizer,
-  'customer-development-simulator': CustomerDevelopmentSimulator,
-  'engineering-velocity-tracker': EngineeringVelocityTracker,
-  'retention-cohort-analyzer': RetentionCohortAnalyzer,
-  'performance-budget-calculator': PerformanceBudgetCalculator,
-  'build-time-analyzer': BuildTimeAnalyzer,
+  'unit-economics-calculator': LazyUnitEconomicsCalculator,
+  'ab-test-simulator': LazyABTestSimulator,
+  'technical-debt-simulator': LazyTechnicalDebtSimulator,
+  'pricing-psychology-simulator': LazyPricingPsychologySimulator,
+  'saas-metrics-dashboard': LazySaaSMetricsDashboard,
+  'startup-runway-calculator': LazyStartupRunwayCalculator,
+  'product-market-fit-scorer': LazyProductMarketFitScorer,
+  'tam-sam-som-calculator': LazyTAMSAMSOMCalculator,
+  'growth-strategy-simulator': LazyGrowthStrategySimulator,
+  'hiring-cost-calculator': LazyHiringCostCalculator,
+  'feature-prioritization-matrix': LazyFeaturePrioritizationMatrix,
+  'technical-architecture-visualizer': LazyTechnicalArchitectureVisualizer,
+  'customer-development-simulator': LazyCustomerDevelopmentSimulator,
+  'engineering-velocity-tracker': LazyEngineeringVelocityTracker,
+  'retention-cohort-analyzer': LazyRetentionCohortAnalyzer,
+  'performance-budget-calculator': LazyPerformanceBudgetCalculator,
+  'build-time-analyzer': LazyBuildTimeAnalyzer,
 }
 
 interface MarkdownRendererProps {

@@ -33,28 +33,73 @@ function getRating(
 }
 
 function sendMetric(metric: PerformanceMetric) {
-  // Send to Cloudflare Analytics via beacon API
-  if ('sendBeacon' in navigator) {
-    const data = JSON.stringify({
-      type: 'web-vitals',
-      metric: metric.name,
-      value: metric.value,
-      rating: metric.rating,
-      url: metric.url,
-      timestamp: metric.timestamp,
-      userAgent: navigator.userAgent,
-      connection:
-        (navigator as Navigator & { connection?: { effectiveType: string } })
-          .connection?.effectiveType || 'unknown',
-    })
-
-    navigator.sendBeacon('/api/metrics', data)
+  const data = {
+    type: 'web-vitals',
+    metric: metric.name,
+    value: metric.value,
+    rating: metric.rating,
+    url: metric.url,
+    timestamp: metric.timestamp,
+    userAgent: navigator.userAgent,
+    connection:
+      (navigator as Navigator & { connection?: { effectiveType: string } })
+        .connection?.effectiveType || 'unknown',
   }
 
-  // Also log to console in development
+  // Try to send via beacon API first (most reliable)
+  if ('sendBeacon' in navigator) {
+    const success = navigator.sendBeacon('/api/metrics', JSON.stringify(data))
+    if (success && import.meta.env.DEV) {
+      console.log(
+        `[Web Vitals] ${metric.name}: ${metric.value}${metric.name === 'CLS' ? '' : 'ms'} (${metric.rating}) - sent via beacon`
+      )
+    }
+  }
+
+  // Fallback to fetch if beacon fails or isn't available
+  if (!('sendBeacon' in navigator)) {
+    fetch('/api/metrics', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data),
+      keepalive: true,
+    }).catch((error) => {
+      if (import.meta.env.DEV) {
+        console.warn(`[Web Vitals] Failed to send ${metric.name}:`, error)
+      }
+    })
+  }
+
+  // Store locally for potential batch sending
+  try {
+    const stored = localStorage.getItem('web-vitals-metrics') || '[]'
+    const metrics = JSON.parse(stored)
+    metrics.push({ ...metric, sent: Date.now() })
+
+    // Keep only last 20 metrics
+    if (metrics.length > 20) {
+      metrics.splice(0, metrics.length - 20)
+    }
+
+    localStorage.setItem('web-vitals-metrics', JSON.stringify(metrics))
+  } catch (error) {
+    // localStorage might be full or disabled
+    if (import.meta.env.DEV) {
+      console.warn('[Web Vitals] Could not store metric locally:', error)
+    }
+  }
+
+  // Always log in development
   if (import.meta.env.DEV) {
+    const unit = metric.name === 'CLS' ? '' : 'ms'
+    const color =
+      metric.rating === 'good'
+        ? '🟢'
+        : metric.rating === 'needs-improvement'
+          ? '🟡'
+          : '🔴'
     console.log(
-      `[Web Vitals] ${metric.name}: ${metric.value}ms (${metric.rating})`
+      `[Web Vitals] ${color} ${metric.name}: ${metric.value}${unit} (${metric.rating})`
     )
   }
 }
@@ -308,4 +353,119 @@ export function checkPerformanceBudget() {
   }
 
   return budget
+}
+
+// Get stored metrics for debugging
+export function getStoredMetrics() {
+  try {
+    const stored = localStorage.getItem('web-vitals-metrics') || '[]'
+    return JSON.parse(stored)
+  } catch {
+    return []
+  }
+}
+
+// Clear stored metrics
+export function clearStoredMetrics() {
+  localStorage.removeItem('web-vitals-metrics')
+}
+
+// Get real-time performance status
+export function getPerformanceStatus() {
+  if (typeof window === 'undefined') return null
+
+  const navigation = performance.getEntriesByType(
+    'navigation'
+  )[0] as PerformanceNavigationTiming
+
+  return {
+    // Navigation timing
+    domContentLoaded: navigation
+      ? Math.round(navigation.domContentLoadedEventEnd - navigation.fetchStart)
+      : 0,
+    loadComplete: navigation
+      ? Math.round(navigation.loadEventEnd - navigation.fetchStart)
+      : 0,
+
+    // Connection info
+    connection: (
+      navigator as unknown as {
+        connection?: { effectiveType: string; downlink: number; rtt: number }
+      }
+    ).connection
+      ? {
+          effectiveType: (
+            navigator as unknown as { connection: { effectiveType: string } }
+          ).connection.effectiveType,
+          downlink: (
+            navigator as unknown as { connection: { downlink: number } }
+          ).connection.downlink,
+          rtt: (navigator as unknown as { connection: { rtt: number } })
+            .connection.rtt,
+        }
+      : null,
+
+    // Device info
+    deviceMemory:
+      (navigator as unknown as { deviceMemory?: number }).deviceMemory ||
+      'unknown',
+    hardwareConcurrency: navigator.hardwareConcurrency || 'unknown',
+
+    // Performance now
+    timeOrigin: performance.timeOrigin,
+    now: performance.now(),
+  }
+}
+
+// Manual performance measurement for React components
+export function measureComponentPerformance(name: string, fn: () => void) {
+  const start = performance.now()
+  fn()
+  const end = performance.now()
+
+  trackCustomEvent(`Component_${name}`, Math.round(end - start))
+}
+
+// Batch send stored metrics (useful for offline scenarios)
+export async function flushStoredMetrics() {
+  const metrics = getStoredMetrics()
+  if (metrics.length === 0) return
+
+  try {
+    const response = await fetch('/api/metrics/batch', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ metrics }),
+    })
+
+    if (response.ok) {
+      clearStoredMetrics()
+      if (import.meta.env.DEV) {
+        console.log(`[Web Vitals] Flushed ${metrics.length} stored metrics`)
+      }
+    }
+  } catch (error) {
+    if (import.meta.env.DEV) {
+      console.warn('[Web Vitals] Failed to flush stored metrics:', error)
+    }
+  }
+}
+
+// Performance monitoring summary for debugging
+export function getPerformanceSummary() {
+  const storedMetrics = getStoredMetrics()
+  const status = getPerformanceStatus()
+  const budget = checkPerformanceBudget()
+
+  return {
+    monitoring: {
+      active: typeof window !== 'undefined',
+      storedMetrics: storedMetrics.length,
+      lastMetric: storedMetrics[storedMetrics.length - 1]?.timestamp || null,
+    },
+    performance: status,
+    budget,
+    url: typeof window !== 'undefined' ? window.location.href : null,
+    timestamp: Date.now(),
+  }
 }

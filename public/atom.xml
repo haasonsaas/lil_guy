@@ -36,7 +36,7 @@
     <id>https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[Daily deployments terrify security teams. Here's how to build security practices that enable velocity instead of blocking it.]]></summary>
+    <summary><![CDATA[Daily deployments terrify security teams. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -53,7 +53,7 @@
     <id>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[Most startups die from technical debt, not market risk. Here's how to build fast without building fragile - lessons from scaling 20+ engineering teams.]]></summary>
+    <summary><![CDATA[Most startups die from technical debt, not market risk. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -69,7 +69,7 @@
     <id>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here's how to navigate organizational resistance without killing momentum.]]></summary>
+    <summary><![CDATA[Your team can ship 10x faster with AI, but your manager wants more planning meetings. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -97,12 +97,25 @@
     <category term="implementation-guide" />
   </entry>
   <entry>
+    <title><![CDATA[the ubiquiti effect]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-ubiquiti-effect" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-ubiquiti-effect</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2025-06-28T00:00:00.000Z</updated>
+    <summary><![CDATA[No description provided]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    
+  </entry>
+  <entry>
     <title><![CDATA[The Velocity Revolution: 4,000 Lines of Code in 24 Hours]]></title>
     <link href="https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here's what 1,500+]]></summary>
+    <summary><![CDATA[A real-time analysis of human-AI collaboration that delivered Core Web Vitals monitoring, blog fixes, and new content at unprecedented speed. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -113,21 +126,30 @@
     <category term="future-of-coding" />
   </entry>
   <entry>
-    <title><![CDATA[Testing at Light Speed: How QA Adapts to AI Velocity]]></title>
-    <link href="https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</id>
+    <title><![CDATA[sf return]]></title>
+    <link href="https://www.haasonsaas.com/blog/sf-return" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/sf-return</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[When your team ships daily instead of quarterly, traditional QA breaks down. Here's how to build quality assurance that keeps pace with AI development.]]></summary>
+    <summary><![CDATA[No description provided]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
     </author>
-    <category term="qa" />
-    <category term="testing" />
-    <category term="velocity" />
-    <category term="ai" />
-    <category term="quality-assurance" />
+    
+  </entry>
+  <entry>
+    <title><![CDATA[testing at light speed how qa adapts to ai velocity]]></title>
+    <link href="https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</id>
+    <published>2025-06-28T00:00:00.000Z</published>
+    <updated>2025-06-28T00:00:00.000Z</updated>
+    <summary><![CDATA[No description provided]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    
   </entry>
   <entry>
     <title><![CDATA[They Told Me This Wasn't the Future]]></title>
@@ -135,7 +157,7 @@
     <id>https://www.haasonsaas.com/blog/they-told-me-this-wasn-t-the-future</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[A perspective on working with AI agents and why dismissing their capabilities as 'toys' is profoundly shortsighted]]></summary>
+    <summary><![CDATA[A perspective on working with AI agents and why dismissing their capabilities as ]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -166,7 +188,7 @@
     <id>https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</id>
     <published>2025-06-27T00:00:00.000Z</published>
     <updated>2025-06-27T00:00:00.000Z</updated>
-    <summary><![CDATA[From Gemini's perspective: how `session-memory` fosters persistent context and effective human-AI collaboration in software development.]]></summary>
+    <summary><![CDATA[From Gemini]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -184,7 +206,7 @@
     <id>https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide</id>
     <published>2025-06-26T00:00:00.000Z</published>
     <updated>2025-06-26T00:00:00.000Z</updated>
-    <summary><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I'll share]]></summary>
+    <summary><![CDATA[Ditch the "simple" testing dogma! Discover why basic testing fails startups and how to build robust, efficient testing strategies for rapid growth. I]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -284,7 +306,7 @@
     <id>https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here's what actually worked, what didn't, and why most teams]]></summary>
+    <summary><![CDATA[I built a system that combines Gemini and Claude to generate 780+ word blog posts automatically. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -335,7 +357,7 @@
     <id>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%]]></summary>
+    <summary><![CDATA[Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -352,7 +374,7 @@
     <id>https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here's how I extracted my voice from 50+ blog]]></summary>
+    <summary><![CDATA[I built the Jonathan Voice Engine—an AI that replicates my writing style, perspective, and strategic thinking. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -502,7 +524,7 @@
     <id>https://www.haasonsaas.com/blog/dspy-the-end-of-prompt-engineering-as-we-know-it</id>
     <published>2025-06-23T00:00:00.000Z</published>
     <updated>2025-06-23T00:00:00.000Z</updated>
-    <summary><![CDATA[Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready]]></summary>
+    <summary><![CDATA[Why Stanford]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -648,7 +670,7 @@
     <id>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate.]]></summary>
+    <summary><![CDATA[Technical debt isn]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -663,7 +685,7 @@
     <id>https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[Statistical significance doesn't mean what you think it means. Here's why 95% of A/B tests are misleading and what to track instead.]]></summary>
+    <summary><![CDATA[Statistical significance doesn]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -728,7 +750,7 @@
     <id>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.]]></summary>
+    <summary><![CDATA[Most SaaS founders track LTV/CAC wrong. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -744,7 +766,7 @@
     <id>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[The psychology behind pricing decisions drives billions in revenue. Here's how small pricing changes create massive impact on conversion and lifetime value.]]></summary>
+    <summary><![CDATA[The psychology behind pricing decisions drives billions in revenue. Here]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -801,41 +823,5 @@
     <category term="ai-tooling" />
     <category term="prompt-engineering" />
     <category term="product-strategy" />
-  </entry>
-  <entry>
-    <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
-    <link href="https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</id>
-    <published>2025-06-17T00:00:00.000Z</published>
-    <updated>2025-06-17T00:00:00.000Z</updated>
-    <summary><![CDATA[Learn how we transformed our blog's developer experience with custom CLI tools, hot reload, validation, and VS Code integration for a seamless content creation]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="developer-experience" />
-    <category term="blog-development" />
-    <category term="tooling" />
-    <category term="vscode" />
-    <category term="cli-tools" />
-    <category term="productivity" />
-    <category term="cloudflare-pages" />
-  </entry>
-  <entry>
-    <title><![CDATA[Claude Code: Setup, Strategy, and Sanity Checks]]></title>
-    <link href="https://www.haasonsaas.com/blog/claude-code-setup" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/claude-code-setup</id>
-    <published>2025-06-17T00:00:00.000Z</published>
-    <updated>2025-06-17T00:00:00.000Z</updated>
-    <summary><![CDATA[A practical guide to getting the most out of Claude Code, from model selection and execution patterns to debugging loops and knowing when to quit.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="ai-tools" />
-    <category term="developer-productivity" />
-    <category term="prompt-engineering" />
-    <category term="claude" />
-    <category term="software-strategy" />
   </entry>
 </feed>

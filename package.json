@@ -29,6 +29,8 @@
     "ideas": "bun run scripts/content-ideas.ts",
     "momentum": "bun run scripts/momentum.ts",
     "perf": "bun run scripts/performance-report.ts",
+    "lighthouse": "bun run scripts/lighthouse-audit.ts",
+    "perf:test": "bun run scripts/test-performance-api.ts",
     "setup:automation": "bun --env-file=.env run scripts/setup-automation.ts",
     "test:automation": "bun --env-file=.env run scripts/test-auto-blog.ts",
     "gemini": "bun --env-file=.env run scripts/gemini.ts",

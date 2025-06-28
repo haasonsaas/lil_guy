@@ -1,18 +1,17 @@
 ---
-
 author: Jonathan Haas
 pubDate: '2024-11-23'
 title: 'The Ubiquiti Effect: Why Enterprise Software Needs a Consumer Revolution'
 featured: true
 draft: false
 tags:
-
-- enterprise-software
-- product-development
-- strategy
-- systems-thinking
-- user-experience
-  description: 'How Ubiquiti's approach to product design offers a blueprint for the future of enterprise software'---
+  - enterprise-software
+  - product-development
+  - strategy
+  - systems-thinking
+  - user-experience
+description: 'How Ubiquiti's approach to product design offers a blueprint for the future of enterprise software'
+---
 
 ## The False Choice of Enterprise Software
 

@@ -1,16 +1,15 @@
 ---
-
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Tech Debt Velocity: Measuring the True Cost of Shortcuts'
 featured: true
 draft: false
 tags:
-
-- technical-debt
-- engineering
-- product
-  description: 'A framework for understanding and measuring the real impact of technical debt on engineering velocity and product development'---
+  - technical-debt
+  - engineering
+  - product
+description: 'A framework for understanding and measuring the real impact of technical debt on engineering velocity and product development'
+---
 
 The most expensive software I've ever written was code I wrote "quickly." Not
 because it was complex, but because I wrote it with the intention of "fixing it
