@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-19'
 title: The Answer Is Obvious—You Just Don’t Like It
-description: 'FIXME: Add a full description for this post.'
+description: 'The Answer Is Obvious—You Just Don’t Like It: You’ve probably seen this happen. A smart, capable person presents a gnarly problem.'
 featured: false
 draft: false
 tags:

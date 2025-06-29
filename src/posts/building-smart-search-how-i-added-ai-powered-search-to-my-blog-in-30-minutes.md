@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes'
-description: 'FIXME: Add a full description for this post.'
+description: 'Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes: It took 30 minutes with Claude Code. Press Cmd+K right now.'
 featured: false
 draft: false
 tags:

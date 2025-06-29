@@ -1,6 +1,7 @@
 /**
  * Core Web Vitals and Performance Monitoring
  * Tracks LCP, FID, CLS, FCP, and TTFB metrics
+ * Fixed memory leaks by implementing proper cleanup
  */
 
 interface PerformanceMetric {
@@ -19,6 +20,316 @@ const THRESHOLDS = {
   FCP: { good: 1800, poor: 3000 },
   TTFB: { good: 800, poor: 1800 },
 }
+
+// Global cleanup registry
+class PerformanceMonitor {
+  private observers: PerformanceObserver[] = []
+  private mutationObservers: MutationObserver[] = []
+  private eventListeners: Array<{
+    target: EventTarget
+    type: string
+    listener: EventListener
+  }> = []
+  private isInitialized = false
+
+  // Cleanup all resources
+  cleanup() {
+    // Disconnect all PerformanceObservers
+    this.observers.forEach((observer) => {
+      try {
+        observer.disconnect()
+      } catch (error) {
+        console.warn('Error disconnecting PerformanceObserver:', error)
+      }
+    })
+    this.observers = []
+
+    // Disconnect all MutationObservers
+    this.mutationObservers.forEach((observer) => {
+      try {
+        observer.disconnect()
+      } catch (error) {
+        console.warn('Error disconnecting MutationObserver:', error)
+      }
+    })
+    this.mutationObservers = []
+
+    // Remove all event listeners
+    this.eventListeners.forEach(({ target, type, listener }) => {
+      try {
+        target.removeEventListener(type, listener)
+      } catch (error) {
+        console.warn('Error removing event listener:', error)
+      }
+    })
+    this.eventListeners = []
+
+    this.isInitialized = false
+  }
+
+  // Register observers for cleanup
+  private addObserver(observer: PerformanceObserver) {
+    this.observers.push(observer)
+  }
+
+  private addMutationObserver(observer: MutationObserver) {
+    this.mutationObservers.push(observer)
+  }
+
+  private addEventListener(
+    target: EventTarget,
+    type: string,
+    listener: EventListener
+  ) {
+    target.addEventListener(type, listener)
+    this.eventListeners.push({ target, type, listener })
+  }
+
+  init() {
+    // Prevent multiple initializations
+    if (this.isInitialized) {
+      this.cleanup() // Clean up previous instance
+    }
+
+    // Only run in browser environment
+    if (typeof window === 'undefined') return
+
+    this.isInitialized = true
+
+    // Wait for page load to start monitoring
+    if (document.readyState === 'loading') {
+      const loadListener = () => {
+        setTimeout(() => this.startMonitoring(), 0)
+      }
+      this.addEventListener(document, 'DOMContentLoaded', loadListener)
+    } else {
+      setTimeout(() => this.startMonitoring(), 0)
+    }
+
+    // Cleanup on page unload
+    const unloadListener = () => this.cleanup()
+    this.addEventListener(window, 'beforeunload', unloadListener)
+    this.addEventListener(window, 'unload', unloadListener)
+  }
+
+  private startMonitoring() {
+    this.measureLCP()
+    this.measureFID()
+    this.measureCLS()
+    this.measureFCP()
+    this.measureTTFB()
+    this.measureCustomMetrics()
+    this.trackBundleSize()
+  }
+
+  private measureLCP() {
+    try {
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries()
+        const lastEntry = entries[entries.length - 1] as PerformanceEntry & {
+          startTime: number
+        }
+
+        if (lastEntry) {
+          sendMetric({
+            name: 'LCP',
+            value: Math.round(lastEntry.startTime),
+            rating: getRating('LCP', lastEntry.startTime),
+            timestamp: Date.now(),
+            url: window.location.href,
+          })
+        }
+      })
+
+      observer.observe({ type: 'largest-contentful-paint', buffered: true })
+      this.addObserver(observer)
+    } catch (error) {
+      console.warn('LCP measurement not supported')
+    }
+  }
+
+  private measureFID() {
+    try {
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries()
+        entries.forEach(
+          (
+            entry: PerformanceEntry & {
+              processingStart: number
+              startTime: number
+            }
+          ) => {
+            sendMetric({
+              name: 'FID',
+              value: Math.round(entry.processingStart - entry.startTime),
+              rating: getRating('FID', entry.processingStart - entry.startTime),
+              timestamp: Date.now(),
+              url: window.location.href,
+            })
+          }
+        )
+      })
+
+      observer.observe({ type: 'first-input', buffered: true })
+      this.addObserver(observer)
+    } catch (error) {
+      console.warn('FID measurement not supported')
+    }
+  }
+
+  private measureCLS() {
+    try {
+      let clsValue = 0
+      const clsEntries: PerformanceEntry[] = []
+
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries()
+        entries.forEach(
+          (
+            entry: PerformanceEntry & { hadRecentInput: boolean; value: number }
+          ) => {
+            if (!entry.hadRecentInput) {
+              clsValue += entry.value
+              clsEntries.push(entry)
+            }
+          }
+        )
+      })
+
+      observer.observe({ type: 'layout-shift', buffered: true })
+      this.addObserver(observer)
+
+      // Send CLS when page becomes hidden
+      const visibilityListener = () => {
+        if (document.visibilityState === 'hidden') {
+          sendMetric({
+            name: 'CLS',
+            value: Math.round(clsValue * 1000) / 1000,
+            rating: getRating('CLS', clsValue),
+            timestamp: Date.now(),
+            url: window.location.href,
+          })
+        }
+      }
+      this.addEventListener(document, 'visibilitychange', visibilityListener)
+    } catch (error) {
+      console.warn('CLS measurement not supported')
+    }
+  }
+
+  private measureFCP() {
+    try {
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries()
+        entries.forEach((entry: PerformanceEntry & { startTime: number }) => {
+          sendMetric({
+            name: 'FCP',
+            value: Math.round(entry.startTime),
+            rating: getRating('FCP', entry.startTime),
+            timestamp: Date.now(),
+            url: window.location.href,
+          })
+        })
+      })
+
+      observer.observe({ type: 'paint', buffered: true })
+      this.addObserver(observer)
+    } catch (error) {
+      console.warn('FCP measurement not supported')
+    }
+  }
+
+  private measureTTFB() {
+    try {
+      const observer = new PerformanceObserver((list) => {
+        const entries = list.getEntries()
+        entries.forEach(
+          (
+            entry: PerformanceEntry & {
+              responseStart: number
+              requestStart: number
+            }
+          ) => {
+            sendMetric({
+              name: 'TTFB',
+              value: Math.round(entry.responseStart - entry.requestStart),
+              rating: getRating(
+                'TTFB',
+                entry.responseStart - entry.requestStart
+              ),
+              timestamp: Date.now(),
+              url: window.location.href,
+            })
+          }
+        )
+      })
+
+      observer.observe({ type: 'navigation', buffered: true })
+      this.addObserver(observer)
+    } catch (error) {
+      console.warn('TTFB measurement not supported')
+    }
+  }
+
+  private measureCustomMetrics() {
+    if (window.location.pathname.startsWith('/blog/')) {
+      const observer = new MutationObserver(() => {
+        const content = document.querySelector('[data-content="blog-post"]')
+        if (content) {
+          // Found content, send metric and cleanup
+          sendMetric({
+            name: 'BlogPostLoad',
+            value: Math.round(performance.now()),
+            rating: 'good',
+            timestamp: Date.now(),
+            url: window.location.href,
+          })
+          observer.disconnect()
+          clearTimeout(timeoutId)
+        }
+      })
+
+      observer.observe(document.body, { childList: true, subtree: true })
+      this.addMutationObserver(observer)
+
+      // Cleanup after 10 seconds if content not found
+      const timeoutId = setTimeout(() => {
+        observer.disconnect()
+      }, 10000)
+    }
+  }
+
+  private trackBundleSize() {
+    // Track bundle size and loading performance
+    if (performance.getEntriesByType) {
+      const resources = performance.getEntriesByType(
+        'resource'
+      ) as PerformanceResourceTiming[]
+      const jsResources = resources.filter((r) => r.name.includes('.js'))
+      const totalJSSize = jsResources.reduce((size, resource) => {
+        return size + (resource.transferSize || 0)
+      }, 0)
+
+      if (totalJSSize > 0) {
+        sendMetric({
+          name: 'BundleSize',
+          value: Math.round(totalJSSize / 1024), // KB
+          rating:
+            totalJSSize < 250000
+              ? 'good'
+              : totalJSSize < 500000
+                ? 'needs-improvement'
+                : 'poor',
+          timestamp: Date.now(),
+          url: window.location.href,
+        })
+      }
+    }
+  }
+}
+
+// Singleton instance
+const performanceMonitor = new PerformanceMonitor()
 
 function getRating(
   metric: string,
@@ -48,48 +359,36 @@ function sendMetric(metric: PerformanceMetric) {
 
   // Try to send via beacon API first (most reliable)
   if ('sendBeacon' in navigator) {
-    const success = navigator.sendBeacon('/api/metrics', JSON.stringify(data))
-    if (success && import.meta.env.DEV) {
-      console.log(
-        `[Web Vitals] ${metric.name}: ${metric.value}${metric.name === 'CLS' ? '' : 'ms'} (${metric.rating}) - sent via beacon`
-      )
+    try {
+      const success = navigator.sendBeacon('/api/metrics', JSON.stringify(data))
+      if (success) {
+        logMetric(metric)
+        return
+      }
+    } catch (error) {
+      // Fall through to fetch
     }
   }
 
-  // Fallback to fetch if beacon fails or isn't available
-  if (!('sendBeacon' in navigator)) {
+  // Fallback to fetch with keepalive
+  try {
     fetch('/api/metrics', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),
       keepalive: true,
-    }).catch((error) => {
-      if (import.meta.env.DEV) {
-        console.warn(`[Web Vitals] Failed to send ${metric.name}:`, error)
-      }
+    }).catch(() => {
+      // Store for later if network fails
+      storeMetricForLater(metric)
     })
-  }
-
-  // Store locally for potential batch sending
-  try {
-    const stored = localStorage.getItem('web-vitals-metrics') || '[]'
-    const metrics = JSON.parse(stored)
-    metrics.push({ ...metric, sent: Date.now() })
-
-    // Keep only last 20 metrics
-    if (metrics.length > 20) {
-      metrics.splice(0, metrics.length - 20)
-    }
-
-    localStorage.setItem('web-vitals-metrics', JSON.stringify(metrics))
   } catch (error) {
-    // localStorage might be full or disabled
-    if (import.meta.env.DEV) {
-      console.warn('[Web Vitals] Could not store metric locally:', error)
-    }
+    storeMetricForLater(metric)
   }
 
-  // Always log in development
+  logMetric(metric)
+}
+
+function logMetric(metric: PerformanceMetric) {
   if (import.meta.env.DEV) {
     const unit = metric.name === 'CLS' ? '' : 'ms'
     const color =
@@ -104,232 +403,30 @@ function sendMetric(metric: PerformanceMetric) {
   }
 }
 
-// Largest Contentful Paint (LCP)
-function measureLCP() {
+function storeMetricForLater(metric: PerformanceMetric) {
   try {
-    const observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries()
-      const lastEntry = entries[entries.length - 1] as PerformanceEntry & {
-        startTime: number
-      }
-
-      if (lastEntry) {
-        sendMetric({
-          name: 'LCP',
-          value: Math.round(lastEntry.startTime),
-          rating: getRating('LCP', lastEntry.startTime),
-          timestamp: Date.now(),
-          url: window.location.href,
-        })
-      }
-    })
-
-    observer.observe({ type: 'largest-contentful-paint', buffered: true })
+    const stored = JSON.parse(
+      localStorage.getItem('web-vitals-metrics') || '[]'
+    )
+    stored.push(metric)
+    // Keep only last 50 metrics to prevent localStorage bloat
+    if (stored.length > 50) {
+      stored.splice(0, stored.length - 50)
+    }
+    localStorage.setItem('web-vitals-metrics', JSON.stringify(stored))
   } catch (error) {
-    console.warn('LCP measurement not supported')
-  }
-}
-
-// First Input Delay (FID)
-function measureFID() {
-  try {
-    const observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries()
-      entries.forEach(
-        (
-          entry: PerformanceEntry & {
-            processingStart: number
-            startTime: number
-          }
-        ) => {
-          sendMetric({
-            name: 'FID',
-            value: Math.round(entry.processingStart - entry.startTime),
-            rating: getRating('FID', entry.processingStart - entry.startTime),
-            timestamp: Date.now(),
-            url: window.location.href,
-          })
-        }
-      )
-    })
-
-    observer.observe({ type: 'first-input', buffered: true })
-  } catch (error) {
-    console.warn('FID measurement not supported')
-  }
-}
-
-// Cumulative Layout Shift (CLS)
-function measureCLS() {
-  try {
-    let clsValue = 0
-    const clsEntries: PerformanceEntry[] = []
-
-    const observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries()
-      entries.forEach(
-        (
-          entry: PerformanceEntry & { hadRecentInput: boolean; value: number }
-        ) => {
-          if (!entry.hadRecentInput) {
-            clsValue += entry.value
-            clsEntries.push(entry)
-          }
-        }
-      )
-    })
-
-    observer.observe({ type: 'layout-shift', buffered: true })
-
-    // Send CLS when page becomes hidden
-    document.addEventListener('visibilitychange', () => {
-      if (document.visibilityState === 'hidden') {
-        sendMetric({
-          name: 'CLS',
-          value: Math.round(clsValue * 1000) / 1000,
-          rating: getRating('CLS', clsValue),
-          timestamp: Date.now(),
-          url: window.location.href,
-        })
-      }
-    })
-  } catch (error) {
-    console.warn('CLS measurement not supported')
-  }
-}
-
-// First Contentful Paint (FCP)
-function measureFCP() {
-  try {
-    const observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries()
-      entries.forEach((entry: PerformanceEntry & { startTime: number }) => {
-        sendMetric({
-          name: 'FCP',
-          value: Math.round(entry.startTime),
-          rating: getRating('FCP', entry.startTime),
-          timestamp: Date.now(),
-          url: window.location.href,
-        })
-      })
-    })
-
-    observer.observe({ type: 'paint', buffered: true })
-  } catch (error) {
-    console.warn('FCP measurement not supported')
-  }
-}
-
-// Time to First Byte (TTFB)
-function measureTTFB() {
-  try {
-    const observer = new PerformanceObserver((list) => {
-      const entries = list.getEntries()
-      entries.forEach(
-        (
-          entry: PerformanceEntry & {
-            responseStart: number
-            requestStart: number
-            name: string
-          }
-        ) => {
-          if (entry.name === window.location.href) {
-            const ttfb = entry.responseStart - entry.requestStart
-            sendMetric({
-              name: 'TTFB',
-              value: Math.round(ttfb),
-              rating: getRating('TTFB', ttfb),
-              timestamp: Date.now(),
-              url: window.location.href,
-            })
-          }
-        }
-      )
-    })
-
-    observer.observe({ type: 'navigation', buffered: true })
-  } catch (error) {
-    console.warn('TTFB measurement not supported')
-  }
-}
-
-// Custom metrics
-function measureCustomMetrics() {
-  // Blog-specific metrics
-  if (window.location.pathname.startsWith('/blog/')) {
-    // Time to interactive content
-    const observer = new MutationObserver(() => {
-      const content = document.querySelector('[data-content="blog-post"]')
-      if (content) {
-        const loadTime = performance.now()
-        sendMetric({
-          name: 'BlogContentReady',
-          value: Math.round(loadTime),
-          rating:
-            loadTime < 1000
-              ? 'good'
-              : loadTime < 2000
-                ? 'needs-improvement'
-                : 'poor',
-          timestamp: Date.now(),
-          url: window.location.href,
-        })
-        observer.disconnect()
-      }
-    })
-
-    observer.observe(document.body, { childList: true, subtree: true })
+    console.warn('Failed to store metric for later:', error)
   }
 }
 
 // Initialize all performance monitoring
 export function initPerformanceMonitoring() {
-  // Only run in browser environment
-  if (typeof window === 'undefined') return
-
-  // Wait for page load to start monitoring
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-      setTimeout(startMonitoring, 0)
-    })
-  } else {
-    setTimeout(startMonitoring, 0)
-  }
+  performanceMonitor.init()
 }
 
-function startMonitoring() {
-  measureLCP()
-  measureFID()
-  measureCLS()
-  measureFCP()
-  measureTTFB()
-  measureCustomMetrics()
-
-  // Track bundle size and loading performance
-  if (performance.getEntriesByType) {
-    const resources = performance.getEntriesByType(
-      'resource'
-    ) as PerformanceResourceTiming[]
-    const jsResources = resources.filter((r) => r.name.includes('.js'))
-    const totalJSSize = jsResources.reduce((size, resource) => {
-      return size + (resource.transferSize || 0)
-    }, 0)
-
-    if (totalJSSize > 0) {
-      sendMetric({
-        name: 'BundleSize',
-        value: Math.round(totalJSSize / 1024), // KB
-        rating:
-          totalJSSize < 250000
-            ? 'good'
-            : totalJSSize < 500000
-              ? 'needs-improvement'
-              : 'poor',
-        timestamp: Date.now(),
-        url: window.location.href,
-      })
-    }
-  }
+// Cleanup function for manual cleanup
+export function cleanupPerformanceMonitoring() {
+  performanceMonitor.cleanup()
 }
 
 // Export for manual monitoring

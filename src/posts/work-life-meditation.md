@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Work-Life Meditation: Finding Balance in Tech'
-description: 'FIXME: Add a full description for this post.'
+description: "The Weight We Carry There's a peculiar heaviness to modern existence. We wake each morning already bearing the invisible weight of emails unopened, messages..."
 featured: false
 draft: false
 tags:

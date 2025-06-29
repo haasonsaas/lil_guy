@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-12'
-
 title: 'The New Series A Reality: Why It Feels Harder (Because It Is)'
-
-description: 'FIXME: Add a full description for this post.'
+description: "If you're feeling like the ground is shifting under you when it comes to raising a Series A—you're right."
 featured: false
 draft: false
 tags:

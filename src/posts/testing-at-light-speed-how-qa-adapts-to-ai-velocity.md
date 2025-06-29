@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Testing at Light Speed: How QA Adapts to AI Velocity'
-description: 'FIXME: Add a full description for this post.'
+description: '"How can we possibly test features that are built in hours?" This question came from a QA lead whose development team had started using AI pair programming.'
 featured: false
 draft: false
 tags:
@@ -31,13 +31,13 @@ Traditional QA is built on batch processing:
 
 This process assumes weeks or months between releases. When you're shipping daily, it becomes impossible.
 
-But here's the counterintuitive truth: AI-assisted development often produces higher quality code than traditional development, even without traditional QA processes.
+But here's the counterintuitive truth: AI-assisted development produces _different_ bugs than traditional development, requiring a fundamental shift in QA strategy.
 
-**Why?** Because AI doesn't make the same mistakes humans do.
+**Why?** Because AI makes different mistakes than humans do.
 
 ## The Quality Paradox
 
-Most bugs come from:
+Traditional human bugs include:
 
 - Typos and syntax errors
 - Forgetting edge cases
@@ -45,23 +45,25 @@ Most bugs come from:
 - Missing error handling
 - Poor documentation leading to misunderstanding
 
-AI collaboration eliminates most of these by default.
+AI-assisted development eliminates many of these, but introduces new categories:
 
 **What AI is excellent at:**
 
 - Perfect syntax (never forgets a semicolon)
 - Consistent patterns (follows established conventions)
-- Comprehensive error handling (considers edge cases automatically)
-- Complete documentation (explains while building)
+- Basic error handling patterns
+- Documentation generation
 
-**What AI still struggles with:**
+**What AI frequently gets wrong:**
 
-- Business logic validation
-- User experience flow
-- Integration complexity
-- Performance under load
+- Business logic assumptions (misunderstanding requirements)
+- Context confusion (applying patterns from different domains)
+- Over-engineering simple problems
+- Subtle security vulnerabilities
+- Performance implications at scale
+- Edge cases specific to your domain
 
-This suggests a new QA strategy: Focus testing where AI is weak, automate where AI is strong.
+This creates a paradox: the code _looks_ perfect but may contain deeper logical flaws. Traditional syntax-focused testing becomes less valuable, while business logic validation becomes critical.
 
 ## Strategy 1: Shift-Left to Shift-Right
 
@@ -217,21 +219,44 @@ Human intervention only when automation can't decide.
 
 Focus on what can actually go wrong with AI-assisted development.
 
-### New Failure Modes
+### Common AI-Generated Bugs
 
-- AI misunderstands business requirements
-- Integration assumptions are incorrect
-- Performance characteristics change
-- User behavior differs from expected
+- **Plausible but Wrong**: Code that looks correct but implements the wrong business logic
+- **Context Bleeding**: AI applies patterns from one domain incorrectly to another
+- **Happy Path Bias**: Focuses on success cases, misses failure scenarios
+- **Library Confusion**: Uses deprecated methods or mixes incompatible library versions
+- **Security Anti-Patterns**: Implements functionally correct but insecure code
+- **Performance Blind Spots**: Creates O(n²) solutions where O(n) would work
 
-### Traditional Failure Modes (Less Likely)
+### Traditional Bugs (Now Rare)
 
 - Syntax errors
-- Missing error handling
-- Inconsistent implementations
-- Documentation gaps
+- Basic null checks
+- Simple off-by-one errors
+- Typos in variable names
 
-Adjust testing strategy accordingly.
+The shift is from _obvious_ bugs to _subtle_ bugs. This requires deeper thinking about test design.
+
+## The Reality Check: AI Isn't Perfect
+
+Let's be clear: AI-generated code has real issues that traditional testing might miss.
+
+### Real Examples from Production
+
+**The Authentication Disaster**: AI correctly implemented OAuth flow but stored tokens in localStorage, creating a security vulnerability that passed all automated tests.
+
+**The Performance Cliff**: Generated code worked perfectly with test data (100 records) but crashed with production data (1 million records) due to loading everything into memory.
+
+**The Wrong Assumption**: AI built a currency converter that assumed all currencies had 2 decimal places. Worked great until someone tried Japanese Yen.
+
+**The Library Mismatch**: Mixed React 17 and React 18 patterns in the same component, causing subtle hydration errors only in production.
+
+### Why These Bugs Are Harder to Catch
+
+1. **They pass traditional tests**: Unit tests, integration tests, even code review might miss them
+2. **They work in development**: Local environments don't expose the issues
+3. **They're logically consistent**: The code does exactly what it was asked to do—which was wrong
+4. **They look professional**: Well-structured, documented code hides deeper flaws
 
 ## The Resistance You'll Face
 

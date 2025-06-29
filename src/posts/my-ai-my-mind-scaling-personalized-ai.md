@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-25'
-
 title: 'Scaling the Me Component: How I Built an AI That Thinks Like Me'
-
-description: 'FIXME: Add a full description for this post.'
+description: "I've spent the last week building something that feels both inevitable and slightly unsettling: an AI that can think, write, and respond exactly like me."
 featured: false
 draft: false
 tags:

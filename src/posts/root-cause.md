@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-
 title: "Don't Build What They Ask For: The Art of Need-Finding"
-description: 'FIXME: Add a full description for this post.'
+description: '"If I had asked people what they wanted, they would have said faster horses." This quote, often attributed to Henry Ford, encapsulates one of the most challenge...'
 tags:
   - product
   - strategy

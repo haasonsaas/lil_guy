@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'Stop Guessing in Customer Interviews: A Simulator for Better Discovery'
-description: 'FIXME: Add a full description for this post.'
+description: "Stop Guessing in Customer Interviews: A Simulator for Better Discovery: I've conducted hundreds of customer interviews. Most of them were terrible."
 featured: false
 draft: false
 tags:

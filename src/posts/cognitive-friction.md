@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Cognitive Friction: The Hidden Cost of Bad UX'
-description: 'FIXME: Add a full description for this post.'
+description: 'The Illusion of Smooth Thinking Every day, our minds process thousands of decisions, from what to eat for breakfast to how to respond to a crisis at work.'
 featured: false
 draft: false
 tags:

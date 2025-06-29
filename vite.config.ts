@@ -33,47 +33,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Vendor libraries
+          // Vendor libraries - emergency fix for createContext error
           if (id.includes('node_modules')) {
-            if (
-              id.includes('react') ||
-              id.includes('react-dom') ||
-              id.includes('react-router')
-            ) {
-              return 'vendor-react'
-            }
-            if (id.includes('@radix-ui')) {
-              return 'vendor-ui'
-            }
-            if (
-              id.includes('clsx') ||
-              id.includes('tailwind-merge') ||
-              id.includes('lucide-react')
-            ) {
-              return 'vendor-utils'
-            }
-            if (id.includes('@tanstack/react-query')) {
-              return 'vendor-query'
-            }
-            if (id.includes('framer-motion')) {
-              return 'vendor-animation'
-            }
-            if (
-              id.includes('unified') ||
-              id.includes('remark') ||
-              id.includes('rehype')
-            ) {
-              return 'markdown-processors'
-            }
-            if (id.includes('katex')) {
-              return 'katex'
-            }
-            if (id.includes('prism')) {
-              return 'prism'
-            }
-            if (id.includes('dompurify')) {
-              return 'dompurify'
-            }
             return 'vendor'
           }
 
@@ -122,5 +83,6 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
+    minify: false, // Disabled due to circular dependency issues with markdown libraries
   },
 })

@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-19'
-
 title: The Unit Economics That Actually Matter
-description: 'FIXME: Add a full description for this post.'
+description: "I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things."
 featured: false
 draft: false
 tags:

@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-25'
-
 title: 'The Orchestration Dance: What I Learned Building a Multi-AI Content System'
-
-description: 'FIXME: Add a full description for this post.'
+description: 'Here''s what actually happened: I learned that most of what people call "AI orchestration" is just well-disguised complexity porn.'
 featured: false
 draft: false
 tags:
