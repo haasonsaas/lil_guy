@@ -35,46 +35,30 @@ export default defineConfig({
         manualChunks: (id) => {
           // Vendor libraries
           if (id.includes('node_modules')) {
+            // Bundle all React ecosystem together to avoid load order issues
             if (
               id.includes('react') ||
-              id.includes('react-dom') ||
-              id.includes('react-router') ||
+              id.includes('@radix-ui') ||
+              id.includes('@tanstack/react-query') ||
+              id.includes('framer-motion') ||
               id.includes('sonner') ||
-              id.includes('react-hook-form') ||
-              id.includes('@hookform/resolvers') ||
-              id.includes('@radix-ui')
+              id.includes('lucide-react') ||
+              id.includes('@hookform/resolvers')
             ) {
               return 'vendor-react'
             }
-            if (
-              id.includes('clsx') ||
-              id.includes('tailwind-merge') ||
-              id.includes('lucide-react')
-            ) {
-              return 'vendor-utils'
-            }
-            if (id.includes('@tanstack/react-query')) {
-              return 'vendor-query'
-            }
-            if (id.includes('framer-motion')) {
-              return 'vendor-animation'
-            }
+            // Markdown processing in separate chunk as it's only needed for blog posts
             if (
               id.includes('unified') ||
               id.includes('remark') ||
-              id.includes('rehype')
+              id.includes('rehype') ||
+              id.includes('katex') ||
+              id.includes('prism') ||
+              id.includes('dompurify')
             ) {
-              return 'markdown-processors'
+              return 'vendor-markdown'
             }
-            if (id.includes('katex')) {
-              return 'katex'
-            }
-            if (id.includes('prism')) {
-              return 'prism'
-            }
-            if (id.includes('dompurify')) {
-              return 'dompurify'
-            }
+            // Everything else in vendor chunk
             return 'vendor'
           }
 
@@ -123,6 +107,6 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    minify: false, // Disable minification for debugging
+    minify: true,
   },
 })
