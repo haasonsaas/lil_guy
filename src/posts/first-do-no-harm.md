@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'First, Do No Harm: When Not to Ship Features'
-description: >-
-  In medical school, students take the Hippocratic Oath, pledging to "first, do
-  no harm." As product managers, we'd do well to adopt a similar mindset.
+description: 'In medical school, students take the Hippocratic Oath, pledging to "first, do no harm." As product managers, we''d do well to adopt a similar mindset.'
 tags:
   - product
   - strategy

@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-05-05'
 title: 'From Gimmick to Game-Changer: Six Years of Living With Tesla FSD'
-description: >-
-  Software isn’t static—it compounds. And when it’s wrapped in hardware that can
-  evolve with it, the results feel like time travel.
+description: 'Software isn’t static—it compounds. And when it’s wrapped in hardware that can evolve with it, the results feel like time travel.'
 featured: false
 draft: false
 tags:

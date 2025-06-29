@@ -2,9 +2,7 @@
 title: 'Thinking Frameworks: Tools for Better Decision Making'
 author: Jonathan Haas
 pubDate: '2024-04-20'
-description: >-
-  In the relentless push to build and scale, organizations often overlook a
-  critical piece of infrastructure: how decisions get made.
+description: 'In the relentless push to build and scale, organizations often overlook a critical piece of infrastructure: how decisions get made.'
 tags:
   - product
   - strategy

@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-20'
-title: 'The Dehydrated Entity: Hire Only When You''re Truly Underwater'
-description: >-
-  A while back, I came across a hiring philosophy from Varun Mohan, co-founder
-  and CEO of Windsurf, that stopped me cold.
+title: "The Dehydrated Entity: Hire Only When You're Truly Underwater"
+description: 'A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of Windsurf, that stopped me cold.'
 featured: false
 draft: false
 tags:

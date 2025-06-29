@@ -4,10 +4,7 @@ pubDate: '2025-06-19'
 title: >-
   Building HDR Holographic Effects: When Your Display Finally Catches Up to Your
   Imagination
-description: >-
-  I've been fascinated by holographic materials since I was a kid. You know the
-  type—those shimmery surfaces that shift from blue to purple to gold as you
-  tilt...
+description: "I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt..."
 featured: false
 draft: false
 tags:

@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-19'
 title: Why Your A/B Tests Are Lying to You
-description: >-
-  95% of product teams are making decisions based on A/B test results that are
-  statistically meaningless.
+description: '95% of product teams are making decisions based on A/B test results that are statistically meaningless.'
 featured: false
 draft: false
 tags:

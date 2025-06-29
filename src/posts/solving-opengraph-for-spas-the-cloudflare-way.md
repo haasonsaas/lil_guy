@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Solving OpenGraph for SPAs: The Cloudflare Way'
-description: >-
-  If you've ever shared a React app link on Twitter only to see a blank preview,
-  you know the pain. Here's the thing: social media crawlers don't execute
-  JavaS...
+description: "If you've ever shared a React app link on Twitter only to see a blank preview, you know the pain. Here's the thing: social media crawlers don't execute JavaS..."
 featured: false
 draft: false
 tags:

@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Security at AI Speed: Rethinking Review Processes for Velocity'
-description: >-
-  Security at AI Speed: Rethinking Review Processes for Velocity: "We can't
-  deploy daily. What about our security review process?" The CISO's concern was
-  valid.
+description: 'Security at AI Speed: Rethinking Review Processes for Velocity: "We can''t deploy daily. What about our security review process?" The CISO''s concern was valid.'
 featured: false
 draft: false
 tags:

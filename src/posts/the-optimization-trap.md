@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-05-16'
 title: 'The Optimization Trap: Why Technical Founders Self-Sabotage'
-description: >-
-  Premature Optimization Is the Founder’s Folly There’s a special kind of
-  gravity that pulls technical founders toward performance, scalability, and
-  “doing it...
+description: 'Premature Optimization Is the Founder’s Folly There’s a special kind of gravity that pulls technical founders toward performance, scalability, and “doing it...'
 featured: false
 draft: false
 tags:

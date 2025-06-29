@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-26'
 title: The Myth of Fast Growth
-description: >-
-  Introduction Hook: "Most startup advice is generic and useless. Here's why and
-  what actually works." Example: A startup that failed because of following
-  popu...
+description: 'Introduction Hook: "Most startup advice is generic and useless. Here''s why and what actually works." Example: A startup that failed because of following popular...'
 featured: false
 draft: true
 tags:

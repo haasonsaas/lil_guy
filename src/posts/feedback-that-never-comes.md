@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-22'
 title: 'The Passive-Aggressive Manager: Navigating Feedback That Never Comes'
-description: >-
-  Let’s talk about a particular flavor of leadership dysfunction: the
-  passive-aggressive manager. You’ve probably worked with one.
+description: 'Let’s talk about a particular flavor of leadership dysfunction: the passive-aggressive manager. You’ve probably worked with one.'
 featured: false
 draft: false
 tags:

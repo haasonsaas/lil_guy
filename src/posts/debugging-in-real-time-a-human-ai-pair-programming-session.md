@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Debugging in Real-Time: A Human-AI Pair Programming Session'
-description: >-
-  _This is part 3 of a series on building production-ready infrastructure. Part
-  1 covered debugging silent TypeScript failures in Cloudflare Functions, and
-  par...
+description: '_This is part 3 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions, and par...'
 featured: false
 draft: false
 tags:

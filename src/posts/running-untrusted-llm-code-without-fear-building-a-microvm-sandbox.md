@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox'
-description: >-
-  Every time an LLM generates code, you face a choice: trust it blindly or spend
-  hours reviewing it. Neither option scales.
+description: 'Every time an LLM generates code, you face a choice: trust it blindly or spend hours reviewing it. Neither option scales.'
 featured: false
 draft: false
 tags:

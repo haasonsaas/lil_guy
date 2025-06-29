@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic'
-description: >-
-  Every pixel you see on screen is the result of sophisticated mathematical
-  calculations happening thousands of times per second.
+description: 'Every pixel you see on screen is the result of sophisticated mathematical calculations happening thousands of times per second.'
 featured: true
 draft: false
 tags:

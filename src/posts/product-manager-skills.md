@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-11-27'
-title: 'The Product Manager''s Secret Superpower: Finding Signal in the Noise'
+title: "The Product Manager's Secret Superpower: Finding Signal in the Noise"
 featured: false
 draft: false
 tags:
@@ -9,10 +9,7 @@ tags:
   - product-development
   - strategy
   - systems-thinking
-description: >-
-  The best product managers have a superpower that's rarely discussed: they can
-  spot the same underlying user need manifesting in completely different ways
-  acr...
+description: "The best product managers have a superpower that's rarely discussed: they can spot the same underlying user need manifesting in completely different ways acr..."
 ---
 
 The best product managers have a superpower that's rarely discussed: they can

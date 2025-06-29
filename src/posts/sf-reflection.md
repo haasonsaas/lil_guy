@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Three Months Back in SF: Finding Balance After ThreatKey'
-description: >-
-  It's been exactly three months since I returned to San Francisco, and I'm
-  finally starting to feel like I'm settling into a new rhythm.
+description: "It's been exactly three months since I returned to San Francisco, and I'm finally starting to feel like I'm settling into a new rhythm."
 tags:
   - personal-growth
   - leadership

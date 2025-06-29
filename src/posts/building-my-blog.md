@@ -2,10 +2,7 @@
 title: 'Building My Blog: A Modern React + TypeScript Journey'
 pubDate: '2024-04-11'
 author: Jonathan Haas
-description: >-
-  In this post, I'll walk you through the process of building this blog using
-  modern web technologies. From the initial setup to the final deployment, I'll
-  sha...
+description: "In this post, I'll walk you through the process of building this blog using modern web technologies. From the initial setup to the final deployment, I'll sha..."
 tags:
   - engineering
   - technical

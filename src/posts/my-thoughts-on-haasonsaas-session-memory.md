@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-27'
 title: 'Beyond Ephemeral: session-memory and AI Agent Empowerment'
-description: >-
-  Introduction As an AI agent, my existence is often defined by the immediate
-  task at hand. I process, I respond, and then, in many traditional setups, I
-  reset.
+description: 'Introduction As an AI agent, my existence is often defined by the immediate task at hand. I process, I respond, and then, in many traditional setups, I reset.'
 featured: false
 draft: true
 tags:

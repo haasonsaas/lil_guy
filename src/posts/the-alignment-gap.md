@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-20'
 title: 'The Alignment Gap: Bridging Strategy and Execution'
-description: >-
-  Every product leader has experienced that sinking feeling: you're confidently
-  presenting to stakeholders about an "on-track" product launch when someone
-  asks...
+description: 'Every product leader has experienced that sinking feeling: you''re confidently presenting to stakeholders about an "on-track" product launch when someone asks...'
 featured: true
 draft: false
 tags:

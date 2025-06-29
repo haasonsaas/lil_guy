@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Inside InboxArmor: Building a Smarter Email Analysis Engine'
-description: >-
-  If your inbox feels like a battlefield, you're not alone. The modern email
-  flow is a chaotic mess of promotions, business requests, events, updates, and
-  the...
+description: "If your inbox feels like a battlefield, you're not alone. The modern email flow is a chaotic mess of promotions, business requests, events, updates, and the..."
 featured: false
 draft: false
 tags:

@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Dark Patterns, Bright Lessons: Ethics in Product Design'
-description: >-
-  The FTC just dropped a 44-page complaint against Uber for deceptive practices
-  around its Uber One subscription.
+description: 'The FTC just dropped a 44-page complaint against Uber for deceptive practices around its Uber One subscription.'
 tags:
   - product
   - ux

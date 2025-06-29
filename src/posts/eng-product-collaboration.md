@@ -10,10 +10,7 @@ tags:
   - leadership
   - culture
   - management
-description: >-
-  "This isn't what we asked for." Five words that strike dread into every
-  engineering team. Five words that signal a fundamental breakdown in the
-  engineering-p...
+description: '"This isn''t what we asked for." Five words that strike dread into every engineering team. Five words that signal a fundamental breakdown in the engineering-p...'
 ---
 
 "This isn't what we asked for."

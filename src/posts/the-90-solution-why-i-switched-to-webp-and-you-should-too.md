@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'The 90% Solution: Why I Switched to WebP and You Should Too'
-description: >-
-  The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of
-  work. Here's exactly how I did it and what I learned along the way.
+description: "The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of work. Here's exactly how I did it and what I learned along the way."
 featured: false
 draft: true
 tags:

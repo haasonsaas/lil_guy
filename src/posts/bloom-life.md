@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness'
-description: >-
-  This digital fragmentation mirrors the very compartmentalization of health
-  that holistic wellness seeks to overcome.
+description: 'This digital fragmentation mirrors the very compartmentalization of health that holistic wellness seeks to overcome.'
 tags:
   - product
   - ux

@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-26'
 title: 'Clarity Over Compromise: Making the Right Call on Work Models'
-description: >-
-  When it comes to remote work, hybrid setups, and office mandates, most debates
-  miss the real point. It's not about which model is _better_ in some
-  universal...
+description: "When it comes to remote work, hybrid setups, and office mandates, most debates miss the real point. It's not about which model is _better_ in some universal..."
 featured: false
 draft: false
 tags:

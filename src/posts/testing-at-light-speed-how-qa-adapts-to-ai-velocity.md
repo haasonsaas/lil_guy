@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Testing at Light Speed: How QA Adapts to AI Velocity'
-description: >-
-  "How can we possibly test features that are built in hours?" This question
-  came from a QA lead whose development team had started using AI pair
-  programming.
+description: '"How can we possibly test features that are built in hours?" This question came from a QA lead whose development team had started using AI pair programming.'
 featured: false
 draft: false
 tags:

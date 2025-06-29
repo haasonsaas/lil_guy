@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-19'
 title: The Hidden Costs of Technical Debt
-description: >-
-  I've watched engineering teams slow to a crawl, not because they hired bad
-  developers or chose wrong technologies, but because they treated technical
-  debt li...
+description: "I've watched engineering teams slow to a crawl, not because they hired bad developers or chose wrong technologies, but because they treated technical debt li..."
 featured: false
 draft: false
 tags:

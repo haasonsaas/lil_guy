@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-05-01'
 title: Most Startups Don't Have a Growth Problem—They Have a Clarity Problem
-description: >-
-  Most Startups Don't Have a Growth Problem—They Have a Clarity Problem: Here's
-  a pattern I keep seeing: A startup hits a plateau. The dashboard looks flat.
+description: "Most Startups Don't Have a Growth Problem—They Have a Clarity Problem: Here's a pattern I keep seeing: A startup hits a plateau. The dashboard looks flat."
 featured: false
 draft: false
 tags:

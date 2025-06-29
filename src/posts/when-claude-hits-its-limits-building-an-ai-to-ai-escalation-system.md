@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'When Claude Hits Its Limits: Building an AI-to-AI Escalation System'
-description: >-
-  Claude Code had analyzed 30 files, but the bug spanned microservices with
-  gigabytes of traces. I needed something different.
+description: 'Claude Code had analyzed 30 files, but the bug spanned microservices with gigabytes of traces. I needed something different.'
 featured: false
 draft: false
 tags:

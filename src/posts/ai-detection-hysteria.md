@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-17'
 title: 'AI Detection Hysteria: When Human Creativity Gets Mislabeled'
-description: >-
-  When I first noticed the flood of "This is AI-generated!" accusations on
-  social media, I dismissed it as a passing trend.
+description: 'When I first noticed the flood of "This is AI-generated!" accusations on social media, I dismissed it as a passing trend.'
 featured: false
 draft: false
 tags:

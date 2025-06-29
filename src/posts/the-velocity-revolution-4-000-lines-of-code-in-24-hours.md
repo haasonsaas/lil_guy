@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'The Velocity Revolution: 4,000 Lines of Code in 24 Hours'
-description: >-
-  Yesterday I watched the git log scroll by in real-time as Claude and I shipped
-  features at a pace that would have taken my team weeks just six months ago.
+description: 'Yesterday I watched the git log scroll by in real-time as Claude and I shipped features at a pace that would have taken my team weeks just six months ago.'
 featured: false
 draft: false
 tags:

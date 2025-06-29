@@ -1,10 +1,8 @@
 ---
-title: 'Chrome Extension for Jira Titles: A Developer''s Journey'
+title: "Chrome Extension for Jira Titles: A Developer's Journey"
 author: Jonathan Haas
 pubDate: '2024-04-11'
-description: >-
-  "Can you make this JIRA title clearer?" As a product manager, I've heard this
-  question countless times.
+description: '"Can you make this JIRA title clearer?" As a product manager, I''ve heard this question countless times.'
 tags:
   - engineering
   - product

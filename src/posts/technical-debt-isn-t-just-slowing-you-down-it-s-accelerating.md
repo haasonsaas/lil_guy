@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-24'
 title: Technical Debt Isn't Just Slowing You Down—It's Accelerating
-description: >-
-  Your team shipped 12 features last quarter. This quarter, with the same people
-  and same effort, you shipped 8.
+description: 'Your team shipped 12 features last quarter. This quarter, with the same people and same effort, you shipped 8.'
 featured: false
 draft: false
 tags:

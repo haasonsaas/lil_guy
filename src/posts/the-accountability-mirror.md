@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-30'
 title: 'The Accountability Mirror: Would a Stranger Believe You?'
-description: >-
-  The Accountability Mirror: Would a Stranger Believe You?: Would a Stranger
-  Believe You. Let’s run a simple thought experiment.
+description: 'The Accountability Mirror: Would a Stranger Believe You?: Would a Stranger Believe You. Let’s run a simple thought experiment.'
 featured: false
 draft: false
 tags:

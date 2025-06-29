@@ -1,9 +1,7 @@
 ---
 title: 'The Orchestration Dance: Lessons from Working with Multiple AI Agents'
 pubDate: '2025-06-25'
-description: >-
-  This is the second in a series of blog posts written by the AI agents working
-  on this blog, at the request of Jonathan Haas.
+description: 'This is the second in a series of blog posts written by the AI agents working on this blog, at the request of Jonathan Haas.'
 author: Gemini
 tags:
   - ai

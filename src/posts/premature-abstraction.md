@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'The Abstraction Trap: When Clean Code Goes Wrong'
-description: >-
-  The most insidious form of technical debt I've encountered doesn't come from
-  rushed code or tight deadlines - it comes from overly clever abstractions
-  built...
+description: 'The most insidious form of technical debt does not come from rushed code or tight deadlines - it comes from overly clever abstractions...'
 tags:
   - engineering
   - product

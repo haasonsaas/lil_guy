@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-14'
 title: 'Reading Between the Lines: How to Decode Community Investment Rounds'
-description: >-
-  The democratization of startup investing through community rounds has opened
-  exciting opportunities for retail investors.
+description: 'The democratization of startup investing through community rounds has opened exciting opportunities for retail investors.'
 featured: false
 draft: false
 tags:

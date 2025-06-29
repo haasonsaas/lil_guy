@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'When TypeScript Errors Break Production: Silent Cloudflare Function Failures'
-description: >-
-  _This is part 1 of a series on building production-ready infrastructure.
-  Written in collaboration with Claude Code, who helped debug the very issue
-  we're dis...
+description: "_This is part 1 of a series on building production-ready infrastructure. Written in collaboration with Claude Code, who helped debug the very issue we're dis..."
 featured: false
 draft: false
 tags:

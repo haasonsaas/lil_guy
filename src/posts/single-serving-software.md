@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-25'
 title: The Rise of Single-Serving Software
-description: >-
-  The Rise of Single-Serving Software: Most software dreams used to start the
-  same way: Get millions of users. Build a platform.
+description: 'The Rise of Single-Serving Software: Most software dreams used to start the same way: Get millions of users. Build a platform.'
 featured: false
 draft: false
 tags:

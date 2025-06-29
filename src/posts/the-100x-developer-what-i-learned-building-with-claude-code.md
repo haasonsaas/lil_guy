@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'The 100x Developer: What I Learned Building with Claude Code'
-description: >-
-  The same morning, I shipped semantic search (30 minutes), created HDR
-  holographic effects (16 minutes), and wrote comprehensive technical
-  documentation for e...
+description: 'The same morning, I shipped semantic search (30 minutes), created HDR holographic effects (16 minutes), and wrote comprehensive technical documentation for e...'
 featured: true
 draft: false
 tags:

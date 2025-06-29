@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-21'
 title: 'The Confidence Cliff: Why Overcertainty Kills Good Decisions'
-description: >-
-  You’ve probably seen this play out. Someone shares an idea—bold, certain,
-  maybe even brilliant-sounding.
+description: 'You’ve probably seen this play out. Someone shares an idea—bold, certain, maybe even brilliant-sounding.'
 featured: false
 draft: false
 tags:

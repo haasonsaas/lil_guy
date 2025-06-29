@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: The Product Manager's Guide to the Perfect Breakfast
-description: >-
-  In the decidedly fast-paced world of product management, even breakfast needs
-  a framework. After extensive user research (asking my colleagues on Slack),
-  mul...
+description: 'In the decidedly fast-paced world of product management, even breakfast needs a framework. After extensive user research (asking my colleagues on Slack), mul...'
 tags:
   - product
   - leadership

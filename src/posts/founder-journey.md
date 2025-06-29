@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-12-13'
 title: 'The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster'
-description: >-
-  The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster:
-  The Dance of Euphoria and Despair 9:00 AM: You just closed a major client.
-  You...
+description: 'The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster: The Dance of Euphoria and Despair 9:00 AM: You just closed a major client. You...'
 tags:
   - founder
   - startup

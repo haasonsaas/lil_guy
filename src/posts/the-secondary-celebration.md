@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-16'
-title: 'The Secondary Celebration: A Founder''s Perspective on VC Liquidity Events'
-description: >-
-  During my morning LinkedIn scroll, I came across yet another post from a
-  venture firm celebrating a massive return multiple from a secondary
-  transaction.
+title: "The Secondary Celebration: A Founder's Perspective on VC Liquidity Events"
+description: 'During my morning LinkedIn scroll, I came across yet another post from a venture firm celebrating a massive return multiple from a secondary transaction.'
 featured: false
 draft: false
 tags:

@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-05-26'
 title: 'OCode: Why I Built My Own Claude Code (and Why You Might Too)'
-description: >-
-  OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights
-  ago, I opened my Anthropic invoice.
+description: 'OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights ago, I opened my Anthropic invoice.'
 featured: false
 draft: false
 tags:

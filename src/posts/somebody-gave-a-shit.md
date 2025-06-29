@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-05-09'
 title: 'Somebody Gave a Shit: The Quiet Power of Product Detail'
-description: >-
-  "When they unwrap that cable and they think 'somebody gave a shit about me'—I
-  think that's a spiritual thing." That was Jony Ive, during a conversation
-  with...
+description: '"When they unwrap that cable and they think ''somebody gave a shit about me''—I think that''s a spiritual thing." That was Jony Ive, during a conversation with...'
 featured: false
 draft: false
 tags:

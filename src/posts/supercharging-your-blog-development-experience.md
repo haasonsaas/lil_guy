@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-17'
 title: Supercharging Your Blog Development Experience
-description: >-
-  Writing blog posts should be a joy, not a chore. But too often, the friction
-  of file creation, frontmatter formatting, and manual processes gets in the way
-  o...
+description: 'Writing blog posts should be a joy, not a chore. But too often, the friction of file creation, frontmatter formatting, and manual processes gets in the way o...'
 featured: false
 draft: false
 tags:

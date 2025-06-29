@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'Testing Multi-AI Systems: A Practical Guide'
-description: >-
-  Introduction Multi-AI systems, composed of multiple interconnected artificial
-  intelligence components working collaboratively, are rapidly gaining
-  prominence.
+description: 'Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.'
 featured: false
 draft: true
 tags:

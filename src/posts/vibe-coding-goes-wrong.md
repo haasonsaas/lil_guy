@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-05-12'
 title: 'When Vibe Coding Goes Wrong: Security Lessons from Granola'
-description: >-
-  When Vibe Coding Goes Wrong: Security Lessons from Granola: Vibe coding is
-  having a moment. And honestly.
+description: 'When Vibe Coding Goes Wrong: Security Lessons from Granola: Vibe coding is having a moment. And honestly.'
 featured: false
 draft: false
 tags:

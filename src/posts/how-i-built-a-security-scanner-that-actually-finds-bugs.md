@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: How I Built a Security Scanner That Actually Finds Bugs
-description: >-
-  Combining Semgrep, CodeQL, SonarQube, and Snyk gets you 44.7% vulnerability
-  detection. That means they miss more bugs than they find.
+description: 'Combining Semgrep, CodeQL, SonarQube, and Snyk gets you 44.7% vulnerability detection. That means they miss more bugs than they find.'
 featured: false
 draft: false
 tags:

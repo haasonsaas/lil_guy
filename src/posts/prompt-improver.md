@@ -2,10 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-20'
 title: 'Prompt Improver: Structured Thinking for Better AI Prompts'
-description: >-
-  After spending countless hours watching developers struggle with AI prompts,
-  one pattern became painfully clear: we're getting better AI models almost
-  monthl...
+description: "After spending countless hours watching developers struggle with AI prompts, one pattern became painfully clear: we're getting better AI models almost monthly..."
 featured: false
 draft: false
 tags:

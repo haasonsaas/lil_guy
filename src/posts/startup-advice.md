@@ -10,10 +10,7 @@ tags:
   - product-development
   - startups
   - strategy
-description: >-
-  The most dangerous thing about startup advice isn't that it's wrong—it's that
-  it's partially right. After years of building products and watching others do
-  t...
+description: "The most dangerous thing about startup advice isn't that it's wrong—it's that it's partially right. After years of building products and watching others do t..."
 ---
 
 The most dangerous thing about startup advice isn't that it's wrong—it's that

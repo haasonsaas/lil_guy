@@ -28,5 +28,4 @@ public/blog-images/
 Thumbs.db
 
 # GitHub workflows with embedded scripts
-.github/workflows/auto-blog-generation.ymlsrc/posts/same-data-same-dance.md
-src/posts/six-years-with-fsd.md
+.github/workflows/auto-blog-generation.yml

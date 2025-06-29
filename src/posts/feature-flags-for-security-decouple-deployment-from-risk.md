@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-28'
 title: 'Feature Flags for Security: Decouple Deployment from Risk'
-description: >-
-  "We can't deploy this to production. It touches payment processing." The
-  security team was right to be cautious.
+description: '"We can''t deploy this to production. It touches payment processing." The security team was right to be cautious.'
 featured: false
 draft: false
 tags:

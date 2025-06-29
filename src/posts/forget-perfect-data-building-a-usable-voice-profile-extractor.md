@@ -2,9 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-26'
 title: 'Forget Perfect Data: Building a Usable Voice Profile Extractor'
-description: >-
-  Not "kind of" like me—exactly like me. Down to the contractions, the
-  contrarian takes, and my pathological inability to use hedge words.
+description: 'Not "kind of" like me—exactly like me. Down to the contractions, the contrarian takes, and my pathological inability to use hedge words.'
 featured: false
 draft: false
 tags:

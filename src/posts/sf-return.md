@@ -1,17 +1,14 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-title: 'Back to the Bay: Why I''m Returning to San Francisco in 2025'
+title: "Back to the Bay: Why I'm Returning to San Francisco in 2025"
 featured: false
 draft: false
 tags:
   - personal-growth
   - leadership
   - culture
-description: >-
-  It's become almost a cliché at this point: leaving San Francisco, writing a
-  lengthy Medium post about why you're done with the Bay Area, only to find
-  yoursel...
+description: "It's become almost a cliché at this point: leaving San Francisco, writing a lengthy Medium post about why you're done with the Bay Area, only to find yourself..."
 ---
 
 It's become almost a cliché at this point: leaving San Francisco, writing a
