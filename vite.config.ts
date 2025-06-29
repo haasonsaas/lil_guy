@@ -33,7 +33,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Vendor libraries - TEMPORARILY put everything in one chunk to fix production
+          // Vendor libraries - emergency fix for createContext error
           if (id.includes('node_modules')) {
             return 'vendor'
           }
