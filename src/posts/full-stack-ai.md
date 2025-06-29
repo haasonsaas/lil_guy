@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-12'
-title: >-
-  API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI
-  Approach
-description: 'FIXME: Add a full description for this post.'
+title: 'API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI Approach'
+description: 'As Waseem Alshikh, Co-founder and CTO of Writer, brilliantly put it: "If your enterprise AI ''strategy'' is calling OpenAI''s API...You don''t have a strategy.'
 featured: false
 draft: false
 tags:

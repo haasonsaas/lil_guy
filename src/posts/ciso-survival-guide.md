@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-
-title: >-
-  The CISO Survival Guide: What I've Learned From Hundreds of Conversations with
-  Security Leaders
-description: 'FIXME: Add a full description for this post.'
+title: "The CISO Survival Guide: What I've Learned From Hundreds of Conversations with Security Leaders"
+description: 'In my role leading cloud security integrations, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security op...'
 featured: false
 draft: false
 tags:

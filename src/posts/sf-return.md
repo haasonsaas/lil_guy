@@ -8,7 +8,7 @@ tags:
   - personal-growth
   - leadership
   - culture
-description: 'FIXME: Add a full description for this post.'
+description: "It's become almost a cliché at this point: leaving San Francisco, writing a lengthy Medium post about why you're done with the Bay Area, only to find yourself..."
 ---
 
 It's become almost a cliché at this point: leaving San Francisco, writing a

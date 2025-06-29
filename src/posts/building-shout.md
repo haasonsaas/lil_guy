@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'Engineering Recognition Through Evals: My Technical Journey Building Shout'
-description: 'FIXME: Add a full description for this post.'
+description: 'When I set out to build Shout, my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition mes...'
 featured: false
 draft: false
 tags:

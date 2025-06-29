@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-
 title: 'The Perfection Paralysis: Why Moving Too Carefully Kills Startups'
-
-description: 'FIXME: Add a full description for this post.'
+description: "The most valuable code I've ever written was messy, quick, and written in response to an immediate customer need."
 tags:
   - engineering
   - product

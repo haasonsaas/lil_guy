@@ -10,7 +10,7 @@ tags:
   - culture
   - transparency
   - trust
-description: 'FIXME: Add a full description for this post.'
+description: "If you're reading this, you're either working with me, interested in working with me, or just at some level curious how I operate as a manager."
 ---
 
 If you're reading this, you're either working with me, interested in working

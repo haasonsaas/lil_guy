@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import {
   Card,
   CardContent,
@@ -87,60 +87,63 @@ export default function BuildTimeAnalyzer() {
   const [buildTool, setBuildTool] = useState('webpack')
   const [enabledOptimizations, setEnabledOptimizations] = useState<string[]>([])
 
-  const calculateStepTime = (step: BuildStep) => {
-    let time = step.baseTime
+  const calculateStepTime = useCallback(
+    (step: BuildStep) => {
+      let time = step.baseTime
 
-    // Scale based on project size
-    switch (step.scaling) {
-      case 'linear':
-        time = step.baseTime * (projectSize / 1000)
-        break
-      case 'logarithmic':
-        time = step.baseTime * Math.log10(projectSize / 100 + 1)
-        break
-      case 'exponential':
-        time = step.baseTime * Math.pow(projectSize / 1000, 1.5)
-        break
-    }
-
-    // Apply dependency factor for relevant steps
-    if (step.name === 'Dependency Install') {
-      time *= dependencies / 100
-    }
-
-    // Apply tool-specific modifiers
-    const toolModifiers: Record<string, Record<string, number>> = {
-      webpack: { 'Bundle/Minify': 1.0 },
-      vite: { 'Bundle/Minify': 0.3, 'TypeScript Compile': 0.5 },
-      esbuild: { 'Bundle/Minify': 0.1, 'TypeScript Compile': 0.2 },
-      parcel: { 'Bundle/Minify': 0.7 },
-    }
-
-    if (toolModifiers[buildTool]?.[step.name]) {
-      time *= toolModifiers[buildTool][step.name]
-    }
-
-    // Apply optimizations
-    enabledOptimizations.forEach((opt) => {
-      const optimization = OPTIMIZATION_STRATEGIES.find((o) => o.name === opt)
-      if (
-        optimization &&
-        (optimization.applicable.includes('all') ||
-          optimization.applicable.includes(step.name))
-      ) {
-        time *= optimization.impact
+      // Scale based on project size
+      switch (step.scaling) {
+        case 'linear':
+          time = step.baseTime * (projectSize / 1000)
+          break
+        case 'logarithmic':
+          time = step.baseTime * Math.log10(projectSize / 100 + 1)
+          break
+        case 'exponential':
+          time = step.baseTime * Math.pow(projectSize / 1000, 1.5)
+          break
       }
-    })
 
-    return Math.max(1, Math.round(time))
-  }
+      // Apply dependency factor for relevant steps
+      if (step.name === 'Dependency Install') {
+        time *= dependencies / 100
+      }
+
+      // Apply tool-specific modifiers
+      const toolModifiers: Record<string, Record<string, number>> = {
+        webpack: { 'Bundle/Minify': 1.0 },
+        vite: { 'Bundle/Minify': 0.3, 'TypeScript Compile': 0.5 },
+        esbuild: { 'Bundle/Minify': 0.1, 'TypeScript Compile': 0.2 },
+        parcel: { 'Bundle/Minify': 0.7 },
+      }
+
+      if (toolModifiers[buildTool]?.[step.name]) {
+        time *= toolModifiers[buildTool][step.name]
+      }
+
+      // Apply optimizations
+      enabledOptimizations.forEach((opt) => {
+        const optimization = OPTIMIZATION_STRATEGIES.find((o) => o.name === opt)
+        if (
+          optimization &&
+          (optimization.applicable.includes('all') ||
+            optimization.applicable.includes(step.name))
+        ) {
+          time *= optimization.impact
+        }
+      })
+
+      return Math.max(1, Math.round(time))
+    },
+    [projectSize, dependencies, buildTool, enabledOptimizations]
+  )
 
   const buildTimeData = useMemo(() => {
     return BUILD_STEPS.map((step) => ({
       ...step,
       time: calculateStepTime(step),
     }))
-  }, [projectSize, dependencies, buildTool, enabledOptimizations])
+  }, [calculateStepTime])
 
   const totalBuildTime = useMemo(() => {
     return buildTimeData.reduce((sum, step) => sum + step.time, 0)

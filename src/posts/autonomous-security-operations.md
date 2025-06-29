@@ -2,7 +2,7 @@
 title: 'Autonomous Security Operations: The Future of Enterprise Security'
 author: Jonathan Haas
 pubDate: '2024-04-11'
-description: 'FIXME: Add a full description for this post.'
+description: 'The End of the Traditional SOC The Security Operations Center (SOC) as we know it is living on borrowed time.'
 tags:
   - ai
   - ai-agents

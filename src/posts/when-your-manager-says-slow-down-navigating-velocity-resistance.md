@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-28'
-
 title: "When Your Manager Says 'Slow Down': Navigating Velocity Resistance"
-description: 'FIXME: Add a full description for this post.'
+description: '"This is moving too fast. We need more planning." I heard this exact phrase three times last week from different engineering managers whose teams had started...'
 featured: false
 draft: false
 tags:

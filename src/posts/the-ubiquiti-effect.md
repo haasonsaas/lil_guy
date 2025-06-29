@@ -10,7 +10,7 @@ tags:
   - strategy
   - systems-thinking
   - user-experience
-description: 'FIXME: Add a full description for this post.'
+description: 'The False Choice of Enterprise Software Enterprise software has long operated under a flawed assumption: that power and simplicity are mutually exclusive.'
 ---
 
 ## The False Choice of Enterprise Software
