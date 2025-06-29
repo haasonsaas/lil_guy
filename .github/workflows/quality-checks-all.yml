@@ -49,9 +49,9 @@ jobs:
             const status = '${{ steps.quality-checks.outcome }}' === 'success' ? '✅ All quality checks passed!' : '❌ Some quality checks failed';
             const output = `
             ## 🔍 Comprehensive Quality Check Results
-            
+
             ${status}
-            
+
             The comprehensive quality check includes:
             - TypeScript compilation
             - ESLint code quality 
@@ -61,7 +61,7 @@ jobs:
             - SEO validation
             - Link checking
             - Bundle size validation
-            
+
             Check the workflow logs for detailed results.
             `;
 
