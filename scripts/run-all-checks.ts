@@ -10,73 +10,99 @@ import chalk from 'chalk'
 async function runAllChecks() {
   console.log(chalk.blue('🔍 Running all quality checks...\n'))
 
-  const checks = [
-    {
-      name: 'TypeScript',
-      command: 'bun run typecheck',
-      required: true,
-    },
-    {
-      name: 'ESLint',
-      command: 'bun run lint',
-      required: true,
-    },
-    {
-      name: 'Prettier',
-      command: 'bun x prettier --check "src/**/*.{ts,tsx,js,jsx,json,md}"',
-      required: false,
-    },
-    {
-      name: 'Markdown Lint',
-      command: 'bun run lint:md',
-      required: false,
-    },
-    {
-      name: 'Spell Check',
-      command: 'bun run spell',
-      required: false,
-    },
-    {
-      name: 'SEO Validation',
-      command: 'bun run validate:seo',
-      required: false,
-    },
-    {
-      name: 'Link Check',
-      command: 'bun run check:links',
-      required: false,
-    },
-    {
-      name: 'Bundle Size',
-      command: 'bun run check:deploy',
-      required: false,
-    },
-  ]
-
   let hasErrors = false
   let hasWarnings = false
 
-  for (const check of checks) {
-    console.log(chalk.yellow(`Running ${check.name}...`))
-
-    try {
-      await $`${check.command}`.quiet()
-      console.log(chalk.green(`✅ ${check.name} passed`))
-    } catch (error) {
-      if (check.required) {
-        console.log(chalk.red(`❌ ${check.name} failed`))
-        hasErrors = true
-      } else {
-        console.log(chalk.yellow(`⚠️  ${check.name} has warnings`))
-        hasWarnings = true
-      }
-    }
-
-    console.log('') // Empty line between checks
+  // TypeScript check
+  console.log(chalk.yellow('Running TypeScript...'))
+  try {
+    await $`bun run typecheck`.quiet()
+    console.log(chalk.green('✅ TypeScript passed'))
+  } catch (error) {
+    console.log(chalk.red('❌ TypeScript failed'))
+    hasErrors = true
   }
+  console.log('')
+
+  // ESLint check
+  console.log(chalk.yellow('Running ESLint...'))
+  try {
+    await $`bun run lint`.quiet()
+    console.log(chalk.green('✅ ESLint passed'))
+  } catch (error) {
+    console.log(chalk.red('❌ ESLint failed'))
+    hasErrors = true
+  }
+  console.log('')
+
+  // Prettier check
+  console.log(chalk.yellow('Running Prettier...'))
+  try {
+    await $`bun run prettier:check`.quiet()
+    console.log(chalk.green('✅ Prettier passed'))
+  } catch (error) {
+    console.log(chalk.yellow('⚠️  Prettier has warnings'))
+    hasWarnings = true
+  }
+  console.log('')
+
+  // Markdown Lint check
+  console.log(chalk.yellow('Running Markdown Lint...'))
+  try {
+    await $`bun run lint:md`.quiet()
+    console.log(chalk.green('✅ Markdown Lint passed'))
+  } catch (error) {
+    console.log(chalk.yellow('⚠️  Markdown Lint has warnings'))
+    hasWarnings = true
+  }
+  console.log('')
+
+  // Spell Check
+  console.log(chalk.yellow('Running Spell Check...'))
+  try {
+    await $`bun run spell`.quiet()
+    console.log(chalk.green('✅ Spell Check passed'))
+  } catch (error) {
+    console.log(chalk.yellow('⚠️  Spell Check has warnings'))
+    hasWarnings = true
+  }
+  console.log('')
+
+  // SEO Validation
+  console.log(chalk.yellow('Running SEO Validation...'))
+  try {
+    await $`bun run validate:seo`.quiet()
+    console.log(chalk.green('✅ SEO Validation passed'))
+  } catch (error) {
+    console.log(chalk.yellow('⚠️  SEO Validation has warnings'))
+    hasWarnings = true
+  }
+  console.log('')
+
+  // Link Check
+  console.log(chalk.yellow('Running Link Check...'))
+  try {
+    await $`bun run check:links`.quiet()
+    console.log(chalk.green('✅ Link Check passed'))
+  } catch (error) {
+    console.log(chalk.yellow('⚠️  Link Check has warnings'))
+    hasWarnings = true
+  }
+  console.log('')
+
+  // Bundle Size
+  console.log(chalk.yellow('Running Bundle Size...'))
+  try {
+    await $`bun run check:deploy`.quiet()
+    console.log(chalk.green('✅ Bundle Size passed'))
+  } catch (error) {
+    console.log(chalk.yellow('⚠️  Bundle Size has warnings'))
+    hasWarnings = true
+  }
+  console.log('')
 
   // Summary
-  console.log(chalk.blue('\n📊 Summary:'))
+  console.log(chalk.blue('📊 Summary:'))
   if (!hasErrors && !hasWarnings) {
     console.log(chalk.green('✅ All checks passed!'))
   } else {

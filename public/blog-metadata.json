@@ -1014,15 +1014,13 @@
     "description": "A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-20",
-    "tags": {
-      "tags": [
-        "cloudflare",
-        "typescript",
-        "debugging",
-        "serverless",
-        "deployment"
-      ]
-    }
+    "tags": [
+      "cloudflare",
+      "typescript",
+      "debugging",
+      "serverless",
+      "deployment"
+    ]
   },
   "product-manager-skills": {
     "title": "The Product Manager's Secret Superpower: Finding Signal in the Noise",
