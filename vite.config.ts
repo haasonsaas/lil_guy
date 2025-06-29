@@ -47,16 +47,17 @@ export default defineConfig({
             ) {
               return 'vendor-react'
             }
-            // Markdown processing in separate chunk as it's only needed for blog posts
+            // Keep markdown processors separate - only for blog post rendering
             if (
               id.includes('unified') ||
               id.includes('remark') ||
-              id.includes('rehype') ||
-              id.includes('katex') ||
-              id.includes('prism') ||
-              id.includes('dompurify')
+              id.includes('rehype')
             ) {
               return 'vendor-markdown'
+            }
+            // Keep syntax highlighting and math separate to avoid circular deps
+            if (id.includes('katex') || id.includes('prism')) {
+              return 'vendor-highlight'
             }
             // Everything else in vendor chunk
             return 'vendor'
@@ -107,6 +108,6 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    minify: true,
+    minify: false, // Disabled due to circular dependency issues with markdown libraries
   },
 })
