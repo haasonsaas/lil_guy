@@ -39,19 +39,19 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     allBlogPosts.forEach((post) => {
       try {
         // Ensure post.tags is always an array
-        const tags = Array.isArray(post.tags) ? post.tags : [];
+        const tags = Array.isArray(post.tags) ? post.tags : []
         tags.forEach((tag: string) => {
-          tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
+          tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
 
           if (!tagPosts.has(tag)) {
-            tagPosts.set(tag, []);
+            tagPosts.set(tag, [])
           }
-          tagPosts.get(tag)!.push(post);
-        });
+          tagPosts.get(tag)!.push(post)
+        })
       } catch (e: unknown) {
-        console.error(`Error processing post ${post.slug} for tags:`, e);
+        console.error(`Error processing post ${post.slug} for tags:`, e)
       }
-    });
+    })
 
     // Parse query parameters
     const url = new URL(request.url)
@@ -97,24 +97,27 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         generated: new Date().toISOString(),
         apiVersion: '1.0',
         categories: {
-          technical: tags.filter((t) =>
-            [
-              'engineering',
-              'product',
-              'technical',
-              'ai',
-              'cloudflare',
-              'react',
-            ].includes(t.tag)
-          ) || [],
-          business: tags.filter((t) =>
-            ['strategy', 'leadership', 'startup', 'saas', 'growth'].includes(
-              t.tag
-            )
-          ) || [],
-          personal: tags.filter((t) =>
-            ['personal-growth', 'culture', 'productivity'].includes(t.tag)
-          ) || [],
+          technical:
+            tags.filter((t) =>
+              [
+                'engineering',
+                'product',
+                'technical',
+                'ai',
+                'cloudflare',
+                'react',
+              ].includes(t.tag)
+            ) || [],
+          business:
+            tags.filter((t) =>
+              ['strategy', 'leadership', 'startup', 'saas', 'growth'].includes(
+                t.tag
+              )
+            ) || [],
+          personal:
+            tags.filter((t) =>
+              ['personal-growth', 'culture', 'productivity'].includes(t.tag)
+            ) || [],
         },
       },
     }
@@ -128,12 +131,12 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       },
     })
   } catch (error: unknown) {
-    console.error('Error in tags API:', error);
+    console.error('Error in tags API:', error)
     return new Response(
       JSON.stringify({
         error: 'Internal server error',
-        message: (error instanceof Error) ? error.message : String(error),
-        stack: (error instanceof Error) ? error.stack : undefined,
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
       }),
       {
         status: 500,
@@ -142,6 +145,6 @@ export const onRequest: PagesFunction<Env> = async (context) => {
           ...corsHeaders,
         },
       }
-    );
+    )
   }
 }

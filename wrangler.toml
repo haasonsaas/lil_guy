@@ -19,4 +19,4 @@ id = "12a9dd7606564fe9a3261bfab8de9d5a"
 # Performance metrics storage
 [[kv_namespaces]]
 binding = "METRICS_KV"
-id = "placeholder_metrics_kv_id"  # Replace with actual KV namespace ID
+id = "d9bb6ce681f141678a85b5204d3908bd"  # Replace with actual KV namespace ID

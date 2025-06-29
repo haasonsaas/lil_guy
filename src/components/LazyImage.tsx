@@ -68,16 +68,18 @@ export default function LazyImage({
     // For local generated images, prefer AVIF > WebP > fallback
     if (originalSrc.startsWith('/generated/')) {
       const basePath = originalSrc.replace(/\.(png|jpg|jpeg|webp|avif)$/i, '')
-      
+
       // Generate all format sources
       const avifSrc = `${basePath}.avif`
       const webpSrc = `${basePath}.webp`
-      const fallbackSrc = originalSrc.endsWith('.png') ? originalSrc : `${basePath}.png`
-      
-      return { 
-        avif: avifSrc, 
-        webp: webpSrc, 
-        fallback: fallbackSrc 
+      const fallbackSrc = originalSrc.endsWith('.png')
+        ? originalSrc
+        : `${basePath}.png`
+
+      return {
+        avif: avifSrc,
+        webp: webpSrc,
+        fallback: fallbackSrc,
       }
     }
 

@@ -53,9 +53,15 @@ export default function TagsPage() {
             icon: <HelpCircle className="w-4 h-4" />,
             tags: data.tags.filter(
               (tag: Tag) =>
-                !data.meta.categories.technical.some((t: Tag) => t.tag === tag.tag) &&
-                !data.meta.categories.business.some((t: Tag) => t.tag === tag.tag) &&
-                !data.meta.categories.personal.some((t: Tag) => t.tag === tag.tag)
+                !data.meta.categories.technical.some(
+                  (t: Tag) => t.tag === tag.tag
+                ) &&
+                !data.meta.categories.business.some(
+                  (t: Tag) => t.tag === tag.tag
+                ) &&
+                !data.meta.categories.personal.some(
+                  (t: Tag) => t.tag === tag.tag
+                )
             ),
           },
         ]
