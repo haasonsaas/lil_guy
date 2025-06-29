@@ -216,9 +216,10 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
     return () => {
       // Clean up all event listeners
       const listeners = eventListenersRef.current
+      const registration = state.registration
 
-      if (state.registration && listeners.registration) {
-        state.registration.removeEventListener(
+      if (registration && listeners.registration) {
+        registration.removeEventListener(
           'updatefound',
           listeners.registration.updatefound
         )
@@ -244,7 +245,7 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
         window.removeEventListener('offline', listeners.window.offline)
       }
     }
-  }, [])
+  }, [state.registration])
 
   return {
     ...state,
