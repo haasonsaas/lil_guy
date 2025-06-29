@@ -33,33 +33,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Vendor libraries
+          // Vendor libraries - TEMPORARILY put everything in one chunk to fix production
           if (id.includes('node_modules')) {
-            // Bundle all React ecosystem together to avoid load order issues
-            if (
-              id.includes('react') ||
-              id.includes('@radix-ui') ||
-              id.includes('@tanstack/react-query') ||
-              id.includes('framer-motion') ||
-              id.includes('sonner') ||
-              id.includes('lucide-react') ||
-              id.includes('@hookform/resolvers')
-            ) {
-              return 'vendor-react'
-            }
-            // Keep markdown processors separate - only for blog post rendering
-            if (
-              id.includes('unified') ||
-              id.includes('remark') ||
-              id.includes('rehype')
-            ) {
-              return 'vendor-markdown'
-            }
-            // Keep syntax highlighting and math separate to avoid circular deps
-            if (id.includes('katex') || id.includes('prism')) {
-              return 'vendor-highlight'
-            }
-            // Everything else in vendor chunk
             return 'vendor'
           }
 
