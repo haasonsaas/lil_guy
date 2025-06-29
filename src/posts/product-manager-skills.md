@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-11-27'
-title: "The Product Manager's Secret Superpower: Finding Signal in the Noise"
+title: 'The Product Manager''s Secret Superpower: Finding Signal in the Noise'
 featured: false
 draft: false
 tags:

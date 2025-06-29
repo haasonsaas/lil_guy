@@ -1,5 +1,5 @@
 ---
-title: "Chrome Extension for Jira Titles: A Developer's Journey"
+title: 'Chrome Extension for Jira Titles: A Developer''s Journey'
 author: Jonathan Haas
 pubDate: '2024-04-11'
 description: >-

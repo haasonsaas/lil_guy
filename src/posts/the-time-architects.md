@@ -1,7 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-11'
-title: "The Time Architects: How Visionary Founders Reimagine What's Possible"
+title: 'The Time Architects: How Visionary Founders Reimagine What''s Possible'
 description: >-
   I've spent the last decade observing founders across every imaginable
   sector—from AI startups racing to define our technological future to
