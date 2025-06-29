@@ -20,19 +20,25 @@ export const onRequest: PagesFunction = async ({ request, next }) => {
   // Add CSP that allows your app scripts
   const csp = [
     "default-src 'self'",
-    "script-src 'self' 'unsafe-inline' data: blob: https://static.cloudflareinsights.com https://cdn.jsdelivr.net",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://static.cloudflareinsights.com https://cdn.jsdelivr.net",
     "script-src-elem 'self' 'unsafe-inline' data: blob: https://static.cloudflareinsights.com https://cdn.jsdelivr.net",
     "worker-src 'self' blob:",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+    "style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com",
     "font-src 'self' https://fonts.gstatic.com",
     "img-src 'self' data: blob: https:",
-    "connect-src 'self' https:",
+    "connect-src 'self' https: wss:",
     "object-src 'none'",
     "base-uri 'self'",
     "form-action 'self'",
+    "frame-ancestors 'none'",
+    'upgrade-insecure-requests',
   ].join('; ')
 
+  // Set both regular CSP and Report-Only to override any defaults
   response.headers.set('Content-Security-Policy', csp)
+  // Remove any report-only header that might be set by Cloudflare
+  response.headers.delete('Content-Security-Policy-Report-Only')
 
   // Enhanced differential caching strategy
   const url = new URL(request.url)
