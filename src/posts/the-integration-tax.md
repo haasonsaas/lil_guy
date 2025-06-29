@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-
 title: 'The Integration Tax: What Nobody Tells You About Building Modern Software'
-
-description: 'FIXME: Add a full description for this post.'
+description: "Every piece of software you build comes with a hidden cost: the integration tax. It's the exponentially growing complexity of connecting with other systems,..."
 tags:
   - engineering
   - product

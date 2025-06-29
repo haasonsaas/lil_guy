@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-08'
-
-title: >-
-  The Illusion of Traction: When Technical Founders Mistake Interest for
-  Product-Market Fit
-description: 'FIXME: Add a full description for this post.'
+title: 'The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit'
+description: "I've spent over a decade building products, working at startups, and watching technical founders (including myself) repeatedly fall into the same traps."
 featured: false
 draft: false
 tags:

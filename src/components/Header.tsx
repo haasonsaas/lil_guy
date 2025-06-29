@@ -49,12 +49,6 @@ export default function Header() {
             >
               Experiments
             </Link>
-            <Link
-              to="/favorites"
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Favorites
-            </Link>
             <Link to="/newsletter">
               <Button variant="default" size="sm" className="font-medium">
                 Subscribe

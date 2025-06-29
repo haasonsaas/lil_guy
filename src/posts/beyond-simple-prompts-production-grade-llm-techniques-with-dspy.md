@@ -1,8 +1,8 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy'
-description: 'FIXME: Add a full description for this post.'
+description: "I've been watching startups achieve magical results with LLMs, and I noticed something: they're not using ChatGPT."
 featured: false
 draft: false
 tags:

@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-28'
-
 title: 'The Day After: Building a System to Remember What Matters'
-
-description: 'FIXME: Add a full description for this post.'
+description: 'The Day After: Building a System to Remember What Matters: Some weekend conversations feel important in the moment. Some personal decisions feel pivotal.'
 featured: false
 draft: false
 tags:

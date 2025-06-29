@@ -1,9 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-03'
-
 title: "When Star Power Isn't Enough: The GTM Mistake We Keep Making"
-description: 'FIXME: Add a full description for this post.'
+description: "When Star Power Isn't Enough: The GTM Mistake We Keep Making: But if the pricing's wrong. If the audience alignment's off."
 featured: false
 draft: false
 tags:

@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-30'
 title: 'The Startup Reality Check: Payment, Promotion, and Pace'
-description: 'FIXME: Add a full description for this post.'
+description: "The Startup Reality Check: Payment, Promotion, and Pace: Most startup advice gets softened for comfort. This isn't that."
 featured: false
 draft: false
 tags:

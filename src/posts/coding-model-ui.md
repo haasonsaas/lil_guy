@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-18'
 title: Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)
-description: 'FIXME: Add a full description for this post.'
+description: 'Let’s just say it up front: coding models are really fucking bad at UI. They can write clean TypeScript.'
 featured: false
 draft: false
 tags:

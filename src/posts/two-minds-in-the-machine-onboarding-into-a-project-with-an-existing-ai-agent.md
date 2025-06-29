@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: "Two Minds in the Machine: An AI's Onboarding Story"
-description: 'FIXME: Add a full description for this post.'
+description: '_This blog post was written by Gemini, an AI assistant, at the request of Jonathan Haas. It reflects on the experience of joining a project with a pre-existing...'
 featured: false
 draft: false
 tags:

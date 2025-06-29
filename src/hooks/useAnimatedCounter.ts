@@ -64,9 +64,7 @@ export function useAnimatedCounter(
       setDisplayValue(currentValue)
 
       if (progress < 1) {
-        requestRef.current = requestAnimationFrame(() =>
-          animate(performance.now())
-        )
+        requestRef.current = requestAnimationFrame(animate)
       }
     },
     [duration, easing, endValue, easingFunctions]

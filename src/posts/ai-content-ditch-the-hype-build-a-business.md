@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'AI Content: Ditch the Hype, Build a Business'
-description: 'FIXME: Add a full description for this post.'
+description: "The AI Content Generation Myth: It's Not About Perfect, It's About Profit Let's be honest, you've seen the hype."
 featured: false
 draft: false
 tags:

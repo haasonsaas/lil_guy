@@ -2,7 +2,7 @@
 title: 'Quality: The Foundation of Sustainable Growth'
 author: Jonathan Haas
 pubDate: '2024-04-11'
-description: 'FIXME: Add a full description for this post.'
+description: 'In my last post, I argued against perfectionism in startup environments. Today, I want to explore the other side of that coin: when quality really matters, a...'
 tags:
   - engineering
   - product

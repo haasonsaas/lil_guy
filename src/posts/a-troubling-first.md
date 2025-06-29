@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-
 title: 'When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT'
-
-description: 'FIXME: Add a full description for this post.'
+description: 'OpenAI recently rolled back a GPT-4 update due to sycophantic behavior. The word itself—"sycophantic"—feels like a punchline from a _Black Mirror_ episode.'
 featured: false
 draft: false
 tags:

@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-03'
-
 title: 'Building the HTTP for Agents: A Complete Guide to Agent Infrastructure'
-
-description: 'FIXME: Add a full description for this post.'
+description: 'Most teams are not ready for what is coming. Autonomous agents are not just prototypes anymore...'
 featured: false
 draft: false
 tags:

@@ -9,7 +9,7 @@ tags:
   - product-development
   - strategy
   - systems-thinking
-description: 'FIXME: Add a full description for this post.'
+description: "The best product managers have a superpower that's rarely discussed: they can spot the same underlying user need manifesting in completely different ways acr..."
 ---
 
 The best product managers have a superpower that's rarely discussed: they can

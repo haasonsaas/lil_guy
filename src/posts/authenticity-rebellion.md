@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-02'
-
 title: 'The Authenticity Rebellion: Resisting the AI Echo Chamber'
-
-description: 'FIXME: Add a full description for this post.'
+description: 'The Authenticity Rebellion: Resisting the AI Echo Chamber: The Flood Has Arrived Auto-generated blog posts. Podcast transcripts turned into Twitter threads.'
 featured: false
 draft: false
 tags:

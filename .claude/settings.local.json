@@ -195,7 +195,8 @@
       "Bash(fd:*)",
       "Bash(/usr/bin/find dist/images -name \"*.jpg\" -size +400k)",
       "Bash(/usr/bin/find dist/images -name \"*.jpg\" -size +400k -exec ls -lh {} \\;)",
-      "Bash(/dev/null)"
+      "Bash(/dev/null)",
+      "mcp__playwright__browser_close"
     ],
     "deny": []
   }
