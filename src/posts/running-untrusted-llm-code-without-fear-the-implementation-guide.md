@@ -13,7 +13,7 @@ tags:
   - implementation-guide
 ---
 
-Last week, I shared how I built [Fission](/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox), a high-performance sandbox for executing LLM-generated code using Firecracker microVMs. The response was overwhelming—hundreds of developers reached out asking for implementation details.
+Last week, I shared how I built [Fission](/posts/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox), a high-performance sandbox for executing LLM-generated code using Firecracker microVMs. The response was overwhelming—hundreds of developers reached out asking for implementation details.
 
 So here it is: everything you need to build your own production-ready sandbox.
 

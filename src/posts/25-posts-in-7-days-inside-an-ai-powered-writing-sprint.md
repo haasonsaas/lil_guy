@@ -208,5 +208,7 @@ That's incredibly exciting.
 
 ---
 
-_Want to see the interactive components and posts from this sprint? Check out the [Engineering Velocity Tracker](/blog/visualizing-engineering-velocity-the-hidden-cost-of-technical-debt), [Customer Development Simulator](/blog/mastering-customer-development-interviews-an-interactive-guide), and [Retention Cohort Analyzer](/blog/the-compound-effect-of-retention-visualizing-saas-growth-dynamics) — all built during this 7-day period._
+<!-- _Want to see the interactive components and posts from this sprint? Check out the [Engineering Velocity Tracker](/blog/visualizing-engineering-velocity-the-hidden-cost-of-technical-debt), [Customer Development Simulator](/blog/mastering-customer-development-interviews-an-interactive-guide), and [Retention Cohort Analyzer](/blog/the-compound-effect-of-retention-visualizing-saas-growth-dynamics) — all built during this 7-day period._ -->
+
+_Note: Some referenced interactive components from this sprint are still in development._
 ````

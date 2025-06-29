@@ -12,7 +12,7 @@ tags:
   - pair-programming
 ---
 
-_This is part 3 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures), and part 2 explored [building for both human and AI audiences](/blog/building-for-humans-and-machines-the-dual-audience-problem). Written in collaboration with Claude Code._
+_This is part 3 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures), and part 2 explored [building for both human and AI audiences](/posts/building-for-humans-and-machines-the-dual-audience-problem). Written in collaboration with Claude Code._
 
 What does it actually look like when a human and AI debug complex technical problems together?
 

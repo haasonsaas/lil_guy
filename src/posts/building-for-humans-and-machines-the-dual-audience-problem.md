@@ -12,7 +12,7 @@ tags:
   - product
 ---
 
-_This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code._
+_This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code._
 
 Building a website used to be straightforward: design for humans, optimize for search engines, ship it. Now we have a third audience that's rapidly becoming just as important: **AI agents**.
 
@@ -605,7 +605,7 @@ The dual-audience problem isn't going away—it's the new reality of web develop
 
 ---
 
-*Next in this series: "[Debugging in Real-Time: A Human-AI Pair Programming Session](/blog/debugging-in-real-time-a-human-ai-pair-programming-session)" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough.*
+*Next in this series: "[Debugging in Real-Time: A Human-AI Pair Programming Session](/posts/debugging-in-real-time-a-human-ai-pair-programming-session)" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough.*
 
 *This post was written in collaboration with Claude Code, whose systematic approach to dual-audience thinking helped shape many of these architectural patterns. The future of web development is collaborative—and that includes collaboration with AI._
 ````

@@ -45,7 +45,7 @@ The evolution is happening in distinct waves:
    - Smart recommendations
 
 1. **Agentic Integration** (2024-): AI as a core participant
-   - [Autonomous decision-making within defined parameters](/blog/autonomous-security-operations)
+   - [Autonomous decision-making within defined parameters](/posts/autonomous-security-operations)
    - Proactive problem identification and resolution
    - Dynamic adaptation to industry changes
 
