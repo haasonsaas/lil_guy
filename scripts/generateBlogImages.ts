@@ -56,16 +56,36 @@ async function main() {
   const blogPosts = readBlogPosts()
   console.log(`Found ${blogPosts.length} blog posts`)
 
-  // Create responsive image configs for each blog post
+  // Create essential image configs for each blog post (only the sizes we actually need)
   const blogPostImages = blogPosts
     .map((post) => {
-      const title = post.frontmatter.title || post.slug
-      return generateResponsiveImageConfigs(title, {
-        quality: 85,
-        formats: ['webp'], // WebP only for better performance
+      let title = post.frontmatter.title || post.slug
+      // Escape special characters for XML/HTML rendering in image generation
+      title = title
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&apos;')
+        .replace(/`/g, '&#96;')
+
+      // Only generate essential sizes to reduce bundle size
+      const essentialSizes = [
+        { width: 1200, height: 630 }, // Open Graph
+        { width: 800, height: 384 }, // LinkedIn/Twitter
+        { width: 400, height: 225 }, // Mobile thumbnail
+      ]
+
+      return essentialSizes.map(({ width, height }) => ({
+        width,
+        height,
+        text: title,
+        type: 'blog' as const,
         backgroundColor: '#f5f5f5',
         textColor: '#333333',
-      })
+        formats: ['webp'], // WebP only for better performance
+        quality: 85,
+      }))
     })
     .flat()
 

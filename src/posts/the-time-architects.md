@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-11
+pubDate: '2025-04-11'
 title: "The Time Architects: How Visionary Founders Reimagine What's Possible"
-description: An introspective exploration of how exceptional founders reshape our understanding of time, innovation, and the boundaries of what organizations can achieve
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:
@@ -12,9 +12,6 @@ tags:
   - organizational-culture
   - productivity
   - startups
-image:
-  url: 'https://images.pexels.com/photos/1252890/pexels-photo-1252890.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A spiral staircase viewed from below, symbolizing the upward trajectory and different perspective that exceptional founders bring to their work'
 ---
 
 I've spent the last decade observing founders across every imaginable sector—from AI startups racing to define our technological future to direct-to-consumer brands reimagining century-old industries. Throughout this journey, I've become fascinated by a particular phenomenon that separates merely successful entrepreneurs from those who fundamentally reshape industries.

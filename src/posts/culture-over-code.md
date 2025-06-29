@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-04
+pubDate: '2025-05-04'
+
 title: 'Culture Over Code: Why Learning Ability Beats Raw Skill'
-description: Hiring great engineers isn't just about finding the smartest person in the room—it's about building a team that learns fast, adapts well, and plays the long game together. Here's why cultural fit and learning velocity matter more than technical perfection.
+
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - leadership
   - startup-culture
   - team-dynamics
-image:
-  url: 'https://images.pexels.com/photos/3182778/pexels-photo-3182778.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Interview panel having a thoughtful conversation with a candidate, symbolizing team fit evaluation'
 ---
 
 At some point, we all make the same mistake.

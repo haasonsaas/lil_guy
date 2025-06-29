@@ -1,8 +1,8 @@
 ---
 title: 'Security Perspective: Building Trust Through Design'
 author: Jonathan Haas
-pubDate: 2024-04-11
-description: 'How to integrate security considerations into product design and development'
+pubDate: '2024-04-11'
+description: 'FIXME: Add a full description for this post.'
 tags:
   - engineering
   - product
@@ -10,9 +10,6 @@ tags:
   - strategy
 featured: false
 draft: false
-image:
-  url: 'https://images.pexels.com/photos/430208/pexels-photo-430208.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Two cameras against a wall'
 ---
 
 ## The Security Promise and the Reality

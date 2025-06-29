@@ -4,6 +4,9 @@ import { readdir, readFile, writeFile } from 'fs/promises'
 import { join } from 'path'
 import * as matter from 'gray-matter'
 import chalk from 'chalk'
+import fs from 'fs'
+import path from 'path'
+import { fileURLToPath } from 'url'
 
 /**
  * Fix multi-line YAML descriptions in blog posts
@@ -72,3 +75,32 @@ async function fixYamlDescriptions() {
 
 // Run the fix
 fixYamlDescriptions().catch(console.error)
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+const postsDir = path.join(__dirname, '../src/posts')
+const files = fs.readdirSync(postsDir).filter((f) => f.endsWith('.md'))
+
+let totalFixes = 0
+
+console.log('Running final YAML frontmatter fix...')
+
+for (const file of files) {
+  const filePath = path.join(postsDir, file)
+  let content = fs.readFileSync(filePath, 'utf-8')
+  const originalContent = content
+
+  // Directly target the malformed strings and insert a newline
+  content = content.replace(/'featured:/g, "'\nfeatured:")
+  content = content.replace(/'tags:/g, "'\ntags:")
+  content = content.replace(/'draft:/g, "'\ndraft:")
+
+  if (originalContent !== content) {
+    fs.writeFileSync(filePath, content, 'utf-8')
+    console.log(`Fixed: ${file}`)
+    totalFixes++
+  }
+}
+
+console.log(`\nFixed ${totalFixes} files.`)

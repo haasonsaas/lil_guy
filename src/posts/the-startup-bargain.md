@@ -1,8 +1,9 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-01
-title: 'The Startup Bargain Is Broken'
-description: "The startup ecosystem promised a tradeoff: take below-market pay, bet on equity, win big at IPO. That promise is unraveling—and it's time we reckon with what that means for talent, trust, and the future of innovation."
+pubDate: '2025-05-01'
+
+title: The Startup Bargain Is Broken
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +12,6 @@ tags:
   - employee-experience
   - venture-capital
   - organizational-dynamics
-image:
-  url: 'https://images.pexels.com/photos/3182781/pexels-photo-3182781.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Disillusioned employees staring at stock option grant paperwork'
 ---
 
 For decades, the startup ecosystem operated on a simple promise:

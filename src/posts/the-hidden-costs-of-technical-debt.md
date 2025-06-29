@@ -1,20 +1,15 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-19'
-title: 'The Hidden Costs of Technical Debt'
-description: "Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate."
+
+title: The Hidden Costs of Technical Debt
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
   - technical-debt
   - engineering
   - product
-series:
-  name: 'Technical Debt'
-  part: 1
-image:
-  url: '/images/the-hidden-costs-of-technical-debt.jpg'
-  alt: 'The Hidden Costs of Technical Debt header image'
 ---
 
 I've watched engineering teams slow to a crawl, not because they hired bad developers or chose wrong technologies, but because they treated technical debt like a problem for "future us" to solve. The mathematics are brutal: what starts as a 10% velocity hit compounds into development grinding to a halt.

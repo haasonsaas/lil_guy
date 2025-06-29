@@ -1,8 +1,8 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-25'
 title: 'Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox'
-description: 'How I built Fission - a high-performance ephemeral sandbox using Firecracker microVMs to safely execute LLM-generated code'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +11,6 @@ tags:
   - firecracker
   - microvm
   - llm
-image:
-  url: '/images/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox.jpg'
-  alt: 'Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox header image'
 ---
 
 Every time an LLM generates code, you face a choice: trust it blindly or spend hours reviewing it. Neither option scales.

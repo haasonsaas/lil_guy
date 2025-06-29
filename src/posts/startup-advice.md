@@ -1,8 +1,7 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-11-25
-title: "The Three Types of Startup Advice (And Why They're All Wrong)"
-postSlug: three-types-startup-advice
+pubDate: '2024-11-25'
+title: The Three Types of Startup Advice (And Why They're All Wrong)
 featured: true
 draft: false
 tags:
@@ -11,10 +10,7 @@ tags:
   - product-development
   - startups
   - strategy
-image:
-  url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Group of people in a meeting room from above'
-description: Breaking down why most startup advice falls flat, and what to do about it
+description: 'FIXME: Add a full description for this post.'
 ---
 
 The most dangerous thing about startup advice isn't that it's wrong—it's that

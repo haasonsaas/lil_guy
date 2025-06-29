@@ -58,23 +58,32 @@ export default function LazyImage({
     return () => observer.disconnect()
   }, [loading])
 
-  // Generate optimized image sources
+  // Generate optimized image sources with AVIF support
   const getOptimizedSources = (originalSrc: string) => {
     // If it's already external, return as-is
     if (originalSrc.startsWith('http')) {
-      return { webp: originalSrc, fallback: originalSrc }
+      return { avif: originalSrc, webp: originalSrc, fallback: originalSrc }
     }
 
-    // For local generated images, prefer WebP
+    // For local generated images, prefer AVIF > WebP > fallback
     if (originalSrc.startsWith('/generated/')) {
-      if (preferWebP && !originalSrc.endsWith('.webp')) {
-        const webpSrc = originalSrc.replace(/\.(png|jpg|jpeg)$/i, '.webp')
-        return { webp: webpSrc, fallback: originalSrc }
+      const basePath = originalSrc.replace(/\.(png|jpg|jpeg|webp|avif)$/i, '')
+
+      // Generate all format sources
+      const avifSrc = `${basePath}.avif`
+      const webpSrc = `${basePath}.webp`
+      const fallbackSrc = originalSrc.endsWith('.png')
+        ? originalSrc
+        : `${basePath}.png`
+
+      return {
+        avif: avifSrc,
+        webp: webpSrc,
+        fallback: fallbackSrc,
       }
-      return { webp: originalSrc, fallback: originalSrc }
     }
 
-    return { webp: originalSrc, fallback: originalSrc }
+    return { avif: originalSrc, webp: originalSrc, fallback: originalSrc }
   }
 
   // Generate placeholder - could be blur hash, solid color, or skeleton
@@ -133,7 +142,16 @@ export default function LazyImage({
             isLoaded ? 'opacity-100' : 'opacity-0'
           )}
         >
-          {/* WebP source */}
+          {/* AVIF source (best compression, newest browsers) */}
+          {sources.avif !== sources.fallback && (
+            <source
+              srcSet={sources.avif}
+              type="image/avif"
+              {...(sizes && { sizes })}
+            />
+          )}
+
+          {/* WebP source (good compression, wide support) */}
           {sources.webp !== sources.fallback && (
             <source
               srcSet={sources.webp}

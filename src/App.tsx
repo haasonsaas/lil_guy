@@ -9,7 +9,7 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom'
-import { Suspense, lazy } from 'react'
+import React, { Suspense, lazy } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import ScrollToTop from '@/components/ScrollToTop'
 import { ThemeProvider } from '@/components/ThemeProvider'
@@ -17,6 +17,8 @@ import { useAnalytics } from '@/hooks/useAnalytics'
 import { useServiceWorker } from '@/hooks/useServiceWorker'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { DevTools } from '@/components/DevTools'
+import PerformanceDashboard from '@/components/PerformanceDashboard'
+import { initPerformanceMonitoring } from '@/utils/performance'
 import './styles/print.css'
 
 // Critical routes - load immediately
@@ -68,6 +70,12 @@ const queryClient = new QueryClient()
 function AnalyticsProvider() {
   useAnalytics() // This initializes analytics
   useServiceWorker() // This initializes service worker
+
+  // Initialize performance monitoring
+  React.useEffect(() => {
+    initPerformanceMonitoring()
+  }, [])
+
   return null
 }
 
@@ -134,6 +142,7 @@ const App = () => (
               </Suspense>
             </Router>
             <DevTools />
+            <PerformanceDashboard />
           </ErrorBoundary>
         </TooltipProvider>
       </ThemeProvider>

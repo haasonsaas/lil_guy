@@ -1,9 +1,7 @@
-interface Recommendation {
-  title: string
-  slug: string
-  description: string
-  url: string
-  tags: string[]
+import type { PagesFunction } from '@cloudflare/workers-types'
+import { getAllBlogPosts, BlogPost } from '../utils/blogData'
+
+interface Recommendation extends BlogPost {
   priority: 'high' | 'medium' | 'low'
   reason: string
   relevanceScore: number
@@ -18,85 +16,8 @@ interface RecommendationsResponse {
   reasoning: string
 }
 
-const blogPosts = [
-  {
-    title: 'The Hidden Costs of Technical Debt',
-    slug: 'the-hidden-costs-of-technical-debt',
-    description:
-      "Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate.",
-    tags: ['technical-debt', 'engineering', 'velocity', 'management'],
-    topics: ['technical-leadership', 'engineering'],
-    roles: ['engineer', 'founder', 'cto'],
-    experience: ['intermediate', 'advanced'],
-  },
-  {
-    title: 'The New Series A Reality: Why It Feels Harder (Because It Is)',
-    slug: 'new-series-a-reality',
-    description:
-      "If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it.",
-    tags: [
-      'startup-funding',
-      'founder-advice',
-      'venture-capital',
-      'early-stage',
-      'growth-strategy',
-    ],
-    topics: ['startup-funding', 'growth-strategy'],
-    roles: ['founder', 'ceo'],
-    experience: ['intermediate', 'advanced'],
-  },
-  {
-    title:
-      'The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit',
-    slug: 'technical-founder-pmf',
-    description:
-      'Examining why technical founders often confuse early signals with genuine product-market fit.',
-    tags: ['entrepreneurship', 'product-development', 'startups'],
-    topics: ['product-development', 'startup-validation'],
-    roles: ['founder', 'product-manager'],
-    experience: ['beginner', 'intermediate'],
-  },
-  {
-    title: "The Three Types of Startup Advice (And Why They're All Wrong)",
-    slug: 'startup-advice',
-    description:
-      'Breaking down why most startup advice falls flat, and what to do about it',
-    tags: [
-      'leadership',
-      'personal-growth',
-      'product-development',
-      'startups',
-      'strategy',
-    ],
-    topics: ['leadership', 'startup-strategy'],
-    roles: ['founder', 'ceo', 'manager'],
-    experience: ['intermediate', 'advanced'],
-  },
-  {
-    title: 'The Unit Economics That Actually Matter',
-    slug: 'the-unit-economics-that-actually-matter',
-    description:
-      "Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth.",
-    tags: ['saas', 'metrics', 'unit-economics', 'growth'],
-    topics: ['unit-economics', 'saas-metrics'],
-    roles: ['founder', 'product-manager', 'growth'],
-    experience: ['intermediate', 'advanced'],
-  },
-  {
-    title:
-      'The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company',
-    slug: 'founder-pay-gap',
-    description:
-      'After year four, founder CEOs are paid like caretakers—while hired CEOs are paid like kings.',
-    tags: ['startup', 'founder', 'culture', 'transparency'],
-    topics: ['founder-compensation', 'startup-culture'],
-    roles: ['founder', 'ceo'],
-    experience: ['advanced'],
-  },
-]
-
 function calculateRecommendationScore(
-  post: (typeof blogPosts)[0],
+  post: BlogPost,
   role?: string,
   topic?: string,
   experience?: string
@@ -105,22 +26,20 @@ function calculateRecommendationScore(
   const reasons: string[] = []
 
   // Role matching
-  if (role && post.roles.includes(role)) {
+  if (role && post.tags.includes(role)) {
+    // Assuming roles are part of tags for now
     score += 5
     reasons.push(`highly relevant for ${role}s`)
   }
 
-  // Topic matching
-  if (
-    topic &&
-    post.topics.some((t) => t.includes(topic) || topic.includes(t))
-  ) {
+  // Topic matching (assuming topics are part of tags for now)
+  if (topic && post.tags.some((t) => t.includes(topic) || topic.includes(t))) {
     score += 4
     reasons.push(`covers ${topic} in depth`)
   }
 
-  // Experience level matching
-  if (experience && post.experience.includes(experience)) {
+  // Experience level matching (assuming experience is part of tags for now)
+  if (experience && post.tags.includes(experience)) {
     score += 2
     reasons.push(`appropriate for ${experience} level`)
   }
@@ -129,6 +48,19 @@ function calculateRecommendationScore(
   if (!role && !topic && !experience) {
     score += 3
     reasons.push('essential reading for startup professionals')
+  }
+
+  // Recency bonus: more recent posts get a higher score
+  const pubDate = new Date(post.pubDate)
+  const now = new Date()
+  const daysDiff = (now.getTime() - pubDate.getTime()) / (1000 * 60 * 60 * 24)
+
+  if (daysDiff <= 30) {
+    // Posts within 30 days get a significant boost
+    score += 3
+  } else if (daysDiff <= 90) {
+    // Posts within 90 days get a moderate boost
+    score += 1
   }
 
   // Determine priority based on score
@@ -147,7 +79,7 @@ export async function onRequest(
   context: EventContext<Env, string, Record<string, unknown>>
 ): Promise<Response> {
   const { request } = context
-  const baseUrl = 'https://haasonsaas.com'
+  const allBlogPosts = getAllBlogPosts()
 
   // CORS headers
   const corsHeaders = {
@@ -175,7 +107,7 @@ export async function onRequest(
   const limit = Math.min(parseInt(url.searchParams.get('limit') || '5'), 10)
 
   // Calculate recommendations
-  const scoredPosts = blogPosts.map((post) => {
+  const scoredPosts = allBlogPosts.map((post) => {
     const { score, reason, priority } = calculateRecommendationScore(
       post,
       role || undefined,
@@ -187,7 +119,7 @@ export async function onRequest(
       score,
       reason,
       priority,
-      url: `${baseUrl}/posts/${post.slug}`,
+      url: `${new URL(request.url).origin}/posts/${post.slug}`,
     }
   })
 

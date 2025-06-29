@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-02
+pubDate: '2025-05-02'
+
 title: 'The Authenticity Rebellion: Resisting the AI Echo Chamber'
-description: "The internet is drowning in AI-generated content, but connection and creativity are drowning with it. This post explores why scaling your voice doesn't mean outsourcing your soul—and how to reclaim meaning, resonance, and trust in an age of auto-everything."
+
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -10,9 +12,6 @@ tags:
   - product
   - culture
   - personal-growth
-image:
-  url: '[https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress\&cs=tinysrgb\&w=1260\&h=750\&dpr=2](https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)'
-  alt: 'A lone human silhouette standing in front of a wall of digital content, symbolizing the struggle for authenticity'
 ---
 
 ## The Flood Has Arrived

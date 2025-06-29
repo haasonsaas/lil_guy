@@ -34,9 +34,86 @@ export const onRequest: PagesFunction = async ({ request, next }) => {
 
   response.headers.set('Content-Security-Policy', csp)
 
-  // Add performance headers
-  response.headers.set('Cache-Control', 'public, max-age=3600')
-  response.headers.set('Vary', 'Accept-Encoding')
+  // Enhanced differential caching strategy
+  const url = new URL(request.url)
+  const pathname = url.pathname
+
+  // Immutable assets with hash in filename (JS, CSS, fonts, images with hash)
+  if (
+    /-[a-f0-9]{8,}\./.test(pathname) &&
+    /\.(js|css|woff2?|png|jpg|jpeg|webp|avif|svg|ico)$/.test(pathname)
+  ) {
+    response.headers.set('Cache-Control', 'public, max-age=31536000, immutable')
+    response.headers.set('CF-Cache-Tag', 'static-assets')
+  }
+  // Generated blog images (long cache with revalidation)
+  else if (
+    pathname.startsWith('/generated/') ||
+    pathname.startsWith('/placeholders/')
+  ) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=86400, s-maxage=604800, stale-while-revalidate=86400'
+    )
+    response.headers.set('CF-Cache-Tag', 'blog-images')
+  }
+  // Static assets without hash (shorter cache)
+  else if (
+    /\.(js|css|woff2?|png|jpg|jpeg|webp|avif|svg|ico|pdf|txt|xml)$/.test(
+      pathname
+    )
+  ) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=3600, s-maxage=86400'
+    )
+    response.headers.set('CF-Cache-Tag', 'static-assets')
+  }
+  // Blog post pages (moderate cache with stale-while-revalidate)
+  else if (pathname.startsWith('/blog/') && !pathname.endsWith('/')) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=1800, s-maxage=7200, stale-while-revalidate=3600'
+    )
+    response.headers.set('CF-Cache-Tag', 'blog-content')
+  }
+  // Main pages (home, about, blog index)
+  else if (
+    pathname === '/' ||
+    pathname === '/about' ||
+    pathname === '/blog' ||
+    pathname === '/experiments'
+  ) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=600, s-maxage=3600, stale-while-revalidate=1800'
+    )
+    response.headers.set('CF-Cache-Tag', 'main-pages')
+  }
+  // RSS and sitemap (moderate cache)
+  else if (
+    pathname === '/rss.xml' ||
+    pathname === '/atom.xml' ||
+    pathname === '/sitemap.xml' ||
+    pathname === '/robots.txt'
+  ) {
+    response.headers.set(
+      'Cache-Control',
+      'public, max-age=3600, s-maxage=86400'
+    )
+    response.headers.set('CF-Cache-Tag', 'feeds')
+  }
+  // API endpoints (no cache by default, let specific endpoints override)
+  else if (pathname.startsWith('/api/')) {
+    response.headers.set('Cache-Control', 'no-cache')
+  }
+  // Default fallback (short cache)
+  else {
+    response.headers.set('Cache-Control', 'public, max-age=300, s-maxage=1800')
+  }
+
+  // Always set Vary header for proper caching
+  response.headers.set('Vary', 'Accept-Encoding, Accept')
 
   // Add modern web headers
   response.headers.set('Cross-Origin-Embedder-Policy', 'require-corp')

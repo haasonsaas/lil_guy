@@ -1,8 +1,8 @@
 ---
 title: 'Autonomous Security Operations: The Future of Enterprise Security'
 author: Jonathan Haas
-pubDate: 2024-04-11
-description: 'Exploring the role of automation and AI in modern security operations'
+pubDate: '2024-04-11'
+description: 'FIXME: Add a full description for this post.'
 tags:
   - ai
   - ai-agents
@@ -13,9 +13,6 @@ tags:
   - automation
 featured: false
 draft: false
-image:
-  url: 'https://images.pexels.com/photos/8386434/pexels-photo-8386434.jpeg'
-  alt: 'Abstract visualization of AI systems and humans working in harmony'
 ---
 
 ## The End of the Traditional SOC

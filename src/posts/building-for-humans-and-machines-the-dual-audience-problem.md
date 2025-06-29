@@ -1,8 +1,8 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Building for Humans AND Machines: The Dual-Audience Problem'
-description: 'How designing websites for both human users and AI agents creates unique UX challenges and architectural decisions that reshape modern web development.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -10,12 +10,6 @@ tags:
   - architecture
   - developer-experience
   - product
-series:
-  name: 'Building Production-Ready Infrastructure'
-  part: 2
-image:
-  url: '/images/building-for-humans-and-machines-the-dual-audience-problem.jpg'
-  alt: 'Building for Humans AND Machines: The Dual-Audience Problem header image'
 ---
 
 _This is part 2 of a series on building production-ready infrastructure. Part 1 covered [debugging silent TypeScript failures in Cloudflare Functions](/posts/when-typescript-errors-break-production-silent-cloudflare-function-failures). Written in collaboration with Claude Code._
@@ -611,7 +605,7 @@ The dual-audience problem isn't going away—it's the new reality of web develop
 
 ---
 
-*Next in this series: "[Debugging in Real-Time: A Human-AI Pair Programming Session](/blog/debugging-in-real-time-a-human-ai-pair-programming-session)" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough.*
+*Next in this series: "[Debugging in Real-Time: A Human-AI Pair Programming Session](/posts/debugging-in-real-time-a-human-ai-pair-programming-session)" - exploring how Claude Code and I actually work together to solve complex technical problems, including the exact debugging process that led to our Cloudflare deployment breakthrough.*
 
 *This post was written in collaboration with Claude Code, whose systematic approach to dual-audience thinking helped shape many of these architectural patterns. The future of web development is collaborative—and that includes collaboration with AI._
 ````

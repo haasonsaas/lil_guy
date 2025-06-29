@@ -1,12 +1,13 @@
-interface SearchResult {
-  title: string
-  slug: string
-  description: string
-  content?: string
-  url: string
-  tags: string[]
-  author: string
-  pubDate: string
+import type { PagesFunction } from '@cloudflare/workers-types'
+import { getAllBlogPosts, BlogPost } from '../utils/blogData'
+
+interface Env {
+  ASSETS: {
+    fetch: (request: Request) => Promise<Response>
+  }
+}
+
+interface SearchResult extends BlogPost {
   relevance: number
 }
 
@@ -19,10 +20,7 @@ interface SearchResponse {
 }
 
 // Simple search scoring algorithm
-function calculateRelevance(
-  query: string,
-  post: Record<string, unknown>
-): number {
+function calculateRelevance(query: string, post: BlogPost): number {
   const queryLower = query.toLowerCase()
   const title = String(post.title || '').toLowerCase()
   const description = String(post.description || '').toLowerCase()
@@ -50,86 +48,30 @@ function calculateRelevance(
     score += 3
   }
 
+  // Recency bonus: more recent posts get a higher score
+  const pubDate = new Date(post.pubDate)
+  const now = new Date()
+  const daysDiff = (now.getTime() - pubDate.getTime()) / (1000 * 60 * 60 * 24)
+
+  if (daysDiff <= 30) {
+    // Posts within 30 days get a significant boost
+    score += 7
+  } else if (daysDiff <= 90) {
+    // Posts within 90 days get a moderate boost
+    score += 4
+  } else if (daysDiff <= 365) {
+    // Posts within 1 year get a small boost
+    score += 1
+  }
+
   return Math.min(score / 20, 1) // Normalize to 0-1
 }
 
-// Mock blog posts data - in a real implementation, this would come from your CMS/database
-const mockBlogPosts = [
-  {
-    title: 'The Hidden Costs of Technical Debt',
-    slug: 'the-hidden-costs-of-technical-debt',
-    description:
-      "Technical debt isn't just messy code. It's a compound interest loan against your engineering velocity that most teams drastically underestimate.",
-    content:
-      'I\'ve watched engineering teams slow to a crawl, not because they hired bad developers or chose wrong technologies, but because they treated technical debt like a problem for "future us" to solve...',
-    tags: ['technical-debt', 'engineering', 'velocity', 'management'],
-    author: 'Jonathan Haas',
-    pubDate: '2025-06-19',
-  },
-  {
-    title: 'The New Series A Reality: Why It Feels Harder (Because It Is)',
-    slug: 'new-series-a-reality',
-    description:
-      "If you're feeling like the startup funding landscape has shifted under your feet, you're not imagining it. Here's a breakdown of why raising a Series A today is tougher.",
-    content:
-      "If you're feeling like the ground is shifting under you when it comes to raising a Series A—you're right. It has shifted. And it's not shifting back anytime soon...",
-    tags: [
-      'startup-funding',
-      'founder-advice',
-      'venture-capital',
-      'early-stage',
-      'growth-strategy',
-    ],
-    author: 'Jonathan Haas',
-    pubDate: '2025-05-12',
-  },
-  {
-    title:
-      'The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit',
-    slug: 'technical-founder-pmf',
-    description:
-      "Examining why technical founders often confuse early signals with genuine product-market fit, and how to recognize when you're building something people truly need",
-    content:
-      "I've spent over a decade building products, working at startups, and watching technical founders (including myself) repeatedly fall into the same traps...",
-    tags: ['entrepreneurship', 'product-development', 'startups'],
-    author: 'Jonathan Haas',
-    pubDate: '2025-04-08',
-  },
-  {
-    title: "The Three Types of Startup Advice (And Why They're All Wrong)",
-    slug: 'startup-advice',
-    description:
-      'Breaking down why most startup advice falls flat, and what to do about it',
-    content:
-      "The most dangerous thing about startup advice isn't that it's wrong—it's that it's partially right...",
-    tags: [
-      'leadership',
-      'personal-growth',
-      'product-development',
-      'startups',
-      'strategy',
-    ],
-    author: 'Jonathan Haas',
-    pubDate: '2024-11-25',
-  },
-  {
-    title: 'The Unit Economics That Actually Matter',
-    slug: 'the-unit-economics-that-actually-matter',
-    description:
-      "Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter.",
-    content:
-      "I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things...",
-    tags: ['saas', 'metrics', 'unit-economics', 'growth'],
-    author: 'Jonathan Haas',
-    pubDate: '2025-06-19',
-  },
-]
-
-export async function onRequest(
+export const onRequest: PagesFunction<Env> = async (
   context: EventContext<Env, string, Record<string, unknown>>
-): Promise<Response> {
+): Promise<Response> => {
   const { request } = context
-  const baseUrl = 'https://haasonsaas.com'
+  const baseUrl = new URL(request.url).origin
   const startTime = Date.now()
 
   // CORS headers
@@ -167,8 +109,10 @@ export async function onRequest(
     )
   }
 
+  const allBlogPosts = getAllBlogPosts()
+
   // Search and rank results
-  const results: SearchResult[] = mockBlogPosts
+  const results: SearchResult[] = allBlogPosts
     .map((post) => ({
       ...post,
       relevance: calculateRelevance(query, post),

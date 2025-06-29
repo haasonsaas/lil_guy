@@ -1,8 +1,8 @@
 ---
 title: "Chrome Extension for Jira Titles: A Developer's Journey"
 author: Jonathan Haas
-pubDate: 2024-04-11
-description: 'Building a Chrome extension to improve Jira ticket management'
+pubDate: '2024-04-11'
+description: 'FIXME: Add a full description for this post.'
 tags:
   - engineering
   - product
@@ -11,9 +11,6 @@ tags:
   - productivity
 featured: false
 draft: false
-image:
-  url: 'https://images.pexels.com/photos/67112/pexels-photo-67112.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Chrome browser extension interface showing JIRA title generation'
 ---
 
 "Can you make this JIRA title clearer?"
@@ -107,7 +104,7 @@ to wait for solutions to come from elsewhere.
 The extension is straightforward to use:
 
 1. Download it from the GitHub
-   [repo](https://github.com/haasonsaas/jira-title-generator)
+   repository
 1. Load the unpacked folder in Chrome
 1. Add your OpenAI API key in the settings
 1. Select any text, right-click, and choose "Generate JIRA Title"

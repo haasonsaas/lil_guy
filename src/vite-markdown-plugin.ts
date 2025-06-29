@@ -237,6 +237,11 @@ export default data;
           return moduleCode
         } catch (error) {
           console.error(`Error processing markdown file ${id}:`, error)
+          console.error('Error details:', {
+            message: error.message,
+            stack: error.stack,
+            filename: path.basename(id),
+          })
           return `export default { frontmatter: {}, content: "Error loading markdown file" };`
         }
       }

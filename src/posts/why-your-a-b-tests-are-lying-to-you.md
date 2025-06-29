@@ -1,8 +1,9 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-19'
-title: 'Why Your A/B Tests Are Lying to You'
-description: "Statistical significance doesn't mean what you think it means. Here's why 95% of A/B tests are misleading and what to track instead."
+
+title: Why Your A/B Tests Are Lying to You
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -10,9 +11,6 @@ tags:
   - statistics
   - data
   - product
-image:
-  url: '/images/why-your-a-b-tests-are-lying-to-you.jpg'
-  alt: 'Why Your A/B Tests Are Lying to You header image'
 ---
 
 95% of product teams are making decisions based on A/B test results that are statistically meaningless. I've seen companies pivot entire strategies, hire data scientists, and burn millions in development costs—all because they misunderstood what "statistically significant" actually means.

@@ -1,20 +1,16 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-19'
-title: 'Building Interactive WebGL Experiments: From Audio Visualization to Generative Art'
-description: 'How I built 5 immersive WebGL experiments showcasing real-time graphics, physics simulations, and algorithmic creativity'
+title: >-
+  Building Interactive WebGL Experiments: From Audio Visualization to Generative
+  Art
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:
   - webgl
   - graphics
   - creative-coding
-series:
-  name: 'WebGL & Graphics'
-  part: 1
-image:
-  url: '/images/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art.jpg'
-  alt: 'Building Interactive WebGL Experiments: From Audio Visualization to Generative Art header image'
 ---
 
 I've always been fascinated by the intersection of code and creativity. Recently, I embarked on an ambitious project to expand my blog's [experiments section](/experiments) with five new interactive WebGL experiences that push the boundaries of what's possible in a web browser.

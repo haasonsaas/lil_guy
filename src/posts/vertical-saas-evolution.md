@@ -1,17 +1,16 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: '2024-04-11'
+
 title: 'The Agentic Shift: How AI is Transforming Vertical SaaS'
-description: 'How vertical SaaS companies are rapidly evolving from workflow automation to intelligent agents, and what it means for the future of industry-specific software'
+
+description: 'FIXME: Add a full description for this post.'
 tags:
   - ai
   - ai-agents
   - engineering
   - product
   - strategy
-image:
-  url: 'https://images.pexels.com/photos/577585/pexels-photo-577585.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Glasses in front of a computer screen'
 ---
 
 Remember when vertical SaaS was just about digitizing industry-specific
@@ -46,7 +45,7 @@ The evolution is happening in distinct waves:
    - Smart recommendations
 
 1. **Agentic Integration** (2024-): AI as a core participant
-   - Autonomous decision-making within defined parameters
+   - [Autonomous decision-making within defined parameters](/posts/autonomous-security-operations)
    - Proactive problem identification and resolution
    - Dynamic adaptation to industry changes
 

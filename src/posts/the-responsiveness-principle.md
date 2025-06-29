@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-19
+pubDate: '2025-04-19'
 title: 'The Responsiveness Principle: How Small Signals Build Big Trust in Venture'
-description: A practical field guide for early-stage investors and founders on why responsiveness—not just capital—sets the tone for trust, momentum, and long-term outcomes.
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +11,6 @@ tags:
   - early-stage-investing
   - trust-building
   - startup-etiquette
-image:
-  url: 'https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A focused conversation between two professionals, emphasizing clarity and responsiveness'
 ---
 
 Early-stage investing is often framed as a game of insight—pattern recognition, market timing, founder psychology. And yet, one of the most overlooked edge factors in venture is also the simplest: responsiveness.

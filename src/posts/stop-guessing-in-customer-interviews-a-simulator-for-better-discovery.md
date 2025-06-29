@@ -1,11 +1,15 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'Stop Guessing in Customer Interviews: A Simulator for Better Discovery'
-description: 'Master the art of customer development with this interactive interview simulator. Practice asking the right questions, avoid common biases, and learn from realistic personas.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
-tags: ['customer-development', 'product-management', 'startup', 'interactive']
+tags:
+  - customer-development
+  - product-management
+  - startup
+  - interactive
 ---
 
 I've conducted hundreds of customer interviews. Most of them were terrible.

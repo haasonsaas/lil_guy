@@ -1,8 +1,11 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-13
-title: 'Model Context Protocol: The Enterprise Standard Transforming AI Tool Integration'
-description: A comprehensive analysis of the Model Context Protocol (MCP) — the enterprise-ready standard that's systematically solving the challenges of LLM tool integration across organizations of all sizes.
+pubDate: '2025-04-13'
+
+title: >-
+  Model Context Protocol: The Enterprise Standard Transforming AI Tool
+  Integration
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:
@@ -14,9 +17,6 @@ tags:
   - automation
   - mcp-standard
   - system-integration
-image:
-  url: 'https://images.pexels.com/photos/1661476/pexels-photo-1661476.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Developer orchestrating multiple systems through an integrated interface'
 ---
 
 ## Introduction: The Integration Challenge

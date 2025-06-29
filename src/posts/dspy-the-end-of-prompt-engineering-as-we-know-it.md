@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
-pubDate: '2025-06-23'
-title: 'DSPy: The End of Prompt Engineering As We Know It'
-description: "Why Stanford's DSPy framework marks the death of manual prompt crafting and the birth of algorithmic prompt optimization - featuring 11 production-ready techniques"
+author: Jonathan Haas
+pubDate: '2024-03-18'
+
+title: 'DSPy: The End of Prompt Engineering as We Know It'
+
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:
@@ -226,4 +228,5 @@ And that future is already here.
 ---
 
 *Want to implement these techniques yourself? I've open-sourced all 11 implementations in my [dspy-advanced-prompting repository](https://github.com/haasonsaas/dspy-advanced-prompting). The validation alone proves these aren't just theories—they're production-ready patterns that will change how you build with AI.*
+```
 ````

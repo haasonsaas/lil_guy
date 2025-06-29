@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-03
+pubDate: '2025-05-03'
+
 title: 'Building the HTTP for Agents: A Complete Guide to Agent Infrastructure'
-description: "As AI agents grow from niche experiments to core infrastructure, we need a new control plane—identity, policy, and secrets—standardized and scalable. Here's how to build the HTTP layer for autonomous agents, from Envoy sidecars to Vault-backed secrets and a Python SDK."
+
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -13,9 +15,6 @@ tags:
   - technical
   - framework
   - developer-tools
-image:
-  url: 'https://images.pexels.com/photos/11035546/pexels-photo-11035546.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Abstract network of connected dots representing digital agents and protocols'
 ---
 
 Most teams aren't ready for what's coming.
@@ -1763,7 +1762,7 @@ This YAML defines a simple sequence of steps. It's a basic illustration of the *
 ```yaml
 # support*workflow.yaml
 name: support-ticket-triage
-description: Automated support ticket triage and response
+description: 'FIXME: Add a full description for this post.'
 version: 1.0.0
 
 # Define expected inputs to the workflow

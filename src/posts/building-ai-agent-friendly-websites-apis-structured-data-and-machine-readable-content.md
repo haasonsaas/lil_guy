@@ -1,8 +1,10 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-20'
-title: 'Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content'
-description: 'How to make your website accessible to AI agents with proper APIs, enhanced structured data, and machine-readable content formats'
+title: >-
+  Building AI-Agent-Friendly Websites: APIs, Structured Data, and
+  Machine-Readable Content
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -10,9 +12,6 @@ tags:
   - web-development
   - api-design
   - structured-data
-image:
-  url: '/images/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content.jpg'
-  alt: 'Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content header image'
 ---
 
 AI agents are everywhere now. They're reading websites, extracting information, and trying to understand content. But here's the problem: most websites are built for humans, not machines.

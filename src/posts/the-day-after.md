@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-28
+pubDate: '2025-04-28'
+
 title: 'The Day After: Building a System to Remember What Matters'
-description: How a weekend project using the Limitless API turned into a system for capturing and reflecting on daily conversations, decisions, and connections—even if it's still imperfect.
+
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - personal-growth
   - conversation-analysis
   - memory
-image:
-  url: '/images/day-after-worker-screenshot.png'
-  alt: 'Screenshot of the Day-After Worker email digest interface'
 ---
 
 Some weekend conversations feel important in the moment. Some personal decisions feel pivotal. But a week later? The details blur. The why gets fuzzy. The insight fades.

@@ -10,6 +10,10 @@ export interface BlogPostFrontmatter {
     url: string
     alt: string
   }
+  series?: {
+    name: string
+    part: number
+  }
 }
 
 export interface BlogPost {

@@ -10,7 +10,7 @@ interface BlogImageConfig {
   backgroundColor?: string
   textColor?: string
   fontSize?: number
-  formats?: ('png' | 'webp')[]
+  formats?: ('png' | 'webp' | 'avif')[]
   quality?: number
 }
 
@@ -151,64 +151,54 @@ export function generateResponsiveImageConfigs(
   title: string,
   options?: {
     quality?: number
-    formats?: ('png' | 'webp')[]
+    formats?: ('png' | 'webp' | 'avif')[]
     backgroundColor?: string
     textColor?: string
   }
 ): BlogImageConfig[] {
   const {
     quality = 85,
-    formats = ['png', 'webp'],
+    formats = ['png', 'webp', 'avif'],
     backgroundColor = '#f5f5f5',
     textColor = '#333333',
   } = options || {}
 
-  return [
-    // Open Graph (1200x630) - Standard social media
-    {
-      width: 1200,
-      height: 630,
-      text: title,
-      type: 'blog' as const,
-      backgroundColor,
-      textColor,
-      formats,
-      quality,
-    },
-    // Featured image (1200x400) - Hero/banner
-    {
-      width: 1200,
-      height: 400,
-      text: title,
-      type: 'blog' as const,
-      backgroundColor,
-      textColor,
-      formats,
-      quality,
-    },
-    // Thumbnail (800x384) - List view
-    {
-      width: 800,
-      height: 384,
-      text: title,
-      type: 'blog' as const,
-      backgroundColor,
-      textColor,
-      formats,
-      quality,
-    },
-    // Small thumbnail (400x192) - Mobile/compact view
-    {
-      width: 400,
-      height: 192,
-      text: title,
-      type: 'blog' as const,
-      backgroundColor,
-      textColor,
-      formats,
-      quality,
-    },
+  const configs: BlogImageConfig[] = []
+
+  // Social media sizes (fixed aspect ratios)
+  const socialSizes = [
+    { width: 1200, height: 630 }, // Open Graph
+    { width: 1200, height: 400 }, // Twitter Card
+    { width: 800, height: 384 }, // LinkedIn
   ]
+
+  // Responsive sizes for different breakpoints (16:9 aspect ratio)
+  const responsiveSizes = [
+    { width: 400, height: 225 }, // Mobile small
+    { width: 640, height: 360 }, // Mobile large
+    { width: 768, height: 432 }, // Tablet
+    { width: 1024, height: 576 }, // Desktop small
+    { width: 1280, height: 720 }, // Desktop medium
+    { width: 1920, height: 1080 }, // Desktop large
+    { width: 2560, height: 1440 }, // 2K
+  ]
+
+  // Generate configs for all sizes
+  const allSizes = [...socialSizes, ...responsiveSizes]
+  allSizes.forEach(({ width, height }) => {
+    configs.push({
+      width,
+      height,
+      text: title,
+      type: 'blog' as const,
+      backgroundColor,
+      textColor,
+      formats,
+      quality,
+    })
+  })
+
+  return configs
 }
 
 /**
@@ -252,6 +242,10 @@ export async function generateBlogImages(
         if (format === 'webp') {
           await sharpInstance
             .webp({ quality, effort: 6 }) // High effort for better compression
+            .toFile(filePath)
+        } else if (format === 'avif') {
+          await sharpInstance
+            .avif({ quality: Math.round(quality * 0.9), effort: 9 }) // Slightly lower quality for AVIF, max effort
             .toFile(filePath)
         } else if (format === 'png') {
           await sharpInstance

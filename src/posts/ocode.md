@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-26
+pubDate: '2025-05-26'
+
 title: 'OCode: Why I Built My Own Claude Code (and Why You Might Too)'
-description: "After getting smacked with a $600+ invoice for a coding assistant that times out at 2 a.m., I decided to build my own. Here's how OCode was born—powered by Ollama, running locally, and priced at $0 per token."
+
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -13,9 +15,6 @@ tags:
   - open-source
   - developer-tools
   - ai
-image:
-  url: 'https://images.pexels.com/photos/1181673/pexels-photo-1181673.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A developer in a terminal session working late at night with a cat nearby'
 ---
 
 A few nights ago, I opened my Anthropic invoice. $602.14.

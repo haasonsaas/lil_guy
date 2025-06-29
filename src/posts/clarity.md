@@ -1,8 +1,9 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-05-01
-title: "Most Startups Don't Have a Growth Problem—They Have a Clarity Problem"
-description: "Growth might be your dashboard's favorite metric, but it's not your startup's biggest obstacle. More often, the real issue is fuzziness—about your customer, your message, your purpose. This post breaks down why clarity, not velocity, is the foundation for real traction."
+pubDate: '2025-05-01'
+
+title: Most Startups Don't Have a Growth Problem—They Have a Clarity Problem
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -10,9 +11,6 @@ tags:
   - strategy
   - founder
   - growth
-image:
-  url: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A foggy glass window with someone drawing a line through it, symbolizing cutting through lack of clarity'
 ---
 
 Here's a pattern I keep seeing:

@@ -13,6 +13,7 @@ async function main() {
     type: 'blog' as const,
     backgroundColor: '#f5f5f5',
     textColor: '#333333',
+    formats: ['webp'] as ('png' | 'webp')[],
   }
 
   // Generate the OpenGraph image
@@ -23,13 +24,13 @@ async function main() {
     process.cwd(),
     'public',
     'generated',
-    `${ogImageConfig.width}x${ogImageConfig.height}-${ogImageConfig.text.toLowerCase().replace(/[^a-z0-9]/g, '-')}.png`
+    `${ogImageConfig.width}x${ogImageConfig.height}-${ogImageConfig.text.toLowerCase().replace(/[^a-z0-9]/g, '-')}.webp`
   )
 
   const targetImagePath = path.join(
     process.cwd(),
     'public',
-    'opengraph-image-p98pqg.png'
+    'opengraph-image-p98pqg.webp'
   )
 
   // Copy the file

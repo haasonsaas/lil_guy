@@ -1,4 +1,5 @@
 import type { PagesFunction } from '@cloudflare/workers-types'
+import { getAllBlogPosts, BlogPost } from '../utils/blogData'
 
 interface Env {
   ASSETS: {
@@ -29,45 +30,27 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   }
 
   try {
-    // Fetch the blog metadata
-    const metadataRequest = new Request(
-      new URL('/blog-metadata.json', request.url)
-    )
-    const metadataResponse = await env.ASSETS.fetch(metadataRequest)
-
-    if (!metadataResponse.ok) {
-      return new Response('Metadata not found', {
-        status: 404,
-        headers: corsHeaders,
-      })
-    }
-
-    const allMetadata = (await metadataResponse.json()) as Record<
-      string,
-      unknown
-    >
+    const allBlogPosts = await getAllBlogPosts(env)
 
     // Count tags
     const tagCounts = new Map<string, number>()
-    const tagPosts = new Map<
-      string,
-      Array<{ slug: string; title: string; pubDate: string }>
-    >()
+    const tagPosts = new Map<string, BlogPost[]>()
 
-    Object.entries(allMetadata).forEach(([slug, metadata]) => {
-      const tags = metadata.tags || []
-      tags.forEach((tag: string) => {
-        tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
+    allBlogPosts.forEach((post) => {
+      try {
+        // Ensure post.tags is always an array
+        const tags = Array.isArray(post.tags) ? post.tags : []
+        tags.forEach((tag: string) => {
+          tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
 
-        if (!tagPosts.has(tag)) {
-          tagPosts.set(tag, [])
-        }
-        tagPosts.get(tag)!.push({
-          slug,
-          title: metadata.title,
-          pubDate: metadata.pubDate,
+          if (!tagPosts.has(tag)) {
+            tagPosts.set(tag, [])
+          }
+          tagPosts.get(tag)!.push(post)
         })
-      })
+      } catch (e: unknown) {
+        console.error(`Error processing post ${post.slug} for tags:`, e)
+      }
     })
 
     // Parse query parameters
@@ -107,31 +90,34 @@ export const onRequest: PagesFunction<Env> = async (context) => {
       tags,
       meta: {
         totalTags: tags.length,
-        totalPosts: Object.keys(allMetadata).length,
+        totalPosts: allBlogPosts.length,
         sortedBy: sortBy,
         minCount,
         includesPosts,
         generated: new Date().toISOString(),
         apiVersion: '1.0',
         categories: {
-          technical: tags.filter((t) =>
-            [
-              'engineering',
-              'product',
-              'technical',
-              'ai',
-              'cloudflare',
-              'react',
-            ].includes(t.tag)
-          ),
-          business: tags.filter((t) =>
-            ['strategy', 'leadership', 'startup', 'saas', 'growth'].includes(
-              t.tag
-            )
-          ),
-          personal: tags.filter((t) =>
-            ['personal-growth', 'culture', 'productivity'].includes(t.tag)
-          ),
+          technical:
+            tags.filter((t) =>
+              [
+                'engineering',
+                'product',
+                'technical',
+                'ai',
+                'cloudflare',
+                'react',
+              ].includes(t.tag)
+            ) || [],
+          business:
+            tags.filter((t) =>
+              ['strategy', 'leadership', 'startup', 'saas', 'growth'].includes(
+                t.tag
+              )
+            ) || [],
+          personal:
+            tags.filter((t) =>
+              ['personal-growth', 'culture', 'productivity'].includes(t.tag)
+            ) || [],
         },
       },
     }
@@ -144,12 +130,13 @@ export const onRequest: PagesFunction<Env> = async (context) => {
         ...corsHeaders,
       },
     })
-  } catch (error) {
+  } catch (error: unknown) {
     console.error('Error in tags API:', error)
     return new Response(
       JSON.stringify({
         error: 'Internal server error',
-        message: 'Failed to fetch tags',
+        message: error instanceof Error ? error.message : String(error),
+        stack: error instanceof Error ? error.stack : undefined,
       }),
       {
         status: 500,

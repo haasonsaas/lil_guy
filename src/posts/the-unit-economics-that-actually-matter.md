@@ -1,8 +1,9 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-19'
-title: 'The Unit Economics That Actually Matter'
-description: "Most SaaS founders track LTV/CAC wrong. Here's what really drives sustainable growth and the metrics that matter."
+
+title: The Unit Economics That Actually Matter
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -10,9 +11,6 @@ tags:
   - metrics
   - unit-economics
   - growth
-image:
-  url: '/images/the-unit-economics-that-actually-matter.jpg'
-  alt: 'The Unit Economics That Actually Matter header image'
 ---
 
 I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things. The problem isn't that unit economics don't matter—it's that most founders are calculating them wrong.

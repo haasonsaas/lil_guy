@@ -11,7 +11,7 @@ if [ -n "$modified_posts" ]; then
   
   if [ -n "$unstaged_images" ]; then
     echo "⚠️  Found uncommitted generated images. Adding to next commit..."
-    git add public/generated/*.png public/generated/*.webp 2>/dev/null || true
+    git add public/generated/*.webp 2>/dev/null || true
     
     # Check for RSS/sitemap updates
     if [ -f "dist/rss.xml" ]; then

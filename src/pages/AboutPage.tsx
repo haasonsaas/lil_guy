@@ -21,6 +21,7 @@ import {
   ChevronRight,
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { WebsiteMeta } from '@/components/SEO/MetaTags'
 
 const experiences = [
   {
@@ -136,6 +137,11 @@ const skills = [
 export default function AboutPage() {
   return (
     <Layout>
+      <WebsiteMeta
+        title="About Jonathan Haas - Security & AI Engineering Leader"
+        description="Learn about Jonathan Haas, a security and applied AI engineering leader with experience building and scaling SaaS products, security infrastructure, and AI systems."
+        path="/about"
+      />
       <section className="py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}

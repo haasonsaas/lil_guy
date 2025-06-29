@@ -1,11 +1,15 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-04-17'
 title: 'AI Detection Hysteria: When Human Creativity Gets Mislabeled'
-description: 'An examination of the growing trend of falsely attributing human-created content to AI generation, and why this luddite perspective is problematic for creative communities and technological progress'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
-tags: ['ai', 'product', 'strategy', 'trust']
+tags:
+  - ai
+  - product
+  - strategy
+  - trust
 ---
 
 When I first noticed the flood of "This is AI-generated!" accusations on social media, I dismissed it as a passing trend. However, over the past six months, I've observed this phenomenon evolve from occasional skepticism into what can only be described as detection hysteria. Increasingly, entirely human-created content is being dismissed as artificial—with consequences far beyond hurt feelings.

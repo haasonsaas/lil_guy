@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-11
+pubDate: '2024-04-11'
+
 title: 'Inside InboxArmor: Building a Smarter Email Analysis Engine'
-description: "A deep dive into the architecture, design principles, and future evolution of InboxArmor—an intelligent email insight system built for today's overwhelming inboxes"
+
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - engineering
   - strategy
   - ai
-image:
-  url: '/images/inboxarmor-architecture.png'
-  alt: "Diagram of InboxArmor's Analysis and Evaluation Engines working together"
 ---
 
 If your inbox feels like a battlefield, you're not alone. The modern email flow is a chaotic mess of promotions, business requests, events, updates, and the occasional important message buried in the noise.

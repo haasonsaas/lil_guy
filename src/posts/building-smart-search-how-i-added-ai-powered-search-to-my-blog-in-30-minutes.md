@@ -1,8 +1,8 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes'
-description: 'A deep dive into implementing semantic search with React, including keyboard shortcuts, real-time filtering, and why AI-powered search beats traditional keyword matching'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

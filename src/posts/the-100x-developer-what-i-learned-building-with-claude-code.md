@@ -2,7 +2,7 @@
 author: 'Jonathan Haas'
 pubDate: '2025-06-20'
 title: 'The 100x Developer: What I Learned Building with Claude Code'
-description: 'A meta-analysis of AI pair programming after shipping 4 features in 50 minutes - including physics simulations, smart search, and this very blog post'
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:

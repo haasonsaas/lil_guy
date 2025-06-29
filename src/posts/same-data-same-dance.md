@@ -1,8 +1,9 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-21
+pubDate: '2025-04-21'
+
 title: "Same Data, Same Dance: Why the Moat Isn't Technical Anymore"
-description: "In an era where every security tool starts from the same place—your data—the technical playing field is flat. So where's the moat? It's not in the tech. It's in everything around it: execution speed, user experience, trust, and distribution."
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -12,9 +13,6 @@ tags:
   - vendor-differentiation
   - cspm
   - security-tools
-image:
-  url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'Security dashboard interface showing overlapping data from different tools'
 ---
 
 > **Inspired by a post from [Ross Haleliuk](https://www.linkedin.com/in/rosshaleliuk/):**

@@ -1,8 +1,8 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'When TypeScript Errors Break Production: Silent Cloudflare Function Failures'
-description: 'A deep dive into debugging serverless deployment failures, TypeScript compilation issues, and the hidden complexity of Cloudflare Pages Functions.'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -12,12 +12,6 @@ tags:
     - debugging
     - serverless
     - deployment
-series:
-  name: 'Building Production-Ready Infrastructure'
-  part: 1
-image:
-  url: '/images/when-typescript-errors-break-production-silent-cloudflare-function-failures.jpg'
-  alt: 'When TypeScript Errors Break Production: Silent Cloudflare Function Failures header image'
 ---
 
 _This is part 1 of a series on building production-ready infrastructure. Written in collaboration with Claude Code, who helped debug the very issue we're dissecting here._
@@ -278,7 +272,7 @@ This is part of a larger trend I'm seeing: as our development tools become more 
 
 ---
 
-*Next in this series: "[Building for Humans AND Machines: The Dual-Audience Problem](/blog/building-for-humans-and-machines-the-dual-audience-problem)" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges.*
+*Next in this series: "[Building for Humans AND Machines: The Dual-Audience Problem](/posts/building-for-humans-and-machines-the-dual-audience-problem)" - exploring how designing for both human users and AI agents creates unique UX and architectural challenges.*
 
 *This post was written in collaboration with Claude Code, whose systematic debugging approach helped solve the very problem we're analyzing. Human-AI collaboration isn't just useful for building features—it's transforming how we approach complex technical problems.*
 ````

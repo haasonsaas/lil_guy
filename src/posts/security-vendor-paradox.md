@@ -1,21 +1,21 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-13
-title: 'The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand'
-description: An insider's perspective on the growing disconnect between security practitioners and solution providers, and how both sides can better navigate the complex cybersecurity ecosystem
+pubDate: '2025-04-13'
+
+title: >-
+  The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need
+  to Understand
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
   - cybersecurity
   - vendor-relations
-  - CISO
+  - ciso
   - security-leadership
   - industry-insights
   - security-operations
   - sales-tactics
-image:
-  url: 'https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A frustrated security professional surrounded by endless notifications and vendor messages'
 ---
 
 I recently came across a LinkedIn post from Uri, CISO at SiriusXM, that perfectly captured the frustration many security leaders feel: "It's not a security conference, it's a marketing and vendor conference. I don't need an additional 1000 emails telling me to give people 30 min for the ultimate solution to all my security problems."

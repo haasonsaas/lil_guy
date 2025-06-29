@@ -1,19 +1,16 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-26'
-title: 'The Myth of Fast Growth'
-description: "Forget the hype! This post challenges conventional startup wisdom with practical, experience-based advice. Learn how to avoid common pitfalls and unlock real growth from a contrarian startup advisor who's seen it all. Discover actionable strategies and surprising truths that will transform your approach."
+title: The Myth of Fast Growth
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: true
 tags:
-  - startup advice
+  - startup-advice
   - contrarian
-  - business strategy
+  - business-strategy
   - profitability
-  - growth hacking
-image:
-  url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643'
-  alt: 'The Myth of Fast Growth header image'
+  - growth-hacking
 ---
 
 ## Introduction

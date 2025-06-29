@@ -1,8 +1,9 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-25'
-title: 'How I Built a Security Scanner That Actually Finds Bugs'
-description: "Combining Tree-sitter AST parsing with LLM reasoning to achieve 60-70% vulnerability detection vs traditional tools' 44.7%"
+
+title: How I Built a Security Scanner That Actually Finds Bugs
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +12,6 @@ tags:
   - sast
   - tree-sitter
   - vulnerability-detection
-image:
-  url: '/images/how-i-built-a-security-scanner-that-actually-finds-bugs.jpg'
-  alt: 'How I Built a Security Scanner That Actually Finds Bugs header image'
 ---
 
 I ran the numbers on traditional SAST tools. Combining Semgrep, CodeQL, SonarQube, and Snyk gets you 44.7% vulnerability detection. That means they miss more bugs than they find.

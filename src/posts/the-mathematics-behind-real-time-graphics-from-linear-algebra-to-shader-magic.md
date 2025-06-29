@@ -1,8 +1,8 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic'
-description: 'Exploring the mathematical foundations that power modern graphics programming, from transformation matrices to lighting equations'
+description: 'FIXME: Add a full description for this post.'
 featured: true
 draft: false
 tags:
@@ -11,12 +11,6 @@ tags:
   - linear-algebra
   - shaders
   - webgl
-series:
-  name: 'WebGL & Graphics'
-  part: 4
-image:
-  url: '/images/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic.jpg'
-  alt: 'Mathematical equations and 3D graphics visualization'
 ---
 
 Every pixel you see on screen is the result of sophisticated mathematical calculations happening thousands of times per second. From the simple rotation of a 3D object to the complex interplay of light and shadow, mathematics is the invisible foundation that brings digital worlds to life.

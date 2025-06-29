@@ -2,7 +2,7 @@
 author: 'Jonathan Haas'
 pubDate: '2025-06-20'
 title: 'Solving OpenGraph for SPAs: The Cloudflare Way'
-description: "How to fix social media previews for React SPAs using Cloudflare's edge functions - no SSR required"
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:

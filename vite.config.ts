@@ -5,10 +5,20 @@ import { markdownPlugin } from './src/vite-markdown-plugin'
 import { viteBlogImagesPlugin } from './src/vite-blog-images-plugin'
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
   server: {
     host: '::',
-    port: 8080,
+    port: 8082,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8788',
+        changeOrigin: true,
+        secure: false,
+      },
+    },
+    hmr: {
+      port: 8082,
+    },
   },
   plugins: [react(), markdownPlugin(), viteBlogImagesPlugin()],
   resolve: {
@@ -22,39 +32,95 @@ export default defineConfig(({ mode }) => ({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
+        manualChunks: (id) => {
           // Vendor libraries
-          'vendor-react': ['react', 'react-dom', 'react-router-dom'],
-          'vendor-ui': [
-            '@radix-ui/react-dialog',
-            '@radix-ui/react-dropdown-menu',
-            '@radix-ui/react-toast',
-            '@radix-ui/react-tooltip',
-            '@radix-ui/react-switch',
-            '@radix-ui/react-tabs',
-          ],
-          'vendor-utils': ['clsx', 'tailwind-merge', 'lucide-react'],
-          'vendor-query': ['@tanstack/react-query'],
-          'vendor-animation': ['framer-motion'],
+          if (id.includes('node_modules')) {
+            if (
+              id.includes('react') ||
+              id.includes('react-dom') ||
+              id.includes('react-router')
+            ) {
+              return 'vendor-react'
+            }
+            if (id.includes('@radix-ui')) {
+              return 'vendor-ui'
+            }
+            if (
+              id.includes('clsx') ||
+              id.includes('tailwind-merge') ||
+              id.includes('lucide-react')
+            ) {
+              return 'vendor-utils'
+            }
+            if (id.includes('@tanstack/react-query')) {
+              return 'vendor-query'
+            }
+            if (id.includes('framer-motion')) {
+              return 'vendor-animation'
+            }
+            if (
+              id.includes('unified') ||
+              id.includes('remark') ||
+              id.includes('rehype')
+            ) {
+              return 'markdown-processors'
+            }
+            if (id.includes('katex')) {
+              return 'katex'
+            }
+            if (id.includes('prism')) {
+              return 'prism'
+            }
+            if (id.includes('dompurify')) {
+              return 'dompurify'
+            }
+            return 'vendor'
+          }
 
-          // Blog utilities (excluding content)
-          'blog-utils': [
-            './src/utils/blogUtils.ts',
-            './src/utils/blog/imageUtils.ts',
-            './src/utils/blog/dateUtils.ts',
-          ],
-          'blog-content': [
-            './src/utils/blog/postUtils.ts',
-            './src/utils/blog/fileLoader.ts',
-          ],
+          // Interactive calculators - each gets its own chunk for lazy loading
+          if (id.includes('UnitEconomicsCalculator'))
+            return 'calc-unit-economics'
+          if (id.includes('ABTestSimulator')) return 'calc-ab-test'
+          if (id.includes('TechnicalDebtSimulator')) return 'calc-tech-debt'
+          if (id.includes('PricingPsychologySimulator')) return 'calc-pricing'
+          if (id.includes('SaaSMetricsDashboard')) return 'calc-saas-metrics'
+          if (id.includes('StartupRunwayCalculator')) return 'calc-runway'
+          if (id.includes('ProductMarketFitScorer')) return 'calc-pmf'
+          if (id.includes('TAMSAMSOMCalculator')) return 'calc-tam-sam-som'
+          if (id.includes('GrowthStrategySimulator')) return 'calc-growth'
+          if (id.includes('HiringCostCalculator')) return 'calc-hiring'
+          if (id.includes('FeaturePrioritizationMatrix'))
+            return 'calc-feature-priority'
+          if (id.includes('TechnicalArchitectureVisualizer'))
+            return 'calc-tech-arch'
+          if (id.includes('CustomerDevelopmentSimulator'))
+            return 'calc-customer-dev'
+          if (id.includes('EngineeringVelocityTracker')) return 'calc-velocity'
+          if (id.includes('RetentionCohortAnalyzer')) return 'calc-retention'
+          if (id.includes('PerformanceBudgetCalculator'))
+            return 'calc-performance'
+          if (id.includes('BuildTimeAnalyzer')) return 'calc-build-time'
 
-          // Large components
-          'page-blog': ['./src/pages/BlogPage.tsx', './src/pages/BlogPost.tsx'],
-          'page-experiments': ['./src/pages/ExperimentsPage.tsx'],
-          markdown: ['./src/components/MarkdownRenderer.tsx'],
+          // Blog utilities
+          if (id.includes('src/utils/blog')) {
+            return 'blog-utils'
+          }
+
+          // Large pages
+          if (id.includes('BlogPage') || id.includes('BlogPost')) {
+            return 'page-blog'
+          }
+          if (id.includes('ExperimentsPage')) {
+            return 'page-experiments'
+          }
+
+          // Core markdown renderer
+          if (id.includes('MarkdownRenderer')) {
+            return 'markdown-core'
+          }
         },
       },
     },
     chunkSizeWarningLimit: 1000,
   },
-}))
+})

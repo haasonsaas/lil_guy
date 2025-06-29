@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2024-04-20
+pubDate: '2024-04-20'
 title: 'Founder-Led Sales: The Art of Selling Your Vision'
-description: 'How founders can effectively lead sales efforts in the early stages of their startup'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +11,6 @@ tags:
   - sales
   - growth
   - strategy
-image:
-  url: 'https://images.pexels.com/photos/3182766/pexels-photo-3182766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A confident founder presenting ideas to a team, symbolizing the ongoing involvement in strategic sales initiatives'
 ---
 
 For startup founders, sales isn't just another function—it's the lifeblood of your business. Early on, founders are usually the lead salesperson, passionately advocating their vision directly to customers. But what happens as your business grows? Many founders struggle to maintain the right balance between staying engaged and becoming a bottleneck.

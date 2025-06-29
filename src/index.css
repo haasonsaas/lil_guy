@@ -136,9 +136,22 @@
   }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 .animate-gradient {
   background-size: 200% 200%;
   animation: gradient 15s ease infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s infinite;
 }
 
 /* Custom Transitions */
@@ -384,6 +397,24 @@ pre[class*='language-'] {
 .dark .prose :not(pre) code {
   @apply bg-muted border-0;
   color: inherit;
+}
+
+/* Lazy loading code blocks */
+.code-block-loading {
+  @apply relative overflow-hidden;
+  min-height: 120px;
+}
+
+.code-block-loading .code-placeholder {
+  @apply flex items-center justify-center h-full;
+}
+
+.code-block-loading code {
+  @apply opacity-0;
+}
+
+pre:not(.code-block-loading) code {
+  @apply opacity-100 transition-opacity duration-300;
 }
 
 .prose :not(pre) code::before,

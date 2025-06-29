@@ -1,18 +1,15 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'AI Expectations: Managing the Hype Cycle'
-description: 'How to set realistic expectations for AI implementation and avoid common pitfalls in enterprise adoption'
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
-  - 'ai'
-  - 'product'
-  - 'strategy'
-  - 'management'
-image:
-  url: 'https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A robot's hand touching a holographic interface displaying various digital elements, symbolizing the intersection of human interaction and artificial intelligence"
+  - ai
+  - product
+  - strategy
+  - management
 ---
 
 ## The Promise and the Disconnect

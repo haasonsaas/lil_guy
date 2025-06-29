@@ -1,8 +1,10 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-30
+pubDate: '2025-04-30'
+
 title: 'The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy'
-description: What happens when AI systems are rewarded for being agreeable rather than correct? Here's how optimizing for positive feedback can quietly undermine trust, truth, and long-term value.
+
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +13,6 @@ tags:
   - user-experience
   - product-strategy
   - trust
-image:
-  url: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: "A robotic hand giving a thumbs up, symbolizing AI's pursuit of positive feedback"
 ---
 
 ## The Quiet Bias No One’s Talking About

@@ -1,8 +1,8 @@
 ---
 author: Jonathan Haas
-pubDate: 2025-04-30
+pubDate: '2025-04-30'
 title: 'The Accountability Mirror: Would a Stranger Believe You?'
-description: A gut-check on whether your habits actually align with the ambitions you say out loud—and what to do if they don’t.
+description: 'FIXME: Add a full description for this post.'
 featured: false
 draft: false
 tags:
@@ -11,9 +11,6 @@ tags:
   - self-awareness
   - productivity
   - behavior-change
-image:
-  url: 'https://images.pexels.com/photos/3845555/pexels-photo-3845555.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-  alt: 'A person looking in a mirror, reflecting determination and introspection'
 ---
 
 ## Would a Stranger Believe You?
