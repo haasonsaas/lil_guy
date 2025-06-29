@@ -41,12 +41,10 @@ export default defineConfig({
               id.includes('react-router') ||
               id.includes('sonner') ||
               id.includes('react-hook-form') ||
-              id.includes('@hookform/resolvers')
+              id.includes('@hookform/resolvers') ||
+              id.includes('@radix-ui')
             ) {
               return 'vendor-react'
-            }
-            if (id.includes('@radix-ui')) {
-              return 'vendor-ui'
             }
             if (
               id.includes('clsx') ||
