@@ -178,7 +178,7 @@
     "tailwindcss": "^3.4.11",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",
-    "vite": "^6.3.5",
+    "vite": "^7.0.0",
     "vite-plugin-ssr": "^0.4.142",
     "vite-ssg": "^27.0.1",
     "wrangler": "^4.22.0"
