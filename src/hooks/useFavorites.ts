@@ -27,23 +27,25 @@ export function useFavorites() {
     setFavoritesState(getFavorites())
   }, [])
 
-  const addFavorite = useCallback(
-    (slug: string) => {
-      const newFavorites = [...favorites, slug]
+  const addFavorite = useCallback((slug: string) => {
+    setFavoritesState((prevFavorites) => {
+      // Prevent duplicates
+      if (prevFavorites.includes(slug)) {
+        return prevFavorites
+      }
+      const newFavorites = [...prevFavorites, slug]
       setFavorites(newFavorites)
-      setFavoritesState(newFavorites)
-    },
-    [favorites]
-  )
+      return newFavorites
+    })
+  }, [])
 
-  const removeFavorite = useCallback(
-    (slug: string) => {
-      const newFavorites = favorites.filter((fav) => fav !== slug)
+  const removeFavorite = useCallback((slug: string) => {
+    setFavoritesState((prevFavorites) => {
+      const newFavorites = prevFavorites.filter((fav) => fav !== slug)
       setFavorites(newFavorites)
-      setFavoritesState(newFavorites)
-    },
-    [favorites]
-  )
+      return newFavorites
+    })
+  }, [])
 
   const isFavorite = useCallback(
     (slug: string) => {

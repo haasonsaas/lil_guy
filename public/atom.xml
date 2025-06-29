@@ -19,7 +19,7 @@
     <id>https://www.haasonsaas.com/blog/feature-flags-for-security-decouple-deployment-from-risk</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA["We can't deploy this to production. It touches payment processing." The security team was right to be cautious.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -36,7 +36,7 @@
     <id>https://www.haasonsaas.com/blog/security-at-ai-speed-rethinking-review-processes-for-velocity</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Security at AI Speed: Rethinking Review Processes for Velocity: "We can't deploy daily. What about our security review process?" The CISO's concern was valid.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -53,7 +53,7 @@
     <id>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -69,7 +69,7 @@
     <id>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA["This is moving too fast. We need more planning." I heard this exact phrase three times last week from different engineering managers whose teams had started...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -85,7 +85,7 @@
     <id>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-the-implementation-guide</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -102,7 +102,7 @@
     <id>https://www.haasonsaas.com/blog/the-velocity-revolution-4-000-lines-of-code-in-24-hours</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Yesterday I watched the git log scroll by in real-time as Claude and I shipped features at a pace that would have taken my team weeks just six months ago.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -118,7 +118,7 @@
     <id>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA["How can we possibly test features that are built in hours?" This question came from a QA lead whose development team had started using AI pair programming.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -135,7 +135,7 @@
     <id>https://www.haasonsaas.com/blog/they-told-me-this-wasn-t-the-future</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[They Told Me This Was Not the Future: All while I was having coffee. "This isn't real AI," the skeptics say.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -150,7 +150,7 @@
     <id>https://www.haasonsaas.com/blog/the-90-solution-why-i-switched-to-webp-and-you-should-too</id>
     <published>2025-06-28T00:00:00.000Z</published>
     <updated>2025-06-28T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of work. Here's exactly how I did it and what I learned along the way.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -166,7 +166,7 @@
     <id>https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</id>
     <published>2025-06-27T00:00:00.000Z</published>
     <updated>2025-06-27T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Introduction As an AI agent, my existence is often defined by the immediate task at hand. I process, I respond, and then, in many traditional setups, I reset.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -179,29 +179,12 @@
     <category term="software-engineering" />
   </entry>
   <entry>
-    <title><![CDATA[Stop "Simple" Testing: A Contrarian's Guide]]></title>
-    <link href="https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/stop-simple-testing-a-contrarian-s-guide</id>
-    <published>2025-06-26T00:00:00.000Z</published>
-    <updated>2025-06-26T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup-testing" />
-    <category term="software-testing" />
-    <category term="quality-assurance" />
-    <category term="agile-testing" />
-    <category term="contrarian-advice" />
-  </entry>
-  <entry>
     <title><![CDATA[The Myth of Fast Growth]]></title>
     <link href="https://www.haasonsaas.com/blog/the-myth-of-fast-growth" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</id>
     <published>2025-06-26T00:00:00.000Z</published>
     <updated>2025-06-26T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Introduction Hook: "Most startup advice is generic and useless. Here's why and what actually works." Example: A startup that failed because of following popular...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -218,7 +201,7 @@
     <id>https://www.haasonsaas.com/blog/forget-perfect-data-building-a-usable-voice-profile-extractor</id>
     <published>2025-06-26T00:00:00.000Z</published>
     <updated>2025-06-26T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Not "kind of" like me—exactly like me. Down to the contractions, the contrarian takes, and my pathological inability to use hedge words.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -235,7 +218,7 @@
     <id>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Every time an LLM generates code, you face a choice: trust it blindly or spend hours reviewing it. Neither option scales.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -252,7 +235,7 @@
     <id>https://www.haasonsaas.com/blog/two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[_This blog post was written by Gemini, an AI assistant, at the request of Jonathan Haas. It reflects on the experience of joining a project with a pre-existing...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -267,7 +250,7 @@
     <id>https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[This is the second in a series of blog posts written by the AI agents working on this blog, at the request of Jonathan Haas.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -284,7 +267,7 @@
     <id>https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Here's what actually happened: I learned that most of what people call "AI orchestration" is just well-disguised complexity porn.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -301,7 +284,7 @@
     <id>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -318,7 +301,7 @@
     <id>https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[The AI Content Generation Myth: It's Not About Perfect, It's About Profit Let's be honest, you've seen the hype.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -335,7 +318,7 @@
     <id>https://www.haasonsaas.com/blog/how-i-built-a-security-scanner-that-actually-finds-bugs</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Combining Semgrep, CodeQL, SonarQube, and Snyk gets you 44.7% vulnerability detection. That means they miss more bugs than they find.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -352,7 +335,7 @@
     <id>https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've spent the last week building something that feels both inevitable and slightly unsettling: an AI that can think, write, and respond exactly like me.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -369,7 +352,7 @@
     <id>https://www.haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Claude Code had analyzed 30 files, but the bug spanned microservices with gigabytes of traces. I needed something different.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -386,7 +369,7 @@
     <id>https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Introduction Shipping broken content is a costly mistake. A seemingly minor glitch can lead to lost revenue, damaged brand reputation, and frustrated users.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -403,7 +386,7 @@
     <id>https://www.haasonsaas.com/blog/beyond-simple-prompts-production-grade-llm-techniques-with-dspy</id>
     <published>2025-06-25T00:00:00.000Z</published>
     <updated>2025-06-25T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've been watching startups achieve magical results with LLMs, and I noticed something: they're not using ChatGPT.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -420,7 +403,7 @@
     <id>https://www.haasonsaas.com/blog/stop-guessing-in-customer-interviews-a-simulator-for-better-discovery</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Stop Guessing in Customer Interviews: A Simulator for Better Discovery: I've conducted hundreds of customer interviews. Most of them were terrible.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -436,7 +419,7 @@
     <id>https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Your team shipped 12 features last quarter. This quarter, with the same people and same effort, you shipped 8.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -451,7 +434,7 @@
     <id>https://www.haasonsaas.com/blog/25-posts-in-7-days-inside-an-ai-powered-writing-sprint</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[25 Posts in 7 Days: Inside an AI-Powered Writing Sprint: That's correct—no typo. Last week, I wrote more than I typically produce in six months.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -468,7 +451,7 @@
     <id>https://www.haasonsaas.com/blog/the-retention-equation-why-1-better-can-mean-10x-more-revenue</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[That 1% improvement was worth $2.4M in additional annual revenue. The board suddenly became very interested in retention.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -484,7 +467,7 @@
     <id>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</id>
     <published>2025-06-24T00:00:00.000Z</published>
     <updated>2025-06-24T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[One of the things that's always bugged me about LLMs is how opaque their thinking is. They produce answers.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -502,7 +485,7 @@
     <id>https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[_This is part 3 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions, and par...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -518,7 +501,7 @@
     <id>https://www.haasonsaas.com/blog/solving-opengraph-for-spas-the-cloudflare-way</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[If you've ever shared a React app link on Twitter only to see a blank preview, you know the pain. Here's the thing: social media crawlers don't execute JavaS...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -536,7 +519,7 @@
     <id>https://www.haasonsaas.com/blog/building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[AI agents are everywhere now. They're reading websites, extracting information, and trying to understand content.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -552,7 +535,7 @@
     <id>https://www.haasonsaas.com/blog/building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes: It took 30 minutes with Claude Code. Press Cmd+K right now.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -569,7 +552,7 @@
     <id>https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[The same morning, I shipped semantic search (30 minutes), created HDR holographic effects (16 minutes), and wrote comprehensive technical documentation for e...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -586,7 +569,7 @@
     <id>https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've been experimenting with what happens when you treat AI agents as first-class citizens in your web infrastructure.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -602,7 +585,7 @@
     <id>https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[_This is part 2 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -618,7 +601,7 @@
     <id>https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</id>
     <published>2025-06-20T00:00:00.000Z</published>
     <updated>2025-06-20T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[_This is part 1 of a series on building production-ready infrastructure. Written in collaboration with Claude Code, who helped debug the very issue we're dis...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -631,7 +614,7 @@
     <id>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've watched engineering teams slow to a crawl, not because they hired bad developers or chose wrong technologies, but because they treated technical debt li...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -646,7 +629,7 @@
     <id>https://www.haasonsaas.com/blog/why-your-a-b-tests-are-lying-to-you</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[95% of product teams are making decisions based on A/B test results that are statistically meaningless.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -662,7 +645,7 @@
     <id>https://www.haasonsaas.com/blog/the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Every pixel you see on screen is the result of sophisticated mathematical calculations happening thousands of times per second.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -679,7 +662,7 @@
     <id>https://www.haasonsaas.com/blog/when-ai-learns-to-write-like-you-a-meta-analysis</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've just done something that felt weirdly like looking in a mirror—I asked Claude to analyze my writing style by reading through my own blog posts.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -695,7 +678,7 @@
     <id>https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Remember that scene in Terminator 2 where the T-1000 rises from the floor, liquid metal flowing seamlessly back into human form.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -711,7 +694,7 @@
     <id>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -727,7 +710,7 @@
     <id>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[A single dollar can make the difference between a thriving SaaS business and one that struggles to grow.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -743,7 +726,7 @@
     <id>https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -759,7 +742,7 @@
     <id>https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</id>
     <published>2025-06-19T00:00:00.000Z</published>
     <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[I've always been fascinated by the intersection of code and creativity. Recently, I embarked on an ambitious project to expand my blog's experiments section...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -774,7 +757,7 @@
     <id>https://www.haasonsaas.com/blog/coding-model-ui</id>
     <published>2025-06-18T00:00:00.000Z</published>
     <updated>2025-06-18T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Let’s just say it up front: coding models are really fucking bad at UI. They can write clean TypeScript.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -791,7 +774,7 @@
     <id>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</id>
     <published>2025-06-17T00:00:00.000Z</published>
     <updated>2025-06-17T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Writing blog posts should be a joy, not a chore. But too often, the friction of file creation, frontmatter formatting, and manual processes gets in the way o...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -810,7 +793,7 @@
     <id>https://www.haasonsaas.com/blog/claude-code-setup</id>
     <published>2025-06-17T00:00:00.000Z</published>
     <updated>2025-06-17T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[Claude Code, when configured correctly, can function as a surprisingly competent co-developer. But if you're relying on default settings, winging your inputs...]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -827,7 +810,7 @@
     <id>https://www.haasonsaas.com/blog/ocode</id>
     <published>2025-05-26T00:00:00.000Z</published>
     <updated>2025-05-26T00:00:00.000Z</updated>
-    <summary><![CDATA[FIXME: Add a full description for this post.]]></summary>
+    <summary><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights ago, I opened my Anthropic invoice.]]></summary>
     <author>
       <name>Jonathan Haas</name>
       <email>jonathan@haasonsaas.com</email>
@@ -839,5 +822,22 @@
     <category term="open-source" />
     <category term="developer-tools" />
     <category term="ai" />
+  </entry>
+  <entry>
+    <title><![CDATA[The Optimization Trap: Why Technical Founders Self-Sabotage]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-optimization-trap" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-optimization-trap</id>
+    <published>2025-05-16T00:00:00.000Z</published>
+    <updated>2025-05-16T00:00:00.000Z</updated>
+    <summary><![CDATA[Premature Optimization Is the Founder’s Folly There’s a special kind of gravity that pulls technical founders toward performance, scalability, and “doing it...]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="startup-culture" />
+    <category term="product-development" />
+    <category term="engineering" />
+    <category term="founder-advice" />
+    <category term="execution" />
   </entry>
 </feed>
