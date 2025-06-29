@@ -35,10 +35,14 @@ export default defineConfig({
         manualChunks: (id) => {
           // Vendor libraries
           if (id.includes('node_modules')) {
+            if (id.includes('react') || id.includes('react-dom')) {
+              return 'vendor-core-react'
+            }
             if (
-              id.includes('react') ||
-              id.includes('react-dom') ||
-              id.includes('react-router')
+              id.includes('react-router') ||
+              id.includes('sonner') ||
+              id.includes('react-hook-form') ||
+              id.includes('@hookform/resolvers')
             ) {
               return 'vendor-react'
             }
