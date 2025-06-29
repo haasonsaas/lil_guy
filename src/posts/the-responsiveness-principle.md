@@ -2,7 +2,9 @@
 author: Jonathan Haas
 pubDate: '2025-04-19'
 title: 'The Responsiveness Principle: How Small Signals Build Big Trust in Venture'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  Early-stage investing is often framed as a game of insight—pattern
+  recognition, market timing, founder psychology.
 featured: false
 draft: false
 tags:

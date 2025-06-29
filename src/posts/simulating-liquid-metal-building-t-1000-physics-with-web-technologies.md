@@ -2,7 +2,9 @@
 author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'Simulating Liquid Metal: Building T-1000 Physics with Web Technologies'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  Remember that scene in Terminator 2 where the T-1000 rises from the floor,
+  liquid metal flowing seamlessly back into human form.
 featured: false
 draft: false
 tags:

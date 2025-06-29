@@ -2,7 +2,10 @@
 author: Jonathan Haas
 pubDate: '2025-06-25'
 title: Mastering the Full Content Pipeline Test
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  Introduction Shipping broken content is a costly mistake. A seemingly minor
+  glitch can lead to lost revenue, damaged brand reputation, and frustrated
+  users.
 featured: false
 draft: true
 tags:

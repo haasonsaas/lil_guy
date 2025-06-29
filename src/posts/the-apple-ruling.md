@@ -1,10 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-01'
-
 title: 'The Apple Ruling: A Win That Might Hurt More Than Help'
-
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  Apple ruling has sparked widespread celebration among app developers, hailed
+  as a major victory in the fight for fairer digital marketplaces.
 featured: false
 draft: false
 tags:

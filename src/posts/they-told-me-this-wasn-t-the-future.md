@@ -1,9 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-28'
-
 title: They Told Me This Wasn't the Future
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  They Told Me This Wasn't the Future: All while I was having coffee. "This
+  isn't real AI," the skeptics say.
 featured: false
 draft: false
 tags:

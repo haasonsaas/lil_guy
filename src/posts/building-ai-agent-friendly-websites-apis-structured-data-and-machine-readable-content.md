@@ -4,7 +4,9 @@ pubDate: '2025-06-20'
 title: >-
   Building AI-Agent-Friendly Websites: APIs, Structured Data, and
   Machine-Readable Content
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  AI agents are everywhere now. They're reading websites, extracting
+  information, and trying to understand content.
 featured: false
 draft: false
 tags:

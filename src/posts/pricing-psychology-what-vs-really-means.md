@@ -1,10 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-19'
-
 title: 'Pricing Psychology: What $99 vs $100 Really Means'
-
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  A single dollar can make the difference between a thriving SaaS business and
+  one that struggles to grow.
 featured: false
 draft: false
 tags:

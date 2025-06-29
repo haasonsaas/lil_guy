@@ -2,7 +2,10 @@
 title: 'Security Perspective: Building Trust Through Design'
 author: Jonathan Haas
 pubDate: '2024-04-11'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  The Security Promise and the Reality As someone who's spent years in the
+  trenches as a security engineer at both pre-IPO startups and public companies,
+  I've...
 tags:
   - engineering
   - product

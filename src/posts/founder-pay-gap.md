@@ -2,7 +2,9 @@
 author: Jonathan Haas
 pubDate: '2025-04-30'
 title: 'The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company:
+  Let’s say you’re a founder CEO. You took the risk.
 featured: false
 draft: false
 tags:

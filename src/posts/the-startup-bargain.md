@@ -1,9 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-01'
-
 title: The Startup Bargain Is Broken
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  The Startup Bargain Is Broken: For decades, the startup ecosystem operated on
+  a simple promise: Take a pay cut.
 featured: false
 draft: false
 tags:

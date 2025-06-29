@@ -4,7 +4,9 @@ pubDate: '2025-06-20'
 title: >-
   Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI
   Collaboration
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  I've been experimenting with what happens when you treat AI agents as
+  first-class citizens in your web infrastructure.
 featured: false
 draft: false
 tags:

@@ -2,7 +2,9 @@
 author: Jonathan Haas
 pubDate: '2025-04-21'
 title: 'The Confidence Cliff: Why Overcertainty Kills Good Decisions'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  You’ve probably seen this play out. Someone shares an idea—bold, certain,
+  maybe even brilliant-sounding.
 featured: false
 draft: false
 tags:

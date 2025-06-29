@@ -1,11 +1,17 @@
 ---
-author: 'Jonathan Haas'
+author: Jonathan Haas
 pubDate: '2025-06-19'
 title: 'When AI Learns to Write Like You: A Meta-Analysis'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  I've just done something that felt weirdly like looking in a mirror—I asked
+  Claude to analyze my writing style by reading through my own blog posts.
 featured: false
 draft: false
-tags: ['ai', 'writing', 'developer-experience', 'meta']
+tags:
+  - ai
+  - writing
+  - developer-experience
+  - meta
 ---
 
 I've just done something that felt weirdly like looking in a mirror—I asked Claude to analyze my writing style by reading through my own blog posts.

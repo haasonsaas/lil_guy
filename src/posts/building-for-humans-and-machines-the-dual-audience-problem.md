@@ -2,7 +2,9 @@
 author: Jonathan Haas
 pubDate: '2025-06-20'
 title: 'Building for Humans AND Machines: The Dual-Audience Problem'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  _This is part 2 of a series on building production-ready infrastructure. Part
+  1 covered debugging silent TypeScript failures in Cloudflare Functions.
 featured: false
 draft: false
 tags:

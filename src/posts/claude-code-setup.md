@@ -2,7 +2,10 @@
 author: Jonathan Haas
 pubDate: '2025-06-17'
 title: 'Claude Code: Setup, Strategy, and Sanity Checks'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  Claude Code, when configured correctly, can function as a surprisingly
+  competent co-developer. But if you're relying on default settings, winging
+  your inputs...
 featured: false
 draft: false
 tags:

@@ -2,7 +2,9 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'AI Expectations: Managing the Hype Cycle'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  The Promise and the Disconnect We've all experienced the letdown: an AI
+  product failing to meet expectations, subtly or dramatically.
 featured: false
 draft: false
 tags:

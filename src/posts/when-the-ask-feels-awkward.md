@@ -1,10 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-05-04'
-
 title: 'When the Ask Feels Awkward, It’s Already Too Late'
-
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  When the Ask Feels Awkward, It’s Already Too Late: There’s a thing someone on
+  your team is supposed to own. But you hesitate to bring it up.
 featured: false
 draft: false
 tags:

@@ -2,7 +2,9 @@
 author: Jonathan Haas
 pubDate: '2024-04-11'
 title: 'North: Navigating the Complex Landscape of Enterprise Security Solutions'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  In the rapidly evolving world of cybersecurity, organizations face an
+  overwhelming array of security tools and solutions.
 featured: false
 draft: false
 tags:

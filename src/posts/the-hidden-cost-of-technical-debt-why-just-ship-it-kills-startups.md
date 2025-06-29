@@ -1,9 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-28'
-
 title: "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups"
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had
+  product-market fit. Customers loved the product.
 featured: false
 draft: true
 tags:

@@ -1,10 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-06-26'
-
 title: 'Stop "Simple" Testing: A Contrarian''s Guide'
-
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  Introduction Hook:\\ Start with a surprising statistic about startup failures
+  related to inadequate testing.
 featured: false
 draft: true
 tags:

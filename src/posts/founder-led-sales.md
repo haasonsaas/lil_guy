@@ -2,7 +2,10 @@
 author: Jonathan Haas
 pubDate: '2024-04-20'
 title: 'Founder-Led Sales: The Art of Selling Your Vision'
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  For startup founders, sales isn't just another function—it's the lifeblood of
+  your business. Early on, founders are usually the lead salesperson,
+  passionatel...
 featured: false
 draft: false
 tags:

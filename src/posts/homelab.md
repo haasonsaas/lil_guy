@@ -1,10 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-
 title: 'Building My UniFi Homelab: A Technical Deep Dive'
-
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  After years of experimenting with various networking setups in my homelab,
+  I've finally built out what I consider to be my ideal configuration.
 tags:
   - engineering
   - technical

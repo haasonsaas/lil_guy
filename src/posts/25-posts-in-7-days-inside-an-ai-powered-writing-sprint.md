@@ -1,9 +1,16 @@
 ---
 title: '25 Posts in 7 Days: Inside an AI-Powered Writing Sprint'
 pubDate: '2025-06-24'
-description: 'FIXME: Add a full description for this post.'
-author: 'Jonathan Haas'
-tags: ['ai', 'productivity', 'writing', 'developer-experience', 'creativity']
+description: >-
+  25 Posts in 7 Days: Inside an AI-Powered Writing Sprint: That's correct—no
+  typo. Last week, I wrote more than I typically produce in six months.
+author: Jonathan Haas
+tags:
+  - ai
+  - productivity
+  - writing
+  - developer-experience
+  - creativity
 featured: false
 draft: false
 ---

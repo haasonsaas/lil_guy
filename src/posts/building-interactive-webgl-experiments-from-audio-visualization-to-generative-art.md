@@ -4,7 +4,10 @@ pubDate: '2025-06-19'
 title: >-
   Building Interactive WebGL Experiments: From Audio Visualization to Generative
   Art
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  I've always been fascinated by the intersection of code and creativity.
+  Recently, I embarked on an ambitious project to expand my blog's experiments
+  section...
 featured: true
 draft: false
 tags:

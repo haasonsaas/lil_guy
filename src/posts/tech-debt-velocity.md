@@ -8,7 +8,10 @@ tags:
   - technical-debt
   - engineering
   - product
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  The most expensive software I've ever written was code I wrote "quickly." Not
+  because it was complex, but because I wrote it with the intention of "fixing
+  it...
 ---
 
 The most expensive software I've ever written was code I wrote "quickly." Not

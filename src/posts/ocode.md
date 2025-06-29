@@ -1,10 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-26'
-
 title: 'OCode: Why I Built My Own Claude Code (and Why You Might Too)'
-
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights
+  ago, I opened my Anthropic invoice.
 featured: false
 draft: false
 tags:

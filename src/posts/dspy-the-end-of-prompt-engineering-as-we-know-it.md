@@ -1,10 +1,10 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-03-18'
-
 title: 'DSPy: The End of Prompt Engineering as We Know It'
-
-description: 'FIXME: Add a full description for this post.'
+description: >-
+  I've been building with DSPy for months now, and I'm convinced we're all doing
+  AI wrong. Not just a little wrong.
 featured: true
 draft: false
 tags:

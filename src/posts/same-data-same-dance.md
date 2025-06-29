@@ -1,9 +1,11 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-21'
-
-title: "Same Data, Same Dance: Why the Moat Isn't Technical Anymore"
-description: 'FIXME: Add a full description for this post.'
+title: 'Same Data, Same Dance: Why the Moat Isn''t Technical Anymore'
+description: >-
+  > Inspired by a post from Ross Haleliuk: > > "In the world where many tools
+  have similar architectures and implementations, the moat is no longer about
+  techn...
 featured: false
 draft: false
 tags:
