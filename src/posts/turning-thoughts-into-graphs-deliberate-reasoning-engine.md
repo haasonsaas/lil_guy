@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine'
-description: 'FIXME: Add a full description for this post.'
+description: "One of the things that's always bugged me about LLMs is how opaque their thinking is. They produce answers."
 featured: false
 draft: false
 tags:

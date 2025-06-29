@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-04-22'
 title: The Phantom Projects of Overhiring
-description: 'FIXME: Add a full description for this post.'
+description: 'One of the most quietly corrosive things a company can do is overhire. Not because people are malicious or lazy.'
 featured: false
 draft: false
 tags:

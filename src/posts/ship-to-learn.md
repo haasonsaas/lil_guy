@@ -8,7 +8,7 @@ tags:
   - product
   - engineering
   - strategy
-description: 'FIXME: Add a full description for this post.'
+description: "The most valuable product development insight I've gained over my career isn't about frameworks, methodologies, or technical decisions."
 ---
 
 The most valuable product development insight I've gained over my career isn't

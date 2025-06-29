@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2025-06-24'
 title: 'The Retention Equation: Why 1% Better Can Mean 10x More Revenue'
-description: 'FIXME: Add a full description for this post.'
+description: 'That 1% improvement was worth $2.4M in additional annual revenue. The board suddenly became very interested in retention.'
 featured: false
 draft: false
 tags:

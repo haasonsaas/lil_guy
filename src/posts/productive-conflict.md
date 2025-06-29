@@ -1,11 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-25'
-
-title: >-
-  Psychological Safety and Productive Conflict: The Hidden Link Driving
-  High-Performing Teams
-description: 'FIXME: Add a full description for this post.'
+title: 'Psychological Safety and Productive Conflict: The Hidden Link Driving High-Performing Teams'
+description: 'Conflict Isn’t the Enemy—Fear Is It’s tempting to equate “healthy teams” with harmony. No arguments, no friction, no tension—just a constant chorus of agreement...'
 featured: false
 draft: false
 tags:

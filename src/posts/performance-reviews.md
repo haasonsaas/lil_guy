@@ -2,7 +2,7 @@
 author: Jonathan Haas
 pubDate: '2024-04-20'
 title: 'Performance Reviews: A Guide for Modern Leaders'
-description: 'FIXME: Add a full description for this post.'
+description: 'Few workplace rituals inspire dread quite like performance reviews. Employees brace for ambiguous feedback, and managers groan at the prospect of endless pap...'
 featured: false
 draft: false
 tags:

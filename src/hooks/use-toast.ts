@@ -68,6 +68,24 @@ const addToRemoveQueue = (toastId: string) => {
   toastTimeouts.set(toastId, timeout)
 }
 
+// Cleanup function to clear all timeouts and global state
+const cleanupToastState = () => {
+  // Clear all pending timeouts
+  for (const timeout of toastTimeouts.values()) {
+    clearTimeout(timeout)
+  }
+  toastTimeouts.clear()
+
+  // Reset global state
+  memoryState = { toasts: [] }
+  listeners.length = 0
+}
+
+// Cleanup on page unload to prevent memory leaks
+if (typeof window !== 'undefined') {
+  window.addEventListener('beforeunload', cleanupToastState)
+}
+
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case 'ADD_TOAST':
@@ -109,17 +127,29 @@ export const reducer = (state: State, action: Action): State => {
         ),
       }
     }
-    case 'REMOVE_TOAST':
+    case 'REMOVE_TOAST': {
       if (action.toastId === undefined) {
+        // Clear all timeouts when removing all toasts
+        for (const timeout of toastTimeouts.values()) {
+          clearTimeout(timeout)
+        }
+        toastTimeouts.clear()
         return {
           ...state,
           toasts: [],
         }
       }
+      // Clear specific timeout when removing specific toast
+      const timeout = toastTimeouts.get(action.toastId)
+      if (timeout) {
+        clearTimeout(timeout)
+        toastTimeouts.delete(action.toastId)
+      }
       return {
         ...state,
         toasts: state.toasts.filter((t) => t.id !== action.toastId),
       }
+    }
   }
 }
 
@@ -185,4 +215,4 @@ function useToast() {
   }
 }
 
-export { useToast, toast }
+export { useToast, toast, cleanupToastState }

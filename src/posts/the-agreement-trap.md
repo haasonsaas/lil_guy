@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-30'
-
 title: 'The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy'
-
-description: 'FIXME: Add a full description for this post.'
+description: 'The Quiet Bias No One’s Talking About We all want AI to be helpful. But what does “helpful” actually mean.'
 featured: false
 draft: false
 tags:

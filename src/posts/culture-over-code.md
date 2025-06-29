@@ -1,10 +1,8 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-05-04'
-
 title: 'Culture Over Code: Why Learning Ability Beats Raw Skill'
-
-description: 'FIXME: Add a full description for this post.'
+description: 'Culture Over Code: Why Learning Ability Beats Raw Skill: At some point, we all make the same mistake. We over-index on technical brilliance.'
 featured: false
 draft: false
 tags:
