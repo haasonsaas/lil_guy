@@ -1,10 +1,21 @@
 // Service Worker Registration
 
+// Global cleanup storage
+let registrationCleanup: (() => void) | null = null
+
 export async function registerServiceWorker() {
   if ('serviceWorker' in navigator) {
     try {
-      // Wait for the page to load
-      window.addEventListener('load', async () => {
+      // Store listeners for cleanup
+      const eventListeners: Array<{
+        target: EventTarget
+        type: string
+        listener: EventListener
+      }> = []
+
+      let updateInterval: NodeJS.Timeout | null = null
+
+      const loadHandler = async () => {
         const registration = await navigator.serviceWorker.register('/sw.js', {
           scope: '/',
         })
@@ -15,7 +26,7 @@ export async function registerServiceWorker() {
         )
 
         // Check for updates periodically
-        setInterval(
+        updateInterval = setInterval(
           () => {
             registration.update()
           },
@@ -23,7 +34,7 @@ export async function registerServiceWorker() {
         ) // Check every hour
 
         // Handle updates
-        registration.addEventListener('updatefound', () => {
+        const updatefoundHandler = () => {
           const newWorker = registration.installing
           if (!newWorker) return
 
@@ -42,16 +53,65 @@ export async function registerServiceWorker() {
               }
             }
           })
+        }
+        registration.addEventListener('updatefound', updatefoundHandler)
+        eventListeners.push({
+          target: registration,
+          type: 'updatefound',
+          listener: updatefoundHandler,
         })
 
         // Handle controller change (when SW takes control)
-        navigator.serviceWorker.addEventListener('controllerchange', () => {
+        const controllerchangeHandler = () => {
           console.log('[SW] Controller changed')
+        }
+        navigator.serviceWorker.addEventListener(
+          'controllerchange',
+          controllerchangeHandler
+        )
+        eventListeners.push({
+          target: navigator.serviceWorker,
+          type: 'controllerchange',
+          listener: controllerchangeHandler,
         })
 
         // Enable navigation preload if supported
         if ('navigationPreload' in registration) {
           await registration.navigationPreload.enable()
+        }
+      }
+
+      // Wait for the page to load
+      window.addEventListener('load', loadHandler)
+      eventListeners.push({
+        target: window,
+        type: 'load',
+        listener: loadHandler,
+      })
+
+      // Setup global cleanup
+      registrationCleanup = () => {
+        // Clear interval
+        if (updateInterval) {
+          clearInterval(updateInterval)
+          updateInterval = null
+        }
+
+        // Remove all event listeners
+        eventListeners.forEach(({ target, type, listener }) => {
+          try {
+            target.removeEventListener(type, listener)
+          } catch (error) {
+            console.warn('Failed to remove event listener:', error)
+          }
+        })
+        eventListeners.length = 0
+      }
+
+      // Auto-cleanup on page unload
+      window.addEventListener('beforeunload', () => {
+        if (registrationCleanup) {
+          registrationCleanup()
         }
       })
     } catch (error) {
@@ -59,6 +119,14 @@ export async function registerServiceWorker() {
     }
   } else {
     console.log('[SW] Service Worker not supported')
+  }
+}
+
+// Cleanup function
+export function cleanupServiceWorkerRegistration() {
+  if (registrationCleanup) {
+    registrationCleanup()
+    registrationCleanup = null
   }
 }
 

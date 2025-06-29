@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 
 interface ServiceWorkerState {
   isSupported: boolean
@@ -33,6 +33,21 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
     updateAvailable: false,
   })
 
+  // Store event listeners for cleanup
+  const eventListenersRef = useRef<{
+    registration?: {
+      updatefound: () => void
+    }
+    navigator?: {
+      controllerchange: () => void
+      message: (event: MessageEvent) => void
+    }
+    window?: {
+      online: () => void
+      offline: () => void
+    }
+  }>({})
+
   // Register service worker
   const registerSW = useCallback(async () => {
     if (!state.isSupported) {
@@ -59,7 +74,7 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
       }))
 
       // Check for updates
-      registration.addEventListener('updatefound', () => {
+      const updatefoundHandler = () => {
         const newWorker = registration.installing
         if (newWorker) {
           newWorker.addEventListener('statechange', () => {
@@ -72,13 +87,25 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
             }
           })
         }
-      })
+      }
+      registration.addEventListener('updatefound', updatefoundHandler)
+      eventListenersRef.current.registration = {
+        updatefound: updatefoundHandler,
+      }
 
       // Handle controller change (new service worker activated)
-      navigator.serviceWorker.addEventListener('controllerchange', () => {
+      const controllerchangeHandler = () => {
         console.log('[SW] New service worker activated')
         window.location.reload()
-      })
+      }
+      navigator.serviceWorker.addEventListener(
+        'controllerchange',
+        controllerchangeHandler
+      )
+      eventListenersRef.current.navigator = {
+        ...eventListenersRef.current.navigator,
+        controllerchange: controllerchangeHandler,
+      }
     } catch (error) {
       console.error('[SW] Registration failed:', error)
       setState((prev) => ({
@@ -142,6 +169,12 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
     window.addEventListener('online', handleOnline)
     window.addEventListener('offline', handleOffline)
 
+    // Store for cleanup
+    eventListenersRef.current.window = {
+      online: handleOnline,
+      offline: handleOffline,
+    }
+
     return () => {
       window.removeEventListener('online', handleOnline)
       window.removeEventListener('offline', handleOffline)
@@ -167,10 +200,51 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
 
     navigator.serviceWorker.addEventListener('message', handleMessage)
 
+    // Store for cleanup
+    eventListenersRef.current.navigator = {
+      ...eventListenersRef.current.navigator,
+      message: handleMessage,
+    }
+
     return () => {
       navigator.serviceWorker.removeEventListener('message', handleMessage)
     }
   }, [state.isSupported])
+
+  // Global cleanup on unmount
+  useEffect(() => {
+    return () => {
+      // Clean up all event listeners
+      const listeners = eventListenersRef.current
+
+      if (state.registration && listeners.registration) {
+        state.registration.removeEventListener(
+          'updatefound',
+          listeners.registration.updatefound
+        )
+      }
+
+      if (listeners.navigator) {
+        if (listeners.navigator.controllerchange) {
+          navigator.serviceWorker.removeEventListener(
+            'controllerchange',
+            listeners.navigator.controllerchange
+          )
+        }
+        if (listeners.navigator.message) {
+          navigator.serviceWorker.removeEventListener(
+            'message',
+            listeners.navigator.message
+          )
+        }
+      }
+
+      if (listeners.window) {
+        window.removeEventListener('online', listeners.window.online)
+        window.removeEventListener('offline', listeners.window.offline)
+      }
+    }
+  }, [])
 
   return {
     ...state,

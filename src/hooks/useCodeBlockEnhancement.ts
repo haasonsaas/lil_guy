@@ -4,6 +4,7 @@ export function useCodeBlockEnhancement(
   containerRef: React.RefObject<HTMLElement>
 ) {
   const observerRef = useRef<MutationObserver | null>(null)
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   useEffect(() => {
     if (!containerRef.current) return
@@ -82,11 +83,14 @@ export function useCodeBlockEnhancement(
           copyText.textContent = 'Copied'
 
           // Reset after 2 seconds
-          setTimeout(() => {
+          const resetTimeout = setTimeout(() => {
             copyIcon.classList.remove('hidden')
             checkIcon.classList.add('hidden')
             copyText.textContent = 'Copy'
           }, 2000)
+
+          // Store timeout for cleanup if needed
+          timeoutRef.current = resetTimeout
         } catch (err) {
           console.error('Failed to copy:', err)
         }
@@ -129,10 +133,26 @@ export function useCodeBlockEnhancement(
 
     // Cleanup function
     return () => {
-      observerRef.current?.disconnect()
+      // Disconnect observer
+      if (observerRef.current) {
+        observerRef.current.disconnect()
+        observerRef.current = null
+      }
+
+      // Clear any pending timeouts
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current)
+        timeoutRef.current = null
+      }
+
+      // Remove copy buttons and their event listeners
       if (container) {
         const copyButtons = container.querySelectorAll('.code-copy-button')
-        copyButtons.forEach((button) => button.remove())
+        copyButtons.forEach((button) => {
+          // Remove event listeners by cloning the node
+          const newButton = button.cloneNode(true)
+          button.parentNode?.replaceChild(newButton, button)
+        })
       }
     }
   }, [containerRef])

@@ -1,13 +1,17 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 export function useLazyImageEnhancement(
   containerRef: React.RefObject<HTMLElement>
 ) {
+  // Store observers in a ref to ensure they're always cleaned up
+  const observersRef = useRef<Set<IntersectionObserver>>(new Set())
+
   useEffect(() => {
     if (!containerRef.current) return
 
     const container = containerRef.current // Capture ref value early
     const images = container.querySelectorAll('img')
+    const currentObservers = observersRef.current
 
     images.forEach((img) => {
       // Skip if already processed or is a placeholder
@@ -29,6 +33,7 @@ export function useLazyImageEnhancement(
           if (entry.isIntersecting) {
             loadImage(img, originalSrc, originalAlt)
             observer.disconnect()
+            currentObservers.delete(observer)
           }
         },
         {
@@ -45,27 +50,21 @@ export function useLazyImageEnhancement(
       // Start observing
       observer.observe(img)
 
-      // Store the observer for cleanup
-      ;(
-        img as unknown as { __lazyObserver: IntersectionObserver }
-      ).__lazyObserver = observer
+      // Track observer for guaranteed cleanup
+      currentObservers.add(observer)
     })
 
-    // Cleanup function
+    // Cleanup function - guaranteed to clean up all observers
     return () => {
-      if (container) {
-        const images = container.querySelectorAll('img[data-lazy-processed]')
-        images.forEach((img) => {
-          const observer = (
-            img as unknown as { __lazyObserver?: IntersectionObserver }
-          ).__lazyObserver
-          if (observer) {
-            observer.disconnect()
-            delete (img as unknown as { __lazyObserver?: IntersectionObserver })
-              .__lazyObserver
-          }
-        })
-      }
+      // Clean up all observers created in this effect
+      currentObservers.forEach((observer) => {
+        try {
+          observer.disconnect()
+        } catch (error) {
+          console.warn('Error disconnecting lazy image observer:', error)
+        }
+      })
+      currentObservers.clear()
     }
   }, [containerRef])
 }
