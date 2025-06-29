@@ -1,9 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-13'
-title: >-
-  The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need
-  to Understand
+title: 'The Security Vendor Paradox: Why CISOs Are Overwhelmed and What Vendors Need to Understand'
 description: '<soundcloud trackId="2077638464" title="Security Vendor Paradox: Finding Balance in a Noisy Ecosystem" /> The CISO''s Burden: Death by 1,000 Sales Pitches The...'
 featured: false
 draft: false

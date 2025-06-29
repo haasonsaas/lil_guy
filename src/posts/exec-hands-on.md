@@ -1,9 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: '2024-04-11'
-title: >-
-  Keep Your Hands Dirty: Why Executives Who Stop Doing The Work Destroy
-  Companies
+title: 'Keep Your Hands Dirty: Why Executives Who Stop Doing The Work Destroy Companies'
 description: 'The Executive Trap I''ve seen it happen a dozen times: A brilliant engineer becomes CTO and suddenly decides their job is "managing the engineering organization..."'
 featured: false
 draft: false

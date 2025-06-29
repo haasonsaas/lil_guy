@@ -1,9 +1,7 @@
 ---
 author: Jonathan Haas
 pubDate: '2025-04-13'
-title: >-
-  Model Context Protocol: The Enterprise Standard Transforming AI Tool
-  Integration
+title: 'Model Context Protocol: The Enterprise Standard Transforming AI Tool Integration'
 description: 'Introduction: The Integration Challenge In the rapidly evolving landscape of AI implementation, one persistent challenge continues to plague enterprise deployment...'
 featured: true
 draft: false
