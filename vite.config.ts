@@ -83,6 +83,6 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
-    minify: false, // Disabled due to circular dependency issues with markdown libraries
+    minify: 'esbuild', // Re-enabled minification using esbuild
   },
 })
