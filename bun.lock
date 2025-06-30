@@ -52,7 +52,7 @@
         "katex": "^0.16.22",
         "lucide-react": "^0.462.0",
         "marked": "^16.0.0",
-        "marked-highlight": "^2.2.1",
+        "marked-highlight": "^2.2.2",
         "next-themes": "^0.4.6",
         "node-fetch": "^3.3.2",
         "prism-themes": "^1.9.0",
@@ -1334,7 +1334,7 @@
 
     "marked": ["marked@16.0.0", "", { "bin": { "marked": "bin/marked.js" } }, "sha512-MUKMXDjsD/eptB7GPzxo4xcnLS6oo7/RHimUMHEDRhUooPwmN9BEpMl7AEOJv3bmso169wHI2wUF9VQgL7zfmA=="],
 
-    "marked-highlight": ["marked-highlight@2.2.1", "", { "peerDependencies": { "marked": ">=4 <16" } }, "sha512-SiCIeEiQbs9TxGwle9/OwbOejHCZsohQRaNTY2u8euEXYt2rYUFoiImUirThU3Gd/o6Q1gHGtH9qloHlbJpNIA=="],
+    "marked-highlight": ["marked-highlight@2.2.2", "", { "peerDependencies": { "marked": ">=4 <17" } }, "sha512-KlHOP31DatbtPPXPaI8nx1KTrG3EW0Z5zewCwpUj65swbtKOTStteK3sNAjBqV75Pgo3fNEVNHeptg18mDuWgw=="],
 
     "math-intrinsics": ["math-intrinsics@1.1.0", "", {}, "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="],
 
