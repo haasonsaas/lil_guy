@@ -35,12 +35,12 @@ const experiences = [
     role: 'Co-founder & CEO',
     company: 'ThreatKey',
     period: 'Oct 2020 - Oct 2024',
-    description: 'Pioneered AI-powered compliance automation',
+    description: 'Pioneered AI evaluation methods for compliance automation',
     achievements: [
-      'Developed multi-AI evaluation framework for 95%+ accuracy',
-      'Built production systems handling 1M+ security events/day',
-      'Created testing methodology for AI-to-AI interactions',
-      'Achieved successful exit with AI-first platform',
+      'Built custom evaluation datasets for security compliance tasks',
+      'Developed model-graded evaluation framework for policy analysis',
+      'Created domain-specific benchmarks for legal text classification',
+      'Achieved 95%+ accuracy through rigorous evaluation methodology',
     ],
   },
   {
@@ -91,47 +91,47 @@ const experiences = [
 
 const skills = [
   {
-    category: 'AI Evaluation & Testing',
+    category: 'AI Evaluation & Benchmarking',
     items: [
-      'Multi-Model Orchestration',
-      'Component Isolation Testing',
-      'AI-to-AI Interaction Validation',
-      'Production Eval Frameworks',
-      'Output Quality Metrics',
-      'Human-in-the-Loop Systems',
+      'Custom Benchmark Creation',
+      'Model-Graded Evaluations',
+      'OpenAI Evals Framework',
+      'Dataset Design & Curation',
+      'Performance Metrics',
+      'Evaluation Pipeline Design',
     ],
   },
   {
-    category: 'Applied AI Engineering',
+    category: 'Evaluation Methodologies',
     items: [
-      'LLM System Design',
-      'Prompt Engineering',
-      'DSPy Framework',
-      'Claude & Gemini APIs',
-      'AI Agent Development',
-      'Real-time AI Workflows',
+      'Basic Match Templates',
+      'Fuzzy Matching Systems',
+      'Factual Consistency Checks',
+      'Head-to-Head Comparisons',
+      'Criteria-Based Assessment',
+      'Chain-of-Thought Evaluation',
     ],
   },
   {
-    category: 'Infrastructure & Architecture',
+    category: 'Infrastructure & Engineering',
     items: [
-      'Distributed Systems',
-      'Platform Engineering',
-      'Event-Driven Architecture',
-      'API Design',
-      'Observability',
-      'Cloud Infrastructure',
+      'Python/TypeScript',
+      'Machine Learning Pipelines',
+      'Data Processing',
+      'API Development',
+      'Statistical Analysis',
+      'Reproducible Research',
     ],
   },
   {
-    category: 'Security & Compliance',
+    category: 'Domain Expertise',
     items: [
-      'Security Operations',
-      'Compliance Automation',
-      'Threat Detection',
-      'DevSecOps',
-      'Zero Trust Architecture',
-      'Security Testing',
+      'Security & Compliance',
+      'Code Analysis',
+      'Question Answering',
+      'Classification Tasks',
+      'Reasoning Benchmarks',
+      'Safety Evaluation',
     ],
   },
 ]
@@ -208,29 +208,26 @@ export default function AboutPage() {
                     About Me
                   </h2>
                   <p className="text-lg leading-relaxed mb-6">
-                    I'm an AI evaluation and applied engineering leader who
-                    specializes in making AI systems work reliably in
-                    production. My approach combines rigorous testing
-                    methodologies with real-world pragmatism—because what
-                    matters isn't how sophisticated your models are, but how
-                    well they solve actual problems.
+                    I'm an AI evaluation specialist who creates benchmarks,
+                    datasets, and evaluation frameworks to measure LLM
+                    performance across different capabilities. My work focuses
+                    on building rigorous, reproducible tests that reveal how
+                    models actually perform on real-world tasks.
                   </p>
                   <p className="mb-6">
                     My journey spans from security engineering at companies like
-                    Snap and DoorDash to founding ThreatKey, where I pioneered
-                    AI-powered compliance automation. Through building and
-                    deploying multi-AI systems at scale, I've developed
-                    frameworks for evaluating, orchestrating, and validating AI
-                    outputs that prioritize reliability over complexity.
+                    Snap and DoorDash to founding ThreatKey, where I developed
+                    novel evaluation methods for AI-powered compliance systems.
+                    I specialize in model-graded evaluations, custom benchmark
+                    creation, and building evaluation pipelines that scale.
                   </p>
                   <p className="mb-6">
-                    I believe in practical AI evaluation: component isolation,
-                    interaction testing, and end-to-end validation. My work
-                    focuses on the unglamorous but critical infrastructure—error
-                    handling, state management, and human-in-the-loop workflows
-                    that make AI systems actually useful.{' '}
+                    I believe AI evaluation should be both rigorous and
+                    practical. I build custom evals for domain-specific tasks,
+                    implement model-graded evaluation frameworks, and create
+                    benchmarks that actually predict real-world performance.{' '}
                     <Link to="/ai" className="text-primary hover:underline">
-                      Read more about my AI evaluation methodology →
+                      Explore my evaluation frameworks →
                     </Link>
                   </p>
                 </div>
@@ -374,21 +371,21 @@ export default function AboutPage() {
                         <Shield className="h-6 w-6 text-primary" />
                       </div>
                       <h3 className="font-semibold mb-2">
-                        Test at Every Layer
+                        Rigorous Methodology
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        Component isolation, interaction validation, end-to-end
-                        testing. Every layer matters for reliable AI.
+                        Every evaluation must be reproducible, well-documented,
+                        and statistically sound to be meaningful.
                       </p>
                     </Card>
                     <Card className="p-6">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                         <Users className="h-6 w-6 text-primary" />
                       </div>
-                      <h3 className="font-semibold mb-2">Humans in the Loop</h3>
+                      <h3 className="font-semibold mb-2">Model-Graded Evals</h3>
                       <p className="text-sm text-muted-foreground">
-                        AI amplifies human judgment, doesn't replace it. Keep
-                        humans where they add the most value.
+                        Use LLMs to evaluate LLM outputs when human evaluation
+                        doesn't scale. Chain-of-thought for better accuracy.
                       </p>
                     </Card>
                     <Card className="p-6">
@@ -396,11 +393,11 @@ export default function AboutPage() {
                         <Rocket className="h-6 w-6 text-primary" />
                       </div>
                       <h3 className="font-semibold mb-2">
-                        Practical Over Perfect
+                        Domain-Specific Focus
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        Simple systems that work beat complex ones that might.
-                        Focus on boring infrastructure that scales.
+                        Generic benchmarks tell part of the story. Custom evals
+                        for your specific use case reveal true performance.
                       </p>
                     </Card>
                   </div>

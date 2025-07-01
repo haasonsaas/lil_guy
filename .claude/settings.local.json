@@ -196,7 +196,11 @@
       "Bash(/usr/bin/find dist/images -name \"*.jpg\" -size +400k)",
       "Bash(/usr/bin/find dist/images -name \"*.jpg\" -size +400k -exec ls -lh {} \\;)",
       "Bash(/dev/null)",
-      "mcp__playwright__browser_close"
+      "mcp__playwright__browser_close",
+      "mcp__github__search_repositories",
+      "mcp__fetch__fetch",
+      "WebFetch(domain:platform.openai.com)",
+      "mcp__github__create_repository"
     ],
     "deny": []
   }
