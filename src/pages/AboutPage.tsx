@@ -27,7 +27,7 @@ const experiences = [
   {
     role: 'Security & AI',
     company: 'Compliance automation company',
-    period: 'Oct 2024 - Present',
+    period: 'Oct 2024 - Aug 2025',
     description: 'Joined via ThreatKey',
     achievements: ["🤫 Can't say yet", 'Stay tuned for updates'],
   },
@@ -35,11 +35,12 @@ const experiences = [
     role: 'Co-founder & CEO',
     company: 'ThreatKey',
     period: 'Oct 2020 - Oct 2024',
-    description: 'Led cybersecurity startup from founding through exit',
+    description: 'Pioneered AI-powered compliance automation',
     achievements: [
-      'Raised $5M in venture funding',
-      'Built and scaled to $XXXK ARR',
-      'Created AI-powered compliance automation platform',
+      'Developed multi-AI evaluation framework for 95%+ accuracy',
+      'Built production systems handling 1M+ security events/day',
+      'Created testing methodology for AI-to-AI interactions',
+      'Achieved successful exit with AI-first platform',
     ],
   },
   {
@@ -90,14 +91,25 @@ const experiences = [
 
 const skills = [
   {
-    category: 'Security & AI Engineering',
+    category: 'AI Evaluation & Testing',
     items: [
-      'Security Operations',
-      'AI/ML Systems',
-      'LangChain',
-      'Vector Databases',
-      'Compliance Automation',
-      'Threat Detection',
+      'Multi-Model Orchestration',
+      'Component Isolation Testing',
+      'AI-to-AI Interaction Validation',
+      'Production Eval Frameworks',
+      'Output Quality Metrics',
+      'Human-in-the-Loop Systems',
+    ],
+  },
+  {
+    category: 'Applied AI Engineering',
+    items: [
+      'LLM System Design',
+      'Prompt Engineering',
+      'DSPy Framework',
+      'Claude & Gemini APIs',
+      'AI Agent Development',
+      'Real-time AI Workflows',
     ],
   },
   {
@@ -112,24 +124,14 @@ const skills = [
     ],
   },
   {
-    category: 'Engineering',
+    category: 'Security & Compliance',
     items: [
-      'Python',
-      'TypeScript',
-      'Machine Learning',
-      'Security Automation',
+      'Security Operations',
+      'Compliance Automation',
+      'Threat Detection',
       'DevSecOps',
-      'Infrastructure as Code',
-    ],
-  },
-  {
-    category: 'Leadership',
-    items: [
-      'Technical Vision',
-      'Cross-functional Leadership',
-      'Strategic Planning',
-      'Open Source Strategy',
-      'Team Building',
+      'Zero Trust Architecture',
+      'Security Testing',
     ],
   },
 ]
@@ -138,8 +140,8 @@ export default function AboutPage() {
   return (
     <Layout>
       <WebsiteMeta
-        title="About Jonathan Haas - Security & AI Engineering Leader"
-        description="Learn about Jonathan Haas, a security and applied AI engineering leader with experience building and scaling SaaS products, security infrastructure, and AI systems."
+        title="About Jonathan Haas - AI Evaluation & Systems Engineering Leader"
+        description="Learn about Jonathan Haas, an AI evaluation expert specializing in multi-model orchestration, production testing frameworks, and making AI systems work reliably at scale."
         path="/about"
       />
       <section className="py-12">
@@ -161,7 +163,7 @@ export default function AboutPage() {
                       Jonathan Haas
                     </h1>
                     <p className="text-lg text-muted-foreground">
-                      Security & Applied AI Engineering Leader
+                      AI Evaluation & Systems Engineering Leader
                     </p>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground">
                       <MapPin size={16} />
@@ -206,25 +208,29 @@ export default function AboutPage() {
                     About Me
                   </h2>
                   <p className="text-lg leading-relaxed mb-6">
-                    I'm a security and applied AI engineering leader who builds
-                    systems that scale. With deep experience in security
-                    automation and enterprise software, I focus on creating
-                    tools and platforms that solve real problems for real users.
+                    I'm an AI evaluation and applied engineering leader who
+                    specializes in making AI systems work reliably in
+                    production. My approach combines rigorous testing
+                    methodologies with real-world pragmatism—because what
+                    matters isn't how sophisticated your models are, but how
+                    well they solve actual problems.
                   </p>
                   <p className="mb-6">
-                    My journey spans from engineering at companies like Snap and
-                    DoorDash to founding and leading ThreatKey through exit. I
-                    believe the best technology feels invisible— it just works,
-                    enabling people to focus on what matters most.
+                    My journey spans from security engineering at companies like
+                    Snap and DoorDash to founding ThreatKey, where I pioneered
+                    AI-powered compliance automation. Through building and
+                    deploying multi-AI systems at scale, I've developed
+                    frameworks for evaluating, orchestrating, and validating AI
+                    outputs that prioritize reliability over complexity.
                   </p>
                   <p className="mb-6">
-                    These days, I'm deeply interested in how AI can augment
-                    human capabilities without replacing human judgment. I use
-                    tools like Claude Code as development partners, treating
-                    them as senior team members who help with everything from
-                    complex implementations to creative problem-solving.{' '}
+                    I believe in practical AI evaluation: component isolation,
+                    interaction testing, and end-to-end validation. My work
+                    focuses on the unglamorous but critical infrastructure—error
+                    handling, state management, and human-in-the-loop workflows
+                    that make AI systems actually useful.{' '}
                     <Link to="/ai" className="text-primary hover:underline">
-                      Read more about my AI workflow →
+                      Read more about my AI evaluation methodology →
                     </Link>
                   </p>
                 </div>
@@ -368,31 +374,33 @@ export default function AboutPage() {
                         <Shield className="h-6 w-6 text-primary" />
                       </div>
                       <h3 className="font-semibold mb-2">
-                        Start with Edge Cases
+                        Test at Every Layer
                       </h3>
                       <p className="text-sm text-muted-foreground">
-                        The edge cases reveal the real job. Understanding
-                        exceptions leads to better systems.
+                        Component isolation, interaction validation, end-to-end
+                        testing. Every layer matters for reliable AI.
                       </p>
                     </Card>
                     <Card className="p-6">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                         <Users className="h-6 w-6 text-primary" />
                       </div>
-                      <h3 className="font-semibold mb-2">Design for Humans</h3>
+                      <h3 className="font-semibold mb-2">Humans in the Loop</h3>
                       <p className="text-sm text-muted-foreground">
-                        Complexity doesn't have to feel complicated. Great tools
-                        feel invisible.
+                        AI amplifies human judgment, doesn't replace it. Keep
+                        humans where they add the most value.
                       </p>
                     </Card>
                     <Card className="p-6">
                       <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                         <Rocket className="h-6 w-6 text-primary" />
                       </div>
-                      <h3 className="font-semibold mb-2">Balance Precision</h3>
+                      <h3 className="font-semibold mb-2">
+                        Practical Over Perfect
+                      </h3>
                       <p className="text-sm text-muted-foreground">
-                        Perfect is the enemy of done. Ship fast, iterate faster,
-                        maintain quality.
+                        Simple systems that work beat complex ones that might.
+                        Focus on boring infrastructure that scales.
                       </p>
                     </Card>
                   </div>
