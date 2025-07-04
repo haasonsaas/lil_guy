@@ -200,7 +200,8 @@
       "mcp__github__search_repositories",
       "mcp__fetch__fetch",
       "WebFetch(domain:platform.openai.com)",
-      "mcp__github__create_repository"
+      "mcp__github__create_repository",
+      "Bash(git cherry-pick:*)"
     ],
     "deny": []
   }
