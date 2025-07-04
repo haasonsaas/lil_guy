@@ -15,8 +15,11 @@ import {
   ExternalLink,
   RefreshCw,
   Code2 as CodeIcon,
+  AlertCircle,
+  Settings,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 interface Repository {
   name: string
@@ -504,6 +507,50 @@ export default function ExperimentsPage() {
               </div>
             </>
           )}
+
+          {/* Browser Diagnostics */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-16"
+          >
+            <Card className="p-8 bg-gradient-to-br from-orange-500/10 to-red-500/10 border-orange-500/20">
+              <div className="flex items-start gap-6">
+                <div className="w-16 h-16 bg-orange-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <AlertCircle className="h-8 w-8 text-orange-500" />
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold mb-3">
+                    Having Issues with Experiments?
+                  </h3>
+                  <p className="text-muted-foreground mb-4">
+                    Some experiments require WebGL, Canvas 2D, or Web Audio API support. If you're experiencing
+                    issues with any of the interactive demos, run our diagnostics tool to check your browser's
+                    capabilities and get troubleshooting tips.
+                  </p>
+                  <div className="flex gap-3">
+                    <Button asChild>
+                      <Link to="/diagnostics">
+                        <Settings className="mr-2 h-4 w-4" />
+                        Run Browser Diagnostics
+                      </Link>
+                    </Button>
+                    <Button variant="outline" asChild>
+                      <a 
+                        href="https://get.webgl.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Test WebGL Support
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </motion.div>
 
           {/* Interactive Experiments Section */}
           <div className="mt-16 space-y-8">
