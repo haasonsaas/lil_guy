@@ -52,6 +52,7 @@ const HDRHolographicFoilPage = lazy(
 const LiquidMetalPage = lazy(() => import('./pages/LiquidMetalPage'))
 const AIPage = lazy(() => import('./pages/AIPage'))
 const AgentsPage = lazy(() => import('./pages/AgentsPage'))
+const DiagnosticsPage = lazy(() => import('./pages/DiagnosticsPage'))
 
 // Loading component with better UX
 const PageLoading = () => (
@@ -133,6 +134,7 @@ const App = () => (
                     element={<LiquidMetalPage />}
                   />
                   <Route path="/offline" element={<OfflinePage />} />
+                  <Route path="/diagnostics" element={<DiagnosticsPage />} />
                   {/* Redirect /admin to the home page */}
                   <Route path="/admin" element={<Navigate to="/" replace />} />
                   <Route path="*" element={<NotFound />} />

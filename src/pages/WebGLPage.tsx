@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { Badge } from '@/components/ui/badge'
+import { Alert, AlertDescription } from '@/components/ui/alert'
 import {
   Palette,
   Play,
@@ -17,8 +18,11 @@ import {
   Infinity as InfinityIcon,
   ChevronLeft,
   ChevronRight,
+  AlertCircle,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 
 // Vertex shader source
 const vertexShaderSource = `
@@ -194,7 +198,7 @@ const fragmentShaderSource = `
   }
 `
 
-export default function WebGLPage() {
+function WebGLPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number>()
   const glRef = useRef<WebGLRenderingContext | null>(null)
@@ -210,6 +214,8 @@ export default function WebGLPage() {
   const [currentExperiment, setCurrentExperiment] = useState(0)
   const [zoom, setZoom] = useState([2.0])
   const [center, setCenter] = useState({ x: -0.5, y: 0.0 })
+  const [error, setError] = useState<string | null>(null)
+  const [isWebGLSupported, setIsWebGLSupported] = useState(true)
 
   const experiments = [
     {
@@ -274,30 +280,41 @@ export default function WebGLPage() {
 
   // Initialize WebGL
   const initWebGL = () => {
-    const canvas = canvasRef.current
-    if (!canvas) return false
+    try {
+      const canvas = canvasRef.current
+      if (!canvas) {
+        setError('Canvas element not found')
+        return false
+      }
 
-    const gl = canvas.getContext('webgl')
-    if (!gl) {
-      console.error('WebGL not supported')
-      return false
-    }
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
+      if (!gl) {
+        setIsWebGLSupported(false)
+        setError('WebGL is not supported in your browser')
+        return false
+      }
 
-    glRef.current = gl
+      glRef.current = gl as WebGLRenderingContext
 
-    // Create shaders
-    const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
-    const fragmentShader = createShader(
-      gl,
-      gl.FRAGMENT_SHADER,
-      fragmentShaderSource
-    )
+      // Create shaders
+      const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
+      const fragmentShader = createShader(
+        gl,
+        gl.FRAGMENT_SHADER,
+        fragmentShaderSource
+      )
 
-    if (!vertexShader || !fragmentShader) return false
+      if (!vertexShader || !fragmentShader) {
+        setError('Failed to create shaders')
+        return false
+      }
 
-    // Create program
-    const program = createProgram(gl, vertexShader, fragmentShader)
-    if (!program) return false
+      // Create program
+      const program = createProgram(gl, vertexShader, fragmentShader)
+      if (!program) {
+        setError('Failed to create WebGL program')
+        return false
+      }
 
     programRef.current = program
 
@@ -319,7 +336,13 @@ export default function WebGLPage() {
     gl.enableVertexAttribArray(texCoordLocation)
     gl.vertexAttribPointer(texCoordLocation, 2, gl.FLOAT, false, 16, 8)
 
-    return true
+      setError(null)
+      return true
+    } catch (err) {
+      console.error('WebGL initialization error:', err)
+      setError(`WebGL initialization failed: ${err instanceof Error ? err.message : 'Unknown error'}`)
+      return false
+    }
   }
 
   const createShader = (
@@ -519,6 +542,30 @@ export default function WebGLPage() {
               Interactive WebGL experiments powered by fragment shaders. Move
               your mouse to interact with each visualization.
             </p>
+
+            {/* Error Display */}
+            {(error || !isWebGLSupported) && (
+              <Alert className="max-w-2xl mx-auto mb-6 border-red-200">
+                <AlertCircle className="h-4 w-4" />
+                <AlertDescription>
+                  {!isWebGLSupported ? (
+                    <>
+                      WebGL is not supported in your browser. Please try:
+                      <ul className="mt-2 text-sm list-disc list-inside">
+                        <li>Using a modern browser (Chrome, Firefox, Edge, Safari)</li>
+                        <li>Enabling hardware acceleration in your browser settings</li>
+                        <li>Updating your graphics drivers</li>
+                      </ul>
+                      <Link to="/diagnostics" className="text-primary hover:underline mt-2 inline-block">
+                        Run full diagnostics →
+                      </Link>
+                    </>
+                  ) : (
+                    error
+                  )}
+                </AlertDescription>
+              </Alert>
+            )}
 
             {/* Experiment Navigation */}
             <div className="flex items-center justify-center gap-4 mb-2">
@@ -782,5 +829,13 @@ export default function WebGLPage() {
         </div>
       </section>
     </Layout>
+  )
+}
+
+export default function WebGLPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="WebGL Playground">
+      <WebGLPageContent />
+    </ExperimentErrorBoundary>
   )
 }
