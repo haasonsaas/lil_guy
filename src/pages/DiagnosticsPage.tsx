@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Layout from '@/components/Layout'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -30,11 +30,13 @@ interface DiagnosticTest {
 export default function DiagnosticsPage() {
   const [tests, setTests] = useState<DiagnosticTest[]>([])
   const [isRunning, setIsRunning] = useState(false)
-  const [browserInfo, setBrowserInfo] = useState<Record<string, any>>({})
+  const [browserInfo, setBrowserInfo] = useState<
+    Record<string, string | number | boolean>
+  >({})
 
   useEffect(() => {
     // Gather browser info
-    const info: Record<string, any> = {
+    const info: Record<string, string | number | boolean> = {
       userAgent: navigator.userAgent,
       platform: navigator.platform,
       language: navigator.language,
@@ -48,9 +50,9 @@ export default function DiagnosticsPage() {
 
     // Auto-run tests on mount
     runDiagnostics()
-  }, [])
+  }, [runDiagnostics])
 
-  const runDiagnostics = async () => {
+  const runDiagnostics = useCallback(async () => {
     setIsRunning(true)
     const testResults: DiagnosticTest[] = []
 
@@ -100,26 +102,32 @@ export default function DiagnosticsPage() {
     setTests([...testResults])
 
     setIsRunning(false)
-  }
+  }, [])
 
   const testWebGL = (): DiagnosticTest => {
     try {
       const canvas = document.createElement('canvas')
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
-      
+      const gl =
+        canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
+
       if (!gl) {
         return {
           name: 'WebGL Support',
           status: 'error',
           message: 'WebGL not supported',
-          details: 'Your browser does not support WebGL, which is required for 3D experiments',
+          details:
+            'Your browser does not support WebGL, which is required for 3D experiments',
           icon: Cpu,
         }
       }
 
       const debugInfo = gl.getExtension('WEBGL_debug_renderer_info')
-      const vendor = debugInfo ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) : 'Unknown'
-      const renderer = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : 'Unknown'
+      const vendor = debugInfo
+        ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL)
+        : 'Unknown'
+      const renderer = debugInfo
+        ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
+        : 'Unknown'
 
       return {
         name: 'WebGL Support',
@@ -143,7 +151,7 @@ export default function DiagnosticsPage() {
     try {
       const canvas = document.createElement('canvas')
       const ctx = canvas.getContext('2d')
-      
+
       if (!ctx) {
         return {
           name: 'Canvas 2D Support',
@@ -177,8 +185,11 @@ export default function DiagnosticsPage() {
 
   const testAudioAPI = (): DiagnosticTest => {
     try {
-      const AudioContext = window.AudioContext || (window as any).webkitAudioContext
-      
+      const AudioContext =
+        window.AudioContext ||
+        (window as unknown as { webkitAudioContext?: typeof AudioContext })
+          .webkitAudioContext
+
       if (!AudioContext) {
         return {
           name: 'Web Audio API',
@@ -196,9 +207,10 @@ export default function DiagnosticsPage() {
         name: 'Web Audio API',
         status: state === 'suspended' ? 'warning' : 'success',
         message: `Web Audio API is supported (state: ${state})`,
-        details: state === 'suspended' 
-          ? 'Audio context is suspended. User interaction may be required to start audio.'
-          : 'Audio context is ready',
+        details:
+          state === 'suspended'
+            ? 'Audio context is suspended. User interaction may be required to start audio.'
+            : 'Audio context is ready',
         icon: Volume2,
       }
     } catch (error) {
@@ -235,7 +247,8 @@ export default function DiagnosticsPage() {
         name: 'LocalStorage',
         status: 'error',
         message: 'LocalStorage not available',
-        details: 'This might be due to private browsing mode or storage quota exceeded',
+        details:
+          'This might be due to private browsing mode or storage quota exceeded',
         icon: Database,
       }
     }
@@ -272,8 +285,12 @@ export default function DiagnosticsPage() {
       }
     }
 
-    const memory = (performance as any).memory
-    const memoryInfo = memory 
+    const memory = (
+      performance as unknown as {
+        memory?: { usedJSHeapSize: number; totalJSHeapSize: number }
+      }
+    ).memory
+    const memoryInfo = memory
       ? `Heap: ${(memory.usedJSHeapSize / 1048576).toFixed(2)}MB / ${(memory.totalJSHeapSize / 1048576).toFixed(2)}MB`
       : 'Memory info not available'
 
@@ -301,7 +318,7 @@ export default function DiagnosticsPage() {
 
       let frames = 0
       const startTime = performance.now()
-      
+
       const countFrames = () => {
         frames++
         if (performance.now() - startTime < 1000) {
@@ -311,14 +328,15 @@ export default function DiagnosticsPage() {
             name: 'Animation Frame',
             status: frames > 30 ? 'success' : 'warning',
             message: `${frames} FPS measured`,
-            details: frames > 30 
-              ? 'Animation performance is good'
-              : 'Animation performance may be limited',
+            details:
+              frames > 30
+                ? 'Animation performance is good'
+                : 'Animation performance may be limited',
             icon: Monitor,
           })
         }
       }
-      
+
       requestAnimationFrame(countFrames)
     })
   }
@@ -332,21 +350,46 @@ export default function DiagnosticsPage() {
           name: 'WebP Support',
           status: isSupported ? 'success' : 'warning',
           message: isSupported ? 'WebP is supported' : 'WebP not supported',
-          details: isSupported 
+          details: isSupported
             ? 'Modern image formats are supported'
             : 'Fallback to JPEG/PNG will be used',
           icon: Image,
         })
       }
-      webP.src = 'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
+      webP.src =
+        'data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACyAgCdASoCAAIALmk0mk0iIiIiIgBoSygABc6WWgAA/veff/0PP8bA//LwYAAA'
     })
   }
 
   const testNetworkSpeed = async (): Promise<DiagnosticTest> => {
     try {
-      const connection = (navigator as any).connection || 
-                        (navigator as any).mozConnection || 
-                        (navigator as any).webkitConnection
+      interface NetworkConnection {
+        effectiveType?: string
+        downlink?: number
+      }
+
+      const connection =
+        (
+          navigator as unknown as {
+            connection?: NetworkConnection
+            mozConnection?: NetworkConnection
+            webkitConnection?: NetworkConnection
+          }
+        ).connection ||
+        (
+          navigator as unknown as {
+            connection?: NetworkConnection
+            mozConnection?: NetworkConnection
+            webkitConnection?: NetworkConnection
+          }
+        ).mozConnection ||
+        (
+          navigator as unknown as {
+            connection?: NetworkConnection
+            mozConnection?: NetworkConnection
+            webkitConnection?: NetworkConnection
+          }
+        ).webkitConnection
 
       if (!connection) {
         return {
@@ -407,11 +450,11 @@ export default function DiagnosticsPage() {
     )
   }
 
-  const overallStatus = tests.every(t => t.status === 'success') 
-    ? 'success' 
-    : tests.some(t => t.status === 'error')
-    ? 'error'
-    : 'warning'
+  const overallStatus = tests.every((t) => t.status === 'success')
+    ? 'success'
+    : tests.some((t) => t.status === 'error')
+      ? 'error'
+      : 'warning'
 
   return (
     <Layout>
@@ -419,25 +462,34 @@ export default function DiagnosticsPage() {
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-4">Browser Diagnostics</h1>
           <p className="text-muted-foreground mb-6">
-            This page tests your browser's capabilities for running interactive experiments.
+            This page tests your browser's capabilities for running interactive
+            experiments.
           </p>
 
           {tests.length > 0 && !isRunning && (
-            <Alert className={
-              overallStatus === 'success' ? 'border-green-500' :
-              overallStatus === 'error' ? 'border-red-500' :
-              'border-yellow-500'
-            }>
+            <Alert
+              className={
+                overallStatus === 'success'
+                  ? 'border-green-500'
+                  : overallStatus === 'error'
+                    ? 'border-red-500'
+                    : 'border-yellow-500'
+              }
+            >
               <AlertCircle className="h-4 w-4" />
               <AlertTitle>
                 {overallStatus === 'success' && 'All Systems Operational'}
                 {overallStatus === 'error' && 'Some Features May Not Work'}
-                {overallStatus === 'warning' && 'Limited Functionality Detected'}
+                {overallStatus === 'warning' &&
+                  'Limited Functionality Detected'}
               </AlertTitle>
               <AlertDescription>
-                {overallStatus === 'success' && 'Your browser supports all required features for the best experience.'}
-                {overallStatus === 'error' && 'Some experiments may not work properly in your current browser.'}
-                {overallStatus === 'warning' && 'You may experience reduced functionality in some experiments.'}
+                {overallStatus === 'success' &&
+                  'Your browser supports all required features for the best experience.'}
+                {overallStatus === 'error' &&
+                  'Some experiments may not work properly in your current browser.'}
+                {overallStatus === 'warning' &&
+                  'You may experience reduced functionality in some experiments.'}
               </AlertDescription>
             </Alert>
           )}
@@ -447,12 +499,10 @@ export default function DiagnosticsPage() {
           <Card className="p-6">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold">Capability Tests</h2>
-              <Button 
-                onClick={runDiagnostics} 
-                disabled={isRunning}
-                size="sm"
-              >
-                <RefreshCw className={`w-4 h-4 mr-2 ${isRunning ? 'animate-spin' : ''}`} />
+              <Button onClick={runDiagnostics} disabled={isRunning} size="sm">
+                <RefreshCw
+                  className={`w-4 h-4 mr-2 ${isRunning ? 'animate-spin' : ''}`}
+                />
                 {isRunning ? 'Running...' : 'Run Tests'}
               </Button>
             </div>
@@ -470,9 +520,13 @@ export default function DiagnosticsPage() {
                         <h3 className="font-medium">{test.name}</h3>
                         {getStatusBadge(test.status)}
                       </div>
-                      <p className="text-sm text-muted-foreground">{test.message}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {test.message}
+                      </p>
                       {test.details && (
-                        <p className="text-xs text-muted-foreground mt-1">{test.details}</p>
+                        <p className="text-xs text-muted-foreground mt-1">
+                          {test.details}
+                        </p>
                       )}
                     </div>
                   </div>
@@ -492,12 +546,19 @@ export default function DiagnosticsPage() {
             <h2 className="text-xl font-semibold mb-4">Browser Information</h2>
             <div className="space-y-2">
               {Object.entries(browserInfo).map(([key, value]) => (
-                <div key={key} className="flex justify-between py-2 border-b last:border-0">
+                <div
+                  key={key}
+                  className="flex justify-between py-2 border-b last:border-0"
+                >
                   <span className="text-sm font-medium capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}:
                   </span>
                   <span className="text-sm text-muted-foreground font-mono">
-                    {typeof value === 'boolean' ? (value ? 'Yes' : 'No') : String(value)}
+                    {typeof value === 'boolean'
+                      ? value
+                        ? 'Yes'
+                        : 'No'
+                      : String(value)}
                   </span>
                 </div>
               ))}
@@ -511,28 +572,40 @@ export default function DiagnosticsPage() {
                 <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium">Update Your Browser</p>
-                  <p className="text-muted-foreground">Ensure you're using the latest version of Chrome, Firefox, Safari, or Edge.</p>
+                  <p className="text-muted-foreground">
+                    Ensure you're using the latest version of Chrome, Firefox,
+                    Safari, or Edge.
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium">Enable Hardware Acceleration</p>
-                  <p className="text-muted-foreground">Check your browser settings to ensure GPU acceleration is enabled.</p>
+                  <p className="text-muted-foreground">
+                    Check your browser settings to ensure GPU acceleration is
+                    enabled.
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium">Disable Extensions</p>
-                  <p className="text-muted-foreground">Some browser extensions may interfere with WebGL or Canvas rendering.</p>
+                  <p className="text-muted-foreground">
+                    Some browser extensions may interfere with WebGL or Canvas
+                    rendering.
+                  </p>
                 </div>
               </div>
               <div className="flex gap-3">
                 <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <p className="font-medium">Check Privacy Settings</p>
-                  <p className="text-muted-foreground">Ensure your browser isn't blocking features due to privacy/tracking settings.</p>
+                  <p className="text-muted-foreground">
+                    Ensure your browser isn't blocking features due to
+                    privacy/tracking settings.
+                  </p>
                 </div>
               </div>
             </div>
