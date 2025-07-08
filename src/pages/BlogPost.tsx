@@ -76,7 +76,12 @@ export default function BlogPost() {
 
   useEffect(() => {
     const loadPost = async () => {
-      if (!slug) return
+      if (!slug) {
+        console.error('❌ No slug provided to BlogPost component')
+        return
+      }
+
+      console.log(`🚀 Starting to load blog post: ${slug}`)
 
       // Check for preview token
       const previewToken = searchParams.get('preview')
@@ -95,10 +100,15 @@ export default function BlogPost() {
       const loadedPost = await getPostBySlug(slug, includesDrafts)
 
       if (!loadedPost) {
+        console.error(`❌ Failed to load post: ${slug} - redirecting to /blog`)
         navigate('/blog')
         return
       }
 
+      console.log(
+        `✅ Successfully loaded post: ${slug}`,
+        loadedPost.frontmatter.title
+      )
       setPost(loadedPost)
 
       // Now fetch other data
@@ -136,7 +146,10 @@ export default function BlogPost() {
       }
     }
 
-    loadPost()
+    loadPost().catch((error) => {
+      console.error('❌ Error in loadPost:', error)
+      console.error('Error stack:', error.stack)
+    })
   }, [slug, navigate, searchParams])
 
   useEffect(() => {
@@ -153,7 +166,29 @@ export default function BlogPost() {
   }, [post, slug, trackPostView])
 
   if (!post) {
-    return null
+    console.log(
+      `🔄 BlogPost component rendering without post data for slug: ${slug}`
+    )
+    return (
+      <Layout>
+        <div className="py-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto">
+              <div className="animate-pulse">
+                <div className="h-8 bg-gray-200 rounded w-1/4 mb-6"></div>
+                <div className="h-12 bg-gray-200 rounded w-3/4 mb-4"></div>
+                <div className="h-4 bg-gray-200 rounded w-1/2 mb-8"></div>
+                <div className="space-y-4">
+                  <div className="h-4 bg-gray-200 rounded"></div>
+                  <div className="h-4 bg-gray-200 rounded"></div>
+                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Layout>
+    )
   }
 
   const { frontmatter, content } = post

@@ -213,12 +213,16 @@ export const getPostBySlug = async (
 ): Promise<BlogPost | undefined> => {
   try {
     // Dynamically import the specific post file
+    console.log(`📄 Loading blog post: ${slug}`)
     const moduleLoader = import(`../../posts/${slug}.md`)
     const moduleContent = await moduleLoader
+    console.log(`✅ Successfully loaded module for: ${slug}`)
+
     const { frontmatter, content } = moduleContent.default
 
     // Check if it's a draft and we don't want drafts
     if (!includeDrafts && frontmatter.draft) {
+      console.log(`⏭️ Skipping draft post: ${slug}`)
       return undefined
     }
 
@@ -228,9 +232,18 @@ export const getPostBySlug = async (
       frontmatter,
       content
     )
+    console.log(
+      `✨ Processed blog post: ${slug}`,
+      processedPost.frontmatter.title
+    )
     return processedPost
   } catch (error) {
-    console.error(`Error loading post ${slug}:`, error)
+    console.error(`❌ Error loading post ${slug}:`, error)
+    console.error('Error details:', {
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+    })
     return undefined
   }
 }
