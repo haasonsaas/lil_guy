@@ -109,7 +109,7 @@ export async function getAllTagsFromMetadata(): Promise<
   const tagCounts = new Map<string, number>()
 
   Object.values(metadata).forEach((data) => {
-    if (!data.draft) {
+    if (!data.draft && data.tags && Array.isArray(data.tags)) {
       // Only count published posts
       data.tags.forEach((tag) => {
         tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1)
