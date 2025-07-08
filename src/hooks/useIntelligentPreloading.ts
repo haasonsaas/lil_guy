@@ -15,6 +15,8 @@ export function useIntelligentPreloading() {
     []
   )
   const isProcessing = useRef(false)
+  const timeoutIds = useRef<Set<number>>(new Set())
+  const idleCallbackIds = useRef<Set<number>>(new Set())
 
   // Process preload queue
   const processQueue = async () => {
@@ -42,7 +44,6 @@ export function useIntelligentPreloading() {
         }
 
         await preloadBlogPost(slug)
-        console.log(`📖 Preloaded blog post: ${slug}`)
       } catch (error) {
         console.warn(`Failed to preload blog post: ${slug}`, error)
       }
@@ -101,15 +102,21 @@ export function useIntelligentPreloading() {
       processQueue()
     } else if (options.onIdle && 'requestIdleCallback' in window) {
       // Use requestIdleCallback for low priority preloads
-      requestIdleCallback(
+      const idleId = requestIdleCallback(
         () => {
+          idleCallbackIds.current.delete(idleId)
           processQueue()
         },
         { timeout: 5000 }
       )
+      idleCallbackIds.current.add(idleId)
     } else {
       // Fallback to setTimeout
-      setTimeout(processQueue, defaultOptions.delay)
+      const timeoutId = setTimeout(() => {
+        timeoutIds.current.delete(timeoutId)
+        processQueue()
+      }, defaultOptions.delay) as unknown as number
+      timeoutIds.current.add(timeoutId)
     }
   }
 
@@ -128,6 +135,29 @@ export function useIntelligentPreloading() {
       })
     })
   }
+
+  // Cleanup effect
+  useEffect(() => {
+    // Capture current refs for cleanup
+    const currentTimeoutIds = timeoutIds.current
+    const currentIdleCallbackIds = idleCallbackIds.current
+    const currentQueue = preloadQueue.current
+
+    return () => {
+      // Clear all pending timeouts
+      currentTimeoutIds.forEach((id) => clearTimeout(id))
+      currentTimeoutIds.clear()
+
+      // Clear all pending idle callbacks
+      if ('cancelIdleCallback' in window) {
+        currentIdleCallbackIds.forEach((id) => cancelIdleCallback(id))
+        currentIdleCallbackIds.clear()
+      }
+
+      // Clear the queue
+      currentQueue.length = 0
+    }
+  }, [])
 
   return {
     queuePreload,

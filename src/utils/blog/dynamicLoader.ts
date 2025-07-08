@@ -5,8 +5,9 @@
 
 import type { BlogPost } from '@/types/blog'
 
-// Cache for loaded content
+// Cache for loaded content with size limit
 const contentCache = new Map<string, BlogPost>()
+const CACHE_MAX_SIZE = 50 // Limit cache to prevent unbounded growth
 
 /**
  * Dynamically load a blog post by slug
@@ -23,7 +24,12 @@ export async function loadBlogPost(slug: string): Promise<BlogPost | null> {
     const postModule = await import(`../../posts/${slug}.md`)
     const post = postModule.default as BlogPost
 
-    // Cache the loaded post
+    // Cache the loaded post with LRU eviction
+    if (contentCache.size >= CACHE_MAX_SIZE) {
+      // Remove oldest entry (first item in Map maintains insertion order)
+      const firstKey = contentCache.keys().next().value
+      contentCache.delete(firstKey)
+    }
     contentCache.set(slug, post)
 
     return post

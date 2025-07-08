@@ -77,11 +77,8 @@ export default function BlogPost() {
   useEffect(() => {
     const loadPost = async () => {
       if (!slug) {
-        console.error('❌ No slug provided to BlogPost component')
         return
       }
-
-      console.log(`🚀 Starting to load blog post: ${slug}`)
 
       // Check for preview token
       const previewToken = searchParams.get('preview')
@@ -100,15 +97,9 @@ export default function BlogPost() {
       const loadedPost = await getPostBySlug(slug, includesDrafts)
 
       if (!loadedPost) {
-        console.error(`❌ Failed to load post: ${slug} - redirecting to /blog`)
         navigate('/blog')
         return
       }
-
-      console.log(
-        `✅ Successfully loaded post: ${slug}`,
-        loadedPost.frontmatter.title
-      )
       setPost(loadedPost)
 
       // Now fetch other data
@@ -147,8 +138,7 @@ export default function BlogPost() {
     }
 
     loadPost().catch((error) => {
-      console.error('❌ Error in loadPost:', error)
-      console.error('Error stack:', error.stack)
+      console.error('Error loading blog post:', error)
     })
   }, [slug, navigate, searchParams])
 
@@ -166,9 +156,6 @@ export default function BlogPost() {
   }, [post, slug, trackPostView])
 
   if (!post) {
-    console.log(
-      `🔄 BlogPost component rendering without post data for slug: ${slug}`
-    )
     return (
       <Layout>
         <div className="py-8">

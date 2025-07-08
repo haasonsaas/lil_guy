@@ -278,8 +278,6 @@ export default data;
     // Handle hot updates for markdown files
     async handleHotUpdate({ file, server }) {
       if (file.endsWith('.md')) {
-        console.log(`📝 Markdown file updated: ${path.basename(file)}`)
-
         // Find all modules that import this markdown file
         const module = server.moduleGraph.getModuleById(file)
         if (module) {
