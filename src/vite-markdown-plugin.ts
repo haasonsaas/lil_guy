@@ -78,7 +78,19 @@ export function markdownPlugin(): Plugin {
                   multilineValue = value === "'" || value === '"' ? '' : value
                 } else {
                   // Single line value
-                  frontmatter[currentKey] = value.replace(/^['"]|['"]$/g, '')
+                  let processedValue: string | boolean = value.replace(
+                    /^['"]|['"]$/g,
+                    ''
+                  )
+
+                  // Convert string booleans to actual booleans
+                  if (processedValue === 'true') {
+                    processedValue = true
+                  } else if (processedValue === 'false') {
+                    processedValue = false
+                  }
+
+                  frontmatter[currentKey] = processedValue
                   currentKey = null
                 }
               } else if (currentKey && isMultiline) {
@@ -136,7 +148,16 @@ export function markdownPlugin(): Plugin {
 
             // Save the last multiline value if exists
             if (currentKey && multilineValue) {
-              frontmatter[currentKey] = multilineValue.trim()
+              let finalValue: string | boolean = multilineValue.trim()
+
+              // Convert string booleans to actual booleans
+              if (finalValue === 'true') {
+                finalValue = true
+              } else if (finalValue === 'false') {
+                finalValue = false
+              }
+
+              frontmatter[currentKey] = finalValue
             }
 
             // Save the last nested object if exists
