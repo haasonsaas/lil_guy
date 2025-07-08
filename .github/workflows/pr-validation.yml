@@ -34,6 +34,9 @@ jobs:
       - name: Run linting
         run: bun run lint
 
+      - name: Run analytics & service worker tests
+        run: bun run test:analytics
+
       - name: Build project
         run: bun run build
         env:
@@ -76,7 +79,8 @@ jobs:
 
             ### ✅ Checks passed:
             - TypeScript compilation
-            - ESLint validation  
+            - ESLint validation
+            - Analytics & Service Worker tests
             - Build successful
             - Deployment health check
 

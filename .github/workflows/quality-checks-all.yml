@@ -66,6 +66,7 @@ jobs:
             - SEO validation
             - Link checking
             - Bundle size validation
+            - Analytics & Service Worker tests
 
             Check the workflow logs for detailed results.
             `;

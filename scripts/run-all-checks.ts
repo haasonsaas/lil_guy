@@ -101,6 +101,17 @@ async function runAllChecks() {
   }
   console.log('')
 
+  // Analytics & Service Worker Tests
+  console.log(chalk.yellow('Running Analytics & Service Worker Tests...'))
+  try {
+    await $`bun run test:analytics`.quiet()
+    console.log(chalk.green('✅ Analytics & Service Worker Tests passed'))
+  } catch (error) {
+    console.log(chalk.red('❌ Analytics & Service Worker Tests failed'))
+    hasErrors = true
+  }
+  console.log('')
+
   // Summary
   console.log(chalk.blue('📊 Summary:'))
   if (!hasErrors && !hasWarnings) {
