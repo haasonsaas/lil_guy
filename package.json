@@ -31,6 +31,7 @@
     "perf": "bun run scripts/performance-report.ts",
     "lighthouse": "bun run scripts/lighthouse-audit.ts",
     "perf:test": "bun run scripts/test-performance-api.ts",
+    "test:analytics": "bun run scripts/test-analytics-service-worker.ts",
     "setup:automation": "bun --env-file=.env run scripts/setup-automation.ts",
     "test:automation": "bun --env-file=.env run scripts/test-auto-blog.ts",
     "gemini": "bun --env-file=.env run scripts/gemini.ts",
