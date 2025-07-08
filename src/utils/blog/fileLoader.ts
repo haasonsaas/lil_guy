@@ -50,7 +50,9 @@ const calculateReadingTimeInline = (
  * Load blog posts from markdown files in the /src/posts directory
  * @param metadataOnly - If true, only loads frontmatter without full content (default: false)
  */
-export const readFilePosts = (metadataOnly: boolean = false): BlogPost[] => {
+export const readFilePosts = async (
+  metadataOnly: boolean = false
+): Promise<BlogPost[]> => {
   const posts: BlogPost[] = []
   const seenSlugs = new Set<string>()
   let totalFiles = 0
@@ -60,10 +62,14 @@ export const readFilePosts = (metadataOnly: boolean = false): BlogPost[] => {
     // Use import.meta.glob to get all markdown files
     const markdownFiles: Record<
       string,
-      { default: { frontmatter: RawFrontmatter; content: string } }
-    > = import.meta.glob('../../posts/*.md', { eager: true }) as Record<
+      () => Promise<{
+        default: { frontmatter: RawFrontmatter; content: string }
+      }>
+    > = import.meta.glob('../../posts/*.md') as Record<
       string,
-      { default: { frontmatter: RawFrontmatter; content: string } }
+      () => Promise<{
+        default: { frontmatter: RawFrontmatter; content: string }
+      }>
     >
 
     totalFiles = Object.keys(markdownFiles).length
@@ -71,8 +77,10 @@ export const readFilePosts = (metadataOnly: boolean = false): BlogPost[] => {
       console.log(`Found ${totalFiles} markdown files`)
     }
 
-    Object.entries(markdownFiles).forEach(([filePath, moduleContent]) => {
+    for (const [filePath, moduleLoader] of Object.entries(markdownFiles)) {
       try {
+        // Load the module dynamically
+        const moduleContent = await moduleLoader()
         // Extract frontmatter and content from the module
         const { frontmatter, content } = moduleContent.default
 
@@ -90,7 +98,7 @@ export const readFilePosts = (metadataOnly: boolean = false): BlogPost[] => {
         if (seenSlugs.has(fileSlug)) {
           console.warn(`Skipping duplicate slug: ${fileSlug}`)
           skippedFiles++
-          return
+          continue
         }
         seenSlugs.add(fileSlug)
 
@@ -203,7 +211,7 @@ export const readFilePosts = (metadataOnly: boolean = false): BlogPost[] => {
         console.error(`Error processing file ${filePath}:`, error)
         skippedFiles++
       }
-    })
+    }
 
     if (import.meta.env.DEV) {
       console.log(

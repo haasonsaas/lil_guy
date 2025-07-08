@@ -4,9 +4,8 @@ import Layout from '@/components/Layout'
 import BlogCard from '@/components/BlogCard'
 import { BlogCardSkeleton } from '@/components/BlogCardSkeleton'
 import {
-  getAllPosts,
-  getAllTags,
-  calculateReadingTime,
+  getAllPostsMetadataFast,
+  getAllTagsFromMetadata,
 } from '@/utils/blogUtils'
 import { Input } from '@/components/ui/input'
 import {
@@ -74,8 +73,8 @@ export default function BlogPage() {
     const loadData = async () => {
       try {
         const [allPosts, tags] = await Promise.all([
-          getAllPosts(),
-          getAllTags(),
+          getAllPostsMetadataFast(),
+          getAllTagsFromMetadata(),
         ])
         setPosts(allPosts)
         setAllTags(tags)
@@ -99,7 +98,9 @@ export default function BlogPage() {
         (post) =>
           post.frontmatter.title.toLowerCase().includes(searchLower) ||
           post.frontmatter.description.toLowerCase().includes(searchLower) ||
-          post.content.toLowerCase().includes(searchLower)
+          post.frontmatter.tags.some((tag) =>
+            tag.toLowerCase().includes(searchLower)
+          )
       )
     }
 
@@ -137,7 +138,7 @@ export default function BlogPage() {
     // Reading time filter
     if (selectedReadingTime !== 'all') {
       filtered = filtered.filter((post) => {
-        const readingTime = calculateReadingTime(post.content).minutes
+        const readingTime = post.frontmatter.readingTime?.minutes || 0
         switch (selectedReadingTime) {
           case 'short':
             return readingTime <= 3
@@ -175,13 +176,13 @@ export default function BlogPage() {
           return b.frontmatter.title.localeCompare(a.frontmatter.title)
         case 'reading-time-asc':
           return (
-            calculateReadingTime(a.content).minutes -
-            calculateReadingTime(b.content).minutes
+            (a.frontmatter.readingTime?.minutes || 0) -
+            (b.frontmatter.readingTime?.minutes || 0)
           )
         case 'reading-time-desc':
           return (
-            calculateReadingTime(b.content).minutes -
-            calculateReadingTime(a.content).minutes
+            (b.frontmatter.readingTime?.minutes || 0) -
+            (a.frontmatter.readingTime?.minutes || 0)
           )
         default:
           return 0

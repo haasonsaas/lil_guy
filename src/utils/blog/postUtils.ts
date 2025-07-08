@@ -1,6 +1,139 @@
-import { BlogPost } from '@/types/blog'
+import { BlogPost, BlogPostFrontmatter } from '@/types/blog'
 import { readFilePosts } from './fileLoader'
 import { generateOgImageUrl } from '../ogImageUtils'
+
+interface RawFrontmatter {
+  postSlug?: string
+  author?: string
+  pubDate?: string
+  title?: string
+  description?: string
+  featured?: boolean
+  draft?: boolean
+  tags?: string[] | string
+  image?: {
+    url?: string
+    alt?: string
+  }
+}
+
+/**
+ * Calculate reading time in minutes based on word count
+ */
+const calculateReadingTimeInline = (
+  content: string
+): { minutes: number; wordCount: number } => {
+  const WORDS_PER_MINUTE = 200
+
+  const text = content
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/`[^`]*`/g, '')
+    .replace(/^\s*[-*]\s.*$/gm, '')
+    .replace(/^\s*\d+\.\s.*$/gm, '')
+    .replace(/^\s*#{1,6}\s.*$/gm, '')
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1')
+    .replace(/[#*`~>|]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+
+  const wordCount = text.split(/\s+/).filter((word) => word.length > 0).length
+  const minutes = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE))
+
+  return {
+    minutes,
+    wordCount,
+  }
+}
+
+/**
+ * Process a single post from module content
+ */
+const processPostFromModule = async (
+  slug: string,
+  frontmatter: RawFrontmatter,
+  content: string
+): Promise<BlogPost> => {
+  // Set default values
+  const defaultFrontmatter: BlogPostFrontmatter = {
+    author: 'Jonathan Haas',
+    pubDate: new Date().toISOString().split('T')[0],
+    title: slug.replace(/-/g, ' '),
+    description: 'No description provided',
+    featured: false,
+    draft: false,
+    tags: [],
+    image: {
+      url: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643',
+      alt: 'Default blog post image',
+    },
+  }
+
+  // Process tags
+  let tags: string[] = Array.isArray(frontmatter.tags) ? frontmatter.tags : []
+  if (typeof frontmatter.tags === 'string') {
+    tags = frontmatter.tags.split(',').map((tag) => tag.trim())
+  }
+
+  // Process boolean fields
+  const draftValue =
+    frontmatter.draft !== undefined
+      ? typeof frontmatter.draft === 'string'
+        ? frontmatter.draft === 'true'
+        : !!frontmatter.draft
+      : defaultFrontmatter.draft
+
+  const featuredValue =
+    frontmatter.featured !== undefined
+      ? typeof frontmatter.featured === 'string'
+        ? frontmatter.featured === 'true'
+        : !!frontmatter.featured
+      : defaultFrontmatter.featured
+
+  // Calculate reading time
+  const readingTimeData = calculateReadingTimeInline(content)
+
+  // Process the frontmatter
+  const processedFrontmatter: BlogPostFrontmatter = {
+    ...defaultFrontmatter,
+    author: frontmatter.author || defaultFrontmatter.author,
+    pubDate: frontmatter.pubDate || defaultFrontmatter.pubDate,
+    title: frontmatter.title || defaultFrontmatter.title,
+    description: frontmatter.description || defaultFrontmatter.description,
+    featured: featuredValue,
+    draft: draftValue,
+    tags,
+    image: {
+      url: frontmatter.image?.url || defaultFrontmatter.image.url,
+      alt: frontmatter.image?.alt || defaultFrontmatter.image.alt,
+    },
+    readingTime: readingTimeData,
+  }
+
+  const post: BlogPost = {
+    slug,
+    frontmatter: processedFrontmatter,
+    content: content || '',
+  }
+
+  // Generate image if needed
+  const hasExplicitImage =
+    post.frontmatter.image &&
+    post.frontmatter.image.url &&
+    !post.frontmatter.image.url.includes(
+      'unsplash.com/photo-1499750310107-5fef28a66643'
+    )
+
+  if (!hasExplicitImage) {
+    const cleanTitle = post.frontmatter.title || post.slug
+    const imagePath = await getPostImage(cleanTitle)
+    post.frontmatter.image = {
+      url: imagePath,
+      alt: cleanTitle || 'Blog post image',
+    }
+  }
+
+  return post
+}
 
 /**
  * Get all blog posts (only from markdown files)
@@ -11,7 +144,7 @@ export const getAllPosts = async (
   includeDrafts: boolean = false,
   metadataOnly: boolean = false
 ): Promise<BlogPost[]> => {
-  const filePosts = readFilePosts(metadataOnly)
+  const filePosts = await readFilePosts(metadataOnly)
 
   // Filter out drafts unless explicitly included
   const posts = includeDrafts
@@ -70,7 +203,7 @@ export const getAllPostsMetadata = async (
 }
 
 /**
- * Get a specific post by slug
+ * Get a specific post by slug with full content (dynamically loaded)
  * @param slug - The post slug
  * @param includeDrafts - Whether to include draft posts (default: false)
  */
@@ -78,8 +211,28 @@ export const getPostBySlug = async (
   slug: string,
   includeDrafts: boolean = false
 ): Promise<BlogPost | undefined> => {
-  const posts = await getAllPosts(includeDrafts)
-  return posts.find((post) => post.slug === slug)
+  try {
+    // Dynamically import the specific post file
+    const moduleLoader = import(`../../posts/${slug}.md`)
+    const moduleContent = await moduleLoader
+    const { frontmatter, content } = moduleContent.default
+
+    // Check if it's a draft and we don't want drafts
+    if (!includeDrafts && frontmatter.draft) {
+      return undefined
+    }
+
+    // Process the frontmatter similar to fileLoader logic
+    const processedPost = await processPostFromModule(
+      slug,
+      frontmatter,
+      content
+    )
+    return processedPost
+  } catch (error) {
+    console.error(`Error loading post ${slug}:`, error)
+    return undefined
+  }
 }
 
 /**

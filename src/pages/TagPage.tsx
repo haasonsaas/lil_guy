@@ -5,7 +5,7 @@ import BlogCard from '@/components/BlogCard'
 import { BlogCardSkeleton } from '@/components/BlogCardSkeleton'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft } from 'lucide-react'
-import { getPostsByTag } from '@/utils/blogUtils'
+import { getPostsByTagMetadata } from '@/utils/blog/metadataApi'
 import { BlogPost } from '@/types/blog'
 import WeeklyPlaybook from '@/components/WeeklyPlaybook'
 
@@ -22,7 +22,7 @@ export default function TagPage() {
         setError(null)
         if (!tag) return
 
-        const tagPosts = await getPostsByTag(tag)
+        const tagPosts = await getPostsByTagMetadata(tag)
         setPosts(tagPosts)
       } catch (err) {
         setError('Failed to load posts')

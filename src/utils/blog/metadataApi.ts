@@ -123,6 +123,21 @@ export async function getAllTagsFromMetadata(): Promise<
 }
 
 /**
+ * Get posts by tag using metadata only
+ * @param tag - The tag to filter by
+ * @param includeDrafts - Whether to include draft posts (default: false)
+ */
+export async function getPostsByTagMetadata(
+  tag: string,
+  includeDrafts: boolean = false
+): Promise<BlogPost[]> {
+  const allPosts = await getAllPostsMetadata(includeDrafts)
+  return allPosts.filter((post) =>
+    post.frontmatter.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+  )
+}
+
+/**
  * Clear the metadata cache (useful for development)
  */
 export function clearMetadataCache(): void {
