@@ -17,6 +17,7 @@ import {
   Circle,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 
 // Vertex shader for 3D visualization
 const vertexShaderSource = `
@@ -372,7 +373,7 @@ const renderParticles = (
   gl.drawArrays(gl.TRIANGLES, 0, positions.length / 3)
 }
 
-export default function AudioVisualizerPage() {
+function AudioVisualizerPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
@@ -1038,5 +1039,13 @@ export default function AudioVisualizerPage() {
         </div>
       </section>
     </Layout>
+  )
+}
+
+export default function AudioVisualizerPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="Audio Visualizer">
+      <AudioVisualizerPageContent />
+    </ExperimentErrorBoundary>
   )
 }

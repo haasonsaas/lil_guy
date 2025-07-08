@@ -19,6 +19,7 @@ import {
   Layers,
 } from 'lucide-react'
 import { motion } from 'framer-motion'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 
 type AutomataType =
   | 'life'
@@ -80,7 +81,7 @@ const rules: Rule[] = [
   },
 ]
 
-export default function CellularAutomataPage() {
+function CellularAutomataPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const gridRef = useRef<Uint8Array | null>(null)
   const nextGridRef = useRef<Uint8Array | null>(null)
@@ -993,5 +994,13 @@ export default function CellularAutomataPage() {
         </div>
       </section>
     </Layout>
+  )
+}
+
+export default function CellularAutomataPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="Cellular Automata">
+      <CellularAutomataPageContent />
+    </ExperimentErrorBoundary>
   )
 }

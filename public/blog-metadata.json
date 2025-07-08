@@ -277,6 +277,13 @@
       "developer-tools"
     ]
   },
+  "building-better-ai-evals-a-practical-guide-to-llm-evaluation": {
+    "title": "Building Better AI Evals: A Practical Guide to LLM Evaluation",
+    "description": "How to create custom evaluations, model-graded assessments, and domain-specific benchmarks that actually predict real-world performance",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-01-01",
+    "tags": ["ai-evaluation", "benchmarking", "llm", "evals", "openai-evals"]
+  },
   "ai-detection-hysteria": {
     "title": "AI Detection Hysteria: When Human Creativity Gets Mislabeled",
     "description": "When I first noticed the flood of \"This is AI-generated!\" accusations on social media, I dismissed it as a passing trend.",
@@ -701,19 +708,6 @@
       "ai-tooling",
       "prompt-engineering",
       "product-strategy"
-    ]
-  },
-  "the-production-ai-evaluation-framework-how-to-test-ai-systems-that-actually-work": {
-    "title": "The Production AI Evaluation Framework: How to Test AI Systems That Actually Work",
-    "description": "A battle-tested framework for evaluating AI systems in production, from component testing to multi-model orchestration",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-01-01",
-    "tags": [
-      "ai-evaluation",
-      "production",
-      "testing",
-      "framework",
-      "engineering"
     ]
   },
   "founder-pay-gap": {

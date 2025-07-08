@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { Label } from '@/components/ui/label'
@@ -17,7 +18,7 @@ interface FluidPoint {
   density: number
 }
 
-export default function LiquidMetalPage() {
+function LiquidMetalPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number>()
   const mouseRef = useRef({ x: 0, y: 0, isDown: false })
@@ -557,5 +558,13 @@ export default function LiquidMetalPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function LiquidMetalPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="Liquid Metal Surface">
+      <LiquidMetalPageContent />
+    </ExperimentErrorBoundary>
   )
 }

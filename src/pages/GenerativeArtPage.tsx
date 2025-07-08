@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react'
 import Layout from '@/components/Layout'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
@@ -134,7 +135,7 @@ const colorSchemes = [
   },
 ]
 
-export default function GenerativeArtPage() {
+function GenerativeArtPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number | null>(null)
   const startTimeRef = useRef<number>(Date.now())
@@ -1224,5 +1225,13 @@ export default function GenerativeArtPage() {
         </div>
       </section>
     </Layout>
+  )
+}
+
+export default function GenerativeArtPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="Generative Art">
+      <GenerativeArtPageContent />
+    </ExperimentErrorBoundary>
   )
 }

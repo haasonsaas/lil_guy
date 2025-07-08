@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Layout from '@/components/Layout'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
@@ -177,7 +178,7 @@ const presets: Preset[] = [
   },
 ]
 
-export default function NBodySimulationPage() {
+function NBodySimulationPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number | null>(null)
   const bodiesRef = useRef<Body[]>([])
@@ -965,5 +966,13 @@ export default function NBodySimulationPage() {
         </div>
       </section>
     </Layout>
+  )
+}
+
+export default function NBodySimulationPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="N-Body Simulation">
+      <NBodySimulationPageContent />
+    </ExperimentErrorBoundary>
   )
 }

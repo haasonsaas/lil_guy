@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { Label } from '@/components/ui/label'
@@ -7,7 +8,7 @@ import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
 import { Sparkles, Palette, Zap, Move3D } from 'lucide-react'
 
-export default function HDRHolographicFoilPage() {
+function HDRHolographicFoilPageContent() {
   const [intensity, setIntensity] = useState([1.5])
   const [hueShift, setHueShift] = useState([0])
   const [metalness, setMetalness] = useState([0.8])
@@ -345,5 +346,13 @@ export default function HDRHolographicFoilPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function HDRHolographicFoilPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="HDR Holographic Foil">
+      <HDRHolographicFoilPageContent />
+    </ExperimentErrorBoundary>
   )
 }

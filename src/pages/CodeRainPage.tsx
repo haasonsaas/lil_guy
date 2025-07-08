@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import Layout from '@/components/Layout'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
@@ -71,7 +72,7 @@ interface MatrixChar {
   color: { r: number; g: number; b: number }
 }
 
-export default function CodeRainPage() {
+function CodeRainPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number>()
   const matrixCharsRef = useRef<MatrixChar[]>([])
@@ -469,5 +470,13 @@ export default function CodeRainPage() {
         </div>
       </section>
     </Layout>
+  )
+}
+
+export default function CodeRainPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="Code Rain">
+      <CodeRainPageContent />
+    </ExperimentErrorBoundary>
   )
 }

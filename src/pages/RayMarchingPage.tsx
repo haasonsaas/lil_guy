@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Layout from '@/components/Layout'
+import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
@@ -378,7 +379,7 @@ const fragmentShaderSource = `
   }
 `
 
-export default function RayMarchingPage() {
+function RayMarchingPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const glRef = useRef<WebGLRenderingContext | null>(null)
   const programRef = useRef<WebGLProgram | null>(null)
@@ -941,5 +942,13 @@ export default function RayMarchingPage() {
         </div>
       </section>
     </Layout>
+  )
+}
+
+export default function RayMarchingPage() {
+  return (
+    <ExperimentErrorBoundary experimentName="Ray Marching">
+      <RayMarchingPageContent />
+    </ExperimentErrorBoundary>
   )
 }
