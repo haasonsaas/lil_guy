@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { getBlogStats, getAllPosts, getAllTags } from '@/utils/blogUtils'
+import {
+  getBlogStats,
+  getAllPosts,
+  getAllPostsMetadataFast,
+  getAllTagsFromMetadata,
+} from '@/utils/blogUtils'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -65,8 +70,8 @@ export default function Index() {
     const loadData = async () => {
       try {
         const [allPosts, tags] = await Promise.all([
-          getAllPosts(),
-          getAllTags(),
+          getAllPostsMetadataFast(),
+          getAllTagsFromMetadata(),
         ])
 
         // Get featured post (most recent) and next 3 posts

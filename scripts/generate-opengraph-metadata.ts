@@ -11,6 +11,37 @@ import matter from 'gray-matter'
 const postsDir = path.join(process.cwd(), 'src/posts')
 const outputPath = path.join(process.cwd(), 'public/blog-metadata.json')
 
+/**
+ * Calculate reading time in minutes based on word count
+ */
+function calculateReadingTime(content: string): {
+  minutes: number
+  wordCount: number
+} {
+  // Average reading speed in words per minute
+  const WORDS_PER_MINUTE = 200
+
+  // Clean up the content while preserving meaningful text
+  const text = content
+    .replace(/```[\s\S]*?```/g, '') // Remove code blocks with triple backticks
+    .replace(/`[^`]*`/g, '') // Remove inline code
+    .replace(/^\s*[-*]\s.*$/gm, '') // Remove list items
+    .replace(/^\s*\d+\.\s.*$/gm, '') // Remove numbered list items
+    .replace(/^\s*#{1,6}\s.*$/gm, '') // Remove headers
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1') // Keep alt text from links/images
+    .replace(/[#*`~>|]/g, '') // Remove markdown syntax
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim()
+
+  const wordCount = text.split(/\s+/).filter((word) => word.length > 0).length
+  const minutes = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE))
+
+  return {
+    minutes,
+    wordCount,
+  }
+}
+
 interface BlogMetadata {
   [slug: string]: {
     title: string
@@ -18,6 +49,12 @@ interface BlogMetadata {
     author: string
     pubDate: string
     tags: string[]
+    readingTime: {
+      minutes: number
+      wordCount: number
+    }
+    featured: boolean
+    draft: boolean
   }
 }
 
@@ -28,10 +65,13 @@ async function generateMetadata() {
   for (const file of files) {
     const filePath = path.join(postsDir, file)
     const fileContent = fs.readFileSync(filePath, 'utf-8')
-    const { data } = matter(fileContent)
+    const { data, content } = matter(fileContent)
 
     // Generate slug from filename
     const slug = file.replace('.md', '')
+
+    // Calculate reading time
+    const readingTime = calculateReadingTime(content)
 
     metadata[slug] = {
       title: data.title || slug,
@@ -39,6 +79,9 @@ async function generateMetadata() {
       author: data.author || 'Jonathan Haas',
       pubDate: data.pubDate || new Date().toISOString(),
       tags: data.tags || [],
+      readingTime,
+      featured: !!data.featured,
+      draft: !!data.draft,
     }
   }
 

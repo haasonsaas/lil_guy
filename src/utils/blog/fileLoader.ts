@@ -16,9 +16,41 @@ interface RawFrontmatter {
 }
 
 /**
- * Load blog posts from markdown files in the /src/posts directory
+ * Calculate reading time in minutes based on word count
+ * Inline implementation to avoid circular imports
  */
-export const readFilePosts = (): BlogPost[] => {
+const calculateReadingTimeInline = (
+  content: string
+): { minutes: number; wordCount: number } => {
+  // Average reading speed in words per minute
+  const WORDS_PER_MINUTE = 200
+
+  // Clean up the content while preserving meaningful text
+  const text = content
+    .replace(/```[\s\S]*?```/g, '') // Remove code blocks with triple backticks
+    .replace(/`[^`]*`/g, '') // Remove inline code
+    .replace(/^\s*[-*]\s.*$/gm, '') // Remove list items
+    .replace(/^\s*\d+\.\s.*$/gm, '') // Remove numbered list items
+    .replace(/^\s*#{1,6}\s.*$/gm, '') // Remove headers
+    .replace(/!?\[([^\]]*)\]\([^)]*\)/g, '$1') // Keep alt text from links/images
+    .replace(/[#*`~>|]/g, '') // Remove markdown syntax
+    .replace(/\s+/g, ' ') // Normalize whitespace
+    .trim()
+
+  const wordCount = text.split(/\s+/).filter((word) => word.length > 0).length
+  const minutes = Math.max(1, Math.ceil(wordCount / WORDS_PER_MINUTE))
+
+  return {
+    minutes,
+    wordCount,
+  }
+}
+
+/**
+ * Load blog posts from markdown files in the /src/posts directory
+ * @param metadataOnly - If true, only loads frontmatter without full content (default: false)
+ */
+export const readFilePosts = (metadataOnly: boolean = false): BlogPost[] => {
   const posts: BlogPost[] = []
   const seenSlugs = new Set<string>()
   let totalFiles = 0
@@ -138,6 +170,12 @@ export const readFilePosts = (): BlogPost[] => {
           }
         }
 
+        // Pre-calculate reading time if we have content and it's not metadata-only mode
+        let readingTimeData
+        if (!metadataOnly && content) {
+          readingTimeData = calculateReadingTimeInline(content)
+        }
+
         // Merge frontmatter with defaults, ensuring all required properties are present
         const processedFrontmatter: BlogPostFrontmatter = {
           ...defaultFrontmatter,
@@ -153,6 +191,7 @@ export const readFilePosts = (): BlogPost[] => {
             url: frontmatter.image?.url || defaultFrontmatter.image.url,
             alt: frontmatter.image?.alt || defaultFrontmatter.image.alt,
           },
+          readingTime: readingTimeData,
         }
 
         posts.push({

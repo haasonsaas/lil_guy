@@ -3,7 +3,11 @@ import { useParams } from 'react-router-dom'
 import Layout from '@/components/Layout'
 import BlogCard from '@/components/BlogCard'
 import { BlogCardSkeleton } from '@/components/BlogCardSkeleton'
-import { getAllPosts, getPostBySlug } from '@/utils/blogUtils'
+import {
+  getAllPosts,
+  getAllPostsMetadataFast,
+  getPostBySlug,
+} from '@/utils/blogUtils'
 import { generateOgImageUrl } from '../utils/ogImageUtils'
 
 export default function Blog() {
@@ -15,7 +19,7 @@ export default function Blog() {
   useEffect(() => {
     const loadPosts = async () => {
       try {
-        const loadedPosts = await getAllPosts()
+        const loadedPosts = await getAllPostsMetadataFast()
         setPosts(loadedPosts)
       } catch (error) {
         console.error('Error loading posts:', error)

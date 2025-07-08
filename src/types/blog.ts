@@ -14,6 +14,11 @@ export interface BlogPostFrontmatter {
     name: string
     part: number
   }
+  // Pre-calculated reading metrics to avoid needing full content for listings
+  readingTime?: {
+    minutes: number
+    wordCount: number
+  }
 }
 
 export interface BlogPost {

@@ -5,7 +5,7 @@
   <link href="https://www.haasonsaas.com/atom.xml" rel="self" type="application/atom+xml" />
   <link href="https://www.haasonsaas.com" rel="alternate" type="text/html" />
   <id>https://www.haasonsaas.com/</id>
-  <updated>2025-07-07T00:00:00.000Z</updated>
+  <updated>2025-07-08T00:00:00.000Z</updated>
   <author>
     <name>Jonathan Haas</name>
     <email>jonathan@haasonsaas.com</email>
@@ -13,6 +13,74 @@
   </author>
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
+  <entry>
+    <title><![CDATA[The Death of the 10x Developer: Why AI Multiplication Beats Individual Optimization]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-death-of-the-10x-developer-why-ai-multiplication-beats-individual-optimization" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-death-of-the-10x-developer-why-ai-multiplication-beats-individual-optimization</id>
+    <published>2025-07-08T00:00:00.000Z</published>
+    <updated>2025-07-08T00:00:00.000Z</updated>
+    <summary><![CDATA[The 10x developer myth is finally dying. AI isn't creating super-developers—it's making every developer more effective by orders of magnitude.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="developer-productivity" />
+    <category term="team-dynamics" />
+    <category term="automation" />
+    <category term="future-of-work" />
+  </entry>
+  <entry>
+    <title><![CDATA[The Shift to Async Code Gen: What It Means for Developers]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-shift-to-async-code-gen-what-it-means-for-developers" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-shift-to-async-code-gen-what-it-means-for-developers</id>
+    <published>2025-07-08T00:00:00.000Z</published>
+    <updated>2025-07-08T00:00:00.000Z</updated>
+    <summary><![CDATA[Async code generation is moving from novelty to necessity. Here's what  that means for your career and the industry as a whole.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="software-development" />
+    <category term="automation" />
+    <category term="future-of-work" />
+    <category term="developer-experience" />
+  </entry>
+  <entry>
+    <title><![CDATA[The AI Code Review Revolution: When Machines Become Better Teammates]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates</id>
+    <published>2025-07-08T00:00:00.000Z</published>
+    <updated>2025-07-08T00:00:00.000Z</updated>
+    <summary><![CDATA[AI code reviewers are getting scary good. Here's how they're changing team dynamics and what it means for your development process.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="code-review" />
+    <category term="developer-experience" />
+    <category term="automation" />
+    <category term="team-dynamics" />
+  </entry>
+  <entry>
+    <title><![CDATA[Prompt-Driven Development: The New Paradigm Hiding in Plain Sight]]></title>
+    <link href="https://www.haasonsaas.com/blog/prompt-driven-development-the-new-paradigm-hiding-in-plain-sight" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/prompt-driven-development-the-new-paradigm-hiding-in-plain-sight</id>
+    <published>2025-07-08T00:00:00.000Z</published>
+    <updated>2025-07-08T00:00:00.000Z</updated>
+    <summary><![CDATA[We're not just using AI to write code—we're fundamentally changing how we think about software development. Welcome to the prompt-driven era.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai" />
+    <category term="development-methodology" />
+    <category term="prompt-engineering" />
+    <category term="software-architecture" />
+    <category term="paradigm-shift" />
+  </entry>
   <entry>
     <title><![CDATA[The Evaluation Infrastructure We Need: Why AI Testing is Fundamentally Broken]]></title>
     <link href="https://www.haasonsaas.com/blog/the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken" rel="alternate" type="text/html" />
@@ -769,73 +837,5 @@
     <category term="graphics" />
     <category term="creative-coding" />
     <category term="hdr" />
-  </entry>
-  <entry>
-    <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
-    <link href="https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</id>
-    <published>2025-06-19T00:00:00.000Z</published>
-    <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[I've always been fascinated by the intersection of code and creativity. Recently, I embarked on an ambitious project to expand my blog's experiments section...]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="webgl" />
-    <category term="graphics" />
-    <category term="creative-coding" />
-  </entry>
-  <entry>
-    <title><![CDATA[Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)]]></title>
-    <link href="https://www.haasonsaas.com/blog/coding-model-ui" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/coding-model-ui</id>
-    <published>2025-06-18T00:00:00.000Z</published>
-    <updated>2025-06-18T00:00:00.000Z</updated>
-    <summary><![CDATA[Let’s just say it up front: coding models are really fucking bad at UI. They can write clean TypeScript.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="developer-experience" />
-    <category term="ui-design" />
-    <category term="ai-tooling" />
-    <category term="prompt-engineering" />
-    <category term="product-strategy" />
-  </entry>
-  <entry>
-    <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
-    <link href="https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</id>
-    <published>2025-06-17T00:00:00.000Z</published>
-    <updated>2025-06-17T00:00:00.000Z</updated>
-    <summary><![CDATA[Writing blog posts should be a joy, not a chore. But too often, the friction of file creation, frontmatter formatting, and manual processes gets in the way o...]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="developer-experience" />
-    <category term="blog-development" />
-    <category term="tooling" />
-    <category term="vscode" />
-    <category term="cli-tools" />
-    <category term="productivity" />
-    <category term="cloudflare-pages" />
-  </entry>
-  <entry>
-    <title><![CDATA[Claude Code: Setup, Strategy, and Sanity Checks]]></title>
-    <link href="https://www.haasonsaas.com/blog/claude-code-setup" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/claude-code-setup</id>
-    <published>2025-06-17T00:00:00.000Z</published>
-    <updated>2025-06-17T00:00:00.000Z</updated>
-    <summary><![CDATA[Claude Code, when configured correctly, can function as a surprisingly competent co-developer. But if you're relying on default settings, winging your inputs...]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="ai-tools" />
-    <category term="developer-productivity" />
-    <category term="prompt-engineering" />
-    <category term="claude" />
-    <category term="software-strategy" />
   </entry>
 </feed>

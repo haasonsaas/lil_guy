@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Mon, 07 Jul 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,54 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[The Death of the 10x Developer: Why AI Multiplication Beats Individual Optimization]]></title>
+      <description><![CDATA[The 10x developer myth is finally dying. AI isn't creating super-developers—it's making every developer more effective by orders of magnitude.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-death-of-the-10x-developer-why-ai-multiplication-beats-individual-optimization</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-death-of-the-10x-developer-why-ai-multiplication-beats-individual-optimization</guid>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[developer-productivity]]></category>
+      <category><![CDATA[team-dynamics]]></category>
+      <category><![CDATA[automation]]></category>
+      <category><![CDATA[future-of-work]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Shift to Async Code Gen: What It Means for Developers]]></title>
+      <description><![CDATA[Async code generation is moving from novelty to necessity. Here's what  that means for your career and the industry as a whole.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-shift-to-async-code-gen-what-it-means-for-developers</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-shift-to-async-code-gen-what-it-means-for-developers</guid>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[software-development]]></category>
+      <category><![CDATA[automation]]></category>
+      <category><![CDATA[future-of-work]]></category>
+      <category><![CDATA[developer-experience]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The AI Code Review Revolution: When Machines Become Better Teammates]]></title>
+      <description><![CDATA[AI code reviewers are getting scary good. Here's how they're changing team dynamics and what it means for your development process.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates</guid>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[code-review]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[automation]]></category>
+      <category><![CDATA[team-dynamics]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Prompt-Driven Development: The New Paradigm Hiding in Plain Sight]]></title>
+      <description><![CDATA[We're not just using AI to write code—we're fundamentally changing how we think about software development. Welcome to the prompt-driven era.]]></description>
+      <link>https://www.haasonsaas.com/blog/prompt-driven-development-the-new-paradigm-hiding-in-plain-sight</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/prompt-driven-development-the-new-paradigm-hiding-in-plain-sight</guid>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[development-methodology]]></category>
+      <category><![CDATA[prompt-engineering]]></category>
+      <category><![CDATA[software-architecture]]></category>
+      <category><![CDATA[paradigm-shift]]></category>
+    </item>
     <item>
       <title><![CDATA[The Evaluation Infrastructure We Need: Why AI Testing is Fundamentally Broken]]></title>
       <description><![CDATA[Current AI evaluation approaches are built for software, not systems that reason. Here's the infrastructure we actually need.]]></description>
@@ -545,54 +593,6 @@
       <category><![CDATA[graphics]]></category>
       <category><![CDATA[creative-coding]]></category>
       <category><![CDATA[hdr]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
-      <description><![CDATA[I've always been fascinated by the intersection of code and creativity. Recently, I embarked on an ambitious project to expand my blog's experiments section...]]></description>
-      <link>https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[webgl]]></category>
-      <category><![CDATA[graphics]]></category>
-      <category><![CDATA[creative-coding]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)]]></title>
-      <description><![CDATA[Let’s just say it up front: coding models are really fucking bad at UI. They can write clean TypeScript.]]></description>
-      <link>https://www.haasonsaas.com/blog/coding-model-ui</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/coding-model-ui</guid>
-      <pubDate>Wed, 18 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[developer-experience]]></category>
-      <category><![CDATA[ui-design]]></category>
-      <category><![CDATA[ai-tooling]]></category>
-      <category><![CDATA[prompt-engineering]]></category>
-      <category><![CDATA[product-strategy]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Supercharging Your Blog Development Experience]]></title>
-      <description><![CDATA[Writing blog posts should be a joy, not a chore. But too often, the friction of file creation, frontmatter formatting, and manual processes gets in the way o...]]></description>
-      <link>https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/supercharging-your-blog-development-experience</guid>
-      <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[developer-experience]]></category>
-      <category><![CDATA[blog-development]]></category>
-      <category><![CDATA[tooling]]></category>
-      <category><![CDATA[vscode]]></category>
-      <category><![CDATA[cli-tools]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[cloudflare-pages]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Claude Code: Setup, Strategy, and Sanity Checks]]></title>
-      <description><![CDATA[Claude Code, when configured correctly, can function as a surprisingly competent co-developer. But if you're relying on default settings, winging your inputs...]]></description>
-      <link>https://www.haasonsaas.com/blog/claude-code-setup</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/claude-code-setup</guid>
-      <pubDate>Tue, 17 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai-tools]]></category>
-      <category><![CDATA[developer-productivity]]></category>
-      <category><![CDATA[prompt-engineering]]></category>
-      <category><![CDATA[claude]]></category>
-      <category><![CDATA[software-strategy]]></category>
     </item>
   </channel>
 </rss>

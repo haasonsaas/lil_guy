@@ -61,8 +61,10 @@ export default function BlogCard({
     ? truncateText(frontmatter.description, 140)
     : truncateText(frontmatter.description, 100)
 
-  const wordCount = content.trim().split(/\s+/).length
-  const readTime = calculateReadingTime(content)
+  // Use pre-calculated reading time if available, otherwise calculate from content
+  const readTime = frontmatter.readingTime || calculateReadingTime(content)
+  const wordCount =
+    frontmatter.readingTime?.wordCount || content.trim().split(/\s+/).length
 
   if (featured) {
     return (

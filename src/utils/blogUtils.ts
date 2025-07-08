@@ -4,12 +4,20 @@
 // Re-export everything from the new modules
 export {
   getAllPosts,
+  getAllPostsMetadata,
   getPostBySlug,
   getFeaturedPosts,
   getAllTags,
   getPostsByTag,
   getRelatedPosts,
 } from './blog/postUtils'
+
+// Re-export fast metadata API for listings
+export {
+  getAllPostsMetadata as getAllPostsMetadataFast,
+  getFeaturedPostsMetadata,
+  getAllTagsFromMetadata,
+} from './blog/metadataApi'
 export { formatDate } from './blog/dateUtils'
 
 /**

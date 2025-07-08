@@ -5,11 +5,13 @@ import { generateOgImageUrl } from '../ogImageUtils'
 /**
  * Get all blog posts (only from markdown files)
  * @param includeDrafts - Whether to include draft posts (default: false)
+ * @param metadataOnly - Whether to load only metadata for performance (default: false)
  */
 export const getAllPosts = async (
-  includeDrafts: boolean = false
+  includeDrafts: boolean = false,
+  metadataOnly: boolean = false
 ): Promise<BlogPost[]> => {
-  const filePosts = readFilePosts()
+  const filePosts = readFilePosts(metadataOnly)
 
   // Filter out drafts unless explicitly included
   const posts = includeDrafts
@@ -55,6 +57,16 @@ export const getAllPosts = async (
   }
 
   return sortedPosts
+}
+
+/**
+ * Get all blog posts with metadata only (for performance in listing pages)
+ * @param includeDrafts - Whether to include draft posts (default: false)
+ */
+export const getAllPostsMetadata = async (
+  includeDrafts: boolean = false
+): Promise<BlogPost[]> => {
+  return getAllPosts(includeDrafts, true) // metadataOnly = true
 }
 
 /**
