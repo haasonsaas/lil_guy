@@ -646,7 +646,7 @@
   },
   "orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline": {
     "title": "Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline",
-    "description": "Inside the technical architecture of a sophisticated AI automation system that orchestrates multiple AI agents for content creation, quality analysis, and performance monitoring.",
+    "description": "Inside the technical architecture of a multi-agent AI system for content creation, quality analysis, and performance monitoring.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-07",
     "tags": [
