@@ -5,7 +5,7 @@
   <link href="https://www.haasonsaas.com/atom.xml" rel="self" type="application/atom+xml" />
   <link href="https://www.haasonsaas.com" rel="alternate" type="text/html" />
   <id>https://www.haasonsaas.com/</id>
-  <updated>2025-06-28T00:00:00.000Z</updated>
+  <updated>2025-07-07T00:00:00.000Z</updated>
   <author>
     <name>Jonathan Haas</name>
     <email>jonathan@haasonsaas.com</email>
@@ -13,6 +13,23 @@
   </author>
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
+  <entry>
+    <title><![CDATA[Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline]]></title>
+    <link href="https://www.haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline</id>
+    <published>2025-07-07T00:00:00.000Z</published>
+    <updated>2025-07-07T00:00:00.000Z</updated>
+    <summary><![CDATA[Inside the technical architecture of a sophisticated AI automation system that orchestrates multiple AI agents for content creation, quality analysis, and performance monitoring.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai-automation" />
+    <category term="multi-agent-systems" />
+    <category term="content-pipeline" />
+    <category term="devops" />
+    <category term="performance-monitoring" />
+  </entry>
   <entry>
     <title><![CDATA[Feature Flags for Security: Decouple Deployment from Risk]]></title>
     <link href="https://www.haasonsaas.com/blog/feature-flags-for-security-decouple-deployment-from-risk" rel="alternate" type="text/html" />
@@ -822,22 +839,5 @@
     <category term="open-source" />
     <category term="developer-tools" />
     <category term="ai" />
-  </entry>
-  <entry>
-    <title><![CDATA[The Optimization Trap: Why Technical Founders Self-Sabotage]]></title>
-    <link href="https://www.haasonsaas.com/blog/the-optimization-trap" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/the-optimization-trap</id>
-    <published>2025-05-16T00:00:00.000Z</published>
-    <updated>2025-05-16T00:00:00.000Z</updated>
-    <summary><![CDATA[Premature Optimization Is the Founder’s Folly There’s a special kind of gravity that pulls technical founders toward performance, scalability, and “doing it...]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="startup-culture" />
-    <category term="product-development" />
-    <category term="engineering" />
-    <category term="founder-advice" />
-    <category term="execution" />
   </entry>
 </feed>

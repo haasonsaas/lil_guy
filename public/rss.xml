@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Sat, 28 Jun 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Mon, 07 Jul 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,18 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline]]></title>
+      <description><![CDATA[Inside the technical architecture of a sophisticated AI automation system that orchestrates multiple AI agents for content creation, quality analysis, and performance monitoring.]]></description>
+      <link>https://www.haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline</guid>
+      <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-automation]]></category>
+      <category><![CDATA[multi-agent-systems]]></category>
+      <category><![CDATA[content-pipeline]]></category>
+      <category><![CDATA[devops]]></category>
+      <category><![CDATA[performance-monitoring]]></category>
+    </item>
     <item>
       <title><![CDATA[Feature Flags for Security: Decouple Deployment from Risk]]></title>
       <description><![CDATA["We can't deploy this to production. It touches payment processing." The security team was right to be cautious.]]></description>
@@ -583,18 +595,6 @@
       <category><![CDATA[open-source]]></category>
       <category><![CDATA[developer-tools]]></category>
       <category><![CDATA[ai]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Optimization Trap: Why Technical Founders Self-Sabotage]]></title>
-      <description><![CDATA[Premature Optimization Is the Founder’s Folly There’s a special kind of gravity that pulls technical founders toward performance, scalability, and “doing it...]]></description>
-      <link>https://www.haasonsaas.com/blog/the-optimization-trap</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-optimization-trap</guid>
-      <pubDate>Fri, 16 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[product-development]]></category>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[founder-advice]]></category>
-      <category><![CDATA[execution]]></category>
     </item>
   </channel>
 </rss>

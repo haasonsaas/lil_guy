@@ -331,6 +331,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/payment-promotion-pace</loc>
     <lastmod>2025-04-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -787,6 +793,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/ai-automation</loc>
+    <lastmod>2025-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/ai-development</loc>
     <lastmod>2025-07-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -926,6 +938,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/content-orchestration</loc>
+    <lastmod>2025-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/content-pipeline</loc>
     <lastmod>2025-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1375,6 +1393,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/multi-agent-systems</loc>
+    <lastmod>2025-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/multi-ai</loc>
     <lastmod>2025-07-08</lastmod>
     <changefreq>weekly</changefreq>
@@ -1412,6 +1436,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/pair-programming</loc>
+    <lastmod>2025-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/performance-monitoring</loc>
     <lastmod>2025-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

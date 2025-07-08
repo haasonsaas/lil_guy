@@ -644,6 +644,19 @@
     "pubDate": "2024-04-11",
     "tags": ["ai", "product", "strategy", "leadership", "trust", "transparency"]
   },
+  "orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline": {
+    "title": "Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline",
+    "description": "Inside the technical architecture of a sophisticated AI automation system that orchestrates multiple AI agents for content creation, quality analysis, and performance monitoring.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-07",
+    "tags": [
+      "ai-automation",
+      "multi-agent-systems",
+      "content-pipeline",
+      "devops",
+      "performance-monitoring"
+    ]
+  },
   "running-untrusted-llm-code-without-fear-the-implementation-guide": {
     "title": "Running Untrusted LLM Code Without Fear: The Implementation Guide",
     "description": "Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.",
