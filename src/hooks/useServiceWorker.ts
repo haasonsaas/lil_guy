@@ -64,7 +64,11 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
         updateViaCache: 'imports',
       })
 
-      console.log('[SW] Registration successful:', registration)
+      // Only log once per session to avoid console spam
+      if (!sessionStorage.getItem('sw-logged')) {
+        console.log('[SW] Registration successful:', registration)
+        sessionStorage.setItem('sw-logged', 'true')
+      }
 
       setState((prev) => ({
         ...prev,

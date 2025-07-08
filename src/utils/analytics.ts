@@ -37,15 +37,29 @@ export const BlogEvents = {
  * Initialize Cloudflare Web Analytics
  * This is automatically called when the script loads
  */
+// Global flag to prevent multiple initialization logs
+let analyticsInitialized = false
+
 export function initializeAnalytics(): void {
+  if (analyticsInitialized) {
+    return
+  }
+
+  analyticsInitialized = true
+
   if (config.isDevelopment) {
     console.log('📊 Analytics initialized (development mode)')
     return
   }
 
-  // Cloudflare Web Analytics is loaded via script tag in index.html
-  // No additional initialization needed
-  console.log('📊 Cloudflare Web Analytics active')
+  // Check if Cloudflare Web Analytics script is actually loaded
+  if (typeof window !== 'undefined' && '__cfRUM' in window) {
+    console.log('📊 Cloudflare Web Analytics active')
+  } else {
+    console.warn(
+      '📊 Cloudflare Web Analytics script not found - add script tag to index.html'
+    )
+  }
 }
 
 /**

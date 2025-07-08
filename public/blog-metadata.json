@@ -335,6 +335,19 @@
     "pubDate": "2024-04-11",
     "tags": ["personal-growth", "leadership", "culture"]
   },
+  "the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken": {
+    "title": "The Evaluation Infrastructure We Need: Why AI Testing is Fundamentally Broken",
+    "description": "Current AI evaluation approaches are built for software, not systems that reason. Here's the infrastructure we actually need.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-07",
+    "tags": [
+      "ai-evaluation",
+      "testing",
+      "infrastructure",
+      "llm-ops",
+      "ai-systems"
+    ]
+  },
   "dehydrated-entity": {
     "title": "The Dehydrated Entity: Hire Only When You're Truly Underwater",
     "description": "A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of Windsurf, that stopped me cold.",

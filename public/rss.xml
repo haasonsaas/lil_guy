@@ -20,6 +20,18 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[The Evaluation Infrastructure We Need: Why AI Testing is Fundamentally Broken]]></title>
+      <description><![CDATA[Current AI evaluation approaches are built for software, not systems that reason. Here's the infrastructure we actually need.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken</guid>
+      <pubDate>Mon, 07 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-evaluation]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[infrastructure]]></category>
+      <category><![CDATA[llm-ops]]></category>
+      <category><![CDATA[ai-systems]]></category>
+    </item>
+    <item>
       <title><![CDATA[Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline]]></title>
       <description><![CDATA[Inside the technical architecture of a multi-agent AI system for content creation, quality analysis, and performance monitoring.]]></description>
       <link>https://www.haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline</link>
@@ -581,20 +593,6 @@
       <category><![CDATA[prompt-engineering]]></category>
       <category><![CDATA[claude]]></category>
       <category><![CDATA[software-strategy]]></category>
-    </item>
-    <item>
-      <title><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too)]]></title>
-      <description><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights ago, I opened my Anthropic invoice.]]></description>
-      <link>https://www.haasonsaas.com/blog/ocode</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ocode</guid>
-      <pubDate>Mon, 26 May 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[product]]></category>
-      <category><![CDATA[strategy]]></category>
-      <category><![CDATA[transparency]]></category>
-      <category><![CDATA[open-source]]></category>
-      <category><![CDATA[developer-tools]]></category>
-      <category><![CDATA[ai]]></category>
     </item>
   </channel>
 </rss>

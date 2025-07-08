@@ -14,6 +14,23 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[The Evaluation Infrastructure We Need: Why AI Testing is Fundamentally Broken]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken</id>
+    <published>2025-07-07T00:00:00.000Z</published>
+    <updated>2025-07-07T00:00:00.000Z</updated>
+    <summary><![CDATA[Current AI evaluation approaches are built for software, not systems that reason. Here's the infrastructure we actually need.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="ai-evaluation" />
+    <category term="testing" />
+    <category term="infrastructure" />
+    <category term="llm-ops" />
+    <category term="ai-systems" />
+  </entry>
+  <entry>
     <title><![CDATA[Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline]]></title>
     <link href="https://www.haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline</id>
@@ -820,24 +837,5 @@
     <category term="prompt-engineering" />
     <category term="claude" />
     <category term="software-strategy" />
-  </entry>
-  <entry>
-    <title><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too)]]></title>
-    <link href="https://www.haasonsaas.com/blog/ocode" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/ocode</id>
-    <published>2025-05-26T00:00:00.000Z</published>
-    <updated>2025-05-26T00:00:00.000Z</updated>
-    <summary><![CDATA[OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights ago, I opened my Anthropic invoice.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="engineering" />
-    <category term="product" />
-    <category term="strategy" />
-    <category term="transparency" />
-    <category term="open-source" />
-    <category term="developer-tools" />
-    <category term="ai" />
   </entry>
 </feed>

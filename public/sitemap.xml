@@ -571,6 +571,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken</loc>
+    <lastmod>2025-07-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/the-hidden-costs-of-technical-debt</loc>
     <lastmod>2025-06-19</lastmod>
     <changefreq>monthly</changefreq>
@@ -805,7 +811,19 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/tags/ai-evaluation</loc>
+    <lastmod>2025-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/tags/ai-infrastructure</loc>
+    <lastmod>2025-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/ai-systems</loc>
     <lastmod>2025-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
@@ -1328,6 +1346,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/llm-apps</loc>
+    <lastmod>2025-07-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/llm-ops</loc>
     <lastmod>2025-07-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
