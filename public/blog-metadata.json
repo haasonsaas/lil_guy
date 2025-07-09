@@ -92,6 +92,19 @@
     "featured": false,
     "draft": false
   },
+  "complexity-taken-for-granted": {
+    "title": "The Complexity We Take for Granted",
+    "description": "We live in a world of invisible complexity. Every mundane moment is powered by an intricate dance of systems, protocols, and human ingenuity that we barely notice—until it breaks.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-01-08",
+    "tags": ["technology", "systems", "complexity", "perspective"],
+    "readingTime": {
+      "minutes": 6,
+      "wordCount": 1103
+    },
+    "featured": false,
+    "draft": false
+  },
   "autonomous-security-operations": {
     "title": "Autonomous Security Operations: The Future of Enterprise Security",
     "description": "The End of the Traditional SOC The Security Operations Center (SOC) as we know it is living on borrowed time.",
@@ -1246,6 +1259,25 @@
     "readingTime": {
       "minutes": 2,
       "wordCount": 366
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-ai-skill-mirror-why-technical-interviews-need-a-complete-rewrite": {
+    "title": "The AI Skill Mirror: Why Technical Interviews Need a Complete Rewrite",
+    "description": "AI reveals the true skill level of its operator. Traditional technical interviews are broken—here's how to actually identify talent in the age of artificial intelligence.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-01-07",
+    "tags": [
+      "ai",
+      "hiring",
+      "technical-interviews",
+      "skill-assessment",
+      "developer-productivity"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 725
     },
     "featured": false,
     "draft": false
