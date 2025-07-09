@@ -204,7 +204,7 @@ export default function Index() {
               >
                 <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                   <img
-                    src="/images/self.jpeg"
+                    src="/images/self.webp"
                     alt="Jonathan Haas"
                     className="w-full aspect-[4/5] object-cover"
                   />

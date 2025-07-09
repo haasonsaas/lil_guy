@@ -153,7 +153,7 @@ export default function AboutPage() {
                 <div className="sticky top-24">
                   <div className="rounded-lg overflow-hidden bg-card border border-border mb-6">
                     <img
-                      src="/images/self.jpeg"
+                      src="/images/self.webp"
                       alt="Jonathan Haas"
                       className="w-full aspect-square object-cover"
                     />
