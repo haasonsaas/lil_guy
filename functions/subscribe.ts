@@ -19,11 +19,18 @@ interface RequestBody {
 const RATE_LIMIT_WINDOW = 60 * 60 // 1 hour in seconds
 const MAX_REQUESTS_PER_WINDOW = 5 // Maximum 5 requests per hour
 
-const corsHeaders = {
-  'Access-Control-Allow-Origin': 'https://www.haasonsaas.com',
-  'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-  'Access-Control-Allow-Credentials': 'true',
+const allowedOrigins = ['https://haasonsaas.com', 'https://www.haasonsaas.com']
+
+function getCorsHeaders(origin: string | null) {
+  const allowedOrigin = allowedOrigins.includes(origin || '')
+    ? origin
+    : allowedOrigins[0]
+  return {
+    'Access-Control-Allow-Origin': allowedOrigin,
+    'Access-Control-Allow-Methods': 'POST, OPTIONS',
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Credentials': 'true',
+  }
 }
 
 const securityHeaders = {
@@ -36,10 +43,12 @@ const securityHeaders = {
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 }
 
-const responseHeaders = {
-  ...corsHeaders,
-  ...securityHeaders,
-  'Content-Type': 'application/json',
+function getResponseHeaders(origin: string | null) {
+  return {
+    ...getCorsHeaders(origin),
+    ...securityHeaders,
+    'Content-Type': 'application/json',
+  }
 }
 
 async function checkRateLimit(
@@ -111,9 +120,10 @@ export async function onRequestPost(context: {
   const { request, env } = context
 
   try {
-    // Get client IP for rate limiting
+    // Get client IP for rate limiting and origin for CORS
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown'
-    console.log(`Request from IP: ${ip}`)
+    const origin = request.headers.get('Origin')
+    console.log(`Request from IP: ${ip}, Origin: ${origin}`)
 
     // Check rate limit
     const rateLimit = await checkRateLimit(env, ip)
@@ -127,7 +137,7 @@ export async function onRequestPost(context: {
         {
           status: 429,
           headers: {
-            ...responseHeaders,
+            ...getResponseHeaders(origin),
             'Retry-After': RATE_LIMIT_WINDOW.toString(),
           },
         }
@@ -141,7 +151,7 @@ export async function onRequestPost(context: {
     if (!email) {
       return new Response('Email is required', {
         status: 400,
-        headers: responseHeaders,
+        headers: getResponseHeaders(origin),
       })
     }
 
@@ -154,7 +164,7 @@ export async function onRequestPost(context: {
         JSON.stringify({ error: 'Email already subscribed' }),
         {
           status: 400,
-          headers: responseHeaders,
+          headers: getResponseHeaders(origin),
         }
       )
     }
@@ -314,7 +324,7 @@ Website: https://haasonsaas.com`,
     }
 
     return new Response(JSON.stringify({ success: true }), {
-      headers: responseHeaders,
+      headers: getResponseHeaders(origin),
     })
   } catch (error) {
     console.error('Error:', error)
@@ -322,14 +332,17 @@ Website: https://haasonsaas.com`,
       JSON.stringify({ error: error.message || 'Internal server error' }),
       {
         status: 500,
-        headers: responseHeaders,
+        headers: getResponseHeaders(origin),
       }
     )
   }
 }
 
-export async function onRequestOptions(): Promise<Response> {
+export async function onRequestOptions(context: {
+  request: Request
+}): Promise<Response> {
+  const origin = context.request.headers.get('Origin')
   return new Response(null, {
-    headers: corsHeaders,
+    headers: getCorsHeaders(origin),
   })
 }
