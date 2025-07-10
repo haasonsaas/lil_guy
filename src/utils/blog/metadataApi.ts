@@ -133,7 +133,7 @@ export async function getPostsByTagMetadata(
 ): Promise<BlogPost[]> {
   const allPosts = await getAllPostsMetadata(includeDrafts)
   return allPosts.filter((post) =>
-    post.frontmatter.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+    post.frontmatter.tags?.some((t) => t.toLowerCase() === tag.toLowerCase())
   )
 }
 

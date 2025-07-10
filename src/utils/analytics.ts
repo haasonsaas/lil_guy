@@ -53,13 +53,16 @@ export function initializeAnalytics(): void {
   }
 
   // Check if Cloudflare Web Analytics script is actually loaded
-  if (typeof window !== 'undefined' && '__cfRUM' in window) {
-    console.log('📊 Cloudflare Web Analytics active')
-  } else {
-    console.warn(
-      '📊 Cloudflare Web Analytics script not found - add script tag to index.html'
-    )
-  }
+  // Give it some time to load since it's deferred
+  setTimeout(() => {
+    if (typeof window !== 'undefined' && '__cfRUM' in window) {
+      console.log('📊 Cloudflare Web Analytics active')
+    } else {
+      console.warn(
+        '📊 Cloudflare Web Analytics script not found or failed to load - this is expected if beacon.min.js times out'
+      )
+    }
+  }, 2000)
 }
 
 /**
@@ -220,6 +223,7 @@ export function clearStoredEvents(): void {
 }
 
 export default {
+  init: initializeAnalytics,
   initialize: initializeAnalytics,
   track: trackEvent,
   trackPostView,

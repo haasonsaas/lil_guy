@@ -31,9 +31,14 @@ const initializeServices = () => {
       import('./utils/performance').then(({ initPerformanceMonitoring }) =>
         initPerformanceMonitoring()
       ),
-      import('./utils/analytics').then(({ default: analytics }) =>
-        analytics.init()
-      ),
+      import('./utils/analytics').then((module) => {
+        const analytics = module.default
+        if (analytics && typeof analytics.init === 'function') {
+          return analytics.init()
+        } else {
+          console.warn('Analytics module not properly exported')
+        }
+      }),
     ]).catch((error) => {
       console.warn('Analytics initialization failed:', error)
     })
