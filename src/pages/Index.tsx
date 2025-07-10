@@ -52,7 +52,7 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   <Badge variant="secondary" className="mb-4">
-                    Security & Applied AI Engineering Leader
+                    Builder @ the Intersection of AI & Security
                   </Badge>
                 </motion.div>
 
@@ -72,7 +72,7 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed"
                 >
-                  I'm a security and applied AI engineering leader who builds
+                  I'm a builder at the intersection of AI & security who builds
                   systems that scale. From early-stage startups to enterprise
                   platforms, I share insights on solving real problems with
                   thoughtful technology.
@@ -133,7 +133,7 @@ export default function Index() {
                       Jonathan Haas
                     </h2>
                     <p className="text-white/90">
-                      Security & Applied AI Engineering Leader
+                      Builder @ the Intersection of AI & Security
                     </p>
                   </div>
                 </div>
