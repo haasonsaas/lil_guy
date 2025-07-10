@@ -18,16 +18,15 @@ import { useServiceWorker } from '@/hooks/useServiceWorker'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { DevTools } from '@/components/DevTools'
 import PerformanceDashboard from '@/components/PerformanceDashboard'
-import { initPerformanceMonitoring } from '@/utils/performance'
 import './styles/print.css'
 
-// Critical routes - load immediately
+// Critical routes - load immediately (only homepage for fastest startup)
 import Index from './pages/Index'
-import BlogPage from './pages/BlogPage'
-import BlogPost from './pages/BlogPost'
-import NotFound from './pages/NotFound'
 
-// Lazy-loaded routes - load on demand
+// Lazy-loaded routes - load on demand (including blog pages for faster initial load)
+const BlogPage = lazy(() => import('./pages/BlogPage'))
+const BlogPost = lazy(() => import('./pages/BlogPost'))
+const NotFound = lazy(() => import('./pages/NotFound'))
 const Archive = lazy(() => import('./pages/Archive'))
 const TagsPage = lazy(() => import('./pages/TagsPage'))
 const TagPage = lazy(() => import('./pages/TagPage'))
@@ -66,15 +65,10 @@ const PageLoading = () => (
 
 const queryClient = new QueryClient()
 
-// Analytics and Service Worker initialization component
-function AnalyticsProvider() {
+// Deferred services initialization component (will be loaded later)
+function DeferredServicesProvider() {
   useAnalytics() // This initializes analytics
   useServiceWorker() // This initializes service worker
-
-  // Initialize performance monitoring
-  React.useEffect(() => {
-    initPerformanceMonitoring()
-  }, [])
 
   return null
 }
@@ -89,7 +83,7 @@ const App = () => (
             <Sonner />
             <UpdateNotifier />
             <Router>
-              <AnalyticsProvider />
+              <DeferredServicesProvider />
               <ScrollToTop />
               <Suspense fallback={<PageLoading />}>
                 <Routes>

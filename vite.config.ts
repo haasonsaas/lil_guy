@@ -33,56 +33,38 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // Vendor libraries - emergency fix for createContext error
           if (id.includes('node_modules')) {
+            // Heavy libraries that benefit from separate chunks
+            if (id.includes('framer-motion')) return 'framer-motion'
+            if (id.includes('katex')) return 'katex'
+            if (id.includes('prismjs') || id.includes('highlight.js'))
+              return 'syntax-highlighting'
+            if (id.includes('marked') || id.includes('gray-matter'))
+              return 'markdown'
+            if (id.includes('recharts')) return 'charts'
+            if (id.includes('@radix-ui')) return 'radix-ui'
+
+            // Keep core React with remaining vendor libraries
             return 'vendor'
           }
 
-          // Interactive calculators - each gets its own chunk for lazy loading
-          if (id.includes('UnitEconomicsCalculator'))
-            return 'calc-unit-economics'
-          if (id.includes('ABTestSimulator')) return 'calc-ab-test'
-          if (id.includes('TechnicalDebtSimulator')) return 'calc-tech-debt'
-          if (id.includes('PricingPsychologySimulator')) return 'calc-pricing'
-          if (id.includes('SaaSMetricsDashboard')) return 'calc-saas-metrics'
-          if (id.includes('StartupRunwayCalculator')) return 'calc-runway'
-          if (id.includes('ProductMarketFitScorer')) return 'calc-pmf'
-          if (id.includes('TAMSAMSOMCalculator')) return 'calc-tam-sam-som'
-          if (id.includes('GrowthStrategySimulator')) return 'calc-growth'
-          if (id.includes('HiringCostCalculator')) return 'calc-hiring'
-          if (id.includes('FeaturePrioritizationMatrix'))
-            return 'calc-feature-priority'
-          if (id.includes('TechnicalArchitectureVisualizer'))
-            return 'calc-tech-arch'
-          if (id.includes('CustomerDevelopmentSimulator'))
-            return 'calc-customer-dev'
-          if (id.includes('EngineeringVelocityTracker')) return 'calc-velocity'
-          if (id.includes('RetentionCohortAnalyzer')) return 'calc-retention'
-          if (id.includes('PerformanceBudgetCalculator'))
-            return 'calc-performance'
-          if (id.includes('BuildTimeAnalyzer')) return 'calc-build-time'
+          // Interactive calculators - lazy loaded as needed
+          if (id.includes('Calculator') || id.includes('Simulator')) {
+            return 'calculators'
+          }
 
-          // Blog utilities
-          if (id.includes('src/utils/blog')) {
+          // Blog-specific utilities
+          if (
+            id.includes('src/utils/blog') ||
+            id.includes('MarkdownRenderer')
+          ) {
             return 'blog-utils'
-          }
-
-          // Large pages
-          if (id.includes('BlogPage') || id.includes('BlogPost')) {
-            return 'page-blog'
-          }
-          if (id.includes('ExperimentsPage')) {
-            return 'page-experiments'
-          }
-
-          // Core markdown renderer
-          if (id.includes('MarkdownRenderer')) {
-            return 'markdown-core'
           }
         },
       },
     },
     chunkSizeWarningLimit: 1000,
-    minify: 'esbuild', // Re-enabled minification using esbuild
+    minify: 'esbuild',
+    target: 'es2020',
   },
 })
