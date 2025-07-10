@@ -11,10 +11,7 @@ import { getWebsiteSchema, injectStructuredData } from '@/utils/seoUtils'
 import {
   ArrowRight,
   Mail,
-  Rocket,
-  Users,
   BookOpen,
-  Sparkles,
   Building2,
   TrendingUp,
   Bot,
@@ -144,71 +141,6 @@ export default function Index() {
             </div>
           </motion.div>
         </section>
-
-        {/* Value Props */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-8 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Sparkles className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Product Strategy</h3>
-              <p className="text-muted-foreground mb-4">
-                Building products that users actually want, from finding
-                product-market fit to scaling.
-              </p>
-              <Link
-                to="/tags/product"
-                className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all"
-              >
-                Read Product Insights <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Card>
-
-            <Card className="p-8 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Rocket className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">
-                Infrastructure Design
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Building scalable systems that handle real-world complexity with
-                elegant simplicity.
-              </p>
-              <Link
-                to="/tags/infrastructure"
-                className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all"
-              >
-                Read Infrastructure Insights <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Card>
-
-            <Card className="p-8 hover:shadow-lg transition-shadow">
-              <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                <Users className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">
-                Open Source Strategy
-              </h3>
-              <p className="text-muted-foreground mb-4">
-                Insights on building developer communities and sustainable open
-                source projects.
-              </p>
-              <Link
-                to="/tags/open-source"
-                className="text-primary font-medium flex items-center gap-1 hover:gap-2 transition-all"
-              >
-                Learn from Experience <ArrowRight className="h-4 w-4" />
-              </Link>
-            </Card>
-          </div>
-        </motion.section>
 
         {/* AI Agents Welcome */}
         <motion.section
