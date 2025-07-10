@@ -1,17 +1,8 @@
-import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import {
-  getBlogStats,
-  getAllPosts,
-  getAllPostsMetadataFast,
-  getAllTagsFromMetadata,
-} from '@/utils/blogUtils'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import BlogCard from '@/components/BlogCard'
-import { BlogCardSkeleton } from '@/components/BlogCardSkeleton'
 import Layout from '@/components/Layout'
 import { WebsiteMeta } from '@/components/SEO/MetaTags'
 import { generateWebsiteStructuredData } from '@/utils/seo/structuredData'
@@ -20,91 +11,22 @@ import { getWebsiteSchema, injectStructuredData } from '@/utils/seoUtils'
 import {
   ArrowRight,
   Mail,
-  Shield,
   Rocket,
   Users,
   BookOpen,
   Sparkles,
   Building2,
   TrendingUp,
-  CheckCircle2,
   Bot,
   Code,
   Search,
   Database,
-  LucideIcon,
 } from 'lucide-react'
-import type { BlogPost } from '@/types/blog'
-
-const topicIconMap: Record<string, LucideIcon> = {
-  'product strategy': Rocket,
-  infrastructure: Building2,
-  'open source': Users,
-  leadership: Sparkles,
-  product: Rocket,
-  technology: Building2,
-  engineering: Building2,
-  development: BookOpen,
-  growth: TrendingUp,
-  strategy: Sparkles,
-}
 
 export default function Index() {
-  const [recentPosts, setRecentPosts] = useState<BlogPost[]>([])
-  const [featuredPost, setFeaturedPost] = useState<BlogPost | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [featuredTopics, setFeaturedTopics] = useState<
-    Array<{ name: string; icon: LucideIcon; count: number }>
-  >([])
-  const [stats, setStats] = useState({
-    totalPosts: 0,
-    totalWordCount: 0,
-    avgReadingTime: 0,
-    topTags: [] as string[],
-    totalReadingTime: 0,
-    totalReadingTimeFormatted: '',
-    totalTags: 0,
-  })
-
-  useEffect(() => {
-    const loadData = async () => {
-      try {
-        const [allPosts, tags] = await Promise.all([
-          getAllPostsMetadataFast(),
-          getAllTagsFromMetadata(),
-        ])
-
-        // Get featured post (most recent) and next 3 posts
-        if (allPosts.length > 0) {
-          setFeaturedPost(allPosts[0])
-          setRecentPosts(allPosts.slice(1, 4))
-        }
-
-        // Create dynamic featured topics from top tags
-        const dynamicTopics = tags
-          .slice(0, 4) // Get top 4 tags
-          .map((tagInfo) => ({
-            name: tagInfo.tag.charAt(0).toUpperCase() + tagInfo.tag.slice(1), // Capitalize first letter
-            icon: topicIconMap[tagInfo.tag.toLowerCase()] || BookOpen, // Use mapped icon or default
-            count: tagInfo.count,
-          }))
-
-        setFeaturedTopics(dynamicTopics)
-
-        const blogStats = await getBlogStats()
-        setStats(blogStats)
-
-        // Inject structured data for SEO
-        const websiteSchema = getWebsiteSchema()
-        injectStructuredData(websiteSchema)
-      } catch (error) {
-        console.error('Error loading data:', error)
-      } finally {
-        setLoading(false)
-      }
-    }
-    loadData()
-  }, [])
+  // Inject structured data for SEO
+  const websiteSchema = getWebsiteSchema()
+  injectStructuredData(websiteSchema)
 
   const websiteStructuredData = generateWebsiteStructuredData()
 
@@ -223,29 +145,6 @@ export default function Index() {
           </motion.div>
         </section>
 
-        {/* Featured Article */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl sm:text-3xl font-display font-semibold">
-              Featured Article
-            </h2>
-            <Badge variant="default" className="gap-1">
-              <Sparkles className="h-3 w-3" />
-              Latest
-            </Badge>
-          </div>
-          {loading ? (
-            <BlogCardSkeleton featured />
-          ) : featuredPost ? (
-            <BlogCard post={featuredPost} featured />
-          ) : null}
-        </motion.section>
-
         {/* Value Props */}
         <motion.section
           initial={{ opacity: 0, y: 20 }}
@@ -308,71 +207,6 @@ export default function Index() {
                 Learn from Experience <ArrowRight className="h-4 w-4" />
               </Link>
             </Card>
-          </div>
-        </motion.section>
-
-        {/* Recent Posts */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl sm:text-3xl font-display font-semibold">
-              Recent Articles
-            </h2>
-            <Link to="/blog">
-              <Button variant="outline" size="sm" className="group">
-                View All
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Button>
-            </Link>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {loading
-              ? // Show skeleton cards while loading
-                Array.from({ length: 3 }).map((_, index) => (
-                  <BlogCardSkeleton key={index} />
-                ))
-              : // Show actual recent posts
-                recentPosts.map((post) => (
-                  <BlogCard key={post.slug} post={post} />
-                ))}
-          </div>
-        </motion.section>
-
-        {/* Topics Grid */}
-        <motion.section
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <h2 className="text-2xl sm:text-3xl font-display font-semibold text-center mb-8">
-            Explore by Topic
-          </h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {featuredTopics.map((topic, index) => {
-              const Icon = topic.icon
-              return (
-                <Link
-                  key={index}
-                  to={`/tags/${topic.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="group"
-                >
-                  <Card className="p-6 hover:shadow-lg transition-all hover:border-primary/20">
-                    <div className="flex items-center justify-between mb-3">
-                      <Icon className="h-8 w-8 text-primary" />
-                      <Badge variant="secondary">{topic.count}</Badge>
-                    </div>
-                    <h3 className="font-semibold group-hover:text-primary transition-colors">
-                      {topic.name}
-                    </h3>
-                  </Card>
-                </Link>
-              )
-            })}
           </div>
         </motion.section>
 
@@ -475,54 +309,6 @@ export default function Index() {
               </Link>
             </div>
           </Card>
-        </motion.section>
-
-        {/* Stats Footer */}
-        <motion.section
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="border-t border-border pt-12 pb-8"
-        >
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-wrap justify-center gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-primary">
-                  {stats.totalPosts}+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Articles Published
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">
-                  {stats.totalWordCount
-                    ? Math.round(stats.totalWordCount / 1000)
-                    : 0}
-                  k+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Words Written
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">
-                  {stats.totalReadingTimeFormatted}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Total Reading Time
-                </div>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-primary">
-                  {stats.totalTags}+
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Topics Covered
-                </div>
-              </div>
-            </div>
-          </div>
         </motion.section>
       </div>
     </Layout>
