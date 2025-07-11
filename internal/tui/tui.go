@@ -157,6 +157,7 @@ const (
 	stateEditMessage
 	stateBranchManager
 	stateCreateCheckpoint
+	statePersonalitySelector
 )
 
 // model represents the application's state.
@@ -224,6 +225,10 @@ type model struct {
 	selectedBranch      int                    // Currently selected branch
 	checkpointName      string                 // Name for new checkpoint
 	treeFilename        string                 // Current tree filename
+	
+	// Personality
+	currentPersonality  *Personality // Current buddy personality
+	selectedPersonality int          // Selected personality in selector
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -429,7 +434,7 @@ func (m *model) loadChatHistory(filename string) error {
 
 	// Convert to unified messages format
 	m.messages = []ai.UnifiedMessage{
-		{Role: "system", Content: createSystemMessage(m.preferences, m.buddyName)},
+		{Role: "system", Content: createSystemMessage(m.preferences, m.buddyName, m.currentPersonality)},
 	}
 
 	for _, msg := range history.Messages {
@@ -807,12 +812,13 @@ func (m *model) exportToMarkdown() error {
 }
 
 // createSystemMessage creates the system message based on preferences.
-func createSystemMessage(prefs *config.Preferences, buddyName string) string {
+func createSystemMessage(prefs *config.Preferences, buddyName string, personality *Personality) string {
 	systemMessage := defaultSystemMessage
 	if prefs != nil && prefs.SystemMessage != "" {
 		systemMessage = prefs.SystemMessage
 	}
-	return fmt.Sprintf("%s named %s.", systemMessage, buddyName)
+	basePrompt := fmt.Sprintf("%s named %s.", systemMessage, buddyName)
+	return ApplyPersonalityToSystemPrompt(personality, basePrompt)
 }
 
 // initialModel returns an initialized model.
@@ -840,9 +846,19 @@ func initialModel(client *ai.UnifiedClient) model {
 			currentTheme = theme
 		}
 	}
+	
+	// Set personality
+	currentPersonality := GetPersonality("default")
+	if prefs.Personality != "" {
+		currentPersonality = GetPersonality(prefs.Personality)
+	}
+	// Apply personality to buddy name
+	if currentPersonality != nil {
+		buddyName = ApplyPersonalityToBuddyName(currentPersonality, buddyName)
+	}
 
 	initialState, onboardingStep := determineInitialState(prefs)
-	systemMessage := createSystemMessage(prefs, buddyName)
+	systemMessage := createSystemMessage(prefs, buddyName, currentPersonality)
 
 	return model{
 		client: client,
@@ -872,6 +888,8 @@ func initialModel(client *ai.UnifiedClient) model {
 		historyIndex:   0,
 		tempInput:      "",
 		editingMessageIndex: -1, // -1 means not editing
+		currentPersonality: currentPersonality,
+		selectedPersonality: 0,
 	}
 }
 
@@ -1147,6 +1165,54 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		}
 
+	case statePersonalitySelector:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Back to chat"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "up", "k":
+				if m.selectedPersonality > 0 {
+					m.selectedPersonality--
+				}
+			case "down", "j":
+				if m.selectedPersonality < len(personalities)-1 {
+					m.selectedPersonality++
+				}
+			case "enter":
+				if m.selectedPersonality < len(personalities) {
+					// Apply the selected personality
+					selectedPersonality := &personalities[m.selectedPersonality]
+					m.currentPersonality = selectedPersonality
+					
+					// Update buddy name with personality
+					baseName := m.preferences.BuddyName
+					if baseName == "" {
+						baseName = defaultBuddyName
+					}
+					m.buddyName = ApplyPersonalityToBuddyName(selectedPersonality, baseName)
+					
+					// Update system message with personality
+					systemMessage := createSystemMessage(m.preferences, baseName, selectedPersonality)
+					if len(m.messages) > 0 {
+						m.messages[0].Content = systemMessage
+					}
+					
+					// Save preference
+					if m.preferences != nil {
+						m.preferences.Personality = selectedPersonality.ID
+						config.SavePreferences(m.preferences)
+					}
+					
+					m.appState = stateChatting
+					m.statusMessage = fmt.Sprintf("Personality changed to: %s %s", selectedPersonality.Emoji, selectedPersonality.Name)
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			}
+		}
+
 	case stateChatting:
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
@@ -1322,6 +1388,12 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.selectedTemplate = 0
 				m.statusMessage = "Template selector - Use arrows to navigate, Enter to apply, Esc to return"
 				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+o":
+				// Open personality selector
+				m.appState = statePersonalitySelector
+				m.selectedPersonality = 0
+				m.statusMessage = "Personality selector - Use arrows to navigate, Enter to apply, Esc to return"
+				cmds = append(cmds, clearStatusAfterDelay())
 			case "ctrl+f":
 				// Open search interface
 				m.appState = stateSearch
@@ -1347,7 +1419,11 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					
 					// Resend the last user message
 					m.isThinking = true
-					m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
+					if m.currentPersonality != nil {
+						m.loadingMessage = GetPersonalityThinkingMessage(m.currentPersonality)
+					} else {
+						m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
+					}
 					m.statusMessage = "Regenerating response..."
 					cmds = append(cmds, sendToAI(m, m.lastUserMessage), m.spinner.Tick)
 					cmds = append(cmds, clearStatusAfterDelay())
@@ -1410,8 +1486,12 @@ Ctrl+C/Q - Quit`
 						
 						m.addChatMessage("user", value)
 						m.isThinking = true
-						// Select a random loading message
-						m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
+						// Select a random loading message based on personality
+						if m.currentPersonality != nil {
+							m.loadingMessage = GetPersonalityThinkingMessage(m.currentPersonality)
+						} else {
+							m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
+						}
 						cmds = append(cmds, sendToAI(m, value), m.spinner.Tick)
 						m.textInput.Reset()
 					}
@@ -1723,6 +1803,38 @@ func (m model) View() string {
 		
 		return s
 
+	case statePersonalitySelector:
+		s := lipgloss.NewStyle().Bold(true).Render("🎭 Buddy Personality Selector") + "\n\n"
+		
+		for i, personality := range personalities {
+			style := lipgloss.NewStyle()
+			if i == m.selectedPersonality {
+				style = style.Background(lipgloss.Color(m.currentTheme.Background)).Foreground(lipgloss.Color(m.currentTheme.Highlight))
+			}
+			
+			name := lipgloss.NewStyle().Bold(true).Render(fmt.Sprintf("%s %s", personality.Emoji, personality.Name))
+			description := lipgloss.NewStyle().Faint(true).Render(personality.Description)
+			
+			// Show current selection
+			currentMarker := "  "
+			if m.currentPersonality != nil && m.currentPersonality.ID == personality.ID {
+				currentMarker = "→ "
+			}
+			
+			s += style.Render(fmt.Sprintf("%s%s", currentMarker, name)) + "\n"
+			s += style.Render(fmt.Sprintf("    %s", description)) + "\n\n"
+		}
+		
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8")).Italic(true)
+		s += helpStyle.Render("↑↓: Navigate | Enter: Apply Personality | Esc: Back") + "\n"
+		
+		if m.statusMessage != "" {
+			statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8"))
+			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
+		}
+		
+		return s
+
 	case stateChatting:
 		m.updateViewportContent()
 		s := m.viewport.View() + "\n"
@@ -1733,7 +1845,11 @@ func (m model) View() string {
 			
 			// Add typing indicator for the assistant
 			typingStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Italic(true)
-			s += typingStyle.Render(fmt.Sprintf("%s is typing...", m.buddyName)) + "\n"
+			typingIndicator := fmt.Sprintf("%s is typing...", m.buddyName)
+			if m.currentPersonality != nil {
+				typingIndicator = fmt.Sprintf("%s %s", m.buddyName, m.currentPersonality.TypingIndicator)
+			}
+			s += typingStyle.Render(typingIndicator) + "\n"
 		} else if m.isTyping {
 			// Show a subtle indicator during typing animation
 			typingStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Faint(true)
@@ -1750,8 +1866,8 @@ func (m model) View() string {
 		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Italic(true)
 		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom | Ctrl+R: Regenerate | E: Edit") + "\n"
 		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy") + "\n"
-		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+F: Search | Ctrl+D: Theme | Ctrl+A: Auto-save") + "\n"
-		s += helpStyle.Render("Ctrl+K: Checkpoint | Ctrl+H: Branches | Ctrl+C: Quit") + "\n"
+		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+O: Personality | Ctrl+F: Search | Ctrl+D: Theme") + "\n"
+		s += helpStyle.Render("Ctrl+K: Checkpoint | Ctrl+H: Branches | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
 
 		// Add input line with token counter
 		inputLabel := "Your message: "
