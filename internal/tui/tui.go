@@ -194,6 +194,11 @@ type model struct {
 	
 	// Auto-save tracking
 	messagesSinceLastSave int  // Counter for auto-save feature
+	
+	// Typing animation
+	typingContent      string // Full content being typed
+	typingIndex        int    // Current position in typing animation
+	isTyping           bool   // Whether we're animating a response
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -636,6 +641,13 @@ func (m *model) updateTokenUsage(promptTokens, completionTokens int) {
 func clearStatusAfterDelay() tea.Cmd {
 	return tea.Tick(3*time.Second, func(t time.Time) tea.Msg {
 		return clearStatusMsg{}
+	})
+}
+
+// typingTick returns a command for the typing animation.
+func typingTick() tea.Cmd {
+	return tea.Tick(30*time.Millisecond, func(t time.Time) tea.Msg {
+		return typingTickMsg{}
 	})
 }
 
@@ -1115,23 +1127,20 @@ Ctrl+C/Q - Quit`
 			m.error = msg
 			m.isThinking = false
 		case tokenizedResponseMsg:
-			// Add the assistant's response with token tracking
-			m.addChatMessage(openai.ChatMessageRoleAssistant, msg.Content)
-			m.updateTokenUsage(msg.PromptTokens, msg.CompletionTokens)
+			// Start typing animation
 			m.isThinking = false
-			m.updateViewportContent()
+			m.isTyping = true
+			m.typingContent = msg.Content
+			m.typingIndex = 0
 			
-			// Auto-save check
-			m.messagesSinceLastSave++
-			if m.preferences != nil && m.preferences.AutoSave && m.messagesSinceLastSave >= 5 {
-				if err := m.saveCurrentChat(); err != nil {
-					m.statusMessage = fmt.Sprintf("Auto-save failed: %v", err)
-				} else {
-					m.statusMessage = "Auto-saved conversation (every 5 messages)"
-					m.messagesSinceLastSave = 0
-				}
-				cmds = append(cmds, clearStatusAfterDelay())
-			}
+			// Add empty message that will be filled by typing
+			m.addChatMessage(openai.ChatMessageRoleAssistant, "")
+			
+			// Track tokens
+			m.updateTokenUsage(msg.PromptTokens, msg.CompletionTokens)
+			
+			// Start typing animation
+			cmds = append(cmds, typingTick())
 		case spinner.TickMsg:
 			m.spinner, cmd = m.spinner.Update(msg)
 			cmds = append(cmds, cmd)
@@ -1142,6 +1151,46 @@ Ctrl+C/Q - Quit`
 			m.textInput.Width = msg.Width - textInputWidthOffset
 		case clearStatusMsg:
 			m.statusMessage = ""
+		case typingTickMsg:
+			if m.isTyping && m.typingIndex < len(m.typingContent) {
+				// Calculate how many characters to add (variable speed for realism)
+				charsToAdd := 1 + (m.typingIndex % 3) // 1-3 chars at a time
+				endIndex := m.typingIndex + charsToAdd
+				if endIndex > len(m.typingContent) {
+					endIndex = len(m.typingContent)
+				}
+				
+				// Update the last message with more content
+				if len(m.chatMessages) > 0 {
+					m.chatMessages[len(m.chatMessages)-1].Content = m.typingContent[:endIndex]
+					if len(m.messages) > 0 && m.messages[len(m.messages)-1].Role == openai.ChatMessageRoleAssistant {
+						m.messages[len(m.messages)-1].Content = m.typingContent[:endIndex]
+					}
+				}
+				
+				m.typingIndex = endIndex
+				m.updateViewportContent()
+				
+				if m.typingIndex < len(m.typingContent) {
+					// Continue typing
+					cmds = append(cmds, typingTick())
+				} else {
+					// Typing complete
+					m.isTyping = false
+					
+					// Auto-save check
+					m.messagesSinceLastSave++
+					if m.preferences != nil && m.preferences.AutoSave && m.messagesSinceLastSave >= 5 {
+						if err := m.saveCurrentChat(); err != nil {
+							m.statusMessage = fmt.Sprintf("Auto-save failed: %v", err)
+						} else {
+							m.statusMessage = "Auto-saved conversation (every 5 messages)"
+							m.messagesSinceLastSave = 0
+						}
+						cmds = append(cmds, clearStatusAfterDelay())
+					}
+				}
+			}
 		default:
 			// Update viewport for scrolling
 			m.viewport, cmd = m.viewport.Update(msg)
@@ -1291,6 +1340,10 @@ func (m model) View() string {
 			// Add typing indicator for the assistant
 			typingStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Italic(true)
 			s += typingStyle.Render(fmt.Sprintf("%s is typing...", m.buddyName)) + "\n"
+		} else if m.isTyping {
+			// Show a subtle indicator during typing animation
+			typingStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Faint(true)
+			s += typingStyle.Render("▌") + "\n" // Blinking cursor effect
 		}
 
 		// Add status line
@@ -1350,6 +1403,7 @@ type (
 	}
 	errMsg         error
 	clearStatusMsg struct{}
+	typingTickMsg  struct{} // For typing animation
 )
 
 // estimateTokens provides a rough estimate of token count for a string
