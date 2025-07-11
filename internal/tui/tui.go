@@ -191,6 +191,9 @@ type model struct {
 	
 	// Last user message for regeneration
 	lastUserMessage    string // Store last user message for Ctrl+R
+	
+	// Auto-save tracking
+	messagesSinceLastSave int  // Counter for auto-save feature
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -968,6 +971,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.statusMessage = fmt.Sprintf("Failed to save: %v", err)
 				} else {
 					m.statusMessage = "Chat history saved"
+					m.messagesSinceLastSave = 0 // Reset auto-save counter
 				}
 				cmds = append(cmds, clearStatusAfterDelay())
 			case "ctrl+e":
@@ -1053,17 +1057,55 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "enter":
 				value := m.textInput.Value()
 				if value != "" {
-					// Add to message history
-					m.messageHistory = append(m.messageHistory, value)
-					m.historyIndex = len(m.messageHistory) // Reset history navigation
-					m.lastUserMessage = value // Save for potential regeneration
-					
-					m.addChatMessage(openai.ChatMessageRoleUser, value)
-					m.isThinking = true
-					// Select a random loading message
-					m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
-					cmds = append(cmds, sendToOpenAI(m, value), m.spinner.Tick)
-					m.textInput.Reset()
+					// Check for commands
+					switch strings.ToLower(strings.TrimSpace(value)) {
+					case "/clear":
+						m.clearConversation()
+						m.statusMessage = "Conversation cleared"
+						m.textInput.Reset()
+						cmds = append(cmds, clearStatusAfterDelay())
+						return m, tea.Batch(cmds...)
+					case "/help":
+						// Show help as a system message
+						helpText := `Available commands:
+/clear - Clear the conversation
+/help - Show this help message
+
+Keyboard shortcuts:
+↑/↓ - Scroll chat or navigate message history
+PgUp/PgDn - Scroll by page
+Home/End - Jump to top/bottom
+Ctrl+R - Regenerate last response
+Ctrl+L - Clear conversation
+Ctrl+M - Switch AI model
+Ctrl+S - Save chat
+Ctrl+E - Export to markdown
+Ctrl+T - Show token usage
+Ctrl+Y - Copy last response
+Ctrl+B - Browse saved chats
+Ctrl+P - Select AI templates
+Ctrl+F - Search chat history
+Ctrl+D - Change theme
+Ctrl+A - Toggle auto-save
+Ctrl+C/Q - Quit`
+						m.addChatMessage(openai.ChatMessageRoleSystem, helpText)
+						m.textInput.Reset()
+						m.updateViewportContent()
+						return m, tea.Batch(cmds...)
+					default:
+						// Normal message processing
+						// Add to message history
+						m.messageHistory = append(m.messageHistory, value)
+						m.historyIndex = len(m.messageHistory) // Reset history navigation
+						m.lastUserMessage = value // Save for potential regeneration
+						
+						m.addChatMessage(openai.ChatMessageRoleUser, value)
+						m.isThinking = true
+						// Select a random loading message
+						m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
+						cmds = append(cmds, sendToOpenAI(m, value), m.spinner.Tick)
+						m.textInput.Reset()
+					}
 				}
 			default:
 				m.textInput, cmd = m.textInput.Update(msg)
@@ -1078,12 +1120,17 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.updateTokenUsage(msg.PromptTokens, msg.CompletionTokens)
 			m.isThinking = false
 			m.updateViewportContent()
-
-			// Auto-save if enabled and we have multiple messages
-			if m.preferences != nil && m.preferences.AutoSave && len(m.chatMessages) > 1 {
-				if err := m.saveCurrentChat(); err == nil {
-					// Don't show status message for auto-save to avoid noise
+			
+			// Auto-save check
+			m.messagesSinceLastSave++
+			if m.preferences != nil && m.preferences.AutoSave && m.messagesSinceLastSave >= 5 {
+				if err := m.saveCurrentChat(); err != nil {
+					m.statusMessage = fmt.Sprintf("Auto-save failed: %v", err)
+				} else {
+					m.statusMessage = "Auto-saved conversation (every 5 messages)"
+					m.messagesSinceLastSave = 0
 				}
+				cmds = append(cmds, clearStatusAfterDelay())
 			}
 		case spinner.TickMsg:
 			m.spinner, cmd = m.spinner.Update(msg)
