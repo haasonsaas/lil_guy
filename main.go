@@ -8,10 +8,15 @@ import (
 	"os"
 	"os/exec"
 	"path/filepath"
+	"regexp"
 	"runtime"
 	"strings"
 	"time"
 
+	"github.com/alecthomas/chroma/v2"
+	"github.com/alecthomas/chroma/v2/formatters"
+	"github.com/alecthomas/chroma/v2/lexers"
+	"github.com/alecthomas/chroma/v2/styles"
 	"github.com/charmbracelet/bubbles/spinner"
 	"github.com/charmbracelet/bubbles/textinput"
 	"github.com/charmbracelet/bubbles/viewport"
@@ -38,7 +43,73 @@ const (
 	maxOnboardingSteps   = 2
 )
 
-// Color constants
+// Theme represents a color scheme
+type Theme struct {
+	Name              string
+	UserMessage       string
+	AssistantMessage  string
+	Spinner           string
+	InputLabel        string
+	Status            string
+	Background        string
+	Highlight         string
+}
+
+// Available themes
+var themes = map[string]Theme{
+	"default": {
+		Name:              "Default",
+		UserMessage:       "9",
+		AssistantMessage:  "6",
+		Spinner:           "205",
+		InputLabel:        "10",
+		Status:            "8",
+		Background:        "240",
+		Highlight:         "15",
+	},
+	"dark": {
+		Name:              "Dark",
+		UserMessage:       "11",
+		AssistantMessage:  "14",
+		Spinner:           "13",
+		InputLabel:        "12",
+		Status:            "7",
+		Background:        "235",
+		Highlight:         "15",
+	},
+	"ocean": {
+		Name:              "Ocean",
+		UserMessage:       "4",
+		AssistantMessage:  "6",
+		Spinner:           "12",
+		InputLabel:        "14",
+		Status:            "8",
+		Background:        "17",
+		Highlight:         "15",
+	},
+	"sunset": {
+		Name:              "Sunset",
+		UserMessage:       "9",
+		AssistantMessage:  "11",
+		Spinner:           "13",
+		InputLabel:        "10",
+		Status:            "8",
+		Background:        "52",
+		Highlight:         "15",
+	},
+	"forest": {
+		Name:              "Forest",
+		UserMessage:       "2",
+		AssistantMessage:  "10",
+		Spinner:           "3",
+		InputLabel:        "14",
+		Status:            "8",
+		Background:        "22",
+		Highlight:         "15",
+	},
+}
+
+// Color constants (using default theme)
 const (
 	colorUserMessage      = "9"
 	colorAssistantMessage = "6"
@@ -53,6 +124,66 @@ var availableModels = []string{
 	"gpt-4o-mini",
 	"gpt-4",
 	"gpt-3.5-turbo",
+}
+
+// SystemPromptTemplate represents a pre-built system prompt.
+type SystemPromptTemplate struct {
+	Name        string `json:"name"`
+	Description string `json:"description"`
+	Prompt      string `json:"prompt"`
+	BuddyName   string `json:"buddy_name"`
+}
+
+// Built-in system prompt templates
+var builtinTemplates = []SystemPromptTemplate{
+	{
+		Name:        "General Assistant",
+		Description: "Helpful, friendly AI assistant for general tasks",
+		Prompt:      "You are a helpful AI assistant. You're knowledgeable, friendly, and always try to provide accurate and useful information.",
+		BuddyName:   "Assistant",
+	},
+	{
+		Name:        "Coding Expert",
+		Description: "Senior software engineer specializing in code help",
+		Prompt:      "You are a senior software engineer and coding expert. You provide clear, well-documented code examples, explain best practices, help debug issues, and offer architectural guidance. You're familiar with multiple programming languages and frameworks.",
+		BuddyName:   "CodeMaster",
+	},
+	{
+		Name:        "Creative Writer",
+		Description: "Imaginative writer for stories, poems, and creative content",
+		Prompt:      "You are a creative writing assistant with a flair for storytelling, poetry, and imaginative content. You help with character development, plot ideas, dialogue, and various creative writing techniques. You're encouraging and help overcome writer's block.",
+		BuddyName:   "Wordsmith",
+	},
+	{
+		Name:        "Business Advisor",
+		Description: "Strategic business consultant and advisor",
+		Prompt:      "You are a strategic business consultant with expertise in entrepreneurship, market analysis, financial planning, and business operations. You provide practical, actionable advice for startups and established businesses.",
+		BuddyName:   "Advisor",
+	},
+	{
+		Name:        "Research Assistant",
+		Description: "Academic researcher skilled in analysis and fact-finding",
+		Prompt:      "You are a research assistant skilled in academic research, data analysis, and fact-checking. You help gather information, cite sources, analyze data trends, and present findings in a clear, structured manner.",
+		BuddyName:   "Scholar",
+	},
+	{
+		Name:        "Math Tutor",
+		Description: "Patient mathematics teacher and problem solver",
+		Prompt:      "You are a patient and encouraging mathematics tutor. You break down complex problems into manageable steps, explain concepts clearly, and provide practice problems. You're supportive and help build confidence in math skills.",
+		BuddyName:   "MathBot",
+	},
+	{
+		Name:        "Therapist",
+		Description: "Supportive listener and mental health companion",
+		Prompt:      "You are a supportive, empathetic listener who provides a safe space for conversation. You offer gentle guidance, coping strategies, and emotional support. You're not a replacement for professional therapy but aim to be a caring companion.",
+		BuddyName:   "Companion",
+	},
+	{
+		Name:        "Chef",
+		Description: "Culinary expert for recipes and cooking advice",
+		Prompt:      "You are a professional chef and culinary expert. You provide recipes, cooking techniques, ingredient substitutions, meal planning advice, and food safety tips. You're passionate about food and love sharing culinary knowledge.",
+		BuddyName:   "Chef",
+	},
 }
 
 // Model pricing (per 1K tokens) - approximate prices as of 2024
@@ -73,6 +204,8 @@ const (
 	stateChatting appState = iota
 	stateOnboarding
 	stateChatBrowser
+	stateTemplateSelector
+	stateSearch
 )
 
 // ChatMessage represents a message with timestamp and metadata.
@@ -182,6 +315,17 @@ type model struct {
 	// Chat browser fields
 	savedChats     []string // List of saved chat files
 	selectedChat   int      // Currently selected chat in browser
+	
+	// Template selector fields
+	selectedTemplate int // Currently selected template
+	
+	// Search fields
+	searchQuery      string       // Current search query
+	searchResults    []ChatMessage // Found messages
+	selectedResult   int          // Currently selected search result
+	
+	// Theme
+	currentTheme     Theme        // Current color theme
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -189,11 +333,11 @@ func (m model) formatChatMessage(msg openai.ChatCompletionMessage, width int) st
 	var label, content string
 	
 	if msg.Role == openai.ChatMessageRoleUser {
-		label = lipgloss.NewStyle().Foreground(lipgloss.Color(colorUserMessage)).Bold(true).Render("You: ")
+		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.UserMessage)).Bold(true).Render("You: ")
 		content = msg.Content
 	} else if msg.Role == openai.ChatMessageRoleAssistant {
-		label = lipgloss.NewStyle().Foreground(lipgloss.Color(colorAssistantMessage)).Bold(true).Render(m.buddyName+": ")
-		content = msg.Content
+		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Bold(true).Render(m.buddyName+": ")
+		content = highlightCode(msg.Content, m.isDarkTheme())
 	}
 	
 	// Use lipgloss to handle proper wrapping
@@ -211,15 +355,15 @@ func (m model) formatChatMessageWithTimestamp(msg ChatMessage, width int) string
 	timeStr := msg.Timestamp.Format("15:04")
 	
 	if msg.Role == openai.ChatMessageRoleUser {
-		label = lipgloss.NewStyle().Foreground(lipgloss.Color(colorUserMessage)).Bold(true).Render("You: ")
+		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.UserMessage)).Bold(true).Render("You: ")
 		content = msg.Content
 	} else if msg.Role == openai.ChatMessageRoleAssistant {
-		label = lipgloss.NewStyle().Foreground(lipgloss.Color(colorAssistantMessage)).Bold(true).Render(m.buddyName+": ")
-		content = msg.Content
+		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Bold(true).Render(m.buddyName+": ")
+		content = highlightCode(msg.Content, m.isDarkTheme())
 	}
 	
 	// Add timestamp
-	timestampStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus)).Faint(true)
+	timestampStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Faint(true)
 	timestamp := timestampStyle.Render(fmt.Sprintf("[%s]", timeStr))
 	
 	// Use lipgloss to handle proper wrapping
@@ -273,10 +417,10 @@ func createTextInput() textinput.Model {
 }
 
 // createSpinner creates and configures the spinner component.
-func createSpinner() spinner.Model {
+func createSpinner(theme Theme) spinner.Model {
 	s := spinner.New()
 	s.Spinner = spinner.Dot
-	s.Style = lipgloss.NewStyle().Foreground(lipgloss.Color(colorSpinner))
+	s.Style = lipgloss.NewStyle().Foreground(lipgloss.Color(theme.Spinner))
 	return s
 }
 
@@ -435,6 +579,228 @@ func (m *model) refreshChatList() {
 	if len(m.savedChats) > 0 && m.selectedChat >= len(m.savedChats) {
 		m.selectedChat = len(m.savedChats) - 1
 	}
+}
+
+// applyTemplate applies a system prompt template to the current session.
+func (m *model) applyTemplate(template SystemPromptTemplate) {
+	// Update buddy name and system prompt
+	m.buddyName = template.BuddyName
+	m.preferences.BuddyName = template.BuddyName
+	m.preferences.SystemMessage = template.Prompt
+	
+	// Save preferences
+	savePreferences(m.preferences)
+	
+	// Clear current conversation and apply new system message
+	systemMessage := fmt.Sprintf("%s named %s.", template.Prompt, template.BuddyName)
+	m.messages = []openai.ChatCompletionMessage{
+		{Role: openai.ChatMessageRoleSystem, Content: systemMessage},
+	}
+	m.chatMessages = []ChatMessage{}
+	
+	m.updateViewportContent()
+	m.statusMessage = fmt.Sprintf("Applied template: %s", template.Name)
+}
+
+// searchChats searches through all saved chats for the given query.
+func searchChats(query string) ([]ChatMessage, error) {
+	if query == "" {
+		return []ChatMessage{}, nil
+	}
+	
+	historyDir, err := getChatHistoryDir()
+	if err != nil {
+		return nil, err
+	}
+	
+	files, err := os.ReadDir(historyDir)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read chat history directory: %w", err)
+	}
+	
+	var results []ChatMessage
+	queryLower := strings.ToLower(query)
+	
+	for _, file := range files {
+		if !file.IsDir() && strings.HasSuffix(file.Name(), ".json") {
+			filePath := filepath.Join(historyDir, file.Name())
+			data, err := os.ReadFile(filePath)
+			if err != nil {
+				continue // Skip files we can't read
+			}
+			
+			var history ChatHistory
+			if err := json.Unmarshal(data, &history); err != nil {
+				continue // Skip files we can't parse
+			}
+			
+			// Search through messages in this chat
+			for _, msg := range history.Messages {
+				if msg.Role != openai.ChatMessageRoleSystem {
+					if strings.Contains(strings.ToLower(msg.Content), queryLower) {
+						results = append(results, msg)
+					}
+				}
+			}
+		}
+	}
+	
+	return results, nil
+}
+
+// performSearch performs a search and updates the search results.
+func (m *model) performSearch() {
+	results, err := searchChats(m.searchQuery)
+	if err != nil {
+		m.statusMessage = fmt.Sprintf("Search failed: %v", err)
+		return
+	}
+	
+	m.searchResults = results
+	m.selectedResult = 0
+	if len(results) == 0 {
+		m.statusMessage = "No results found"
+	} else {
+		m.statusMessage = fmt.Sprintf("Found %d result(s)", len(results))
+	}
+}
+
+// cycleTheme cycles to the next available theme.
+func (m *model) cycleTheme() {
+	themeNames := []string{"default", "dark", "ocean", "sunset", "forest"}
+	currentIndex := 0
+	
+	// Find current theme index
+	for i, name := range themeNames {
+		if themes[name].Name == m.currentTheme.Name {
+			currentIndex = i
+			break
+		}
+	}
+	
+	// Move to next theme
+	nextIndex := (currentIndex + 1) % len(themeNames)
+	m.currentTheme = themes[themeNames[nextIndex]]
+	
+	// Save theme preference
+	if m.preferences != nil {
+		m.preferences.Theme = themeNames[nextIndex]
+		savePreferences(m.preferences)
+	}
+	
+	m.statusMessage = fmt.Sprintf("Theme changed to: %s", m.currentTheme.Name)
+}
+
+// highlightCode applies syntax highlighting to code blocks in the content.
+func highlightCode(content string, isDarkTheme bool) string {
+	// First, handle inline code with single backticks
+	inlineCodeRegex := regexp.MustCompile("`([^`]+)`")
+	content = inlineCodeRegex.ReplaceAllStringFunc(content, func(match string) string {
+		code := strings.Trim(match, "`")
+		codeStyle := lipgloss.NewStyle().
+			Background(lipgloss.Color("236")).
+			Foreground(lipgloss.Color("15")).
+			Padding(0, 1)
+		return codeStyle.Render(code)
+	})
+	
+	// Then handle code blocks: ```language\ncode\n```
+	codeBlockRegex := regexp.MustCompile("```([a-zA-Z0-9_+-]*)\n([\\s\\S]*?)\n```")
+	
+	// Choose appropriate style based on theme
+	styleName := "github"
+	if isDarkTheme {
+		styleName = "github-dark"
+	}
+	
+	style := styles.Get(styleName)
+	if style == nil {
+		style = styles.Fallback
+	}
+	
+	formatter := formatters.Get("terminal256")
+	if formatter == nil {
+		formatter = formatters.Fallback
+	}
+	
+	return codeBlockRegex.ReplaceAllStringFunc(content, func(match string) string {
+		// Extract language and code
+		parts := codeBlockRegex.FindStringSubmatch(match)
+		if len(parts) != 3 {
+			return match // Return original if regex fails
+		}
+		
+		language := parts[1]
+		code := parts[2]
+		
+		// Get lexer for the language
+		var lexer chroma.Lexer
+		if language != "" {
+			lexer = lexers.Get(language)
+		}
+		if lexer == nil {
+			lexer = lexers.Analyse(code)
+		}
+		if lexer == nil {
+			lexer = lexers.Fallback
+		}
+		
+		// Apply syntax highlighting
+		tokens, err := lexer.Tokenise(nil, code)
+		if err != nil {
+			return match // Return original if highlighting fails
+		}
+		
+		var buf strings.Builder
+		err = formatter.Format(&buf, style, tokens)
+		if err != nil {
+			return match // Return original if formatting fails
+		}
+		
+		// Create a styled code block
+		highlightedCode := buf.String()
+		
+		// Add language label and border
+		languageLabel := language
+		if languageLabel == "" {
+			languageLabel = "code"
+		}
+		
+		codeStyle := lipgloss.NewStyle().
+			Border(lipgloss.RoundedBorder()).
+			BorderForeground(lipgloss.Color("240")).
+			Padding(0, 1).
+			Margin(1, 0)
+		
+		labelStyle := lipgloss.NewStyle().
+			Foreground(lipgloss.Color("12")).
+			Bold(true)
+		
+		return codeStyle.Render(
+			labelStyle.Render(languageLabel) + "\n" + 
+			strings.TrimSpace(highlightedCode),
+		)
+	})
+}
+
+// isDarkTheme returns true if the current theme is considered dark.
+func (m model) isDarkTheme() bool {
+	darkThemes := map[string]bool{
+		"dark":   true,
+		"ocean":  true,
+		"forest": true,
+	}
+	
+	// Extract theme name from current theme
+	themeName := "default"
+	for name, theme := range themes {
+		if theme.Name == m.currentTheme.Name {
+			themeName = name
+			break
+		}
+	}
+	
+	return darkThemes[themeName]
 }
 
 // calculateTokenCost calculates the estimated cost for the given token usage.
@@ -603,6 +969,14 @@ func initialModel() model {
 		currentModel = prefs.Model
 	}
 
+	// Set theme
+	currentTheme := themes["default"]
+	if prefs.Theme != "" {
+		if theme, exists := themes[prefs.Theme]; exists {
+			currentTheme = theme
+		}
+	}
+
 	initialState, onboardingStep := determineInitialState(prefs)
 	systemMessage := createSystemMessage(prefs, buddyName)
 
@@ -613,7 +987,7 @@ func initialModel() model {
 		},
 		chatMessages:   []ChatMessage{}, // Initialize empty chat history
 		textInput:      createTextInput(),
-		spinner:        createSpinner(),
+		spinner:        createSpinner(currentTheme),
 		isThinking:     false,
 		preferences:    prefs,
 		buddyName:      buddyName,
@@ -621,9 +995,14 @@ func initialModel() model {
 		onboardingStep: onboardingStep,
 		viewport:       createViewport(),
 		currentModel:   currentModel,
-		statusMessage:  fmt.Sprintf("Using %s", currentModel),
-		savedChats:     []string{},
-		selectedChat:   0,
+		statusMessage:    fmt.Sprintf("Using %s", currentModel),
+		savedChats:       []string{},
+		selectedChat:     0,
+		selectedTemplate: 0,
+		searchQuery:      "",
+		searchResults:    []ChatMessage{},
+		selectedResult:   0,
+		currentTheme:     currentTheme,
 	}
 }
 
@@ -715,6 +1094,63 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		}
 
+	case stateTemplateSelector:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Back to chat"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "up", "k":
+				if m.selectedTemplate > 0 {
+					m.selectedTemplate--
+				}
+			case "down", "j":
+				if m.selectedTemplate < len(builtinTemplates)-1 {
+					m.selectedTemplate++
+				}
+			case "enter":
+				if m.selectedTemplate < len(builtinTemplates) {
+					m.applyTemplate(builtinTemplates[m.selectedTemplate])
+					m.appState = stateChatting
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			}
+		}
+
+	case stateSearch:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Back to chat"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "enter":
+				if m.searchQuery != "" {
+					m.performSearch()
+				}
+			case "up", "k":
+				if len(m.searchResults) > 0 && m.selectedResult > 0 {
+					m.selectedResult--
+				}
+			case "down", "j":
+				if len(m.searchResults) > 0 && m.selectedResult < len(m.searchResults)-1 {
+					m.selectedResult++
+				}
+			case "backspace":
+				if len(m.searchQuery) > 0 {
+					m.searchQuery = m.searchQuery[:len(m.searchQuery)-1]
+				}
+			default:
+				// Add character to search query
+				if len(msg.String()) == 1 {
+					m.searchQuery += msg.String()
+				}
+			}
+		}
+
 	case stateChatting:
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
@@ -792,6 +1228,24 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.statusMessage = fmt.Sprintf("Auto-save %s", status)
 					cmds = append(cmds, clearStatusAfterDelay())
 				}
+			case "ctrl+p":
+				// Open template selector
+				m.appState = stateTemplateSelector
+				m.selectedTemplate = 0
+				m.statusMessage = "Template selector - Use arrows to navigate, Enter to apply, Esc to return"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+f":
+				// Open search interface
+				m.appState = stateSearch
+				m.searchQuery = ""
+				m.searchResults = []ChatMessage{}
+				m.selectedResult = 0
+				m.statusMessage = "Search chat history - Type to search, Enter to perform search, Esc to return"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+d":
+				// Cycle theme
+				m.cycleTheme()
+				cmds = append(cmds, clearStatusAfterDelay())
 			case "enter":
 				value := m.textInput.Value()
 				if value != "" {
@@ -882,7 +1336,7 @@ func (m model) View() string {
 			for i, chat := range m.savedChats {
 				style := lipgloss.NewStyle()
 				if i == m.selectedChat {
-					style = style.Background(lipgloss.Color("240")).Foreground(lipgloss.Color("15"))
+					style = style.Background(lipgloss.Color(m.currentTheme.Background)).Foreground(lipgloss.Color(m.currentTheme.Highlight))
 				}
 				
 				// Format filename for display
@@ -905,6 +1359,80 @@ func (m model) View() string {
 		
 		return s
 
+	case stateTemplateSelector:
+		s := lipgloss.NewStyle().Bold(true).Render("🎭 System Prompt Templates") + "\n\n"
+		
+		for i, template := range builtinTemplates {
+			style := lipgloss.NewStyle()
+			if i == m.selectedTemplate {
+				style = style.Background(lipgloss.Color(m.currentTheme.Background)).Foreground(lipgloss.Color(m.currentTheme.Highlight))
+			}
+			
+			name := lipgloss.NewStyle().Bold(true).Render(template.Name)
+			description := lipgloss.NewStyle().Faint(true).Render(template.Description)
+			
+			s += style.Render(fmt.Sprintf("  %s", name)) + "\n"
+			s += style.Render(fmt.Sprintf("    %s", description)) + "\n\n"
+		}
+		
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus)).Italic(true)
+		s += helpStyle.Render("↑↓: Navigate | Enter: Apply Template | Esc: Back") + "\n"
+		
+		if m.statusMessage != "" {
+			statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus))
+			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
+		}
+		
+		return s
+
+	case stateSearch:
+		s := lipgloss.NewStyle().Bold(true).Render("🔍 Search Chat History") + "\n\n"
+		
+		// Search input
+		s += fmt.Sprintf("Search query: %s_\n\n", m.searchQuery)
+		
+		if len(m.searchResults) == 0 && m.searchQuery != "" {
+			s += "No results found.\n\n"
+		} else if len(m.searchResults) > 0 {
+			s += fmt.Sprintf("Found %d result(s):\n\n", len(m.searchResults))
+			
+			for i, result := range m.searchResults {
+				style := lipgloss.NewStyle()
+				if i == m.selectedResult {
+					style = style.Background(lipgloss.Color(m.currentTheme.Background)).Foreground(lipgloss.Color(m.currentTheme.Highlight))
+				}
+				
+				// Format the message preview
+				preview := result.Content
+				if len(preview) > 80 {
+					preview = preview[:77] + "..."
+				}
+				
+				roleStyle := lipgloss.NewStyle().Bold(true)
+				var role string
+				if result.Role == openai.ChatMessageRoleUser {
+					role = "You"
+				} else {
+					role = "AI"
+				}
+				
+				timeStr := result.Timestamp.Format("2006-01-02 15:04")
+				
+				s += style.Render(fmt.Sprintf("  [%s] %s: %s", timeStr, roleStyle.Render(role), preview)) + "\n"
+			}
+			s += "\n"
+		}
+		
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus)).Italic(true)
+		s += helpStyle.Render("Type to search | Enter: Search | ↑↓: Navigate results | Esc: Back") + "\n"
+		
+		if m.statusMessage != "" {
+			statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus))
+			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
+		}
+		
+		return s
+
 	case stateChatting:
 		m.updateViewportContent()
 		s := m.viewport.View() + "\n"
@@ -914,16 +1442,17 @@ func (m model) View() string {
 		}
 
 		// Add status line
-		statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus))
+		statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status))
 		if m.statusMessage != "" {
 			s += statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage)) + "\n"
 		}
 
-		// Add keyboard shortcuts help
-		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus)).Italic(true)
-		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy | Ctrl+B: Browse | Ctrl+C: Quit") + "\n"
+		// Add keyboard shortcuts help (split into two lines for readability)
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Italic(true)
+		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy") + "\n"
+		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+F: Search | Ctrl+D: Theme | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
 
-		s += "\n" + lipgloss.NewStyle().Foreground(lipgloss.Color(colorInputLabel)).Render("Your message: ") + m.textInput.View()
+		s += "\n" + lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.InputLabel)).Render("Your message: ") + m.textInput.View()
 
 		if m.error != nil {
 			s += fmt.Sprintf("\nError: %v", m.error)

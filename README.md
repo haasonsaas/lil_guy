@@ -4,13 +4,18 @@ A delightful terminal-based AI chat application built with Go and Bubble Tea, fe
 
 ## ✨ Features
 
-- 🎯 **Multiple AI Models**: Switch between GPT-4o, GPT-4o-mini, GPT-4, and GPT-3.5-turbo
+- 🤖 **Multiple AI Models**: Switch between GPT-4o, GPT-4o-mini, GPT-4, and GPT-3.5-turbo
 - 💬 **Rich Chat Interface**: Beautiful terminal UI with timestamps and color coding
+- 🎨 **Syntax Highlighting**: Code blocks with full language support and themes
 - 📝 **Conversation Management**: Save, load, and export chat history
+- 🔍 **Search & Browse**: Find messages across all conversations
+- 🎭 **AI Templates**: Pre-built personas (coding expert, writer, tutor, etc.)
 - 💰 **Token Usage Tracking**: Monitor token consumption and estimated costs
 - ⌨️ **Keyboard Shortcuts**: Powerful shortcuts for efficient interaction
-- 🎨 **Personalization**: Custom AI buddy names and system prompts
+- 🌈 **Custom Themes**: Multiple color schemes (default, dark, ocean, sunset, forest)
+- 📋 **Clipboard Support**: Copy responses with cross-platform compatibility
 - 📁 **Export Options**: Save conversations as JSON or Markdown
+- 🔄 **Auto-save**: Optional automatic conversation saving
 
 ## 🚀 Installation
 
@@ -45,6 +50,12 @@ A delightful terminal-based AI chat application built with Go and Bubble Tea, fe
 | `Ctrl+S` | Save chat history |
 | `Ctrl+E` | Export to markdown |
 | `Ctrl+T` | Show token usage stats |
+| `Ctrl+Y` | Copy last response to clipboard |
+| `Ctrl+B` | Browse saved conversations |
+| `Ctrl+P` | Select AI templates/personas |
+| `Ctrl+F` | Search chat history |
+| `Ctrl+D` | Cycle color themes |
+| `Ctrl+A` | Toggle auto-save |
 | `Ctrl+C` | Quit application |
 
 ## 🎯 Usage
