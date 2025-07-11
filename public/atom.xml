@@ -5,7 +5,7 @@
   <link href="https://www.haasonsaas.com/atom.xml" rel="self" type="application/atom+xml" />
   <link href="https://www.haasonsaas.com" rel="alternate" type="text/html" />
   <id>https://www.haasonsaas.com/</id>
-  <updated>2025-07-08T00:00:00.000Z</updated>
+  <updated>2025-07-11T00:00:00.000Z</updated>
   <author>
     <name>Jonathan Haas</name>
     <email>jonathan@haasonsaas.com</email>
@@ -13,6 +13,22 @@
   </author>
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
+  <entry>
+    <title><![CDATA[Building a Developer Environment That Actually Works: My Dotfiles Journey]]></title>
+    <link href="https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey</id>
+    <published>2025-07-11T00:00:00.000Z</published>
+    <updated>2025-07-11T00:00:00.000Z</updated>
+    <summary><![CDATA[A deep dive into creating a productive, AI-enhanced development environment with dotfiles that streamline workflows and boost productivity]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="developer-experience" />
+    <category term="dotfiles" />
+    <category term="productivity" />
+    <category term="automation" />
+  </entry>
   <entry>
     <title><![CDATA[The Death of the 10x Developer: Why AI Multiplication Beats Individual Optimization]]></title>
     <link href="https://www.haasonsaas.com/blog/the-death-of-the-10x-developer-why-ai-multiplication-beats-individual-optimization" rel="alternate" type="text/html" />
@@ -821,21 +837,5 @@
     <category term="psychology" />
     <category term="saas" />
     <category term="conversion" />
-  </entry>
-  <entry>
-    <title><![CDATA[Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination]]></title>
-    <link href="https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</id>
-    <published>2025-06-19T00:00:00.000Z</published>
-    <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt...]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="webgl" />
-    <category term="graphics" />
-    <category term="creative-coding" />
-    <category term="hdr" />
   </entry>
 </feed>

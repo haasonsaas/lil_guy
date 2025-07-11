@@ -807,6 +807,19 @@
     "featured": false,
     "draft": false
   },
+  "building-a-developer-environment-that-actually-works-my-dotfiles-journey": {
+    "title": "Building a Developer Environment That Actually Works: My Dotfiles Journey",
+    "description": "A deep dive into creating a productive, AI-enhanced development environment with dotfiles that streamline workflows and boost productivity",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-11",
+    "tags": ["developer-experience", "dotfiles", "productivity", "automation"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 675
+    },
+    "featured": false,
+    "draft": false
+  },
   "the-day-after": {
     "title": "The Day After: Building a System to Remember What Matters",
     "description": "The Day After: Building a System to Remember What Matters: Some weekend conversations feel important in the moment. Some personal decisions feel pivotal.",

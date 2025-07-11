@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Tue, 08 Jul 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Fri, 11 Jul 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Fri, 11 Jul 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,17 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[Building a Developer Environment That Actually Works: My Dotfiles Journey]]></title>
+      <description><![CDATA[A deep dive into creating a productive, AI-enhanced development environment with dotfiles that streamline workflows and boost productivity]]></description>
+      <link>https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey</guid>
+      <pubDate>Fri, 11 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[dotfiles]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[automation]]></category>
+    </item>
     <item>
       <title><![CDATA[The Death of the 10x Developer: Why AI Multiplication Beats Individual Optimization]]></title>
       <description><![CDATA[The 10x developer myth is finally dying. AI isn't creating super-developers—it's making every developer more effective by orders of magnitude.]]></description>
@@ -582,17 +593,6 @@
       <category><![CDATA[psychology]]></category>
       <category><![CDATA[saas]]></category>
       <category><![CDATA[conversion]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination]]></title>
-      <description><![CDATA[I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt...]]></description>
-      <link>https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[webgl]]></category>
-      <category><![CDATA[graphics]]></category>
-      <category><![CDATA[creative-coding]]></category>
-      <category><![CDATA[hdr]]></category>
     </item>
   </channel>
 </rss>
