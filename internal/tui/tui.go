@@ -154,6 +154,7 @@ const (
 	stateChatBrowser
 	stateTemplateSelector
 	stateSearch
+	stateEditMessage
 )
 
 // model represents the application's state.
@@ -207,6 +208,11 @@ type model struct {
 	typingContent      string // Full content being typed
 	typingIndex        int    // Current position in typing animation
 	isTyping           bool   // Whether we're animating a response
+	
+	// Message editing
+	editingMessageIndex int      // Index of message being edited
+	editingMessage      string   // Temporary content while editing
+	selectedMessage     int      // Currently selected message for navigation
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -331,6 +337,35 @@ func (m *model) clearConversation() {
 	m.chatMessages = []chat.ChatMessage{} // Clear chat history
 	m.updateViewportContent()
 	m.statusMessage = "Conversation cleared"
+}
+
+// truncateAndRegenerate truncates the conversation at the given index and regenerates from there
+func (m *model) truncateAndRegenerate(index int, newContent string) {
+	// Keep messages up to the edited message
+	// Find where to truncate in the unified messages
+	truncateAt := 1 // Start after system message
+	for i := 0; i < index && i < len(m.chatMessages); i++ {
+		if m.chatMessages[i].Role != "system" {
+			truncateAt++
+		}
+	}
+	
+	// Truncate messages
+	if truncateAt < len(m.messages) {
+		m.messages = m.messages[:truncateAt]
+	}
+	
+	// Truncate chat messages
+	m.chatMessages = m.chatMessages[:index]
+	
+	// Add the edited message
+	m.addChatMessage("user", newContent)
+	m.lastUserMessage = newContent
+	
+	// Start regeneration
+	m.isThinking = true
+	m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
+	m.statusMessage = "Regenerating from edited message..."
 }
 
 // copyToClipboard copies text to clipboard using platform-specific commands.
@@ -765,6 +800,7 @@ func initialModel(client *ai.UnifiedClient) model {
 		messageHistory: []string{},
 		historyIndex:   0,
 		tempInput:      "",
+		editingMessageIndex: -1, // -1 means not editing
 	}
 }
 
@@ -909,6 +945,48 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				// Add character to search query
 				if len(msg.String()) == 1 {
 					m.searchQuery += msg.String()
+				}
+			}
+		}
+
+	case stateEditMessage:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Edit cancelled"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "up", "k":
+				// Navigate up through messages (skip system messages)
+				for m.selectedMessage > 0 {
+					m.selectedMessage--
+					if m.chatMessages[m.selectedMessage].Role != "system" {
+						break
+					}
+				}
+			case "down", "j":
+				// Navigate down through messages (skip system messages)
+				for m.selectedMessage < len(m.chatMessages)-1 {
+					m.selectedMessage++
+					if m.chatMessages[m.selectedMessage].Role != "system" {
+						break
+					}
+				}
+			case "enter":
+				// Start editing the selected message
+				if m.selectedMessage < len(m.chatMessages) {
+					msg := m.chatMessages[m.selectedMessage]
+					if msg.Role == "user" {
+						// Edit user message
+						m.textInput.SetValue(msg.Content)
+						m.editingMessageIndex = m.selectedMessage
+						m.appState = stateChatting
+						m.statusMessage = "Edit message and press Enter to regenerate from this point"
+					} else {
+						m.statusMessage = "Can only edit user messages"
+						cmds = append(cmds, clearStatusAfterDelay())
+					}
 				}
 			}
 		}
@@ -1060,6 +1138,13 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.statusMessage = fmt.Sprintf("Auto-save %s", status)
 					cmds = append(cmds, clearStatusAfterDelay())
 				}
+			case "e":
+				// Edit mode - only if input is empty and we have messages
+				if m.textInput.Value() == "" && len(m.chatMessages) > 0 {
+					m.appState = stateEditMessage
+					m.selectedMessage = len(m.chatMessages) - 1 // Start at last message
+					m.statusMessage = "Edit mode: ↑/↓ to select, Enter to edit, Esc to cancel"
+				}
 			case "ctrl+p":
 				// Open template selector
 				m.appState = stateTemplateSelector
@@ -1099,6 +1184,16 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "enter", "shift+enter":
 				value := m.textInput.Value()
 				if value != "" {
+					// Check if we're editing a message
+					if m.editingMessageIndex >= 0 {
+						// Truncate conversation at edit point and regenerate
+						m.truncateAndRegenerate(m.editingMessageIndex, value)
+						m.editingMessageIndex = -1 // Reset editing
+						m.textInput.Reset()
+						cmds = append(cmds, sendToAI(m, value), m.spinner.Tick)
+						return m, tea.Batch(cmds...)
+					}
+					
 					// Check for commands
 					switch strings.ToLower(strings.TrimSpace(value)) {
 					case "/clear":
@@ -1117,6 +1212,7 @@ Keyboard shortcuts:
 ↑/↓ - Scroll chat or navigate message history
 PgUp/PgDn - Scroll by page
 Home/End - Jump to top/bottom
+e - Edit mode (edit any user message)
 Ctrl+R - Regenerate last response
 Ctrl+L - Clear conversation
 Ctrl+M - Switch AI model
@@ -1366,6 +1462,47 @@ func (m model) View() string {
 			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
 		}
 
+		return s
+
+	case stateEditMessage:
+		s := lipgloss.NewStyle().Bold(true).Render("📝 Edit Message Mode") + "\n\n"
+		
+		// Show messages with selection highlight
+		for i, msg := range m.chatMessages {
+			if msg.Role == "system" {
+				continue // Skip system messages
+			}
+			
+			style := lipgloss.NewStyle()
+			if i == m.selectedMessage {
+				style = style.Background(lipgloss.Color(m.currentTheme.Background)).Foreground(lipgloss.Color(m.currentTheme.Highlight))
+			}
+			
+			// Format message preview
+			preview := msg.Content
+			if len(preview) > 60 {
+				preview = preview[:57] + "..."
+			}
+			
+			roleStyle := lipgloss.NewStyle().Bold(true)
+			if msg.Role == "user" {
+				roleStyle = roleStyle.Foreground(lipgloss.Color(m.currentTheme.UserMessage))
+				s += style.Render(fmt.Sprintf("  [%d] %s: %s", i, roleStyle.Render("You"), preview)) + "\n"
+			} else {
+				roleStyle = roleStyle.Foreground(lipgloss.Color(m.currentTheme.AssistantMessage))
+				s += style.Render(fmt.Sprintf("  [%d] %s: %s", i, roleStyle.Render(m.buddyName), preview)) + "\n"
+			}
+		}
+		
+		s += "\n"
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8")).Italic(true)
+		s += helpStyle.Render("↑/↓: Navigate | Enter: Edit selected message | Esc: Cancel") + "\n"
+		
+		if m.statusMessage != "" {
+			statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8"))
+			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
+		}
+		
 		return s
 
 	case stateChatting:
