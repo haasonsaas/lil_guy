@@ -155,6 +155,8 @@ const (
 	stateTemplateSelector
 	stateSearch
 	stateEditMessage
+	stateBranchManager
+	stateCreateCheckpoint
 )
 
 // model represents the application's state.
@@ -213,6 +215,15 @@ type model struct {
 	editingMessageIndex int      // Index of message being edited
 	editingMessage      string   // Temporary content while editing
 	selectedMessage     int      // Currently selected message for navigation
+	
+	// Branching
+	conversationTree    *chat.ConversationTree // Conversation tree for branching
+	checkpoints         []chat.Checkpoint      // Available checkpoints
+	selectedCheckpoint  int                    // Currently selected checkpoint
+	branches            []*chat.Branch         // Available branches
+	selectedBranch      int                    // Currently selected branch
+	checkpointName      string                 // Name for new checkpoint
+	treeFilename        string                 // Current tree filename
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -687,6 +698,66 @@ func clearStatusAfterDelay() tea.Cmd {
 	})
 }
 
+// refreshBranchList refreshes the list of checkpoints from the conversation tree
+func (m *model) refreshBranchList() {
+	if m.conversationTree != nil {
+		m.checkpoints = m.conversationTree.ListCheckpoints()
+		m.selectedCheckpoint = 0
+	}
+}
+
+// initializeConversationTree creates a new conversation tree if none exists
+func (m *model) initializeConversationTree() {
+	if m.conversationTree == nil {
+		m.conversationTree = chat.NewConversationTree()
+		m.treeFilename = fmt.Sprintf("tree_%s.json", time.Now().Format("2006-01-02_15-04-05"))
+	}
+}
+
+// createCheckpoint creates a new checkpoint with the current conversation state
+func (m *model) createCheckpoint(name, description string) error {
+	m.initializeConversationTree()
+	
+	_, err := m.conversationTree.CreateCheckpoint(name, description, m.chatMessages)
+	if err != nil {
+		return err
+	}
+	
+	// Save the tree
+	return chat.SaveTree(m.conversationTree, m.treeFilename)
+}
+
+// loadCheckpoint loads a conversation from a checkpoint
+func (m *model) loadCheckpoint(checkpointID string) error {
+	if m.conversationTree == nil {
+		return fmt.Errorf("no conversation tree loaded")
+	}
+	
+	messages, err := m.conversationTree.LoadFromCheckpoint(checkpointID)
+	if err != nil {
+		return err
+	}
+	
+	// Convert chat messages to unified messages
+	m.messages = []ai.UnifiedMessage{
+		{Role: "system", Content: m.messages[0].Content}, // Keep system message
+	}
+	m.chatMessages = []chat.ChatMessage{}
+	
+	for _, msg := range messages {
+		if msg.Role != "system" {
+			m.messages = append(m.messages, ai.UnifiedMessage{
+				Role:    msg.Role,
+				Content: msg.Content,
+			})
+			m.chatMessages = append(m.chatMessages, msg)
+		}
+	}
+	
+	m.updateViewportContent()
+	return nil
+}
+
 // typingTick returns a command for the typing animation.
 func typingTick() tea.Cmd {
 	return tea.Tick(30*time.Millisecond, func(t time.Time) tea.Msg {
@@ -991,6 +1062,91 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		}
 
+	case stateBranchManager:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Back to chat"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "up", "k":
+				if m.selectedCheckpoint > 0 {
+					m.selectedCheckpoint--
+				}
+			case "down", "j":
+				if m.selectedCheckpoint < len(m.checkpoints)-1 {
+					m.selectedCheckpoint++
+				}
+			case "enter":
+				// Load from checkpoint
+				if len(m.checkpoints) > 0 && m.selectedCheckpoint < len(m.checkpoints) {
+					if err := m.loadCheckpoint(m.checkpoints[m.selectedCheckpoint].ID); err != nil {
+						m.statusMessage = fmt.Sprintf("Failed to load checkpoint: %v", err)
+					} else {
+						m.appState = stateChatting
+						m.statusMessage = fmt.Sprintf("Loaded checkpoint: %s", m.checkpoints[m.selectedCheckpoint].Name)
+					}
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			case "b":
+				// Create branch from checkpoint
+				if len(m.checkpoints) > 0 && m.selectedCheckpoint < len(m.checkpoints) {
+					checkpoint := m.checkpoints[m.selectedCheckpoint]
+					newBranch, err := m.conversationTree.CreateBranch(
+						checkpoint.ID,
+						fmt.Sprintf("branch_%d", time.Now().Unix()),
+						fmt.Sprintf("Branched from: %s", checkpoint.Name),
+					)
+					if err != nil {
+						m.statusMessage = fmt.Sprintf("Failed to create branch: %v", err)
+					} else {
+						m.conversationTree.SwitchBranch(newBranch.ID)
+						m.loadCheckpoint(checkpoint.ID)
+						m.appState = stateChatting
+						m.statusMessage = fmt.Sprintf("Created new branch from checkpoint: %s", checkpoint.Name)
+						chat.SaveTree(m.conversationTree, m.treeFilename)
+					}
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			case "s":
+				// Save conversation tree
+				if m.conversationTree != nil {
+					if err := chat.SaveTree(m.conversationTree, m.treeFilename); err != nil {
+						m.statusMessage = fmt.Sprintf("Failed to save tree: %v", err)
+					} else {
+						m.statusMessage = "Conversation tree saved"
+					}
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			}
+		}
+		
+	case stateCreateCheckpoint:
+		m.textInput, cmd = m.textInput.Update(msg)
+		cmds = append(cmds, cmd)
+		
+		if keyMsg, ok := msg.(tea.KeyMsg); ok {
+			switch keyMsg.String() {
+			case "ctrl+c", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Checkpoint creation cancelled"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "enter":
+				name := m.textInput.Value()
+				if name != "" {
+					if err := m.createCheckpoint(name, ""); err != nil {
+						m.statusMessage = fmt.Sprintf("Failed to create checkpoint: %v", err)
+					} else {
+						m.statusMessage = fmt.Sprintf("Checkpoint created: %s", name)
+					}
+					m.appState = stateChatting
+					m.textInput.Reset()
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			}
+		}
+
 	case stateChatting:
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
@@ -1125,6 +1281,21 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.appState = stateChatBrowser
 				m.refreshChatList()
 				m.statusMessage = "Chat browser - Use arrows to navigate, Enter to load, Esc to return"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+k":
+				// Create checkpoint
+				if len(m.chatMessages) > 0 {
+					m.appState = stateCreateCheckpoint
+					m.checkpointName = chat.GenerateCheckpointName(m.chatMessages)
+					m.textInput.SetValue(m.checkpointName)
+					m.textInput.Focus()
+					m.statusMessage = "Create checkpoint - Enter name and press Enter"
+				}
+			case "ctrl+h":
+				// Open branch manager
+				m.appState = stateBranchManager
+				m.refreshBranchList()
+				m.statusMessage = "Branch manager - Use arrows to navigate, Enter to load checkpoint, B to branch, Esc to return"
 				cmds = append(cmds, clearStatusAfterDelay())
 			case "ctrl+a":
 				// Toggle auto-save
@@ -1505,6 +1676,53 @@ func (m model) View() string {
 		
 		return s
 
+	case stateBranchManager:
+		s := lipgloss.NewStyle().Bold(true).Render("🌿 Branch Manager") + "\n\n"
+		
+		if m.conversationTree == nil {
+			s += "No conversation tree loaded. Create a checkpoint first (Ctrl+K)\n"
+		} else {
+			s += fmt.Sprintf("Current branch: %s\n\n", m.conversationTree.GetCurrentBranch().Name)
+			
+			// Show checkpoints
+			s += lipgloss.NewStyle().Bold(true).Render("Checkpoints:") + "\n"
+			for i, checkpoint := range m.checkpoints {
+				style := lipgloss.NewStyle()
+				if i == m.selectedCheckpoint {
+					style = style.Background(lipgloss.Color(m.currentTheme.Background)).Foreground(lipgloss.Color(m.currentTheme.Highlight))
+				}
+				
+				timeStr := checkpoint.CreatedAt.Format("15:04")
+				s += style.Render(fmt.Sprintf("  [%s] %s", timeStr, checkpoint.Name)) + "\n"
+				if checkpoint.Description != "" {
+					s += style.Render(fmt.Sprintf("    %s", checkpoint.Description)) + "\n"
+				}
+			}
+			
+			s += "\n"
+		}
+		
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8")).Italic(true)
+		s += helpStyle.Render("↑↓: Navigate | Enter: Load checkpoint | B: Create branch | S: Save tree | Esc: Back") + "\n"
+		
+		if m.statusMessage != "" {
+			statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8"))
+			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
+		}
+		
+		return s
+		
+	case stateCreateCheckpoint:
+		s := lipgloss.NewStyle().Bold(true).Render("💾 Create Checkpoint") + "\n\n"
+		
+		s += "Enter a name for this checkpoint:\n\n"
+		s += m.textInput.View() + "\n\n"
+		
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8")).Italic(true)
+		s += helpStyle.Render("Enter: Create checkpoint | Esc: Cancel") + "\n"
+		
+		return s
+
 	case stateChatting:
 		m.updateViewportContent()
 		s := m.viewport.View() + "\n"
@@ -1528,11 +1746,12 @@ func (m model) View() string {
 			s += statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage)) + "\n"
 		}
 
-		// Add keyboard shortcuts help (split into three lines for readability)
+		// Add keyboard shortcuts help (split into four lines for readability)
 		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Italic(true)
-		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom | Ctrl+R: Regenerate") + "\n"
+		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom | Ctrl+R: Regenerate | E: Edit") + "\n"
 		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy") + "\n"
-		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+F: Search | Ctrl+D: Theme | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
+		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+F: Search | Ctrl+D: Theme | Ctrl+A: Auto-save") + "\n"
+		s += helpStyle.Render("Ctrl+K: Checkpoint | Ctrl+H: Branches | Ctrl+C: Quit") + "\n"
 
 		// Add input line with token counter
 		inputLabel := "Your message: "
