@@ -6,7 +6,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 
@@ -70,6 +72,7 @@ type appState int
 const (
 	stateChatting appState = iota
 	stateOnboarding
+	stateChatBrowser
 )
 
 // ChatMessage represents a message with timestamp and metadata.
@@ -95,6 +98,7 @@ type Preferences struct {
 	SystemMessage string `json:"system_message"`
 	Model         string `json:"model"`
 	Theme         string `json:"theme"`
+	AutoSave      bool   `json:"auto_save"`
 }
 
 // getPreferencesFilePath returns the absolute path to the preferences file.
@@ -174,6 +178,10 @@ type model struct {
 	currentModel   string
 	statusMessage  string
 	tokenUsage     TokenUsage
+	
+	// Chat browser fields
+	savedChats     []string // List of saved chat files
+	selectedChat   int      // Currently selected chat in browser
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -316,10 +324,117 @@ func (m *model) clearConversation() {
 	m.statusMessage = "Conversation cleared"
 }
 
-// copyToClipboard copies text to clipboard (will implement platform-specific later).
+// copyToClipboard copies text to clipboard using platform-specific commands.
 func copyToClipboard(text string) error {
-	// For now, just show a message - we'll implement actual clipboard later
+	var cmd *exec.Cmd
+	
+	switch runtime.GOOS {
+	case "darwin": // macOS
+		cmd = exec.Command("pbcopy")
+	case "linux":
+		// Try xclip first, then xsel
+		if _, err := exec.LookPath("xclip"); err == nil {
+			cmd = exec.Command("xclip", "-selection", "clipboard")
+		} else if _, err := exec.LookPath("xsel"); err == nil {
+			cmd = exec.Command("xsel", "--clipboard", "--input")
+		} else {
+			return fmt.Errorf("no clipboard utility found (install xclip or xsel)")
+		}
+	case "windows":
+		cmd = exec.Command("clip")
+	default:
+		return fmt.Errorf("unsupported platform: %s", runtime.GOOS)
+	}
+	
+	cmd.Stdin = strings.NewReader(text)
+	return cmd.Run()
+}
+
+// getLastAssistantMessage returns the last message from the assistant.
+func (m *model) getLastAssistantMessage() string {
+	for i := len(m.chatMessages) - 1; i >= 0; i-- {
+		if m.chatMessages[i].Role == openai.ChatMessageRoleAssistant {
+			return m.chatMessages[i].Content
+		}
+	}
+	return ""
+}
+
+// listSavedChats returns a list of saved chat files.
+func listSavedChats() ([]string, error) {
+	historyDir, err := getChatHistoryDir()
+	if err != nil {
+		return nil, err
+	}
+	
+	files, err := os.ReadDir(historyDir)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read chat history directory: %w", err)
+	}
+	
+	var chatFiles []string
+	for _, file := range files {
+		if !file.IsDir() && strings.HasSuffix(file.Name(), ".json") {
+			chatFiles = append(chatFiles, file.Name())
+		}
+	}
+	
+	return chatFiles, nil
+}
+
+// loadChatHistory loads a specific chat history file.
+func (m *model) loadChatHistory(filename string) error {
+	historyDir, err := getChatHistoryDir()
+	if err != nil {
+		return err
+	}
+	
+	filePath := filepath.Join(historyDir, filename)
+	data, err := os.ReadFile(filePath)
+	if err != nil {
+		return fmt.Errorf("failed to read chat file: %w", err)
+	}
+	
+	var history ChatHistory
+	if err := json.Unmarshal(data, &history); err != nil {
+		return fmt.Errorf("failed to parse chat file: %w", err)
+	}
+	
+	// Load the chat into current session
+	m.chatMessages = history.Messages
+	m.buddyName = history.BuddyName
+	m.currentModel = history.Model
+	
+	// Convert to OpenAI messages format
+	m.messages = []openai.ChatCompletionMessage{
+		{Role: openai.ChatMessageRoleSystem, Content: createSystemMessage(m.preferences, m.buddyName)},
+	}
+	
+	for _, msg := range history.Messages {
+		if msg.Role != openai.ChatMessageRoleSystem {
+			m.messages = append(m.messages, openai.ChatCompletionMessage{
+				Role:    msg.Role,
+				Content: msg.Content,
+			})
+		}
+	}
+	
+	m.updateViewportContent()
 	return nil
+}
+
+// refreshChatList refreshes the list of saved chats.
+func (m *model) refreshChatList() {
+	chats, err := listSavedChats()
+	if err != nil {
+		m.statusMessage = fmt.Sprintf("Failed to load chats: %v", err)
+		return
+	}
+	
+	m.savedChats = chats
+	if len(m.savedChats) > 0 && m.selectedChat >= len(m.savedChats) {
+		m.selectedChat = len(m.savedChats) - 1
+	}
 }
 
 // calculateTokenCost calculates the estimated cost for the given token usage.
@@ -507,6 +622,8 @@ func initialModel() model {
 		viewport:       createViewport(),
 		currentModel:   currentModel,
 		statusMessage:  fmt.Sprintf("Using %s", currentModel),
+		savedChats:     []string{},
+		selectedChat:   0,
 	}
 }
 
@@ -564,6 +681,40 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		}
 
+	case stateChatBrowser:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Back to chat"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "up", "k":
+				if m.selectedChat > 0 {
+					m.selectedChat--
+				}
+			case "down", "j":
+				if m.selectedChat < len(m.savedChats)-1 {
+					m.selectedChat++
+				}
+			case "enter":
+				if len(m.savedChats) > 0 && m.selectedChat < len(m.savedChats) {
+					if err := m.loadChatHistory(m.savedChats[m.selectedChat]); err != nil {
+						m.statusMessage = fmt.Sprintf("Failed to load chat: %v", err)
+					} else {
+						m.appState = stateChatting
+						m.statusMessage = fmt.Sprintf("Loaded chat: %s", m.savedChats[m.selectedChat])
+					}
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			case "r":
+				// Refresh chat list
+				m.refreshChatList()
+				m.statusMessage = "Chat list refreshed"
+				cmds = append(cmds, clearStatusAfterDelay())
+			}
+		}
+
 	case stateChatting:
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
@@ -610,6 +761,37 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.statusMessage = fmt.Sprintf("Tokens: %d | Requests: %d | Cost: $%.4f", 
 					m.tokenUsage.TotalTokens, m.tokenUsage.RequestCount, m.tokenUsage.EstimatedCost)
 				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+y":
+				// Copy last assistant message to clipboard
+				lastMsg := m.getLastAssistantMessage()
+				if lastMsg != "" {
+					if err := copyToClipboard(lastMsg); err != nil {
+						m.statusMessage = fmt.Sprintf("Failed to copy: %v", err)
+					} else {
+						m.statusMessage = "Last response copied to clipboard"
+					}
+				} else {
+					m.statusMessage = "No assistant message to copy"
+				}
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+b":
+				// Open chat browser
+				m.appState = stateChatBrowser
+				m.refreshChatList()
+				m.statusMessage = "Chat browser - Use arrows to navigate, Enter to load, Esc to return"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+a":
+				// Toggle auto-save
+				if m.preferences != nil {
+					m.preferences.AutoSave = !m.preferences.AutoSave
+					savePreferences(m.preferences)
+					status := "disabled"
+					if m.preferences.AutoSave {
+						status = "enabled"
+					}
+					m.statusMessage = fmt.Sprintf("Auto-save %s", status)
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
 			case "enter":
 				value := m.textInput.Value()
 				if value != "" {
@@ -636,6 +818,13 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			m.updateTokenUsage(msg.PromptTokens, msg.CompletionTokens)
 			m.isThinking = false
 			m.updateViewportContent()
+			
+			// Auto-save if enabled and we have multiple messages
+			if m.preferences != nil && m.preferences.AutoSave && len(m.chatMessages) > 1 {
+				if err := m.saveCurrentChat(); err == nil {
+					// Don't show status message for auto-save to avoid noise
+				}
+			}
 		case streamResponseMsg:
 			if len(m.messages) > 0 && m.messages[len(m.messages)-1].Role == openai.ChatMessageRoleAssistant {
 				m.messages[len(m.messages)-1].Content += string(msg)
@@ -684,6 +873,38 @@ func (m model) View() string {
 	case stateOnboarding:
 		return fmt.Sprintf("%s%s", m.getOnboardingPrompt(), m.textInput.View())
 
+	case stateChatBrowser:
+		s := lipgloss.NewStyle().Bold(true).Render("📁 Chat Browser") + "\n\n"
+		
+		if len(m.savedChats) == 0 {
+			s += "No saved chats found.\n\n"
+		} else {
+			for i, chat := range m.savedChats {
+				style := lipgloss.NewStyle()
+				if i == m.selectedChat {
+					style = style.Background(lipgloss.Color("240")).Foreground(lipgloss.Color("15"))
+				}
+				
+				// Format filename for display
+				displayName := strings.TrimSuffix(chat, ".json")
+				displayName = strings.Replace(displayName, "chat_", "", 1)
+				displayName = strings.Replace(displayName, "_", " ", -1)
+				
+				s += style.Render(fmt.Sprintf("  %s", displayName)) + "\n"
+			}
+		}
+		
+		s += "\n"
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus)).Italic(true)
+		s += helpStyle.Render("↑↓: Navigate | Enter: Load | R: Refresh | Esc: Back") + "\n"
+		
+		if m.statusMessage != "" {
+			statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus))
+			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
+		}
+		
+		return s
+
 	case stateChatting:
 		m.updateViewportContent()
 		s := m.viewport.View() + "\n"
@@ -700,7 +921,7 @@ func (m model) View() string {
 
 		// Add keyboard shortcuts help
 		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(colorStatus)).Italic(true)
-		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+C: Quit") + "\n"
+		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy | Ctrl+B: Browse | Ctrl+C: Quit") + "\n"
 
 		s += "\n" + lipgloss.NewStyle().Foreground(lipgloss.Color(colorInputLabel)).Render("Your message: ") + m.textInput.View()
 
