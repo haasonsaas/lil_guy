@@ -158,6 +158,7 @@ const (
 	stateBranchManager
 	stateCreateCheckpoint
 	statePersonalitySelector
+	stateRetroThemeSelector
 )
 
 // model represents the application's state.
@@ -229,6 +230,11 @@ type model struct {
 	// Personality
 	currentPersonality  *Personality // Current buddy personality
 	selectedPersonality int          // Selected personality in selector
+	
+	// Retro themes
+	currentRetroTheme   *RetroTheme // Current retro theme
+	selectedRetroTheme  int         // Selected retro theme in selector
+	retroEffectsEnabled bool        // Whether to apply retro visual effects
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -856,6 +862,17 @@ func initialModel(client *ai.UnifiedClient) model {
 	if currentPersonality != nil {
 		buddyName = ApplyPersonalityToBuddyName(currentPersonality, buddyName)
 	}
+	
+	// Set retro theme
+	var currentRetroTheme *RetroTheme
+	retroEffectsEnabled := false
+	if prefs.RetroTheme != "" {
+		currentRetroTheme = GetRetroTheme(prefs.RetroTheme)
+		if currentRetroTheme != nil {
+			currentTheme = currentRetroTheme.BaseTheme
+			retroEffectsEnabled = true
+		}
+	}
 
 	initialState, onboardingStep := determineInitialState(prefs)
 	systemMessage := createSystemMessage(prefs, buddyName, currentPersonality)
@@ -890,6 +907,9 @@ func initialModel(client *ai.UnifiedClient) model {
 		editingMessageIndex: -1, // -1 means not editing
 		currentPersonality: currentPersonality,
 		selectedPersonality: 0,
+		currentRetroTheme: currentRetroTheme,
+		selectedRetroTheme: 0,
+		retroEffectsEnabled: retroEffectsEnabled,
 	}
 }
 
@@ -1213,6 +1233,46 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			}
 		}
 
+	case stateRetroThemeSelector:
+		switch msg := msg.(type) {
+		case tea.KeyMsg:
+			switch msg.String() {
+			case "ctrl+c", "q", "esc":
+				m.appState = stateChatting
+				m.statusMessage = "Back to chat"
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "up", "k":
+				if m.selectedRetroTheme > 0 {
+					m.selectedRetroTheme--
+				}
+			case "down", "j":
+				if m.selectedRetroTheme < len(retroThemes)-1 {
+					m.selectedRetroTheme++
+				}
+			case "enter":
+				if m.selectedRetroTheme < len(retroThemes) {
+					// Apply the selected retro theme
+					selectedTheme := &retroThemes[m.selectedRetroTheme]
+					m.currentRetroTheme = selectedTheme
+					m.currentTheme = selectedTheme.BaseTheme
+					m.retroEffectsEnabled = true
+					
+					// Update spinner with new theme
+					m.spinner.Style = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Spinner))
+					
+					// Save preference
+					if m.preferences != nil {
+						m.preferences.RetroTheme = selectedTheme.ID
+						config.SavePreferences(m.preferences)
+					}
+					
+					m.appState = stateChatting
+					m.statusMessage = fmt.Sprintf("Retro theme applied: %s", selectedTheme.Name)
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
+			}
+		}
+
 	case stateChatting:
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
@@ -1405,6 +1465,12 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "ctrl+d":
 				// Cycle theme
 				m.cycleTheme()
+				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+g":
+				// Open retro theme selector
+				m.appState = stateRetroThemeSelector
+				m.selectedRetroTheme = 0
+				m.statusMessage = "Retro theme selector - Use arrows to navigate, Enter to apply, Esc to return"
 				cmds = append(cmds, clearStatusAfterDelay())
 			case "ctrl+r":
 				// Regenerate last response
@@ -1835,6 +1901,38 @@ func (m model) View() string {
 		
 		return s
 
+	case stateRetroThemeSelector:
+		s := lipgloss.NewStyle().Bold(true).Render("🖥️  Retro Terminal Themes") + "\n\n"
+		
+		for i, theme := range retroThemes {
+			style := lipgloss.NewStyle()
+			if i == m.selectedRetroTheme {
+				style = style.Background(lipgloss.Color(m.currentTheme.Background)).Foreground(lipgloss.Color(m.currentTheme.Highlight))
+			}
+			
+			name := lipgloss.NewStyle().Bold(true).Render(theme.Name)
+			description := lipgloss.NewStyle().Faint(true).Render(theme.Description)
+			
+			// Show current selection
+			currentMarker := "  "
+			if m.currentRetroTheme != nil && m.currentRetroTheme.ID == theme.ID {
+				currentMarker = "→ "
+			}
+			
+			s += style.Render(fmt.Sprintf("%s%s", currentMarker, name)) + "\n"
+			s += style.Render(fmt.Sprintf("    %s", description)) + "\n\n"
+		}
+		
+		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8")).Italic(true)
+		s += helpStyle.Render("↑↓: Navigate | Enter: Apply Theme | Esc: Back") + "\n"
+		
+		if m.statusMessage != "" {
+			statusStyle := lipgloss.NewStyle().Foreground(lipgloss.Color("8"))
+			s += "\n" + statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage))
+		}
+		
+		return s
+
 	case stateChatting:
 		m.updateViewportContent()
 		s := m.viewport.View() + "\n"
@@ -1866,8 +1964,8 @@ func (m model) View() string {
 		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Italic(true)
 		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom | Ctrl+R: Regenerate | Alt+E: Edit") + "\n"
 		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy") + "\n"
-		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+O: Personality | Ctrl+F: Search | Ctrl+D: Theme") + "\n"
-		s += helpStyle.Render("Ctrl+K: Checkpoint | Ctrl+H: Branches | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
+		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+O: Personality | Ctrl+F: Search") + "\n"
+		s += helpStyle.Render("Ctrl+D: Theme | Ctrl+G: Retro | Ctrl+K: Checkpoint | Ctrl+H: Branches | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
 
 		// Add input line with token counter
 		inputLabel := "Your message: "

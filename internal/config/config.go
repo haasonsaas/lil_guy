@@ -20,6 +20,7 @@ type Preferences struct {
 	Theme         string `json:"theme"`
 	AutoSave      bool   `json:"auto_save"`
 	Personality   string `json:"personality"`
+	RetroTheme    string `json:"retro_theme"`
 }
 
 // GetPreferencesFilePath returns the absolute path to the preferences file.
