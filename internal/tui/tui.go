@@ -885,6 +885,18 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			switch msg.String() {
 			case "ctrl+c", "q":
 				return m, tea.Quit
+			case "pgup":
+				m.viewport.LineUp(10)
+			case "pgdown":
+				m.viewport.LineDown(10)
+			case "up", "k":
+				m.viewport.LineUp(1)
+			case "down", "j":
+				m.viewport.LineDown(1)
+			case "home":
+				m.viewport.GotoTop()
+			case "end":
+				m.viewport.GotoBottom()
 			case "ctrl+l":
 				m.clearConversation()
 				m.statusMessage = "Conversation cleared"
@@ -1015,6 +1027,11 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		case clearStatusMsg:
 			m.statusMessage = ""
 		default:
+			// Update viewport for scrolling
+			m.viewport, cmd = m.viewport.Update(msg)
+			cmds = append(cmds, cmd)
+			
+			// Update text input
 			m.textInput, cmd = m.textInput.Update(msg)
 			cmds = append(cmds, cmd)
 		}
@@ -1166,8 +1183,9 @@ func (m model) View() string {
 			s += statusStyle.Render(fmt.Sprintf("Status: %s", m.statusMessage)) + "\n"
 		}
 
-		// Add keyboard shortcuts help (split into two lines for readability)
+		// Add keyboard shortcuts help (split into three lines for readability)
 		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Italic(true)
+		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom") + "\n"
 		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy") + "\n"
 		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+F: Search | Ctrl+D: Theme | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
 
