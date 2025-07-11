@@ -19,7 +19,6 @@ import (
 	tea "github.com/charmbracelet/bubbletea"
 	"github.com/charmbracelet/lipgloss"
 	"github.com/charmbracelet/x/term"
-	openai "github.com/sashabaranov/go-openai"
 
 	"lil_guy/internal/ai"
 	"lil_guy/internal/chat"
@@ -214,10 +213,10 @@ type model struct {
 func (m model) formatChatMessage(msg ai.UnifiedMessage, width int) string {
 	var label, content string
 
-	if msg.Role == openai.ChatMessageRoleUser {
+	if msg.Role == "user" {
 		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.UserMessage)).Bold(true).Render("You: ")
 		content = msg.Content
-	} else if msg.Role == openai.ChatMessageRoleAssistant {
+	} else if msg.Role == "assistant" {
 		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Bold(true).Render(m.buddyName + ": ")
 		content = highlightCode(msg.Content, m.isDarkTheme())
 	}
@@ -236,10 +235,10 @@ func (m model) formatChatMessageWithTimestamp(msg chat.ChatMessage, width int) s
 	var label, content string
 	timeStr := msg.Timestamp.Format("15:04")
 
-	if msg.Role == openai.ChatMessageRoleUser {
+	if msg.Role == "user" {
 		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.UserMessage)).Bold(true).Render("You: ")
 		content = msg.Content
-	} else if msg.Role == openai.ChatMessageRoleAssistant {
+	} else if msg.Role == "assistant" {
 		label = lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.AssistantMessage)).Bold(true).Render(m.buddyName + ": ")
 		content = highlightCode(msg.Content, m.isDarkTheme())
 	}
@@ -265,13 +264,13 @@ func (m model) buildChatContent() string {
 	// Use chatMessages if we have them (with timestamps), otherwise fall back to OpenAI messages
 	if len(m.chatMessages) > 0 {
 		for _, msg := range m.chatMessages {
-			if msg.Role != openai.ChatMessageRoleSystem {
+			if msg.Role != "system" {
 				chatContent += m.formatChatMessageWithTimestamp(msg, width-4) // Account for padding
 			}
 		}
 	} else {
 		for _, msg := range m.messages {
-			if msg.Role != openai.ChatMessageRoleSystem {
+			if msg.Role != "system" {
 				chatContent += m.formatChatMessage(msg, width-4) // Account for padding
 			}
 		}
@@ -328,7 +327,7 @@ func determineInitialState(prefs *config.Preferences) (appState, int) {
 // clearConversation clears all messages except the system message.
 func (m *model) clearConversation() {
 	systemMsg := m.messages[0] // Keep the system message
-	m.messages = []openai.ChatCompletionMessage{systemMsg}
+	m.messages = []ai.UnifiedMessage{systemMsg}
 	m.chatMessages = []chat.ChatMessage{} // Clear chat history
 	m.updateViewportContent()
 	m.statusMessage = "Conversation cleared"
@@ -363,7 +362,7 @@ func copyToClipboard(text string) error {
 // getLastAssistantMessage returns the last message from the assistant.
 func (m *model) getLastAssistantMessage() string {
 	for i := len(m.chatMessages) - 1; i >= 0; i-- {
-		if m.chatMessages[i].Role == openai.ChatMessageRoleAssistant {
+		if m.chatMessages[i].Role == "assistant" {
 			return m.chatMessages[i].Content
 		}
 	}
@@ -382,14 +381,14 @@ func (m *model) loadChatHistory(filename string) error {
 	m.buddyName = history.BuddyName
 	m.currentModel = history.Model
 
-	// Convert to OpenAI messages format
-	m.messages = []openai.ChatCompletionMessage{
-		{Role: openai.ChatMessageRoleSystem, Content: createSystemMessage(m.preferences, m.buddyName)},
+	// Convert to unified messages format
+	m.messages = []ai.UnifiedMessage{
+		{Role: "system", Content: createSystemMessage(m.preferences, m.buddyName)},
 	}
 
 	for _, msg := range history.Messages {
-		if msg.Role != openai.ChatMessageRoleSystem {
-			m.messages = append(m.messages, openai.ChatCompletionMessage{
+		if msg.Role != "system" {
+			m.messages = append(m.messages, ai.UnifiedMessage{
 				Role:    msg.Role,
 				Content: msg.Content,
 			})
@@ -426,8 +425,8 @@ func (m *model) applyTemplate(template SystemPromptTemplate) {
 
 	// Clear current conversation and apply new system message
 	systemMessage := fmt.Sprintf("%s named %s.", template.Prompt, template.BuddyName)
-	m.messages = []openai.ChatCompletionMessage{
-		{Role: openai.ChatMessageRoleSystem, Content: systemMessage},
+	m.messages = []ai.UnifiedMessage{
+		{Role: "system", Content: systemMessage},
 	}
 	m.chatMessages = []chat.ChatMessage{}
 
@@ -457,7 +456,7 @@ func searchChats(query string) ([]chat.ChatMessage, error) {
 
 		// Search through messages in this chat
 		for _, msg := range history.Messages {
-			if msg.Role != openai.ChatMessageRoleSystem {
+			if msg.Role != "system" {
 				if strings.Contains(strings.ToLower(msg.Content), queryLower) {
 					results = append(results, msg)
 				}
@@ -1083,9 +1082,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				// Regenerate last response
 				if m.lastUserMessage != "" && !m.isThinking {
 					// Remove the last assistant message if there is one
-					if len(m.messages) > 0 && m.messages[len(m.messages)-1].Role == openai.ChatMessageRoleAssistant {
+					if len(m.messages) > 0 && m.messages[len(m.messages)-1].Role == "assistant" {
 						m.messages = m.messages[:len(m.messages)-1]
-						if len(m.chatMessages) > 0 && m.chatMessages[len(m.chatMessages)-1].Role == openai.ChatMessageRoleAssistant {
+						if len(m.chatMessages) > 0 && m.chatMessages[len(m.chatMessages)-1].Role == "assistant" {
 							m.chatMessages = m.chatMessages[:len(m.chatMessages)-1]
 						}
 					}
@@ -1194,7 +1193,7 @@ Ctrl+C/Q - Quit`
 				// Update the last message with more content
 				if len(m.chatMessages) > 0 {
 					m.chatMessages[len(m.chatMessages)-1].Content = m.typingContent[:endIndex]
-					if len(m.messages) > 0 && m.messages[len(m.messages)-1].Role == openai.ChatMessageRoleAssistant {
+					if len(m.messages) > 0 && m.messages[len(m.messages)-1].Role == "assistant" {
 						m.messages[len(m.messages)-1].Content = m.typingContent[:endIndex]
 					}
 				}
@@ -1337,7 +1336,7 @@ func (m model) View() string {
 
 				roleStyle := lipgloss.NewStyle().Bold(true)
 				var role string
-				if result.Role == openai.ChatMessageRoleUser {
+				if result.Role == "user" {
 					role = "You"
 				} else {
 					role = "AI"
