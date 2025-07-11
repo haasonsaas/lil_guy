@@ -339,7 +339,10 @@
     "NOFILE",
     "backpressure",
     "Backpressure",
-    "yourusername"
+    "yourusername",
+    "setopt",
+    "Ghostty",
+    "parsable"
   ],
   "ignorePaths": [
     "node_modules/**",
