@@ -342,7 +342,11 @@
     "yourusername",
     "setopt",
     "Ghostty",
-    "parsable"
+    "parsable",
+    "Automatable",
+    "parseable",
+    "automatable",
+    "iostat"
   ],
   "ignorePaths": [
     "node_modules/**",
