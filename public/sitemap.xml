@@ -595,6 +595,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://haasonsaas.com/blog/the-cli-renaissance-how-ai-is-driving-the-command-line-revolution</loc>
+    <lastmod>2025-07-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://haasonsaas.com/blog/the-day-after</loc>
     <lastmod>2025-04-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -950,6 +956,12 @@
   </url>
   <url>
     <loc>https://haasonsaas.com/tags/claude</loc>
+    <lastmod>2025-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://haasonsaas.com/tags/cli</loc>
     <lastmod>2025-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

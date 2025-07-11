@@ -14,6 +14,22 @@
   <rights>Copyright © 2025 Jonathan Haas</rights>
   
   <entry>
+    <title><![CDATA[The CLI Renaissance: How AI is Driving the Command Line Revolution]]></title>
+    <link href="https://www.haasonsaas.com/blog/the-cli-renaissance-how-ai-is-driving-the-command-line-revolution" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/the-cli-renaissance-how-ai-is-driving-the-command-line-revolution</id>
+    <published>2025-07-11T00:00:00.000Z</published>
+    <updated>2025-07-11T00:00:00.000Z</updated>
+    <summary><![CDATA[Why developers are abandoning GUIs for terminal-based workflows, and how AI coding assistants are accelerating this shift back to the command line]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="cli" />
+    <category term="developer-experience" />
+    <category term="ai" />
+    <category term="productivity" />
+  </entry>
+  <entry>
     <title><![CDATA[Building a Developer Environment That Actually Works: My Dotfiles Journey]]></title>
     <link href="https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey</id>
@@ -821,21 +837,5 @@
     <category term="metrics" />
     <category term="unit-economics" />
     <category term="growth" />
-  </entry>
-  <entry>
-    <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
-    <link href="https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</id>
-    <published>2025-06-19T00:00:00.000Z</published>
-    <updated>2025-06-19T00:00:00.000Z</updated>
-    <summary><![CDATA[A single dollar can make the difference between a thriving SaaS business and one that struggles to grow.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="pricing" />
-    <category term="psychology" />
-    <category term="saas" />
-    <category term="conversion" />
   </entry>
 </feed>

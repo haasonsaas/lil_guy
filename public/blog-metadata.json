@@ -340,6 +340,19 @@
     "featured": false,
     "draft": false
   },
+  "the-cli-renaissance-how-ai-is-driving-the-command-line-revolution": {
+    "title": "The CLI Renaissance: How AI is Driving the Command Line Revolution",
+    "description": "Why developers are abandoning GUIs for terminal-based workflows, and how AI coding assistants are accelerating this shift back to the command line",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-11",
+    "tags": ["cli", "developer-experience", "ai", "productivity"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 899
+    },
+    "featured": false,
+    "draft": false
+  },
   "why-your-a-b-tests-are-lying-to-you": {
     "title": "Why Your A/B Tests Are Lying to You",
     "description": "95% of product teams are making decisions based on A/B test results that are statistically meaningless.",

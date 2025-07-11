@@ -20,6 +20,17 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
+      <title><![CDATA[The CLI Renaissance: How AI is Driving the Command Line Revolution]]></title>
+      <description><![CDATA[Why developers are abandoning GUIs for terminal-based workflows, and how AI coding assistants are accelerating this shift back to the command line]]></description>
+      <link>https://www.haasonsaas.com/blog/the-cli-renaissance-how-ai-is-driving-the-command-line-revolution</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-cli-renaissance-how-ai-is-driving-the-command-line-revolution</guid>
+      <pubDate>Fri, 11 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[cli]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[productivity]]></category>
+    </item>
+    <item>
       <title><![CDATA[Building a Developer Environment That Actually Works: My Dotfiles Journey]]></title>
       <description><![CDATA[A deep dive into creating a productive, AI-enhanced development environment with dotfiles that streamline workflows and boost productivity]]></description>
       <link>https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey</link>
@@ -582,17 +593,6 @@
       <category><![CDATA[metrics]]></category>
       <category><![CDATA[unit-economics]]></category>
       <category><![CDATA[growth]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
-      <description><![CDATA[A single dollar can make the difference between a thriving SaaS business and one that struggles to grow.]]></description>
-      <link>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[pricing]]></category>
-      <category><![CDATA[psychology]]></category>
-      <category><![CDATA[saas]]></category>
-      <category><![CDATA[conversion]]></category>
     </item>
   </channel>
 </rss>
