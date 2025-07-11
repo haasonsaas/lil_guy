@@ -105,12 +105,21 @@ var themes = map[string]Theme{
 	},
 }
 
-// Available models
-var availableModels = []string{
-	"gpt-4o",
-	"gpt-4o-mini",
-	"gpt-4",
-	"gpt-3.5-turbo",
+// getAvailableModels returns models based on what's configured
+func getAvailableModels(client *ai.UnifiedClient) []string {
+	if client != nil {
+		return client.GetAvailableModels()
+	}
+	// Fallback list
+	return []string{
+		"gpt-4o",
+		"gpt-4o-mini", 
+		"gpt-4",
+		"gpt-3.5-turbo",
+		"claude-3-5-sonnet-20241022",
+		"claude-3-5-haiku-20241022",
+		"claude-3-opus-20240229",
+	}
 }
 
 // SystemPromptTemplate represents a pre-built system prompt.
@@ -150,8 +159,8 @@ const (
 
 // model represents the application's state.
 type model struct {
-	client         *openai.Client
-	messages       []openai.ChatCompletionMessage
+	client         *ai.UnifiedClient
+	messages       []ai.UnifiedMessage
 	chatMessages   []chat.ChatMessage // Our enhanced message format
 	textInput      textinput.Model
 	error          error
@@ -202,7 +211,7 @@ type model struct {
 }
 
 // formatChatMessage formats a single chat message with proper styling.
-func (m model) formatChatMessage(msg openai.ChatCompletionMessage, width int) string {
+func (m model) formatChatMessage(msg ai.UnifiedMessage, width int) string {
 	var label, content string
 
 	if msg.Role == openai.ChatMessageRoleUser {
@@ -663,10 +672,10 @@ func (m *model) saveCurrentChat() error {
 	return err
 }
 
-// addChatMessage adds a message to both the OpenAI messages and our chat history.
+// addChatMessage adds a message to both the unified messages and our chat history.
 func (m *model) addChatMessage(role, content string) {
-	// Add to OpenAI messages
-	m.messages = append(m.messages, openai.ChatCompletionMessage{
+	// Add to unified messages
+	m.messages = append(m.messages, ai.UnifiedMessage{
 		Role:    role,
 		Content: content,
 	})
@@ -702,7 +711,7 @@ func createSystemMessage(prefs *config.Preferences, buddyName string) string {
 }
 
 // initialModel returns an initialized model.
-func initialModel(client *openai.Client) model {
+func initialModel(client *ai.UnifiedClient) model {
 	prefs, err := config.LoadPreferences()
 	if err != nil {
 		fmt.Printf("Error loading preferences: %v\n", err)
@@ -732,8 +741,8 @@ func initialModel(client *openai.Client) model {
 
 	return model{
 		client: client,
-		messages: []openai.ChatCompletionMessage{
-			{Role: openai.ChatMessageRoleSystem, Content: systemMessage},
+		messages: []ai.UnifiedMessage{
+			{Role: "system", Content: systemMessage},
 		},
 		chatMessages:   []chat.ChatMessage{}, // Initialize empty chat history
 		textInput:      createTextInput(),
@@ -985,6 +994,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				cmds = append(cmds, clearStatusAfterDelay())
 			case "ctrl+m":
 				// Cycle through available models
+				availableModels := getAvailableModels(m.client)
 				currentIndex := 0
 				for i, model := range availableModels {
 					if model == m.currentModel {
@@ -1084,7 +1094,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.isThinking = true
 					m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
 					m.statusMessage = "Regenerating response..."
-					cmds = append(cmds, sendToOpenAI(m, m.lastUserMessage), m.spinner.Tick)
+					cmds = append(cmds, sendToAI(m, m.lastUserMessage), m.spinner.Tick)
 					cmds = append(cmds, clearStatusAfterDelay())
 				}
 			case "enter":
@@ -1121,7 +1131,7 @@ Ctrl+F - Search chat history
 Ctrl+D - Change theme
 Ctrl+A - Toggle auto-save
 Ctrl+C/Q - Quit`
-						m.addChatMessage(openai.ChatMessageRoleSystem, helpText)
+						m.addChatMessage("system", helpText)
 						m.textInput.Reset()
 						m.updateViewportContent()
 						return m, tea.Batch(cmds...)
@@ -1132,11 +1142,11 @@ Ctrl+C/Q - Quit`
 						m.historyIndex = len(m.messageHistory) // Reset history navigation
 						m.lastUserMessage = value // Save for potential regeneration
 						
-						m.addChatMessage(openai.ChatMessageRoleUser, value)
+						m.addChatMessage("user", value)
 						m.isThinking = true
 						// Select a random loading message
 						m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
-						cmds = append(cmds, sendToOpenAI(m, value), m.spinner.Tick)
+						cmds = append(cmds, sendToAI(m, value), m.spinner.Tick)
 						m.textInput.Reset()
 					}
 				}
@@ -1155,7 +1165,7 @@ Ctrl+C/Q - Quit`
 			m.typingIndex = 0
 			
 			// Add empty message that will be filled by typing
-			m.addChatMessage(openai.ChatMessageRoleAssistant, "")
+			m.addChatMessage("assistant", "")
 			
 			// Track tokens
 			m.updateTokenUsage(msg.PromptTokens, msg.CompletionTokens)
@@ -1475,24 +1485,29 @@ func wrapText(text string, width int) string {
 }
 
 // sendToOpenAI sends a prompt to OpenAI and tracks token usage.
-func sendToOpenAI(m model, prompt string) tea.Cmd {
+func sendToAI(m model, prompt string) tea.Cmd {
 	return func() tea.Msg {
-		response, err := ai.SendToOpenAI(m.client, m.currentModel, m.messages)
+		// Extract system prompt from messages
+		systemPrompt := ""
+		var conversationMessages []ai.UnifiedMessage
+		for _, msg := range m.messages {
+			if msg.Role == "system" {
+				systemPrompt = msg.Content
+			} else {
+				conversationMessages = append(conversationMessages, msg)
+			}
+		}
+		
+		response, err := m.client.SendMessage(m.currentModel, conversationMessages, systemPrompt)
 		if err != nil {
 			return errMsg(fmt.Errorf("failed to create chat completion: %w", err))
 		}
 
-		if len(response.Choices) == 0 {
-			return errMsg(fmt.Errorf("no response choices received"))
-		}
-
-		content := response.Choices[0].Message.Content
-
 		// Create tokenized response with usage data
 		tokenResponse := tokenizedResponseMsg{
-			Content:          content,
-			PromptTokens:     response.Usage.PromptTokens,
-			CompletionTokens: response.Usage.CompletionTokens,
+			Content:          response.Content,
+			PromptTokens:     response.PromptTokens,
+			CompletionTokens: response.CompletionTokens,
 		}
 
 		return tokenResponse
@@ -1500,7 +1515,7 @@ func sendToOpenAI(m model, prompt string) tea.Cmd {
 }
 
 // Start begins the TUI application.
-func Start(client *openai.Client) {
+func Start(client *ai.UnifiedClient) {
 	p := tea.NewProgram(initialModel(client))
 	if _, err := p.Run(); err != nil {
 		fmt.Printf("Alas, there's been an error: %v\n", err)
