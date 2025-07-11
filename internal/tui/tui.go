@@ -1096,7 +1096,7 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					cmds = append(cmds, sendToAI(m, m.lastUserMessage), m.spinner.Tick)
 					cmds = append(cmds, clearStatusAfterDelay())
 				}
-			case "enter":
+			case "enter", "shift+enter":
 				value := m.textInput.Value()
 				if value != "" {
 					// Check for commands
@@ -1150,6 +1150,15 @@ Ctrl+C/Q - Quit`
 					}
 				}
 			default:
+				// Filter out unhandled escape sequences
+				keyStr := msg.String()
+				if strings.Contains(keyStr, "[27;") || strings.Contains(keyStr, "~") {
+					// Skip these escape sequences - show a helpful message
+					m.statusMessage = fmt.Sprintf("Ignored escape sequence: %s", keyStr)
+					cmds = append(cmds, clearStatusAfterDelay())
+					break
+				}
+				
 				m.textInput, cmd = m.textInput.Update(msg)
 				cmds = append(cmds, cmd)
 			}
