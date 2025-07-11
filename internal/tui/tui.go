@@ -1375,9 +1375,9 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.statusMessage = fmt.Sprintf("Auto-save %s", status)
 					cmds = append(cmds, clearStatusAfterDelay())
 				}
-			case "e":
-				// Edit mode - only if input is empty and we have messages
-				if m.textInput.Value() == "" && len(m.chatMessages) > 0 {
+			case "alt+e":
+				// Edit mode - Alt+E won't interfere with normal typing
+				if len(m.chatMessages) > 0 {
 					m.appState = stateEditMessage
 					m.selectedMessage = len(m.chatMessages) - 1 // Start at last message
 					m.statusMessage = "Edit mode: ↑/↓ to select, Enter to edit, Esc to cancel"
@@ -1864,7 +1864,7 @@ func (m model) View() string {
 
 		// Add keyboard shortcuts help (split into four lines for readability)
 		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Italic(true)
-		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom | Ctrl+R: Regenerate | E: Edit") + "\n"
+		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom | Ctrl+R: Regenerate | Alt+E: Edit") + "\n"
 		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy") + "\n"
 		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+O: Personality | Ctrl+F: Search | Ctrl+D: Theme") + "\n"
 		s += helpStyle.Render("Ctrl+K: Checkpoint | Ctrl+H: Branches | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
