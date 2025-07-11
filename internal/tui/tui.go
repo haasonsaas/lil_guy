@@ -188,6 +188,9 @@ type model struct {
 	messageHistory      []string // Previous user messages
 	historyIndex        int      // Current position in message history
 	tempInput          string   // Temporary storage when navigating history
+	
+	// Last user message for regeneration
+	lastUserMessage    string // Store last user message for Ctrl+R
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -1029,12 +1032,31 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				// Cycle theme
 				m.cycleTheme()
 				cmds = append(cmds, clearStatusAfterDelay())
+			case "ctrl+r":
+				// Regenerate last response
+				if m.lastUserMessage != "" && !m.isThinking {
+					// Remove the last assistant message if there is one
+					if len(m.messages) > 0 && m.messages[len(m.messages)-1].Role == openai.ChatMessageRoleAssistant {
+						m.messages = m.messages[:len(m.messages)-1]
+						if len(m.chatMessages) > 0 && m.chatMessages[len(m.chatMessages)-1].Role == openai.ChatMessageRoleAssistant {
+							m.chatMessages = m.chatMessages[:len(m.chatMessages)-1]
+						}
+					}
+					
+					// Resend the last user message
+					m.isThinking = true
+					m.loadingMessage = loadingMessages[time.Now().UnixNano()%int64(len(loadingMessages))]
+					m.statusMessage = "Regenerating response..."
+					cmds = append(cmds, sendToOpenAI(m, m.lastUserMessage), m.spinner.Tick)
+					cmds = append(cmds, clearStatusAfterDelay())
+				}
 			case "enter":
 				value := m.textInput.Value()
 				if value != "" {
 					// Add to message history
 					m.messageHistory = append(m.messageHistory, value)
 					m.historyIndex = len(m.messageHistory) // Reset history navigation
+					m.lastUserMessage = value // Save for potential regeneration
 					
 					m.addChatMessage(openai.ChatMessageRoleUser, value)
 					m.isThinking = true
@@ -1232,7 +1254,7 @@ func (m model) View() string {
 
 		// Add keyboard shortcuts help (split into three lines for readability)
 		helpStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.Status)).Italic(true)
-		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom") + "\n"
+		s += helpStyle.Render("↑/↓/PgUp/PgDn: Scroll | Home/End: Top/Bottom | Ctrl+R: Regenerate") + "\n"
 		s += helpStyle.Render("Ctrl+L: Clear | Ctrl+M: Model | Ctrl+S: Save | Ctrl+E: Export | Ctrl+T: Tokens | Ctrl+Y: Copy") + "\n"
 		s += helpStyle.Render("Ctrl+B: Browse | Ctrl+P: Templates | Ctrl+F: Search | Ctrl+D: Theme | Ctrl+A: Auto-save | Ctrl+C: Quit") + "\n"
 
