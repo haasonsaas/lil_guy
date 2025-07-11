@@ -183,6 +183,11 @@ type model struct {
 
 	// Loading state
 	loadingMessage string // Current loading message
+	
+	// Message history for input
+	messageHistory      []string // Previous user messages
+	historyIndex        int      // Current position in message history
+	tempInput          string   // Temporary storage when navigating history
 }
 
 // formatChatMessage formats a single chat message with proper styling.
@@ -731,6 +736,9 @@ func initialModel(client *openai.Client) model {
 		selectedResult: 0,
 		currentTheme:   currentTheme,
 		loadingMessage: "Thinking...", // Default loading message
+		messageHistory: []string{},
+		historyIndex:   0,
+		tempInput:      "",
 	}
 }
 
@@ -889,9 +897,44 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 				m.viewport.LineUp(10)
 			case "pgdown":
 				m.viewport.LineDown(10)
-			case "up", "k":
+			case "up":
+				// If input is empty, navigate message history
+				if m.textInput.Value() == "" && len(m.messageHistory) > 0 {
+					// Save current input if we're just starting to navigate
+					if m.historyIndex == len(m.messageHistory) {
+						m.tempInput = m.textInput.Value()
+					}
+					
+					// Move up in history
+					if m.historyIndex > 0 {
+						m.historyIndex--
+						m.textInput.SetValue(m.messageHistory[m.historyIndex])
+						m.textInput.CursorEnd()
+					}
+				} else {
+					// Normal viewport scrolling
+					m.viewport.LineUp(1)
+				}
+			case "k":
+				// Vim-style scrolling only
 				m.viewport.LineUp(1)
-			case "down", "j":
+			case "down":
+				// If we're navigating history, move down
+				if m.historyIndex < len(m.messageHistory) {
+					m.historyIndex++
+					if m.historyIndex == len(m.messageHistory) {
+						// Restore the temporary input
+						m.textInput.SetValue(m.tempInput)
+					} else {
+						m.textInput.SetValue(m.messageHistory[m.historyIndex])
+					}
+					m.textInput.CursorEnd()
+				} else {
+					// Normal viewport scrolling
+					m.viewport.LineDown(1)
+				}
+			case "j":
+				// Vim-style scrolling only
 				m.viewport.LineDown(1)
 			case "home":
 				m.viewport.GotoTop()
@@ -989,6 +1032,10 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 			case "enter":
 				value := m.textInput.Value()
 				if value != "" {
+					// Add to message history
+					m.messageHistory = append(m.messageHistory, value)
+					m.historyIndex = len(m.messageHistory) // Reset history navigation
+					
 					m.addChatMessage(openai.ChatMessageRoleUser, value)
 					m.isThinking = true
 					// Select a random loading message
