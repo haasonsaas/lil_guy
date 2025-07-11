@@ -31,7 +31,7 @@ const (
 	defaultBuddyName     = "AI"
 	defaultSystemMessage = "You are a helpful AI assistant."
 	defaultModel         = "gpt-4o"
-	textInputCharLimit   = 256
+	textInputCharLimit   = 2000 // Increased for longer messages
 	textInputWidth       = 80
 	textInputPrompt      = "> "
 	viewportHeightOffset = 6 // Height offset for input and status lines
@@ -909,8 +909,17 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		switch msg := msg.(type) {
 		case tea.KeyMsg:
 			switch msg.String() {
-			case "ctrl+c", "q":
+			case "ctrl+c":
 				return m, tea.Quit
+			case "q":
+				// Only quit if input is empty
+				if m.textInput.Value() == "" {
+					return m, tea.Quit
+				} else {
+					// Pass through to text input
+					m.textInput, cmd = m.textInput.Update(msg)
+					cmds = append(cmds, cmd)
+				}
 			case "pgup":
 				m.viewport.LineUp(10)
 			case "pgdown":
@@ -934,8 +943,14 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.viewport.LineUp(1)
 				}
 			case "k":
-				// Vim-style scrolling only
-				m.viewport.LineUp(1)
+				// Only use for scrolling if input is empty
+				if m.textInput.Value() == "" {
+					m.viewport.LineUp(1)
+				} else {
+					// Pass through to text input
+					m.textInput, cmd = m.textInput.Update(msg)
+					cmds = append(cmds, cmd)
+				}
 			case "down":
 				// If we're navigating history, move down
 				if m.historyIndex < len(m.messageHistory) {
@@ -952,8 +967,14 @@ func (m model) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 					m.viewport.LineDown(1)
 				}
 			case "j":
-				// Vim-style scrolling only
-				m.viewport.LineDown(1)
+				// Only use for scrolling if input is empty
+				if m.textInput.Value() == "" {
+					m.viewport.LineDown(1)
+				} else {
+					// Pass through to text input
+					m.textInput, cmd = m.textInput.Update(msg)
+					cmds = append(cmds, cmd)
+				}
 			case "home":
 				m.viewport.GotoTop()
 			case "end":
@@ -1369,7 +1390,12 @@ func (m model) View() string {
 			inputLabel += tokenStyle.Render(fmt.Sprintf("[~%d tokens] ", tokenCount))
 		}
 		
-		s += "\n" + lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.InputLabel)).Render(inputLabel) + m.textInput.View()
+		// Create wrapped version of input for display
+		labelStyle := lipgloss.NewStyle().Foreground(lipgloss.Color(m.currentTheme.InputLabel))
+		s += "\n" + labelStyle.Render(inputLabel)
+		
+		// For now, just show the standard input (wrapping will be handled by terminal)
+		s += m.textInput.View()
 
 		if m.error != nil {
 			s += fmt.Sprintf("\nError: %v", m.error)
@@ -1412,6 +1438,40 @@ func estimateTokens(text string) int {
 	// Rough estimation: ~4 characters per token on average
 	// This is simplified but works reasonably well for English text
 	return len(text) / 4
+}
+
+// wrapText wraps text to fit within the specified width
+func wrapText(text string, width int) string {
+	if len(text) <= width {
+		return text
+	}
+	
+	var lines []string
+	for len(text) > 0 {
+		if len(text) <= width {
+			lines = append(lines, text)
+			break
+		}
+		
+		// Find a good break point (space)
+		breakPoint := width
+		for i := width; i > width*2/3; i-- {
+			if text[i-1] == ' ' {
+				breakPoint = i
+				break
+			}
+		}
+		
+		lines = append(lines, text[:breakPoint])
+		text = text[breakPoint:]
+		
+		// Skip leading space on next line
+		if len(text) > 0 && text[0] == ' ' {
+			text = text[1:]
+		}
+	}
+	
+	return strings.Join(lines, "\n")
 }
 
 // sendToOpenAI sends a prompt to OpenAI and tracks token usage.
