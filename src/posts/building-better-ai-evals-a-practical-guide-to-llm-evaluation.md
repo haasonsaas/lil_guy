@@ -1,10 +1,10 @@
 ---
 author: 'Jonathan Haas'
-pubDate: '2025-01-01'
+pubDate: '2025-07-12'
 title: 'Building Better AI Evals: A Practical Guide to LLM Evaluation'
 description: 'How to create custom evaluations, model-graded assessments, and domain-specific benchmarks that actually predict real-world performance'
 featured: false
-draft: true
+draft: false
 tags: ['ai-evaluation', 'benchmarking', 'llm', 'evals', 'openai-evals']
 ---
 
@@ -17,7 +17,6 @@ The difference between a useful eval and academic theater often comes down to on
 AI evaluation (evals) is about creating systematic tests to measure how well language models perform on specific tasks. Think of it like unit tests for model behavior—but instead of testing code, you're testing intelligence.
 
 Real evals consist of:
-
 
 - **Datasets**: Carefully curated input-output pairs
 - **Grading logic**: How you determine if a response is correct
@@ -32,7 +31,6 @@ This is different from monitoring production systems or testing API reliability.
 
 These are your bread and butter for straightforward tasks with clear right/wrong answers.
 
-
 **Match Eval**: Exact string matching
 
 ```python
@@ -43,7 +41,6 @@ test_case = {
 }
 # Passes if response starts with any expected answer
 ```
-
 
 **Includes Eval**: Substring matching
 
@@ -69,7 +66,6 @@ test_case = {
 ```
 
 ### 2. Model-Graded Evals
-
 
 When responses have significant variation, use the model to grade itself. This is where the real power lies.
 
@@ -163,7 +159,6 @@ prompt: |
 
 This consistently outperforms immediate classification by 15-20% in my testing.
 
-
 ## Building Evaluation Datasets
 
 The quality of your eval depends entirely on your dataset. Here's my process:
@@ -207,9 +202,7 @@ edge_cases = [
 
 ## Measuring What Matters
 
-
 Standard metrics often miss the point. Here's what I track:
-
 
 ### Beyond Accuracy
 
@@ -232,9 +225,7 @@ For security analysis:
 - **Cost**: Token usage per evaluation
 - **Maintenance**: How often do evals need updating?
 
-
 ## The Evaluation Development Cycle
-
 
 1. **Start Simple**: Begin with basic template evals
 2. **Identify Gaps**: Where do simple evals fail?
@@ -243,20 +234,17 @@ For security analysis:
 4. **Validate Results**: Compare model grades to human judgment on subset
 5. **Iterate**: Refine prompts and expand datasets
 
-
 ## Common Pitfalls to Avoid
 
 **Data Leakage**: Your eval dataset appeared in training data
 
 - Solution: Use post-training-cutoff examples or synthetic variations
 
-
 **Evaluation Prompt Contamination**: Your grading prompt is too similar to training examples
 
 - Solution: Test multiple prompt variations and choose the most reliable
 
 **Insufficient Sample Size**: Drawing conclusions from too few examples
-
 
 - Solution: Use statistical significance testing
 
@@ -287,7 +275,6 @@ results = evaluator.run(test_cases)
 
 After building dozens of evals, here's what correlates with production success:
 
-
 1. **Task-Specific Accuracy**: Generic benchmarks are useful, domain evals are essential
 2. **Edge Case Handling**: How gracefully does performance degrade?
 3. **Consistency**: Variance in outputs for similar inputs
@@ -296,7 +283,6 @@ After building dozens of evals, here's what correlates with production success:
 ## Building Your First Eval
 
 Start with this template:
-
 
 1. **Define the task clearly**: What exactly are you testing?
 2. **Collect 50-100 real examples**: Pull from actual usage
