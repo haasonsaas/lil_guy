@@ -19,11 +19,39 @@ bun run preview          # Preview production build
 
 ```bash
 bun run new-post "Title" [-d] [-D "desc"] [-t tag1] [-t tag2]  # Create new blog post
+bun run new-post-with-coach "Title" [-w]                       # Create post with AI writing coach
+bun run writing-coach post.md [-w]                             # AI analysis of your writing style
 bun run search "keyword" [-c] [-t] [--title] [-l N]            # Search blog content
 bun run publish "post title" [-c] [-p]                         # Convert draft to published
 bun run generate-blog-images                                   # Generate social media images for all posts
 bun run watch:images                                           # Watch for new posts and auto-generate images
 ```
+
+### AI Writing Coach
+
+The AI Writing Coach analyzes your blog posts for style consistency, clarity, and engagement:
+
+```bash
+# Analyze a specific post
+bun run writing-coach src/posts/my-post.md
+
+# Watch mode - get real-time feedback as you write
+bun run writing-coach -w src/posts/draft.md
+
+# Create new post with automatic coaching
+bun run new-post-with-coach "My New Post" -w
+```
+
+**Coach Features:**
+
+- **Style Consistency**: Matches your established voice and patterns
+- **Clarity Analysis**: Identifies complex sentences and suggests improvements
+- **Engagement Scoring**: Evaluates hook effectiveness and reader retention
+- **SEO Optimization**: Title and description analysis
+- **Technical Accuracy**: Flags potential factual issues
+- **Voice Matching**: Ensures consistency with your writing style
+- **Structural Analysis**: Checks flow and organization
+- **Prioritized Feedback**: High/medium/low priority improvements
 
 ### Quality Assurance & Linting
 
