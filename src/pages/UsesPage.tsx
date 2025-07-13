@@ -177,6 +177,50 @@ export default function UsesPage() {
 
                       <div>
                         <h3 className="font-medium text-lg mb-2">
+                          ASUS NUC 15 Pro Plus
+                        </h3>
+                        <p className="text-muted-foreground mb-2">
+                          Intel Core Ultra 9 285H Mini PC running Proxmox
+                        </p>
+                        <div className="space-y-2">
+                          <p className="text-sm">
+                            <span className="font-medium">CPU:</span> Intel Core
+                            Ultra 9 285H
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">Memory:</span> Crucial
+                            96GB DDR5-5600 SO-DIMM Kit (2x48GB)
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">Storage:</span>{' '}
+                            Western Digital Black SN850X 4TB NVMe SSD
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">Networking:</span>{' '}
+                            2.5GbE, Wi-Fi 7
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">OS:</span> Proxmox VE
+                            (virtualization platform)
+                          </p>
+                        </div>
+                        <p className="text-sm mt-2">
+                          Why I love it: This compact powerhouse serves as my
+                          home lab virtualization server. The Intel Core Ultra 9
+                          285H provides exceptional performance for running
+                          multiple VMs simultaneously, while the 96GB of RAM
+                          ensures smooth operation even with demanding
+                          workloads. The 4TB NVMe storage provides blazing-fast
+                          I/O for VMs, and the mini form factor means it fits
+                          perfectly in my rack without taking up much space.
+                          Running Proxmox gives me enterprise-grade
+                          virtualization features with a clean web interface for
+                          management.
+                        </p>
+                      </div>
+
+                      <div>
+                        <h3 className="font-medium text-lg mb-2">
                           Wooting 80HE
                         </h3>
                         <p className="text-muted-foreground mb-2">
