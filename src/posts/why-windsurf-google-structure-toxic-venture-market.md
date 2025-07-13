@@ -38,22 +38,6 @@ Everyone else—over two hundred common-stock holders, the customer-success team
 
 This isn't an outlier; it's a **blueprint**. And if we let it normalize, it will erode the very machinery that makes venture economics work.
 
----
-
-## Table of Contents
-
-1. [How We Got Here](#how-we-got-here)
-2. [It Shreds the Equity-for-Risk Social Contract](#it-shreds-the-equity-for-risk-social-contract)
-3. [A Blueprint for "Strip-Outs," Not Acquisitions](#a-blueprint-for-strip-outs-not-acquisitions)
-4. [Governance Protections? More Like Guidelines](#governance-protections-more-like-guidelines)
-5. [LP Alignment and the Fiduciary Fog](#lp-alignment-and-the-fiduciary-fog)
-6. [Talent Drain and Ecosystem Stagnation](#talent-drain-and-ecosystem-stagnation)
-7. [The Litigation and Regulatory Overhang](#the-litigation-and-regulatory-overhang)
-8. [What Founders, Boards, and Investors Must Do Now](#what-founders-boards-and-investors-must-do-now)
-9. [A Call to Protect the Upside Engine](#a-call-to-protect-the-upside-engine)
-
----
-
 ## How We Got Here
 
 ### The Triple Squeeze
