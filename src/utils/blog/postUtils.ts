@@ -2,6 +2,8 @@ import { BlogPost, BlogPostFrontmatter } from '@/types/blog'
 import { readFilePosts } from './fileLoader'
 import { generateOgImageUrl } from '../ogImageUtils'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 interface RawFrontmatter {
   postSlug?: string
   author?: string
@@ -213,16 +215,22 @@ export const getPostBySlug = async (
 ): Promise<BlogPost | undefined> => {
   try {
     // Dynamically import the specific post file
-    console.log(`📄 Loading blog post: ${slug}`)
+    if (isDevelopment) {
+      console.log(`📄 Loading blog post: ${slug}`)
+    }
     const moduleLoader = import(`../../posts/${slug}.md`)
     const moduleContent = await moduleLoader
-    console.log(`✅ Successfully loaded module for: ${slug}`)
+    if (isDevelopment) {
+      console.log(`✅ Successfully loaded module for: ${slug}`)
+    }
 
     const { frontmatter, content } = moduleContent.default
 
     // Check if it's a draft and we don't want drafts
     if (!includeDrafts && frontmatter.draft) {
-      console.log(`⏭️ Skipping draft post: ${slug}`)
+      if (isDevelopment) {
+        console.log(`⏭️ Skipping draft post: ${slug}`)
+      }
       return undefined
     }
 
@@ -232,10 +240,12 @@ export const getPostBySlug = async (
       frontmatter,
       content
     )
-    console.log(
-      `✨ Processed blog post: ${slug}`,
-      processedPost.frontmatter.title
-    )
+    if (isDevelopment) {
+      console.log(
+        `✨ Processed blog post: ${slug}`,
+        processedPost.frontmatter.title
+      )
+    }
     return processedPost
   } catch (error) {
     console.error(`❌ Error loading post ${slug}:`, error)

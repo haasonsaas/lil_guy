@@ -13,6 +13,8 @@ import { Badge } from '@/components/ui/badge'
 import { WebsiteMeta } from '@/components/SEO/MetaTags'
 import { Wifi, WifiOff, RefreshCw, BookOpen, Clock } from 'lucide-react'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 interface CacheStatus {
   totalCached: number
   blogPostsCached: number
@@ -55,7 +57,9 @@ export default function OfflinePage() {
           [messageChannel.port2]
         )
       } catch (error) {
-        console.log('Failed to get cache status:', error)
+        if (isDevelopment) {
+          console.log('Failed to get cache status:', error)
+        }
       }
     }
   }

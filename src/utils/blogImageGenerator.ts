@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import sharp from 'sharp'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 interface BlogImageConfig {
   width: number
   height: number
@@ -223,7 +225,9 @@ export async function generateBlogImages(
     const svg = generateBlogSVG(config)
     const buffer = Buffer.from(svg)
 
-    console.log(`Generating images for: ${config.text}`)
+    if (isDevelopment) {
+      console.log(`Generating images for: ${config.text}`)
+    }
 
     // Generate each format
     for (const format of formats) {
@@ -232,7 +236,9 @@ export async function generateBlogImages(
 
       // Skip if image already exists
       if (fs.existsSync(filePath)) {
-        console.log(`Image already exists, skipping: ${fileName}`)
+        if (isDevelopment) {
+          console.log(`Image already exists, skipping: ${fileName}`)
+        }
         continue
       }
 
@@ -256,7 +262,9 @@ export async function generateBlogImages(
         // Get file size for optimization feedback
         const stats = fs.statSync(filePath)
         const sizeKB = Math.round(stats.size / 1024)
-        console.log(`Generated: ${fileName} (${sizeKB}KB)`)
+        if (isDevelopment) {
+          console.log(`Generated: ${fileName} (${sizeKB}KB)`)
+        }
       } catch (error) {
         console.error(
           `Error generating ${format} image for ${config.text}:`,

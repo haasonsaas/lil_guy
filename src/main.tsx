@@ -2,6 +2,8 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 // Render app immediately for fast initial load
 createRoot(document.getElementById('root')!).render(<App />)
 
@@ -17,7 +19,9 @@ const initializeServices = () => {
           scope: '/',
         })
         .then((registration) => {
-          console.log('Service worker registered successfully:', registration)
+          if (isDevelopment) {
+            console.log('Service worker registered successfully:', registration)
+          }
         })
         .catch((error) => {
           console.warn('Service worker registration failed:', error)

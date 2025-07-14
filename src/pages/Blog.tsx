@@ -10,6 +10,8 @@ import {
 } from '@/utils/blogUtils'
 import { generateOgImageUrl } from '../utils/ogImageUtils'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 export default function Blog() {
   const { slug } = useParams<{ slug: string }>()
   const [posts, setPosts] = useState([])
@@ -84,7 +86,9 @@ export default function Blog() {
 
       // Use the generated OpenGraph image
       const ogImageUrl = await generateOgImageUrl(title)
-      console.log('Setting OpenGraph image URL:', ogImageUrl)
+      if (isDevelopment) {
+        console.log('Setting OpenGraph image URL:', ogImageUrl)
+      }
 
       if (ogImage) ogImage.setAttribute('content', ogImageUrl)
       if (twitterImage) twitterImage.setAttribute('content', ogImageUrl)

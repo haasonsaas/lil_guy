@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { Badge } from '@/components/ui/badge'
+
+const isDevelopment = process.env.NODE_ENV === 'development'
 import {
   Music,
   Play,
@@ -569,9 +571,11 @@ function AudioVisualizerPageContent() {
             )
           } catch (e) {
             // Element might already be connected to another context
-            console.log(
-              'Audio element already connected, reusing existing connection'
-            )
+            if (isDevelopment) {
+              console.log(
+                'Audio element already connected, reusing existing connection'
+              )
+            }
           }
 
           if (sourceRef.current) {
@@ -648,7 +652,9 @@ function AudioVisualizerPageContent() {
     // Check if we're getting audio data
     const maxValue = Math.max(...dataArray)
     if (maxValue === 0 && isPlayingRef.current) {
-      console.log('Warning: No audio data detected')
+      if (isDevelopment) {
+        console.log('Warning: No audio data detected')
+      }
     }
 
     // Detect beats

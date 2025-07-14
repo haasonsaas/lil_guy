@@ -1,5 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 interface ServiceWorkerState {
   isSupported: boolean
   isRegistered: boolean
@@ -66,7 +68,9 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
 
       // Only log once per session to avoid console spam
       if (!sessionStorage.getItem('sw-logged')) {
-        console.log('[SW] Registration successful:', registration)
+        if (isDevelopment) {
+          console.log('[SW] Registration successful:', registration)
+        }
         sessionStorage.setItem('sw-logged', 'true')
       }
 
@@ -86,7 +90,9 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
               newWorker.state === 'installed' &&
               navigator.serviceWorker.controller
             ) {
-              console.log('[SW] New content available, update pending')
+              if (isDevelopment) {
+                console.log('[SW] New content available, update pending')
+              }
               setState((prev) => ({ ...prev, updateAvailable: true }))
             }
           })
@@ -99,7 +105,9 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
 
       // Handle controller change (new service worker activated)
       const controllerchangeHandler = () => {
-        console.log('[SW] New service worker activated')
+        if (isDevelopment) {
+          console.log('[SW] New service worker activated')
+        }
         window.location.reload()
       }
       navigator.serviceWorker.addEventListener(
@@ -127,7 +135,9 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
     if (state.registration) {
       try {
         const registration = await state.registration.update()
-        console.log('[SW] Update triggered:', registration)
+        if (isDevelopment) {
+          console.log('[SW] Update triggered:', registration)
+        }
       } catch (error) {
         console.error('[SW] Update failed:', error)
       }
@@ -284,7 +294,9 @@ export function useOfflineStatus() {
         const status = await getCacheStatus()
         setHasOfflineContent(status.blogPostsCached > 0)
       } catch (error) {
-        console.log('Failed to check offline content:', error)
+        if (isDevelopment) {
+          console.log('Failed to check offline content:', error)
+        }
       }
     }
 

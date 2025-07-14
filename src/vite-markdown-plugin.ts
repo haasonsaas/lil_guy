@@ -7,6 +7,8 @@ import {
   formatValidationResults,
 } from './utils/blog/frontmatterValidator'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 export function markdownPlugin(): Plugin {
   return {
     name: 'vite-plugin-markdown',
@@ -223,7 +225,7 @@ export function markdownPlugin(): Plugin {
               validationResult,
               filename
             )
-            if (formatted) {
+            if (formatted && isDevelopment) {
               console.log(formatted)
             }
           }

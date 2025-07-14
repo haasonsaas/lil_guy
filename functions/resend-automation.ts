@@ -19,6 +19,8 @@ interface ScheduledEmail {
   contactId?: string
 }
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 const corsHeaders = {
   'Access-Control-Allow-Origin': 'https://www.haasonsaas.com',
   'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
@@ -86,7 +88,9 @@ async function ensureAudience(env: Env): Promise<string> {
     }
 
     const audienceData = await createResponse.json()
-    console.log('Created Resend audience:', audienceData.id)
+    if (isDevelopment) {
+      console.log('Created Resend audience:', audienceData.id)
+    }
     return audienceData.id
   } catch (error) {
     console.error('Error managing Resend audience:', error)
@@ -124,14 +128,18 @@ async function addToAudience(
       const errorText = await response.text()
       // Don't throw if contact already exists
       if (response.status === 409) {
-        console.log(`Contact ${email} already exists in audience`)
+        if (isDevelopment) {
+          console.log(`Contact ${email} already exists in audience`)
+        }
         return ''
       }
       throw new Error(`Failed to add contact: ${errorText}`)
     }
 
     const contactData = await response.json()
-    console.log(`Added ${email} to Resend audience:`, contactData.id)
+    if (isDevelopment) {
+      console.log(`Added ${email} to Resend audience:`, contactData.id)
+    }
     return contactData.id
   } catch (error) {
     console.error('Error adding contact to audience:', error)
@@ -182,7 +190,9 @@ async function sendWelcomeEmail(
     }
 
     const result = await response.json()
-    console.log(`Sent ${type} to ${email}:`, result.id)
+    if (isDevelopment) {
+      console.log(`Sent ${type} to ${email}:`, result.id)
+    }
     return true
   } catch (error) {
     console.error(`Error sending ${type} to ${email}:`, error)
@@ -213,7 +223,9 @@ async function scheduleEmail(
     scheduledEmail.id,
     JSON.stringify(scheduledEmail)
   )
-  console.log(`Scheduled ${type} for ${email} at ${sendAt}`)
+  if (isDevelopment) {
+    console.log(`Scheduled ${type} for ${email} at ${sendAt}`)
+  }
 }
 
 /**
@@ -320,7 +332,9 @@ async function triggerWelcomeSeries(env: Env, email: string): Promise<void> {
     await scheduleEmail(env, email, 'welcome2', 24)
     await scheduleEmail(env, email, 'welcome3', 72)
 
-    console.log(`Welcome series triggered for ${email}`)
+    if (isDevelopment) {
+      console.log(`Welcome series triggered for ${email}`)
+    }
   } catch (error) {
     console.error(`Error triggering welcome series for ${email}:`, error)
     throw error
@@ -642,10 +656,14 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<void> {
-    console.log('Processing scheduled emails...')
+    if (isDevelopment) {
+      console.log('Processing scheduled emails...')
+    }
     const result = await processScheduledEmails(env)
-    console.log(
-      `Scheduled emails processed: ${result.sent} sent, ${result.failed} failed`
-    )
+    if (isDevelopment) {
+      console.log(
+        `Scheduled emails processed: ${result.sent} sent, ${result.failed} failed`
+      )
+    }
   },
 }
