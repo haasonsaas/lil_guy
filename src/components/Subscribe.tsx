@@ -14,7 +14,7 @@ interface SubscribeProps {
 export function Subscribe({ className, source = 'unknown' }: SubscribeProps) {
   const [email, setEmail] = useState('')
   const { trackNewsletterSubscribe } = useAnalytics()
-  const { mutate, isPending } = useSubscribeMutation('/subscribe')
+  const { mutate, isPending } = useSubscribeMutation()
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()

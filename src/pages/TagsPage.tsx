@@ -53,7 +53,7 @@ export default function TagsPage() {
     return (
       <Layout>
         <section className="py-12 text-center">
-          <p className="text-red-500">Error: {error}</p>
+          <p className="text-red-500">Error: {error.message}</p>
         </section>
       </Layout>
     )

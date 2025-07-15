@@ -36,10 +36,10 @@ const NewsletterPage = () => {
           })
           setEmail('')
         },
-        onError: () => {
+        onError: (error) => {
           toast({
             title: 'Subscription failed',
-            description: 'Please try again later or contact support.',
+            description: error.message || 'Please try again later or contact support.',
             variant: 'destructive',
           })
         },
