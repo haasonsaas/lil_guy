@@ -13,7 +13,8 @@
       "semicolons": "asNeeded"
     }
   },
-  "organizeImports": { "enabled": false },
   "linter": { "enabled": false },
-  "files": { "ignore": ["tsconfig*.json"] }
+  "files": {
+    "ignoreUnknown": false
+  }
 }

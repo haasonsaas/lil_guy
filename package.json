@@ -55,8 +55,13 @@
     "fix:all": "bun run lint:fix && bun x markdownlint-cli2 --fix 'src/posts/*.md'"
   },
   "lint-staged": {
-    "*.{ts,tsx,js,jsx,json}": ["biome format --write"],
-    "src/posts/*.md": ["markdownlint-cli2 --fix", "cspell --no-must-find-files"]
+    "*.{ts,tsx,js,jsx,json}": [
+      "biome format --write"
+    ],
+    "src/posts/*.md": [
+      "markdownlint-cli2 --fix",
+      "cspell --no-must-find-files"
+    ]
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -139,6 +144,7 @@
     "zod": "^3.24.4"
   },
   "devDependencies": {
+    "@biomejs/biome": "^2.1.1",
     "@cloudflare/workers-types": "^4.20250614.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^24.0.3",
@@ -156,7 +162,6 @@
     "markdown-link-check": "^3.13.7",
     "markdownlint-cli2": "^0.18.1",
     "postcss": "^8.4.47",
-    "@biomejs/biome": "^1.5.0",
     "tailwindcss": "^3.4.11",
     "typescript": "^5.8.3",
     "vite": "^7.0.0",
