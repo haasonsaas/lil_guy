@@ -91,7 +91,7 @@ src/
 - `bun run dev` - Start development server (localhost:8080)
 - `bun run build` - Build for production
 - `bun run build:dev` - Build for development
-- `bun run lint` - Run ESLint with TypeScript support
+- `bun run lint` - Lint and format with Biome
 - `bun run typecheck` - TypeScript type checking
 - `bun run preview` - Preview production build
 
