@@ -60,7 +60,7 @@ jobs:
             The comprehensive quality check includes:
             - TypeScript compilation
             - ESLint code quality 
-            - Prettier formatting
+            - Biome formatting
             - Markdown linting
             - Spell checking
             - SEO validation

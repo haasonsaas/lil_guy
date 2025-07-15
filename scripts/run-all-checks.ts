@@ -35,17 +35,6 @@ async function runAllChecks() {
   }
   console.log('')
 
-  // Prettier check
-  console.log(chalk.yellow('Running Prettier...'))
-  try {
-    await $`bun run prettier:check`.quiet()
-    console.log(chalk.green('✅ Prettier passed'))
-  } catch (error) {
-    console.log(chalk.yellow('⚠️  Prettier has warnings'))
-    hasWarnings = true
-  }
-  console.log('')
-
   // Markdown Lint check
   console.log(chalk.yellow('Running Markdown Lint...'))
   try {
