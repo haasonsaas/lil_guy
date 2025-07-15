@@ -38,6 +38,7 @@ A modern, feature-rich blog built with React, TypeScript, and Vite. This project
 - **Date Handling:** date-fns
 - **Validation:** Zod
 - **Package Manager:** Bun
+- **Code Formatting:** Biome
 
 ## 📦 Project Structure
 
@@ -92,6 +93,7 @@ src/
 - `bun run build` - Build for production
 - `bun run build:dev` - Build for development
 - `bun run lint` - Lint and format with Biome
+- `bun run lint:fix` - Auto-fix formatting issues with Biome
 - `bun run typecheck` - TypeScript type checking
 - `bun run preview` - Preview production build
 
@@ -104,23 +106,26 @@ src/
 
 ### AI Content Creation
 
-- `bun scripts/gemini.ts new-draft "Topic"` - Generate structured blog post outline
-- `bun scripts/gemini.ts write-blog-post "slug"` - Write full blog post from outline
-- `bun scripts/enhanced-pipeline.ts run "Topic"` - End-to-end content generation
-- `bun scripts/ai-orchestrator.ts workflow "Topic"` - Multi-agent content workflow
+- `bun run new-post-with-coach "Title"` - Create new post with AI writing coach
+- `bun run writing-coach post.md` - Analyze writing style and get feedback
+- `bun run gemini new-draft "Topic"` - Generate structured blog post outline
+- `bun run enhanced-pipeline run "Topic"` - End-to-end content generation
+- `bun run ai-orchestrator workflow "Topic"` - Multi-agent content workflow
 
 ### Jonathan Voice Engine
 
-- `bun scripts/jonathan-voice.ts respond "Question"` - Generate authentic response in Jonathan's voice
-- `bun scripts/jonathan-voice.ts test` - Run voice authenticity validation tests
-- `bun scripts/jonathan-voice.ts stats` - Show voice engine statistics
-- `bun scripts/jonathan-voice.ts train` - Train voice model from blog corpus
+- `bun run jonathan-voice respond "Question"` - Generate authentic response in Jonathan's voice
+- `bun run jonathan-voice test` - Run voice authenticity validation tests
+- `bun run jonathan-voice stats` - Show voice engine statistics
+- `bun run jonathan-voice train` - Train voice model from blog corpus
 
 ### Quality Assurance
 
 - `bun run lint:md` - Markdown linting with markdownlint-cli2
 - `bun run spell` - Spell checking with custom dictionary
 - `bun run check:links` - Validate all links in markdown files
+- `bun run validate:seo` - SEO validation for all posts
+- `bun run check:all` - Run comprehensive quality checks (TypeScript, Biome, Markdown, Spell, SEO, Links, Bundle Size, Analytics)
 
 ## 🤖 AI Systems Overview
 
@@ -137,10 +142,10 @@ A sophisticated system that combines multiple AI models for end-to-end content c
 
 ```bash
 # Generate complete blog post
-bun scripts/enhanced-pipeline.ts run "AI Testing Strategies"
+bun run enhanced-pipeline run "AI Testing Strategies"
 
 # Multi-agent orchestration workflow
-bun scripts/ai-orchestrator.ts workflow "Security Best Practices"
+bun run ai-orchestrator workflow "Security Best Practices"
 ```
 
 ### Jonathan Voice Engine
@@ -154,13 +159,13 @@ An AI personality replication system that generates authentic responses in Jonat
 
 ```bash
 # Generate response in Jonathan's voice
-bun scripts/jonathan-voice.ts respond "How should startups approach AI integration?"
+bun run jonathan-voice respond "How should startups approach AI integration?"
 
 # Test voice authenticity
-bun scripts/jonathan-voice.ts test
+bun run jonathan-voice test
 
 # View voice profile statistics
-bun scripts/jonathan-voice.ts stats
+bun run jonathan-voice stats
 ```
 
 ### Voice Profile Features
@@ -198,7 +203,7 @@ Sophisticated workflow management for multi-agent collaboration:
 bun run new-post "Your Amazing Topic"
 
 # AI-generated complete post
-bun scripts/enhanced-pipeline.ts run "Your Amazing Topic"
+bun run enhanced-pipeline run "Your Amazing Topic"
 ```
 
 ### Styling
