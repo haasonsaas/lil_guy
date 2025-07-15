@@ -1,6 +1,8 @@
 import { BlogPost, BlogPostFrontmatter } from '@/types/blog'
-import { readFilePosts } from './fileLoader'
 import { generateOgImageUrl } from '../ogImageUtils'
+import { readFilePosts } from './fileLoader'
+
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 interface RawFrontmatter {
   postSlug?: string
@@ -20,9 +22,7 @@ interface RawFrontmatter {
 /**
  * Calculate reading time in minutes based on word count
  */
-const calculateReadingTimeInline = (
-  content: string
-): { minutes: number; wordCount: number } => {
+const calculateReadingTimeInline = (content: string): { minutes: number; wordCount: number } => {
   const WORDS_PER_MINUTE = 200
 
   const text = content
@@ -119,9 +119,7 @@ const processPostFromModule = async (
   const hasExplicitImage =
     post.frontmatter.image &&
     post.frontmatter.image.url &&
-    !post.frontmatter.image.url.includes(
-      'unsplash.com/photo-1499750310107-5fef28a66643'
-    )
+    !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643')
 
   if (!hasExplicitImage) {
     const cleanTitle = post.frontmatter.title || post.slug
@@ -147,18 +145,14 @@ export const getAllPosts = async (
   const filePosts = await readFilePosts(metadataOnly)
 
   // Filter out drafts unless explicitly included
-  const posts = includeDrafts
-    ? filePosts
-    : filePosts.filter((post) => !post.frontmatter.draft)
+  const posts = includeDrafts ? filePosts : filePosts.filter((post) => !post.frontmatter.draft)
 
   // Make sure each post has valid image information
   for (const post of posts) {
     const hasExplicitImage =
       post.frontmatter.image &&
       post.frontmatter.image.url &&
-      !post.frontmatter.image.url.includes(
-        'unsplash.com/photo-1499750310107-5fef28a66643'
-      )
+      !post.frontmatter.image.url.includes('unsplash.com/photo-1499750310107-5fef28a66643')
 
     if (!hasExplicitImage) {
       const cleanTitle = post.frontmatter.title || post.slug
@@ -196,9 +190,7 @@ export const getAllPosts = async (
  * Get all blog posts with metadata only (for performance in listing pages)
  * @param includeDrafts - Whether to include draft posts (default: false)
  */
-export const getAllPostsMetadata = async (
-  includeDrafts: boolean = false
-): Promise<BlogPost[]> => {
+export const getAllPostsMetadata = async (includeDrafts: boolean = false): Promise<BlogPost[]> => {
   return getAllPosts(includeDrafts, true) // metadataOnly = true
 }
 
@@ -213,29 +205,30 @@ export const getPostBySlug = async (
 ): Promise<BlogPost | undefined> => {
   try {
     // Dynamically import the specific post file
-    console.log(`📄 Loading blog post: ${slug}`)
+    if (isDevelopment) {
+      console.log(`📄 Loading blog post: ${slug}`)
+    }
     const moduleLoader = import(`../../posts/${slug}.md`)
     const moduleContent = await moduleLoader
-    console.log(`✅ Successfully loaded module for: ${slug}`)
+    if (isDevelopment) {
+      console.log(`✅ Successfully loaded module for: ${slug}`)
+    }
 
     const { frontmatter, content } = moduleContent.default
 
     // Check if it's a draft and we don't want drafts
     if (!includeDrafts && frontmatter.draft) {
-      console.log(`⏭️ Skipping draft post: ${slug}`)
+      if (isDevelopment) {
+        console.log(`⏭️ Skipping draft post: ${slug}`)
+      }
       return undefined
     }
 
     // Process the frontmatter similar to fileLoader logic
-    const processedPost = await processPostFromModule(
-      slug,
-      frontmatter,
-      content
-    )
-    console.log(
-      `✨ Processed blog post: ${slug}`,
-      processedPost.frontmatter.title
-    )
+    const processedPost = await processPostFromModule(slug, frontmatter, content)
+    if (isDevelopment) {
+      console.log(`✨ Processed blog post: ${slug}`, processedPost.frontmatter.title)
+    }
     return processedPost
   } catch (error) {
     console.error(`❌ Error loading post ${slug}:`, error)
@@ -261,9 +254,7 @@ export const getFeaturedPosts = async (): Promise<BlogPost[]> => {
 /**
  * Get all unique tags from all posts, sorted by frequency of occurrence
  */
-export const getAllTags = async (): Promise<
-  { tag: string; count: number }[]
-> => {
+export const getAllTags = async (): Promise<{ tag: string; count: number }[]> => {
   const posts = await getAllPosts()
   const tagCounts = new Map<string, number>()
 
@@ -301,20 +292,15 @@ export const getRelatedPosts = async (
   limit: number = 3
 ): Promise<BlogPost[]> => {
   const posts = await getAllPosts()
-  const currentTags = new Set(
-    currentPost.frontmatter.tags.map((tag) => tag.toLowerCase())
-  )
+  const currentTags = new Set(currentPost.frontmatter.tags.map((tag) => tag.toLowerCase()))
 
   const postsWithScores = posts
     .filter((post) => post.slug !== currentPost.slug)
     .map((post) => {
-      const postTags = new Set(
-        post.frontmatter.tags.map((tag) => tag.toLowerCase())
-      )
+      const postTags = new Set(post.frontmatter.tags.map((tag) => tag.toLowerCase()))
       const sharedTags = [...currentTags].filter((tag) => postTags.has(tag))
       const similarityScore =
-        sharedTags.length /
-        (currentTags.size + postTags.size - sharedTags.length)
+        sharedTags.length / (currentTags.size + postTags.size - sharedTags.length)
 
       return {
         post,

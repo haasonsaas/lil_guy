@@ -1,0 +1,76 @@
+name: Claude Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    paths:
+      - "src/**/*.ts"
+      - "src/**/*.tsx"
+      - "src/**/*.js"
+      - "src/**/*.jsx"
+      - "src/posts/*.md"
+      - "scripts/*.ts"
+
+jobs:
+  claude-review:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+      issues: read
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Run Claude Code Review
+        id: claude-review
+        uses: anthropics/claude-code-action@beta
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          
+          # Use Sonnet for code reviews (fast and accurate)
+          model: "claude-sonnet-4-20250514"
+          
+          # Use sticky comments to update same comment on subsequent pushes
+          use_sticky_comment: true
+          
+          direct_prompt: |
+            Please review this pull request focusing on:
+            
+            For TypeScript/JavaScript files:
+            - Type safety and proper TypeScript usage
+            - React best practices and performance
+            - Adherence to project conventions (check CLAUDE.md)
+            - Security considerations
+            - Proper error handling
+            
+            For Markdown blog posts:
+            - Proper frontmatter format (author, pubDate, title, description, tags, draft)
+            - Writing style consistency with existing posts
+            - SEO optimization (description length 150-160 chars)
+            - No mock content or placeholder text
+            
+            For Scripts:
+            - Proper use of Bun runtime features
+            - Error handling and validation
+            - Consistency with existing utility patterns
+            
+            General:
+            - Conventional commit format compliance
+            - No hardcoded secrets or API keys
+            - Proper use of environment variables
+            
+            Be constructive and specific. Reference line numbers when suggesting changes.
+          
+          # Tools for running checks
+          allowed_tools: |
+            Bash(bun run lint)
+            Bash(bun run typecheck)
+            Bash(bun run lint:md)
+            Bash(bun run spell)
+            Bash(bun run check:links)
+            Bash(bun run check:deploy)

@@ -1,22 +1,25 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Layout from '@/components/Layout'
+import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
-import { Badge } from '@/components/ui/badge'
-import {
-  Music,
-  Play,
-  Pause,
-  Upload,
-  Mic,
-  Volume2,
-  BarChart3,
-  Radio,
-  Waves,
-  Circle,
-} from 'lucide-react'
+
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 import { motion } from 'framer-motion'
+import {
+  BarChart3,
+  Circle,
+  Mic,
+  Music,
+  Pause,
+  Play,
+  Radio,
+  Upload,
+  Volume2,
+  Waves,
+} from 'lucide-react'
 import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 
 // Vertex shader for 3D visualization
@@ -134,8 +137,7 @@ const renderBars = (
 
   for (let i = 0; i < barCount; i++) {
     const x = (i / barCount - 0.5) * 20
-    const frequency =
-      dataArray[Math.floor((i * dataArray.length) / barCount)] / 255
+    const frequency = dataArray[Math.floor((i * dataArray.length) / barCount)] / 255
 
     // Create a bar (two triangles)
     const width = (20 / barCount) * 0.8
@@ -195,8 +197,7 @@ const renderWaves = (
   for (let layer = 0; layer < 3; layer++) {
     for (let i = 0; i < points; i++) {
       const x = (i / (points - 1) - 0.5) * 20
-      const frequency =
-        dataArray[Math.floor((i * dataArray.length) / points)] / 255
+      const frequency = dataArray[Math.floor((i * dataArray.length) / points)] / 255
       const z = layer * -2
 
       positions.push(x, 0, z)
@@ -232,11 +233,7 @@ const renderWaves = (
 
   const indexBuffer = gl.createBuffer()
   gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, indexBuffer)
-  gl.bufferData(
-    gl.ELEMENT_ARRAY_BUFFER,
-    new Uint16Array(indices),
-    gl.STATIC_DRAW
-  )
+  gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW)
 
   // Set matrix
   const matrix = createMatrix(canvas.width / canvas.height, Date.now() * 0.001)
@@ -261,8 +258,7 @@ const renderCircular = (
   for (let i = 0; i < segments; i++) {
     const angle1 = (i / segments) * Math.PI * 2
     const angle2 = ((i + 1) / segments) * Math.PI * 2
-    const frequency =
-      dataArray[Math.floor((i * dataArray.length) / segments)] / 255
+    const frequency = dataArray[Math.floor((i * dataArray.length) / segments)] / 255
     const radius = 3 + frequency * 2
 
     // Center
@@ -377,9 +373,7 @@ function AudioVisualizerPageContent() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const audioContextRef = useRef<AudioContext | null>(null)
   const analyserRef = useRef<AnalyserNode | null>(null)
-  const sourceRef = useRef<
-    MediaElementAudioSourceNode | MediaStreamAudioSourceNode | null
-  >(null)
+  const sourceRef = useRef<MediaElementAudioSourceNode | MediaStreamAudioSourceNode | null>(null)
   const animationRef = useRef<number | null>(null)
   const glRef = useRef<WebGLRenderingContext | null>(null)
   const programRef = useRef<WebGLProgram | null>(null)
@@ -447,11 +441,7 @@ function AudioVisualizerPageContent() {
   )
 
   // Create shader helper
-  const createShader = (
-    gl: WebGLRenderingContext,
-    type: number,
-    source: string
-  ) => {
+  const createShader = (gl: WebGLRenderingContext, type: number, source: string) => {
     const shader = gl.createShader(type)
     if (!shader) return null
 
@@ -504,11 +494,7 @@ function AudioVisualizerPageContent() {
 
     // Create shaders
     const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
-    const fragmentShader = createShader(
-      gl,
-      gl.FRAGMENT_SHADER,
-      fragmentShaderSource
-    )
+    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource)
 
     if (!vertexShader || !fragmentShader) return false
 
@@ -529,9 +515,10 @@ function AudioVisualizerPageContent() {
   const initAudio = async (useMicrophone: boolean = false) => {
     try {
       if (!audioContextRef.current) {
-        audioContextRef.current = new (window.AudioContext ||
-          (window as unknown as { webkitAudioContext: typeof AudioContext })
-            .webkitAudioContext)()
+        audioContextRef.current = new (
+          window.AudioContext ||
+          (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext
+        )()
       }
 
       const audioContext = audioContextRef.current
@@ -564,14 +551,12 @@ function AudioVisualizerPageContent() {
 
           // Create new source only if needed
           try {
-            sourceRef.current = audioContext.createMediaElementSource(
-              audioElementRef.current
-            )
+            sourceRef.current = audioContext.createMediaElementSource(audioElementRef.current)
           } catch (e) {
             // Element might already be connected to another context
-            console.log(
-              'Audio element already connected, reusing existing connection'
-            )
+            if (isDevelopment) {
+              console.log('Audio element already connected, reusing existing connection')
+            }
           }
 
           if (sourceRef.current) {
@@ -589,9 +574,7 @@ function AudioVisualizerPageContent() {
   }
 
   // Handle file upload
-  const handleFileUpload = async (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFileUpload = async (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
     if (file && audioElementRef.current) {
       const url = URL.createObjectURL(file)
@@ -648,7 +631,9 @@ function AudioVisualizerPageContent() {
     // Check if we're getting audio data
     const maxValue = Math.max(...dataArray)
     if (maxValue === 0 && isPlayingRef.current) {
-      console.log('Warning: No audio data detected')
+      if (isDevelopment) {
+        console.log('Warning: No audio data detected')
+      }
     }
 
     // Detect beats
@@ -671,10 +656,7 @@ function AudioVisualizerPageContent() {
     gl.uniform3fv(gl.getUniformLocation(program, 'u_color2'), colors[1])
     gl.uniform3fv(gl.getUniformLocation(program, 'u_color3'), colors[2])
     gl.uniform1f(gl.getUniformLocation(program, 'u_time'), Date.now() * 0.001)
-    gl.uniform1f(
-      gl.getUniformLocation(program, 'u_intensity'),
-      sensitivityRef.current[0]
-    )
+    gl.uniform1f(gl.getUniformLocation(program, 'u_intensity'), sensitivityRef.current[0])
 
     // Create visualization based on type
     if (visualizationRef.current === 'bars') {
@@ -796,13 +778,11 @@ function AudioVisualizerPageContent() {
           >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Music className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-display font-semibold">
-                Audio Visualizer
-              </h1>
+              <h1 className="text-4xl font-display font-semibold">Audio Visualizer</h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Real-time 3D audio visualization using WebGL and Web Audio API.
-              Upload a file or use your microphone to see sound come alive.
+              Real-time 3D audio visualization using WebGL and Web Audio API. Upload a file or use
+              your microphone to see sound come alive.
             </p>
           </motion.div>
 
@@ -849,9 +829,7 @@ function AudioVisualizerPageContent() {
                 Circular
               </Badge>
               <Badge
-                variant={
-                  visualization === 'particles' ? 'default' : 'secondary'
-                }
+                variant={visualization === 'particles' ? 'default' : 'secondary'}
                 className="cursor-pointer"
                 onClick={() => setVisualization('particles')}
               >
@@ -883,11 +861,7 @@ function AudioVisualizerPageContent() {
               <div className="flex flex-wrap gap-4">
                 <div className="flex-1 min-w-[200px]">
                   <label htmlFor="audio-upload" className="block">
-                    <Button
-                      variant="outline"
-                      className="w-full cursor-pointer"
-                      asChild
-                    >
+                    <Button variant="outline" className="w-full cursor-pointer" asChild>
                       <span>
                         <Upload className="h-4 w-4 mr-2" />
                         Upload Audio File
@@ -995,16 +969,12 @@ function AudioVisualizerPageContent() {
                 <h3 className="text-lg font-semibold mb-4">Visual Settings</h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      Color Scheme
-                    </label>
+                    <label className="text-sm font-medium mb-2 block">Color Scheme</label>
                     <div className="flex flex-wrap gap-2">
                       {colorSchemes.map((scheme, index) => (
                         <Badge
                           key={index}
-                          variant={
-                            colorScheme === index ? 'default' : 'secondary'
-                          }
+                          variant={colorScheme === index ? 'default' : 'secondary'}
                           className="cursor-pointer"
                           onClick={() => setColorScheme(index)}
                         >
@@ -1023,14 +993,12 @@ function AudioVisualizerPageContent() {
                 <Volume2 className="h-5 w-5 text-muted-foreground mt-0.5" />
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p>
-                    This visualizer uses the Web Audio API to analyze audio
-                    frequencies in real-time and WebGL to render 3D graphics
-                    based on the audio data.
+                    This visualizer uses the Web Audio API to analyze audio frequencies in real-time
+                    and WebGL to render 3D graphics based on the audio data.
                   </p>
                   <p>
-                    For best results, use high-quality audio files with a good
-                    dynamic range. The visualizer responds to bass, mid, and
-                    treble frequencies differently.
+                    For best results, use high-quality audio files with a good dynamic range. The
+                    visualizer responds to bass, mid, and treble frequencies differently.
                   </p>
                 </div>
               </div>

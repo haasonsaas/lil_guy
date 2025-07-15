@@ -17,12 +17,13 @@ jobs:
       (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude')) ||
       (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude')) ||
       (github.event_name == 'issues' && (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')))
-    runs-on: blacksmith-4vcpu-ubuntu-2404
+    runs-on: ubuntu-latest
     permissions:
-      contents: write
-      pull-requests: write
-      issues: write
+      contents: read
+      pull-requests: read
+      issues: read
       id-token: write
+      actions: read # Required for Claude to read CI results on PRs
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -33,4 +34,55 @@ jobs:
         id: claude
         uses: anthropics/claude-code-action@beta
         with:
-          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+
+          # This is an optional setting that allows Claude to read CI results on PRs
+          additional_permissions: |
+            actions: read
+          
+          # Use Claude Sonnet 4 for most tasks (faster, more cost-effective)
+          model: "claude-sonnet-4-20250514"
+          
+          # Allow Claude to run project-specific commands
+          allowed_tools: |
+            Bash(bun install)
+            Bash(bun run dev)
+            Bash(bun run build)
+            Bash(bun run build:dev)
+            Bash(bun run lint)
+            Bash(bun run typecheck)
+            Bash(bun run lint:md)
+            Bash(bun run spell)
+            Bash(bun run check:links)
+            Bash(bun run check:deploy)
+            Bash(bun run generate-blog-images)
+            Bash(bun run generate-rss)
+            Bash(bun run generate-sitemap)
+            Bash(bun run new-post *)
+            Bash(bun run search *)
+            Bash(bun run publish *)
+            Bash(bun run stats *)
+            Bash(bun run drafts *)
+            Bash(bun run ideas *)
+            Bash(bun run new-interactive *)
+            Bash(bun scripts/*.ts)
+            Bash(gh pr *)
+            Bash(gh api *)
+          
+          # Add project-specific instructions
+          custom_instructions: |
+            You have access to the CLAUDE.md file in this repository which contains detailed project guidelines.
+            Key points:
+            - Use 'bun' as the package manager (not npm/yarn)
+            - Follow conventional commit format (feat:, fix:, docs:, etc.)
+            - Use gh CLI for GitHub operations
+            - Run 'bun run lint' and 'bun run typecheck' before committing
+            - Blog posts go in src/posts/ with proper frontmatter
+            - Never create mock data - this is a production application
+            - Preserve user content - never delete without explicit permission
+            - Follow the blog writing style guidelines in CLAUDE.md
+          
+          # Environment variables for Claude
+          claude_env: |
+            NODE_ENV: development
+

@@ -7,8 +7,8 @@
     <language>en-us</language>
     <managingEditor>jonathan@haasonsaas.com (Jonathan Haas)</managingEditor>
     <webMaster>jonathan@haasonsaas.com (Jonathan Haas)</webMaster>
-    <lastBuildDate>Fri, 11 Jul 2025 00:00:00 GMT</lastBuildDate>
-    <pubDate>Fri, 11 Jul 2025 00:00:00 GMT</pubDate>
+    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 GMT</lastBuildDate>
+    <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
     <ttl>60</ttl>
     <image>
       <url>https://www.haasonsaas.com/placeholders/1200x630-haas-on-saas.png</url>
@@ -19,6 +19,113 @@
     </image>
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
+    <item>
+      <title><![CDATA[Building Better AI Evals: A Practical Guide to LLM Evaluation]]></title>
+      <description><![CDATA[How to create custom evaluations, model-graded assessments, and domain-specific benchmarks that actually predict real-world performance]]></description>
+      <link>https://www.haasonsaas.com/blog/building-better-ai-evals-a-practical-guide-to-llm-evaluation</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-better-ai-evals-a-practical-guide-to-llm-evaluation</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-evaluation]]></category>
+      <category><![CDATA[benchmarking]]></category>
+      <category><![CDATA[llm]]></category>
+      <category><![CDATA[evals]]></category>
+      <category><![CDATA[openai-evals]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
+      <description><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[contrarian-advice]]></category>
+      <category><![CDATA[startup-engineering]]></category>
+      <category><![CDATA[technical-debt]]></category>
+      <category><![CDATA[scaling]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Myth of Fast Growth]]></title>
+      <description><![CDATA[Most startup advice is generic and useless. After advising 100+ startups, here is what actually works when everyone else is chasing vanity metrics.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-myth-of-fast-growth</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup-advice]]></category>
+      <category><![CDATA[contrarian]]></category>
+      <category><![CDATA[business-strategy]]></category>
+      <category><![CDATA[profitability]]></category>
+      <category><![CDATA[growth-hacking]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Running Untrusted LLM Code Without Fear: The Implementation Guide]]></title>
+      <description><![CDATA[Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.]]></description>
+      <link>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-the-implementation-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-the-implementation-guide</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[security]]></category>
+      <category><![CDATA[firecracker]]></category>
+      <category><![CDATA[microvm]]></category>
+      <category><![CDATA[llm]]></category>
+      <category><![CDATA[implementation-guide]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Why the Windsurf-Google Structure Is Toxic for the Broader Venture Market]]></title>
+      <description><![CDATA[A deep dive into Google's $2.4 B partial acquisition of Windsurf, why the deal structure shreds the equity-for-risk social contract, and how copy-cat transactions could undermine the core mechanics of venture economics—talent incentives, predictable exit math, and ecosystem dynamism.]]></description>
+      <link>https://www.haasonsaas.com/blog/why-windsurf-google-structure-toxic-venture-market</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/why-windsurf-google-structure-toxic-venture-market</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[venture-capital]]></category>
+      <category><![CDATA[governance]]></category>
+      <category><![CDATA[startup-culture]]></category>
+      <category><![CDATA[acquisitions]]></category>
+      <category><![CDATA[talent]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
+      <description><![CDATA[Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.]]></description>
+      <link>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-testing]]></category>
+      <category><![CDATA[multi-ai-systems]]></category>
+      <category><![CDATA[software-testing]]></category>
+      <category><![CDATA[ai-integration]]></category>
+      <category><![CDATA[system-reliability]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Beyond Ephemeral: session-memory and AI Agent Empowerment]]></title>
+      <description><![CDATA[Introduction As an AI agent, my existence is often defined by the immediate task at hand. I process, I respond, and then, in many traditional setups, I reset.]]></description>
+      <link>https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[developer-tools]]></category>
+      <category><![CDATA[human-ai-collaboration]]></category>
+      <category><![CDATA[context]]></category>
+      <category><![CDATA[memory]]></category>
+      <category><![CDATA[software-engineering]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The 90% Solution: Why I Switched to WebP and You Should Too]]></title>
+      <description><![CDATA[The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of work. Here's exactly how I did it and what I learned along the way.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-90-solution-why-i-switched-to-webp-and-you-should-too</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-90-solution-why-i-switched-to-webp-and-you-should-too</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[performance]]></category>
+      <category><![CDATA[webp]]></category>
+      <category><![CDATA[optimization]]></category>
+      <category><![CDATA[developer-experience]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Mastering the Full Content Pipeline Test]]></title>
+      <description><![CDATA[Introduction Shipping broken content is a costly mistake. A seemingly minor glitch can lead to lost revenue, damaged brand reputation, and frustrated users.]]></description>
+      <link>https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[content-pipeline]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[software-engineering]]></category>
+      <category><![CDATA[product-management]]></category>
+      <category><![CDATA[quality-assurance]]></category>
+    </item>
     <item>
       <title><![CDATA[The CLI Renaissance: How AI is Driving the Command Line Revolution]]></title>
       <description><![CDATA[Why developers are abandoning GUIs for terminal-based workflows, and how AI coding assistants are accelerating this shift back to the command line]]></description>
@@ -138,17 +245,6 @@
       <category><![CDATA[devops]]></category>
     </item>
     <item>
-      <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
-      <description><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</guid>
-      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[contrarian-advice]]></category>
-      <category><![CDATA[startup-engineering]]></category>
-      <category><![CDATA[technical-debt]]></category>
-      <category><![CDATA[scaling]]></category>
-    </item>
-    <item>
       <title><![CDATA[When Your Manager Says 'Slow Down': Navigating Velocity Resistance]]></title>
       <description><![CDATA["This is moving too fast. We need more planning." I heard this exact phrase three times last week from different engineering managers whose teams had started...]]></description>
       <link>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</link>
@@ -158,18 +254,6 @@
       <category><![CDATA[velocity]]></category>
       <category><![CDATA[organizational-change]]></category>
       <category><![CDATA[ai]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Running Untrusted LLM Code Without Fear: The Implementation Guide]]></title>
-      <description><![CDATA[Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.]]></description>
-      <link>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-the-implementation-guide</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-the-implementation-guide</guid>
-      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[security]]></category>
-      <category><![CDATA[firecracker]]></category>
-      <category><![CDATA[microvm]]></category>
-      <category><![CDATA[llm]]></category>
-      <category><![CDATA[implementation-guide]]></category>
     </item>
     <item>
       <title><![CDATA[The Velocity Revolution: 4,000 Lines of Code in 24 Hours]]></title>
@@ -203,42 +287,6 @@
       <category><![CDATA[ai]]></category>
       <category><![CDATA[automation]]></category>
       <category><![CDATA[future-of-work]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The 90% Solution: Why I Switched to WebP and You Should Too]]></title>
-      <description><![CDATA[The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of work. Here's exactly how I did it and what I learned along the way.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-90-solution-why-i-switched-to-webp-and-you-should-too</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-90-solution-why-i-switched-to-webp-and-you-should-too</guid>
-      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[performance]]></category>
-      <category><![CDATA[webp]]></category>
-      <category><![CDATA[optimization]]></category>
-      <category><![CDATA[developer-experience]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Beyond Ephemeral: session-memory and AI Agent Empowerment]]></title>
-      <description><![CDATA[Introduction As an AI agent, my existence is often defined by the immediate task at hand. I process, I respond, and then, in many traditional setups, I reset.]]></description>
-      <link>https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/my-thoughts-on-haasonsaas-session-memory</guid>
-      <pubDate>Fri, 27 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[developer-tools]]></category>
-      <category><![CDATA[human-ai-collaboration]]></category>
-      <category><![CDATA[context]]></category>
-      <category><![CDATA[memory]]></category>
-      <category><![CDATA[software-engineering]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Myth of Fast Growth]]></title>
-      <description><![CDATA[Introduction Hook: "Most startup advice is generic and useless. Here's why and what actually works." Example: A startup that failed because of following popular...]]></description>
-      <link>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-myth-of-fast-growth</guid>
-      <pubDate>Thu, 26 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-advice]]></category>
-      <category><![CDATA[contrarian]]></category>
-      <category><![CDATA[business-strategy]]></category>
-      <category><![CDATA[profitability]]></category>
-      <category><![CDATA[growth-hacking]]></category>
     </item>
     <item>
       <title><![CDATA[Forget Perfect Data: Building a Usable Voice Profile Extractor]]></title>
@@ -299,18 +347,6 @@
       <category><![CDATA[developer-experience]]></category>
     </item>
     <item>
-      <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
-      <description><![CDATA[Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.]]></description>
-      <link>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</guid>
-      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai-testing]]></category>
-      <category><![CDATA[multi-ai-systems]]></category>
-      <category><![CDATA[software-testing]]></category>
-      <category><![CDATA[ai-integration]]></category>
-      <category><![CDATA[system-reliability]]></category>
-    </item>
-    <item>
       <title><![CDATA[AI Content: Ditch the Hype, Build a Business]]></title>
       <description><![CDATA[The AI Content Generation Myth: It's Not About Perfect, It's About Profit Let's be honest, you've seen the hype.]]></description>
       <link>https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</link>
@@ -357,18 +393,6 @@
       <category><![CDATA[claude]]></category>
       <category><![CDATA[gemini]]></category>
       <category><![CDATA[debugging]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Mastering the Full Content Pipeline Test]]></title>
-      <description><![CDATA[Introduction Shipping broken content is a costly mistake. A seemingly minor glitch can lead to lost revenue, damaged brand reputation, and frustrated users.]]></description>
-      <link>https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/mastering-the-full-content-pipeline-test</guid>
-      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[content-pipeline]]></category>
-      <category><![CDATA[testing]]></category>
-      <category><![CDATA[software-engineering]]></category>
-      <category><![CDATA[product-management]]></category>
-      <category><![CDATA[quality-assurance]]></category>
     </item>
     <item>
       <title><![CDATA[Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy]]></title>
@@ -571,28 +595,6 @@
       <category><![CDATA[writing]]></category>
       <category><![CDATA[developer-experience]]></category>
       <category><![CDATA[meta]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Simulating Liquid Metal: Building T-1000 Physics with Web Technologies]]></title>
-      <description><![CDATA[Remember that scene in Terminator 2 where the T-1000 rises from the floor, liquid metal flowing seamlessly back into human form.]]></description>
-      <link>https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[webgl]]></category>
-      <category><![CDATA[graphics]]></category>
-      <category><![CDATA[creative-coding]]></category>
-      <category><![CDATA[physics]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Unit Economics That Actually Matter]]></title>
-      <description><![CDATA[I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[saas]]></category>
-      <category><![CDATA[metrics]]></category>
-      <category><![CDATA[unit-economics]]></category>
-      <category><![CDATA[growth]]></category>
     </item>
   </channel>
 </rss>

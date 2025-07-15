@@ -1,5 +1,7 @@
 // Service Worker Registration
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 // Global cleanup storage
 let registrationCleanup: (() => void) | null = null
 
@@ -20,10 +22,9 @@ export async function registerServiceWorker() {
           scope: '/',
         })
 
-        console.log(
-          '[SW] Service Worker registered successfully:',
-          registration.scope
-        )
+        if (isDevelopment) {
+          console.log('[SW] Service Worker registered successfully:', registration.scope)
+        }
 
         // Check for updates periodically
         updateInterval = setInterval(
@@ -39,12 +40,11 @@ export async function registerServiceWorker() {
           if (!newWorker) return
 
           newWorker.addEventListener('statechange', () => {
-            if (
-              newWorker.state === 'installed' &&
-              navigator.serviceWorker.controller
-            ) {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
               // New service worker available
-              console.log('[SW] New service worker available')
+              if (isDevelopment) {
+                console.log('[SW] New service worker available')
+              }
 
               // You could show a notification to the user here
               // For now, we'll just log it
@@ -63,12 +63,11 @@ export async function registerServiceWorker() {
 
         // Handle controller change (when SW takes control)
         const controllerchangeHandler = () => {
-          console.log('[SW] Controller changed')
+          if (isDevelopment) {
+            console.log('[SW] Controller changed')
+          }
         }
-        navigator.serviceWorker.addEventListener(
-          'controllerchange',
-          controllerchangeHandler
-        )
+        navigator.serviceWorker.addEventListener('controllerchange', controllerchangeHandler)
         eventListeners.push({
           target: navigator.serviceWorker,
           type: 'controllerchange',
@@ -118,7 +117,9 @@ export async function registerServiceWorker() {
       console.error('[SW] Service Worker registration failed:', error)
     }
   } else {
-    console.log('[SW] Service Worker not supported')
+    if (isDevelopment) {
+      console.log('[SW] Service Worker not supported')
+    }
   }
 }
 
@@ -176,10 +177,7 @@ export function isOffline(): boolean {
 }
 
 // Function to listen for online/offline events
-export function listenForNetworkChanges(
-  onOnline: () => void,
-  onOffline: () => void
-) {
+export function listenForNetworkChanges(onOnline: () => void, onOffline: () => void) {
   window.addEventListener('online', onOnline)
   window.addEventListener('offline', onOffline)
 

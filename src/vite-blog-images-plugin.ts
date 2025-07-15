@@ -1,8 +1,10 @@
-import { Plugin } from 'vite'
 import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
+import path from 'path'
+import { Plugin } from 'vite'
 import { generateBlogImages } from './utils/blogImageGenerator'
+
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 interface BlogImageConfig {
   width: number
@@ -31,9 +33,7 @@ export function viteBlogImagesPlugin(): Plugin {
       }
 
       // Get all markdown files
-      const files = fs
-        .readdirSync(postsDir)
-        .filter((file) => file.endsWith('.md'))
+      const files = fs.readdirSync(postsDir).filter((file) => file.endsWith('.md'))
 
       const imagesToGenerate: BlogImageConfig[] = []
 
@@ -72,11 +72,13 @@ export function viteBlogImagesPlugin(): Plugin {
       }
 
       if (imagesToGenerate.length > 0) {
-        console.log(
-          `\n🖼️  Generating ${imagesToGenerate.length} missing blog images...`
-        )
+        if (isDevelopment) {
+          console.log(`\n🖼️  Generating ${imagesToGenerate.length} missing blog images...`)
+        }
         await generateBlogImages(imagesToGenerate)
-        console.log('✅ Blog images generated successfully!\n')
+        if (isDevelopment) {
+          console.log('✅ Blog images generated successfully!\n')
+        }
       }
     } catch (error) {
       console.error('Error generating blog images:', error)
@@ -102,7 +104,9 @@ export function viteBlogImagesPlugin(): Plugin {
       // Generate images when markdown files are added or changed
       server.watcher.on('add', async (filePath) => {
         if (filePath.endsWith('.md') && filePath.includes('src/posts')) {
-          console.log(`\n📝 New blog post detected: ${path.basename(filePath)}`)
+          if (isDevelopment) {
+            console.log(`\n📝 New blog post detected: ${path.basename(filePath)}`)
+          }
           await generateMissingImages()
         }
       })
@@ -125,9 +129,9 @@ export function viteBlogImagesPlugin(): Plugin {
             )
 
             if (!fs.existsSync(testFile)) {
-              console.log(
-                `\n✏️  Blog post title changed: ${path.basename(filePath)}`
-              )
+              if (isDevelopment) {
+                console.log(`\n✏️  Blog post title changed: ${path.basename(filePath)}`)
+              }
               await generateMissingImages()
             }
           }

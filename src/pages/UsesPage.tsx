@@ -35,10 +35,19 @@ export default function UsesPage() {
             </p>
           </div>
 
-          <Tabs defaultValue="hardware" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
-              <TabsTrigger value="hardware" className="flex items-center gap-2">
-                <Laptop size={16} /> Hardware
+          <Tabs defaultValue="computers" className="w-full">
+            <TabsList className="grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-7">
+              <TabsTrigger
+                value="computers"
+                className="flex items-center gap-2"
+              >
+                <Laptop size={16} /> Computers
+              </TabsTrigger>
+              <TabsTrigger
+                value="peripherals"
+                className="flex items-center gap-2"
+              >
+                <Keyboard size={16} /> Peripherals
               </TabsTrigger>
               <TabsTrigger value="mobile" className="flex items-center gap-2">
                 <Smartphone size={16} /> Mobile
@@ -63,16 +72,16 @@ export default function UsesPage() {
               </TabsTrigger>
             </TabsList>
 
-            <TabsContent value="hardware">
+            <TabsContent value="computers">
               <div className="grid gap-6">
                 <Card>
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Laptop size={20} />
-                      <span>Workstation</span>
+                      <span>Computers & Workstations</span>
                     </CardTitle>
                     <CardDescription>
-                      My primary development environment
+                      My development machines and servers
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
@@ -91,7 +100,6 @@ export default function UsesPage() {
                           breaking a sweat. The Liquid Retina XDR display makes
                           coding and design work a joy.
                         </p>
-                        <p className="text-sm">Price: $3,199 (base model)</p>
                       </div>
 
                       <div>
@@ -109,7 +117,6 @@ export default function UsesPage() {
                           provides excellent performance while maintaining
                           incredible battery life.
                         </p>
-                        <p className="text-sm">Price: $1,299 (base model)</p>
                       </div>
 
                       <div>
@@ -177,6 +184,69 @@ export default function UsesPage() {
 
                       <div>
                         <h3 className="font-medium text-lg mb-2">
+                          ASUS NUC 15 Pro Plus
+                        </h3>
+                        <p className="text-muted-foreground mb-2">
+                          Intel Core Ultra 9 285H Mini PC running Proxmox
+                        </p>
+                        <div className="space-y-2">
+                          <p className="text-sm">
+                            <span className="font-medium">CPU:</span> Intel Core
+                            Ultra 9 285H
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">Memory:</span> Crucial
+                            96GB DDR5-5600 SO-DIMM Kit (2x48GB)
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">Storage:</span>{' '}
+                            Western Digital Black SN850X 4TB NVMe SSD
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">Networking:</span>{' '}
+                            2.5GbE, Wi-Fi 7
+                          </p>
+                          <p className="text-sm">
+                            <span className="font-medium">OS:</span> Proxmox VE
+                            (virtualization platform)
+                          </p>
+                        </div>
+                        <p className="text-sm mt-2">
+                          Why I love it: This compact powerhouse serves as my
+                          home lab virtualization server. The Intel Core Ultra 9
+                          285H provides exceptional performance for running
+                          multiple VMs simultaneously, while the 96GB of RAM
+                          ensures smooth operation even with demanding
+                          workloads. The 4TB NVMe storage provides blazing-fast
+                          I/O for VMs, and the mini form factor means it fits
+                          perfectly in my rack without taking up much space.
+                          Running Proxmox gives me enterprise-grade
+                          virtualization features with a clean web interface for
+                          management.
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="peripherals">
+              <div className="grid gap-6">
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Keyboard size={20} />
+                      <span>Keyboards</span>
+                    </CardTitle>
+                    <CardDescription>
+                      Mechanical keyboards for coding and gaming
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-6">
+                      <div>
+                        <h3 className="font-medium text-lg mb-2">
                           Wooting 80HE
                         </h3>
                         <p className="text-muted-foreground mb-2">
@@ -194,9 +264,23 @@ export default function UsesPage() {
                           gives me more desk space while keeping the function
                           row.
                         </p>
-                        <p className="text-sm">Price: $199</p>
                       </div>
+                    </div>
+                  </CardContent>
+                </Card>
 
+                <Card>
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2">
+                      <Mouse size={20} />
+                      <span>Mice & Pointing Devices</span>
+                    </CardTitle>
+                    <CardDescription>
+                      Ergonomic mice for productivity
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-6">
                       <div>
                         <h3 className="font-medium text-lg mb-2">
                           Logitech MX Master 3
@@ -211,7 +295,6 @@ export default function UsesPage() {
                           horizontal scroll wheel is invaluable for timeline
                           editing and spreadsheets.
                         </p>
-                        <p className="text-sm">Price: $99</p>
                       </div>
                     </div>
                   </CardContent>
@@ -413,11 +496,10 @@ export default function UsesPage() {
                       </ul>
 
                       <p className="text-sm">
-                        Why It's Worth $30/month: The combination of keyboard
-                        shortcuts, AI-powered triage, and instant search saves
-                        me 2-3 hours weekly. It's still incredibly expensive for
-                        an email client, but so far the time savings are worth
-                        it.
+                        Why I love it: The combination of keyboard shortcuts,
+                        AI-powered triage, and instant search saves me 2-3 hours
+                        weekly. The time savings make it worthwhile despite
+                        being a premium email client.
                       </p>
                     </div>
 
@@ -444,19 +526,6 @@ export default function UsesPage() {
 
                     <div>
                       <h3 className="font-medium text-lg mb-2">
-                        💰 Cost Breakdown
-                      </h3>
-                      <p className="text-muted-foreground mb-2">
-                        Monthly subscription costs for productivity tools
-                      </p>
-                      <ul className="list-disc pl-6 mb-4 space-y-1">
-                        <li>Superhuman: $30/month</li>
-                        <li>Notion Calendar: $8/month</li>
-                      </ul>
-                    </div>
-
-                    <div>
-                      <h3 className="font-medium text-lg mb-2">
                         Task Management
                       </h3>
                       <p className="text-muted-foreground mb-2">
@@ -469,16 +538,12 @@ export default function UsesPage() {
                         perfect for software development. The keyboard-first
                         interface and GitHub integration make it a joy to use.
                       </p>
-                      <p className="text-sm">Cost: Free for small teams</p>
 
                       <h4 className="font-medium mt-4 mb-2">Things 3</h4>
                       <p className="text-sm mb-2">
                         Beautiful and intuitive task manager for personal
                         projects. The natural language input and quick entry
                         make it easy to capture tasks on the go.
-                      </p>
-                      <p className="text-sm">
-                        Cost: $49.99 (one-time purchase)
                       </p>
                     </div>
 
@@ -512,7 +577,6 @@ export default function UsesPage() {
                         capabilities. The graph view helps visualize connections
                         between ideas, and the plugin ecosystem is extensive.
                       </p>
-                      <p className="text-sm">Cost: Free for personal use</p>
 
                       <h4 className="font-medium mt-4 mb-2">Notion</h4>
                       <p className="text-sm mb-2">
@@ -520,7 +584,6 @@ export default function UsesPage() {
                         management. The database features and templates make it
                         incredibly versatile.
                       </p>
-                      <p className="text-sm">Cost: Free for personal use</p>
                     </div>
                   </div>
                 </CardContent>

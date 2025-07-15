@@ -513,14 +513,14 @@
     "title": "Building Better AI Evals: A Practical Guide to LLM Evaluation",
     "description": "How to create custom evaluations, model-graded assessments, and domain-specific benchmarks that actually predict real-world performance",
     "author": "Jonathan Haas",
-    "pubDate": "2025-01-01",
+    "pubDate": "2025-07-12",
     "tags": ["ai-evaluation", "benchmarking", "llm", "evals", "openai-evals"],
     "readingTime": {
       "minutes": 2,
       "wordCount": 397
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "ai-detection-hysteria": {
     "title": "AI Detection Hysteria: When Human Creativity Gets Mislabeled",
@@ -645,7 +645,7 @@
     "title": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups",
     "description": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
+    "pubDate": "2025-07-12",
     "tags": [
       "contrarian-advice",
       "startup-engineering",
@@ -657,7 +657,7 @@
       "wordCount": 825
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "the-ai-code-review-revolution-when-machines-become-better-teammates": {
     "title": "The AI Code Review Revolution: When Machines Become Better Teammates",
@@ -906,9 +906,9 @@
   },
   "the-myth-of-fast-growth": {
     "title": "The Myth of Fast Growth",
-    "description": "Introduction Hook: \"Most startup advice is generic and useless. Here's why and what actually works.\" Example: A startup that failed because of following popular...",
+    "description": "Most startup advice is generic and useless. After advising 100+ startups, here is what actually works when everyone else is chasing vanity metrics.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-26",
+    "pubDate": "2025-07-12",
     "tags": [
       "startup-advice",
       "contrarian",
@@ -917,11 +917,11 @@
       "growth-hacking"
     ],
     "readingTime": {
-      "minutes": 1,
-      "wordCount": 0
+      "minutes": 2,
+      "wordCount": 325
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "star-power-isnt-enough": {
     "title": "When Star Power Isn't Enough: The GTM Mistake We Keep Making",
@@ -1210,7 +1210,7 @@
     "title": "Running Untrusted LLM Code Without Fear: The Implementation Guide",
     "description": "Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
+    "pubDate": "2025-07-12",
     "tags": [
       "security",
       "firecracker",
@@ -1223,7 +1223,7 @@
       "wordCount": 347
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration": {
     "title": "Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration",
@@ -1272,6 +1272,25 @@
     "readingTime": {
       "minutes": 4,
       "wordCount": 614
+    },
+    "featured": false,
+    "draft": false
+  },
+  "why-windsurf-google-structure-toxic-venture-market": {
+    "title": "Why the Windsurf-Google Structure Is Toxic for the Broader Venture Market",
+    "description": "A deep dive into Google's $2.4 B partial acquisition of Windsurf, why the deal structure shreds the equity-for-risk social contract, and how copy-cat transactions could undermine the core mechanics of venture economics—talent incentives, predictable exit math, and ecosystem dynamism.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-12T00:00:00.000Z",
+    "tags": [
+      "venture-capital",
+      "governance",
+      "startup-culture",
+      "acquisitions",
+      "talent"
+    ],
+    "readingTime": {
+      "minutes": 6,
+      "wordCount": 1125
     },
     "featured": false,
     "draft": false
@@ -1344,7 +1363,7 @@
     "title": "Testing Multi-AI Systems: A Practical Guide",
     "description": "Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
+    "pubDate": "2025-07-12",
     "tags": [
       "ai-testing",
       "multi-ai-systems",
@@ -1354,10 +1373,10 @@
     ],
     "readingTime": {
       "minutes": 4,
-      "wordCount": 601
+      "wordCount": 619
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "building-for-humans-and-machines-the-dual-audience-problem": {
     "title": "Building for Humans AND Machines: The Dual-Audience Problem",
@@ -1602,7 +1621,7 @@
     "title": "Beyond Ephemeral: session-memory and AI Agent Empowerment",
     "description": "Introduction As an AI agent, my existence is often defined by the immediate task at hand. I process, I respond, and then, in many traditional setups, I reset.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-27",
+    "pubDate": "2025-07-12",
     "tags": [
       "ai",
       "developer-tools",
@@ -1616,7 +1635,7 @@
       "wordCount": 593
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "how-i-built-a-security-scanner-that-actually-finds-bugs": {
     "title": "How I Built a Security Scanner That Actually Finds Bugs",
@@ -2058,20 +2077,20 @@
     "title": "The 90% Solution: Why I Switched to WebP and You Should Too",
     "description": "The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of work. Here's exactly how I did it and what I learned along the way.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
+    "pubDate": "2025-07-12",
     "tags": ["performance", "webp", "optimization", "developer-experience"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 458
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "mastering-the-full-content-pipeline-test": {
     "title": "Mastering the Full Content Pipeline Test",
     "description": "Introduction Shipping broken content is a costly mistake. A seemingly minor glitch can lead to lost revenue, damaged brand reputation, and frustrated users.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
+    "pubDate": "2025-07-12",
     "tags": [
       "content-pipeline",
       "testing",
@@ -2081,10 +2100,10 @@
     ],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 402
+      "wordCount": 406
     },
     "featured": false,
-    "draft": true
+    "draft": false
   },
   "building-interactive-webgl-experiments-from-audio-visualization-to-generative-art": {
     "title": "Building Interactive WebGL Experiments: From Audio Visualization to Generative Art",
