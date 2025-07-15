@@ -11,9 +11,7 @@ interface PreloadOptions {
  * Hook for intelligent preloading of resources
  */
 export function useIntelligentPreloading() {
-  const preloadQueue = useRef<Array<{ slug: string; options: PreloadOptions }>>(
-    []
-  )
+  const preloadQueue = useRef<Array<{ slug: string; options: PreloadOptions }>>([])
   const isProcessing = useRef(false)
   const timeoutIds = useRef<Set<number>>(new Set())
   const idleCallbackIds = useRef<Set<number>>(new Set())
@@ -69,10 +67,7 @@ export function useIntelligentPreloading() {
       }
 
       // Skip on slow connections
-      if (
-        connection?.effectiveType === 'slow-2g' ||
-        connection?.effectiveType === '2g'
-      ) {
+      if (connection?.effectiveType === 'slow-2g' || connection?.effectiveType === '2g') {
         return true
       }
     }

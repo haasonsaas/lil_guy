@@ -30,9 +30,7 @@ interface DiagnosticTest {
 export default function DiagnosticsPage() {
   const [tests, setTests] = useState<DiagnosticTest[]>([])
   const [isRunning, setIsRunning] = useState(false)
-  const [browserInfo, setBrowserInfo] = useState<
-    Record<string, string | number | boolean>
-  >({})
+  const [browserInfo, setBrowserInfo] = useState<Record<string, string | number | boolean>>({})
 
   useEffect(() => {
     // Gather browser info
@@ -107,27 +105,21 @@ export default function DiagnosticsPage() {
   const testWebGL = (): DiagnosticTest => {
     try {
       const canvas = document.createElement('canvas')
-      const gl =
-        canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
+      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl')
 
       if (!gl) {
         return {
           name: 'WebGL Support',
           status: 'error',
           message: 'WebGL not supported',
-          details:
-            'Your browser does not support WebGL, which is required for 3D experiments',
+          details: 'Your browser does not support WebGL, which is required for 3D experiments',
           icon: Cpu,
         }
       }
 
       const debugInfo = gl.getExtension('WEBGL_debug_renderer_info')
-      const vendor = debugInfo
-        ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL)
-        : 'Unknown'
-      const renderer = debugInfo
-        ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL)
-        : 'Unknown'
+      const vendor = debugInfo ? gl.getParameter(debugInfo.UNMASKED_VENDOR_WEBGL) : 'Unknown'
+      const renderer = debugInfo ? gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL) : 'Unknown'
 
       return {
         name: 'WebGL Support',
@@ -151,7 +143,6 @@ export default function DiagnosticsPage() {
     try {
       const canvas = document.createElement('canvas')
       const ctx = canvas.getContext('2d')
-
       if (!ctx) {
         return {
           name: 'Canvas 2D Support',
@@ -187,9 +178,7 @@ export default function DiagnosticsPage() {
     try {
       const AudioContext =
         window.AudioContext ||
-        (window as unknown as { webkitAudioContext?: typeof AudioContext })
-          .webkitAudioContext
-
+        (window as unknown as { webkitAudioContext?: typeof AudioContext }).webkitAudioContext
       if (!AudioContext) {
         return {
           name: 'Web Audio API',
@@ -247,8 +236,7 @@ export default function DiagnosticsPage() {
         name: 'LocalStorage',
         status: 'error',
         message: 'LocalStorage not available',
-        details:
-          'This might be due to private browsing mode or storage quota exceeded',
+        details: 'This might be due to private browsing mode or storage quota exceeded',
         icon: Database,
       }
     }
@@ -318,7 +306,6 @@ export default function DiagnosticsPage() {
 
       let frames = 0
       const startTime = performance.now()
-
       const countFrames = () => {
         frames++
         if (performance.now() - startTime < 1000) {
@@ -336,7 +323,6 @@ export default function DiagnosticsPage() {
           })
         }
       }
-
       requestAnimationFrame(countFrames)
     })
   }
@@ -462,8 +448,7 @@ export default function DiagnosticsPage() {
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-4">Browser Diagnostics</h1>
           <p className="text-muted-foreground mb-6">
-            This page tests your browser's capabilities for running interactive
-            experiments.
+            This page tests your browser's capabilities for running interactive experiments.
           </p>
 
           {tests.length > 0 && !isRunning && (
@@ -480,8 +465,7 @@ export default function DiagnosticsPage() {
               <AlertTitle>
                 {overallStatus === 'success' && 'All Systems Operational'}
                 {overallStatus === 'error' && 'Some Features May Not Work'}
-                {overallStatus === 'warning' &&
-                  'Limited Functionality Detected'}
+                {overallStatus === 'warning' && 'Limited Functionality Detected'}
               </AlertTitle>
               <AlertDescription>
                 {overallStatus === 'success' &&
@@ -500,9 +484,7 @@ export default function DiagnosticsPage() {
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold">Capability Tests</h2>
               <Button onClick={runDiagnostics} disabled={isRunning} size="sm">
-                <RefreshCw
-                  className={`w-4 h-4 mr-2 ${isRunning ? 'animate-spin' : ''}`}
-                />
+                <RefreshCw className={`w-4 h-4 mr-2 ${isRunning ? 'animate-spin' : ''}`} />
                 {isRunning ? 'Running...' : 'Run Tests'}
               </Button>
             </div>
@@ -511,22 +493,16 @@ export default function DiagnosticsPage() {
               {tests.map((test, index) => (
                 <div key={index} className="border rounded-lg p-4">
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 mt-1">
-                      {getStatusIcon(test.status)}
-                    </div>
+                    <div className="flex-shrink-0 mt-1">{getStatusIcon(test.status)}</div>
                     <div className="flex-grow">
                       <div className="flex items-center gap-3 mb-1">
                         <test.icon className="w-4 h-4 text-muted-foreground" />
                         <h3 className="font-medium">{test.name}</h3>
                         {getStatusBadge(test.status)}
                       </div>
-                      <p className="text-sm text-muted-foreground">
-                        {test.message}
-                      </p>
+                      <p className="text-sm text-muted-foreground">{test.message}</p>
                       {test.details && (
-                        <p className="text-xs text-muted-foreground mt-1">
-                          {test.details}
-                        </p>
+                        <p className="text-xs text-muted-foreground mt-1">{test.details}</p>
                       )}
                     </div>
                   </div>
@@ -546,19 +522,12 @@ export default function DiagnosticsPage() {
             <h2 className="text-xl font-semibold mb-4">Browser Information</h2>
             <div className="space-y-2">
               {Object.entries(browserInfo).map(([key, value]) => (
-                <div
-                  key={key}
-                  className="flex justify-between py-2 border-b last:border-0"
-                >
+                <div key={key} className="flex justify-between py-2 border-b last:border-0">
                   <span className="text-sm font-medium capitalize">
                     {key.replace(/([A-Z])/g, ' $1').trim()}:
                   </span>
                   <span className="text-sm text-muted-foreground font-mono">
-                    {typeof value === 'boolean'
-                      ? value
-                        ? 'Yes'
-                        : 'No'
-                      : String(value)}
+                    {typeof value === 'boolean' ? (value ? 'Yes' : 'No') : String(value)}
                   </span>
                 </div>
               ))}
@@ -573,8 +542,7 @@ export default function DiagnosticsPage() {
                 <div>
                   <p className="font-medium">Update Your Browser</p>
                   <p className="text-muted-foreground">
-                    Ensure you're using the latest version of Chrome, Firefox,
-                    Safari, or Edge.
+                    Ensure you're using the latest version of Chrome, Firefox, Safari, or Edge.
                   </p>
                 </div>
               </div>
@@ -583,8 +551,7 @@ export default function DiagnosticsPage() {
                 <div>
                   <p className="font-medium">Enable Hardware Acceleration</p>
                   <p className="text-muted-foreground">
-                    Check your browser settings to ensure GPU acceleration is
-                    enabled.
+                    Check your browser settings to ensure GPU acceleration is enabled.
                   </p>
                 </div>
               </div>
@@ -593,8 +560,7 @@ export default function DiagnosticsPage() {
                 <div>
                   <p className="font-medium">Disable Extensions</p>
                   <p className="text-muted-foreground">
-                    Some browser extensions may interfere with WebGL or Canvas
-                    rendering.
+                    Some browser extensions may interfere with WebGL or Canvas rendering.
                   </p>
                 </div>
               </div>
@@ -603,8 +569,7 @@ export default function DiagnosticsPage() {
                 <div>
                   <p className="font-medium">Check Privacy Settings</p>
                   <p className="text-muted-foreground">
-                    Ensure your browser isn't blocking features due to
-                    privacy/tracking settings.
+                    Ensure your browser isn't blocking features due to privacy/tracking settings.
                   </p>
                 </div>
               </div>

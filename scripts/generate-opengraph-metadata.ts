@@ -87,9 +87,7 @@ async function generateMetadata() {
 
   // Write to public directory so it's accessible at runtime
   fs.writeFileSync(outputPath, JSON.stringify(metadata, null, 2))
-  console.log(
-    `✅ Generated metadata for ${Object.keys(metadata).length} blog posts`
-  )
+  console.log(`✅ Generated metadata for ${Object.keys(metadata).length} blog posts`)
   console.log(`📄 Output: ${outputPath}`)
 }
 

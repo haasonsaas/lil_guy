@@ -107,21 +107,15 @@ function HDRHolographicFoilPageContent() {
   return (
     <div className="min-h-screen bg-gray-950 text-white p-8">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-violet-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
             HDR Holographic Foil Effect
           </h1>
           <p className="text-gray-400 text-lg mb-2">
-            Experience true HDR colors that exceed standard RGB range on
-            compatible displays
+            Experience true HDR colors that exceed standard RGB range on compatible displays
           </p>
           <p className="text-sm text-gray-500">
-            Move your mouse over the surface to see the interactive holographic
-            effect
+            Move your mouse over the surface to see the interactive holographic effect
           </p>
         </motion.div>
 
@@ -216,25 +210,15 @@ function HDRHolographicFoilPageContent() {
 
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <Label
-                    htmlFor="hdr-toggle"
-                    className="flex items-center space-x-2"
-                  >
+                  <Label htmlFor="hdr-toggle" className="flex items-center space-x-2">
                     <Zap className="w-4 h-4" />
                     <span>HDR Mode</span>
                   </Label>
-                  <Switch
-                    id="hdr-toggle"
-                    checked={enableHDR}
-                    onCheckedChange={setEnableHDR}
-                  />
+                  <Switch id="hdr-toggle" checked={enableHDR} onCheckedChange={setEnableHDR} />
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <Label
-                    htmlFor="animation-toggle"
-                    className="flex items-center space-x-2"
-                  >
+                  <Label htmlFor="animation-toggle" className="flex items-center space-x-2">
                     <Sparkles className="w-4 h-4" />
                     <span>Animate</span>
                   </Label>
@@ -283,9 +267,7 @@ function HDRHolographicFoilPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label>
-                    Surface Roughness: {(roughness[0] * 100).toFixed(0)}%
-                  </Label>
+                  <Label>Surface Roughness: {(roughness[0] * 100).toFixed(0)}%</Label>
                   <Slider
                     value={roughness}
                     onValueChange={setRoughness}
@@ -297,9 +279,7 @@ function HDRHolographicFoilPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label>
-                    Animation Speed: {animationSpeed[0].toFixed(1)}x
-                  </Label>
+                  <Label>Animation Speed: {animationSpeed[0].toFixed(1)}x</Label>
                   <Slider
                     value={animationSpeed}
                     onValueChange={setAnimationSpeed}
@@ -316,9 +296,9 @@ function HDRHolographicFoilPageContent() {
             <div className="pt-4 border-t border-gray-800">
               <h4 className="font-semibold mb-2">About HDR Effects</h4>
               <p className="text-sm text-gray-400 mb-3">
-                On HDR-capable displays, this effect uses extended color gamut
-                and brightness values that exceed standard RGB range, creating
-                more vibrant and realistic metallic surfaces.
+                On HDR-capable displays, this effect uses extended color gamut and brightness values
+                that exceed standard RGB range, creating more vibrant and realistic metallic
+                surfaces.
               </p>
               <Button
                 variant="outline"

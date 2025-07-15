@@ -19,9 +19,7 @@ interface RawFrontmatter {
  * Calculate reading time in minutes based on word count
  * Inline implementation to avoid circular imports
  */
-const calculateReadingTimeInline = (
-  content: string
-): { minutes: number; wordCount: number } => {
+const calculateReadingTimeInline = (content: string): { minutes: number; wordCount: number } => {
   // Average reading speed in words per minute
   const WORDS_PER_MINUTE = 200
 
@@ -50,9 +48,7 @@ const calculateReadingTimeInline = (
  * Load blog posts from markdown files in the /src/posts directory
  * @param metadataOnly - If true, only loads frontmatter without full content (default: false)
  */
-export const readFilePosts = async (
-  metadataOnly: boolean = false
-): Promise<BlogPost[]> => {
+export const readFilePosts = async (metadataOnly: boolean = false): Promise<BlogPost[]> => {
   const posts: BlogPost[] = []
   const seenSlugs = new Set<string>()
   let totalFiles = 0
@@ -118,9 +114,7 @@ export const readFilePosts = async (
         }
 
         // Process tags to ensure they're in array format
-        let tags: string[] = Array.isArray(frontmatter.tags)
-          ? frontmatter.tags
-          : []
+        let tags: string[] = Array.isArray(frontmatter.tags) ? frontmatter.tags : []
         if (typeof frontmatter.tags === 'string') {
           tags = frontmatter.tags.split(',').map((tag) => tag.trim())
         }
@@ -190,8 +184,7 @@ export const readFilePosts = async (
           author: frontmatter.author || defaultFrontmatter.author,
           pubDate: frontmatter.pubDate || defaultFrontmatter.pubDate,
           title: frontmatter.title || defaultFrontmatter.title,
-          description:
-            frontmatter.description || defaultFrontmatter.description,
+          description: frontmatter.description || defaultFrontmatter.description,
           featured: featuredValue,
           draft: draftValue,
           tags,
@@ -214,9 +207,7 @@ export const readFilePosts = async (
     }
 
     if (import.meta.env.DEV) {
-      console.log(
-        `Successfully loaded ${posts.length} posts (${skippedFiles} skipped)`
-      )
+      console.log(`Successfully loaded ${posts.length} posts (${skippedFiles} skipped)`)
     }
     return posts
   } catch (error) {

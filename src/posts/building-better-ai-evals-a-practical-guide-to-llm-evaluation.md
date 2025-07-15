@@ -254,21 +254,34 @@ For security analysis:
 
 ## Tools and Frameworks
 
-**OpenAI Evals**: Start here for standard eval patterns
+**AI Evaluation Toolkit** (Open Source): Complete framework I built demonstrating all concepts from this post
+
+```bash
+git clone https://github.com/haasonsaas/ai-eval-toolkit
+pip install -r requirements.txt
+
+# Run basic template evaluators
+python examples/basic_eval.py
+
+# Run LLM-as-a-judge evaluators  
+python examples/llm_judge_eval.py
+
+# Create custom datasets
+python tools/dataset_creator.py create-interactive
+```
+
+Features production-ready implementations of:
+
+- Basic template evaluators (Match, Includes, FuzzyMatch, JSON)
+- LLM-as-a-judge evaluators (Criteria, Factual Consistency, Chain-of-Thought)
+- Interactive dataset creation tools
+- Rich console reporting with detailed metrics
+
+**OpenAI Evals**: Good starting point for standard patterns
 
 ```bash
 pip install evals
 evals run gpt-4 your-eval-name
-```
-
-**Custom Frameworks**: For complex domain-specific evals
-
-```python
-from my_eval_framework import Evaluator, ModelGradedEval
-
-evaluator = Evaluator()
-evaluator.add_eval(ModelGradedEval("factual-consistency"))
-results = evaluator.run(test_cases)
 ```
 
 ## What Actually Predicts Real-World Performance

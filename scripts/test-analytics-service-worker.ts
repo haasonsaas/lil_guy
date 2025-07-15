@@ -21,9 +21,7 @@ class AnalyticsServiceWorkerTester {
   private results: TestResult[] = []
 
   async runAllTests(): Promise<void> {
-    console.log(
-      chalk.blue('🧪 Testing Analytics and Service Worker Functionality\n')
-    )
+    console.log(chalk.blue('🧪 Testing Analytics and Service Worker Functionality\n'))
 
     // Test 1: Check Cloudflare script is in index.html
     await this.testCloudflareScriptInHTML()
@@ -52,9 +50,7 @@ class AnalyticsServiceWorkerTester {
         'static.cloudflareinsights.com/beacon.min.js'
       )
       const hasBeaconToken = indexHtmlContent.includes('data-cf-beacon')
-      const hasCorrectToken = indexHtmlContent.includes(
-        '3cea46866cd24358b17fd3ca37ce1dd5'
-      )
+      const hasCorrectToken = indexHtmlContent.includes('3cea46866cd24358b17fd3ca37ce1dd5')
 
       this.results.push({
         name: 'Cloudflare Web Analytics script in index.html',
@@ -75,23 +71,12 @@ class AnalyticsServiceWorkerTester {
 
     try {
       // Read the analytics source file
-      const analyticsPath = path.join(
-        process.cwd(),
-        'src',
-        'utils',
-        'analytics.ts'
-      )
+      const analyticsPath = path.join(process.cwd(), 'src', 'utils', 'analytics.ts')
       const analyticsContent = fs.readFileSync(analyticsPath, 'utf-8')
 
-      const hasInitializedFlag = analyticsContent.includes(
-        'analyticsInitialized'
-      )
-      const hasInitializedCheck = analyticsContent.includes(
-        'if (analyticsInitialized)'
-      )
-      const hasSetFlag = analyticsContent.includes(
-        'analyticsInitialized = true'
-      )
+      const hasInitializedFlag = analyticsContent.includes('analyticsInitialized')
+      const hasInitializedCheck = analyticsContent.includes('if (analyticsInitialized)')
+      const hasSetFlag = analyticsContent.includes('analyticsInitialized = true')
 
       this.results.push({
         name: 'Analytics initialization flag implementation',
@@ -112,17 +97,10 @@ class AnalyticsServiceWorkerTester {
 
     try {
       // Read the service worker hook file
-      const swHookPath = path.join(
-        process.cwd(),
-        'src',
-        'hooks',
-        'useServiceWorker.ts'
-      )
+      const swHookPath = path.join(process.cwd(), 'src', 'hooks', 'useServiceWorker.ts')
       const swHookContent = fs.readFileSync(swHookPath, 'utf-8')
 
-      const hasSessionStorageCheck = swHookContent.includes(
-        "sessionStorage.getItem('sw-logged')"
-      )
+      const hasSessionStorageCheck = swHookContent.includes("sessionStorage.getItem('sw-logged')")
       const hasSessionStorageSet = swHookContent.includes(
         "sessionStorage.setItem('sw-logged', 'true')"
       )
@@ -130,8 +108,7 @@ class AnalyticsServiceWorkerTester {
 
       this.results.push({
         name: 'Service worker session storage prevention',
-        passed:
-          hasSessionStorageCheck && hasSessionStorageSet && hasOnlyLogOnce,
+        passed: hasSessionStorageCheck && hasSessionStorageSet && hasOnlyLogOnce,
         details: `Check: ${hasSessionStorageCheck ? '✓' : '✗'}, Set: ${hasSessionStorageSet ? '✓' : '✗'}, Comment: ${hasOnlyLogOnce ? '✓' : '✗'}`,
       })
     } catch (error) {
@@ -150,8 +127,7 @@ class AnalyticsServiceWorkerTester {
       // Test analytics module can be imported and has expected exports
       const analyticsModule = await import('../src/utils/analytics.ts')
 
-      const hasInitialize =
-        typeof analyticsModule.initializeAnalytics === 'function'
+      const hasInitialize = typeof analyticsModule.initializeAnalytics === 'function'
       const hasTrackEvent = typeof analyticsModule.trackEvent === 'function'
       const hasAnalyticsObject = typeof analyticsModule.default === 'object'
 
@@ -165,17 +141,12 @@ class AnalyticsServiceWorkerTester {
       const hooksModule = await import('../src/hooks/useAnalytics.ts')
 
       const hasUseAnalytics = typeof hooksModule.useAnalytics === 'function'
-      const hasUseReadingProgress =
-        typeof hooksModule.useReadingProgress === 'function'
-      const hasUseExternalLinkTracking =
-        typeof hooksModule.useExternalLinkTracking === 'function'
+      const hasUseReadingProgress = typeof hooksModule.useReadingProgress === 'function'
+      const hasUseExternalLinkTracking = typeof hooksModule.useExternalLinkTracking === 'function'
 
       this.results.push({
         name: 'Analytics hooks exports',
-        passed:
-          hasUseAnalytics &&
-          hasUseReadingProgress &&
-          hasUseExternalLinkTracking,
+        passed: hasUseAnalytics && hasUseReadingProgress && hasUseExternalLinkTracking,
         details: `useAnalytics: ${hasUseAnalytics ? '✓' : '✗'}, useReadingProgress: ${hasUseReadingProgress ? '✓' : '✗'}, useExternalLinkTracking: ${hasUseExternalLinkTracking ? '✓' : '✗'}`,
       })
     } catch (error) {
@@ -223,15 +194,11 @@ class AnalyticsServiceWorkerTester {
 
     if (failed === 0) {
       console.log(
-        chalk.green(
-          '\n🎉 All tests passed! Analytics and Service Worker setup is correct.'
-        )
+        chalk.green('\n🎉 All tests passed! Analytics and Service Worker setup is correct.')
       )
       console.log(chalk.cyan('✨ Ready for production deployment.'))
     } else {
-      console.log(
-        chalk.red(`\n💥 ${failed} test(s) failed - please fix before merging`)
-      )
+      console.log(chalk.red(`\n💥 ${failed} test(s) failed - please fix before merging`))
       process.exit(1)
     }
   }

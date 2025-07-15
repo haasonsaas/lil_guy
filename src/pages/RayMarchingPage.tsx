@@ -468,32 +468,25 @@ function RayMarchingPageContent() {
   )
 
   // Create shader helper
-  const createShader = useCallback(
-    (gl: WebGLRenderingContext, type: number, source: string) => {
-      const shader = gl.createShader(type)
-      if (!shader) return null
+  const createShader = useCallback((gl: WebGLRenderingContext, type: number, source: string) => {
+    const shader = gl.createShader(type)
+    if (!shader) return null
 
-      gl.shaderSource(shader, source)
-      gl.compileShader(shader)
+    gl.shaderSource(shader, source)
+    gl.compileShader(shader)
 
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error('Shader compilation error:', gl.getShaderInfoLog(shader))
-        gl.deleteShader(shader)
-        return null
-      }
+    if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+      console.error('Shader compilation error:', gl.getShaderInfoLog(shader))
+      gl.deleteShader(shader)
+      return null
+    }
 
-      return shader
-    },
-    []
-  )
+    return shader
+  }, [])
 
   // Create program helper
   const createProgram = useCallback(
-    (
-      gl: WebGLRenderingContext,
-      vertexShader: WebGLShader,
-      fragmentShader: WebGLShader
-    ) => {
+    (gl: WebGLRenderingContext, vertexShader: WebGLShader, fragmentShader: WebGLShader) => {
       const program = gl.createProgram()
       if (!program) return null
 
@@ -527,11 +520,7 @@ function RayMarchingPageContent() {
 
     // Create shaders
     const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource)
-    const fragmentShader = createShader(
-      gl,
-      gl.FRAGMENT_SHADER,
-      fragmentShaderSource
-    )
+    const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource)
 
     if (!vertexShader || !fragmentShader) return false
 
@@ -571,29 +560,12 @@ function RayMarchingPageContent() {
 
     // Set uniforms
     const time = (Date.now() - startTimeRef.current) * 0.001
-    gl.uniform2f(
-      gl.getUniformLocation(program, 'u_resolution'),
-      canvas.width,
-      canvas.height
-    )
-    gl.uniform1f(
-      gl.getUniformLocation(program, 'u_time'),
-      autoRotate ? time : 0
-    )
-    gl.uniform2f(
-      gl.getUniformLocation(program, 'u_mouse'),
-      mouseRef.current.x,
-      mouseRef.current.y
-    )
+    gl.uniform2f(gl.getUniformLocation(program, 'u_resolution'), canvas.width, canvas.height)
+    gl.uniform1f(gl.getUniformLocation(program, 'u_time'), autoRotate ? time : 0)
+    gl.uniform2f(gl.getUniformLocation(program, 'u_mouse'), mouseRef.current.x, mouseRef.current.y)
     gl.uniform1i(gl.getUniformLocation(program, 'u_scene'), currentScene)
-    gl.uniform1f(
-      gl.getUniformLocation(program, 'u_lightIntensity'),
-      lightIntensity[0]
-    )
-    gl.uniform1f(
-      gl.getUniformLocation(program, 'u_shadowSoftness'),
-      shadowSoftness[0]
-    )
+    gl.uniform1f(gl.getUniformLocation(program, 'u_lightIntensity'), lightIntensity[0])
+    gl.uniform1f(gl.getUniformLocation(program, 'u_shadowSoftness'), shadowSoftness[0])
     gl.uniform1f(gl.getUniformLocation(program, 'u_metallic'), metallic[0])
     gl.uniform1f(gl.getUniformLocation(program, 'u_roughness'), roughness[0])
 
@@ -696,14 +668,11 @@ function RayMarchingPageContent() {
           >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Shapes className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-display font-semibold">
-                Ray Marching Explorer
-              </h1>
+              <h1 className="text-4xl font-display font-semibold">Ray Marching Explorer</h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore 3D scenes rendered entirely in a fragment shader using ray
-              marching. Features soft shadows, ambient occlusion, and PBR
-              materials.
+              Explore 3D scenes rendered entirely in a fragment shader using ray marching. Features
+              soft shadows, ambient occlusion, and PBR materials.
             </p>
           </motion.div>
 
@@ -754,11 +723,7 @@ function RayMarchingPageContent() {
                 variant={isPlaying ? 'default' : 'outline'}
                 onClick={() => setIsPlaying(!isPlaying)}
               >
-                {isPlaying ? (
-                  <Pause className="h-4 w-4" />
-                ) : (
-                  <Play className="h-4 w-4" />
-                )}
+                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
               </Button>
               <Button size="icon" variant="outline" onClick={resetCamera}>
                 <RotateCcw className="h-4 w-4" />
@@ -775,12 +740,8 @@ function RayMarchingPageContent() {
           >
             {/* Scene info */}
             <Card className="p-6">
-              <h3 className="text-lg font-semibold mb-2">
-                {scenes[currentScene].name}
-              </h3>
-              <p className="text-muted-foreground">
-                {scenes[currentScene].description}
-              </p>
+              <h3 className="text-lg font-semibold mb-2">{scenes[currentScene].name}</h3>
+              <p className="text-muted-foreground">{scenes[currentScene].description}</p>
             </Card>
 
             {/* Settings */}
@@ -821,9 +782,7 @@ function RayMarchingPageContent() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium">
-                        Light Intensity
-                      </label>
+                      <label className="text-sm font-medium">Light Intensity</label>
                       <span className="text-sm text-muted-foreground">
                         {(lightIntensity[0] * 100).toFixed(0)}%
                       </span>
@@ -840,9 +799,7 @@ function RayMarchingPageContent() {
 
                   <div>
                     <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium">
-                        Shadow Softness
-                      </label>
+                      <label className="text-sm font-medium">Shadow Softness</label>
                       <span className="text-sm text-muted-foreground">
                         {shadowSoftness[0].toFixed(1)}
                       </span>
@@ -924,16 +881,14 @@ function RayMarchingPageContent() {
                 <Shapes className="h-5 w-5 text-muted-foreground mt-0.5" />
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p>
-                    Ray marching is a technique for rendering 3D scenes by
-                    stepping along rays and evaluating signed distance functions
-                    (SDFs). This allows for complex geometry and effects that
-                    would be difficult with traditional polygon rendering.
+                    Ray marching is a technique for rendering 3D scenes by stepping along rays and
+                    evaluating signed distance functions (SDFs). This allows for complex geometry
+                    and effects that would be difficult with traditional polygon rendering.
                   </p>
                   <p>
-                    The entire scene is calculated per-pixel in real-time,
-                    including lighting, shadows, and ambient occlusion. Try
-                    different scenes and materials to see the variety of effects
-                    possible with this technique.
+                    The entire scene is calculated per-pixel in real-time, including lighting,
+                    shadows, and ambient occlusion. Try different scenes and materials to see the
+                    variety of effects possible with this technique.
                   </p>
                 </div>
               </div>

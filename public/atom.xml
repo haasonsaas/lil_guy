@@ -81,23 +81,6 @@
     <category term="implementation-guide" />
   </entry>
   <entry>
-    <title><![CDATA[Why the Windsurf-Google Structure Is Toxic for the Broader Venture Market]]></title>
-    <link href="https://www.haasonsaas.com/blog/why-windsurf-google-structure-toxic-venture-market" rel="alternate" type="text/html" />
-    <id>https://www.haasonsaas.com/blog/why-windsurf-google-structure-toxic-venture-market</id>
-    <published>2025-07-12T00:00:00.000Z</published>
-    <updated>2025-07-12T00:00:00.000Z</updated>
-    <summary><![CDATA[A deep dive into Google's $2.4 B partial acquisition of Windsurf, why the deal structure shreds the equity-for-risk social contract, and how copy-cat transactions could undermine the core mechanics of venture economics—talent incentives, predictable exit math, and ecosystem dynamism.]]></summary>
-    <author>
-      <name>Jonathan Haas</name>
-      <email>jonathan@haasonsaas.com</email>
-    </author>
-    <category term="venture-capital" />
-    <category term="governance" />
-    <category term="startup-culture" />
-    <category term="acquisitions" />
-    <category term="talent" />
-  </entry>
-  <entry>
     <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
     <link href="https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide" rel="alternate" type="text/html" />
     <id>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</id>
@@ -839,5 +822,21 @@
     <category term="writing" />
     <category term="developer-experience" />
     <category term="meta" />
+  </entry>
+  <entry>
+    <title><![CDATA[Simulating Liquid Metal: Building T-1000 Physics with Web Technologies]]></title>
+    <link href="https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies" rel="alternate" type="text/html" />
+    <id>https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</id>
+    <published>2025-06-19T00:00:00.000Z</published>
+    <updated>2025-06-19T00:00:00.000Z</updated>
+    <summary><![CDATA[Remember that scene in Terminator 2 where the T-1000 rises from the floor, liquid metal flowing seamlessly back into human form.]]></summary>
+    <author>
+      <name>Jonathan Haas</name>
+      <email>jonathan@haasonsaas.com</email>
+    </author>
+    <category term="webgl" />
+    <category term="graphics" />
+    <category term="creative-coding" />
+    <category term="physics" />
   </entry>
 </feed>

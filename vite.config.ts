@@ -37,10 +37,8 @@ export default defineConfig({
             // Heavy libraries that benefit from separate chunks
             if (id.includes('framer-motion')) return 'framer-motion'
             if (id.includes('katex')) return 'katex'
-            if (id.includes('prismjs') || id.includes('highlight.js'))
-              return 'syntax-highlighting'
-            if (id.includes('marked') || id.includes('gray-matter'))
-              return 'markdown'
+            if (id.includes('prismjs') || id.includes('highlight.js')) return 'syntax-highlighting'
+            if (id.includes('marked') || id.includes('gray-matter')) return 'markdown'
             if (id.includes('recharts')) return 'charts'
             if (id.includes('@radix-ui')) return 'radix-ui'
 
@@ -54,10 +52,7 @@ export default defineConfig({
           }
 
           // Blog-specific utilities
-          if (
-            id.includes('src/utils/blog') ||
-            id.includes('MarkdownRenderer')
-          ) {
+          if (id.includes('src/utils/blog') || id.includes('MarkdownRenderer')) {
             return 'blog-utils'
           }
         },

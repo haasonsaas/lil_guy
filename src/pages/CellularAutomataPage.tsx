@@ -21,13 +21,7 @@ import {
 import { motion } from 'framer-motion'
 import { ExperimentErrorBoundary } from '@/components/ExperimentErrorBoundary'
 
-type AutomataType =
-  | 'life'
-  | 'seeds'
-  | 'brian'
-  | 'langton'
-  | 'rule110'
-  | 'rule30'
+type AutomataType = 'life' | 'seeds' | 'brian' | 'langton' | 'rule110' | 'rule30'
 
 interface Pattern {
   name: string
@@ -171,40 +165,40 @@ function CellularAutomataPageContent() {
       type: 'life',
       cells: [
         [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0,
         ],
         [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,
-          0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0,
         ],
         [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 1, 1,
         ],
         [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 1, 1,
         ],
         [
-          1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0,
         ],
         [
-          1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1,
-          0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0,
         ],
         [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0,
-          0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0,
         ],
         [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0,
         ],
         [
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+          0, 0, 0, 0, 0, 0,
         ],
       ],
     },
@@ -459,14 +453,7 @@ function CellularAutomataPageContent() {
     generationRef.current++
     setGeneration(generationRef.current)
     updatePopulation()
-  }, [
-    countNeighbors,
-    currentRule,
-    getCell,
-    gridHeight,
-    gridWidth,
-    updatePopulation,
-  ])
+  }, [countNeighbors, currentRule, getCell, gridHeight, gridWidth, updatePopulation])
 
   // Update population count
   const updatePopulation = useCallback(() => {
@@ -474,10 +461,7 @@ function CellularAutomataPageContent() {
 
     let count = 0
     for (let i = 0; i < gridRef.current.length; i++) {
-      if (
-        gridRef.current[i] === 1 ||
-        (currentRule === 'langton' && gridRef.current[i] >= 2)
-      ) {
+      if (gridRef.current[i] === 1 || (currentRule === 'langton' && gridRef.current[i] >= 2)) {
         count++
       }
     }
@@ -527,8 +511,7 @@ function CellularAutomataPageContent() {
           if (cell === 1) {
             ctx.fillStyle = scheme.alive
           } else if (cell === 2) {
-            ctx.fillStyle =
-              currentRule === 'brian' ? scheme.dying : scheme.alive
+            ctx.fillStyle = currentRule === 'brian' ? scheme.dying : scheme.alive
           } else {
             // Ant in Langton's Ant
             ctx.fillStyle = '#ff0000'
@@ -599,12 +582,7 @@ function CellularAutomataPageContent() {
           if (dx * dx + dy * dy < brush * brush) {
             const cellX = x + dx
             const cellY = y + dy
-            if (
-              cellX >= 0 &&
-              cellX < gridWidth &&
-              cellY >= 0 &&
-              cellY < gridHeight
-            ) {
+            if (cellX >= 0 && cellX < gridWidth && cellY >= 0 && cellY < gridHeight) {
               setCell(cellX, cellY, e.shiftKey ? 0 : 1)
             }
           }
@@ -629,8 +607,7 @@ function CellularAutomataPageContent() {
 
       // Re-initialize for special automata
       if (currentRule === 'langton') {
-        const centerIndex =
-          Math.floor(gridHeight / 2) * gridWidth + Math.floor(gridWidth / 2)
+        const centerIndex = Math.floor(gridHeight / 2) * gridWidth + Math.floor(gridWidth / 2)
         gridRef.current[centerIndex] = 2
       }
 
@@ -648,8 +625,7 @@ function CellularAutomataPageContent() {
 
     // Add ant for Langton's Ant
     if (currentRule === 'langton') {
-      const centerIndex =
-        Math.floor(gridHeight / 2) * gridWidth + Math.floor(gridWidth / 2)
+      const centerIndex = Math.floor(gridHeight / 2) * gridWidth + Math.floor(gridWidth / 2)
       gridRef.current[centerIndex] = 2
     }
 
@@ -736,14 +712,11 @@ function CellularAutomataPageContent() {
           >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Grid3x3 className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-display font-semibold">
-                Cellular Automata Playground
-              </h1>
+              <h1 className="text-4xl font-display font-semibold">Cellular Automata Playground</h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Explore the fascinating world of cellular automata. Simple rules
-              create complex patterns, from the Game of Life to elementary
-              automata.
+              Explore the fascinating world of cellular automata. Simple rules create complex
+              patterns, from the Game of Life to elementary automata.
             </p>
           </motion.div>
 
@@ -778,34 +751,15 @@ function CellularAutomataPageContent() {
                 variant={isPlaying ? 'default' : 'outline'}
                 onClick={() => setIsPlaying(!isPlaying)}
               >
-                {isPlaying ? (
-                  <Pause className="h-4 w-4" />
-                ) : (
-                  <Play className="h-4 w-4" />
-                )}
+                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
               </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={clearGrid}
-                title="Clear grid"
-              >
+              <Button size="icon" variant="outline" onClick={clearGrid} title="Clear grid">
                 <Minus className="h-4 w-4" />
               </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={randomizeGrid}
-                title="Random pattern"
-              >
+              <Button size="icon" variant="outline" onClick={randomizeGrid} title="Random pattern">
                 <Shuffle className="h-4 w-4" />
               </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={exportImage}
-                title="Export as image"
-              >
+              <Button size="icon" variant="outline" onClick={exportImage} title="Export as image">
                 <Download className="h-4 w-4" />
               </Button>
             </div>
@@ -830,9 +784,7 @@ function CellularAutomataPageContent() {
                     onClick={() => setCurrentRule(rule.type)}
                   >
                     <div className="font-semibold">{rule.name}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {rule.description}
-                    </div>
+                    <div className="text-xs text-muted-foreground">{rule.description}</div>
                   </Button>
                 ))}
               </div>
@@ -852,12 +804,8 @@ function CellularAutomataPageContent() {
                         className="h-auto p-2 justify-start flex-col items-start"
                         onClick={() => placePattern(pattern)}
                       >
-                        <div className="font-medium text-sm">
-                          {pattern.name}
-                        </div>
-                        <div className="text-xs text-muted-foreground">
-                          {pattern.description}
-                        </div>
+                        <div className="font-medium text-sm">{pattern.name}</div>
+                        <div className="text-xs text-muted-foreground">{pattern.description}</div>
                       </Button>
                     ))}
                 </div>
@@ -875,9 +823,7 @@ function CellularAutomataPageContent() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Speed</label>
-                      <span className="text-sm text-muted-foreground">
-                        {speed[0]} gen/sec
-                      </span>
+                      <span className="text-sm text-muted-foreground">{speed[0]} gen/sec</span>
                     </div>
                     <Slider
                       value={speed}
@@ -892,9 +838,7 @@ function CellularAutomataPageContent() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Cell Size</label>
-                      <span className="text-sm text-muted-foreground">
-                        {cellSize[0]}px
-                      </span>
+                      <span className="text-sm text-muted-foreground">{cellSize[0]}px</span>
                     </div>
                     <Slider
                       value={cellSize}
@@ -909,9 +853,7 @@ function CellularAutomataPageContent() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Brush Size</label>
-                      <span className="text-sm text-muted-foreground">
-                        {brushSize[0]}
-                      </span>
+                      <span className="text-sm text-muted-foreground">{brushSize[0]}</span>
                     </div>
                     <Slider
                       value={brushSize}
@@ -932,16 +874,12 @@ function CellularAutomataPageContent() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      Color Scheme
-                    </label>
+                    <label className="text-sm font-medium mb-2 block">Color Scheme</label>
                     <div className="flex flex-wrap gap-2">
                       {colorSchemes.map((scheme, index) => (
                         <Badge
                           key={index}
-                          variant={
-                            colorScheme === index ? 'default' : 'secondary'
-                          }
+                          variant={colorScheme === index ? 'default' : 'secondary'}
                           className="cursor-pointer"
                           onClick={() => setColorScheme(index)}
                         >
@@ -952,9 +890,7 @@ function CellularAutomataPageContent() {
                   </div>
 
                   <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      Display Options
-                    </label>
+                    <label className="text-sm font-medium mb-2 block">Display Options</label>
                     <Badge
                       variant={showGrid ? 'default' : 'secondary'}
                       className="cursor-pointer"
@@ -973,19 +909,17 @@ function CellularAutomataPageContent() {
                 <Info className="h-5 w-5 text-muted-foreground mt-0.5" />
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p>
-                    <strong>Drawing:</strong> Click and drag to draw cells. Hold
-                    Shift while dragging to erase.
+                    <strong>Drawing:</strong> Click and drag to draw cells. Hold Shift while
+                    dragging to erase.
                   </p>
                   <p>
-                    <strong>Rules:</strong> Each automaton follows different
-                    rules. Conway's Game of Life has cells that survive with 2-3
-                    neighbors and are born with exactly 3 neighbors. Try
-                    different rules to see unique behaviors!
+                    <strong>Rules:</strong> Each automaton follows different rules. Conway's Game of
+                    Life has cells that survive with 2-3 neighbors and are born with exactly 3
+                    neighbors. Try different rules to see unique behaviors!
                   </p>
                   <p>
-                    <strong>Patterns:</strong> Pre-made patterns demonstrate
-                    interesting behaviors like oscillators, spaceships, and
-                    generators.
+                    <strong>Patterns:</strong> Pre-made patterns demonstrate interesting behaviors
+                    like oscillators, spaceships, and generators.
                   </p>
                 </div>
               </div>

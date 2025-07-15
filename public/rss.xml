@@ -67,18 +67,6 @@
       <category><![CDATA[implementation-guide]]></category>
     </item>
     <item>
-      <title><![CDATA[Why the Windsurf-Google Structure Is Toxic for the Broader Venture Market]]></title>
-      <description><![CDATA[A deep dive into Google's $2.4 B partial acquisition of Windsurf, why the deal structure shreds the equity-for-risk social contract, and how copy-cat transactions could undermine the core mechanics of venture economics—talent incentives, predictable exit math, and ecosystem dynamism.]]></description>
-      <link>https://www.haasonsaas.com/blog/why-windsurf-google-structure-toxic-venture-market</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/why-windsurf-google-structure-toxic-venture-market</guid>
-      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[venture-capital]]></category>
-      <category><![CDATA[governance]]></category>
-      <category><![CDATA[startup-culture]]></category>
-      <category><![CDATA[acquisitions]]></category>
-      <category><![CDATA[talent]]></category>
-    </item>
-    <item>
       <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
       <description><![CDATA[Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.]]></description>
       <link>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</link>
@@ -595,6 +583,17 @@
       <category><![CDATA[writing]]></category>
       <category><![CDATA[developer-experience]]></category>
       <category><![CDATA[meta]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Simulating Liquid Metal: Building T-1000 Physics with Web Technologies]]></title>
+      <description><![CDATA[Remember that scene in Terminator 2 where the T-1000 rises from the floor, liquid metal flowing seamlessly back into human form.]]></description>
+      <link>https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/simulating-liquid-metal-building-t-1000-physics-with-web-technologies</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[webgl]]></category>
+      <category><![CDATA[graphics]]></category>
+      <category><![CDATA[creative-coding]]></category>
+      <category><![CDATA[physics]]></category>
     </item>
   </channel>
 </rss>

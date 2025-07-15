@@ -20,11 +20,7 @@ import {
   getAllPosts,
 } from '@/utils/blogUtils'
 import { loadBlogPost, preloadBlogPost } from '@/utils/blog/dynamicLoader'
-import {
-  generateDynamicImageUrl,
-  generateOgImageUrl,
-  getImageData,
-} from '@/utils/blog/imageUtils'
+import { generateDynamicImageUrl, generateOgImageUrl, getImageData } from '@/utils/blog/imageUtils'
 import { validatePreviewToken, getTokenExpiration } from '@/utils/previewUtils'
 import {
   generateBlogPostStructuredData,
@@ -35,22 +31,13 @@ import StructuredData from '@/components/SEO/StructuredData'
 import { BlogPostMeta } from '@/components/SEO/MetaTags'
 import { AdvancedSEO } from '@/components/SEO/AdvancedSEO'
 import { AgentStructuredData } from '@/components/SEO/AgentStructuredData'
-import {
-  useAnalytics,
-  useReadingProgress,
-  useExternalLinkTracking,
-} from '@/hooks/useAnalytics'
+import { useAnalytics, useReadingProgress, useExternalLinkTracking } from '@/hooks/useAnalytics'
 import { useAutoCacheBlogPost } from '@/hooks/useServiceWorker'
 import type { BlogPost } from '@/types/blog'
 import WeeklyPlaybook from '@/components/WeeklyPlaybook'
 import { Subscribe } from '@/components/Subscribe'
 import TableOfContents from '@/components/TableOfContents'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
@@ -125,14 +112,9 @@ export default function BlogPost() {
       // Load series posts
       if (loadedPost.frontmatter.series) {
         const series = allPosts.filter(
-          (p) =>
-            p.frontmatter.series?.name === loadedPost.frontmatter.series?.name
+          (p) => p.frontmatter.series?.name === loadedPost.frontmatter.series?.name
         )
-        series.sort(
-          (a, b) =>
-            (a.frontmatter.series?.part || 0) -
-            (b.frontmatter.series?.part || 0)
-        )
+        series.sort((a, b) => (a.frontmatter.series?.part || 0) - (b.frontmatter.series?.part || 0))
         setSeriesPosts(series)
       }
     }
@@ -223,14 +205,8 @@ export default function BlogPost() {
       <article className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link to="/blog">
-            <Button
-              variant="ghost"
-              className="mb-6 flex items-center gap-2 group"
-            >
-              <ArrowLeft
-                size={16}
-                className="group-hover:-translate-x-1 transition-transform"
-              />{' '}
+            <Button variant="ghost" className="mb-6 flex items-center gap-2 group">
+              <ArrowLeft size={16} className="group-hover:-translate-x-1 transition-transform" />{' '}
               Back to Blog
             </Button>
           </Link>
@@ -244,10 +220,7 @@ export default function BlogPost() {
                   <span className="font-medium">Preview Mode</span>
                   {previewExpiration && (
                     <span className="text-sm">
-                      • Expires{' '}
-                      {formatDate(
-                        previewExpiration.toISOString().split('T')[0]
-                      )}
+                      • Expires {formatDate(previewExpiration.toISOString().split('T')[0])}
                     </span>
                   )}
                 </div>
@@ -261,10 +234,7 @@ export default function BlogPost() {
 
             <div className="mb-8 animate-fade-in">
               {post.frontmatter.series && (
-                <SeriesNavigation
-                  currentPost={post}
-                  seriesPosts={seriesPosts}
-                />
+                <SeriesNavigation currentPost={post} seriesPosts={seriesPosts} />
               )}
               <div className="flex flex-wrap gap-2 mb-4">
                 {frontmatter?.tags &&
@@ -297,15 +267,13 @@ export default function BlogPost() {
                     <TooltipTrigger asChild>
                       <div className="flex items-center gap-2">
                         <Clock size={16} />
-                        <span>
-                          {calculateReadingTime(content).minutes} min read
-                        </span>
+                        <span>{calculateReadingTime(content).minutes} min read</span>
                       </div>
                     </TooltipTrigger>
                     <TooltipContent>
                       <p>
-                        Based on {calculateReadingTime(content).wordCount} words
-                        at 200 words per minute
+                        Based on {calculateReadingTime(content).wordCount} words at 200 words per
+                        minute
                       </p>
                     </TooltipContent>
                   </Tooltip>
@@ -360,12 +328,9 @@ export default function BlogPost() {
             <div className="mt-16 no-print">
               <div className="p-6 rounded-lg border bg-card text-card-foreground shadow-sm">
                 <div className="flex flex-col items-center text-center">
-                  <h3 className="text-xl md:text-2xl font-bold mb-2">
-                    Get the Weekly Playbook
-                  </h3>
+                  <h3 className="text-xl md:text-2xl font-bold mb-2">Get the Weekly Playbook</h3>
                   <p className="text-sm md:text-base text-muted-foreground mb-4 md:mb-6">
-                    One tactical post per week on scaling SaaS with AI — zero
-                    fluff, all signal
+                    One tactical post per week on scaling SaaS with AI — zero fluff, all signal
                   </p>
                   <Subscribe source="blog_post" />
                   <p className="text-xs md:text-sm text-muted-foreground mt-4">
@@ -387,11 +352,7 @@ export default function BlogPost() {
                         ))
                       : // Show actual related posts
                         relatedPosts.map((relatedPost) => (
-                          <BlogCard
-                            key={relatedPost.slug}
-                            post={relatedPost}
-                            hideAuthor={true}
-                          />
+                          <BlogCard key={relatedPost.slug} post={relatedPost} hideAuthor={true} />
                         ))}
                   </div>
                 </div>
@@ -408,8 +369,7 @@ export default function BlogPost() {
             <div className="print-only mt-8 pt-4 border-t border-gray-300">
               <div className="text-sm text-gray-600">
                 <p>
-                  This article was published on{' '}
-                  {formatDate(frontmatter.pubDate)} at haasonsaas.com
+                  This article was published on {formatDate(frontmatter.pubDate)} at haasonsaas.com
                 </p>
                 {frontmatter?.tags && frontmatter.tags.length > 0 && (
                   <p className="mt-2">Topics: {frontmatter.tags.join(', ')}</p>

@@ -8,12 +8,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { useState } from 'react'
 import { cn } from '@/lib/utils'
 import { useBlogCardPreloading } from '@/hooks/useIntelligentPreloading'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
 
 interface BlogCardProps {
   post: BlogPost
@@ -36,11 +31,7 @@ const truncateText = (text: string, maxLength: number): string => {
   return text.length > maxLength ? text.substring(0, maxLength) + '...' : text
 }
 
-export default function BlogCard({
-  post,
-  featured = false,
-  hideAuthor = false,
-}: BlogCardProps) {
+export default function BlogCard({ post, featured = false, hideAuthor = false }: BlogCardProps) {
   const { slug, frontmatter, content } = post
   const [imageError, setImageError] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
@@ -48,9 +39,7 @@ export default function BlogCard({
   const { onMouseEnter, onTouchStart } = useBlogCardPreloading()
 
   const imageData = getImageData(frontmatter)
-  const imageUrl = imageError
-    ? generateThumbnailUrl(frontmatter.title)
-    : imageData.url
+  const imageUrl = imageError ? generateThumbnailUrl(frontmatter.title) : imageData.url
   const imageAlt = imageData.alt
 
   const truncatedTitle = featured
@@ -63,8 +52,7 @@ export default function BlogCard({
 
   // Use pre-calculated reading time if available, otherwise calculate from content
   const readTime = frontmatter.readingTime || calculateReadingTime(content)
-  const wordCount =
-    frontmatter.readingTime?.wordCount || content.trim().split(/\s+/).length
+  const wordCount = frontmatter.readingTime?.wordCount || content.trim().split(/\s+/).length
 
   if (featured) {
     return (
@@ -79,17 +67,13 @@ export default function BlogCard({
       >
         <Link to={`/blog/${slug}`} className="block">
           <div className="relative h-[400px] overflow-hidden rounded-lg shadow-md">
-            {isLoading && (
-              <Skeleton className="absolute inset-0 w-full h-full" />
-            )}
+            {isLoading && <Skeleton className="absolute inset-0 w-full h-full" />}
             <img
               src={optimizeImage(imageUrl, 1200)}
               alt={imageAlt}
               className={cn(
                 'h-full w-full object-cover transition-all duration-500',
-                isHovered
-                  ? 'scale-105 brightness-110'
-                  : 'scale-100 brightness-100',
+                isHovered ? 'scale-105 brightness-110' : 'scale-100 brightness-100',
                 isLoading ? 'opacity-0' : 'opacity-100'
               )}
               onLoad={() => setIsLoading(false)}
@@ -118,9 +102,7 @@ export default function BlogCard({
               <h2 className="text-2xl md:text-3xl font-display font-semibold text-white mb-3 leading-tight">
                 {truncatedTitle}
               </h2>
-              <p className="text-white/80 mb-6 text-base leading-relaxed">
-                {truncatedDescription}
-              </p>
+              <p className="text-white/80 mb-6 text-base leading-relaxed">{truncatedDescription}</p>
               <div className="flex items-center gap-4 text-white/80 text-sm">
                 {!hideAuthor && (
                   <div className="flex items-center gap-1.5">
@@ -169,17 +151,13 @@ export default function BlogCard({
           )}
         >
           <div className="relative aspect-[16/9] overflow-hidden">
-            {isLoading && (
-              <Skeleton className="absolute inset-0 w-full h-full" />
-            )}
+            {isLoading && <Skeleton className="absolute inset-0 w-full h-full" />}
             <img
               src={optimizeImage(imageUrl, 800)}
               alt={imageAlt}
               className={cn(
                 'h-full w-full object-cover transition-all duration-500',
-                isHovered
-                  ? 'scale-105 brightness-110'
-                  : 'scale-100 brightness-100',
+                isHovered ? 'scale-105 brightness-110' : 'scale-100 brightness-100',
                 isLoading ? 'opacity-0' : 'opacity-100'
               )}
               onLoad={() => setIsLoading(false)}

@@ -181,10 +181,7 @@ function formatFeedback(feedback: WritingFeedback): void {
       : feedback.overall_score >= 60
         ? chalk.yellow
         : chalk.red
-  console.log(
-    chalk.bold('\nOverall Score: ') +
-      scoreColor(`${feedback.overall_score}/100`)
-  )
+  console.log(chalk.bold('\nOverall Score: ') + scoreColor(`${feedback.overall_score}/100`))
 
   // Category Scores
   console.log(chalk.bold('\n📊 Category Breakdown:'))
@@ -211,15 +208,12 @@ function formatFeedback(feedback: WritingFeedback): void {
   ]
 
   categories.forEach((cat) => {
-    const color =
-      cat.score >= 80 ? chalk.green : cat.score >= 60 ? chalk.yellow : chalk.red
+    const color = cat.score >= 80 ? chalk.green : cat.score >= 60 ? chalk.yellow : chalk.red
     console.log(`  ${cat.emoji} ${cat.name}: ${color(cat.score + '/100')}`)
   })
 
   // High Priority Improvements
-  const highPriority = feedback.actionable_improvements.filter(
-    (i) => i.priority === 'high'
-  )
+  const highPriority = feedback.actionable_improvements.filter((i) => i.priority === 'high')
   if (highPriority.length > 0) {
     console.log(chalk.bold.red('\n🚨 High Priority Improvements:'))
     highPriority.forEach((improvement, i) => {
@@ -234,9 +228,7 @@ function formatFeedback(feedback: WritingFeedback): void {
     feedback.style_consistency.issues.forEach((issue, i) => {
       console.log(chalk.yellow(`  • ${issue}`))
       if (feedback.style_consistency.suggestions[i]) {
-        console.log(
-          chalk.gray(`    → ${feedback.style_consistency.suggestions[i]}`)
-        )
+        console.log(chalk.gray(`    → ${feedback.style_consistency.suggestions[i]}`))
       }
     })
   }
@@ -251,14 +243,8 @@ function formatFeedback(feedback: WritingFeedback): void {
 
   if (feedback.seo_optimization.score < 80) {
     console.log(chalk.bold('\n🔍 SEO Optimization:'))
-    console.log(
-      chalk.yellow(`  Title: ${feedback.seo_optimization.title_analysis}`)
-    )
-    console.log(
-      chalk.yellow(
-        `  Description: ${feedback.seo_optimization.description_analysis}`
-      )
-    )
+    console.log(chalk.yellow(`  Title: ${feedback.seo_optimization.title_analysis}`))
+    console.log(chalk.yellow(`  Description: ${feedback.seo_optimization.description_analysis}`))
   }
 
   if (feedback.technical_accuracy.fact_check_needed.length > 0) {
@@ -269,9 +255,7 @@ function formatFeedback(feedback: WritingFeedback): void {
   }
 
   // Medium Priority Improvements
-  const mediumPriority = feedback.actionable_improvements.filter(
-    (i) => i.priority === 'medium'
-  )
+  const mediumPriority = feedback.actionable_improvements.filter((i) => i.priority === 'medium')
   if (mediumPriority.length > 0) {
     console.log(chalk.bold('\n⚡ Suggested Improvements:'))
     mediumPriority.forEach((improvement, i) => {
@@ -282,13 +266,9 @@ function formatFeedback(feedback: WritingFeedback): void {
   // Summary
   console.log(chalk.bold('\n📋 Summary:'))
   if (feedback.overall_score >= 80) {
-    console.log(
-      chalk.green('  ✅ This post is ready to publish with minor tweaks!')
-    )
+    console.log(chalk.green('  ✅ This post is ready to publish with minor tweaks!'))
   } else if (feedback.overall_score >= 60) {
-    console.log(
-      chalk.yellow('  ⚠️  This post needs some work before publishing.')
-    )
+    console.log(chalk.yellow('  ⚠️  This post needs some work before publishing.'))
   } else {
     console.log(chalk.red('  ❌ This post needs significant revision.'))
   }
@@ -297,9 +277,7 @@ function formatFeedback(feedback: WritingFeedback): void {
 }
 
 async function watchForChanges(filePath: string): Promise<void> {
-  console.log(
-    chalk.blue(`\n👀 Watching ${path.basename(filePath)} for changes...`)
-  )
+  console.log(chalk.blue(`\n👀 Watching ${path.basename(filePath)} for changes...`))
   console.log(chalk.gray('Press Ctrl+C to stop\n'))
 
   let lastAnalysis = Date.now()
@@ -319,11 +297,7 @@ async function watchForChanges(filePath: string): Promise<void> {
           const { data: frontmatter, content: body } = matter(content)
 
           if (body.trim().length < 100) {
-            console.log(
-              chalk.gray(
-                'Post too short to analyze (< 100 chars). Keep writing!'
-              )
-            )
+            console.log(chalk.gray('Post too short to analyze (< 100 chars). Keep writing!'))
             continue
           }
 
@@ -383,9 +357,7 @@ ${chalk.bold('Features:')}
 
   // Check for API key
   if (!process.env.GOOGLE_AI_API_KEY) {
-    console.error(
-      chalk.red('❌ GOOGLE_AI_API_KEY environment variable not set')
-    )
+    console.error(chalk.red('❌ GOOGLE_AI_API_KEY environment variable not set'))
     console.log(chalk.yellow('Add it to your .env file or export it:'))
     console.log(chalk.gray('export GOOGLE_AI_API_KEY="your-api-key"'))
     process.exit(1)
@@ -413,9 +385,7 @@ ${chalk.bold('Features:')}
     const { data: frontmatter, content: body } = matter(content)
 
     if (body.trim().length < 100) {
-      console.error(
-        chalk.red('❌ Post too short to analyze (< 100 characters)')
-      )
+      console.error(chalk.red('❌ Post too short to analyze (< 100 characters)'))
       process.exit(1)
     }
 

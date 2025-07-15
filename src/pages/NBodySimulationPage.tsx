@@ -244,26 +244,23 @@ function NBodySimulationPageContent() {
   }, [])
 
   // Calculate gravitational force between two bodies
-  const calculateForce = useCallback(
-    (body1: Body, body2: Body): { fx: number; fy: number } => {
-      const dx = body2.x - body1.x
-      const dy = body2.y - body1.y
-      const distSq = dx * dx + dy * dy
-      const dist = Math.sqrt(distSq)
+  const calculateForce = useCallback((body1: Body, body2: Body): { fx: number; fy: number } => {
+    const dx = body2.x - body1.x
+    const dy = body2.y - body1.y
+    const distSq = dx * dx + dy * dy
+    const dist = Math.sqrt(distSq)
 
-      // Prevent division by zero and extreme forces at close distances
-      const minDist = body1.radius + body2.radius
-      const effectiveDist = Math.max(dist, minDist)
-      const effectiveDistSq = effectiveDist * effectiveDist
+    // Prevent division by zero and extreme forces at close distances
+    const minDist = body1.radius + body2.radius
+    const effectiveDist = Math.max(dist, minDist)
+    const effectiveDistSq = effectiveDist * effectiveDist
 
-      const force = (G * body1.mass * body2.mass) / effectiveDistSq
-      const fx = (force * dx) / effectiveDist
-      const fy = (force * dy) / effectiveDist
+    const force = (G * body1.mass * body2.mass) / effectiveDistSq
+    const fx = (force * dx) / effectiveDist
+    const fy = (force * dy) / effectiveDist
 
-      return { fx, fy }
-    },
-    []
-  )
+    return { fx, fy }
+  }, [])
 
   // Check collision between two bodies
   const checkCollision = useCallback((body1: Body, body2: Body): boolean => {
@@ -363,13 +360,7 @@ function NBodySimulationPageContent() {
 
       setBodyCount(bodiesRef.current.length)
     },
-    [
-      trailLength,
-      collisionsEnabled,
-      calculateForce,
-      checkCollision,
-      mergeBodies,
-    ]
+    [trailLength, collisionsEnabled, calculateForce, checkCollision, mergeBodies]
   )
 
   // Draw gravity field
@@ -408,10 +399,7 @@ function NBodySimulationPageContent() {
           // Draw field line
           const magnitude = Math.sqrt(totalFx * totalFx + totalFy * totalFy)
           if (magnitude > 0.1) {
-            const scale = Math.min(
-              gridSize * 0.4,
-              (gridSize * 0.4) / Math.sqrt(magnitude)
-            )
+            const scale = Math.min(gridSize * 0.4, (gridSize * 0.4) / Math.sqrt(magnitude))
             const endX = x + totalFx * scale
             const endY = y + totalFy * scale
 
@@ -539,11 +527,7 @@ function NBodySimulationPageContent() {
     }
 
     // Draw preview for new body
-    if (
-      mouseRef.current.isDown &&
-      dragStartRef.current &&
-      placementMode === 'drag'
-    ) {
+    if (mouseRef.current.isDown && dragStartRef.current && placementMode === 'drag') {
       const startX = dragStartRef.current.x
       const startY = dragStartRef.current.y
       const endX = mouseRef.current.x
@@ -633,11 +617,7 @@ function NBodySimulationPageContent() {
 
   // Handle mouse up
   const handleMouseUp = (e: React.MouseEvent<HTMLCanvasElement>) => {
-    if (
-      !mouseRef.current.isDown ||
-      !dragStartRef.current ||
-      placementMode !== 'drag'
-    ) {
+    if (!mouseRef.current.isDown || !dragStartRef.current || placementMode !== 'drag') {
       mouseRef.current.isDown = false
       return
     }
@@ -708,14 +688,11 @@ function NBodySimulationPageContent() {
           >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Orbit className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-display font-semibold">
-                N-Body Simulation
-              </h1>
+              <h1 className="text-4xl font-display font-semibold">N-Body Simulation</h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Interactive gravitational physics simulation. Add celestial
-              bodies, watch them orbit, collide, and create complex
-              gravitational interactions.
+              Interactive gravitational physics simulation. Add celestial bodies, watch them orbit,
+              collide, and create complex gravitational interactions.
             </p>
           </motion.div>
 
@@ -752,26 +729,12 @@ function NBodySimulationPageContent() {
                 variant={isPlaying ? 'default' : 'outline'}
                 onClick={() => setIsPlaying(!isPlaying)}
               >
-                {isPlaying ? (
-                  <Pause className="h-4 w-4" />
-                ) : (
-                  <Play className="h-4 w-4" />
-                )}
+                {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
               </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={clearBodies}
-                title="Clear all bodies"
-              >
+              <Button size="icon" variant="outline" onClick={clearBodies} title="Clear all bodies">
                 <Minus className="h-4 w-4" />
               </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={reset}
-                title="Reset to preset"
-              >
+              <Button size="icon" variant="outline" onClick={reset} title="Reset to preset">
                 <RotateCcw className="h-4 w-4" />
               </Button>
             </div>
@@ -799,9 +762,7 @@ function NBodySimulationPageContent() {
                     }}
                   >
                     <div className="font-semibold">{preset.name}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {preset.description}
-                    </div>
+                    <div className="text-xs text-muted-foreground">{preset.description}</div>
                   </Button>
                 ))}
               </div>
@@ -816,23 +777,17 @@ function NBodySimulationPageContent() {
                 </h3>
                 <div className="space-y-4">
                   <div>
-                    <label className="text-sm font-medium mb-2 block">
-                      Placement Mode
-                    </label>
+                    <label className="text-sm font-medium mb-2 block">Placement Mode</label>
                     <div className="flex gap-2">
                       <Badge
-                        variant={
-                          placementMode === 'drag' ? 'default' : 'secondary'
-                        }
+                        variant={placementMode === 'drag' ? 'default' : 'secondary'}
                         className="cursor-pointer"
                         onClick={() => setPlacementMode('drag')}
                       >
                         Click & Drag (with velocity)
                       </Badge>
                       <Badge
-                        variant={
-                          placementMode === 'click' ? 'default' : 'secondary'
-                        }
+                        variant={placementMode === 'click' ? 'default' : 'secondary'}
                         className="cursor-pointer"
                         onClick={() => setPlacementMode('click')}
                       >
@@ -843,12 +798,8 @@ function NBodySimulationPageContent() {
 
                   <div>
                     <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium">
-                        New Body Mass
-                      </label>
-                      <span className="text-sm text-muted-foreground">
-                        {newBodyMass[0]}
-                      </span>
+                      <label className="text-sm font-medium">New Body Mass</label>
+                      <span className="text-sm text-muted-foreground">{newBodyMass[0]}</span>
                     </div>
                     <Slider
                       value={newBodyMass}
@@ -893,12 +844,8 @@ function NBodySimulationPageContent() {
 
                   <div>
                     <div className="flex justify-between mb-2">
-                      <label className="text-sm font-medium">
-                        Trail Length
-                      </label>
-                      <span className="text-sm text-muted-foreground">
-                        {trailLength[0]}
-                      </span>
+                      <label className="text-sm font-medium">Trail Length</label>
+                      <span className="text-sm text-muted-foreground">{trailLength[0]}</span>
                     </div>
                     <Slider
                       value={trailLength}
@@ -916,9 +863,7 @@ function NBodySimulationPageContent() {
                       <Badge
                         variant={showVelocityVectors ? 'default' : 'secondary'}
                         className="cursor-pointer"
-                        onClick={() =>
-                          setShowVelocityVectors(!showVelocityVectors)
-                        }
+                        onClick={() => setShowVelocityVectors(!showVelocityVectors)}
                       >
                         Velocity Vectors
                       </Badge>
@@ -948,16 +893,14 @@ function NBodySimulationPageContent() {
                 <Info className="h-5 w-5 text-muted-foreground mt-0.5" />
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p>
-                    This simulation uses Newton's law of universal gravitation
-                    to calculate the forces between celestial bodies. Each body
-                    attracts every other body with a force proportional to their
-                    masses and inversely proportional to the square of the
-                    distance between them.
+                    This simulation uses Newton's law of universal gravitation to calculate the
+                    forces between celestial bodies. Each body attracts every other body with a
+                    force proportional to their masses and inversely proportional to the square of
+                    the distance between them.
                   </p>
                   <p>
-                    Try creating your own solar systems, binary stars, or
-                    chaotic multi-body interactions. Enable collisions to see
-                    bodies merge when they get too close.
+                    Try creating your own solar systems, binary stars, or chaotic multi-body
+                    interactions. Enable collisions to see bodies merge when they get too close.
                   </p>
                 </div>
               </div>

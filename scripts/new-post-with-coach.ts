@@ -57,8 +57,7 @@ ${chalk.bold('Workflow:')}
 
   try {
     // Create the post using existing new-post script
-    const result =
-      await $`bun run new-post "${title}" ${values.draft ? '-d' : ''}`.quiet()
+    const result = await $`bun run new-post "${title}" ${values.draft ? '-d' : ''}`.quiet()
 
     // Extract the file path from the output
     const output = result.stdout.toString()
@@ -75,9 +74,7 @@ ${chalk.bold('Workflow:')}
     // Run writing coach if enabled
     if (values.coach) {
       console.log(chalk.blue('\n🤖 Running AI Writing Coach...'))
-      console.log(
-        chalk.gray('(This analyzes your post structure and metadata)\n')
-      )
+      console.log(chalk.gray('(This analyzes your post structure and metadata)\n'))
 
       // Give the editor time to open
       await new Promise((resolve) => setTimeout(resolve, 2000))
@@ -85,27 +82,15 @@ ${chalk.bold('Workflow:')}
       try {
         if (values.watch) {
           console.log(chalk.yellow('Starting live coaching mode...'))
-          console.log(
-            chalk.gray('The coach will analyze your writing as you type.\n')
-          )
+          console.log(chalk.gray('The coach will analyze your writing as you type.\n'))
           await $`bun run writing-coach -w "${filePath}"`
         } else {
           await $`bun run writing-coach "${filePath}"`
-          console.log(
-            chalk.blue(
-              '\n💡 Tip: Use -w flag to enable live coaching as you write!'
-            )
-          )
+          console.log(chalk.blue('\n💡 Tip: Use -w flag to enable live coaching as you write!'))
         }
       } catch (coachError) {
-        console.log(
-          chalk.yellow('\n⚠️  Writing coach requires content to analyze.')
-        )
-        console.log(
-          chalk.gray(
-            'Start writing and run: bun run writing-coach -w ' + filePath
-          )
-        )
+        console.log(chalk.yellow('\n⚠️  Writing coach requires content to analyze.'))
+        console.log(chalk.gray('Start writing and run: bun run writing-coach -w ' + filePath))
       }
     }
   } catch (error) {

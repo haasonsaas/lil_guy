@@ -5,16 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Slider } from '@/components/ui/slider'
 import { Badge } from '@/components/ui/badge'
-import {
-  Code2,
-  Play,
-  Pause,
-  RotateCcw,
-  Settings,
-  Zap,
-  FileCode,
-  Binary,
-} from 'lucide-react'
+import { Code2, Play, Pause, RotateCcw, Settings, Zap, FileCode, Binary } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 // Code snippets from various parts of the codebase
@@ -105,8 +96,7 @@ function CodeRainPageContent() {
       const x = (i / actualColumns) * canvas.width + columnWidth / 2
 
       // Get a random code snippet and split it into characters
-      const snippet =
-        codeSnippets[Math.floor(Math.random() * codeSnippets.length)]
+      const snippet = codeSnippets[Math.floor(Math.random() * codeSnippets.length)]
       const chars = showCode
         ? snippet.split('')
         : '0123456789ABCDEF'.split('').sort(() => Math.random() - 0.5)
@@ -134,10 +124,7 @@ function CodeRainPageContent() {
     lastTimeRef.current = timestamp
 
     // Resize canvas if needed
-    if (
-      canvas.width !== canvas.clientWidth ||
-      canvas.height !== canvas.clientHeight
-    ) {
+    if (canvas.width !== canvas.clientWidth || canvas.height !== canvas.clientHeight) {
       canvas.width = canvas.clientWidth
       canvas.height = canvas.clientHeight
       initializeMatrix(canvas)
@@ -161,8 +148,7 @@ function CodeRainPageContent() {
         char.y = -100
         char.currentIndex = 0
         // Get new code snippet
-        const snippet =
-          codeSnippets[Math.floor(Math.random() * codeSnippets.length)]
+        const snippet = codeSnippets[Math.floor(Math.random() * codeSnippets.length)]
         char.chars = showCode
           ? snippet.split('')
           : '0123456789ABCDEF'.split('').sort(() => Math.random() - 0.5)
@@ -266,8 +252,8 @@ function CodeRainPageContent() {
               <h1 className="text-4xl font-display font-semibold">Code Rain</h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Watch your code cascade down the screen Matrix-style. Features
-              real snippets from this very codebase.
+              Watch your code cascade down the screen Matrix-style. Features real snippets from this
+              very codebase.
             </p>
           </motion.div>
 
@@ -279,11 +265,7 @@ function CodeRainPageContent() {
             className="relative mb-8"
           >
             <Card className="overflow-hidden bg-black">
-              <canvas
-                ref={canvasRef}
-                className="w-full h-[70vh]"
-                style={{ background: 'black' }}
-              />
+              <canvas ref={canvasRef} className="w-full h-[70vh]" style={{ background: 'black' }} />
 
               {/* Overlay Controls */}
               <div className="absolute top-4 left-4 flex gap-2">
@@ -292,11 +274,7 @@ function CodeRainPageContent() {
                   onClick={togglePlayPause}
                   className="bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white"
                 >
-                  {isPlaying ? (
-                    <Pause className="h-4 w-4" />
-                  ) : (
-                    <Play className="h-4 w-4" />
-                  )}
+                  {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                 </Button>
                 <Button
                   size="sm"
@@ -310,11 +288,7 @@ function CodeRainPageContent() {
                   onClick={() => setShowCode(!showCode)}
                   className="bg-black/50 backdrop-blur-sm hover:bg-black/70 text-white"
                 >
-                  {showCode ? (
-                    <FileCode className="h-4 w-4" />
-                  ) : (
-                    <Binary className="h-4 w-4" />
-                  )}
+                  {showCode ? <FileCode className="h-4 w-4" /> : <Binary className="h-4 w-4" />}
                 </Button>
               </div>
 
@@ -345,9 +319,7 @@ function CodeRainPageContent() {
 
               <div className="grid md:grid-cols-4 gap-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Density
-                  </label>
+                  <label className="block text-sm font-medium mb-2">Density</label>
                   <Slider
                     value={density}
                     onValueChange={setDensity}
@@ -356,15 +328,11 @@ function CodeRainPageContent() {
                     step={10}
                     className="mb-2"
                   />
-                  <span className="text-xs text-muted-foreground">
-                    {density[0]}%
-                  </span>
+                  <span className="text-xs text-muted-foreground">{density[0]}%</span>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Speed
-                  </label>
+                  <label className="block text-sm font-medium mb-2">Speed</label>
                   <Slider
                     value={speed}
                     onValueChange={setSpeed}
@@ -373,15 +341,11 @@ function CodeRainPageContent() {
                     step={0.1}
                     className="mb-2"
                   />
-                  <span className="text-xs text-muted-foreground">
-                    {speed[0].toFixed(1)}x
-                  </span>
+                  <span className="text-xs text-muted-foreground">{speed[0].toFixed(1)}x</span>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Font Size
-                  </label>
+                  <label className="block text-sm font-medium mb-2">Font Size</label>
                   <Slider
                     value={fontSize}
                     onValueChange={setFontSize}
@@ -390,19 +354,13 @@ function CodeRainPageContent() {
                     step={2}
                     className="mb-2"
                   />
-                  <span className="text-xs text-muted-foreground">
-                    {fontSize[0]}px
-                  </span>
+                  <span className="text-xs text-muted-foreground">{fontSize[0]}px</span>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Color Scheme
-                  </label>
+                  <label className="block text-sm font-medium mb-2">Color Scheme</label>
                   <Button
-                    onClick={() =>
-                      setColorScheme((prev) => (prev + 1) % colorSchemes.length)
-                    }
+                    onClick={() => setColorScheme((prev) => (prev + 1) % colorSchemes.length)}
                     className="w-full gap-2"
                     variant="outline"
                   >
@@ -427,8 +385,8 @@ function CodeRainPageContent() {
                 About the Code
               </h3>
               <p className="text-sm text-muted-foreground mb-3">
-                The falling characters are actual code snippets from this
-                website's codebase, including:
+                The falling characters are actual code snippets from this website's codebase,
+                including:
               </p>
               <ul className="space-y-1 text-sm text-muted-foreground">
                 <li>• React components and hooks</li>
@@ -446,23 +404,19 @@ function CodeRainPageContent() {
               </h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li>
-                  • <strong>Real Code:</strong> Displays actual snippets from
-                  this codebase
+                  • <strong>Real Code:</strong> Displays actual snippets from this codebase
                 </li>
                 <li>
                   • <strong>Trail Effect:</strong> Characters fade as they fall
                 </li>
                 <li>
-                  • <strong>Dynamic Columns:</strong> Adjustable density of
-                  falling code
+                  • <strong>Dynamic Columns:</strong> Adjustable density of falling code
                 </li>
                 <li>
-                  • <strong>Color Themes:</strong> Multiple color schemes to
-                  choose from
+                  • <strong>Color Themes:</strong> Multiple color schemes to choose from
                 </li>
                 <li>
-                  • <strong>Binary Mode:</strong> Switch between code and hex
-                  characters
+                  • <strong>Binary Mode:</strong> Switch between code and hex characters
                 </li>
               </ul>
             </Card>

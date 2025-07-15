@@ -22,13 +22,7 @@ import {
 } from 'lucide-react'
 import { motion } from 'framer-motion'
 
-type ArtType =
-  | 'perlin'
-  | 'flowfield'
-  | 'lsystem'
-  | 'fractaltree'
-  | 'voronoi'
-  | 'particle'
+type ArtType = 'perlin' | 'flowfield' | 'lsystem' | 'fractaltree' | 'voronoi' | 'particle'
 
 interface Preset {
   name: string
@@ -49,10 +43,7 @@ class PerlinNoise {
 
     for (let i = 255; i >= 0; i--) {
       const j = Math.floor(Math.random() * (i + 1))
-      ;[this.permutation[i], this.permutation[j]] = [
-        this.permutation[j],
-        this.permutation[i],
-      ]
+      ;[this.permutation[i], this.permutation[j]] = [this.permutation[j], this.permutation[i]]
     }
 
     for (let i = 0; i < 256; i++) {
@@ -246,11 +237,7 @@ function GenerativeArtPageContent() {
 
   // Generate Perlin noise art
   const generatePerlinArt = useCallback(
-    (
-      ctx: CanvasRenderingContext2D,
-      canvas: HTMLCanvasElement,
-      time: number
-    ) => {
+    (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
       const imageData = ctx.createImageData(canvas.width, canvas.height)
       const data = imageData.data
       const colors = colorSchemes[colorScheme].colors
@@ -306,11 +293,7 @@ function GenerativeArtPageContent() {
 
   // Generate flow field art
   const generateFlowField = useCallback(
-    (
-      ctx: CanvasRenderingContext2D,
-      canvas: HTMLCanvasElement,
-      time: number
-    ) => {
+    (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
       ctx.fillStyle = colorSchemes[colorScheme].colors[0]
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -320,8 +303,7 @@ function GenerativeArtPageContent() {
         let x = Math.random() * canvas.width
         let y = Math.random() * canvas.height
 
-        ctx.strokeStyle =
-          colors[Math.floor(Math.random() * colors.length)] + '40'
+        ctx.strokeStyle = colors[Math.floor(Math.random() * colors.length)] + '40'
         ctx.lineWidth = 1
         ctx.beginPath()
         ctx.moveTo(x, y)
@@ -463,8 +445,7 @@ function GenerativeArtPageContent() {
         const endX = x + Math.cos(branchAngle) * length
         const endY = y + Math.sin(branchAngle) * length
 
-        ctx.strokeStyle =
-          colors[Math.floor((depth / iterations[0]) * (colors.length - 1))]
+        ctx.strokeStyle = colors[Math.floor((depth / iterations[0]) * (colors.length - 1))]
         ctx.lineWidth = depth * 0.8
         ctx.beginPath()
         ctx.moveTo(x, y)
@@ -490,13 +471,7 @@ function GenerativeArtPageContent() {
         )
       }
 
-      drawBranch(
-        canvas.width / 2,
-        canvas.height - 50,
-        scale[0],
-        -Math.PI / 2,
-        iterations[0]
-      )
+      drawBranch(canvas.width / 2, canvas.height - 50, scale[0], -Math.PI / 2, iterations[0])
     },
     [colorScheme, iterations, angle, scale]
   )
@@ -575,11 +550,7 @@ function GenerativeArtPageContent() {
   >([])
 
   const generateParticleSystem = useCallback(
-    (
-      ctx: CanvasRenderingContext2D,
-      canvas: HTMLCanvasElement,
-      time: number
-    ) => {
+    (ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, time: number) => {
       // Initialize particles if needed
       if (particleSystemRef.current.length === 0) {
         const colors = colorSchemes[colorScheme].colors
@@ -650,9 +621,7 @@ function GenerativeArtPageContent() {
 
         // Draw connections to nearby particles
         for (const other of particleSystemRef.current) {
-          const dist = Math.sqrt(
-            (particle.x - other.x) ** 2 + (particle.y - other.y) ** 2
-          )
+          const dist = Math.sqrt((particle.x - other.x) ** 2 + (particle.y - other.y) ** 2)
           if (dist < scale[0] / 2) {
             const connectionAlpha = (1 - dist / (scale[0] / 2)) * alpha * 0.3
             ctx.strokeStyle =
@@ -711,9 +680,7 @@ function GenerativeArtPageContent() {
 
     if (
       isAnimated &&
-      (currentArt === 'perlin' ||
-        currentArt === 'flowfield' ||
-        currentArt === 'particle')
+      (currentArt === 'perlin' || currentArt === 'flowfield' || currentArt === 'particle')
     ) {
       animationRef.current = requestAnimationFrame(render)
     }
@@ -768,10 +735,8 @@ function GenerativeArtPageContent() {
     if (preset.params.complexity) setComplexity([preset.params.complexity])
     if (preset.params.detail) setDetail([preset.params.detail])
     if (preset.params.noiseDetail) setNoiseDetail([preset.params.noiseDetail])
-    if (preset.params.flowStrength)
-      setFlowStrength([preset.params.flowStrength])
-    if (preset.params.particleCount)
-      setParticleCount([preset.params.particleCount])
+    if (preset.params.flowStrength) setFlowStrength([preset.params.flowStrength])
+    if (preset.params.particleCount) setParticleCount([preset.params.particleCount])
     if (preset.params.iterations) setIterations([preset.params.iterations])
     if (preset.params.angle) setAngle([preset.params.angle])
     if (preset.params.points) setPoints([preset.params.points])
@@ -807,9 +772,7 @@ function GenerativeArtPageContent() {
   useEffect(() => {
     if (
       isAnimated &&
-      (currentArt === 'perlin' ||
-        currentArt === 'flowfield' ||
-        currentArt === 'particle')
+      (currentArt === 'perlin' || currentArt === 'flowfield' || currentArt === 'particle')
     ) {
       render()
     } else if (animationRef.current) {
@@ -830,14 +793,11 @@ function GenerativeArtPageContent() {
           >
             <div className="flex items-center justify-center gap-2 mb-4">
               <Palette className="h-8 w-8 text-primary" />
-              <h1 className="text-4xl font-display font-semibold">
-                Generative Art Studio
-              </h1>
+              <h1 className="text-4xl font-display font-semibold">Generative Art Studio</h1>
             </div>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Create algorithmic art using mathematical functions and natural
-              patterns. Explore different techniques from Perlin noise to
-              L-systems and cellular structures.
+              Create algorithmic art using mathematical functions and natural patterns. Explore
+              different techniques from Perlin noise to L-systems and cellular structures.
             </p>
           </motion.div>
 
@@ -858,10 +818,9 @@ function GenerativeArtPageContent() {
             <div className="absolute top-4 left-4">
               <Badge variant="default" className="gap-2">
                 {artTypes.find((t) => t.type === currentArt)?.icon &&
-                  React.createElement(
-                    artTypes.find((t) => t.type === currentArt)!.icon,
-                    { className: 'h-3 w-3' }
-                  )}
+                  React.createElement(artTypes.find((t) => t.type === currentArt)!.icon, {
+                    className: 'h-3 w-3',
+                  })}
                 {artTypes.find((t) => t.type === currentArt)?.name}
               </Badge>
             </div>
@@ -887,27 +846,13 @@ function GenerativeArtPageContent() {
                   onClick={() => setIsAnimated(!isAnimated)}
                   title="Toggle animation"
                 >
-                  {isAnimated ? (
-                    <Pause className="h-4 w-4" />
-                  ) : (
-                    <Play className="h-4 w-4" />
-                  )}
+                  {isAnimated ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4" />}
                 </Button>
               )}
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={generateArt}
-                title="Generate new art"
-              >
+              <Button size="icon" variant="outline" onClick={generateArt} title="Generate new art">
                 <Shuffle className="h-4 w-4" />
               </Button>
-              <Button
-                size="icon"
-                variant="outline"
-                onClick={exportImage}
-                title="Export as PNG"
-              >
+              <Button size="icon" variant="outline" onClick={exportImage} title="Export as PNG">
                 <Download className="h-4 w-4" />
               </Button>
             </div>
@@ -937,9 +882,7 @@ function GenerativeArtPageContent() {
                         <Icon className="h-4 w-4" />
                         {art.name}
                       </div>
-                      <div className="text-xs text-muted-foreground">
-                        {art.description}
-                      </div>
+                      <div className="text-xs text-muted-foreground">{art.description}</div>
                     </Button>
                   )
                 })}
@@ -958,9 +901,7 @@ function GenerativeArtPageContent() {
                     onClick={() => loadPreset(preset)}
                   >
                     <div className="font-semibold">{preset.name}</div>
-                    <div className="text-xs text-muted-foreground">
-                      {preset.description}
-                    </div>
+                    <div className="text-xs text-muted-foreground">{preset.description}</div>
                   </Button>
                 ))}
               </div>
@@ -977,9 +918,7 @@ function GenerativeArtPageContent() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Scale</label>
-                      <span className="text-sm text-muted-foreground">
-                        {scale[0]}
-                      </span>
+                      <span className="text-sm text-muted-foreground">{scale[0]}</span>
                     </div>
                     <Slider
                       value={scale}
@@ -997,9 +936,7 @@ function GenerativeArtPageContent() {
                   <div>
                     <div className="flex justify-between mb-2">
                       <label className="text-sm font-medium">Complexity</label>
-                      <span className="text-sm text-muted-foreground">
-                        {complexity[0]}
-                      </span>
+                      <span className="text-sm text-muted-foreground">{complexity[0]}</span>
                     </div>
                     <Slider
                       value={complexity}
@@ -1019,12 +956,8 @@ function GenerativeArtPageContent() {
                     currentArt === 'particle') && (
                     <div>
                       <div className="flex justify-between mb-2">
-                        <label className="text-sm font-medium">
-                          Animation Speed
-                        </label>
-                        <span className="text-sm text-muted-foreground">
-                          {speed[0].toFixed(1)}
-                        </span>
+                        <label className="text-sm font-medium">Animation Speed</label>
+                        <span className="text-sm text-muted-foreground">{speed[0].toFixed(1)}</span>
                       </div>
                       <Slider
                         value={speed}
@@ -1048,12 +981,8 @@ function GenerativeArtPageContent() {
                   {currentArt === 'perlin' && (
                     <div>
                       <div className="flex justify-between mb-2">
-                        <label className="text-sm font-medium">
-                          Noise Detail
-                        </label>
-                        <span className="text-sm text-muted-foreground">
-                          {noiseDetail[0]}
-                        </span>
+                        <label className="text-sm font-medium">Noise Detail</label>
+                        <span className="text-sm text-muted-foreground">{noiseDetail[0]}</span>
                       </div>
                       <Slider
                         value={noiseDetail}
@@ -1069,16 +998,11 @@ function GenerativeArtPageContent() {
                     </div>
                   )}
 
-                  {(currentArt === 'flowfield' ||
-                    currentArt === 'particle') && (
+                  {(currentArt === 'flowfield' || currentArt === 'particle') && (
                     <div>
                       <div className="flex justify-between mb-2">
-                        <label className="text-sm font-medium">
-                          Particle Count
-                        </label>
-                        <span className="text-sm text-muted-foreground">
-                          {particleCount[0]}
-                        </span>
+                        <label className="text-sm font-medium">Particle Count</label>
+                        <span className="text-sm text-muted-foreground">{particleCount[0]}</span>
                       </div>
                       <Slider
                         value={particleCount}
@@ -1094,17 +1018,12 @@ function GenerativeArtPageContent() {
                     </div>
                   )}
 
-                  {(currentArt === 'lsystem' ||
-                    currentArt === 'fractaltree') && (
+                  {(currentArt === 'lsystem' || currentArt === 'fractaltree') && (
                     <>
                       <div>
                         <div className="flex justify-between mb-2">
-                          <label className="text-sm font-medium">
-                            Iterations
-                          </label>
-                          <span className="text-sm text-muted-foreground">
-                            {iterations[0]}
-                          </span>
+                          <label className="text-sm font-medium">Iterations</label>
+                          <span className="text-sm text-muted-foreground">{iterations[0]}</span>
                         </div>
                         <Slider
                           value={iterations}
@@ -1121,12 +1040,8 @@ function GenerativeArtPageContent() {
 
                       <div>
                         <div className="flex justify-between mb-2">
-                          <label className="text-sm font-medium">
-                            Branch Angle
-                          </label>
-                          <span className="text-sm text-muted-foreground">
-                            {angle[0]}°
-                          </span>
+                          <label className="text-sm font-medium">Branch Angle</label>
+                          <span className="text-sm text-muted-foreground">{angle[0]}°</span>
                         </div>
                         <Slider
                           value={angle}
@@ -1146,12 +1061,8 @@ function GenerativeArtPageContent() {
                   {currentArt === 'voronoi' && (
                     <div>
                       <div className="flex justify-between mb-2">
-                        <label className="text-sm font-medium">
-                          Seed Points
-                        </label>
-                        <span className="text-sm text-muted-foreground">
-                          {points[0]}
-                        </span>
+                        <label className="text-sm font-medium">Seed Points</label>
+                        <span className="text-sm text-muted-foreground">{points[0]}</span>
                       </div>
                       <Slider
                         value={points}
@@ -1202,21 +1113,19 @@ function GenerativeArtPageContent() {
                 <Sparkles className="h-5 w-5 text-muted-foreground mt-0.5" />
                 <div className="space-y-2 text-sm text-muted-foreground">
                   <p>
-                    <strong>Generative Art:</strong> Art created using
-                    algorithms and mathematical functions. Each technique
-                    explores different aspects of computational creativity.
+                    <strong>Generative Art:</strong> Art created using algorithms and mathematical
+                    functions. Each technique explores different aspects of computational
+                    creativity.
                   </p>
                   <p>
-                    <strong>Techniques:</strong> Perlin noise creates organic
-                    flows, L-systems model plant growth, fractals show
-                    self-similar patterns, Voronoi diagrams reveal natural cell
-                    structures, and particle systems simulate complex emergent
+                    <strong>Techniques:</strong> Perlin noise creates organic flows, L-systems model
+                    plant growth, fractals show self-similar patterns, Voronoi diagrams reveal
+                    natural cell structures, and particle systems simulate complex emergent
                     behaviors.
                   </p>
                   <p>
-                    Adjust parameters to explore the infinite possibilities
-                    within each algorithm. Export your creations as PNG images
-                    to save and share your art.
+                    Adjust parameters to explore the infinite possibilities within each algorithm.
+                    Export your creations as PNG images to save and share your art.
                   </p>
                 </div>
               </div>

@@ -3,19 +3,9 @@ import { useSearchParams, useNavigate } from 'react-router-dom'
 import Layout from '@/components/Layout'
 import BlogCard from '@/components/BlogCard'
 import { BlogCardSkeleton } from '@/components/BlogCardSkeleton'
-import {
-  getAllPostsMetadataFast,
-  getAllTagsFromMetadata,
-} from '@/utils/blogUtils'
+import { getAllPostsMetadataFast, getAllTagsFromMetadata } from '@/utils/blogUtils'
 import { Input } from '@/components/ui/input'
-import {
-  Search,
-  ChevronLeft,
-  ChevronRight,
-  Filter,
-  X,
-  Sparkles,
-} from 'lucide-react'
+import { Search, ChevronLeft, ChevronRight, Filter, X, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Select,
@@ -25,11 +15,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { Badge } from '@/components/ui/badge'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
 import { BlogPost } from '@/types/blog'
 import WeeklyPlaybook from '@/components/WeeklyPlaybook'
 import SmartSearch from '@/components/SmartSearch'
@@ -42,28 +28,20 @@ export default function BlogPage() {
   const navigate = useNavigate()
   const [posts, setPosts] = useState<BlogPost[]>([])
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([])
-  const [allTags, setAllTags] = useState<Array<{ tag: string; count: number }>>(
-    []
-  )
+  const [allTags, setAllTags] = useState<Array<{ tag: string; count: number }>>([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const [totalPages, setTotalPages] = useState(1)
-  const [searchInput, setSearchInput] = useState(
-    searchParams.get('search') || ''
-  )
+  const [searchInput, setSearchInput] = useState(searchParams.get('search') || '')
   const [showFilters, setShowFilters] = useState(false)
 
   // Filter states
-  const [selectedYear, setSelectedYear] = useState(
-    searchParams.get('year') || 'all'
-  )
+  const [selectedYear, setSelectedYear] = useState(searchParams.get('year') || 'all')
   const [selectedReadingTime, setSelectedReadingTime] = useState(
     searchParams.get('readingTime') || 'all'
   )
   const [sortBy, setSortBy] = useState(searchParams.get('sort') || 'date-desc')
-  const [showFeaturedOnly, setShowFeaturedOnly] = useState(
-    searchParams.get('featured') === 'true'
-  )
+  const [showFeaturedOnly, setShowFeaturedOnly] = useState(searchParams.get('featured') === 'true')
   const [selectedTags, setSelectedTags] = useState<string[]>(
     searchParams.get('tags')?.split(',').filter(Boolean) || []
   )
@@ -98,9 +76,7 @@ export default function BlogPage() {
         (post) =>
           post.frontmatter.title.toLowerCase().includes(searchLower) ||
           post.frontmatter.description.toLowerCase().includes(searchLower) ||
-          post.frontmatter.tags.some((tag) =>
-            tag.toLowerCase().includes(searchLower)
-          )
+          post.frontmatter.tags.some((tag) => tag.toLowerCase().includes(searchLower))
       )
     }
 
@@ -108,9 +84,7 @@ export default function BlogPage() {
     const legacyTag = searchParams.get('tag')
     if (legacyTag) {
       filtered = filtered.filter((post) =>
-        post.frontmatter.tags.some(
-          (t) => t.toLowerCase() === legacyTag.toLowerCase()
-        )
+        post.frontmatter.tags.some((t) => t.toLowerCase() === legacyTag.toLowerCase())
       )
     }
 
@@ -118,9 +92,7 @@ export default function BlogPage() {
     if (selectedTags.length > 0) {
       filtered = filtered.filter((post) =>
         selectedTags.some((selectedTag) =>
-          post.frontmatter.tags.some(
-            (t) => t.toLowerCase() === selectedTag.toLowerCase()
-          )
+          post.frontmatter.tags.some((t) => t.toLowerCase() === selectedTag.toLowerCase())
         )
       )
     }
@@ -128,9 +100,7 @@ export default function BlogPage() {
     // Year filter
     if (selectedYear !== 'all') {
       filtered = filtered.filter((post) => {
-        const postYear = new Date(post.frontmatter.pubDate)
-          .getFullYear()
-          .toString()
+        const postYear = new Date(post.frontmatter.pubDate).getFullYear().toString()
         return postYear === selectedYear
       })
     }
@@ -162,13 +132,11 @@ export default function BlogPage() {
       switch (sortBy) {
         case 'date-desc':
           return (
-            new Date(b.frontmatter.pubDate).getTime() -
-            new Date(a.frontmatter.pubDate).getTime()
+            new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
           )
         case 'date-asc':
           return (
-            new Date(a.frontmatter.pubDate).getTime() -
-            new Date(b.frontmatter.pubDate).getTime()
+            new Date(a.frontmatter.pubDate).getTime() - new Date(b.frontmatter.pubDate).getTime()
           )
         case 'title-asc':
           return a.frontmatter.title.localeCompare(b.frontmatter.title)
@@ -176,13 +144,11 @@ export default function BlogPage() {
           return b.frontmatter.title.localeCompare(a.frontmatter.title)
         case 'reading-time-asc':
           return (
-            (a.frontmatter.readingTime?.minutes || 0) -
-            (b.frontmatter.readingTime?.minutes || 0)
+            (a.frontmatter.readingTime?.minutes || 0) - (b.frontmatter.readingTime?.minutes || 0)
           )
         case 'reading-time-desc':
           return (
-            (b.frontmatter.readingTime?.minutes || 0) -
-            (a.frontmatter.readingTime?.minutes || 0)
+            (b.frontmatter.readingTime?.minutes || 0) - (a.frontmatter.readingTime?.minutes || 0)
           )
         default:
           return 0
@@ -277,11 +243,7 @@ export default function BlogPage() {
 
   // Get available years from posts
   const availableYears = [
-    ...new Set(
-      posts.map((post) =>
-        new Date(post.frontmatter.pubDate).getFullYear().toString()
-      )
-    ),
+    ...new Set(posts.map((post) => new Date(post.frontmatter.pubDate).getFullYear().toString())),
   ].sort((a, b) => parseInt(b) - parseInt(a))
 
   // Check if any filters are active
@@ -307,9 +269,9 @@ export default function BlogPage() {
               Insights for Builders, Backers, and Operators
             </h1>
             <p className="text-muted-foreground mb-8">
-              Hard-earned lessons and forward-looking analysis on AI-native
-              SaaS, product-market fit, and scaling trust in software. Read what
-              top-tier founders and VCs are already talking about.
+              Hard-earned lessons and forward-looking analysis on AI-native SaaS, product-market
+              fit, and scaling trust in software. Read what top-tier founders and VCs are already
+              talking about.
             </p>
 
             {/* Search and Filter Controls */}
@@ -355,8 +317,7 @@ export default function BlogPage() {
                           selectedReadingTime !== 'all' && 'Time',
                           sortBy !== 'date-desc' && 'Sort',
                           showFeaturedOnly && 'Featured',
-                          selectedTags.length > 0 &&
-                            `Tags (${selectedTags.length})`,
+                          selectedTags.length > 0 && `Tags (${selectedTags.length})`,
                         ].filter(Boolean).length
                       }
                     </Badge>
@@ -384,10 +345,7 @@ export default function BlogPage() {
                       {/* Year Filter */}
                       <div className="space-y-2">
                         <label className="text-sm font-medium">Year</label>
-                        <Select
-                          value={selectedYear}
-                          onValueChange={handleYearChange}
-                        >
+                        <Select value={selectedYear} onValueChange={handleYearChange}>
                           <SelectTrigger>
                             <SelectValue />
                           </SelectTrigger>
@@ -404,27 +362,16 @@ export default function BlogPage() {
 
                       {/* Reading Time Filter */}
                       <div className="space-y-2">
-                        <label className="text-sm font-medium">
-                          Reading Time
-                        </label>
-                        <Select
-                          value={selectedReadingTime}
-                          onValueChange={handleReadingTimeChange}
-                        >
+                        <label className="text-sm font-medium">Reading Time</label>
+                        <Select value={selectedReadingTime} onValueChange={handleReadingTimeChange}>
                           <SelectTrigger>
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="all">All Lengths</SelectItem>
-                            <SelectItem value="short">
-                              Quick Read (≤3 min)
-                            </SelectItem>
-                            <SelectItem value="medium">
-                              Medium Read (4-8 min)
-                            </SelectItem>
-                            <SelectItem value="long">
-                              Long Read (9+ min)
-                            </SelectItem>
+                            <SelectItem value="short">Quick Read (≤3 min)</SelectItem>
+                            <SelectItem value="medium">Medium Read (4-8 min)</SelectItem>
+                            <SelectItem value="long">Long Read (9+ min)</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -437,22 +384,12 @@ export default function BlogPage() {
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
-                            <SelectItem value="date-desc">
-                              Newest First
-                            </SelectItem>
-                            <SelectItem value="date-asc">
-                              Oldest First
-                            </SelectItem>
+                            <SelectItem value="date-desc">Newest First</SelectItem>
+                            <SelectItem value="date-asc">Oldest First</SelectItem>
                             <SelectItem value="title-asc">Title A-Z</SelectItem>
-                            <SelectItem value="title-desc">
-                              Title Z-A
-                            </SelectItem>
-                            <SelectItem value="reading-time-asc">
-                              Shortest First
-                            </SelectItem>
-                            <SelectItem value="reading-time-desc">
-                              Longest First
-                            </SelectItem>
+                            <SelectItem value="title-desc">Title Z-A</SelectItem>
+                            <SelectItem value="reading-time-asc">Shortest First</SelectItem>
+                            <SelectItem value="reading-time-desc">Longest First</SelectItem>
                           </SelectContent>
                         </Select>
                       </div>
@@ -478,9 +415,7 @@ export default function BlogPage() {
                         {allTags.slice(0, 20).map(({ tag, count }) => (
                           <Button
                             key={tag}
-                            variant={
-                              selectedTags.includes(tag) ? 'default' : 'outline'
-                            }
+                            variant={selectedTags.includes(tag) ? 'default' : 'outline'}
                             size="sm"
                             onClick={() => handleTagToggle(tag)}
                             className="text-xs h-8"
@@ -526,9 +461,7 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {loading ? (
               // Show skeleton cards while loading
-              Array.from({ length: 9 }).map((_, index) => (
-                <BlogCardSkeleton key={index} />
-              ))
+              Array.from({ length: 9 }).map((_, index) => <BlogCardSkeleton key={index} />)
             ) : (
               <>
                 {paginatedPosts.map((post) => (
@@ -537,12 +470,8 @@ export default function BlogPage() {
 
                 {filteredPosts.length === 0 && (
                   <div className="col-span-full text-center py-12">
-                    <h3 className="text-xl font-medium mb-2">
-                      No articles found
-                    </h3>
-                    <p className="text-muted-foreground">
-                      Try adjusting your search query
-                    </p>
+                    <h3 className="text-xl font-medium mb-2">No articles found</h3>
+                    <p className="text-muted-foreground">Try adjusting your search query</p>
                   </div>
                 )}
               </>
@@ -566,9 +495,7 @@ export default function BlogPage() {
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() =>
-                  setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                }
+                onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
                 disabled={currentPage === totalPages}
               >
                 <ChevronRight className="h-4 w-4" />

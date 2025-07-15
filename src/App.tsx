@@ -3,12 +3,7 @@ import { Toaster } from '@/components/ui/toaster'
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { TooltipProvider } from '@/components/ui/tooltip'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Navigate,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import React, { Suspense, lazy } from 'react'
 import { HelmetProvider } from 'react-helmet-async'
 import ScrollToTop from '@/components/ScrollToTop'
@@ -45,9 +40,7 @@ const CellularAutomataPage = lazy(() => import('./pages/CellularAutomataPage'))
 const GenerativeArtPage = lazy(() => import('./pages/GenerativeArtPage'))
 const DraftsPage = lazy(() => import('./pages/DraftsPage'))
 const OfflinePage = lazy(() => import('./pages/OfflinePage'))
-const HDRHolographicFoilPage = lazy(
-  () => import('./pages/HDRHolographicFoilPage')
-)
+const HDRHolographicFoilPage = lazy(() => import('./pages/HDRHolographicFoilPage'))
 const LiquidMetalPage = lazy(() => import('./pages/LiquidMetalPage'))
 const AIPage = lazy(() => import('./pages/AIPage'))
 const AgentsPage = lazy(() => import('./pages/AgentsPage'))
@@ -105,28 +98,16 @@ const App = () => (
                   <Route path="/experiments" element={<ExperimentsPage />} />
                   <Route path="/webgl" element={<WebGLPage />} />
                   <Route path="/code-rain" element={<CodeRainPage />} />
-                  <Route
-                    path="/audio-visualizer"
-                    element={<AudioVisualizerPage />}
-                  />
+                  <Route path="/audio-visualizer" element={<AudioVisualizerPage />} />
                   <Route path="/ray-marching" element={<RayMarchingPage />} />
                   <Route path="/n-body" element={<NBodySimulationPage />} />
-                  <Route
-                    path="/cellular-automata"
-                    element={<CellularAutomataPage />}
-                  />
-                  <Route
-                    path="/generative-art"
-                    element={<GenerativeArtPage />}
-                  />
+                  <Route path="/cellular-automata" element={<CellularAutomataPage />} />
+                  <Route path="/generative-art" element={<GenerativeArtPage />} />
                   <Route
                     path="/experiments/hdr-holographic-foil"
                     element={<HDRHolographicFoilPage />}
                   />
-                  <Route
-                    path="/experiments/liquid-metal"
-                    element={<LiquidMetalPage />}
-                  />
+                  <Route path="/experiments/liquid-metal" element={<LiquidMetalPage />} />
                   <Route path="/offline" element={<OfflinePage />} />
                   <Route path="/diagnostics" element={<DiagnosticsPage />} />
                   {/* Redirect /admin to the home page */}

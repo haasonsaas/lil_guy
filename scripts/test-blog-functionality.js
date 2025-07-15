@@ -12,23 +12,15 @@ async function testBlogFunctionality() {
     // Test 1: Homepage loads and shows blog posts
     console.log('1. Testing homepage...')
     await page.goto('http://localhost:8082')
-    await page.waitForSelector(
-      '[data-testid="blog-card"], .blog-card, article',
-      { timeout: 10000 }
-    )
+    await page.waitForSelector('[data-testid="blog-card"], .blog-card, article', { timeout: 10000 })
 
-    const blogCards = await page
-      .locator('[data-testid="blog-card"], .blog-card, article')
-      .count()
+    const blogCards = await page.locator('[data-testid="blog-card"], .blog-card, article').count()
     console.log(`   ✅ Homepage loaded with ${blogCards} blog cards`)
 
     // Test 2: Blog page loads
     console.log('2. Testing blog page...')
     await page.goto('http://localhost:8082/blog')
-    await page.waitForSelector(
-      '[data-testid="blog-card"], .blog-card, article',
-      { timeout: 10000 }
-    )
+    await page.waitForSelector('[data-testid="blog-card"], .blog-card, article', { timeout: 10000 })
 
     const blogPageCards = await page
       .locator('[data-testid="blog-card"], .blog-card, article')
@@ -71,9 +63,7 @@ async function testBlogFunctionality() {
     await page.goto('http://localhost:8082/tags')
     await page.waitForTimeout(2000)
 
-    const tagsFound = await page
-      .locator('a[href*="/tags/"], .tag, [data-testid="tag"]')
-      .count()
+    const tagsFound = await page.locator('a[href*="/tags/"], .tag, [data-testid="tag"]').count()
     if (tagsFound > 0) {
       console.log(`   ✅ Tags page loaded with ${tagsFound} tags`)
     } else {
@@ -86,19 +76,14 @@ async function testBlogFunctionality() {
       const navigation = performance.getEntriesByType('navigation')[0]
       return {
         domContentLoaded:
-          navigation.domContentLoadedEventEnd -
-          navigation.domContentLoadedEventStart,
+          navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
         loadComplete: navigation.loadEventEnd - navigation.loadEventStart,
         transferSize: navigation.transferSize,
       }
     })
 
-    console.log(
-      `   📊 DOM Content Loaded: ${performanceEntries.domContentLoaded.toFixed(2)}ms`
-    )
-    console.log(
-      `   📊 Load Complete: ${performanceEntries.loadComplete.toFixed(2)}ms`
-    )
+    console.log(`   📊 DOM Content Loaded: ${performanceEntries.domContentLoaded.toFixed(2)}ms`)
+    console.log(`   📊 Load Complete: ${performanceEntries.loadComplete.toFixed(2)}ms`)
     console.log(
       `   📊 Transfer Size: ${(performanceEntries.transferSize / 1024 / 1024).toFixed(2)}MB`
     )

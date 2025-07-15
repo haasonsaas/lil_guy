@@ -144,25 +144,11 @@ function LiquidMetalPageContent() {
       ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
 
       // Create metallic background
-      const gradient = ctx.createLinearGradient(
-        0,
-        0,
-        canvas.offsetWidth,
-        canvas.offsetHeight
-      )
+      const gradient = ctx.createLinearGradient(0, 0, canvas.offsetWidth, canvas.offsetHeight)
       const baseHue = (currentTime * 0.02) % 360
-      gradient.addColorStop(
-        0,
-        `hsl(${baseHue}, 20%, ${20 + metalness[0] * 30}%)`
-      )
-      gradient.addColorStop(
-        0.5,
-        `hsl(${baseHue + 30}, 30%, ${30 + metalness[0] * 40}%)`
-      )
-      gradient.addColorStop(
-        1,
-        `hsl(${baseHue + 60}, 15%, ${15 + metalness[0] * 25}%)`
-      )
+      gradient.addColorStop(0, `hsl(${baseHue}, 20%, ${20 + metalness[0] * 30}%)`)
+      gradient.addColorStop(0.5, `hsl(${baseHue + 30}, 30%, ${30 + metalness[0] * 40}%)`)
+      gradient.addColorStop(1, `hsl(${baseHue + 60}, 15%, ${15 + metalness[0] * 25}%)`)
 
       ctx.fillStyle = gradient
       ctx.fillRect(0, 0, canvas.offsetWidth, canvas.offsetHeight)
@@ -204,8 +190,7 @@ function LiquidMetalPageContent() {
 
           // Surface tension (pull towards rest position)
           const restX = (i % Math.floor(canvas.offsetWidth / 8)) * 8 + 4
-          const restY =
-            Math.floor(i / Math.floor(canvas.offsetWidth / 8)) * 8 + 4
+          const restY = Math.floor(i / Math.floor(canvas.offsetWidth / 8)) * 8 + 4
           const tension = surfaceTension[0] * 0.01
 
           point.vx += (restX - point.x) * tension * deltaTime
@@ -218,10 +203,7 @@ function LiquidMetalPageContent() {
 
         // Draw fluid surface using metaballs
         if (points.length > 0) {
-          const imageData = ctx.createImageData(
-            canvas.offsetWidth,
-            canvas.offsetHeight
-          )
+          const imageData = ctx.createImageData(canvas.offsetWidth, canvas.offsetHeight)
           const data = imageData.data
 
           for (let x = 0; x < canvas.offsetWidth; x += 2) {
@@ -254,13 +236,8 @@ function LiquidMetalPageContent() {
 
                 // Draw 2x2 pixel blocks for performance
                 for (let px = 0; px < 2 && x + px < canvas.offsetWidth; px++) {
-                  for (
-                    let py = 0;
-                    py < 2 && y + py < canvas.offsetHeight;
-                    py++
-                  ) {
-                    const pixelIndex =
-                      ((y + py) * canvas.offsetWidth + (x + px)) * 4
+                  for (let py = 0; py < 2 && y + py < canvas.offsetHeight; py++) {
+                    const pixelIndex = ((y + py) * canvas.offsetWidth + (x + px)) * 4
                     data[pixelIndex] = finalR
                     data[pixelIndex + 1] = finalG
                     data[pixelIndex + 2] = finalB
@@ -307,10 +284,8 @@ function LiquidMetalPageContent() {
         ctx.globalAlpha = 0.1
 
         for (let i = 0; i < 3; i++) {
-          const x =
-            (Math.sin(time * 0.5 + i * 2) * 0.3 + 0.5) * canvas.offsetWidth
-          const y =
-            (Math.cos(time * 0.3 + i * 1.5) * 0.3 + 0.5) * canvas.offsetHeight
+          const x = (Math.sin(time * 0.5 + i * 2) * 0.3 + 0.5) * canvas.offsetWidth
+          const y = (Math.cos(time * 0.3 + i * 1.5) * 0.3 + 0.5) * canvas.offsetHeight
 
           const gradient = ctx.createRadialGradient(x, y, 0, x, y, 100)
           gradient.addColorStop(0, 'rgba(255, 255, 255, 0.8)')
@@ -352,21 +327,16 @@ function LiquidMetalPageContent() {
   return (
     <div className="min-h-screen bg-gray-950 text-white p-8">
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
           <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-slate-400 via-gray-300 to-zinc-400 bg-clip-text text-transparent">
             Liquid Metal Surface
           </h1>
           <p className="text-gray-400 text-lg mb-2">
-            Interactive T-1000 style liquid metal simulation with realistic
-            surface tension and ripples
+            Interactive T-1000 style liquid metal simulation with realistic surface tension and
+            ripples
           </p>
           <p className="text-sm text-gray-500">
-            Click and drag to disturb the surface • Watch the metal flow and
-            settle
+            Click and drag to disturb the surface • Watch the metal flow and settle
           </p>
         </motion.div>
 
@@ -378,8 +348,7 @@ function LiquidMetalPageContent() {
                 ref={canvasRef}
                 className="w-full aspect-square rounded-lg border border-gray-700 cursor-crosshair"
                 style={{
-                  background:
-                    'linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)',
+                  background: 'linear-gradient(45deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%)',
                   boxShadow: isInteracting
                     ? '0 0 30px rgba(156, 163, 175, 0.5)'
                     : '0 0 20px rgba(107, 114, 128, 0.3)',
@@ -426,10 +395,7 @@ function LiquidMetalPageContent() {
 
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <Label
-                    htmlFor="physics-toggle"
-                    className="flex items-center space-x-2"
-                  >
+                  <Label htmlFor="physics-toggle" className="flex items-center space-x-2">
                     <Zap className="w-4 h-4" />
                     <span>Physics Simulation</span>
                   </Label>
@@ -441,10 +407,7 @@ function LiquidMetalPageContent() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <Label
-                    htmlFor="reflections-toggle"
-                    className="flex items-center space-x-2"
-                  >
+                  <Label htmlFor="reflections-toggle" className="flex items-center space-x-2">
                     <Droplets className="w-4 h-4" />
                     <span>Environmental Reflections</span>
                   </Label>
@@ -465,15 +428,11 @@ function LiquidMetalPageContent() {
                     step={0.01}
                     className="w-full"
                   />
-                  <p className="text-xs text-gray-500">
-                    Higher values make the metal flow slower
-                  </p>
+                  <p className="text-xs text-gray-500">Higher values make the metal flow slower</p>
                 </div>
 
                 <div className="space-y-2">
-                  <Label>
-                    Surface Tension: {(surfaceTension[0] * 100).toFixed(0)}%
-                  </Label>
+                  <Label>Surface Tension: {(surfaceTension[0] * 100).toFixed(0)}%</Label>
                   <Slider
                     value={surfaceTension}
                     onValueChange={setSurfaceTension}
@@ -503,9 +462,7 @@ function LiquidMetalPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label>
-                    Ripple Intensity: {rippleIntensity[0].toFixed(1)}x
-                  </Label>
+                  <Label>Ripple Intensity: {rippleIntensity[0].toFixed(1)}x</Label>
                   <Slider
                     value={rippleIntensity}
                     onValueChange={setRippleIntensity}
@@ -520,9 +477,7 @@ function LiquidMetalPageContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label>
-                    Animation Speed: {animationSpeed[0].toFixed(1)}x
-                  </Label>
+                  <Label>Animation Speed: {animationSpeed[0].toFixed(1)}x</Label>
                   <Slider
                     value={animationSpeed}
                     onValueChange={setAnimationSpeed}
@@ -541,10 +496,9 @@ function LiquidMetalPageContent() {
                 <h4 className="font-semibold">About the Simulation</h4>
               </div>
               <p className="text-sm text-gray-400 mb-3">
-                This experiment simulates liquid metal behavior using metaball
-                fluid dynamics and real-time surface tension calculations. The
-                metallic appearance is achieved through gradient mapping and
-                environmental reflections.
+                This experiment simulates liquid metal behavior using metaball fluid dynamics and
+                real-time surface tension calculations. The metallic appearance is achieved through
+                gradient mapping and environmental reflections.
               </p>
 
               <div className="space-y-2 text-xs text-gray-500">

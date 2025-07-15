@@ -62,8 +62,7 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className="text-4xl sm:text-5xl lg:text-6xl font-display font-bold tracking-tight mb-6"
                 >
-                  Building Systems That{' '}
-                  <span className="text-primary">Actually Scale</span>
+                  Building Systems That <span className="text-primary">Actually Scale</span>
                 </motion.h1>
 
                 <motion.p
@@ -72,10 +71,9 @@ export default function Index() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   className="text-lg sm:text-xl text-muted-foreground mb-8 leading-relaxed"
                 >
-                  I'm a builder at the intersection of AI & security who builds
-                  systems that scale. From early-stage startups to enterprise
-                  platforms, I share insights on solving real problems with
-                  thoughtful technology.
+                  I'm a builder at the intersection of AI & security who builds systems that scale.
+                  From early-stage startups to enterprise platforms, I share insights on solving
+                  real problems with thoughtful technology.
                 </motion.p>
 
                 <motion.div
@@ -129,12 +127,8 @@ export default function Index() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
-                    <h2 className="text-2xl font-semibold mb-2">
-                      Jonathan Haas
-                    </h2>
-                    <p className="text-white/90">
-                      Builder @ the Intersection of AI & Security
-                    </p>
+                    <h2 className="text-2xl font-semibold mb-2">Jonathan Haas</h2>
+                    <p className="text-white/90">Builder @ the Intersection of AI & Security</p>
                   </div>
                 </div>
               </motion.div>
@@ -159,9 +153,8 @@ export default function Index() {
                   </h2>
                 </div>
                 <p className="text-muted-foreground max-w-2xl mx-auto mb-6">
-                  This website is built to be AI-agent-friendly with structured
-                  APIs, enhanced metadata, and comprehensive documentation for
-                  programmatic access.
+                  This website is built to be AI-agent-friendly with structured APIs, enhanced
+                  metadata, and comprehensive documentation for programmatic access.
                 </p>
               </div>
 
@@ -229,9 +222,9 @@ export default function Index() {
                 Stay Ahead of the Curve
               </h2>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                Get weekly insights on product strategy, infrastructure design,
-                and building systems that scale. Join thousands of developers
-                and tech leaders building products that matter.
+                Get weekly insights on product strategy, infrastructure design, and building systems
+                that scale. Join thousands of developers and tech leaders building products that
+                matter.
               </p>
               <Link to="/newsletter">
                 <Button size="lg" className="group">

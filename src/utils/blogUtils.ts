@@ -25,9 +25,7 @@ export { formatDate } from './blog/dateUtils'
  * @param content The content to calculate reading time for
  * @returns An object containing the estimated reading time in minutes and the word count
  */
-export const calculateReadingTime = (
-  content: string
-): { minutes: number; wordCount: number } => {
+export const calculateReadingTime = (content: string): { minutes: number; wordCount: number } => {
   // Average reading speed in words per minute
   const WORDS_PER_MINUTE = 200
 
@@ -77,16 +75,11 @@ export const getBlogStats = async () => {
   )
 
   // Calculate average reading time (minimum 1 minute)
-  const avgReadingTime = Math.max(
-    1,
-    Math.round(stats.totalReadingTime / publishedPosts.length)
-  )
+  const avgReadingTime = Math.max(1, Math.round(stats.totalReadingTime / publishedPosts.length))
 
   // Get unique tags count (case-insensitive)
   const uniqueTags = new Set(
-    publishedPosts.flatMap((post) =>
-      post.frontmatter.tags.map((tag) => tag.toLowerCase())
-    )
+    publishedPosts.flatMap((post) => post.frontmatter.tags.map((tag) => tag.toLowerCase()))
   )
 
   // Calculate total reading time in hours and minutes
@@ -103,8 +96,7 @@ export const getBlogStats = async () => {
     totalReadingTime: stats.totalReadingTime,
     totalReadingTimeFormatted,
     totalTags: uniqueTags.size,
-    featuredPosts: publishedPosts.filter((post) => post.frontmatter.featured)
-      .length,
+    featuredPosts: publishedPosts.filter((post) => post.frontmatter.featured).length,
     monthlyReaders: publishedPosts.length * 1000, // Estimate based on post count
   }
 }

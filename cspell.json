@@ -354,27 +354,11 @@
     "automatable",
     "iostat"
   ],
-  "ignorePaths": [
-    "node_modules/**",
-    "dist/**",
-    "public/**",
-    ".git/**",
-    "*.lock",
-    "*.log"
-  ],
+  "ignorePaths": ["node_modules/**", "dist/**", "public/**", ".git/**", "*.lock", "*.log"],
   "overrides": [
     {
       "filename": "src/posts/*.md",
-      "words": [
-        "Lucide",
-        "Sonner",
-        "Vaul",
-        "CMDK",
-        "Recharts",
-        "Framer",
-        "React",
-        "Husky"
-      ]
+      "words": ["Lucide", "Sonner", "Vaul", "CMDK", "Recharts", "Framer", "React", "Husky"]
     }
   ]
 }

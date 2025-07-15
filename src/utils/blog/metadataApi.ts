@@ -46,9 +46,7 @@ async function loadMetadata(): Promise<BlogMetadata> {
  * Get all blog posts metadata (lightweight version for listings)
  * @param includeDrafts - Whether to include draft posts (default: false)
  */
-export async function getAllPostsMetadata(
-  includeDrafts: boolean = false
-): Promise<BlogPost[]> {
+export async function getAllPostsMetadata(includeDrafts: boolean = false): Promise<BlogPost[]> {
   const metadata = await loadMetadata()
 
   const posts: BlogPost[] = []
@@ -101,9 +99,7 @@ export async function getFeaturedPostsMetadata(): Promise<BlogPost[]> {
 /**
  * Get all unique tags from metadata
  */
-export async function getAllTagsFromMetadata(): Promise<
-  Array<{ tag: string; count: number }>
-> {
+export async function getAllTagsFromMetadata(): Promise<Array<{ tag: string; count: number }>> {
   const metadata = await loadMetadata()
 
   const tagCounts = new Map<string, number>()

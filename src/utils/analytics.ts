@@ -5,8 +5,7 @@
 // Environment configuration
 const config = {
   // Replace with your actual Cloudflare Web Analytics token
-  cfAnalyticsToken:
-    import.meta.env.VITE_CF_ANALYTICS_TOKEN || 'YOUR_TOKEN_HERE',
+  cfAnalyticsToken: import.meta.env.VITE_CF_ANALYTICS_TOKEN || 'YOUR_TOKEN_HERE',
   isDevelopment: import.meta.env.DEV,
   isProduction: import.meta.env.PROD,
 }
@@ -98,11 +97,7 @@ export function trackEvent(event: AnalyticsEvent): void {
 /**
  * Track blog post view with metadata
  */
-export function trackPostView(
-  slug: string,
-  title: string,
-  tags: string[] = []
-): void {
+export function trackPostView(slug: string, title: string, tags: string[] = []): void {
   trackEvent({
     name: BlogEvents.POST_VIEW,
     properties: {
@@ -143,10 +138,7 @@ export function trackPostShare(slug: string, platform: string): void {
 /**
  * Track tag clicks for content discovery insights
  */
-export function trackTagClick(
-  tag: string,
-  context: 'post' | 'sidebar' | 'page'
-): void {
+export function trackTagClick(tag: string, context: 'post' | 'sidebar' | 'page'): void {
   trackEvent({
     name: BlogEvents.TAG_CLICK,
     properties: {
@@ -205,9 +197,7 @@ function calculateReadingTime(text: string): number {
 /**
  * Get stored analytics events (for debugging or potential API sending)
  */
-export function getStoredEvents(): Array<
-  AnalyticsEvent & { timestamp: string; url: string }
-> {
+export function getStoredEvents(): Array<AnalyticsEvent & { timestamp: string; url: string }> {
   try {
     return JSON.parse(localStorage.getItem('pending_analytics') || '[]')
   } catch {

@@ -54,9 +54,7 @@ export function preloadBlogPost(slug: string): void {
 /**
  * Load multiple blog posts in parallel
  */
-export async function loadBlogPosts(
-  slugs: string[]
-): Promise<(BlogPost | null)[]> {
+export async function loadBlogPosts(slugs: string[]): Promise<(BlogPost | null)[]> {
   const loadPromises = slugs.map((slug) => loadBlogPost(slug))
   return Promise.all(loadPromises)
 }
@@ -87,10 +85,7 @@ export async function getAllBlogSlugs(): Promise<string[]> {
  * Search for blog posts by query
  * Loads only matching posts
  */
-export async function searchBlogPosts(
-  query: string,
-  limit = 10
-): Promise<BlogPost[]> {
+export async function searchBlogPosts(query: string, limit = 10): Promise<BlogPost[]> {
   try {
     // Load search functionality
     const { searchPosts } = await import('./searchUtils')
