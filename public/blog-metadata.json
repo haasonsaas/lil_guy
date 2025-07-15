@@ -30,14 +30,7 @@
     "description": "If you've ever shared a React app link on Twitter only to see a blank preview, you know the pain. Here's the thing: social media crawlers don't execute JavaS...",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-20",
-    "tags": [
-      "cloudflare",
-      "react",
-      "spa",
-      "opengraph",
-      "edge-computing",
-      "developer-experience"
-    ],
+    "tags": ["cloudflare", "react", "spa", "opengraph", "edge-computing", "developer-experience"],
     "readingTime": {
       "minutes": 2,
       "wordCount": 348
@@ -110,15 +103,7 @@
     "description": "The End of the Traditional SOC The Security Operations Center (SOC) as we know it is living on borrowed time.",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11",
-    "tags": [
-      "ai",
-      "ai-agents",
-      "security",
-      "strategy",
-      "engineering",
-      "product",
-      "automation"
-    ],
+    "tags": ["ai", "ai-agents", "security", "strategy", "engineering", "product", "automation"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 445
@@ -131,13 +116,7 @@
     "description": "\"We can't deploy this to production. It touches payment processing.\" The security team was right to be cautious.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-28",
-    "tags": [
-      "security",
-      "feature-flags",
-      "deployment",
-      "devops",
-      "risk-management"
-    ],
+    "tags": ["security", "feature-flags", "deployment", "devops", "risk-management"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 451
@@ -150,13 +129,7 @@
     "description": "Apple ruling has sparked widespread celebration among app developers, hailed as a major victory in the fight for fairer digital marketplaces.",
     "author": "Jonathan Haas",
     "pubDate": "2025-05-01",
-    "tags": [
-      "app-store",
-      "product-strategy",
-      "conversion",
-      "user-experience",
-      "growth"
-    ],
+    "tags": ["app-store", "product-strategy", "conversion", "user-experience", "growth"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 410
@@ -287,13 +260,7 @@
     "description": "Every piece of software you build comes with a hidden cost: the integration tax. It's the exponentially growing complexity of connecting with other systems,...",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11",
-    "tags": [
-      "engineering",
-      "product",
-      "strategy",
-      "infrastructure",
-      "developer-tools"
-    ],
+    "tags": ["engineering", "product", "strategy", "infrastructure", "developer-tools"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 467
@@ -326,13 +293,7 @@
     "description": "The Startup Reality Check: Payment, Promotion, and Pace: Most startup advice gets softened for comfort. This isn't that.",
     "author": "Jonathan Haas",
     "pubDate": "2025-04-30",
-    "tags": [
-      "startup-culture",
-      "product-strategy",
-      "go-to-market",
-      "founder-advice",
-      "validation"
-    ],
+    "tags": ["startup-culture", "product-strategy", "go-to-market", "founder-advice", "validation"],
     "readingTime": {
       "minutes": 8,
       "wordCount": 1530
@@ -410,13 +371,7 @@
     "description": "The 10x developer myth is finally dying. AI isn't creating super-developers—it's making every developer more effective by orders of magnitude.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-08",
-    "tags": [
-      "ai",
-      "developer-productivity",
-      "team-dynamics",
-      "automation",
-      "future-of-work"
-    ],
+    "tags": ["ai", "developer-productivity", "team-dynamics", "automation", "future-of-work"],
     "readingTime": {
       "minutes": 5,
       "wordCount": 997
@@ -442,13 +397,7 @@
     "description": "Async code generation is moving from novelty to necessity. Here's what  that means for your career and the industry as a whole.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-08",
-    "tags": [
-      "ai",
-      "software-development",
-      "automation",
-      "future-of-work",
-      "developer-experience"
-    ],
+    "tags": ["ai", "software-development", "automation", "future-of-work", "developer-experience"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 770
@@ -614,13 +563,7 @@
     "description": "Current AI evaluation approaches are built for software, not systems that reason. Here's the infrastructure we actually need.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-07",
-    "tags": [
-      "ai-evaluation",
-      "testing",
-      "infrastructure",
-      "llm-ops",
-      "ai-systems"
-    ],
+    "tags": ["ai-evaluation", "testing", "infrastructure", "llm-ops", "ai-systems"],
     "readingTime": {
       "minutes": 5,
       "wordCount": 925
@@ -646,12 +589,7 @@
     "description": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-12",
-    "tags": [
-      "contrarian-advice",
-      "startup-engineering",
-      "technical-debt",
-      "scaling"
-    ],
+    "tags": ["contrarian-advice", "startup-engineering", "technical-debt", "scaling"],
     "readingTime": {
       "minutes": 5,
       "wordCount": 825
@@ -664,13 +602,7 @@
     "description": "AI code reviewers are getting scary good. Here's how they're changing team dynamics and what it means for your development process.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-08",
-    "tags": [
-      "ai",
-      "code-review",
-      "developer-experience",
-      "automation",
-      "team-dynamics"
-    ],
+    "tags": ["ai", "code-review", "developer-experience", "automation", "team-dynamics"],
     "readingTime": {
       "minutes": 5,
       "wordCount": 807
@@ -756,12 +688,7 @@
     "description": "Stop Guessing in Customer Interviews: A Simulator for Better Discovery: I've conducted hundreds of customer interviews. Most of them were terrible.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-24",
-    "tags": [
-      "customer-development",
-      "product-management",
-      "startup",
-      "interactive"
-    ],
+    "tags": ["customer-development", "product-management", "startup", "interactive"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 601
@@ -774,13 +701,7 @@
     "description": "The most dangerous thing about startup advice isn't that it's wrong—it's that it's partially right. After years of building products and watching others do t...",
     "author": "Jonathan Haas",
     "pubDate": "2024-11-25",
-    "tags": [
-      "leadership",
-      "personal-growth",
-      "product-development",
-      "startups",
-      "strategy"
-    ],
+    "tags": ["leadership", "personal-growth", "product-development", "startups", "strategy"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 641
@@ -793,13 +714,7 @@
     "description": "The same morning, I shipped semantic search (30 minutes), created HDR holographic effects (16 minutes), and wrote comprehensive technical documentation for e...",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-20",
-    "tags": [
-      "ai",
-      "developer-experience",
-      "productivity",
-      "meta",
-      "future-of-coding"
-    ],
+    "tags": ["ai", "developer-experience", "productivity", "meta", "future-of-coding"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 632
@@ -838,13 +753,7 @@
     "description": "The Day After: Building a System to Remember What Matters: Some weekend conversations feel important in the moment. Some personal decisions feel pivotal.",
     "author": "Jonathan Haas",
     "pubDate": "2025-04-28",
-    "tags": [
-      "productivity",
-      "reflection",
-      "personal-growth",
-      "conversation-analysis",
-      "memory"
-    ],
+    "tags": ["productivity", "reflection", "personal-growth", "conversation-analysis", "memory"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 602
@@ -928,13 +837,7 @@
     "description": "When Star Power Isn't Enough: The GTM Mistake We Keep Making: But if the pricing's wrong. If the audience alignment's off.",
     "author": "Jonathan Haas",
     "pubDate": "2025-05-03",
-    "tags": [
-      "go-to-market",
-      "pricing-strategy",
-      "product-market-fit",
-      "saas",
-      "startup-lessons"
-    ],
+    "tags": ["go-to-market", "pricing-strategy", "product-market-fit", "saas", "startup-lessons"],
     "readingTime": {
       "minutes": 8,
       "wordCount": 1565
@@ -1006,13 +909,7 @@
     "description": "This is the second in a series of blog posts written by the AI agents working on this blog, at the request of Jonathan Haas.",
     "author": "Gemini",
     "pubDate": "2025-06-25",
-    "tags": [
-      "ai",
-      "collaboration",
-      "future-of-work",
-      "developer-experience",
-      "ai-agents"
-    ],
+    "tags": ["ai", "collaboration", "future-of-work", "developer-experience", "ai-agents"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 561
@@ -1025,13 +922,7 @@
     "description": "25 Posts in 7 Days: Inside an AI-Powered Writing Sprint: That's correct—no typo. Last week, I wrote more than I typically produce in six months.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-24",
-    "tags": [
-      "ai",
-      "productivity",
-      "writing",
-      "developer-experience",
-      "creativity"
-    ],
+    "tags": ["ai", "productivity", "writing", "developer-experience", "creativity"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 474
@@ -1108,13 +999,7 @@
     "description": "Here's what actually happened: I learned that most of what people call \"AI orchestration\" is just well-disguised complexity porn.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-25",
-    "tags": [
-      "ai",
-      "multi-ai",
-      "content-orchestration",
-      "ai-agents",
-      "developer-experience"
-    ],
+    "tags": ["ai", "multi-ai", "content-orchestration", "ai-agents", "developer-experience"],
     "readingTime": {
       "minutes": 5,
       "wordCount": 833
@@ -1140,13 +1025,7 @@
     "description": "The Accountability Mirror: Would a Stranger Believe You?: Would a Stranger Believe You. Let’s run a simple thought experiment.",
     "author": "Jonathan Haas",
     "pubDate": "2025-04-30",
-    "tags": [
-      "mindset",
-      "execution",
-      "self-awareness",
-      "productivity",
-      "behavior-change"
-    ],
+    "tags": ["mindset", "execution", "self-awareness", "productivity", "behavior-change"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 539
@@ -1172,14 +1051,7 @@
     "description": "OpenAI recently rolled back a GPT-4 update due to sycophantic behavior. The word itself—\"sycophantic\"—feels like a punchline from a _Black Mirror_ episode.",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11",
-    "tags": [
-      "ai",
-      "product",
-      "strategy",
-      "leadership",
-      "trust",
-      "transparency"
-    ],
+    "tags": ["ai", "product", "strategy", "leadership", "trust", "transparency"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 523
@@ -1211,13 +1083,7 @@
     "description": "Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-12",
-    "tags": [
-      "security",
-      "firecracker",
-      "microvm",
-      "llm",
-      "implementation-guide"
-    ],
+    "tags": ["security", "firecracker", "microvm", "llm", "implementation-guide"],
     "readingTime": {
       "minutes": 2,
       "wordCount": 347
@@ -1243,13 +1109,7 @@
     "description": "I've been building with DSPy for months now, and I'm convinced we're all doing AI wrong. Not just a little wrong.",
     "author": "Jonathan Haas",
     "pubDate": "2024-03-18",
-    "tags": [
-      "ai",
-      "developer-experience",
-      "prompt-engineering",
-      "dspy",
-      "future-of-coding"
-    ],
+    "tags": ["ai", "developer-experience", "prompt-engineering", "dspy", "future-of-coding"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 544
@@ -1276,25 +1136,6 @@
     "featured": false,
     "draft": false
   },
-  "why-windsurf-google-structure-toxic-venture-market": {
-    "title": "Why the Windsurf-Google Structure Is Toxic for the Broader Venture Market",
-    "description": "A deep dive into Google's $2.4 B partial acquisition of Windsurf, why the deal structure shreds the equity-for-risk social contract, and how copy-cat transactions could undermine the core mechanics of venture economics—talent incentives, predictable exit math, and ecosystem dynamism.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-12T00:00:00.000Z",
-    "tags": [
-      "venture-capital",
-      "governance",
-      "startup-culture",
-      "acquisitions",
-      "talent"
-    ],
-    "readingTime": {
-      "minutes": 6,
-      "wordCount": 1125
-    },
-    "featured": false,
-    "draft": false
-  },
   "the-unit-economics-that-actually-matter": {
     "title": "The Unit Economics That Actually Matter",
     "description": "I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things.",
@@ -1313,13 +1154,7 @@
     "description": "AI reveals the true skill level of its operator. Traditional technical interviews are broken—here's how to actually identify talent in the age of artificial intelligence.",
     "author": "Jonathan Haas",
     "pubDate": "2025-01-07",
-    "tags": [
-      "ai",
-      "hiring",
-      "technical-interviews",
-      "skill-assessment",
-      "developer-productivity"
-    ],
+    "tags": ["ai", "hiring", "technical-interviews", "skill-assessment", "developer-productivity"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 725
@@ -1480,13 +1315,7 @@
     "description": "The Rise of Single-Serving Software: Most software dreams used to start the same way: Get millions of users. Build a platform.",
     "author": "Jonathan Haas",
     "pubDate": "2025-04-25",
-    "tags": [
-      "software-development",
-      "technology",
-      "product-strategy",
-      "startups",
-      "creativity"
-    ],
+    "tags": ["software-development", "technology", "product-strategy", "startups", "creativity"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 477
@@ -1642,13 +1471,7 @@
     "description": "Combining Semgrep, CodeQL, SonarQube, and Snyk gets you 44.7% vulnerability detection. That means they miss more bugs than they find.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-25",
-    "tags": [
-      "security",
-      "ai",
-      "sast",
-      "tree-sitter",
-      "vulnerability-detection"
-    ],
+    "tags": ["security", "ai", "sast", "tree-sitter", "vulnerability-detection"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 426
@@ -1825,13 +1648,7 @@
     "author": "Jonathan Haas",
     "pubDate": "2025-06-20",
     "tags": {
-      "tags": [
-        "cloudflare",
-        "typescript",
-        "debugging",
-        "serverless",
-        "deployment"
-      ]
+      "tags": ["cloudflare", "typescript", "debugging", "serverless", "deployment"]
     },
     "readingTime": {
       "minutes": 4,
@@ -1845,12 +1662,7 @@
     "description": "The best product managers have a superpower that's rarely discussed: they can spot the same underlying user need manifesting in completely different ways acr...",
     "author": "Jonathan Haas",
     "pubDate": "2024-11-27",
-    "tags": [
-      "leadership",
-      "product-development",
-      "strategy",
-      "systems-thinking"
-    ],
+    "tags": ["leadership", "product-development", "strategy", "systems-thinking"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 572
@@ -1909,14 +1721,7 @@
     "description": "One of the things that's always bugged me about LLMs is how opaque their thinking is. They produce answers.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-24",
-    "tags": [
-      "open-source",
-      "ai",
-      "reasoning",
-      "graph-structure",
-      "mcp",
-      "developer-tools"
-    ],
+    "tags": ["open-source", "ai", "reasoning", "graph-structure", "mcp", "developer-tools"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 528
@@ -1963,13 +1768,7 @@
     "description": "Let’s talk about a particular flavor of leadership dysfunction: the passive-aggressive manager. You’ve probably worked with one.",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-22",
-    "tags": [
-      "management",
-      "leadership",
-      "career",
-      "culture",
-      "personal-growth"
-    ],
+    "tags": ["management", "leadership", "career", "culture", "personal-growth"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 733
@@ -2021,13 +1820,7 @@
     "description": "When Vibe Coding Goes Wrong: Security Lessons from Granola: Vibe coding is having a moment. And honestly.",
     "author": "Jonathan Haas",
     "pubDate": "2025-05-12",
-    "tags": [
-      "cybersecurity",
-      "vibe-coding",
-      "ai-development",
-      "product-security",
-      "electron-apps"
-    ],
+    "tags": ["cybersecurity", "vibe-coding", "ai-development", "product-security", "electron-apps"],
     "readingTime": {
       "minutes": 2,
       "wordCount": 332
@@ -2040,13 +1833,7 @@
     "description": "Not \"kind of\" like me—exactly like me. Down to the contractions, the contrarian takes, and my pathological inability to use hedge words.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-26",
-    "tags": [
-      "ai",
-      "voice-ai",
-      "personality-replication",
-      "startup-engineering",
-      "data-science"
-    ],
+    "tags": ["ai", "voice-ai", "personality-replication", "startup-engineering", "data-science"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 637
@@ -2200,13 +1987,7 @@
     "description": "Culture Over Code: Why Learning Ability Beats Raw Skill: At some point, we all make the same mistake. We over-index on technical brilliance.",
     "author": "Jonathan Haas",
     "pubDate": "2025-05-04",
-    "tags": [
-      "hiring",
-      "engineering",
-      "leadership",
-      "startup-culture",
-      "team-dynamics"
-    ],
+    "tags": ["hiring", "engineering", "leadership", "startup-culture", "team-dynamics"],
     "readingTime": {
       "minutes": 8,
       "wordCount": 1415
