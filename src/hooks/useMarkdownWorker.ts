@@ -1,4 +1,6 @@
-import { useEffect, useRef, useCallback, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 interface WorkerMessage {
   id: string
@@ -29,7 +31,9 @@ export function useMarkdownWorker() {
 
           if (type === 'WORKER_READY') {
             setIsReady(true)
-            console.log('📝 Markdown worker ready')
+            if (isDevelopment) {
+              console.log('📝 Markdown worker ready')
+            }
             return
           }
 

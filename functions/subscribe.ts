@@ -1,8 +1,4 @@
-import type {
-  PagesFunction,
-  ExecutionContext,
-  KVNamespace,
-} from '@cloudflare/workers-types'
+import type { ExecutionContext, KVNamespace, PagesFunction } from '@cloudflare/workers-types'
 
 interface Env {
   // Add your environment variables here
@@ -15,6 +11,8 @@ interface RequestBody {
   email: string
 }
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+
 // Rate limiting configuration
 const RATE_LIMIT_WINDOW = 60 * 60 // 1 hour in seconds
 const MAX_REQUESTS_PER_WINDOW = 5 // Maximum 5 requests per hour
@@ -22,9 +20,7 @@ const MAX_REQUESTS_PER_WINDOW = 5 // Maximum 5 requests per hour
 const allowedOrigins = ['https://haasonsaas.com', 'https://www.haasonsaas.com']
 
 function getCorsHeaders(origin: string | null) {
-  const allowedOrigin = allowedOrigins.includes(origin || '')
-    ? origin
-    : allowedOrigins[0]
+  const allowedOrigin = allowedOrigins.includes(origin || '') ? origin : allowedOrigins[0]
   return {
     'Access-Control-Allow-Origin': allowedOrigin,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -38,8 +34,7 @@ const securityHeaders = {
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy':
-    'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 }
 
@@ -66,8 +61,7 @@ async function checkRateLimit(
 
     if (data) {
       try {
-        const { count: storedCount, windowStart: storedWindowStart } =
-          JSON.parse(data)
+        const { count: storedCount, windowStart: storedWindowStart } = JSON.parse(data)
         // If we're still in the same window, use the stored count
         if (now - storedWindowStart < RATE_LIMIT_WINDOW) {
           count = storedCount
@@ -96,9 +90,11 @@ async function checkRateLimit(
       }
     )
 
-    console.log(
-      `Rate limit check for IP ${ip}: count=${count}, windowStart=${windowStart}, allowed=${count <= MAX_REQUESTS_PER_WINDOW}`
-    )
+    if (isDevelopment) {
+      console.log(
+        `Rate limit check for IP ${ip}: count=${count}, windowStart=${windowStart}, allowed=${count <= MAX_REQUESTS_PER_WINDOW}`
+      )
+    }
 
     return {
       allowed: count <= MAX_REQUESTS_PER_WINDOW,
@@ -123,12 +119,16 @@ export async function onRequestPost(context: {
     // Get client IP for rate limiting and origin for CORS
     const ip = request.headers.get('CF-Connecting-IP') || 'unknown'
     const origin = request.headers.get('Origin')
-    console.log(`Request from IP: ${ip}, Origin: ${origin}`)
+    if (isDevelopment) {
+      console.log(`Request from IP: ${ip}, Origin: ${origin}`)
+    }
 
     // Check rate limit
     const rateLimit = await checkRateLimit(env, ip)
     if (!rateLimit.allowed) {
-      console.log(`Rate limit exceeded for IP ${ip}`)
+      if (isDevelopment) {
+        console.log(`Rate limit exceeded for IP ${ip}`)
+      }
       return new Response(
         JSON.stringify({
           error: 'Too many subscription attempts. Please try again later.',
@@ -155,18 +155,17 @@ export async function onRequestPost(context: {
       })
     }
 
-    console.log('Processing new subscriber:', email)
+    if (isDevelopment) {
+      console.log('Processing new subscriber:', email)
+    }
 
     // Check if subscriber already exists
     const existingSubscriber = await env.SUBSCRIBERS.get(email)
     if (existingSubscriber) {
-      return new Response(
-        JSON.stringify({ error: 'Email already subscribed' }),
-        {
-          status: 400,
-          headers: getResponseHeaders(origin),
-        }
-      )
+      return new Response(JSON.stringify({ error: 'Email already subscribed' }), {
+        status: 400,
+        headers: getResponseHeaders(origin),
+      })
     }
 
     // Store subscriber in KV with preferences structure
@@ -182,7 +181,9 @@ export async function onRequestPost(context: {
     }
 
     await env.SUBSCRIBERS.put(email, JSON.stringify(subscriberData))
-    console.log('Subscriber stored in KV:', email)
+    if (isDevelopment) {
+      console.log('Subscriber stored in KV:', email)
+    }
 
     // Send email using Resend
     const resendResponse = await fetch('https://api.resend.com/emails', {
@@ -206,7 +207,9 @@ export async function onRequestPost(context: {
       throw new Error(`Failed to send email: ${JSON.stringify(resendData)}`)
     }
 
-    console.log('Email sent successfully:', resendData)
+    if (isDevelopment) {
+      console.log('Email sent successfully:', resendData)
+    }
 
     // Send immediate welcome email using Resend
     try {
@@ -285,12 +288,9 @@ Website: https://haasonsaas.com`,
 
       if (welcomeResponse.ok) {
         const welcomeData = await welcomeResponse.json()
-        console.log(
-          'Welcome email sent immediately to:',
-          email,
-          'ID:',
-          welcomeData.id
-        )
+        if (isDevelopment) {
+          console.log('Welcome email sent immediately to:', email, 'ID:', welcomeData.id)
+        }
       } else {
         const errorText = await welcomeResponse.text()
         console.error('Failed to send welcome email:', errorText)
@@ -315,12 +315,14 @@ Website: https://haasonsaas.com`,
       )
 
       if (automationResponse.ok) {
-        console.log('Full welcome series triggered for:', email)
+        if (isDevelopment) {
+          console.log('Full welcome series triggered for:', email)
+        }
       }
     } catch (error) {
-      console.log(
-        'Full automation not available yet, welcome email sent directly'
-      )
+      if (isDevelopment) {
+        console.log('Full automation not available yet, welcome email sent directly')
+      }
     }
 
     return new Response(JSON.stringify({ success: true }), {
@@ -328,19 +330,14 @@ Website: https://haasonsaas.com`,
     })
   } catch (error) {
     console.error('Error:', error)
-    return new Response(
-      JSON.stringify({ error: error.message || 'Internal server error' }),
-      {
-        status: 500,
-        headers: getResponseHeaders(origin),
-      }
-    )
+    return new Response(JSON.stringify({ error: error.message || 'Internal server error' }), {
+      status: 500,
+      headers: getResponseHeaders(origin),
+    })
   }
 }
 
-export async function onRequestOptions(context: {
-  request: Request
-}): Promise<Response> {
+export async function onRequestOptions(context: { request: Request }): Promise<Response> {
   const origin = context.request.headers.get('Origin')
   return new Response(null, {
     headers: getCorsHeaders(origin),
