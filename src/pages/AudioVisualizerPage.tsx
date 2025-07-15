@@ -555,9 +555,7 @@ function AudioVisualizerPageContent() {
           } catch (e) {
             // Element might already be connected to another context
             if (isDevelopment) {
-              if (isDevelopment) {
-                console.log('Audio element already connected, reusing existing connection')
-              }
+              console.log('Audio element already connected, reusing existing connection')
             }
           }
 
@@ -634,9 +632,7 @@ function AudioVisualizerPageContent() {
     const maxValue = Math.max(...dataArray)
     if (maxValue === 0 && isPlayingRef.current) {
       if (isDevelopment) {
-        if (isDevelopment) {
-          console.log('Warning: No audio data detected')
-        }
+        console.log('Warning: No audio data detected')
       }
     }
 
