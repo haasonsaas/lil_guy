@@ -1,8 +1,4 @@
-import type {
-  PagesFunction,
-  ExecutionContext,
-  KVNamespace,
-} from '@cloudflare/workers-types'
+import type { ExecutionContext, KVNamespace, PagesFunction } from '@cloudflare/workers-types'
 
 interface Env {
   RESEND_API_KEY: string
@@ -33,8 +29,7 @@ const securityHeaders = {
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy':
-    'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 }
 
@@ -61,8 +56,7 @@ async function ensureAudience(env: Env): Promise<string> {
     if (listResponse.ok) {
       const audiences = await listResponse.json()
       const existingAudience = audiences.data?.find(
-        (aud: { name: string; id: string }) =>
-          aud.name === 'Haas on SaaS Subscribers'
+        (aud: { name: string; id: string }) => aud.name === 'Haas on SaaS Subscribers'
       )
       if (existingAudience) {
         return existingAudience.id
@@ -82,9 +76,7 @@ async function ensureAudience(env: Env): Promise<string> {
     })
 
     if (!createResponse.ok) {
-      throw new Error(
-        `Failed to create audience: ${await createResponse.text()}`
-      )
+      throw new Error(`Failed to create audience: ${await createResponse.text()}`)
     }
 
     const audienceData = await createResponse.json()
@@ -101,28 +93,21 @@ async function ensureAudience(env: Env): Promise<string> {
 /**
  * Add contact to Resend audience
  */
-async function addToAudience(
-  env: Env,
-  email: string,
-  audienceId: string
-): Promise<string> {
+async function addToAudience(env: Env, email: string, audienceId: string): Promise<string> {
   try {
-    const response = await fetch(
-      `https://api.resend.com/audiences/${audienceId}/contacts`,
-      {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${env.RESEND_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          first_name: '', // Could be enhanced with name collection
-          last_name: '',
-          unsubscribed: false,
-        }),
-      }
-    )
+    const response = await fetch(`https://api.resend.com/audiences/${audienceId}/contacts`, {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email,
+        first_name: '', // Could be enhanced with name collection
+        last_name: '',
+        unsubscribed: false,
+      }),
+    })
 
     if (!response.ok) {
       const errorText = await response.text()
@@ -182,10 +167,7 @@ async function sendWelcomeEmail(
     })
 
     if (!response.ok) {
-      console.error(
-        `Failed to send ${type} to ${email}:`,
-        await response.text()
-      )
+      console.error(`Failed to send ${type} to ${email}:`, await response.text())
       return false
     }
 
@@ -209,9 +191,7 @@ async function scheduleEmail(
   type: 'welcome1' | 'welcome2' | 'welcome3',
   delayHours: number
 ): Promise<void> {
-  const sendAt = new Date(
-    Date.now() + delayHours * 60 * 60 * 1000
-  ).toISOString()
+  const sendAt = new Date(Date.now() + delayHours * 60 * 60 * 1000).toISOString()
   const scheduledEmail: ScheduledEmail = {
     id: `${type}_${email}_${Date.now()}`,
     email,
@@ -219,10 +199,7 @@ async function scheduleEmail(
     sendAt,
   }
 
-  await env.EMAIL_SCHEDULE.put(
-    scheduledEmail.id,
-    JSON.stringify(scheduledEmail)
-  )
+  await env.EMAIL_SCHEDULE.put(scheduledEmail.id, JSON.stringify(scheduledEmail))
   if (isDevelopment) {
     console.log(`Scheduled ${type} for ${email} at ${sendAt}`)
   }
@@ -231,9 +208,7 @@ async function scheduleEmail(
 /**
  * Process scheduled emails
  */
-async function processScheduledEmails(
-  env: Env
-): Promise<{ sent: number; failed: number }> {
+async function processScheduledEmails(env: Env): Promise<{ sent: number; failed: number }> {
   const now = new Date().toISOString()
   let sent = 0
   let failed = 0
@@ -249,20 +224,12 @@ async function processScheduledEmails(
         const scheduled: ScheduledEmail = JSON.parse(scheduledData)
 
         if (scheduled.sendAt <= now) {
-          const success = await sendWelcomeEmail(
-            env,
-            scheduled.email,
-            scheduled.type
-          )
+          const success = await sendWelcomeEmail(env, scheduled.email, scheduled.type)
 
           if (success) {
             sent++
             // Update subscriber record
-            await updateSubscriberEmailSent(
-              env,
-              scheduled.email,
-              scheduled.type
-            )
+            await updateSubscriberEmailSent(env, scheduled.email, scheduled.type)
           } else {
             failed++
           }
@@ -344,10 +311,7 @@ async function triggerWelcomeSeries(env: Env, email: string): Promise<void> {
 /**
  * Simple email templates (same as before)
  */
-function getEmailTemplate(
-  type: 'welcome1' | 'welcome2' | 'welcome3',
-  data: { email: string }
-) {
+function getEmailTemplate(type: 'welcome1' | 'welcome2' | 'welcome3', data: { email: string }) {
   switch (type) {
     case 'welcome1':
       return {
@@ -601,11 +565,7 @@ Unsubscribe: https://haasonsaas.com/unsubscribe?email=${encodeURIComponent(email
 }
 
 export default {
-  async fetch(
-    request: Request,
-    env: Env,
-    ctx: ExecutionContext
-  ): Promise<Response> {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url)
 
     if (request.method === 'OPTIONS') {
@@ -651,19 +611,13 @@ export default {
   },
 
   // Cron trigger for processing scheduled emails
-  async scheduled(
-    controller: ScheduledController,
-    env: Env,
-    ctx: ExecutionContext
-  ): Promise<void> {
+  async scheduled(controller: ScheduledController, env: Env, ctx: ExecutionContext): Promise<void> {
     if (isDevelopment) {
       console.log('Processing scheduled emails...')
     }
     const result = await processScheduledEmails(env)
     if (isDevelopment) {
-      console.log(
-        `Scheduled emails processed: ${result.sent} sent, ${result.failed} failed`
-      )
+      console.log(`Scheduled emails processed: ${result.sent} sent, ${result.failed} failed`)
     }
   },
 }

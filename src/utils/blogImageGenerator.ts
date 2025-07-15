@@ -19,11 +19,7 @@ interface BlogImageConfig {
 /**
  * Calculate the optimal font size for the given text and dimensions
  */
-function calculateOptimalFontSize(
-  text: string,
-  width: number,
-  height: number
-): number {
+function calculateOptimalFontSize(text: string, width: number, height: number): number {
   const targetLines = 2.5 // We want to wrap text at around 2-3 lines
   const avgCharWidth = 0.6 // Approximate width of a character relative to font size
   const lineHeight = 1.2 // Line height multiplier
@@ -36,10 +32,7 @@ function calculateOptimalFontSize(
   let fontSize = availableWidth / (text.length * avgCharWidth)
 
   // Adjust for target number of lines
-  fontSize = Math.min(
-    fontSize * targetLines,
-    availableHeight / (targetLines * lineHeight)
-  )
+  fontSize = Math.min(fontSize * targetLines, availableHeight / (targetLines * lineHeight))
 
   // Scale down more aggressively to ensure comfortable fit
   fontSize *= 0.7 // Reduced from 0.8 to 0.7
@@ -55,13 +48,7 @@ function calculateOptimalFontSize(
  * Generate an SVG for a blog image
  */
 function generateBlogSVG(config: BlogImageConfig): string {
-  const {
-    width,
-    height,
-    text,
-    backgroundColor = '#f5f5f5',
-    textColor = '#333333',
-  } = config
+  const { width, height, text, backgroundColor = '#f5f5f5', textColor = '#333333' } = config
 
   // Calculate optimal font size
   const fontSize = calculateOptimalFontSize(text, width, height)
@@ -206,9 +193,7 @@ export function generateResponsiveImageConfigs(
 /**
  * Generate blog images for the given configurations
  */
-export async function generateBlogImages(
-  configs: BlogImageConfig[]
-): Promise<void> {
+export async function generateBlogImages(configs: BlogImageConfig[]): Promise<void> {
   // Ensure the generated images directory exists
   const generatedDir = path.join(process.cwd(), 'public', 'generated')
   if (!fs.existsSync(generatedDir)) {
@@ -254,9 +239,7 @@ export async function generateBlogImages(
             .avif({ quality: Math.round(quality * 0.9), effort: 9 }) // Slightly lower quality for AVIF, max effort
             .toFile(filePath)
         } else if (format === 'png') {
-          await sharpInstance
-            .png({ compressionLevel: 9, adaptiveFiltering: true })
-            .toFile(filePath)
+          await sharpInstance.png({ compressionLevel: 9, adaptiveFiltering: true }).toFile(filePath)
         }
 
         // Get file size for optimization feedback
@@ -266,10 +249,7 @@ export async function generateBlogImages(
           console.log(`Generated: ${fileName} (${sizeKB}KB)`)
         }
       } catch (error) {
-        console.error(
-          `Error generating ${format} image for ${config.text}:`,
-          error
-        )
+        console.error(`Error generating ${format} image for ${config.text}:`, error)
       }
     }
   }

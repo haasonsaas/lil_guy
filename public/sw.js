@@ -7,13 +7,7 @@ const OFFLINE_URL = '/offline'
 const isDevelopment = self.location.hostname === 'localhost'
 
 // Resources to cache immediately
-const STATIC_RESOURCES = [
-  '/',
-  '/blog',
-  '/offline',
-  '/favicon.ico',
-  '/favicon.svg',
-]
+const STATIC_RESOURCES = ['/', '/blog', '/offline', '/favicon.ico', '/favicon.svg']
 
 // Install event - cache static resources
 self.addEventListener('install', (event) => {
@@ -81,10 +75,7 @@ self.addEventListener('fetch', (event) => {
   } else if (url.pathname === '/' || url.pathname === '/blog') {
     // Main pages - serve from cache, update in background
     event.respondWith(handleMainPageRequest(event.request))
-  } else if (
-    url.pathname.startsWith('/generated/') ||
-    url.pathname.startsWith('/images/')
-  ) {
+  } else if (url.pathname.startsWith('/generated/') || url.pathname.startsWith('/images/')) {
     // Images - cache with longer expiry
     event.respondWith(handleImageRequest(event.request))
   } else if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {

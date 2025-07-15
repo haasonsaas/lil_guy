@@ -1,8 +1,4 @@
-import type {
-  PagesFunction,
-  ExecutionContext,
-  KVNamespace,
-} from '@cloudflare/workers-types'
+import type { ExecutionContext, KVNamespace, PagesFunction } from '@cloudflare/workers-types'
 
 interface Env {
   // Add your environment variables here
@@ -24,9 +20,7 @@ const MAX_REQUESTS_PER_WINDOW = 5 // Maximum 5 requests per hour
 const allowedOrigins = ['https://haasonsaas.com', 'https://www.haasonsaas.com']
 
 function getCorsHeaders(origin: string | null) {
-  const allowedOrigin = allowedOrigins.includes(origin || '')
-    ? origin
-    : allowedOrigins[0]
+  const allowedOrigin = allowedOrigins.includes(origin || '') ? origin : allowedOrigins[0]
   return {
     'Access-Control-Allow-Origin': allowedOrigin,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
@@ -40,8 +34,7 @@ const securityHeaders = {
   'X-Frame-Options': 'DENY',
   'X-XSS-Protection': '1; mode=block',
   'Referrer-Policy': 'strict-origin-when-cross-origin',
-  'Permissions-Policy':
-    'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+  'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
   'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
 }
 
@@ -68,8 +61,7 @@ async function checkRateLimit(
 
     if (data) {
       try {
-        const { count: storedCount, windowStart: storedWindowStart } =
-          JSON.parse(data)
+        const { count: storedCount, windowStart: storedWindowStart } = JSON.parse(data)
         // If we're still in the same window, use the stored count
         if (now - storedWindowStart < RATE_LIMIT_WINDOW) {
           count = storedCount
@@ -170,13 +162,10 @@ export async function onRequestPost(context: {
     // Check if subscriber already exists
     const existingSubscriber = await env.SUBSCRIBERS.get(email)
     if (existingSubscriber) {
-      return new Response(
-        JSON.stringify({ error: 'Email already subscribed' }),
-        {
-          status: 400,
-          headers: getResponseHeaders(origin),
-        }
-      )
+      return new Response(JSON.stringify({ error: 'Email already subscribed' }), {
+        status: 400,
+        headers: getResponseHeaders(origin),
+      })
     }
 
     // Store subscriber in KV with preferences structure
@@ -300,12 +289,7 @@ Website: https://haasonsaas.com`,
       if (welcomeResponse.ok) {
         const welcomeData = await welcomeResponse.json()
         if (isDevelopment) {
-          console.log(
-            'Welcome email sent immediately to:',
-            email,
-            'ID:',
-            welcomeData.id
-          )
+          console.log('Welcome email sent immediately to:', email, 'ID:', welcomeData.id)
         }
       } else {
         const errorText = await welcomeResponse.text()
@@ -337,9 +321,7 @@ Website: https://haasonsaas.com`,
       }
     } catch (error) {
       if (isDevelopment) {
-        console.log(
-          'Full automation not available yet, welcome email sent directly'
-        )
+        console.log('Full automation not available yet, welcome email sent directly')
       }
     }
 
@@ -348,19 +330,14 @@ Website: https://haasonsaas.com`,
     })
   } catch (error) {
     console.error('Error:', error)
-    return new Response(
-      JSON.stringify({ error: error.message || 'Internal server error' }),
-      {
-        status: 500,
-        headers: getResponseHeaders(origin),
-      }
-    )
+    return new Response(JSON.stringify({ error: error.message || 'Internal server error' }), {
+      status: 500,
+      headers: getResponseHeaders(origin),
+    })
   }
 }
 
-export async function onRequestOptions(context: {
-  request: Request
-}): Promise<Response> {
+export async function onRequestOptions(context: { request: Request }): Promise<Response> {
   const origin = context.request.headers.get('Origin')
   return new Response(null, {
     headers: getCorsHeaders(origin),

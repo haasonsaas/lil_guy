@@ -1,17 +1,11 @@
+import { BookOpen, Clock, RefreshCw, Wifi, WifiOff } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '@/components/Layout'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { WebsiteMeta } from '@/components/SEO/MetaTags'
-import { Wifi, WifiOff, RefreshCw, BookOpen, Clock } from 'lucide-react'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -52,13 +46,14 @@ export default function OfflinePage() {
           setCacheStatus(event.data)
         }
 
-        navigator.serviceWorker.controller.postMessage(
-          { type: 'GET_CACHE_STATUS' },
-          [messageChannel.port2]
-        )
+        navigator.serviceWorker.controller.postMessage({ type: 'GET_CACHE_STATUS' }, [
+          messageChannel.port2,
+        ])
       } catch (error) {
         if (isDevelopment) {
-          console.log('Failed to get cache status:', error)
+          if (isDevelopment) {
+            console.log('Failed to get cache status:', error)
+          }
         }
       }
     }
@@ -120,9 +115,7 @@ export default function OfflinePage() {
                 disabled={isRefreshing}
                 className="flex items-center gap-2"
               >
-                <RefreshCw
-                  className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`}
-                />
+                <RefreshCw className={`w-4 h-4 ${isRefreshing ? 'animate-spin' : ''}`} />
                 {isOnline ? 'Refresh Page' : 'Check Status'}
               </Button>
 
@@ -143,9 +136,7 @@ export default function OfflinePage() {
                   <BookOpen className="w-5 h-5" />
                   Offline Content Available
                 </CardTitle>
-                <CardDescription>
-                  Content cached for offline reading
-                </CardDescription>
+                <CardDescription>Content cached for offline reading</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -182,40 +173,33 @@ export default function OfflinePage() {
           )}
 
           {/* Cached Blog Posts List */}
-          {cacheStatus &&
-            cacheStatus.blogPosts &&
-            cacheStatus.blogPosts.length > 0 && (
-              <Card>
-                <CardHeader>
-                  <CardTitle>Read Offline</CardTitle>
-                  <CardDescription>
-                    The following articles are available for offline reading.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-                    {cacheStatus.blogPosts.map((post) => (
-                      <li key={post.url} className="py-3">
-                        <Link
-                          to={new URL(post.url).pathname}
-                          className="hover:underline"
-                        >
-                          {post.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-            )}
+          {cacheStatus && cacheStatus.blogPosts && cacheStatus.blogPosts.length > 0 && (
+            <Card>
+              <CardHeader>
+                <CardTitle>Read Offline</CardTitle>
+                <CardDescription>
+                  The following articles are available for offline reading.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ul className="divide-y divide-gray-200 dark:divide-gray-700">
+                  {cacheStatus.blogPosts.map((post) => (
+                    <li key={post.url} className="py-3">
+                      <Link to={new URL(post.url).pathname} className="hover:underline">
+                        {post.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Offline Reading Tips */}
           <Card>
             <CardHeader>
               <CardTitle>Offline Reading Mode</CardTitle>
-              <CardDescription>
-                Make the most of your offline experience
-              </CardDescription>
+              <CardDescription>Make the most of your offline experience</CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="grid gap-4 md:grid-cols-2">
@@ -286,9 +270,9 @@ export default function OfflinePage() {
 
               <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
                 <p className="text-sm text-gray-500 dark:text-gray-400">
-                  <strong>Tip:</strong> Visit blog posts while online to
-                  automatically cache them for offline reading. The service
-                  worker will intelligently cache content as you browse.
+                  <strong>Tip:</strong> Visit blog posts while online to automatically cache them
+                  for offline reading. The service worker will intelligently cache content as you
+                  browse.
                 </p>
               </div>
             </CardContent>

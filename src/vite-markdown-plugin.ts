@@ -1,11 +1,8 @@
-import type { Plugin, ModuleNode } from 'vite'
 import fs from 'fs'
 import path from 'path'
+import type { ModuleNode, Plugin } from 'vite'
 import { BlogPostFrontmatter } from './types/blog'
-import {
-  validateFrontmatter,
-  formatValidationResults,
-} from './utils/blog/frontmatterValidator'
+import { formatValidationResults, validateFrontmatter } from './utils/blog/frontmatterValidator'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
 
@@ -18,9 +15,7 @@ export function markdownPlugin(): Plugin {
           const fileContent = fs.readFileSync(id, 'utf-8')
 
           // Parse frontmatter
-          const frontmatterMatch = fileContent.match(
-            /^---\r?\n([\s\S]+?)\r?\n---/
-          )
+          const frontmatterMatch = fileContent.match(/^---\r?\n([\s\S]+?)\r?\n---/)
           let content = fileContent
           const frontmatter: Record<string, unknown> = {}
 
@@ -57,11 +52,7 @@ export function markdownPlugin(): Plugin {
                 }
 
                 // Save previous nested object if exists
-                if (
-                  currentKey &&
-                  isNestedObject &&
-                  Object.keys(nestedObject).length > 0
-                ) {
+                if (currentKey && isNestedObject && Object.keys(nestedObject).length > 0) {
                   frontmatter[currentKey] = { ...nestedObject }
                   isNestedObject = false
                 }
@@ -70,20 +61,12 @@ export function markdownPlugin(): Plugin {
                 const value = keyMatch[2].trim()
 
                 // Check if this is the start of a multiline value
-                if (
-                  value === "'" ||
-                  value === '"' ||
-                  value === '' ||
-                  value.startsWith('-')
-                ) {
+                if (value === "'" || value === '"' || value === '' || value.startsWith('-')) {
                   isMultiline = true
                   multilineValue = value === "'" || value === '"' ? '' : value
                 } else {
                   // Single line value
-                  let processedValue: string | boolean = value.replace(
-                    /^['"]|['"]$/g,
-                    ''
-                  )
+                  let processedValue: string | boolean = value.replace(/^['"]|['"]$/g, '')
 
                   // Convert string booleans to actual booleans
                   if (processedValue === 'true') {
@@ -118,9 +101,7 @@ export function markdownPlugin(): Plugin {
                   }
                 } else {
                   // Continue multiline value
-                  multilineValue +=
-                    (multilineValue ? '\n' : '') +
-                    line.replace(/^['"]|['"]$/g, '')
+                  multilineValue += (multilineValue ? '\n' : '') + line.replace(/^['"]|['"]$/g, '')
                 }
               } else if (line.startsWith('  ') && currentKey === 'image') {
                 // This is a nested key in the image object
@@ -132,10 +113,7 @@ export function markdownPlugin(): Plugin {
                   const value = nestedKeyMatch[2].trim()
 
                   if (value) {
-                    nestedObject[nestedObjectKey] = value.replace(
-                      /^['"]|['"]$/g,
-                      ''
-                    )
+                    nestedObject[nestedObjectKey] = value.replace(/^['"]|['"]$/g, '')
                   }
                 }
               } else if (isNestedObject && line.match(/^\w+:/)) {
@@ -163,11 +141,7 @@ export function markdownPlugin(): Plugin {
             }
 
             // Save the last nested object if exists
-            if (
-              currentKey &&
-              isNestedObject &&
-              Object.keys(nestedObject).length > 0
-            ) {
+            if (currentKey && isNestedObject && Object.keys(nestedObject).length > 0) {
               frontmatter[currentKey] = { ...nestedObject }
             }
 
@@ -179,10 +153,7 @@ export function markdownPlugin(): Plugin {
               imageLines.forEach((line) => {
                 const imgMatch = line.match(/(\w+):\s*(.*)/)
                 if (imgMatch) {
-                  imageObj[imgMatch[1]] = imgMatch[2].replace(
-                    /^['"]|['"]$/g,
-                    ''
-                  )
+                  imageObj[imgMatch[1]] = imgMatch[2].replace(/^['"]|['"]$/g, '')
                 }
               })
 
@@ -206,9 +177,7 @@ export function markdownPlugin(): Plugin {
                 )
                 .filter(Boolean)
             } else if (Array.isArray(frontmatter.tags)) {
-              frontmatter.tags = frontmatter.tags.map((tag: string) =>
-                tag.trim().toLowerCase()
-              )
+              frontmatter.tags = frontmatter.tags.map((tag: string) => tag.trim().toLowerCase())
             }
           }
 
@@ -217,24 +186,15 @@ export function markdownPlugin(): Plugin {
           const validationResult = validateFrontmatter(frontmatter, filename)
 
           // Log validation errors and warnings
-          if (
-            !validationResult.isValid ||
-            validationResult.warnings.length > 0
-          ) {
-            const formatted = formatValidationResults(
-              validationResult,
-              filename
-            )
+          if (!validationResult.isValid || validationResult.warnings.length > 0) {
+            const formatted = formatValidationResults(validationResult, filename)
             if (formatted && isDevelopment) {
               console.log(formatted)
             }
           }
 
           // Throw error in production builds for invalid frontmatter
-          if (
-            !validationResult.isValid &&
-            process.env.NODE_ENV === 'production'
-          ) {
+          if (!validationResult.isValid && process.env.NODE_ENV === 'production') {
             throw new Error(
               `Invalid frontmatter in ${filename}:\n${validationResult.errors.map((e) => `- ${e.field}: ${e.message}`).join('\n')}`
             )

@@ -23,10 +23,7 @@ export async function registerServiceWorker() {
         })
 
         if (isDevelopment) {
-          console.log(
-            '[SW] Service Worker registered successfully:',
-            registration.scope
-          )
+          console.log('[SW] Service Worker registered successfully:', registration.scope)
         }
 
         // Check for updates periodically
@@ -43,10 +40,7 @@ export async function registerServiceWorker() {
           if (!newWorker) return
 
           newWorker.addEventListener('statechange', () => {
-            if (
-              newWorker.state === 'installed' &&
-              navigator.serviceWorker.controller
-            ) {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
               // New service worker available
               if (isDevelopment) {
                 console.log('[SW] New service worker available')
@@ -73,10 +67,7 @@ export async function registerServiceWorker() {
             console.log('[SW] Controller changed')
           }
         }
-        navigator.serviceWorker.addEventListener(
-          'controllerchange',
-          controllerchangeHandler
-        )
+        navigator.serviceWorker.addEventListener('controllerchange', controllerchangeHandler)
         eventListeners.push({
           target: navigator.serviceWorker,
           type: 'controllerchange',
@@ -186,10 +177,7 @@ export function isOffline(): boolean {
 }
 
 // Function to listen for online/offline events
-export function listenForNetworkChanges(
-  onOnline: () => void,
-  onOffline: () => void
-) {
+export function listenForNetworkChanges(onOnline: () => void, onOffline: () => void) {
   window.addEventListener('online', onOnline)
   window.addEventListener('offline', onOffline)
 

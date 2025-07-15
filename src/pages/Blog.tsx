@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Layout from '@/components/Layout'
 import BlogCard from '@/components/BlogCard'
 import { BlogCardSkeleton } from '@/components/BlogCardSkeleton'
-import {
-  getAllPosts,
-  getAllPostsMetadataFast,
-  getPostBySlug,
-} from '@/utils/blogUtils'
+import Layout from '@/components/Layout'
+import { getAllPosts, getAllPostsMetadataFast, getPostBySlug } from '@/utils/blogUtils'
 import { generateOgImageUrl } from '../utils/ogImageUtils'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
@@ -58,15 +54,11 @@ export default function Blog() {
       const ogUrl = document.querySelector('meta[property="og:url"]')
       const ogType = document.querySelector('meta[property="og:type"]')
       const twitterTitle = document.querySelector('meta[name="twitter:title"]')
-      const twitterDesc = document.querySelector(
-        'meta[name="twitter:description"]'
-      )
+      const twitterDesc = document.querySelector('meta[name="twitter:description"]')
       const twitterImage = document.querySelector('meta[name="twitter:image"]')
       const twitterUrl = document.querySelector('meta[property="twitter:url"]')
       const ogAuthor = document.querySelector('meta[property="article:author"]')
-      const twitterCreator = document.querySelector(
-        'meta[name="twitter:creator"]'
-      )
+      const twitterCreator = document.querySelector('meta[name="twitter:creator"]')
 
       // Set OpenGraph metadata
       if (ogTitle) ogTitle.setAttribute('content', title)
@@ -77,17 +69,15 @@ export default function Blog() {
             'Explore articles on AI, technology, and software development by Jonathan Haas'
         )
       if (ogUrl)
-        ogUrl.setAttribute(
-          'content',
-          `https://haasonsaas.com/blog${slug ? `/${slug}` : ''}`
-        )
-      if (ogType)
-        ogType.setAttribute('content', currentPost ? 'article' : 'website')
+        ogUrl.setAttribute('content', `https://haasonsaas.com/blog${slug ? `/${slug}` : ''}`)
+      if (ogType) ogType.setAttribute('content', currentPost ? 'article' : 'website')
 
       // Use the generated OpenGraph image
       const ogImageUrl = await generateOgImageUrl(title)
       if (isDevelopment) {
-        console.log('Setting OpenGraph image URL:', ogImageUrl)
+        if (isDevelopment) {
+          console.log('Setting OpenGraph image URL:', ogImageUrl)
+        }
       }
 
       if (ogImage) ogImage.setAttribute('content', ogImageUrl)
@@ -102,17 +92,11 @@ export default function Blog() {
             'Explore articles on AI, technology, and software development by Jonathan Haas'
         )
       if (twitterUrl)
-        twitterUrl.setAttribute(
-          'content',
-          `https://haasonsaas.com/blog${slug ? `/${slug}` : ''}`
-        )
+        twitterUrl.setAttribute('content', `https://haasonsaas.com/blog${slug ? `/${slug}` : ''}`)
 
       // Set author information
       if (ogAuthor)
-        ogAuthor.setAttribute(
-          'content',
-          currentPost?.frontmatter.author || 'Jonathan Haas'
-        )
+        ogAuthor.setAttribute('content', currentPost?.frontmatter.author || 'Jonathan Haas')
       if (twitterCreator) twitterCreator.setAttribute('content', '@haasonsaas')
     }
 
@@ -126,9 +110,7 @@ export default function Blog() {
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {loading
             ? // Show skeleton cards while loading
-              Array.from({ length: 6 }).map((_, index) => (
-                <BlogCardSkeleton key={index} />
-              ))
+              Array.from({ length: 6 }).map((_, index) => <BlogCardSkeleton key={index} />)
             : // Show actual blog cards
               posts.map((post) => <BlogCard key={post.slug} post={post} />)}
         </div>
