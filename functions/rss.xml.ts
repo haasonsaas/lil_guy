@@ -4,9 +4,13 @@ export async function onRequest(context: { request: Request; env: unknown }) {
     const { generateRSSFeed } = await import('../src/utils/rssGenerator')
     const { getAllPosts } = await import('../src/utils/blogUtils')
 
+    const isDevelopment = process.env.NODE_ENV === 'development'
+
     // Debug: Check if posts are loading
     const posts = await getAllPosts()
-    console.log(`DEBUG: Found ${posts.length} posts for RSS feed`)
+    if (isDevelopment) {
+      console.log(`DEBUG: Found ${posts.length} posts for RSS feed`)
+    }
 
     const rssContent = await generateRSSFeed()
 

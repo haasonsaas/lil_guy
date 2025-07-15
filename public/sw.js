@@ -4,24 +4,24 @@
 const CACHE_NAME = 'haas-blog-v1'
 const OFFLINE_URL = '/offline'
 
+const isDevelopment = self.location.hostname === 'localhost'
+
 // Resources to cache immediately
-const STATIC_RESOURCES = [
-  '/',
-  '/blog',
-  '/offline',
-  '/favicon.ico',
-  '/favicon.svg',
-]
+const STATIC_RESOURCES = ['/', '/blog', '/offline', '/favicon.ico', '/favicon.svg']
 
 // Install event - cache static resources
 self.addEventListener('install', (event) => {
-  console.log('[SW] Install event')
+  if (isDevelopment) {
+    console.log('[SW] Install event')
+  }
 
   event.waitUntil(
     caches
       .open(CACHE_NAME)
       .then((cache) => {
-        console.log('[SW] Caching static resources')
+        if (isDevelopment) {
+          console.log('[SW] Caching static resources')
+        }
         return cache.addAll(STATIC_RESOURCES)
       })
       .then(() => {
@@ -33,7 +33,9 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('[SW] Activate event')
+  if (isDevelopment) {
+    console.log('[SW] Activate event')
+  }
 
   event.waitUntil(
     caches
@@ -42,7 +44,9 @@ self.addEventListener('activate', (event) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
             if (cacheName !== CACHE_NAME) {
-              console.log('[SW] Deleting old cache:', cacheName)
+              if (isDevelopment) {
+                console.log('[SW] Deleting old cache:', cacheName)
+              }
               return caches.delete(cacheName)
             }
           })
@@ -71,10 +75,7 @@ self.addEventListener('fetch', (event) => {
   } else if (url.pathname === '/' || url.pathname === '/blog') {
     // Main pages - serve from cache, update in background
     event.respondWith(handleMainPageRequest(event.request))
-  } else if (
-    url.pathname.startsWith('/generated/') ||
-    url.pathname.startsWith('/images/')
-  ) {
+  } else if (url.pathname.startsWith('/generated/') || url.pathname.startsWith('/images/')) {
     // Images - cache with longer expiry
     event.respondWith(handleImageRequest(event.request))
   } else if (url.pathname.endsWith('.css') || url.pathname.endsWith('.js')) {
@@ -249,9 +250,13 @@ async function cacheImportantBlogPosts() {
     // Cache the blog index page
     await cache.put('/blog', response.clone())
 
-    console.log('[SW] Background caching completed')
+    if (isDevelopment) {
+      console.log('[SW] Background caching completed')
+    }
   } catch (error) {
-    console.log('[SW] Background caching failed:', error)
+    if (isDevelopment) {
+      console.log('[SW] Background caching failed:', error)
+    }
   }
 }
 
@@ -276,9 +281,13 @@ async function cacheBlogPost(url) {
   try {
     const cache = await caches.open(CACHE_NAME)
     await cache.add(url)
-    console.log('[SW] Cached blog post:', url)
+    if (isDevelopment) {
+      console.log('[SW] Cached blog post:', url)
+    }
   } catch (error) {
-    console.log('[SW] Failed to cache blog post:', url, error)
+    if (isDevelopment) {
+      console.log('[SW] Failed to cache blog post:', url, error)
+    }
   }
 }
 

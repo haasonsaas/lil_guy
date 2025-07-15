@@ -1,4 +1,6 @@
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+
+const isDevelopment = process.env.NODE_ENV === 'development'
 
 interface ServiceWorkerState {
   isSupported: boolean
@@ -66,7 +68,9 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
 
       // Only log once per session to avoid console spam
       if (!sessionStorage.getItem('sw-logged')) {
-        console.log('[SW] Registration successful:', registration)
+        if (isDevelopment) {
+          console.log('[SW] Registration successful:', registration)
+        }
         sessionStorage.setItem('sw-logged', 'true')
       }
 
@@ -82,11 +86,10 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
         const newWorker = registration.installing
         if (newWorker) {
           newWorker.addEventListener('statechange', () => {
-            if (
-              newWorker.state === 'installed' &&
-              navigator.serviceWorker.controller
-            ) {
-              console.log('[SW] New content available, update pending')
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              if (isDevelopment) {
+                console.log('[SW] New content available, update pending')
+              }
               setState((prev) => ({ ...prev, updateAvailable: true }))
             }
           })
@@ -99,13 +102,12 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
 
       // Handle controller change (new service worker activated)
       const controllerchangeHandler = () => {
-        console.log('[SW] New service worker activated')
+        if (isDevelopment) {
+          console.log('[SW] New service worker activated')
+        }
         window.location.reload()
       }
-      navigator.serviceWorker.addEventListener(
-        'controllerchange',
-        controllerchangeHandler
-      )
+      navigator.serviceWorker.addEventListener('controllerchange', controllerchangeHandler)
       eventListenersRef.current.navigator = {
         ...eventListenersRef.current.navigator,
         controllerchange: controllerchangeHandler,
@@ -114,10 +116,7 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
       console.error('[SW] Registration failed:', error)
       setState((prev) => ({
         ...prev,
-        error:
-          error instanceof Error
-            ? error.message
-            : 'Service worker registration failed',
+        error: error instanceof Error ? error.message : 'Service worker registration failed',
       }))
     }
   }, [state.isSupported])
@@ -127,7 +126,9 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
     if (state.registration) {
       try {
         const registration = await state.registration.update()
-        console.log('[SW] Update triggered:', registration)
+        if (isDevelopment) {
+          console.log('[SW] Update triggered:', registration)
+        }
       } catch (error) {
         console.error('[SW] Update failed:', error)
       }
@@ -154,10 +155,9 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
           resolve(event.data)
         }
 
-        navigator.serviceWorker.controller.postMessage(
-          { type: 'GET_CACHE_STATUS' },
-          [messageChannel.port2]
-        )
+        navigator.serviceWorker.controller.postMessage({ type: 'GET_CACHE_STATUS' }, [
+          messageChannel.port2,
+        ])
       } else {
         resolve({ error: 'No service worker controller available' })
       }
@@ -167,8 +167,7 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
   // Handle online/offline status
   useEffect(() => {
     const handleOnline = () => setState((prev) => ({ ...prev, isOnline: true }))
-    const handleOffline = () =>
-      setState((prev) => ({ ...prev, isOnline: false }))
+    const handleOffline = () => setState((prev) => ({ ...prev, isOnline: false }))
 
     window.addEventListener('online', handleOnline)
     window.addEventListener('offline', handleOffline)
@@ -223,10 +222,7 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
       const registration = state.registration
 
       if (registration && listeners.registration) {
-        registration.removeEventListener(
-          'updatefound',
-          listeners.registration.updatefound
-        )
+        registration.removeEventListener('updatefound', listeners.registration.updatefound)
       }
 
       if (listeners.navigator) {
@@ -237,10 +233,7 @@ export function useServiceWorker(): ServiceWorkerState & ServiceWorkerActions {
           )
         }
         if (listeners.navigator.message) {
-          navigator.serviceWorker.removeEventListener(
-            'message',
-            listeners.navigator.message
-          )
+          navigator.serviceWorker.removeEventListener('message', listeners.navigator.message)
         }
       }
 
@@ -284,7 +277,9 @@ export function useOfflineStatus() {
         const status = await getCacheStatus()
         setHasOfflineContent(status.blogPostsCached > 0)
       } catch (error) {
-        console.log('Failed to check offline content:', error)
+        if (isDevelopment) {
+          console.log('Failed to check offline content:', error)
+        }
       }
     }
 
