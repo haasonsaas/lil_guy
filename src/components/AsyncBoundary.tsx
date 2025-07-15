@@ -1,7 +1,6 @@
-import React, { ReactNode } from 'react'
 import { Loader2 } from 'lucide-react'
+import React, { ReactNode } from 'react'
 import { ErrorBoundary } from './ErrorBoundary'
-import { useAsyncState } from '../hooks/useAsyncState'
 
 interface AsyncBoundaryProps {
   children: ReactNode

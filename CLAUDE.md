@@ -208,7 +208,7 @@ Built on **shadcn/ui** with 40+ components in `src/components/ui/`. Uses:
 
 - **Theming**: CSS custom properties supporting light/dark/sepia themes
 - **Styling**: Tailwind CSS with `@tailwindcss/typography` for markdown content
-- **State**: React Query for server state, Context providers for global state
+- **State**: TanStack Query for server state, Context providers for global state
 
 ### Deployment Architecture
 

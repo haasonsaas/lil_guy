@@ -31,7 +31,7 @@ A modern, feature-rich blog built with React, TypeScript, and Vite. This project
 - **Styling:** Tailwind CSS
 - **UI Components:** shadcn/ui
 - **Routing:** React Router
-- **State Management:** React Query
+ - **State Management:** TanStack Query
 - **Form Handling:** React Hook Form
 - **Markdown Processing:** marked, gray-matter
 - **Code Highlighting:** highlight.js
