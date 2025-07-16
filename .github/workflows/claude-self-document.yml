@@ -1,0 +1,38 @@
+name: Claude Self Documentation
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+
+jobs:
+  self-document:
+    if: |
+      (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude doc')) ||
+      (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude doc'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: read
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Claude Self Documentation
+        id: claude-self-doc
+        uses: anthropics/claude-code-action@beta
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          model: "claude-sonnet-4-20250514"
+          custom_instructions: |
+            Analyze the changed files and add concise inline comments or docstrings where clarity is missing.
+            After updating the files, run `bun run lint` and `bun run typecheck` to ensure the project passes quality checks.
+          allowed_tools: |
+            Bash(bun run lint)
+            Bash(bun run typecheck)
+
