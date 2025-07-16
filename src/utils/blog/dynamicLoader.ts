@@ -11,7 +11,7 @@ const CACHE_MAX_SIZE = 50 // Limit cache to prevent unbounded growth
 
 /**
  * Dynamically load a blog post by slug
- * Uses dynamic imports for code splitting
+ * Uses readFilePosts to avoid runtime dynamic imports
  */
 export async function loadBlogPost(slug: string): Promise<BlogPost | null> {
   // Check cache first
@@ -20,9 +20,14 @@ export async function loadBlogPost(slug: string): Promise<BlogPost | null> {
   }
 
   try {
-    // Dynamic import for the specific post
-    const postModule = await import(`../../posts/${slug}.md`)
-    const post = postModule.default as BlogPost
+    // Use readFilePosts to avoid dynamic imports that cause Cloudflare deployment issues
+    const { readFilePosts } = await import('./fileLoader')
+    const allPosts = await readFilePosts(false) // false = load full content
+    const post = allPosts.find((p) => p.slug === slug)
+
+    if (!post) {
+      return null
+    }
 
     // Cache the loaded post with LRU eviction
     if (contentCache.size >= CACHE_MAX_SIZE) {
