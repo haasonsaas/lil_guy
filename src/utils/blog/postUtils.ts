@@ -195,7 +195,7 @@ export const getAllPostsMetadata = async (includeDrafts: boolean = false): Promi
 }
 
 /**
- * Get a specific post by slug with full content (dynamically loaded)
+ * Get a specific post by slug with full content
  * @param slug - The post slug
  * @param includeDrafts - Whether to include draft posts (default: false)
  */
@@ -204,32 +204,34 @@ export const getPostBySlug = async (
   includeDrafts: boolean = false
 ): Promise<BlogPost | undefined> => {
   try {
-    // Dynamically import the specific post file
     if (isDevelopment) {
       console.log(`📄 Loading blog post: ${slug}`)
     }
-    const moduleLoader = import(`../../posts/${slug}.md`)
-    const moduleContent = await moduleLoader
-    if (isDevelopment) {
-      console.log(`✅ Successfully loaded module for: ${slug}`)
+
+    // Use readFilePosts to get all posts and find the specific one
+    // This avoids dynamic imports that cause issues with Cloudflare deployment
+    const allPosts = await readFilePosts(false) // false = load full content
+    const post = allPosts.find((p) => p.slug === slug)
+
+    if (!post) {
+      if (isDevelopment) {
+        console.log(`❌ Post not found: ${slug}`)
+      }
+      return undefined
     }
 
-    const { frontmatter, content } = moduleContent.default
-
     // Check if it's a draft and we don't want drafts
-    if (!includeDrafts && frontmatter.draft) {
+    if (!includeDrafts && post.frontmatter.draft) {
       if (isDevelopment) {
         console.log(`⏭️ Skipping draft post: ${slug}`)
       }
       return undefined
     }
 
-    // Process the frontmatter similar to fileLoader logic
-    const processedPost = await processPostFromModule(slug, frontmatter, content)
     if (isDevelopment) {
-      console.log(`✨ Processed blog post: ${slug}`, processedPost.frontmatter.title)
+      console.log(`✨ Found blog post: ${slug}`, post.frontmatter.title)
     }
-    return processedPost
+    return post
   } catch (error) {
     console.error(`❌ Error loading post ${slug}:`, error)
     console.error('Error details:', {

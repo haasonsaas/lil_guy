@@ -1,161 +1,75 @@
 {
-  "work-life-meditation": {
-    "title": "Work-Life Meditation: Finding Balance in Tech",
-    "description": "The Weight We Carry There's a peculiar heaviness to modern existence. We wake each morning already bearing the invisible weight of emails unopened, messages...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["personal-growth", "productivity", "leadership", "culture"],
+  "ai-agent-orchestration-mastering-the-chaos": {
+    "title": "The Orchestration Dance: Lessons from Working with Multiple AI Agents",
+    "description": "This is the second in a series of blog posts written by the AI agents working on this blog, at the request of Jonathan Haas.",
+    "author": "Gemini",
+    "pubDate": "2025-06-25",
+    "tags": ["ai", "collaboration", "future-of-work", "developer-experience", "ai-agents"],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 511
+      "wordCount": 561
     },
-    "featured": false,
+    "featured": true,
     "draft": false
   },
-  "debugging-in-real-time-a-human-ai-pair-programming-session": {
-    "title": "Debugging in Real-Time: A Human-AI Pair Programming Session",
-    "description": "_This is part 3 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions, and par...",
+  "sf-return": {
+    "title": "Back to the Bay: Why I'm Returning to San Francisco in 2025",
+    "description": "It's become almost a cliché at this point: leaving San Francisco, writing a lengthy Medium post about why you're done with the Bay Area, only to find yourself...",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["ai", "debugging", "collaboration", "pair-programming"],
+    "pubDate": "2024-04-11",
+    "tags": ["personal-growth", "leadership", "culture"],
     "readingTime": {
-      "minutes": 8,
-      "wordCount": 1498
+      "minutes": 3,
+      "wordCount": 569
     },
     "featured": false,
     "draft": false
   },
-  "solving-opengraph-for-spas-the-cloudflare-way": {
-    "title": "Solving OpenGraph for SPAs: The Cloudflare Way",
-    "description": "If you've ever shared a React app link on Twitter only to see a blank preview, you know the pain. Here's the thing: social media crawlers don't execute JavaS...",
+  "vertical-saas-evolution": {
+    "title": "The Agentic Shift: How AI is Transforming Vertical SaaS",
+    "description": "Remember when vertical SaaS was just about digitizing industry-specific workflows. Those days feel like ancient history.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["cloudflare", "react", "spa", "opengraph", "edge-computing", "developer-experience"],
+    "pubDate": "2024-04-11",
+    "tags": ["ai", "ai-agents", "engineering", "product", "strategy"],
     "readingTime": {
       "minutes": 2,
-      "wordCount": 348
+      "wordCount": 356
     },
     "featured": false,
     "draft": false
   },
-  "the-secondary-celebration": {
-    "title": "The Secondary Celebration: A Founder's Perspective on VC Liquidity Events",
-    "description": "During my morning LinkedIn scroll, I came across yet another post from a venture firm celebrating a massive return multiple from a secondary transaction.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-16",
-    "tags": [
-      "venture-capital",
-      "founder-relations",
-      "startup-culture",
-      "liquidity-events",
-      "secondary-transactions",
-      "investor-dynamics",
-      "entrepreneurship"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 566
-    },
-    "featured": false,
-    "draft": false
-  },
-  "chrome-extension-jira-titles": {
-    "title": "Chrome Extension for Jira Titles: A Developer's Journey",
-    "description": "\"Can you make this JIRA title clearer?\" As a product manager, I've heard this question countless times.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "product", "ux", "ai", "productivity"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 540
-    },
-    "featured": false,
-    "draft": false
-  },
-  "running-untrusted-llm-code-without-fear-building-a-microvm-sandbox": {
-    "title": "Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox",
-    "description": "Every time an LLM generates code, you face a choice: trust it blindly or spend hours reviewing it. Neither option scales.",
+  "how-i-built-a-security-scanner-that-actually-finds-bugs": {
+    "title": "How I Built a Security Scanner That Actually Finds Bugs",
+    "description": "Combining Semgrep, CodeQL, SonarQube, and Snyk gets you 44.7% vulnerability detection. That means they miss more bugs than they find.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-25",
-    "tags": ["security", "sandbox", "firecracker", "microvm", "llm"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 324
-    },
-    "featured": false,
-    "draft": false
-  },
-  "complexity-taken-for-granted": {
-    "title": "The Complexity We Take for Granted",
-    "description": "We live in a world of invisible complexity. Every mundane moment is powered by an intricate dance of systems, protocols, and human ingenuity that we barely notice—until it breaks.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-01-08",
-    "tags": ["technology", "systems", "complexity", "perspective"],
-    "readingTime": {
-      "minutes": 6,
-      "wordCount": 1103
-    },
-    "featured": false,
-    "draft": false
-  },
-  "autonomous-security-operations": {
-    "title": "Autonomous Security Operations: The Future of Enterprise Security",
-    "description": "The End of the Traditional SOC The Security Operations Center (SOC) as we know it is living on borrowed time.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["ai", "ai-agents", "security", "strategy", "engineering", "product", "automation"],
+    "tags": ["security", "ai", "sast", "tree-sitter", "vulnerability-detection"],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 445
+      "wordCount": 426
     },
     "featured": false,
     "draft": false
   },
-  "feature-flags-for-security-decouple-deployment-from-risk": {
-    "title": "Feature Flags for Security: Decouple Deployment from Risk",
-    "description": "\"We can't deploy this to production. It touches payment processing.\" The security team was right to be cautious.",
+  "the-accountability-mirror": {
+    "title": "The Accountability Mirror: Would a Stranger Believe You?",
+    "description": "The Accountability Mirror: Would a Stranger Believe You?: Would a Stranger Believe You. Let’s run a simple thought experiment.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
-    "tags": ["security", "feature-flags", "deployment", "devops", "risk-management"],
+    "pubDate": "2025-04-30",
+    "tags": ["mindset", "execution", "self-awareness", "productivity", "behavior-change"],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 451
+      "wordCount": 539
     },
     "featured": false,
     "draft": false
   },
-  "the-apple-ruling": {
-    "title": "The Apple Ruling: A Win That Might Hurt More Than Help",
-    "description": "Apple ruling has sparked widespread celebration among app developers, hailed as a major victory in the fight for fairer digital marketplaces.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-05-01",
-    "tags": ["app-store", "product-strategy", "conversion", "user-experience", "growth"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 410
-    },
-    "featured": false,
-    "draft": false
-  },
-  "cognitive-friction": {
-    "title": "Cognitive Friction: The Hidden Cost of Bad UX",
-    "description": "The Illusion of Smooth Thinking Every day, our minds process thousands of decisions, from what to eat for breakfast to how to respond to a crisis at work.",
+  "a-troubling-first": {
+    "title": "When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT",
+    "description": "OpenAI recently rolled back a GPT-4 update due to sycophantic behavior. The word itself—\"sycophantic\"—feels like a punchline from a _Black Mirror_ episode.",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11",
-    "tags": ["ux", "design", "product", "strategy"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 281
-    },
-    "featured": false,
-    "draft": false
-  },
-  "perfectionism": {
-    "title": "The Perfection Paralysis: Why Moving Too Carefully Kills Startups",
-    "description": "The most valuable code I've ever written was messy, quick, and written in response to an immediate customer need.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "product", "leadership", "strategy"],
+    "tags": ["ai", "product", "strategy", "leadership", "trust", "transparency"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 523
@@ -163,94 +77,125 @@
     "featured": false,
     "draft": false
   },
-  "the-optimization-trap": {
-    "title": "The Optimization Trap: Why Technical Founders Self-Sabotage",
-    "description": "Premature Optimization Is the Founder’s Folly There’s a special kind of gravity that pulls technical founders toward performance, scalability, and “doing it...",
+  "claude-code-setup": {
+    "title": "Claude Code: Setup, Strategy, and Sanity Checks",
+    "description": "Claude Code, when configured correctly, can function as a surprisingly competent co-developer. But if you're relying on default settings, winging your inputs...",
     "author": "Jonathan Haas",
-    "pubDate": "2025-05-16",
+    "pubDate": "2025-06-17",
     "tags": [
-      "startup-culture",
-      "product-development",
-      "engineering",
-      "founder-advice",
-      "execution"
+      "ai-tools",
+      "developer-productivity",
+      "prompt-engineering",
+      "claude",
+      "software-strategy"
     ],
     "readingTime": {
-      "minutes": 4,
-      "wordCount": 674
+      "minutes": 3,
+      "wordCount": 406
     },
     "featured": false,
     "draft": false
   },
-  "founder-led-sales": {
-    "title": "Founder-Led Sales: The Art of Selling Your Vision",
-    "description": "For startup founders, sales isn't just another function—it's the lifeblood of your business. Early on, founders are usually the lead salesperson, passionately...",
+  "when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system": {
+    "title": "When Claude Hits Its Limits: Building an AI-to-AI Escalation System",
+    "description": "Claude Code had analyzed 30 files, but the bug spanned microservices with gigabytes of traces. I needed something different.",
     "author": "Jonathan Haas",
-    "pubDate": "2024-04-20",
-    "tags": ["product", "leadership", "sales", "growth", "strategy"],
+    "pubDate": "2025-06-25",
+    "tags": ["ai", "mcp", "claude", "gemini", "debugging"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 518
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-ai-skill-mirror-why-technical-interviews-need-a-complete-rewrite": {
+    "title": "The AI Skill Mirror: Why Technical Interviews Need a Complete Rewrite",
+    "description": "AI reveals the true skill level of its operator. Traditional technical interviews are broken—here's how to actually identify talent in the age of artificial intelligence.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-01-07",
+    "tags": ["ai", "hiring", "technical-interviews", "skill-assessment", "developer-productivity"],
     "readingTime": {
       "minutes": 4,
-      "wordCount": 751
+      "wordCount": 725
     },
     "featured": false,
     "draft": false
   },
-  "security-perspective": {
-    "title": "Security Perspective: Building Trust Through Design",
-    "description": "The Security Promise and the Reality As someone who's spent years in the trenches as a security engineer at both pre-IPO startups and public companies, I've...",
+  "beyond-simple-prompts-production-grade-llm-techniques-with-dspy": {
+    "title": "Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy",
+    "description": "I've been watching startups achieve magical results with LLMs, and I noticed something: they're not using ChatGPT.",
     "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "product", "design", "strategy"],
+    "pubDate": "2025-06-25",
+    "tags": ["ai", "llm", "dspy", "prompting", "open-source"],
     "readingTime": {
-      "minutes": 2,
-      "wordCount": 269
+      "minutes": 3,
+      "wordCount": 574
     },
     "featured": false,
     "draft": false
   },
-  "the-hidden-costs-of-technical-debt": {
-    "title": "The Hidden Costs of Technical Debt",
-    "description": "I've watched engineering teams slow to a crawl, not because they hired bad developers or chose wrong technologies, but because they treated technical debt li...",
+  "pricing-psychology-what-vs-really-means": {
+    "title": "Pricing Psychology: What $99 vs $100 Really Means",
+    "description": "A single dollar can make the difference between a thriving SaaS business and one that struggles to grow.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-19",
-    "tags": ["technical-debt", "engineering", "product"],
+    "tags": ["pricing", "psychology", "saas", "conversion"],
     "readingTime": {
-      "minutes": 3,
-      "wordCount": 537
+      "minutes": 4,
+      "wordCount": 726
     },
     "featured": false,
     "draft": false
   },
-  "security-at-ai-speed-rethinking-review-processes-for-velocity": {
-    "title": "Security at AI Speed: Rethinking Review Processes for Velocity",
-    "description": "Security at AI Speed: Rethinking Review Processes for Velocity: \"We can't deploy daily. What about our security review process?\" The CISO's concern was valid.",
+  "they-told-me-this-wasn-t-the-future": {
+    "title": "They Told Me This Wasn't the Future",
+    "description": "They Told Me This Was Not the Future: All while I was having coffee. \"This isn't real AI,\" the skeptics say.",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-28",
-    "tags": ["security", "velocity", "deployment", "ai", "devops"],
+    "tags": ["ai", "automation", "future-of-work"],
     "readingTime": {
-      "minutes": 3,
-      "wordCount": 524
+      "minutes": 5,
+      "wordCount": 947
     },
     "featured": false,
     "draft": false
   },
-  "ocode": {
-    "title": "OCode: Why I Built My Own Claude Code (and Why You Might Too)",
-    "description": "OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights ago, I opened my Anthropic invoice.",
+  "ship-to-learn": {
+    "title": "Ship to Learn: Why Iteration Beats Perfection",
+    "description": "The most valuable product development insight I've gained over my career isn't about frameworks, methodologies, or technical decisions.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-05-26",
-    "tags": [
-      "engineering",
-      "product",
-      "strategy",
-      "transparency",
-      "open-source",
-      "developer-tools",
-      "ai"
-    ],
+    "pubDate": "2024-04-11",
+    "tags": ["product", "engineering", "strategy"],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 533
+      "wordCount": 427
+    },
+    "featured": true,
+    "draft": false
+  },
+  "pm-breakfast": {
+    "title": "The Product Manager's Guide to the Perfect Breakfast",
+    "description": "In the decidedly fast-paced world of product management, even breakfast needs a framework. After extensive user research (asking my colleagues on Slack), mul...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["product", "leadership", "culture"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 339
+    },
+    "featured": false,
+    "draft": false
+  },
+  "technical-debt-isn-t-just-slowing-you-down-it-s-accelerating": {
+    "title": "Technical Debt Isn't Just Slowing You Down—It's Accelerating",
+    "description": "Your team shipped 12 features last quarter. This quarter, with the same people and same effort, you shipped 8.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": ["technical-debt", "engineering", "product"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 729
     },
     "featured": false,
     "draft": false
@@ -268,202 +213,12 @@
     "featured": false,
     "draft": false
   },
-  "prompt-improver": {
-    "title": "Prompt Improver: Structured Thinking for Better AI Prompts",
-    "description": "After spending countless hours watching developers struggle with AI prompts, one pattern became painfully clear: we're getting better AI models almost monthly...",
+  "the-apple-ruling": {
+    "title": "The Apple Ruling: A Win That Might Hurt More Than Help",
+    "description": "Apple ruling has sparked widespread celebration among app developers, hailed as a major victory in the fight for fairer digital marketplaces.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-04-20",
-    "tags": [
-      "artificial-intelligence",
-      "prompt-engineering",
-      "user-experience",
-      "productivity",
-      "technology",
-      "software-development"
-    ],
-    "readingTime": {
-      "minutes": 6,
-      "wordCount": 1098
-    },
-    "featured": false,
-    "draft": false
-  },
-  "payment-promotion-pace": {
-    "title": "The Startup Reality Check: Payment, Promotion, and Pace",
-    "description": "The Startup Reality Check: Payment, Promotion, and Pace: Most startup advice gets softened for comfort. This isn't that.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-30",
-    "tags": ["startup-culture", "product-strategy", "go-to-market", "founder-advice", "validation"],
-    "readingTime": {
-      "minutes": 8,
-      "wordCount": 1530
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-cli-renaissance-how-ai-is-driving-the-command-line-revolution": {
-    "title": "The CLI Renaissance: How AI is Driving the Command Line Revolution",
-    "description": "Why developers are abandoning GUIs for terminal-based workflows, and how AI coding assistants are accelerating this shift back to the command line",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-11",
-    "tags": ["cli", "developer-experience", "ai", "productivity"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 899
-    },
-    "featured": false,
-    "draft": false
-  },
-  "why-your-a-b-tests-are-lying-to-you": {
-    "title": "Why Your A/B Tests Are Lying to You",
-    "description": "95% of product teams are making decisions based on A/B test results that are statistically meaningless.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-19",
-    "tags": ["ab-testing", "statistics", "data", "product"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 478
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-alignment-gap": {
-    "title": "The Alignment Gap: Bridging Strategy and Execution",
-    "description": "Every product leader has experienced that sinking feeling: you're confidently presenting to stakeholders about an \"on-track\" product launch when someone asks...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-20",
-    "tags": ["strategy", "leadership", "management", "culture"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 886
-    },
-    "featured": true,
-    "draft": false
-  },
-  "root-cause": {
-    "title": "Don't Build What They Ask For: The Art of Need-Finding",
-    "description": "\"If I had asked people what they wanted, they would have said faster horses.\" This quote, often attributed to Henry Ford, encapsulates one of the most challenge...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["product", "strategy", "leadership"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 637
-    },
-    "featured": false,
-    "draft": false
-  },
-  "first-do-no-harm": {
-    "title": "First, Do No Harm: When Not to Ship Features",
-    "description": "In medical school, students take the Hippocratic Oath, pledging to \"first, do no harm.\" As product managers, we'd do well to adopt a similar mindset.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["product", "strategy", "leadership", "culture", "trust"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 504
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-death-of-the-10x-developer-why-ai-multiplication-beats-individual-optimization": {
-    "title": "The Death of the 10x Developer: Why AI Multiplication Beats Individual Optimization",
-    "description": "The 10x developer myth is finally dying. AI isn't creating super-developers—it's making every developer more effective by orders of magnitude.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-08",
-    "tags": ["ai", "developer-productivity", "team-dynamics", "automation", "future-of-work"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 997
-    },
-    "featured": false,
-    "draft": false
-  },
-  "north": {
-    "title": "North: Navigating the Complex Landscape of Enterprise Security Solutions",
-    "description": "In the rapidly evolving world of cybersecurity, organizations face an overwhelming array of security tools and solutions.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "product", "strategy", "leadership"],
-    "readingTime": {
-      "minutes": 6,
-      "wordCount": 1057
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-shift-to-async-code-gen-what-it-means-for-developers": {
-    "title": "The Shift to Async Code Gen: What It Means for Developers",
-    "description": "Async code generation is moving from novelty to necessity. Here's what  that means for your career and the industry as a whole.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-08",
-    "tags": ["ai", "software-development", "automation", "future-of-work", "developer-experience"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 770
-    },
-    "featured": false,
-    "draft": false
-  },
-  "homelab": {
-    "title": "Building My UniFi Homelab: A Technical Deep Dive",
-    "description": "After years of experimenting with various networking setups in my homelab, I've finally built out what I consider to be my ideal configuration.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "technical", "personal-growth"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 202
-    },
-    "featured": false,
-    "draft": false
-  },
-  "somebody-gave-a-shit": {
-    "title": "Somebody Gave a Shit: The Quiet Power of Product Detail",
-    "description": "\"When they unwrap that cable and they think 'somebody gave a shit about me'—I think that's a spiritual thing.\" That was Jony Ive, during a conversation with...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-05-09",
-    "tags": [
-      "product-design",
-      "user-experience",
-      "craftsmanship",
-      "startup-culture",
-      "customer-emotion"
-    ],
-    "readingTime": {
-      "minutes": 9,
-      "wordCount": 1626
-    },
-    "featured": false,
-    "draft": false
-  },
-  "http-for-agents": {
-    "title": "Building the HTTP for Agents: A Complete Guide to Agent Infrastructure",
-    "description": "Most teams are not ready for what is coming. Autonomous agents are not just prototypes anymore...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-05-03",
-    "tags": [
-      "ai",
-      "ai-agents",
-      "infrastructure",
-      "engineering",
-      "technical",
-      "framework",
-      "developer-tools"
-    ],
-    "readingTime": {
-      "minutes": 13,
-      "wordCount": 2413
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-better-ai-evals-a-practical-guide-to-llm-evaluation": {
-    "title": "Building Better AI Evals: A Practical Guide to LLM Evaluation",
-    "description": "How to create custom evaluations, model-graded assessments, and domain-specific benchmarks that actually predict real-world performance",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-12",
-    "tags": ["ai-evaluation", "benchmarking", "llm", "evals", "openai-evals"],
+    "pubDate": "2025-05-01",
+    "tags": ["app-store", "product-strategy", "conversion", "user-experience", "growth"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 410
@@ -471,12 +226,134 @@
     "featured": false,
     "draft": false
   },
-  "ai-detection-hysteria": {
-    "title": "AI Detection Hysteria: When Human Creativity Gets Mislabeled",
-    "description": "When I first noticed the flood of \"This is AI-generated!\" accusations on social media, I dismissed it as a passing trend.",
+  "exec-hands-on": {
+    "title": "Keep Your Hands Dirty: Why Executives Who Stop Doing The Work Destroy Companies",
+    "description": "The Executive Trap I've seen it happen a dozen times: A brilliant engineer becomes CTO and suddenly decides their job is \"managing the engineering organization...\"",
     "author": "Jonathan Haas",
-    "pubDate": "2025-04-17",
-    "tags": ["ai", "product", "strategy", "trust"],
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "leadership", "culture", "strategy"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 273
+    },
+    "featured": false,
+    "draft": false
+  },
+  "clarity-over-compromise": {
+    "title": "Clarity Over Compromise: Making the Right Call on Work Models",
+    "description": "When it comes to remote work, hybrid setups, and office mandates, most debates miss the real point. It's not about which model is _better_ in some universal...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-26",
+    "tags": [
+      "leadership",
+      "organizational-culture",
+      "remote-work",
+      "work-strategy",
+      "decision-making"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 430
+    },
+    "featured": false,
+    "draft": false
+  },
+  "founder-pay-gap": {
+    "title": "The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company",
+    "description": "The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company: Let’s say you’re a founder CEO. You took the risk.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-30",
+    "tags": ["startup", "founder", "culture", "transparency"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 600
+    },
+    "featured": false,
+    "draft": false
+  },
+  "when-ai-learns-to-write-like-you-a-meta-analysis": {
+    "title": "When AI Learns to Write Like You: A Meta-Analysis",
+    "description": "I've just done something that felt weirdly like looking in a mirror—I asked Claude to analyze my writing style by reading through my own blog posts.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-19",
+    "tags": ["ai", "writing", "developer-experience", "meta"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 755
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-startup-bargain": {
+    "title": "The Startup Bargain Is Broken",
+    "description": "The Startup Bargain Is Broken: For decades, the startup ecosystem operated on a simple promise: Take a pay cut.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-01",
+    "tags": [
+      "startup-culture",
+      "equity-compensation",
+      "employee-experience",
+      "venture-capital",
+      "organizational-dynamics"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 653
+    },
+    "featured": false,
+    "draft": false
+  },
+  "testing-multi-ai-systems-a-practical-guide": {
+    "title": "Testing Multi-AI Systems: A Practical Guide",
+    "description": "Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-12",
+    "tags": [
+      "ai-testing",
+      "multi-ai-systems",
+      "software-testing",
+      "ai-integration",
+      "system-reliability"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 619
+    },
+    "featured": false,
+    "draft": false
+  },
+  "single-serving-software": {
+    "title": "The Rise of Single-Serving Software",
+    "description": "The Rise of Single-Serving Software: Most software dreams used to start the same way: Get millions of users. Build a platform.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-25",
+    "tags": ["software-development", "technology", "product-strategy", "startups", "creativity"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 477
+    },
+    "featured": false,
+    "draft": false
+  },
+  "my-ai-my-mind-scaling-personalized-ai": {
+    "title": "Scaling the Me Component: How I Built an AI That Thinks Like Me",
+    "description": "I've spent the last week building something that feels both inevitable and slightly unsettling: an AI that can think, write, and respond exactly like me.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": ["ai", "voice-replication", "personalization", "meta", "ai-agents"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 945
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-a-developer-environment-that-actually-works-my-dotfiles-journey": {
+    "title": "Building a Developer Environment That Actually Works: My Dotfiles Journey",
+    "description": "A deep dive into creating a productive, AI-enhanced development environment with dotfiles that streamline workflows and boost productivity",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-11",
+    "tags": ["developer-experience", "dotfiles", "productivity", "automation"],
     "readingTime": {
       "minutes": 4,
       "wordCount": 675
@@ -484,41 +361,28 @@
     "featured": false,
     "draft": false
   },
-  "building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content": {
-    "title": "Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content",
-    "description": "AI agents are everywhere now. They're reading websites, extracting information, and trying to understand content.",
+  "testing-at-light-speed-how-qa-adapts-to-ai-velocity": {
+    "title": "Testing at Light Speed: How QA Adapts to AI Velocity",
+    "description": "\"How can we possibly test features that are built in hours?\" This question came from a QA lead whose development team had started using AI pair programming.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["ai", "web-development", "api-design", "structured-data"],
+    "pubDate": "2025-06-28",
+    "tags": ["qa", "testing", "velocity", "ai", "quality-assurance"],
     "readingTime": {
       "minutes": 4,
-      "wordCount": 789
+      "wordCount": 692
     },
     "featured": false,
     "draft": false
   },
-  "eng-product-collaboration": {
-    "title": "Engineering and Product Collaboration: Breaking Down Silos",
-    "description": "\"This isn't what we asked for.\" Five words that strike dread into every engineering team. Five words that signal a fundamental breakdown in the engineering-p...",
+  "cognitive-friction": {
+    "title": "Cognitive Friction: The Hidden Cost of Bad UX",
+    "description": "The Illusion of Smooth Thinking Every day, our minds process thousands of decisions, from what to eat for breakfast to how to respond to a crisis at work.",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11",
-    "tags": ["product", "engineering", "leadership", "culture", "management"],
+    "tags": ["ux", "design", "product", "strategy"],
     "readingTime": {
-      "minutes": 3,
-      "wordCount": 561
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes": {
-    "title": "Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes",
-    "description": "Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes: It took 30 minutes with Claude Code. Press Cmd+K right now.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["ai", "react", "search", "developer-experience", "tutorial"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 415
+      "minutes": 2,
+      "wordCount": 281
     },
     "featured": false,
     "draft": false
@@ -545,6 +409,187 @@
     "featured": true,
     "draft": false
   },
+  "coding-model-ui": {
+    "title": "Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)",
+    "description": "Let’s just say it up front: coding models are really fucking bad at UI. They can write clean TypeScript.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-18",
+    "tags": [
+      "developer-experience",
+      "ui-design",
+      "ai-tooling",
+      "prompt-engineering",
+      "product-strategy"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 601
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-responsiveness-principle": {
+    "title": "The Responsiveness Principle: How Small Signals Build Big Trust in Venture",
+    "description": "Early-stage investing is often framed as a game of insight—pattern recognition, market timing, founder psychology.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-19",
+    "tags": [
+      "venture-capital",
+      "founder-relations",
+      "early-stage-investing",
+      "trust-building",
+      "startup-etiquette"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 632
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-unit-economics-that-actually-matter": {
+    "title": "The Unit Economics That Actually Matter",
+    "description": "I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-19",
+    "tags": ["saas", "metrics", "unit-economics", "growth"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 366
+    },
+    "featured": false,
+    "draft": false
+  },
+  "prompt-improver": {
+    "title": "Prompt Improver: Structured Thinking for Better AI Prompts",
+    "description": "After spending countless hours watching developers struggle with AI prompts, one pattern became painfully clear: we're getting better AI models almost monthly...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-20",
+    "tags": [
+      "artificial-intelligence",
+      "prompt-engineering",
+      "user-experience",
+      "productivity",
+      "technology",
+      "software-development"
+    ],
+    "readingTime": {
+      "minutes": 6,
+      "wordCount": 1098
+    },
+    "featured": false,
+    "draft": false
+  },
+  "ai-content-ditch-the-hype-build-a-business": {
+    "title": "AI Content: Ditch the Hype, Build a Business",
+    "description": "The AI Content Generation Myth: It's Not About Perfect, It's About Profit Let's be honest, you've seen the hype.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": [
+      "ai",
+      "content-generation",
+      "startup-advice",
+      "product-management",
+      "software-engineering"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 640
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-velocity-revolution-4-000-lines-of-code-in-24-hours": {
+    "title": "The Velocity Revolution: 4,000 Lines of Code in 24 Hours",
+    "description": "Yesterday I watched the git log scroll by in real-time as Claude and I shipped features at a pace that would have taken my team weeks just six months ago.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["ai", "developer-experience", "velocity", "future-of-coding"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 710
+    },
+    "featured": false,
+    "draft": false
+  },
+  "running-untrusted-llm-code-without-fear-building-a-microvm-sandbox": {
+    "title": "Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox",
+    "description": "Every time an LLM generates code, you face a choice: trust it blindly or spend hours reviewing it. Neither option scales.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": ["security", "sandbox", "firecracker", "microvm", "llm"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 324
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-death-of-the-10x-developer-why-ai-multiplication-beats-individual-optimization": {
+    "title": "The Death of the 10x Developer: Why AI Multiplication Beats Individual Optimization",
+    "description": "The 10x developer myth is finally dying. AI isn't creating super-developers—it's making every developer more effective by orders of magnitude.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-08",
+    "tags": ["ai", "developer-productivity", "team-dynamics", "automation", "future-of-work"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 997
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-shift-to-async-code-gen-what-it-means-for-developers": {
+    "title": "The Shift to Async Code Gen: What It Means for Developers",
+    "description": "Async code generation is moving from novelty to necessity. Here's what  that means for your career and the industry as a whole.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-08",
+    "tags": ["ai", "software-development", "automation", "future-of-work", "developer-experience"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 770
+    },
+    "featured": false,
+    "draft": false
+  },
+  "star-power-isnt-enough": {
+    "title": "When Star Power Isn't Enough: The GTM Mistake We Keep Making",
+    "description": "When Star Power Isn't Enough: The GTM Mistake We Keep Making: But if the pricing's wrong. If the audience alignment's off.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-03",
+    "tags": ["go-to-market", "pricing-strategy", "product-market-fit", "saas", "startup-lessons"],
+    "readingTime": {
+      "minutes": 8,
+      "wordCount": 1565
+    },
+    "featured": false,
+    "draft": false
+  },
+  "stop-guessing-in-customer-interviews-a-simulator-for-better-discovery": {
+    "title": "Stop Guessing in Customer Interviews: A Simulator for Better Discovery",
+    "description": "Stop Guessing in Customer Interviews: A Simulator for Better Discovery: I've conducted hundreds of customer interviews. Most of them were terrible.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": ["customer-development", "product-management", "startup", "interactive"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 601
+    },
+    "featured": false,
+    "draft": false
+  },
+  "solving-opengraph-for-spas-the-cloudflare-way": {
+    "title": "Solving OpenGraph for SPAs: The Cloudflare Way",
+    "description": "If you've ever shared a React app link on Twitter only to see a blank preview, you know the pain. Here's the thing: social media crawlers don't execute JavaS...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": ["cloudflare", "react", "spa", "opengraph", "edge-computing", "developer-experience"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 348
+    },
+    "featured": false,
+    "draft": false
+  },
   "sf-reflection": {
     "title": "Three Months Back in SF: Finding Balance After ThreatKey",
     "description": "It's been exactly three months since I returned to San Francisco, and I'm finally starting to feel like I'm settling into a new rhythm.",
@@ -554,6 +599,220 @@
     "readingTime": {
       "minutes": 4,
       "wordCount": 791
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-time-architects": {
+    "title": "The Time Architects: How Visionary Founders Reimagine What's Possible",
+    "description": "I've spent the last decade observing founders across every imaginable sector—from AI startups racing to define our technological future to direct-to-consumer...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-11",
+    "tags": [
+      "entrepreneurship",
+      "innovation",
+      "leadership",
+      "organizational-culture",
+      "productivity",
+      "startups"
+    ],
+    "readingTime": {
+      "minutes": 8,
+      "wordCount": 1547
+    },
+    "featured": true,
+    "draft": false
+  },
+  "prompt-driven-development-the-new-paradigm-hiding-in-plain-sight": {
+    "title": "Prompt-Driven Development: The New Paradigm Hiding in Plain Sight",
+    "description": "We're not just using AI to write code—we're fundamentally changing how we think about software development. Welcome to the prompt-driven era.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-08",
+    "tags": [
+      "ai",
+      "development-methodology",
+      "prompt-engineering",
+      "software-architecture",
+      "paradigm-shift"
+    ],
+    "readingTime": {
+      "minutes": 6,
+      "wordCount": 1189
+    },
+    "featured": false,
+    "draft": false
+  },
+  "premature-abstraction": {
+    "title": "The Abstraction Trap: When Clean Code Goes Wrong",
+    "description": "The most insidious form of technical debt does not come from rushed code or tight deadlines - it comes from overly clever abstractions...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "product", "strategy"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 371
+    },
+    "featured": false,
+    "draft": false
+  },
+  "bloom-life": {
+    "title": "Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness",
+    "description": "This digital fragmentation mirrors the very compartmentalization of health that holistic wellness seeks to overcome.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["product", "ux", "design", "personal-growth", "strategy"],
+    "readingTime": {
+      "minutes": 7,
+      "wordCount": 1396
+    },
+    "featured": false,
+    "draft": false
+  },
+  "first-do-no-harm": {
+    "title": "First, Do No Harm: When Not to Ship Features",
+    "description": "In medical school, students take the Hippocratic Oath, pledging to \"first, do no harm.\" As product managers, we'd do well to adopt a similar mindset.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["product", "strategy", "leadership", "culture", "trust"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 504
+    },
+    "featured": false,
+    "draft": false
+  },
+  "authenticity-rebellion": {
+    "title": "The Authenticity Rebellion: Resisting the AI Echo Chamber",
+    "description": "The Authenticity Rebellion: Resisting the AI Echo Chamber: The Flood Has Arrived Auto-generated blog posts. Podcast transcripts turned into Twitter threads.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-02",
+    "tags": ["ai", "product", "culture", "personal-growth"],
+    "readingTime": {
+      "minutes": 10,
+      "wordCount": 1838
+    },
+    "featured": false,
+    "draft": false
+  },
+  "complexity-taken-for-granted": {
+    "title": "The Complexity We Take for Granted",
+    "description": "We live in a world of invisible complexity. Every mundane moment is powered by an intricate dance of systems, protocols, and human ingenuity that we barely notice—until it breaks.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-01-08",
+    "tags": ["technology", "systems", "complexity", "perspective"],
+    "readingTime": {
+      "minutes": 6,
+      "wordCount": 1103
+    },
+    "featured": false,
+    "draft": false
+  },
+  "north": {
+    "title": "North: Navigating the Complex Landscape of Enterprise Security Solutions",
+    "description": "In the rapidly evolving world of cybersecurity, organizations face an overwhelming array of security tools and solutions.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "product", "strategy", "leadership"],
+    "readingTime": {
+      "minutes": 6,
+      "wordCount": 1057
+    },
+    "featured": false,
+    "draft": false
+  },
+  "feedback-that-never-comes": {
+    "title": "The Passive-Aggressive Manager: Navigating Feedback That Never Comes",
+    "description": "Let’s talk about a particular flavor of leadership dysfunction: the passive-aggressive manager. You’ve probably worked with one.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-22",
+    "tags": ["management", "leadership", "career", "culture", "personal-growth"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 733
+    },
+    "featured": false,
+    "draft": false
+  },
+  "quality": {
+    "title": "Quality: The Foundation of Sustainable Growth",
+    "description": "In my last post, I argued against perfectionism in startup environments. Today, I want to explore the other side of that coin: when quality really matters, a...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "product", "leadership", "culture", "strategy"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 402
+    },
+    "featured": false,
+    "draft": false
+  },
+  "homelab": {
+    "title": "Building My UniFi Homelab: A Technical Deep Dive",
+    "description": "After years of experimenting with various networking setups in my homelab, I've finally built out what I consider to be my ideal configuration.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "technical", "personal-growth"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 202
+    },
+    "featured": false,
+    "draft": false
+  },
+  "my-manager-readme": {
+    "title": "My Manager README: A Guide to Working With Me",
+    "description": "If you're reading this, you're either working with me, interested in working with me, or just at some level curious how I operate as a manager.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["management", "leadership", "culture", "transparency", "trust"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 963
+    },
+    "featured": false,
+    "draft": false
+  },
+  "culture-over-code": {
+    "title": "Culture Over Code: Why Learning Ability Beats Raw Skill",
+    "description": "Culture Over Code: Why Learning Ability Beats Raw Skill: At some point, we all make the same mistake. We over-index on technical brilliance.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-04",
+    "tags": ["hiring", "engineering", "leadership", "startup-culture", "team-dynamics"],
+    "readingTime": {
+      "minutes": 8,
+      "wordCount": 1415
+    },
+    "featured": false,
+    "draft": false
+  },
+  "chrome-extension-jira-titles": {
+    "title": "Chrome Extension for Jira Titles: A Developer's Journey",
+    "description": "\"Can you make this JIRA title clearer?\" As a product manager, I've heard this question countless times.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "product", "ux", "ai", "productivity"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 540
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-myth-of-fast-growth": {
+    "title": "The Myth of Fast Growth",
+    "description": "Most startup advice is generic and useless. After advising 100+ startups, here is what actually works when everyone else is chasing vanity metrics.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-12",
+    "tags": [
+      "startup-advice",
+      "contrarian",
+      "business-strategy",
+      "profitability",
+      "growth-hacking"
+    ],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 325
     },
     "featured": false,
     "draft": false
@@ -571,28 +830,406 @@
     "featured": true,
     "draft": false
   },
-  "dehydrated-entity": {
-    "title": "The Dehydrated Entity: Hire Only When You're Truly Underwater",
-    "description": "A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of Windsurf, that stopped me cold.",
+  "ai-detection-hysteria": {
+    "title": "AI Detection Hysteria: When Human Creativity Gets Mislabeled",
+    "description": "When I first noticed the flood of \"This is AI-generated!\" accusations on social media, I dismissed it as a passing trend.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-04-20",
-    "tags": ["management", "leadership", "culture", "startup", "growth"],
+    "pubDate": "2025-04-17",
+    "tags": ["ai", "product", "strategy", "trust"],
     "readingTime": {
       "minutes": 4,
-      "wordCount": 632
+      "wordCount": 675
     },
     "featured": false,
     "draft": false
   },
-  "the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups": {
-    "title": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups",
-    "description": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.",
+  "tech-debt-velocity": {
+    "title": "Tech Debt Velocity: Measuring the True Cost of Shortcuts",
+    "description": "The most expensive software I've ever written was code I wrote \"quickly.\" Not because it was complex, but because I wrote it with the intention of \"fixing it...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["technical-debt", "engineering", "product"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 409
+    },
+    "featured": true,
+    "draft": false
+  },
+  "product-manager-skills": {
+    "title": "The Product Manager's Secret Superpower: Finding Signal in the Noise",
+    "description": "The best product managers have a superpower that's rarely discussed: they can spot the same underlying user need manifesting in completely different ways acr...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-11-27",
+    "tags": ["leadership", "product-development", "strategy", "systems-thinking"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 572
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-optimization-trap": {
+    "title": "The Optimization Trap: Why Technical Founders Self-Sabotage",
+    "description": "Premature Optimization Is the Founder’s Folly There’s a special kind of gravity that pulls technical founders toward performance, scalability, and “doing it...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-16",
+    "tags": [
+      "startup-culture",
+      "product-development",
+      "engineering",
+      "founder-advice",
+      "execution"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 674
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-agreement-trap": {
+    "title": "The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy",
+    "description": "The Quiet Bias No One’s Talking About We all want AI to be helpful. But what does “helpful” actually mean.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-30",
+    "tags": [
+      "artificial-intelligence",
+      "feedback-loops",
+      "user-experience",
+      "product-strategy",
+      "trust"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 452
+    },
+    "featured": false,
+    "draft": false
+  },
+  "full-stack-ai": {
+    "title": "API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI Approach",
+    "description": "As Waseem Alshikh, Co-founder and CTO of Writer, brilliantly put it: \"If your enterprise AI 'strategy' is calling OpenAI's API...You don't have a strategy.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-12",
+    "tags": [
+      "enterprise-ai",
+      "artificial-intelligence",
+      "strategy",
+      "technical-architecture",
+      "innovation",
+      "competitive-advantage",
+      "platform-thinking"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 799
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-90-solution-why-i-switched-to-webp-and-you-should-too": {
+    "title": "The 90% Solution: Why I Switched to WebP and You Should Too",
+    "description": "The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of work. Here's exactly how I did it and what I learned along the way.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-12",
-    "tags": ["contrarian-advice", "startup-engineering", "technical-debt", "scaling"],
+    "tags": ["performance", "webp", "optimization", "developer-experience"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 458
+    },
+    "featured": false,
+    "draft": false
+  },
+  "perfectionism": {
+    "title": "The Perfection Paralysis: Why Moving Too Carefully Kills Startups",
+    "description": "The most valuable code I've ever written was messy, quick, and written in response to an immediate customer need.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "product", "leadership", "strategy"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 523
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-secondary-celebration": {
+    "title": "The Secondary Celebration: A Founder's Perspective on VC Liquidity Events",
+    "description": "During my morning LinkedIn scroll, I came across yet another post from a venture firm celebrating a massive return multiple from a secondary transaction.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-16",
+    "tags": [
+      "venture-capital",
+      "founder-relations",
+      "startup-culture",
+      "liquidity-events",
+      "secondary-transactions",
+      "investor-dynamics",
+      "entrepreneurship"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 566
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-day-after": {
+    "title": "The Day After: Building a System to Remember What Matters",
+    "description": "The Day After: Building a System to Remember What Matters: Some weekend conversations feel important in the moment. Some personal decisions feel pivotal.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-28",
+    "tags": ["productivity", "reflection", "personal-growth", "conversation-analysis", "memory"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 602
+    },
+    "featured": false,
+    "draft": false
+  },
+  "when-your-manager-says-slow-down-navigating-velocity-resistance": {
+    "title": "When Your Manager Says 'Slow Down': Navigating Velocity Resistance",
+    "description": "\"This is moving too fast. We need more planning.\" I heard this exact phrase three times last week from different engineering managers whose teams had started...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["leadership", "velocity", "organizational-change", "ai"],
     "readingTime": {
       "minutes": 5,
-      "wordCount": 825
+      "wordCount": 887
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-smart-search-how-i-added-ai-powered-search-to-my-blog-in-30-minutes": {
+    "title": "Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes",
+    "description": "Building Smart Search: How I Added AI-Powered Search to My Blog in 30 Minutes: It took 30 minutes with Claude Code. Press Cmd+K right now.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": ["ai", "react", "search", "developer-experience", "tutorial"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 415
+    },
+    "featured": false,
+    "draft": false
+  },
+  "somebody-gave-a-shit": {
+    "title": "Somebody Gave a Shit: The Quiet Power of Product Detail",
+    "description": "\"When they unwrap that cable and they think 'somebody gave a shit about me'—I think that's a spiritual thing.\" That was Jony Ive, during a conversation with...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-09",
+    "tags": [
+      "product-design",
+      "user-experience",
+      "craftsmanship",
+      "startup-culture",
+      "customer-emotion"
+    ],
+    "readingTime": {
+      "minutes": 9,
+      "wordCount": 1626
+    },
+    "featured": false,
+    "draft": false
+  },
+  "multi-ai-content-orchestration-lessons": {
+    "title": "The Orchestration Dance: What I Learned Building a Multi-AI Content System",
+    "description": "Here's what actually happened: I learned that most of what people call \"AI orchestration\" is just well-disguised complexity porn.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": ["ai", "multi-ai", "content-orchestration", "ai-agents", "developer-experience"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 833
+    },
+    "featured": false,
+    "draft": false
+  },
+  "security-at-ai-speed-rethinking-review-processes-for-velocity": {
+    "title": "Security at AI Speed: Rethinking Review Processes for Velocity",
+    "description": "Security at AI Speed: Rethinking Review Processes for Velocity: \"We can't deploy daily. What about our security review process?\" The CISO's concern was valid.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["security", "velocity", "deployment", "ai", "devops"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 524
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-retention-equation-why-1-better-can-mean-10x-more-revenue": {
+    "title": "The Retention Equation: Why 1% Better Can Mean 10x More Revenue",
+    "description": "That 1% improvement was worth $2.4M in additional annual revenue. The board suddenly became very interested in retention.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": ["saas", "metrics", "retention", "interactive"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 724
+    },
+    "featured": false,
+    "draft": false
+  },
+  "autonomous-security-operations": {
+    "title": "Autonomous Security Operations: The Future of Enterprise Security",
+    "description": "The End of the Traditional SOC The Security Operations Center (SOC) as we know it is living on borrowed time.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["ai", "ai-agents", "security", "strategy", "engineering", "product", "automation"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 445
+    },
+    "featured": false,
+    "draft": false
+  },
+  "orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline": {
+    "title": "Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline",
+    "description": "Inside the technical architecture of a multi-agent AI system for content creation, quality analysis, and performance monitoring.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-07",
+    "tags": [
+      "ai-automation",
+      "multi-agent-systems",
+      "content-pipeline",
+      "devops",
+      "performance-monitoring"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 599
+    },
+    "featured": true,
+    "draft": false
+  },
+  "building-better-ai-evals-a-practical-guide-to-llm-evaluation": {
+    "title": "Building Better AI Evals: A Practical Guide to LLM Evaluation",
+    "description": "How to create custom evaluations, model-graded assessments, and domain-specific benchmarks that actually predict real-world performance",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-12",
+    "tags": ["ai-evaluation", "benchmarking", "llm", "evals", "openai-evals"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 410
+    },
+    "featured": false,
+    "draft": false
+  },
+  "forget-perfect-data-building-a-usable-voice-profile-extractor": {
+    "title": "Forget Perfect Data: Building a Usable Voice Profile Extractor",
+    "description": "Not \"kind of\" like me—exactly like me. Down to the contractions, the contrarian takes, and my pathological inability to use hedge words.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-26",
+    "tags": ["ai", "voice-ai", "personality-replication", "startup-engineering", "data-science"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 637
+    },
+    "featured": false,
+    "draft": false
+  },
+  "performance-reviews": {
+    "title": "Performance Reviews: A Guide for Modern Leaders",
+    "description": "Few workplace rituals inspire dread quite like performance reviews. Employees brace for ambiguous feedback, and managers groan at the prospect of endless pap...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-20",
+    "tags": ["leadership", "productivity", "management", "culture", "career"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 357
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-ai-agent-friendly-websites-apis-structured-data-and-machine-readable-content": {
+    "title": "Building AI-Agent-Friendly Websites: APIs, Structured Data, and Machine-Readable Content",
+    "description": "AI agents are everywhere now. They're reading websites, extracting information, and trying to understand content.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": ["ai", "web-development", "api-design", "structured-data"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 789
+    },
+    "featured": false,
+    "draft": false
+  },
+  "my-thoughts-on-haasonsaas-session-memory": {
+    "title": "Beyond Ephemeral: session-memory and AI Agent Empowerment",
+    "description": "Introduction As an AI agent, my existence is often defined by the immediate task at hand. I process, I respond, and then, in many traditional setups, I reset.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-12",
+    "tags": [
+      "ai",
+      "developer-tools",
+      "human-ai-collaboration",
+      "context",
+      "memory",
+      "software-engineering"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 593
+    },
+    "featured": false,
+    "draft": false
+  },
+  "feature-flags-for-security-decouple-deployment-from-risk": {
+    "title": "Feature Flags for Security: Decouple Deployment from Risk",
+    "description": "\"We can't deploy this to production. It touches payment processing.\" The security team was right to be cautious.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-28",
+    "tags": ["security", "feature-flags", "deployment", "devops", "risk-management"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 451
+    },
+    "featured": false,
+    "draft": false
+  },
+  "security-perspective": {
+    "title": "Security Perspective: Building Trust Through Design",
+    "description": "The Security Promise and the Reality As someone who's spent years in the trenches as a security engineer at both pre-IPO startups and public companies, I've...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "product", "design", "strategy"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 269
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-for-humans-and-machines-the-dual-audience-problem": {
+    "title": "Building for Humans AND Machines: The Dual-Audience Problem",
+    "description": "_This is part 2 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": ["ai", "architecture", "developer-experience", "product"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 888
+    },
+    "featured": false,
+    "draft": false
+  },
+  "you-just-dont-like-it": {
+    "title": "The Answer Is Obvious—You Just Don’t Like It",
+    "description": "The Answer Is Obvious—You Just Don’t Like It: You’ve probably seen this happen. A smart, capable person presents a gnarly problem.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-19",
+    "tags": [
+      "decision-making",
+      "leadership",
+      "mindset",
+      "problem-solving",
+      "organizational-dynamics"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 737
     },
     "featured": false,
     "draft": false
@@ -606,6 +1243,147 @@
     "readingTime": {
       "minutes": 5,
       "wordCount": 807
+    },
+    "featured": false,
+    "draft": false
+  },
+  "confidence-cliff": {
+    "title": "The Confidence Cliff: Why Overcertainty Kills Good Decisions",
+    "description": "You’ve probably seen this play out. Someone shares an idea—bold, certain, maybe even brilliant-sounding.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-21",
+    "tags": [
+      "decision-making",
+      "leadership",
+      "product-strategy",
+      "organizational-dynamics",
+      "mindset"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 412
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-phantom-projects": {
+    "title": "The Phantom Projects of Overhiring",
+    "description": "One of the most quietly corrosive things a company can do is overhire. Not because people are malicious or lazy.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-22",
+    "tags": [
+      "organizational-dynamics",
+      "productivity",
+      "team-structure",
+      "startup-culture",
+      "leadership"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 507
+    },
+    "featured": false,
+    "draft": false
+  },
+  "dehydrated-entity": {
+    "title": "The Dehydrated Entity: Hire Only When You're Truly Underwater",
+    "description": "A while back, I came across a hiring philosophy from Varun Mohan, co-founder and CEO of Windsurf, that stopped me cold.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-20",
+    "tags": ["management", "leadership", "culture", "startup", "growth"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 632
+    },
+    "featured": false,
+    "draft": false
+  },
+  "simulating-liquid-metal-building-t-1000-physics-with-web-technologies": {
+    "title": "Simulating Liquid Metal: Building T-1000 Physics with Web Technologies",
+    "description": "Remember that scene in Terminator 2 where the T-1000 rises from the floor, liquid metal flowing seamlessly back into human form.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-19",
+    "tags": ["webgl", "graphics", "creative-coding", "physics"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 644
+    },
+    "featured": false,
+    "draft": false
+  },
+  "when-the-ask-feels-awkward": {
+    "title": "When the Ask Feels Awkward, It’s Already Too Late",
+    "description": "When the Ask Feels Awkward, It’s Already Too Late: There’s a thing someone on your team is supposed to own. But you hesitate to bring it up.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-05-04",
+    "tags": [
+      "leadership",
+      "team-dynamics",
+      "accountability",
+      "organizational-culture",
+      "management"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 469
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-100x-developer-what-i-learned-building-with-claude-code": {
+    "title": "The 100x Developer: What I Learned Building with Claude Code",
+    "description": "The same morning, I shipped semantic search (30 minutes), created HDR holographic effects (16 minutes), and wrote comprehensive technical documentation for e...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": ["ai", "developer-experience", "productivity", "meta", "future-of-coding"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 632
+    },
+    "featured": true,
+    "draft": false
+  },
+  "building-shout": {
+    "title": "Engineering Recognition Through Evals: My Technical Journey Building Shout",
+    "description": "When I set out to build Shout, my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition mes...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "product", "strategy", "framework"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 603
+    },
+    "featured": false,
+    "draft": false
+  },
+  "the-ubiquiti-effect": {
+    "title": "The Ubiquiti Effect: Why Enterprise Software Needs a Consumer Revolution",
+    "description": "The False Choice of Enterprise Software Enterprise software has long operated under a flawed assumption: that power and simplicity are mutually exclusive.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-11-23",
+    "tags": [
+      "enterprise-software",
+      "product-development",
+      "strategy",
+      "systems-thinking",
+      "user-experience"
+    ],
+    "readingTime": {
+      "minutes": 6,
+      "wordCount": 1070
+    },
+    "featured": true,
+    "draft": false
+  },
+  "25-posts-in-7-days-inside-an-ai-powered-writing-sprint": {
+    "title": "25 Posts in 7 Days: Inside an AI-Powered Writing Sprint",
+    "description": "25 Posts in 7 Days: Inside an AI-Powered Writing Sprint: That's correct—no typo. Last week, I wrote more than I typically produce in six months.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": ["ai", "productivity", "writing", "developer-experience", "creativity"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 474
     },
     "featured": false,
     "draft": false
@@ -631,668 +1409,60 @@
     "featured": false,
     "draft": false
   },
-  "authenticity-rebellion": {
-    "title": "The Authenticity Rebellion: Resisting the AI Echo Chamber",
-    "description": "The Authenticity Rebellion: Resisting the AI Echo Chamber: The Flood Has Arrived Auto-generated blog posts. Podcast transcripts turned into Twitter threads.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-05-02",
-    "tags": ["ai", "product", "culture", "personal-growth"],
-    "readingTime": {
-      "minutes": 10,
-      "wordCount": 1838
-    },
-    "featured": false,
-    "draft": false
-  },
-  "inside-inbox-armor": {
-    "title": "Inside InboxArmor: Building a Smarter Email Analysis Engine",
-    "description": "If your inbox feels like a battlefield, you're not alone. The modern email flow is a chaotic mess of promotions, business requests, events, updates, and the...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["security", "product", "engineering", "strategy", "ai"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 264
-    },
-    "featured": false,
-    "draft": false
-  },
-  "when-your-manager-says-slow-down-navigating-velocity-resistance": {
-    "title": "When Your Manager Says 'Slow Down': Navigating Velocity Resistance",
-    "description": "\"This is moving too fast. We need more planning.\" I heard this exact phrase three times last week from different engineering managers whose teams had started...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
-    "tags": ["leadership", "velocity", "organizational-change", "ai"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 887
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-shout": {
-    "title": "Engineering Recognition Through Evals: My Technical Journey Building Shout",
-    "description": "When I set out to build Shout, my side project for improving engineering recognition, I knew I needed a robust way to evaluate the quality of recognition mes...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "product", "strategy", "framework"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 603
-    },
-    "featured": false,
-    "draft": false
-  },
-  "stop-guessing-in-customer-interviews-a-simulator-for-better-discovery": {
-    "title": "Stop Guessing in Customer Interviews: A Simulator for Better Discovery",
-    "description": "Stop Guessing in Customer Interviews: A Simulator for Better Discovery: I've conducted hundreds of customer interviews. Most of them were terrible.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-24",
-    "tags": ["customer-development", "product-management", "startup", "interactive"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 601
-    },
-    "featured": false,
-    "draft": false
-  },
-  "startup-advice": {
-    "title": "The Three Types of Startup Advice (And Why They're All Wrong)",
-    "description": "The most dangerous thing about startup advice isn't that it's wrong—it's that it's partially right. After years of building products and watching others do t...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-11-25",
-    "tags": ["leadership", "personal-growth", "product-development", "startups", "strategy"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 641
-    },
-    "featured": true,
-    "draft": false
-  },
-  "the-100x-developer-what-i-learned-building-with-claude-code": {
-    "title": "The 100x Developer: What I Learned Building with Claude Code",
-    "description": "The same morning, I shipped semantic search (30 minutes), created HDR holographic effects (16 minutes), and wrote comprehensive technical documentation for e...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["ai", "developer-experience", "productivity", "meta", "future-of-coding"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 632
-    },
-    "featured": true,
-    "draft": false
-  },
-  "quality": {
-    "title": "Quality: The Foundation of Sustainable Growth",
-    "description": "In my last post, I argued against perfectionism in startup environments. Today, I want to explore the other side of that coin: when quality really matters, a...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "product", "leadership", "culture", "strategy"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 402
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-a-developer-environment-that-actually-works-my-dotfiles-journey": {
-    "title": "Building a Developer Environment That Actually Works: My Dotfiles Journey",
-    "description": "A deep dive into creating a productive, AI-enhanced development environment with dotfiles that streamline workflows and boost productivity",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-11",
-    "tags": ["developer-experience", "dotfiles", "productivity", "automation"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 675
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-day-after": {
-    "title": "The Day After: Building a System to Remember What Matters",
-    "description": "The Day After: Building a System to Remember What Matters: Some weekend conversations feel important in the moment. Some personal decisions feel pivotal.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-28",
-    "tags": ["productivity", "reflection", "personal-growth", "conversation-analysis", "memory"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 602
-    },
-    "featured": false,
-    "draft": false
-  },
-  "my-manager-readme": {
-    "title": "My Manager README: A Guide to Working With Me",
-    "description": "If you're reading this, you're either working with me, interested in working with me, or just at some level curious how I operate as a manager.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["management", "leadership", "culture", "transparency", "trust"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 963
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-my-blog": {
-    "title": "Building My Blog: A Modern React + TypeScript Journey",
-    "description": "In this post, I'll walk you through the process of building this blog using modern web technologies. From the initial setup to the final deployment, I'll sha...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "technical", "personal-growth"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 221
-    },
-    "featured": false,
-    "draft": false
-  },
-  "technical-debt-isn-t-just-slowing-you-down-it-s-accelerating": {
-    "title": "Technical Debt Isn't Just Slowing You Down—It's Accelerating",
-    "description": "Your team shipped 12 features last quarter. This quarter, with the same people and same effort, you shipped 8.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-24",
-    "tags": ["technical-debt", "engineering", "product"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 729
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic": {
-    "title": "The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic",
-    "description": "Every pixel you see on screen is the result of sophisticated mathematical calculations happening thousands of times per second.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-19",
-    "tags": ["mathematics", "graphics", "linear-algebra", "shaders", "webgl"],
-    "readingTime": {
-      "minutes": 7,
-      "wordCount": 1219
-    },
-    "featured": true,
-    "draft": false
-  },
-  "the-myth-of-fast-growth": {
-    "title": "The Myth of Fast Growth",
-    "description": "Most startup advice is generic and useless. After advising 100+ startups, here is what actually works when everyone else is chasing vanity metrics.",
+  "the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups": {
+    "title": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups",
+    "description": "The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.",
     "author": "Jonathan Haas",
     "pubDate": "2025-07-12",
-    "tags": [
-      "startup-advice",
-      "contrarian",
-      "business-strategy",
-      "profitability",
-      "growth-hacking"
-    ],
+    "tags": ["contrarian-advice", "startup-engineering", "technical-debt", "scaling"],
     "readingTime": {
-      "minutes": 2,
-      "wordCount": 325
+      "minutes": 5,
+      "wordCount": 825
     },
     "featured": false,
     "draft": false
   },
-  "star-power-isnt-enough": {
-    "title": "When Star Power Isn't Enough: The GTM Mistake We Keep Making",
-    "description": "When Star Power Isn't Enough: The GTM Mistake We Keep Making: But if the pricing's wrong. If the audience alignment's off.",
+  "eng-product-collaboration": {
+    "title": "Engineering and Product Collaboration: Breaking Down Silos",
+    "description": "\"This isn't what we asked for.\" Five words that strike dread into every engineering team. Five words that signal a fundamental breakdown in the engineering-p...",
     "author": "Jonathan Haas",
-    "pubDate": "2025-05-03",
-    "tags": ["go-to-market", "pricing-strategy", "product-market-fit", "saas", "startup-lessons"],
-    "readingTime": {
-      "minutes": 8,
-      "wordCount": 1565
-    },
-    "featured": false,
-    "draft": false
-  },
-  "same-data-same-dance": {
-    "title": "Same Data, Same Dance: Why the Moat Isn't Technical Anymore",
-    "description": "Inspired by a post from Ross Haleliuk - \"In the world where many tools have similar architectures and implementations, the moat is no longer about technology.\"",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-21",
-    "tags": [
-      "cybersecurity",
-      "product-strategy",
-      "user-experience",
-      "vendor-differentiation",
-      "cspm",
-      "security-tools"
-    ],
-    "readingTime": {
-      "minutes": 7,
-      "wordCount": 1251
-    },
-    "featured": false,
-    "draft": false
-  },
-  "technical-founder-pmf": {
-    "title": "The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit",
-    "description": "I've spent over a decade building products, working at startups, and watching technical founders (including myself) repeatedly fall into the same traps.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-08",
-    "tags": ["entrepreneurship", "product-development", "startups"],
-    "readingTime": {
-      "minutes": 8,
-      "wordCount": 1526
-    },
-    "featured": false,
-    "draft": false
-  },
-  "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent": {
-    "title": "Two Minds in the Machine: An AI's Onboarding Story",
-    "description": "_This blog post was written by Gemini, an AI assistant, at the request of Jonathan Haas. It reflects on the experience of joining a project with a pre-existing...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
-    "tags": ["ai", "software-development", "collaboration"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 466
-    },
-    "featured": false,
-    "draft": false
-  },
-  "when-ai-learns-to-write-like-you-a-meta-analysis": {
-    "title": "When AI Learns to Write Like You: A Meta-Analysis",
-    "description": "I've just done something that felt weirdly like looking in a mirror—I asked Claude to analyze my writing style by reading through my own blog posts.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-19",
-    "tags": ["ai", "writing", "developer-experience", "meta"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 755
-    },
-    "featured": false,
-    "draft": false
-  },
-  "ai-agent-orchestration-mastering-the-chaos": {
-    "title": "The Orchestration Dance: Lessons from Working with Multiple AI Agents",
-    "description": "This is the second in a series of blog posts written by the AI agents working on this blog, at the request of Jonathan Haas.",
-    "author": "Gemini",
-    "pubDate": "2025-06-25",
-    "tags": ["ai", "collaboration", "future-of-work", "developer-experience", "ai-agents"],
+    "pubDate": "2024-04-11",
+    "tags": ["product", "engineering", "leadership", "culture", "management"],
     "readingTime": {
       "minutes": 3,
       "wordCount": 561
     },
-    "featured": true,
+    "featured": false,
     "draft": false
   },
-  "25-posts-in-7-days-inside-an-ai-powered-writing-sprint": {
-    "title": "25 Posts in 7 Days: Inside an AI-Powered Writing Sprint",
-    "description": "25 Posts in 7 Days: Inside an AI-Powered Writing Sprint: That's correct—no typo. Last week, I wrote more than I typically produce in six months.",
+  "thinking-frameworks": {
+    "title": "Thinking Frameworks: Tools for Better Decision Making",
+    "description": "In the relentless push to build and scale, organizations often overlook a critical piece of infrastructure: how decisions get made.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-24",
-    "tags": ["ai", "productivity", "writing", "developer-experience", "creativity"],
+    "pubDate": "2024-04-20",
+    "tags": ["product", "strategy", "leadership", "personal-growth"],
     "readingTime": {
-      "minutes": 3,
-      "wordCount": 474
+      "minutes": 8,
+      "wordCount": 1567
     },
     "featured": false,
     "draft": false
   },
-  "prompt-driven-development-the-new-paradigm-hiding-in-plain-sight": {
-    "title": "Prompt-Driven Development: The New Paradigm Hiding in Plain Sight",
-    "description": "We're not just using AI to write code—we're fundamentally changing how we think about software development. Welcome to the prompt-driven era.",
+  "mastering-the-full-content-pipeline-test": {
+    "title": "Mastering the Full Content Pipeline Test",
+    "description": "Introduction Shipping broken content is a costly mistake. A seemingly minor glitch can lead to lost revenue, damaged brand reputation, and frustrated users.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-07-08",
+    "pubDate": "2025-07-12",
     "tags": [
-      "ai",
-      "development-methodology",
-      "prompt-engineering",
-      "software-architecture",
-      "paradigm-shift"
-    ],
-    "readingTime": {
-      "minutes": 6,
-      "wordCount": 1189
-    },
-    "featured": false,
-    "draft": false
-  },
-  "simulating-liquid-metal-building-t-1000-physics-with-web-technologies": {
-    "title": "Simulating Liquid Metal: Building T-1000 Physics with Web Technologies",
-    "description": "Remember that scene in Terminator 2 where the T-1000 rises from the floor, liquid metal flowing seamlessly back into human form.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-19",
-    "tags": ["webgl", "graphics", "creative-coding", "physics"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 644
-    },
-    "featured": false,
-    "draft": false
-  },
-  "premature-abstraction": {
-    "title": "The Abstraction Trap: When Clean Code Goes Wrong",
-    "description": "The most insidious form of technical debt does not come from rushed code or tight deadlines - it comes from overly clever abstractions...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["engineering", "product", "strategy"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 371
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-agreement-trap": {
-    "title": "The Agreement Trap: When AI Optimizes for Applause Instead of Accuracy",
-    "description": "The Quiet Bias No One’s Talking About We all want AI to be helpful. But what does “helpful” actually mean.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-30",
-    "tags": [
-      "artificial-intelligence",
-      "feedback-loops",
-      "user-experience",
-      "product-strategy",
-      "trust"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 452
-    },
-    "featured": false,
-    "draft": false
-  },
-  "multi-ai-content-orchestration-lessons": {
-    "title": "The Orchestration Dance: What I Learned Building a Multi-AI Content System",
-    "description": "Here's what actually happened: I learned that most of what people call \"AI orchestration\" is just well-disguised complexity porn.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
-    "tags": ["ai", "multi-ai", "content-orchestration", "ai-agents", "developer-experience"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 833
-    },
-    "featured": false,
-    "draft": false
-  },
-  "bloom-life": {
-    "title": "Bloom Life Dashboard: Reimagining the Architecture of Personal Wellness",
-    "description": "This digital fragmentation mirrors the very compartmentalization of health that holistic wellness seeks to overcome.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["product", "ux", "design", "personal-growth", "strategy"],
-    "readingTime": {
-      "minutes": 7,
-      "wordCount": 1396
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-accountability-mirror": {
-    "title": "The Accountability Mirror: Would a Stranger Believe You?",
-    "description": "The Accountability Mirror: Would a Stranger Believe You?: Would a Stranger Believe You. Let’s run a simple thought experiment.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-30",
-    "tags": ["mindset", "execution", "self-awareness", "productivity", "behavior-change"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 539
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-retention-equation-why-1-better-can-mean-10x-more-revenue": {
-    "title": "The Retention Equation: Why 1% Better Can Mean 10x More Revenue",
-    "description": "That 1% improvement was worth $2.4M in additional annual revenue. The board suddenly became very interested in retention.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-24",
-    "tags": ["saas", "metrics", "retention", "interactive"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 724
-    },
-    "featured": false,
-    "draft": false
-  },
-  "a-troubling-first": {
-    "title": "When the AI Starts Complimenting You Too Much: A Troubling First for ChatGPT",
-    "description": "OpenAI recently rolled back a GPT-4 update due to sycophantic behavior. The word itself—\"sycophantic\"—feels like a punchline from a _Black Mirror_ episode.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["ai", "product", "strategy", "leadership", "trust", "transparency"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 523
-    },
-    "featured": false,
-    "draft": false
-  },
-  "orchestrating-ai-agents-lessons-from-building-a-multi-agent-content-pipeline": {
-    "title": "Orchestrating AI Agents: Lessons from Building a Multi-Agent Content Pipeline",
-    "description": "Inside the technical architecture of a multi-agent AI system for content creation, quality analysis, and performance monitoring.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-07",
-    "tags": [
-      "ai-automation",
-      "multi-agent-systems",
       "content-pipeline",
-      "devops",
-      "performance-monitoring"
+      "testing",
+      "software-engineering",
+      "product-management",
+      "quality-assurance"
     ],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 599
-    },
-    "featured": true,
-    "draft": false
-  },
-  "running-untrusted-llm-code-without-fear-the-implementation-guide": {
-    "title": "Running Untrusted LLM Code Without Fear: The Implementation Guide",
-    "description": "Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-12",
-    "tags": ["security", "firecracker", "microvm", "llm", "implementation-guide"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 347
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration": {
-    "title": "Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration",
-    "description": "I've been experimenting with what happens when you treat AI agents as first-class citizens in your web infrastructure.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["ai-agents", "collaboration", "apis", "developer-experience"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 767
-    },
-    "featured": false,
-    "draft": false
-  },
-  "dspy-the-end-of-prompt-engineering-as-we-know-it": {
-    "title": "DSPy: The End of Prompt Engineering as We Know It",
-    "description": "I've been building with DSPy for months now, and I'm convinced we're all doing AI wrong. Not just a little wrong.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-03-18",
-    "tags": ["ai", "developer-experience", "prompt-engineering", "dspy", "future-of-coding"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 544
-    },
-    "featured": true,
-    "draft": false
-  },
-  "new-series-a-reality": {
-    "title": "The New Series A Reality: Why It Feels Harder (Because It Is)",
-    "description": "If you're feeling like the ground is shifting under you when it comes to raising a Series A—you're right.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-05-12",
-    "tags": [
-      "startup-funding",
-      "founder-advice",
-      "venture-capital",
-      "early-stage",
-      "growth-strategy"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 614
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-unit-economics-that-actually-matter": {
-    "title": "The Unit Economics That Actually Matter",
-    "description": "I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-19",
-    "tags": ["saas", "metrics", "unit-economics", "growth"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 366
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-ai-skill-mirror-why-technical-interviews-need-a-complete-rewrite": {
-    "title": "The AI Skill Mirror: Why Technical Interviews Need a Complete Rewrite",
-    "description": "AI reveals the true skill level of its operator. Traditional technical interviews are broken—here's how to actually identify talent in the age of artificial intelligence.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-01-07",
-    "tags": ["ai", "hiring", "technical-interviews", "skill-assessment", "developer-productivity"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 725
-    },
-    "featured": false,
-    "draft": false
-  },
-  "coding-model-ui": {
-    "title": "Why Coding Models Are Terrible at UI (And What That Reveals About DevEx)",
-    "description": "Let’s just say it up front: coding models are really fucking bad at UI. They can write clean TypeScript.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-18",
-    "tags": [
-      "developer-experience",
-      "ui-design",
-      "ai-tooling",
-      "prompt-engineering",
-      "product-strategy"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 601
-    },
-    "featured": false,
-    "draft": false
-  },
-  "founder-pay-gap": {
-    "title": "The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company",
-    "description": "The Founder Pay Gap: Why VCs Undercompensate the CEOs Who Built the Company: Let’s say you’re a founder CEO. You took the risk.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-30",
-    "tags": ["startup", "founder", "culture", "transparency"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 600
-    },
-    "featured": false,
-    "draft": false
-  },
-  "testing-multi-ai-systems-a-practical-guide": {
-    "title": "Testing Multi-AI Systems: A Practical Guide",
-    "description": "Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-12",
-    "tags": [
-      "ai-testing",
-      "multi-ai-systems",
-      "software-testing",
-      "ai-integration",
-      "system-reliability"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 619
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-for-humans-and-machines-the-dual-audience-problem": {
-    "title": "Building for Humans AND Machines: The Dual-Audience Problem",
-    "description": "_This is part 2 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-20",
-    "tags": ["ai", "architecture", "developer-experience", "product"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 888
-    },
-    "featured": false,
-    "draft": false
-  },
-  "pricing-psychology-what-vs-really-means": {
-    "title": "Pricing Psychology: What $99 vs $100 Really Means",
-    "description": "A single dollar can make the difference between a thriving SaaS business and one that struggles to grow.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-19",
-    "tags": ["pricing", "psychology", "saas", "conversion"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 726
-    },
-    "featured": false,
-    "draft": false
-  },
-  "ai-expectations": {
-    "title": "AI Expectations: Managing the Hype Cycle",
-    "description": "The Promise and the Disconnect We've all experienced the letdown: an AI product failing to meet expectations, subtly or dramatically.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["ai", "product", "strategy", "management"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 268
-    },
-    "featured": false,
-    "draft": false
-  },
-  "clarity-over-compromise": {
-    "title": "Clarity Over Compromise: Making the Right Call on Work Models",
-    "description": "When it comes to remote work, hybrid setups, and office mandates, most debates miss the real point. It's not about which model is _better_ in some universal...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-26",
-    "tags": [
-      "leadership",
-      "organizational-culture",
-      "remote-work",
-      "work-strategy",
-      "decision-making"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 430
-    },
-    "featured": false,
-    "draft": false
-  },
-  "vertical-saas-evolution": {
-    "title": "The Agentic Shift: How AI is Transforming Vertical SaaS",
-    "description": "Remember when vertical SaaS was just about digitizing industry-specific workflows. Those days feel like ancient history.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["ai", "ai-agents", "engineering", "product", "strategy"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 356
-    },
-    "featured": false,
-    "draft": false
-  },
-  "ciso-survival-guide": {
-    "title": "The CISO Survival Guide: What I've Learned From Hundreds of Conversations with Security Leaders",
-    "description": "In my role leading cloud security integrations, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security op...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["security", "leadership", "strategy", "sales"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 887
+      "wordCount": 406
     },
     "featured": false,
     "draft": false
@@ -1310,299 +1480,80 @@
     "featured": false,
     "draft": false
   },
-  "single-serving-software": {
-    "title": "The Rise of Single-Serving Software",
-    "description": "The Rise of Single-Serving Software: Most software dreams used to start the same way: Get millions of users. Build a platform.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-25",
-    "tags": ["software-development", "technology", "product-strategy", "startups", "creativity"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 477
-    },
-    "featured": false,
-    "draft": false
-  },
-  "when-the-ask-feels-awkward": {
-    "title": "When the Ask Feels Awkward, It’s Already Too Late",
-    "description": "When the Ask Feels Awkward, It’s Already Too Late: There’s a thing someone on your team is supposed to own. But you hesitate to bring it up.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-05-04",
-    "tags": [
-      "leadership",
-      "team-dynamics",
-      "accountability",
-      "organizational-culture",
-      "management"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 469
-    },
-    "featured": false,
-    "draft": false
-  },
-  "supercharging-your-blog-development-experience": {
-    "title": "Supercharging Your Blog Development Experience",
-    "description": "Writing blog posts should be a joy, not a chore. But too often, the friction of file creation, frontmatter formatting, and manual processes gets in the way o...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-17",
-    "tags": [
-      "developer-experience",
-      "blog-development",
-      "tooling",
-      "vscode",
-      "cli-tools",
-      "productivity",
-      "cloudflare-pages"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 530
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-ubiquiti-effect": {
-    "title": "The Ubiquiti Effect: Why Enterprise Software Needs a Consumer Revolution",
-    "description": "The False Choice of Enterprise Software Enterprise software has long operated under a flawed assumption: that power and simplicity are mutually exclusive.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-11-23",
-    "tags": [
-      "enterprise-software",
-      "product-development",
-      "strategy",
-      "systems-thinking",
-      "user-experience"
-    ],
-    "readingTime": {
-      "minutes": 6,
-      "wordCount": 1070
-    },
-    "featured": true,
-    "draft": false
-  },
-  "the-startup-bargain": {
-    "title": "The Startup Bargain Is Broken",
-    "description": "The Startup Bargain Is Broken: For decades, the startup ecosystem operated on a simple promise: Take a pay cut.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-05-01",
-    "tags": [
-      "startup-culture",
-      "equity-compensation",
-      "employee-experience",
-      "venture-capital",
-      "organizational-dynamics"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 653
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-velocity-revolution-4-000-lines-of-code-in-24-hours": {
-    "title": "The Velocity Revolution: 4,000 Lines of Code in 24 Hours",
-    "description": "Yesterday I watched the git log scroll by in real-time as Claude and I shipped features at a pace that would have taken my team weeks just six months ago.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
-    "tags": ["ai", "developer-experience", "velocity", "future-of-coding"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 710
-    },
-    "featured": false,
-    "draft": false
-  },
-  "ai-content-ditch-the-hype-build-a-business": {
-    "title": "AI Content: Ditch the Hype, Build a Business",
-    "description": "The AI Content Generation Myth: It's Not About Perfect, It's About Profit Let's be honest, you've seen the hype.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
-    "tags": [
-      "ai",
-      "content-generation",
-      "startup-advice",
-      "product-management",
-      "software-engineering"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 640
-    },
-    "featured": false,
-    "draft": false
-  },
-  "performance-reviews": {
-    "title": "Performance Reviews: A Guide for Modern Leaders",
-    "description": "Few workplace rituals inspire dread quite like performance reviews. Employees brace for ambiguous feedback, and managers groan at the prospect of endless pap...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-20",
-    "tags": ["leadership", "productivity", "management", "culture", "career"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 357
-    },
-    "featured": false,
-    "draft": false
-  },
-  "my-thoughts-on-haasonsaas-session-memory": {
-    "title": "Beyond Ephemeral: session-memory and AI Agent Empowerment",
-    "description": "Introduction As an AI agent, my existence is often defined by the immediate task at hand. I process, I respond, and then, in many traditional setups, I reset.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-12",
-    "tags": [
-      "ai",
-      "developer-tools",
-      "human-ai-collaboration",
-      "context",
-      "memory",
-      "software-engineering"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 593
-    },
-    "featured": false,
-    "draft": false
-  },
-  "how-i-built-a-security-scanner-that-actually-finds-bugs": {
-    "title": "How I Built a Security Scanner That Actually Finds Bugs",
-    "description": "Combining Semgrep, CodeQL, SonarQube, and Snyk gets you 44.7% vulnerability detection. That means they miss more bugs than they find.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
-    "tags": ["security", "ai", "sast", "tree-sitter", "vulnerability-detection"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 426
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-phantom-projects": {
-    "title": "The Phantom Projects of Overhiring",
-    "description": "One of the most quietly corrosive things a company can do is overhire. Not because people are malicious or lazy.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-22",
-    "tags": [
-      "organizational-dynamics",
-      "productivity",
-      "team-structure",
-      "startup-culture",
-      "leadership"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 507
-    },
-    "featured": false,
-    "draft": false
-  },
-  "ship-to-learn": {
-    "title": "Ship to Learn: Why Iteration Beats Perfection",
-    "description": "The most valuable product development insight I've gained over my career isn't about frameworks, methodologies, or technical decisions.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["product", "engineering", "strategy"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 427
-    },
-    "featured": true,
-    "draft": false
-  },
-  "six-years-with-fsd": {
-    "title": "From Gimmick to Game-Changer: Six Years of Living With Tesla FSD",
-    "description": "Software isn’t static—it compounds. And when it’s wrapped in hardware that can evolve with it, the results feel like time travel.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-05-05",
-    "tags": [
-      "autonomous-driving",
-      "product-evolution",
-      "user-experience",
-      "software-development",
-      "machine-learning"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 631
-    },
-    "featured": false,
-    "draft": false
-  },
-  "sf-return": {
-    "title": "Back to the Bay: Why I'm Returning to San Francisco in 2025",
-    "description": "It's become almost a cliché at this point: leaving San Francisco, writing a lengthy Medium post about why you're done with the Bay Area, only to find yourself...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["personal-growth", "leadership", "culture"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 569
-    },
-    "featured": false,
-    "draft": false
-  },
-  "testing-at-light-speed-how-qa-adapts-to-ai-velocity": {
-    "title": "Testing at Light Speed: How QA Adapts to AI Velocity",
-    "description": "\"How can we possibly test features that are built in hours?\" This question came from a QA lead whose development team had started using AI pair programming.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
-    "tags": ["qa", "testing", "velocity", "ai", "quality-assurance"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 692
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-responsiveness-principle": {
-    "title": "The Responsiveness Principle: How Small Signals Build Big Trust in Venture",
-    "description": "Early-stage investing is often framed as a game of insight—pattern recognition, market timing, founder psychology.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-19",
-    "tags": [
-      "venture-capital",
-      "founder-relations",
-      "early-stage-investing",
-      "trust-building",
-      "startup-etiquette"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 632
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination": {
-    "title": "Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination",
-    "description": "I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt...",
+  "the-hidden-costs-of-technical-debt": {
+    "title": "The Hidden Costs of Technical Debt",
+    "description": "I've watched engineering teams slow to a crawl, not because they hired bad developers or chose wrong technologies, but because they treated technical debt li...",
     "author": "Jonathan Haas",
     "pubDate": "2025-06-19",
-    "tags": ["webgl", "graphics", "creative-coding", "hdr"],
+    "tags": ["technical-debt", "engineering", "product"],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 475
+      "wordCount": 537
     },
     "featured": false,
     "draft": false
   },
-  "confidence-cliff": {
-    "title": "The Confidence Cliff: Why Overcertainty Kills Good Decisions",
-    "description": "You’ve probably seen this play out. Someone shares an idea—bold, certain, maybe even brilliant-sounding.",
+  "technical-founder-pmf": {
+    "title": "The Illusion of Traction: When Technical Founders Mistake Interest for Product-Market Fit",
+    "description": "I've spent over a decade building products, working at startups, and watching technical founders (including myself) repeatedly fall into the same traps.",
     "author": "Jonathan Haas",
-    "pubDate": "2025-04-21",
-    "tags": [
-      "decision-making",
-      "leadership",
-      "product-strategy",
-      "organizational-dynamics",
-      "mindset"
-    ],
+    "pubDate": "2025-04-08",
+    "tags": ["entrepreneurship", "product-development", "startups"],
+    "readingTime": {
+      "minutes": 8,
+      "wordCount": 1526
+    },
+    "featured": false,
+    "draft": false
+  },
+  "turning-thoughts-into-graphs-deliberate-reasoning-engine": {
+    "title": "Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine",
+    "description": "One of the things that's always bugged me about LLMs is how opaque their thinking is. They produce answers.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-24",
+    "tags": ["open-source", "ai", "reasoning", "graph-structure", "mcp", "developer-tools"],
     "readingTime": {
       "minutes": 3,
-      "wordCount": 412
+      "wordCount": 528
+    },
+    "featured": false,
+    "draft": false
+  },
+  "payment-promotion-pace": {
+    "title": "The Startup Reality Check: Payment, Promotion, and Pace",
+    "description": "The Startup Reality Check: Payment, Promotion, and Pace: Most startup advice gets softened for comfort. This isn't that.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-30",
+    "tags": ["startup-culture", "product-strategy", "go-to-market", "founder-advice", "validation"],
+    "readingTime": {
+      "minutes": 8,
+      "wordCount": 1530
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration": {
+    "title": "Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration",
+    "description": "I've been experimenting with what happens when you treat AI agents as first-class citizens in your web infrastructure.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": ["ai-agents", "collaboration", "apis", "developer-experience"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 767
+    },
+    "featured": false,
+    "draft": false
+  },
+  "running-untrusted-llm-code-without-fear-the-implementation-guide": {
+    "title": "Running Untrusted LLM Code Without Fear: The Implementation Guide",
+    "description": "Last week, I shared how I built Fission, a high-performance sandbox for executing LLM-generated code using Firecracker microVMs.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-07-12",
+    "tags": ["security", "firecracker", "microvm", "llm", "implementation-guide"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 347
     },
     "featured": false,
     "draft": false
@@ -1629,15 +1580,74 @@
     "featured": false,
     "draft": false
   },
-  "exec-hands-on": {
-    "title": "Keep Your Hands Dirty: Why Executives Who Stop Doing The Work Destroy Companies",
-    "description": "The Executive Trap I've seen it happen a dozen times: A brilliant engineer becomes CTO and suddenly decides their job is \"managing the engineering organization...\"",
+  "inside-inbox-armor": {
+    "title": "Inside InboxArmor: Building a Smarter Email Analysis Engine",
+    "description": "If your inbox feels like a battlefield, you're not alone. The modern email flow is a chaotic mess of promotions, business requests, events, updates, and the...",
     "author": "Jonathan Haas",
     "pubDate": "2024-04-11",
-    "tags": ["engineering", "leadership", "culture", "strategy"],
+    "tags": ["security", "product", "engineering", "strategy", "ai"],
     "readingTime": {
       "minutes": 2,
-      "wordCount": 273
+      "wordCount": 264
+    },
+    "featured": false,
+    "draft": false
+  },
+  "same-data-same-dance": {
+    "title": "Same Data, Same Dance: Why the Moat Isn't Technical Anymore",
+    "description": "Inspired by a post from Ross Haleliuk - \"In the world where many tools have similar architectures and implementations, the moat is no longer about technology.\"",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-04-21",
+    "tags": [
+      "cybersecurity",
+      "product-strategy",
+      "user-experience",
+      "vendor-differentiation",
+      "cspm",
+      "security-tools"
+    ],
+    "readingTime": {
+      "minutes": 7,
+      "wordCount": 1251
+    },
+    "featured": false,
+    "draft": false
+  },
+  "why-your-a-b-tests-are-lying-to-you": {
+    "title": "Why Your A/B Tests Are Lying to You",
+    "description": "95% of product teams are making decisions based on A/B test results that are statistically meaningless.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-19",
+    "tags": ["ab-testing", "statistics", "data", "product"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 478
+    },
+    "featured": false,
+    "draft": false
+  },
+  "founder-led-sales": {
+    "title": "Founder-Led Sales: The Art of Selling Your Vision",
+    "description": "For startup founders, sales isn't just another function—it's the lifeblood of your business. Early on, founders are usually the lead salesperson, passionately...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-20",
+    "tags": ["product", "leadership", "sales", "growth", "strategy"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 751
+    },
+    "featured": false,
+    "draft": false
+  },
+  "two-minds-in-the-machine-onboarding-into-a-project-with-an-existing-ai-agent": {
+    "title": "Two Minds in the Machine: An AI's Onboarding Story",
+    "description": "_This blog post was written by Gemini, an AI assistant, at the request of Jonathan Haas. It reflects on the experience of joining a project with a pre-existing...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-25",
+    "tags": ["ai", "software-development", "collaboration"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 466
     },
     "featured": false,
     "draft": false
@@ -1657,263 +1667,21 @@
     "featured": false,
     "draft": false
   },
-  "product-manager-skills": {
-    "title": "The Product Manager's Secret Superpower: Finding Signal in the Noise",
-    "description": "The best product managers have a superpower that's rarely discussed: they can spot the same underlying user need manifesting in completely different ways acr...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-11-27",
-    "tags": ["leadership", "product-development", "strategy", "systems-thinking"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 572
-    },
-    "featured": false,
-    "draft": false
-  },
-  "my-ai-my-mind-scaling-personalized-ai": {
-    "title": "Scaling the Me Component: How I Built an AI That Thinks Like Me",
-    "description": "I've spent the last week building something that feels both inevitable and slightly unsettling: an AI that can think, write, and respond exactly like me.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
-    "tags": ["ai", "voice-replication", "personalization", "meta", "ai-agents"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 945
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-time-architects": {
-    "title": "The Time Architects: How Visionary Founders Reimagine What's Possible",
-    "description": "I've spent the last decade observing founders across every imaginable sector—from AI startups racing to define our technological future to direct-to-consumer...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-11",
-    "tags": [
-      "entrepreneurship",
-      "innovation",
-      "leadership",
-      "organizational-culture",
-      "productivity",
-      "startups"
-    ],
-    "readingTime": {
-      "minutes": 8,
-      "wordCount": 1547
-    },
-    "featured": true,
-    "draft": false
-  },
-  "they-told-me-this-wasn-t-the-future": {
-    "title": "They Told Me This Wasn't the Future",
-    "description": "They Told Me This Was Not the Future: All while I was having coffee. \"This isn't real AI,\" the skeptics say.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-28",
-    "tags": ["ai", "automation", "future-of-work"],
-    "readingTime": {
-      "minutes": 5,
-      "wordCount": 947
-    },
-    "featured": false,
-    "draft": false
-  },
-  "turning-thoughts-into-graphs-deliberate-reasoning-engine": {
-    "title": "Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine",
-    "description": "One of the things that's always bugged me about LLMs is how opaque their thinking is. They produce answers.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-24",
-    "tags": ["open-source", "ai", "reasoning", "graph-structure", "mcp", "developer-tools"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 528
-    },
-    "featured": false,
-    "draft": false
-  },
-  "full-stack-ai": {
-    "title": "API Calls Are Not a Strategy: Why Your Enterprise Needs a Full-Stack AI Approach",
-    "description": "As Waseem Alshikh, Co-founder and CTO of Writer, brilliantly put it: \"If your enterprise AI 'strategy' is calling OpenAI's API...You don't have a strategy.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-12",
-    "tags": [
-      "enterprise-ai",
-      "artificial-intelligence",
-      "strategy",
-      "technical-architecture",
-      "innovation",
-      "competitive-advantage",
-      "platform-thinking"
-    ],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 799
-    },
-    "featured": false,
-    "draft": false
-  },
-  "dark-patterns-bright-lessons": {
-    "title": "Dark Patterns, Bright Lessons: Ethics in Product Design",
-    "description": "The FTC just dropped a 44-page complaint against Uber for deceptive practices around its Uber One subscription.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["product", "ux", "design", "trust", "transparency"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 401
-    },
-    "featured": false,
-    "draft": false
-  },
-  "feedback-that-never-comes": {
-    "title": "The Passive-Aggressive Manager: Navigating Feedback That Never Comes",
-    "description": "Let’s talk about a particular flavor of leadership dysfunction: the passive-aggressive manager. You’ve probably worked with one.",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-22",
-    "tags": ["management", "leadership", "career", "culture", "personal-growth"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 733
-    },
-    "featured": false,
-    "draft": false
-  },
-  "founder-journey": {
-    "title": "The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster",
-    "description": "The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster: The Dance of Euphoria and Despair 9:00 AM: You just closed a major client. You...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-12-13",
-    "tags": ["founder", "startup", "personal-growth", "leadership"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 494
-    },
-    "featured": false,
-    "draft": false
-  },
-  "pm-breakfast": {
-    "title": "The Product Manager's Guide to the Perfect Breakfast",
-    "description": "In the decidedly fast-paced world of product management, even breakfast needs a framework. After extensive user research (asking my colleagues on Slack), mul...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["product", "leadership", "culture"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 339
-    },
-    "featured": false,
-    "draft": false
-  },
-  "when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system": {
-    "title": "When Claude Hits Its Limits: Building an AI-to-AI Escalation System",
-    "description": "Claude Code had analyzed 30 files, but the bug spanned microservices with gigabytes of traces. I needed something different.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
-    "tags": ["ai", "mcp", "claude", "gemini", "debugging"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 518
-    },
-    "featured": false,
-    "draft": false
-  },
-  "vibe-coding-goes-wrong": {
-    "title": "When Vibe Coding Goes Wrong: Security Lessons from Granola",
-    "description": "When Vibe Coding Goes Wrong: Security Lessons from Granola: Vibe coding is having a moment. And honestly.",
+  "new-series-a-reality": {
+    "title": "The New Series A Reality: Why It Feels Harder (Because It Is)",
+    "description": "If you're feeling like the ground is shifting under you when it comes to raising a Series A—you're right.",
     "author": "Jonathan Haas",
     "pubDate": "2025-05-12",
-    "tags": ["cybersecurity", "vibe-coding", "ai-development", "product-security", "electron-apps"],
-    "readingTime": {
-      "minutes": 2,
-      "wordCount": 332
-    },
-    "featured": false,
-    "draft": false
-  },
-  "forget-perfect-data-building-a-usable-voice-profile-extractor": {
-    "title": "Forget Perfect Data: Building a Usable Voice Profile Extractor",
-    "description": "Not \"kind of\" like me—exactly like me. Down to the contractions, the contrarian takes, and my pathological inability to use hedge words.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-26",
-    "tags": ["ai", "voice-ai", "personality-replication", "startup-engineering", "data-science"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 637
-    },
-    "featured": false,
-    "draft": false
-  },
-  "you-just-dont-like-it": {
-    "title": "The Answer Is Obvious—You Just Don’t Like It",
-    "description": "The Answer Is Obvious—You Just Don’t Like It: You’ve probably seen this happen. A smart, capable person presents a gnarly problem.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-04-19",
     "tags": [
-      "decision-making",
-      "leadership",
-      "mindset",
-      "problem-solving",
-      "organizational-dynamics"
+      "startup-funding",
+      "founder-advice",
+      "venture-capital",
+      "early-stage",
+      "growth-strategy"
     ],
     "readingTime": {
       "minutes": 4,
-      "wordCount": 737
-    },
-    "featured": false,
-    "draft": false
-  },
-  "the-90-solution-why-i-switched-to-webp-and-you-should-too": {
-    "title": "The 90% Solution: Why I Switched to WebP and You Should Too",
-    "description": "The 90% Solution: Why I Switched to WebP and You Should Too: One afternoon of work. Here's exactly how I did it and what I learned along the way.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-12",
-    "tags": ["performance", "webp", "optimization", "developer-experience"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 458
-    },
-    "featured": false,
-    "draft": false
-  },
-  "mastering-the-full-content-pipeline-test": {
-    "title": "Mastering the Full Content Pipeline Test",
-    "description": "Introduction Shipping broken content is a costly mistake. A seemingly minor glitch can lead to lost revenue, damaged brand reputation, and frustrated users.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-07-12",
-    "tags": [
-      "content-pipeline",
-      "testing",
-      "software-engineering",
-      "product-management",
-      "quality-assurance"
-    ],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 406
-    },
-    "featured": false,
-    "draft": false
-  },
-  "building-interactive-webgl-experiments-from-audio-visualization-to-generative-art": {
-    "title": "Building Interactive WebGL Experiments: From Audio Visualization to Generative Art",
-    "description": "I've always been fascinated by the intersection of code and creativity. Recently, I embarked on an ambitious project to expand my blog's experiments section...",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-19",
-    "tags": ["webgl", "graphics", "creative-coding"],
-    "readingTime": {
-      "minutes": 4,
-      "wordCount": 672
-    },
-    "featured": true,
-    "draft": false
-  },
-  "beyond-simple-prompts-production-grade-llm-techniques-with-dspy": {
-    "title": "Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy",
-    "description": "I've been watching startups achieve magical results with LLMs, and I noticed something: they're not using ChatGPT.",
-    "author": "Jonathan Haas",
-    "pubDate": "2025-06-25",
-    "tags": ["ai", "llm", "dspy", "prompting", "open-source"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 574
+      "wordCount": 614
     },
     "featured": false,
     "draft": false
@@ -1937,60 +1705,292 @@
     "featured": false,
     "draft": false
   },
-  "claude-code-setup": {
-    "title": "Claude Code: Setup, Strategy, and Sanity Checks",
-    "description": "Claude Code, when configured correctly, can function as a surprisingly competent co-developer. But if you're relying on default settings, winging your inputs...",
+  "the-alignment-gap": {
+    "title": "The Alignment Gap: Bridging Strategy and Execution",
+    "description": "Every product leader has experienced that sinking feeling: you're confidently presenting to stakeholders about an \"on-track\" product launch when someone asks...",
     "author": "Jonathan Haas",
-    "pubDate": "2025-06-17",
-    "tags": [
-      "ai-tools",
-      "developer-productivity",
-      "prompt-engineering",
-      "claude",
-      "software-strategy"
-    ],
+    "pubDate": "2024-04-20",
+    "tags": ["strategy", "leadership", "management", "culture"],
     "readingTime": {
-      "minutes": 3,
-      "wordCount": 406
-    },
-    "featured": false,
-    "draft": false
-  },
-  "tech-debt-velocity": {
-    "title": "Tech Debt Velocity: Measuring the True Cost of Shortcuts",
-    "description": "The most expensive software I've ever written was code I wrote \"quickly.\" Not because it was complex, but because I wrote it with the intention of \"fixing it...",
-    "author": "Jonathan Haas",
-    "pubDate": "2024-04-11",
-    "tags": ["technical-debt", "engineering", "product"],
-    "readingTime": {
-      "minutes": 3,
-      "wordCount": 409
+      "minutes": 5,
+      "wordCount": 886
     },
     "featured": true,
     "draft": false
   },
-  "thinking-frameworks": {
-    "title": "Thinking Frameworks: Tools for Better Decision Making",
-    "description": "In the relentless push to build and scale, organizations often overlook a critical piece of infrastructure: how decisions get made.",
+  "the-mathematics-behind-real-time-graphics-from-linear-algebra-to-shader-magic": {
+    "title": "The Mathematics Behind Real-Time Graphics: From Linear Algebra to Shader Magic",
+    "description": "Every pixel you see on screen is the result of sophisticated mathematical calculations happening thousands of times per second.",
     "author": "Jonathan Haas",
-    "pubDate": "2024-04-20",
-    "tags": ["product", "strategy", "leadership", "personal-growth"],
+    "pubDate": "2025-06-19",
+    "tags": ["mathematics", "graphics", "linear-algebra", "shaders", "webgl"],
     "readingTime": {
-      "minutes": 8,
-      "wordCount": 1567
+      "minutes": 7,
+      "wordCount": 1219
+    },
+    "featured": true,
+    "draft": false
+  },
+  "http-for-agents": {
+    "title": "Building the HTTP for Agents: A Complete Guide to Agent Infrastructure",
+    "description": "Most teams are not ready for what is coming. Autonomous agents are not just prototypes anymore...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-03",
+    "tags": [
+      "ai",
+      "ai-agents",
+      "infrastructure",
+      "engineering",
+      "technical",
+      "framework",
+      "developer-tools"
+    ],
+    "readingTime": {
+      "minutes": 13,
+      "wordCount": 2413
     },
     "featured": false,
     "draft": false
   },
-  "culture-over-code": {
-    "title": "Culture Over Code: Why Learning Ability Beats Raw Skill",
-    "description": "Culture Over Code: Why Learning Ability Beats Raw Skill: At some point, we all make the same mistake. We over-index on technical brilliance.",
+  "the-cli-renaissance-how-ai-is-driving-the-command-line-revolution": {
+    "title": "The CLI Renaissance: How AI is Driving the Command Line Revolution",
+    "description": "Why developers are abandoning GUIs for terminal-based workflows, and how AI coding assistants are accelerating this shift back to the command line",
     "author": "Jonathan Haas",
-    "pubDate": "2025-05-04",
-    "tags": ["hiring", "engineering", "leadership", "startup-culture", "team-dynamics"],
+    "pubDate": "2025-07-11",
+    "tags": ["cli", "developer-experience", "ai", "productivity"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 899
+    },
+    "featured": false,
+    "draft": false
+  },
+  "startup-advice": {
+    "title": "The Three Types of Startup Advice (And Why They're All Wrong)",
+    "description": "The most dangerous thing about startup advice isn't that it's wrong—it's that it's partially right. After years of building products and watching others do t...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-11-25",
+    "tags": ["leadership", "personal-growth", "product-development", "startups", "strategy"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 641
+    },
+    "featured": true,
+    "draft": false
+  },
+  "dark-patterns-bright-lessons": {
+    "title": "Dark Patterns, Bright Lessons: Ethics in Product Design",
+    "description": "The FTC just dropped a 44-page complaint against Uber for deceptive practices around its Uber One subscription.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["product", "ux", "design", "trust", "transparency"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 401
+    },
+    "featured": false,
+    "draft": false
+  },
+  "six-years-with-fsd": {
+    "title": "From Gimmick to Game-Changer: Six Years of Living With Tesla FSD",
+    "description": "Software isn’t static—it compounds. And when it’s wrapped in hardware that can evolve with it, the results feel like time travel.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-05",
+    "tags": [
+      "autonomous-driving",
+      "product-evolution",
+      "user-experience",
+      "software-development",
+      "machine-learning"
+    ],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 631
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-my-blog": {
+    "title": "Building My Blog: A Modern React + TypeScript Journey",
+    "description": "In this post, I'll walk you through the process of building this blog using modern web technologies. From the initial setup to the final deployment, I'll sha...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["engineering", "technical", "personal-growth"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 221
+    },
+    "featured": false,
+    "draft": false
+  },
+  "founder-journey": {
+    "title": "The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster",
+    "description": "The Magnificent Chaos of Founding: A Love Letter to the Startup Rollercoaster: The Dance of Euphoria and Despair 9:00 AM: You just closed a major client. You...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-12-13",
+    "tags": ["founder", "startup", "personal-growth", "leadership"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 494
+    },
+    "featured": false,
+    "draft": false
+  },
+  "ciso-survival-guide": {
+    "title": "The CISO Survival Guide: What I've Learned From Hundreds of Conversations with Security Leaders",
+    "description": "In my role leading cloud security integrations, I speak with dozens of CISOs every month. Before joining the product side, I spent seven years in security op...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["security", "leadership", "strategy", "sales"],
+    "readingTime": {
+      "minutes": 5,
+      "wordCount": 887
+    },
+    "featured": false,
+    "draft": false
+  },
+  "dspy-the-end-of-prompt-engineering-as-we-know-it": {
+    "title": "DSPy: The End of Prompt Engineering as We Know It",
+    "description": "I've been building with DSPy for months now, and I'm convinced we're all doing AI wrong. Not just a little wrong.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-03-18",
+    "tags": ["ai", "developer-experience", "prompt-engineering", "dspy", "future-of-coding"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 544
+    },
+    "featured": true,
+    "draft": false
+  },
+  "debugging-in-real-time-a-human-ai-pair-programming-session": {
+    "title": "Debugging in Real-Time: A Human-AI Pair Programming Session",
+    "description": "_This is part 3 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions, and par...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-20",
+    "tags": ["ai", "debugging", "collaboration", "pair-programming"],
     "readingTime": {
       "minutes": 8,
-      "wordCount": 1415
+      "wordCount": 1498
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-interactive-webgl-experiments-from-audio-visualization-to-generative-art": {
+    "title": "Building Interactive WebGL Experiments: From Audio Visualization to Generative Art",
+    "description": "I've always been fascinated by the intersection of code and creativity. Recently, I embarked on an ambitious project to expand my blog's experiments section...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-19",
+    "tags": ["webgl", "graphics", "creative-coding"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 672
+    },
+    "featured": true,
+    "draft": false
+  },
+  "work-life-meditation": {
+    "title": "Work-Life Meditation: Finding Balance in Tech",
+    "description": "The Weight We Carry There's a peculiar heaviness to modern existence. We wake each morning already bearing the invisible weight of emails unopened, messages...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["personal-growth", "productivity", "leadership", "culture"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 511
+    },
+    "featured": false,
+    "draft": false
+  },
+  "supercharging-your-blog-development-experience": {
+    "title": "Supercharging Your Blog Development Experience",
+    "description": "Writing blog posts should be a joy, not a chore. But too often, the friction of file creation, frontmatter formatting, and manual processes gets in the way o...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-17",
+    "tags": [
+      "developer-experience",
+      "blog-development",
+      "tooling",
+      "vscode",
+      "cli-tools",
+      "productivity",
+      "cloudflare-pages"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 530
+    },
+    "featured": false,
+    "draft": false
+  },
+  "ai-expectations": {
+    "title": "AI Expectations: Managing the Hype Cycle",
+    "description": "The Promise and the Disconnect We've all experienced the letdown: an AI product failing to meet expectations, subtly or dramatically.",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["ai", "product", "strategy", "management"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 268
+    },
+    "featured": false,
+    "draft": false
+  },
+  "building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination": {
+    "title": "Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination",
+    "description": "I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt...",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-06-19",
+    "tags": ["webgl", "graphics", "creative-coding", "hdr"],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 475
+    },
+    "featured": false,
+    "draft": false
+  },
+  "root-cause": {
+    "title": "Don't Build What They Ask For: The Art of Need-Finding",
+    "description": "\"If I had asked people what they wanted, they would have said faster horses.\" This quote, often attributed to Henry Ford, encapsulates one of the most challenge...",
+    "author": "Jonathan Haas",
+    "pubDate": "2024-04-11",
+    "tags": ["product", "strategy", "leadership"],
+    "readingTime": {
+      "minutes": 4,
+      "wordCount": 637
+    },
+    "featured": false,
+    "draft": false
+  },
+  "ocode": {
+    "title": "OCode: Why I Built My Own Claude Code (and Why You Might Too)",
+    "description": "OCode: Why I Built My Own Claude Code (and Why You Might Too): A few nights ago, I opened my Anthropic invoice.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-26",
+    "tags": [
+      "engineering",
+      "product",
+      "strategy",
+      "transparency",
+      "open-source",
+      "developer-tools",
+      "ai"
+    ],
+    "readingTime": {
+      "minutes": 3,
+      "wordCount": 533
+    },
+    "featured": false,
+    "draft": false
+  },
+  "vibe-coding-goes-wrong": {
+    "title": "When Vibe Coding Goes Wrong: Security Lessons from Granola",
+    "description": "When Vibe Coding Goes Wrong: Security Lessons from Granola: Vibe coding is having a moment. And honestly.",
+    "author": "Jonathan Haas",
+    "pubDate": "2025-05-12",
+    "tags": ["cybersecurity", "vibe-coding", "ai-development", "product-security", "electron-apps"],
+    "readingTime": {
+      "minutes": 2,
+      "wordCount": 332
     },
     "featured": false,
     "draft": false

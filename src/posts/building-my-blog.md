@@ -21,7 +21,7 @@ The blog is built with a carefully selected stack of modern technologies:
 - **Tailwind CSS**: For styling
 - **shadcn/ui**: For beautiful, accessible components
 - **React Router**: For client-side routing
-- **React Query**: For data fetching and caching
+- **TanStack Query**: For data fetching and caching
 - **Markdown**: For content management
 
 ## Project Structure

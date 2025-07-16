@@ -21,7 +21,7 @@
 **Imports:** Use `@/` alias for `src/`, no relative imports across major boundaries  
 **Components:** shadcn/ui patterns in `src/components/ui/`, custom in `src/components/`  
 **Types:** Strict TypeScript with custom definitions in `src/types/`  
-**State:** React Query for server state, Context for global state  
+**State:** TanStack Query for server state, Context for global state
 **Styling:** Tailwind CSS + CSS custom properties for themes  
 **Error Handling:** Graceful degradation, no mock data in production
 
