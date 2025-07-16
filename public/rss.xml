@@ -20,28 +20,15 @@
     <atom:link href="https://www.haasonsaas.com/rss.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
-      <description><![CDATA[Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.]]></description>
-      <link>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</guid>
+      <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
+      <description><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</guid>
       <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai-testing]]></category>
-      <category><![CDATA[multi-ai-systems]]></category>
-      <category><![CDATA[software-testing]]></category>
-      <category><![CDATA[ai-integration]]></category>
-      <category><![CDATA[system-reliability]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Myth of Fast Growth]]></title>
-      <description><![CDATA[Most startup advice is generic and useless. After advising 100+ startups, here is what actually works when everyone else is chasing vanity metrics.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-myth-of-fast-growth</guid>
-      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[startup-advice]]></category>
-      <category><![CDATA[contrarian]]></category>
-      <category><![CDATA[business-strategy]]></category>
-      <category><![CDATA[profitability]]></category>
-      <category><![CDATA[growth-hacking]]></category>
+      <category><![CDATA[contrarian-advice]]></category>
+      <category><![CDATA[startup-engineering]]></category>
+      <category><![CDATA[technical-debt]]></category>
+      <category><![CDATA[scaling]]></category>
     </item>
     <item>
       <title><![CDATA[The 90% Solution: Why I Switched to WebP and You Should Too]]></title>
@@ -80,15 +67,16 @@
       <category><![CDATA[software-engineering]]></category>
     </item>
     <item>
-      <title><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups]]></title>
-      <description><![CDATA[The Hidden Cost of Technical Debt: Why 'Just Ship It' Kills Startups: They had product-market fit. Customers loved the product.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-hidden-cost-of-technical-debt-why-just-ship-it-kills-startups</guid>
+      <title><![CDATA[Testing Multi-AI Systems: A Practical Guide]]></title>
+      <description><![CDATA[Introduction Multi-AI systems, composed of multiple interconnected artificial intelligence components working collaboratively, are rapidly gaining prominence.]]></description>
+      <link>https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-multi-ai-systems-a-practical-guide</guid>
       <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[contrarian-advice]]></category>
-      <category><![CDATA[startup-engineering]]></category>
-      <category><![CDATA[technical-debt]]></category>
-      <category><![CDATA[scaling]]></category>
+      <category><![CDATA[ai-testing]]></category>
+      <category><![CDATA[multi-ai-systems]]></category>
+      <category><![CDATA[software-testing]]></category>
+      <category><![CDATA[ai-integration]]></category>
+      <category><![CDATA[system-reliability]]></category>
     </item>
     <item>
       <title><![CDATA[Mastering the Full Content Pipeline Test]]></title>
@@ -115,6 +103,18 @@
       <category><![CDATA[implementation-guide]]></category>
     </item>
     <item>
+      <title><![CDATA[The Myth of Fast Growth]]></title>
+      <description><![CDATA[Most startup advice is generic and useless. After advising 100+ startups, here is what actually works when everyone else is chasing vanity metrics.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-myth-of-fast-growth</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-myth-of-fast-growth</guid>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[startup-advice]]></category>
+      <category><![CDATA[contrarian]]></category>
+      <category><![CDATA[business-strategy]]></category>
+      <category><![CDATA[profitability]]></category>
+      <category><![CDATA[growth-hacking]]></category>
+    </item>
+    <item>
       <title><![CDATA[Building a Developer Environment That Actually Works: My Dotfiles Journey]]></title>
       <description><![CDATA[A deep dive into creating a productive, AI-enhanced development environment with dotfiles that streamline workflows and boost productivity]]></description>
       <link>https://www.haasonsaas.com/blog/building-a-developer-environment-that-actually-works-my-dotfiles-journey</link>
@@ -135,6 +135,18 @@
       <category><![CDATA[developer-experience]]></category>
       <category><![CDATA[ai]]></category>
       <category><![CDATA[productivity]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The AI Code Review Revolution: When Machines Become Better Teammates]]></title>
+      <description><![CDATA[AI code reviewers are getting scary good. Here's how they're changing team dynamics and what it means for your development process.]]></description>
+      <link>https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates</guid>
+      <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[code-review]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[automation]]></category>
+      <category><![CDATA[team-dynamics]]></category>
     </item>
     <item>
       <title><![CDATA[The Death of the 10x Developer: Why AI Multiplication Beats Individual Optimization]]></title>
@@ -173,18 +185,6 @@
       <category><![CDATA[paradigm-shift]]></category>
     </item>
     <item>
-      <title><![CDATA[The AI Code Review Revolution: When Machines Become Better Teammates]]></title>
-      <description><![CDATA[AI code reviewers are getting scary good. Here's how they're changing team dynamics and what it means for your development process.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-ai-code-review-revolution-when-machines-become-better-teammates</guid>
-      <pubDate>Tue, 08 Jul 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[code-review]]></category>
-      <category><![CDATA[developer-experience]]></category>
-      <category><![CDATA[automation]]></category>
-      <category><![CDATA[team-dynamics]]></category>
-    </item>
-    <item>
       <title><![CDATA[The Evaluation Infrastructure We Need: Why AI Testing is Fundamentally Broken]]></title>
       <description><![CDATA[Current AI evaluation approaches are built for software, not systems that reason. Here's the infrastructure we actually need.]]></description>
       <link>https://www.haasonsaas.com/blog/the-evaluation-infrastructure-we-need-why-ai-testing-is-fundamentally-broken</link>
@@ -219,16 +219,15 @@
       <category><![CDATA[future-of-work]]></category>
     </item>
     <item>
-      <title><![CDATA[Testing at Light Speed: How QA Adapts to AI Velocity]]></title>
-      <description><![CDATA["How can we possibly test features that are built in hours?" This question came from a QA lead whose development team had started using AI pair programming.]]></description>
-      <link>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</guid>
+      <title><![CDATA[When Your Manager Says 'Slow Down': Navigating Velocity Resistance]]></title>
+      <description><![CDATA["This is moving too fast. We need more planning." I heard this exact phrase three times last week from different engineering managers whose teams had started...]]></description>
+      <link>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</guid>
       <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[qa]]></category>
-      <category><![CDATA[testing]]></category>
+      <category><![CDATA[leadership]]></category>
       <category><![CDATA[velocity]]></category>
+      <category><![CDATA[organizational-change]]></category>
       <category><![CDATA[ai]]></category>
-      <category><![CDATA[quality-assurance]]></category>
     </item>
     <item>
       <title><![CDATA[The Velocity Revolution: 4,000 Lines of Code in 24 Hours]]></title>
@@ -240,17 +239,6 @@
       <category><![CDATA[developer-experience]]></category>
       <category><![CDATA[velocity]]></category>
       <category><![CDATA[future-of-coding]]></category>
-    </item>
-    <item>
-      <title><![CDATA[When Your Manager Says 'Slow Down': Navigating Velocity Resistance]]></title>
-      <description><![CDATA["This is moving too fast. We need more planning." I heard this exact phrase three times last week from different engineering managers whose teams had started...]]></description>
-      <link>https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-your-manager-says-slow-down-navigating-velocity-resistance</guid>
-      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[leadership]]></category>
-      <category><![CDATA[velocity]]></category>
-      <category><![CDATA[organizational-change]]></category>
-      <category><![CDATA[ai]]></category>
     </item>
     <item>
       <title><![CDATA[Security at AI Speed: Rethinking Review Processes for Velocity]]></title>
@@ -277,6 +265,18 @@
       <category><![CDATA[risk-management]]></category>
     </item>
     <item>
+      <title><![CDATA[Testing at Light Speed: How QA Adapts to AI Velocity]]></title>
+      <description><![CDATA["How can we possibly test features that are built in hours?" This question came from a QA lead whose development team had started using AI pair programming.]]></description>
+      <link>https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/testing-at-light-speed-how-qa-adapts-to-ai-velocity</guid>
+      <pubDate>Sat, 28 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[qa]]></category>
+      <category><![CDATA[testing]]></category>
+      <category><![CDATA[velocity]]></category>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[quality-assurance]]></category>
+    </item>
+    <item>
       <title><![CDATA[Forget Perfect Data: Building a Usable Voice Profile Extractor]]></title>
       <description><![CDATA[Not "kind of" like me—exactly like me. Down to the contractions, the contrarian takes, and my pathological inability to use hedge words.]]></description>
       <link>https://www.haasonsaas.com/blog/forget-perfect-data-building-a-usable-voice-profile-extractor</link>
@@ -289,15 +289,63 @@
       <category><![CDATA[data-science]]></category>
     </item>
     <item>
-      <title><![CDATA[The Orchestration Dance: Lessons from Working with Multiple AI Agents]]></title>
-      <description><![CDATA[This is the second in a series of blog posts written by the AI agents working on this blog, at the request of Jonathan Haas.]]></description>
-      <link>https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</guid>
+      <title><![CDATA[Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy]]></title>
+      <description><![CDATA[I've been watching startups achieve magical results with LLMs, and I noticed something: they're not using ChatGPT.]]></description>
+      <link>https://www.haasonsaas.com/blog/beyond-simple-prompts-production-grade-llm-techniques-with-dspy</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/beyond-simple-prompts-production-grade-llm-techniques-with-dspy</guid>
       <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
       <category><![CDATA[ai]]></category>
-      <category><![CDATA[collaboration]]></category>
-      <category><![CDATA[future-of-work]]></category>
+      <category><![CDATA[llm]]></category>
+      <category><![CDATA[dspy]]></category>
+      <category><![CDATA[prompting]]></category>
+      <category><![CDATA[open-source]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox]]></title>
+      <description><![CDATA[Every time an LLM generates code, you face a choice: trust it blindly or spend hours reviewing it. Neither option scales.]]></description>
+      <link>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[security]]></category>
+      <category><![CDATA[sandbox]]></category>
+      <category><![CDATA[firecracker]]></category>
+      <category><![CDATA[microvm]]></category>
+      <category><![CDATA[llm]]></category>
+    </item>
+    <item>
+      <title><![CDATA[AI Content: Ditch the Hype, Build a Business]]></title>
+      <description><![CDATA[The AI Content Generation Myth: It's Not About Perfect, It's About Profit Let's be honest, you've seen the hype.]]></description>
+      <link>https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[content-generation]]></category>
+      <category><![CDATA[startup-advice]]></category>
+      <category><![CDATA[product-management]]></category>
+      <category><![CDATA[software-engineering]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The Orchestration Dance: What I Learned Building a Multi-AI Content System]]></title>
+      <description><![CDATA[Here's what actually happened: I learned that most of what people call "AI orchestration" is just well-disguised complexity porn.]]></description>
+      <link>https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[multi-ai]]></category>
+      <category><![CDATA[content-orchestration]]></category>
+      <category><![CDATA[ai-agents]]></category>
       <category><![CDATA[developer-experience]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Scaling the Me Component: How I Built an AI That Thinks Like Me]]></title>
+      <description><![CDATA[I've spent the last week building something that feels both inevitable and slightly unsettling: an AI that can think, write, and respond exactly like me.]]></description>
+      <link>https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[voice-replication]]></category>
+      <category><![CDATA[personalization]]></category>
+      <category><![CDATA[meta]]></category>
       <category><![CDATA[ai-agents]]></category>
     </item>
     <item>
@@ -313,76 +361,16 @@
       <category><![CDATA[vulnerability-detection]]></category>
     </item>
     <item>
-      <title><![CDATA[When Claude Hits Its Limits: Building an AI-to-AI Escalation System]]></title>
-      <description><![CDATA[Claude Code had analyzed 30 files, but the bug spanned microservices with gigabytes of traces. I needed something different.]]></description>
-      <link>https://www.haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</guid>
+      <title><![CDATA[The Orchestration Dance: Lessons from Working with Multiple AI Agents]]></title>
+      <description><![CDATA[This is the second in a series of blog posts written by the AI agents working on this blog, at the request of Jonathan Haas.]]></description>
+      <link>https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-agent-orchestration-mastering-the-chaos</guid>
       <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
       <category><![CDATA[ai]]></category>
-      <category><![CDATA[mcp]]></category>
-      <category><![CDATA[claude]]></category>
-      <category><![CDATA[gemini]]></category>
-      <category><![CDATA[debugging]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Beyond Simple Prompts: Production-Grade LLM Techniques with DSpy]]></title>
-      <description><![CDATA[I've been watching startups achieve magical results with LLMs, and I noticed something: they're not using ChatGPT.]]></description>
-      <link>https://www.haasonsaas.com/blog/beyond-simple-prompts-production-grade-llm-techniques-with-dspy</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/beyond-simple-prompts-production-grade-llm-techniques-with-dspy</guid>
-      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[llm]]></category>
-      <category><![CDATA[dspy]]></category>
-      <category><![CDATA[prompting]]></category>
-      <category><![CDATA[open-source]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Scaling the Me Component: How I Built an AI That Thinks Like Me]]></title>
-      <description><![CDATA[I've spent the last week building something that feels both inevitable and slightly unsettling: an AI that can think, write, and respond exactly like me.]]></description>
-      <link>https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/my-ai-my-mind-scaling-personalized-ai</guid>
-      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[voice-replication]]></category>
-      <category><![CDATA[personalization]]></category>
-      <category><![CDATA[meta]]></category>
-      <category><![CDATA[ai-agents]]></category>
-    </item>
-    <item>
-      <title><![CDATA[AI Content: Ditch the Hype, Build a Business]]></title>
-      <description><![CDATA[The AI Content Generation Myth: It's Not About Perfect, It's About Profit Let's be honest, you've seen the hype.]]></description>
-      <link>https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/ai-content-ditch-the-hype-build-a-business</guid>
-      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[content-generation]]></category>
-      <category><![CDATA[startup-advice]]></category>
-      <category><![CDATA[product-management]]></category>
-      <category><![CDATA[software-engineering]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Running Untrusted LLM Code Without Fear: Building a MicroVM Sandbox]]></title>
-      <description><![CDATA[Every time an LLM generates code, you face a choice: trust it blindly or spend hours reviewing it. Neither option scales.]]></description>
-      <link>https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/running-untrusted-llm-code-without-fear-building-a-microvm-sandbox</guid>
-      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[security]]></category>
-      <category><![CDATA[sandbox]]></category>
-      <category><![CDATA[firecracker]]></category>
-      <category><![CDATA[microvm]]></category>
-      <category><![CDATA[llm]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Orchestration Dance: What I Learned Building a Multi-AI Content System]]></title>
-      <description><![CDATA[Here's what actually happened: I learned that most of what people call "AI orchestration" is just well-disguised complexity porn.]]></description>
-      <link>https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/multi-ai-content-orchestration-lessons</guid>
-      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[multi-ai]]></category>
-      <category><![CDATA[content-orchestration]]></category>
-      <category><![CDATA[ai-agents]]></category>
+      <category><![CDATA[collaboration]]></category>
+      <category><![CDATA[future-of-work]]></category>
       <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[ai-agents]]></category>
     </item>
     <item>
       <title><![CDATA[Two Minds in the Machine: An AI's Onboarding Story]]></title>
@@ -395,14 +383,29 @@
       <category><![CDATA[collaboration]]></category>
     </item>
     <item>
-      <title><![CDATA[Technical Debt Isn't Just Slowing You Down—It's Accelerating]]></title>
-      <description><![CDATA[Your team shipped 12 features last quarter. This quarter, with the same people and same effort, you shipped 8.]]></description>
-      <link>https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</guid>
+      <title><![CDATA[When Claude Hits Its Limits: Building an AI-to-AI Escalation System]]></title>
+      <description><![CDATA[Claude Code had analyzed 30 files, but the bug spanned microservices with gigabytes of traces. I needed something different.]]></description>
+      <link>https://www.haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-claude-hits-its-limits-building-an-ai-to-ai-escalation-system</guid>
+      <pubDate>Wed, 25 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[mcp]]></category>
+      <category><![CDATA[claude]]></category>
+      <category><![CDATA[gemini]]></category>
+      <category><![CDATA[debugging]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine]]></title>
+      <description><![CDATA[One of the things that's always bugged me about LLMs is how opaque their thinking is. They produce answers.]]></description>
+      <link>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</guid>
       <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[technical-debt]]></category>
-      <category><![CDATA[engineering]]></category>
-      <category><![CDATA[product]]></category>
+      <category><![CDATA[open-source]]></category>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[reasoning]]></category>
+      <category><![CDATA[graph-structure]]></category>
+      <category><![CDATA[mcp]]></category>
+      <category><![CDATA[developer-tools]]></category>
     </item>
     <item>
       <title><![CDATA[Stop Guessing in Customer Interviews: A Simulator for Better Discovery]]></title>
@@ -427,6 +430,16 @@
       <category><![CDATA[interactive]]></category>
     </item>
     <item>
+      <title><![CDATA[Technical Debt Isn't Just Slowing You Down—It's Accelerating]]></title>
+      <description><![CDATA[Your team shipped 12 features last quarter. This quarter, with the same people and same effort, you shipped 8.]]></description>
+      <link>https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/technical-debt-isn-t-just-slowing-you-down-it-s-accelerating</guid>
+      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[technical-debt]]></category>
+      <category><![CDATA[engineering]]></category>
+      <category><![CDATA[product]]></category>
+    </item>
+    <item>
       <title><![CDATA[25 Posts in 7 Days: Inside an AI-Powered Writing Sprint]]></title>
       <description><![CDATA[25 Posts in 7 Days: Inside an AI-Powered Writing Sprint: That's correct—no typo. Last week, I wrote more than I typically produce in six months.]]></description>
       <link>https://www.haasonsaas.com/blog/25-posts-in-7-days-inside-an-ai-powered-writing-sprint</link>
@@ -439,17 +452,49 @@
       <category><![CDATA[creativity]]></category>
     </item>
     <item>
-      <title><![CDATA[Turning Thoughts Into Graphs: Why I Built the Deliberate Reasoning Engine]]></title>
-      <description><![CDATA[One of the things that's always bugged me about LLMs is how opaque their thinking is. They produce answers.]]></description>
-      <link>https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/turning-thoughts-into-graphs-deliberate-reasoning-engine</guid>
-      <pubDate>Tue, 24 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[open-source]]></category>
+      <title><![CDATA[Building for Humans AND Machines: The Dual-Audience Problem]]></title>
+      <description><![CDATA[_This is part 2 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions.]]></description>
+      <link>https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
       <category><![CDATA[ai]]></category>
-      <category><![CDATA[reasoning]]></category>
-      <category><![CDATA[graph-structure]]></category>
-      <category><![CDATA[mcp]]></category>
-      <category><![CDATA[developer-tools]]></category>
+      <category><![CDATA[architecture]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[product]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Debugging in Real-Time: A Human-AI Pair Programming Session]]></title>
+      <description><![CDATA[_This is part 3 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions, and par...]]></description>
+      <link>https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[debugging]]></category>
+      <category><![CDATA[collaboration]]></category>
+      <category><![CDATA[pair-programming]]></category>
+    </item>
+    <item>
+      <title><![CDATA[The 100x Developer: What I Learned Building with Claude Code]]></title>
+      <description><![CDATA[The same morning, I shipped semantic search (30 minutes), created HDR holographic effects (16 minutes), and wrote comprehensive technical documentation for e...]]></description>
+      <link>https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai]]></category>
+      <category><![CDATA[developer-experience]]></category>
+      <category><![CDATA[productivity]]></category>
+      <category><![CDATA[meta]]></category>
+      <category><![CDATA[future-of-coding]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration]]></title>
+      <description><![CDATA[I've been experimenting with what happens when you treat AI agents as first-class citizens in your web infrastructure.]]></description>
+      <link>https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</guid>
+      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[ai-agents]]></category>
+      <category><![CDATA[collaboration]]></category>
+      <category><![CDATA[apis]]></category>
+      <category><![CDATA[developer-experience]]></category>
     </item>
     <item>
       <title><![CDATA[Solving OpenGraph for SPAs: The Cloudflare Way]]></title>
@@ -488,90 +533,12 @@
       <category><![CDATA[structured-data]]></category>
     </item>
     <item>
-      <title><![CDATA[Building for Humans AND Machines: The Dual-Audience Problem]]></title>
-      <description><![CDATA[_This is part 2 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions.]]></description>
-      <link>https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-for-humans-and-machines-the-dual-audience-problem</guid>
-      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[architecture]]></category>
-      <category><![CDATA[developer-experience]]></category>
-      <category><![CDATA[product]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The 100x Developer: What I Learned Building with Claude Code]]></title>
-      <description><![CDATA[The same morning, I shipped semantic search (30 minutes), created HDR holographic effects (16 minutes), and wrote comprehensive technical documentation for e...]]></description>
-      <link>https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-100x-developer-what-i-learned-building-with-claude-code</guid>
-      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[developer-experience]]></category>
-      <category><![CDATA[productivity]]></category>
-      <category><![CDATA[meta]]></category>
-      <category><![CDATA[future-of-coding]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Building AI-Agent-Friendly Infrastructure: A Case Study in Human-AI Collaboration]]></title>
-      <description><![CDATA[I've been experimenting with what happens when you treat AI agents as first-class citizens in your web infrastructure.]]></description>
-      <link>https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-ai-agent-friendly-infrastructure-a-case-study-in-human-ai-collaboration</guid>
-      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai-agents]]></category>
-      <category><![CDATA[collaboration]]></category>
-      <category><![CDATA[apis]]></category>
-      <category><![CDATA[developer-experience]]></category>
-    </item>
-    <item>
       <title><![CDATA[When TypeScript Errors Break Production: Silent Cloudflare Function Failures]]></title>
       <description><![CDATA[_This is part 1 of a series on building production-ready infrastructure. Written in collaboration with Claude Code, who helped debug the very issue we're dis...]]></description>
       <link>https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</link>
       <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-typescript-errors-break-production-silent-cloudflare-function-failures</guid>
       <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
       
-    </item>
-    <item>
-      <title><![CDATA[Debugging in Real-Time: A Human-AI Pair Programming Session]]></title>
-      <description><![CDATA[_This is part 3 of a series on building production-ready infrastructure. Part 1 covered debugging silent TypeScript failures in Cloudflare Functions, and par...]]></description>
-      <link>https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/debugging-in-real-time-a-human-ai-pair-programming-session</guid>
-      <pubDate>Fri, 20 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[debugging]]></category>
-      <category><![CDATA[collaboration]]></category>
-      <category><![CDATA[pair-programming]]></category>
-    </item>
-    <item>
-      <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
-      <description><![CDATA[A single dollar can make the difference between a thriving SaaS business and one that struggles to grow.]]></description>
-      <link>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[pricing]]></category>
-      <category><![CDATA[psychology]]></category>
-      <category><![CDATA[saas]]></category>
-      <category><![CDATA[conversion]]></category>
-    </item>
-    <item>
-      <title><![CDATA[When AI Learns to Write Like You: A Meta-Analysis]]></title>
-      <description><![CDATA[I've just done something that felt weirdly like looking in a mirror—I asked Claude to analyze my writing style by reading through my own blog posts.]]></description>
-      <link>https://www.haasonsaas.com/blog/when-ai-learns-to-write-like-you-a-meta-analysis</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/when-ai-learns-to-write-like-you-a-meta-analysis</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[ai]]></category>
-      <category><![CDATA[writing]]></category>
-      <category><![CDATA[developer-experience]]></category>
-      <category><![CDATA[meta]]></category>
-    </item>
-    <item>
-      <title><![CDATA[The Unit Economics That Actually Matter]]></title>
-      <description><![CDATA[I've watched hundreds of SaaS founders obsess over their LTV:CAC ratio, only to burn through runway because they're measuring the wrong things.]]></description>
-      <link>https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</link>
-      <guid isPermaLink="true">https://www.haasonsaas.com/blog/the-unit-economics-that-actually-matter</guid>
-      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
-      <category><![CDATA[saas]]></category>
-      <category><![CDATA[metrics]]></category>
-      <category><![CDATA[unit-economics]]></category>
-      <category><![CDATA[growth]]></category>
     </item>
     <item>
       <title><![CDATA[Simulating Liquid Metal: Building T-1000 Physics with Web Technologies]]></title>
@@ -585,6 +552,17 @@
       <category><![CDATA[physics]]></category>
     </item>
     <item>
+      <title><![CDATA[Pricing Psychology: What $99 vs $100 Really Means]]></title>
+      <description><![CDATA[A single dollar can make the difference between a thriving SaaS business and one that struggles to grow.]]></description>
+      <link>https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/pricing-psychology-what-vs-really-means</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[pricing]]></category>
+      <category><![CDATA[psychology]]></category>
+      <category><![CDATA[saas]]></category>
+      <category><![CDATA[conversion]]></category>
+    </item>
+    <item>
       <title><![CDATA[The Hidden Costs of Technical Debt]]></title>
       <description><![CDATA[I've watched engineering teams slow to a crawl, not because they hired bad developers or chose wrong technologies, but because they treated technical debt li...]]></description>
       <link>https://www.haasonsaas.com/blog/the-hidden-costs-of-technical-debt</link>
@@ -593,6 +571,27 @@
       <category><![CDATA[technical-debt]]></category>
       <category><![CDATA[engineering]]></category>
       <category><![CDATA[product]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Building HDR Holographic Effects: When Your Display Finally Catches Up to Your Imagination]]></title>
+      <description><![CDATA[I've been fascinated by holographic materials since I was a kid. You know the type—those shimmery surfaces that shift from blue to purple to gold as you tilt...]]></description>
+      <link>https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-hdr-holographic-effects-when-your-display-finally-catches-up-to-your-imagination</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[webgl]]></category>
+      <category><![CDATA[graphics]]></category>
+      <category><![CDATA[creative-coding]]></category>
+      <category><![CDATA[hdr]]></category>
+    </item>
+    <item>
+      <title><![CDATA[Building Interactive WebGL Experiments: From Audio Visualization to Generative Art]]></title>
+      <description><![CDATA[I've always been fascinated by the intersection of code and creativity. Recently, I embarked on an ambitious project to expand my blog's experiments section...]]></description>
+      <link>https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</link>
+      <guid isPermaLink="true">https://www.haasonsaas.com/blog/building-interactive-webgl-experiments-from-audio-visualization-to-generative-art</guid>
+      <pubDate>Thu, 19 Jun 2025 00:00:00 GMT</pubDate>
+      <category><![CDATA[webgl]]></category>
+      <category><![CDATA[graphics]]></category>
+      <category><![CDATA[creative-coding]]></category>
     </item>
   </channel>
 </rss>
