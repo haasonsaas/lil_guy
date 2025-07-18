@@ -10,7 +10,7 @@ tags: ['homelab', 'proxmox', 'infrastructure-as-code', 'devops', 'automation']
 
 I've been running production workloads on cloud providers for years. AWS, GCP, you name it. But there's something deeply satisfying about running your own metal—especially when you apply the same enterprise-grade practices you'd use in a corporate environment.
 
-When I picked up an ASUS NUC 15 Pro+ with 32GB RAM and a 1TB NVMe drive, I didn't just want another homelab. I wanted to build something that could rival any production infrastructure, just at a smaller scale.
+When I picked up an ASUS NUC 15 Pro+ with 96GB RAM and a 4TB NVMe drive, I didn't just want another homelab. I wanted to build something that could rival any production infrastructure, just at a smaller scale.
 
 Here's how I turned a consumer-grade NUC into a fully automated, monitored, and secured homelab infrastructure using 100% Infrastructure as Code.
 
